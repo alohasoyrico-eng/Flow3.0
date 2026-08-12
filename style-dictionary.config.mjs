@@ -33,7 +33,7 @@ function flatContract(dictionary, outputReferences = true) {
       scope: scopeFor(token),
       cssVariable,
       ...(reference ? { reference } : {}),
-      ...(value.startsWith("var(--") ? { cssReference: value.slice(4, -1) } : {}),
+      ...(value.match(/^var\((--[a-z0-9-]+)\)$/) ? { cssReference: value.slice(4, -1) } : {}),
     };
   }
   return tokens;

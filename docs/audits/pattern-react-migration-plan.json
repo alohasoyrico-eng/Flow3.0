@@ -25,8 +25,8 @@
     "patternsWithPrimitives": 63,
     "patternsWithComponents": 62,
     "patternsWithStateModel": 63,
-    "callbackPropsDeclared": 265,
-    "callbackPropsTested": 265,
+    "callbackPropsDeclared": 269,
+    "callbackPropsTested": 269,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -66,7 +66,7 @@
     "patternsWithDeclaredPrimitives": 63,
     "patternsWithOnlyInferredPrimitives": 0,
     "templateDependencyGaps": 0,
-    "surfaceRequiredPatterns": 41,
+    "surfaceRequiredPatterns": 42,
     "directSurfaceRuntimeRequired": 27,
     "missingDirectSurfaceRuntime": 0,
     "structuralSurfaceDebt": 0,
@@ -95,11 +95,11 @@
       "patterns": [
         "checkbox-group",
         "radio-group",
-        "select-option-layer",
         "snackbar-provider",
         "autocomplete",
         "confirmation-dialog",
         "search",
+        "select-option-layer",
         "file-upload",
         "kpi-card",
         "action-sheet",
@@ -110,11 +110,11 @@
         "column-configurator",
         "bulk-actions",
         "settings",
-        "form-section",
         "notification-panel",
         "payment-form",
         "fullscreen-sheet",
         "multi-step-form",
+        "form-section",
         "advanced-filters"
       ]
     },
@@ -163,8 +163,8 @@
         "pricing-operations",
         "dense-operational-list",
         "driver-onboarding-mobile",
-        "sidebar",
         "station-discovery",
+        "sidebar",
         "topbar"
       ]
     }
@@ -233,11 +233,11 @@
       "patterns": [
         "checkbox-group",
         "radio-group",
-        "select-option-layer",
         "snackbar-provider",
         "autocomplete",
         "confirmation-dialog",
         "search",
+        "select-option-layer",
         "file-upload",
         "kpi-card",
         "action-sheet",
@@ -248,11 +248,11 @@
         "column-configurator",
         "bulk-actions",
         "settings",
-        "form-section",
         "notification-panel",
         "payment-form",
         "fullscreen-sheet",
         "multi-step-form",
+        "form-section",
         "advanced-filters"
       ],
       "counts": {
@@ -276,11 +276,11 @@
         "calendar-view",
         "column-configurator",
         "settings",
-        "form-section",
         "notification-panel",
         "payment-form",
         "fullscreen-sheet",
         "multi-step-form",
+        "form-section",
         "advanced-filters"
       ],
       "runtimePrimitives": [],
@@ -500,8 +500,8 @@
         "pricing-operations",
         "dense-operational-list",
         "driver-onboarding-mobile",
-        "sidebar",
         "station-discovery",
+        "sidebar",
         "topbar"
       ],
       "counts": {
@@ -526,8 +526,8 @@
         "pricing-operations",
         "dense-operational-list",
         "driver-onboarding-mobile",
-        "sidebar",
-        "station-discovery"
+        "station-discovery",
+        "sidebar"
       ],
       "runtimePrimitives": [
         "Animation Assets",
@@ -1325,141 +1325,6 @@
     },
     {
       "order": 6,
-      "id": "select-option-layer",
-      "wave": "stateful Flow composition",
-      "score": 12,
-      "requiresSurface": false,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Color",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "components": [
-        "Select",
-        "Button",
-        "Inline Validation",
-        "Empty State"
-      ],
-      "patternDependencies": [],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "field",
-          "owner": "component",
-          "uses": [
-            "Select"
-          ],
-          "required": true
-        },
-        {
-          "name": "choices",
-          "owner": "component",
-          "uses": [
-            "Select"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "optionActions",
-          "owner": "component",
-          "uses": [
-            "Button"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "validation",
-          "owner": "component",
-          "uses": [
-            "Inline Validation"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "fallback",
-          "owner": "component",
-          "uses": [
-            "Empty State"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "states": [
-        "closed",
-        "open",
-        "loading",
-        "empty",
-        "error",
-        "permission-blocked",
-        "stale",
-        "disabled"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/SelectOptionLayer.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/SelectOptionLayer.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Select, Button, Inline Validation, Empty State"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
-        "react": "packages/react/src/patterns/SelectOptionLayer.js",
-        "types": "packages/react/src/patterns/SelectOptionLayer.d.ts"
-      }
-    },
-    {
-      "order": 7,
       "id": "snackbar-provider",
       "wave": "stateful Flow composition",
       "score": 12,
@@ -1589,7 +1454,7 @@
       }
     },
     {
-      "order": 8,
+      "order": 7,
       "id": "swipe-actions",
       "wave": "base Flow composition",
       "score": 12,
@@ -1709,7 +1574,7 @@
       }
     },
     {
-      "order": 9,
+      "order": 8,
       "id": "timeline",
       "wave": "base Flow composition",
       "score": 12,
@@ -1831,7 +1696,7 @@
       }
     },
     {
-      "order": 10,
+      "order": 9,
       "id": "autocomplete",
       "wave": "stateful Flow composition",
       "score": 13,
@@ -1953,7 +1818,7 @@
       }
     },
     {
-      "order": 11,
+      "order": 10,
       "id": "confirmation-dialog",
       "wave": "stateful Flow composition",
       "score": 13,
@@ -2078,7 +1943,7 @@
       }
     },
     {
-      "order": 12,
+      "order": 11,
       "id": "avatar-group",
       "wave": "base Flow composition",
       "score": 14,
@@ -2210,7 +2075,7 @@
       }
     },
     {
-      "order": 13,
+      "order": 12,
       "id": "search",
       "wave": "stateful Flow composition",
       "score": 14,
@@ -2345,6 +2210,145 @@
         "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
         "react": "packages/react/src/patterns/Search.js",
         "types": "packages/react/src/patterns/Search.d.ts"
+      }
+    },
+    {
+      "order": 13,
+      "id": "select-option-layer",
+      "wave": "stateful Flow composition",
+      "score": 14,
+      "requiresSurface": false,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Typography"
+      ],
+      "components": [
+        "Select",
+        "Badge",
+        "Button",
+        "Card",
+        "Inline Validation",
+        "Empty State"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "field",
+          "owner": "component",
+          "uses": [
+            "Select",
+            "Card",
+            "Badge"
+          ],
+          "required": true
+        },
+        {
+          "name": "choices",
+          "owner": "component",
+          "uses": [
+            "Select"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "optionActions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "fallback",
+          "owner": "component",
+          "uses": [
+            "Empty State"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "closed",
+        "open",
+        "loading",
+        "empty",
+        "error",
+        "permission-blocked",
+        "stale",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/SelectOptionLayer.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/SelectOptionLayer.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Select, Badge, Button, Card, Inline Validation, Empty State"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+        "react": "packages/react/src/patterns/SelectOptionLayer.js",
+        "types": "packages/react/src/patterns/SelectOptionLayer.d.ts"
       }
     },
     {
@@ -4034,141 +4038,6 @@
     },
     {
       "order": 26,
-      "id": "form-section",
-      "wave": "stateful Flow composition",
-      "score": 21,
-      "requiresSurface": true,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Field Action",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Surface",
-        "Typography"
-      ],
-      "components": [
-        "Button",
-        "Inline Validation",
-        "Input",
-        "Text Area",
-        "Toast"
-      ],
-      "patternDependencies": [
-        "Search"
-      ],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "container",
-          "owner": "primitive",
-          "uses": [
-            "Surface"
-          ]
-        },
-        {
-          "name": "fields",
-          "owner": "component",
-          "uses": [
-            "Input",
-            "Text Area",
-            "Inline Validation"
-          ]
-        },
-        {
-          "name": "actions",
-          "owner": "component",
-          "uses": [
-            "Button",
-            "Toast"
-          ]
-        }
-      ],
-      "states": [
-        "idle",
-        "dirty",
-        "validating",
-        "invalid",
-        "saving",
-        "saved",
-        "disabled"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/FormSection.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/FormSection.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Button, Inline Validation, Input, Text Area, Toast"
-        },
-        {
-          "id": "surface-primitive",
-          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
-          "evidence": "Surface required by formal Pattern primitive dependencies."
-        },
-        {
-          "id": "pattern-boundaries",
-          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
-          "evidence": "Search"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
-        "react": "packages/react/src/patterns/FormSection.js",
-        "types": "packages/react/src/patterns/FormSection.d.ts"
-      }
-    },
-    {
-      "order": 27,
       "id": "gantt-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4329,7 +4198,7 @@
       }
     },
     {
-      "order": 28,
+      "order": 27,
       "id": "notification-panel",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -4467,7 +4336,7 @@
       }
     },
     {
-      "order": 29,
+      "order": 28,
       "id": "payment-form",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -4625,7 +4494,7 @@
       }
     },
     {
-      "order": 30,
+      "order": 29,
       "id": "polar-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4786,7 +4655,7 @@
       }
     },
     {
-      "order": 31,
+      "order": 30,
       "id": "toolbar",
       "wave": "cross-pattern composition",
       "score": 21,
@@ -4940,7 +4809,7 @@
       }
     },
     {
-      "order": 32,
+      "order": 31,
       "id": "waterfall-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -5101,7 +4970,7 @@
       }
     },
     {
-      "order": 33,
+      "order": 32,
       "id": "expandable-detail-table",
       "wave": "cross-pattern composition",
       "score": 22,
@@ -5257,7 +5126,7 @@
       }
     },
     {
-      "order": 34,
+      "order": 33,
       "id": "chart-legend-item",
       "wave": "primitive-runtime composition",
       "score": 23,
@@ -5405,7 +5274,7 @@
       }
     },
     {
-      "order": 35,
+      "order": 34,
       "id": "section-header",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -5551,7 +5420,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 35,
       "id": "transfer-list",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -5704,7 +5573,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 36,
       "id": "fullscreen-sheet",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5851,7 +5720,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 37,
       "id": "multi-step-form",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -6012,7 +5881,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 38,
       "id": "virtual-data-table",
       "wave": "cross-pattern composition",
       "score": 24,
@@ -6147,7 +6016,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 39,
       "id": "agent-conversation",
       "wave": "template-facing orchestrator",
       "score": 25,
@@ -6295,7 +6164,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 40,
       "id": "pull-to-refresh",
       "wave": "primitive-runtime composition",
       "score": 25,
@@ -6438,6 +6307,151 @@
         "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
         "react": "packages/react/src/patterns/PullToRefresh.js",
         "types": "packages/react/src/patterns/PullToRefresh.d.ts"
+      }
+    },
+    {
+      "order": 41,
+      "id": "form-section",
+      "wave": "stateful Flow composition",
+      "score": 26,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Button",
+        "Checkbox",
+        "Icon Button",
+        "Inline Validation",
+        "Input",
+        "Radio Button",
+        "Select",
+        "Switch",
+        "Text Area",
+        "Toast"
+      ],
+      "patternDependencies": [
+        "Search"
+      ],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "container",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ]
+        },
+        {
+          "name": "fields",
+          "owner": "component",
+          "uses": [
+            "Checkbox",
+            "Icon Button",
+            "Input",
+            "Radio Button",
+            "Select",
+            "Switch",
+            "Text Area",
+            "Inline Validation"
+          ]
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button",
+            "Toast"
+          ]
+        }
+      ],
+      "states": [
+        "idle",
+        "dirty",
+        "validating",
+        "invalid",
+        "saving",
+        "saved",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/FormSection.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/FormSection.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Checkbox, Icon Button, Inline Validation, Input, Radio Button, Select, Switch, Text Area, Toast"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Search"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+        "react": "packages/react/src/patterns/FormSection.js",
+        "types": "packages/react/src/patterns/FormSection.d.ts"
       }
     },
     {
@@ -9535,157 +9549,6 @@
     },
     {
       "order": 61,
-      "id": "sidebar",
-      "wave": "template-facing orchestrator",
-      "score": 45,
-      "requiresSurface": true,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Research",
-        "Spacing",
-        "Surface",
-        "Typography"
-      ],
-      "components": [
-        "Accordion",
-        "Badge",
-        "Breadcrumbs",
-        "Drawer",
-        "Icon Button"
-      ],
-      "patternDependencies": [
-        "Topbar"
-      ],
-      "templateRefs": [
-        "Fleet Manager Desktop",
-        "Fleet Dashboard Suite",
-        "Configuration Console",
-        "Internal Operations Console"
-      ],
-      "slots": [
-        {
-          "name": "groups",
-          "owner": "primitive",
-          "uses": [
-            "Surface"
-          ]
-        },
-        {
-          "name": "responsiveSurface",
-          "owner": "component",
-          "uses": [
-            "Drawer"
-          ]
-        },
-        {
-          "name": "location",
-          "owner": "component",
-          "uses": [
-            "Breadcrumbs"
-          ]
-        },
-        {
-          "name": "navigation",
-          "owner": "component",
-          "uses": [
-            "Accordion",
-            "Badge",
-            "Icon Button"
-          ]
-        }
-      ],
-      "states": [
-        "expanded",
-        "collapsed",
-        "mobile-drawer",
-        "active",
-        "loading",
-        "permission-filtered",
-        "disabled"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/Sidebar.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/Sidebar.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Accordion, Badge, Breadcrumbs, Drawer, Icon Button"
-        },
-        {
-          "id": "surface-primitive",
-          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
-          "evidence": "Surface required by formal Pattern primitive dependencies."
-        },
-        {
-          "id": "pattern-boundaries",
-          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
-          "evidence": "Topbar"
-        },
-        {
-          "id": "template-boundaries",
-          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
-          "evidence": "Fleet Manager Desktop, Fleet Dashboard Suite, Configuration Console, Internal Operations Console"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
-        "react": "packages/react/src/patterns/Sidebar.js",
-        "types": "packages/react/src/patterns/Sidebar.d.ts"
-      }
-    },
-    {
-      "order": 62,
       "id": "station-discovery",
       "wave": "template-facing orchestrator",
       "score": 45,
@@ -9882,6 +9745,159 @@
         "artifact": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
         "react": "packages/react/src/patterns/StationDiscovery.js",
         "types": "packages/react/src/patterns/StationDiscovery.d.ts"
+      }
+    },
+    {
+      "order": 62,
+      "id": "sidebar",
+      "wave": "template-facing orchestrator",
+      "score": 46,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Research",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Accordion",
+        "Badge",
+        "Breadcrumbs",
+        "Button",
+        "Drawer",
+        "Icon Button"
+      ],
+      "patternDependencies": [
+        "Topbar"
+      ],
+      "templateRefs": [
+        "Fleet Manager Desktop",
+        "Fleet Dashboard Suite",
+        "Configuration Console",
+        "Internal Operations Console"
+      ],
+      "slots": [
+        {
+          "name": "groups",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ]
+        },
+        {
+          "name": "responsiveSurface",
+          "owner": "component",
+          "uses": [
+            "Drawer"
+          ]
+        },
+        {
+          "name": "location",
+          "owner": "component",
+          "uses": [
+            "Breadcrumbs"
+          ]
+        },
+        {
+          "name": "navigation",
+          "owner": "component",
+          "uses": [
+            "Accordion",
+            "Badge",
+            "Button",
+            "Icon Button"
+          ]
+        }
+      ],
+      "states": [
+        "expanded",
+        "collapsed",
+        "mobile-drawer",
+        "active",
+        "loading",
+        "permission-filtered",
+        "disabled"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/Sidebar.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/Sidebar.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Accordion, Badge, Breadcrumbs, Button, Drawer, Icon Button"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Topbar"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Fleet Manager Desktop, Fleet Dashboard Suite, Configuration Console, Internal Operations Console"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+        "react": "packages/react/src/patterns/Sidebar.js",
+        "types": "packages/react/src/patterns/Sidebar.d.ts"
       }
     },
     {
@@ -10107,13 +10123,6 @@
       "reactFile": "packages/react/src/patterns/MultiSelect.js"
     },
     {
-      "pattern": "form-section",
-      "dependency": "Search",
-      "reason": "form-section declares Search as a documented boundary, but React does not import it at runtime.",
-      "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
-      "reactFile": "packages/react/src/patterns/FormSection.js"
-    },
-    {
       "pattern": "notification-panel",
       "dependency": "Topbar",
       "reason": "notification-panel declares Topbar as a documented boundary, but React does not import it at runtime.",
@@ -10140,6 +10149,13 @@
       "reason": "virtual-data-table declares Toolbar as a documented boundary, but React does not import it at runtime.",
       "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
       "reactFile": "packages/react/src/patterns/VirtualDataTable.js"
+    },
+    {
+      "pattern": "form-section",
+      "dependency": "Search",
+      "reason": "form-section declares Search as a documented boundary, but React does not import it at runtime.",
+      "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+      "reactFile": "packages/react/src/patterns/FormSection.js"
     },
     {
       "pattern": "command-palette",

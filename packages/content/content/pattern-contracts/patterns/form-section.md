@@ -107,8 +107,13 @@ Coordinate a labeled group of related fields with validation, optional search ha
 ### Components
 
 - `Button`
+- `Checkbox`
+- `Icon Button`
 - `Inline Validation`
 - `Input`
+- `Radio Button`
+- `Select`
+- `Switch`
 - `Text Area`
 - `Toast`
 
@@ -119,8 +124,13 @@ Coordinate a labeled group of related fields with validation, optional search ha
 ### Tokens
 
 - `comp.button.*`
+- `comp.checkbox.*`
+- `comp.icon-button.*`
 - `comp.inline-validation.*`
 - `comp.input.*`
+- `comp.radio-button.*`
+- `comp.select.*`
+- `comp.switch.*`
 - `comp.text-area.*`
 - `comp.toast.*`
 - `sys.accessibility.*`
@@ -134,7 +144,7 @@ Coordinate a labeled group of related fields with validation, optional search ha
 | Slot | Owner | Uses |
 | --- | --- | --- |
 | `container` | `primitive` | `Surface` |
-| `fields` | `component` | `Input`, `Text Area`, `Inline Validation` |
+| `fields` | `component` | `Checkbox`, `Icon Button`, `Input`, `Radio Button`, `Select`, `Switch`, `Text Area`, `Inline Validation` |
 | `actions` | `component` | `Button`, `Toast` |
 
 ## Formal Governance
@@ -172,7 +182,7 @@ Coordinate a labeled group of related fields with validation, optional search ha
 
 ### Tests
 
-- Composes Surface, Input, Text Area, Inline Validation, Button, and Toast.
+- Composes Surface, Input, Select, Checkbox, Radio Button, Switch, Icon Button, Text Area, Inline Validation, Button, and Toast.
 - Covers dirty, validating, invalid, saving, saved, and disabled states.
 - Keeps Search as optional boundary only.
 
@@ -195,7 +205,7 @@ Coordinate a labeled group of related fields with validation, optional search ha
 | --- | --- | --- | --- |
 | container | Surface | yes | Structural owner for the section background, density, and validation state. |
 | header | Text | yes | Names the section and explains purpose without using Card as a wrapper. |
-| fields | Input \| TextArea[] | yes | Related form controls. |
+| fields | Input \| Select \| Checkbox \| RadioButton \| Switch \| TextArea[] | yes | Related form controls. |
 | validation | InlineValidation | conditional | Explains blocked or invalid state. |
 | actions | Button[] | conditional | Save, reset, or secondary actions. |
 | feedback | Toast | conditional | Confirms save or draft state. |
@@ -203,6 +213,11 @@ Coordinate a labeled group of related fields with validation, optional search ha
 ## Components Used
 
 - Input
+- Select
+- Checkbox
+- Radio Button
+- Switch
+- Icon Button
 - Text Area
 - Inline Validation
 - Button

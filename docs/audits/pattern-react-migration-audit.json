@@ -20,8 +20,8 @@
     "patternsWithPrimitives": 63,
     "patternsWithComponents": 62,
     "patternsWithStateModel": 63,
-    "callbackPropsDeclared": 265,
-    "callbackPropsTested": 265,
+    "callbackPropsDeclared": 269,
+    "callbackPropsTested": 269,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -71,8 +71,8 @@
       "patternsWithPrimitives": 63,
       "patternsWithComponents": 62,
       "patternsWithStateModel": 63,
-      "callbackPropsDeclared": 265,
-      "callbackPropsTested": 265,
+      "callbackPropsDeclared": 269,
+      "callbackPropsTested": 269,
       "missingCallbackTests": 0,
       "controlledPairIssues": 0,
       "statesMissingFromTypes": 0,
@@ -127,13 +127,6 @@
       "reactFile": "packages/react/src/patterns/MultiSelect.js"
     },
     {
-      "pattern": "form-section",
-      "dependency": "Search",
-      "reason": "form-section declares Search as a documented boundary, but React does not import it at runtime.",
-      "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
-      "reactFile": "packages/react/src/patterns/FormSection.js"
-    },
-    {
       "pattern": "notification-panel",
       "dependency": "Topbar",
       "reason": "notification-panel declares Topbar as a documented boundary, but React does not import it at runtime.",
@@ -160,6 +153,13 @@
       "reason": "virtual-data-table declares Toolbar as a documented boundary, but React does not import it at runtime.",
       "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
       "reactFile": "packages/react/src/patterns/VirtualDataTable.js"
+    },
+    {
+      "pattern": "form-section",
+      "dependency": "Search",
+      "reason": "form-section declares Search as a documented boundary, but React does not import it at runtime.",
+      "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+      "reactFile": "packages/react/src/patterns/FormSection.js"
     },
     {
       "pattern": "command-palette",
@@ -966,160 +966,6 @@
     },
     {
       "order": 6,
-      "pattern": "select-option-layer",
-      "mode": "stateful Flow composition",
-      "score": 12,
-      "components": [
-        "Select",
-        "Button",
-        "Inline Validation",
-        "Empty State"
-      ],
-      "primitives": [
-        "Color",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "field",
-          "owner": "component",
-          "uses": [
-            "Select"
-          ],
-          "required": true
-        },
-        {
-          "name": "choices",
-          "owner": "component",
-          "uses": [
-            "Select"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "optionActions",
-          "owner": "component",
-          "uses": [
-            "Button"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "validation",
-          "owner": "component",
-          "uses": [
-            "Inline Validation"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "fallback",
-          "owner": "component",
-          "uses": [
-            "Empty State"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": []
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [
-          "onAction",
-          "onValueChange"
-        ],
-        "testedCallbacks": [
-          "onAction",
-          "onValueChange"
-        ],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "closed",
-          "disabled",
-          "empty",
-          "error",
-          "loading",
-          "open",
-          "permission-blocked",
-          "stale"
-        ],
-        "typedStates": [
-          "closed",
-          "disabled",
-          "empty",
-          "error",
-          "loading",
-          "open",
-          "permission-blocked",
-          "stale"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": false,
-      "states": [
-        "closed",
-        "open",
-        "loading",
-        "empty",
-        "error",
-        "permission-blocked",
-        "stale",
-        "disabled"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
-        "react": "packages/react/src/patterns/SelectOptionLayer.js",
-        "types": "packages/react/src/patterns/SelectOptionLayer.d.ts"
-      }
-    },
-    {
-      "order": 7,
       "pattern": "snackbar-provider",
       "mode": "stateful Flow composition",
       "score": 12,
@@ -1265,7 +1111,7 @@
       }
     },
     {
-      "order": 8,
+      "order": 7,
       "pattern": "swipe-actions",
       "mode": "base Flow composition",
       "score": 12,
@@ -1402,7 +1248,7 @@
       }
     },
     {
-      "order": 9,
+      "order": 8,
       "pattern": "timeline",
       "mode": "base Flow composition",
       "score": 12,
@@ -1541,7 +1387,7 @@
       }
     },
     {
-      "order": 10,
+      "order": 9,
       "pattern": "autocomplete",
       "mode": "stateful Flow composition",
       "score": 13,
@@ -1686,7 +1532,7 @@
       }
     },
     {
-      "order": 11,
+      "order": 10,
       "pattern": "confirmation-dialog",
       "mode": "stateful Flow composition",
       "score": 13,
@@ -1825,7 +1671,7 @@
       }
     },
     {
-      "order": 12,
+      "order": 11,
       "pattern": "avatar-group",
       "mode": "base Flow composition",
       "score": 14,
@@ -1976,7 +1822,7 @@
       }
     },
     {
-      "order": 13,
+      "order": 12,
       "pattern": "search",
       "mode": "stateful Flow composition",
       "score": 14,
@@ -2138,6 +1984,166 @@
         "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
         "react": "packages/react/src/patterns/Search.js",
         "types": "packages/react/src/patterns/Search.d.ts"
+      }
+    },
+    {
+      "order": 13,
+      "pattern": "select-option-layer",
+      "mode": "stateful Flow composition",
+      "score": 14,
+      "components": [
+        "Select",
+        "Badge",
+        "Button",
+        "Card",
+        "Inline Validation",
+        "Empty State"
+      ],
+      "primitives": [
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "field",
+          "owner": "component",
+          "uses": [
+            "Select",
+            "Card",
+            "Badge"
+          ],
+          "required": true
+        },
+        {
+          "name": "choices",
+          "owner": "component",
+          "uses": [
+            "Select"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "optionActions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "validation",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "fallback",
+          "owner": "component",
+          "uses": [
+            "Empty State"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onAction",
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "testedCallbacks": [
+          "onAction",
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "closed",
+          "disabled",
+          "empty",
+          "error",
+          "loading",
+          "open",
+          "permission-blocked",
+          "stale"
+        ],
+        "typedStates": [
+          "closed",
+          "disabled",
+          "empty",
+          "error",
+          "loading",
+          "open",
+          "permission-blocked",
+          "stale"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": false,
+      "states": [
+        "closed",
+        "open",
+        "loading",
+        "empty",
+        "error",
+        "permission-blocked",
+        "stale",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+        "react": "packages/react/src/patterns/SelectOptionLayer.js",
+        "types": "packages/react/src/patterns/SelectOptionLayer.d.ts"
       }
     },
     {
@@ -4004,154 +4010,6 @@
     },
     {
       "order": 26,
-      "pattern": "form-section",
-      "mode": "stateful Flow composition",
-      "score": 21,
-      "components": [
-        "Button",
-        "Inline Validation",
-        "Input",
-        "Text Area",
-        "Toast"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Field Action",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Surface",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [
-        "Search"
-      ],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "container",
-          "owner": "primitive",
-          "uses": [
-            "Surface"
-          ]
-        },
-        {
-          "name": "fields",
-          "owner": "component",
-          "uses": [
-            "Input",
-            "Text Area",
-            "Inline Validation"
-          ]
-        },
-        {
-          "name": "actions",
-          "owner": "component",
-          "uses": [
-            "Button",
-            "Toast"
-          ]
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": [
-          "Search"
-        ]
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [
-          "onAction",
-          "onFieldValueChange",
-          "onValueChange"
-        ],
-        "testedCallbacks": [
-          "onAction",
-          "onFieldValueChange",
-          "onValueChange"
-        ],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "dirty",
-          "disabled",
-          "idle",
-          "invalid",
-          "saved",
-          "saving",
-          "validating"
-        ],
-        "typedStates": [
-          "dirty",
-          "disabled",
-          "idle",
-          "invalid",
-          "saved",
-          "saving",
-          "validating"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [
-          "container"
-        ],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": true,
-      "states": [
-        "idle",
-        "dirty",
-        "validating",
-        "invalid",
-        "saving",
-        "saved",
-        "disabled"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
-        "react": "packages/react/src/patterns/FormSection.js",
-        "types": "packages/react/src/patterns/FormSection.d.ts"
-      }
-    },
-    {
-      "order": 27,
       "pattern": "gantt-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4314,7 +4172,7 @@
       }
     },
     {
-      "order": 28,
+      "order": 27,
       "pattern": "notification-panel",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -4469,7 +4327,7 @@
       }
     },
     {
-      "order": 29,
+      "order": 28,
       "pattern": "payment-form",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -4644,7 +4502,7 @@
       }
     },
     {
-      "order": 30,
+      "order": 29,
       "pattern": "polar-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4807,7 +4665,7 @@
       }
     },
     {
-      "order": 31,
+      "order": 30,
       "pattern": "toolbar",
       "mode": "cross-pattern composition",
       "score": 21,
@@ -4967,7 +4825,7 @@
       }
     },
     {
-      "order": 32,
+      "order": 31,
       "pattern": "waterfall-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -5130,7 +4988,7 @@
       }
     },
     {
-      "order": 33,
+      "order": 32,
       "pattern": "expandable-detail-table",
       "mode": "cross-pattern composition",
       "score": 22,
@@ -5305,7 +5163,7 @@
       }
     },
     {
-      "order": 34,
+      "order": 33,
       "pattern": "chart-legend-item",
       "mode": "primitive-runtime composition",
       "score": 23,
@@ -5457,7 +5315,7 @@
       }
     },
     {
-      "order": 35,
+      "order": 34,
       "pattern": "section-header",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -5607,7 +5465,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 35,
       "pattern": "transfer-list",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -5776,7 +5634,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 36,
       "pattern": "fullscreen-sheet",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5930,7 +5788,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 37,
       "pattern": "multi-step-form",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -6096,7 +5954,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 38,
       "pattern": "virtual-data-table",
       "mode": "cross-pattern composition",
       "score": 24,
@@ -6256,7 +6114,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 39,
       "pattern": "agent-conversation",
       "mode": "template-facing orchestrator",
       "score": 25,
@@ -6418,7 +6276,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 40,
       "pattern": "pull-to-refresh",
       "mode": "primitive-runtime composition",
       "score": 25,
@@ -6570,6 +6428,170 @@
         "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
         "react": "packages/react/src/patterns/PullToRefresh.js",
         "types": "packages/react/src/patterns/PullToRefresh.d.ts"
+      }
+    },
+    {
+      "order": 41,
+      "pattern": "form-section",
+      "mode": "stateful Flow composition",
+      "score": 26,
+      "components": [
+        "Button",
+        "Checkbox",
+        "Icon Button",
+        "Inline Validation",
+        "Input",
+        "Radio Button",
+        "Select",
+        "Switch",
+        "Text Area",
+        "Toast"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Search"
+      ],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "container",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ]
+        },
+        {
+          "name": "fields",
+          "owner": "component",
+          "uses": [
+            "Checkbox",
+            "Icon Button",
+            "Input",
+            "Radio Button",
+            "Select",
+            "Switch",
+            "Text Area",
+            "Inline Validation"
+          ]
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button",
+            "Toast"
+          ]
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": [
+          "Search"
+        ]
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onAction",
+          "onCheckedChange",
+          "onClick",
+          "onFieldValueChange",
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "testedCallbacks": [
+          "onAction",
+          "onCheckedChange",
+          "onClick",
+          "onFieldValueChange",
+          "onOpenChange",
+          "onValueChange"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "dirty",
+          "disabled",
+          "idle",
+          "invalid",
+          "saved",
+          "saving",
+          "validating"
+        ],
+        "typedStates": [
+          "dirty",
+          "disabled",
+          "idle",
+          "invalid",
+          "saved",
+          "saving",
+          "validating"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "container"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "idle",
+        "dirty",
+        "validating",
+        "invalid",
+        "saving",
+        "saved",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+        "react": "packages/react/src/patterns/FormSection.js",
+        "types": "packages/react/src/patterns/FormSection.d.ts"
       }
     },
     {
@@ -9994,167 +10016,6 @@
     },
     {
       "order": 61,
-      "pattern": "sidebar",
-      "mode": "template-facing orchestrator",
-      "score": 45,
-      "components": [
-        "Accordion",
-        "Badge",
-        "Breadcrumbs",
-        "Drawer",
-        "Icon Button"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Research",
-        "Spacing",
-        "Surface",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [
-        "Topbar"
-      ],
-      "templateRefs": [
-        "Fleet Manager Desktop",
-        "Fleet Dashboard Suite",
-        "Configuration Console",
-        "Internal Operations Console"
-      ],
-      "slots": [
-        {
-          "name": "groups",
-          "owner": "primitive",
-          "uses": [
-            "Surface"
-          ]
-        },
-        {
-          "name": "responsiveSurface",
-          "owner": "component",
-          "uses": [
-            "Drawer"
-          ]
-        },
-        {
-          "name": "location",
-          "owner": "component",
-          "uses": [
-            "Breadcrumbs"
-          ]
-        },
-        {
-          "name": "navigation",
-          "owner": "component",
-          "uses": [
-            "Accordion",
-            "Badge",
-            "Icon Button"
-          ]
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": [
-          "Topbar"
-        ]
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [
-          "onCollapse",
-          "onDrawerOpenChange",
-          "onExpandedChange",
-          "onRouteSelect"
-        ],
-        "testedCallbacks": [
-          "onCollapse",
-          "onDrawerOpenChange",
-          "onExpandedChange",
-          "onRouteSelect"
-        ],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "active",
-          "collapsed",
-          "disabled",
-          "expanded",
-          "loading",
-          "mobile-drawer",
-          "permission-filtered"
-        ],
-        "typedStates": [
-          "active",
-          "collapsed",
-          "disabled",
-          "expanded",
-          "loading",
-          "mobile-drawer",
-          "permission-filtered"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [
-          "groups"
-        ],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": true,
-      "states": [
-        "expanded",
-        "collapsed",
-        "mobile-drawer",
-        "active",
-        "loading",
-        "permission-filtered",
-        "disabled"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
-        "react": "packages/react/src/patterns/Sidebar.js",
-        "types": "packages/react/src/patterns/Sidebar.d.ts"
-      }
-    },
-    {
-      "order": 62,
       "pattern": "station-discovery",
       "mode": "template-facing orchestrator",
       "score": 45,
@@ -10364,6 +10225,169 @@
         "artifact": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
         "react": "packages/react/src/patterns/StationDiscovery.js",
         "types": "packages/react/src/patterns/StationDiscovery.d.ts"
+      }
+    },
+    {
+      "order": 62,
+      "pattern": "sidebar",
+      "mode": "template-facing orchestrator",
+      "score": 46,
+      "components": [
+        "Accordion",
+        "Badge",
+        "Breadcrumbs",
+        "Button",
+        "Drawer",
+        "Icon Button"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Research",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Topbar"
+      ],
+      "templateRefs": [
+        "Fleet Manager Desktop",
+        "Fleet Dashboard Suite",
+        "Configuration Console",
+        "Internal Operations Console"
+      ],
+      "slots": [
+        {
+          "name": "groups",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ]
+        },
+        {
+          "name": "responsiveSurface",
+          "owner": "component",
+          "uses": [
+            "Drawer"
+          ]
+        },
+        {
+          "name": "location",
+          "owner": "component",
+          "uses": [
+            "Breadcrumbs"
+          ]
+        },
+        {
+          "name": "navigation",
+          "owner": "component",
+          "uses": [
+            "Accordion",
+            "Badge",
+            "Button",
+            "Icon Button"
+          ]
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": [
+          "Topbar"
+        ]
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onCollapse",
+          "onDrawerOpenChange",
+          "onExpandedChange",
+          "onRouteSelect"
+        ],
+        "testedCallbacks": [
+          "onCollapse",
+          "onDrawerOpenChange",
+          "onExpandedChange",
+          "onRouteSelect"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "active",
+          "collapsed",
+          "disabled",
+          "expanded",
+          "loading",
+          "mobile-drawer",
+          "permission-filtered"
+        ],
+        "typedStates": [
+          "active",
+          "collapsed",
+          "disabled",
+          "expanded",
+          "loading",
+          "mobile-drawer",
+          "permission-filtered"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "groups"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "expanded",
+        "collapsed",
+        "mobile-drawer",
+        "active",
+        "loading",
+        "permission-filtered",
+        "disabled"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+        "react": "packages/react/src/patterns/Sidebar.js",
+        "types": "packages/react/src/patterns/Sidebar.d.ts"
       }
     },
     {

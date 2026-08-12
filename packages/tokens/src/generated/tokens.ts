@@ -1329,7 +1329,7 @@ export const flowTokens = {
   },
   "sys-a11y-contrast-aa": {
     "value": "var(--ref-a11y-contrast-aa)",
-    "type": "unknown",
+    "type": "number",
     "scope": "sys",
     "cssVariable": "--sys-a11y-contrast-aa",
     "reference": "ref-a11y-contrast-aa",
@@ -1361,7 +1361,7 @@ export const flowTokens = {
   },
   "sys-a11y-focus-ring": {
     "value": "var(--sys-state-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-a11y-focus-ring",
     "reference": "sys-state-focus-ring",
@@ -1377,7 +1377,7 @@ export const flowTokens = {
   },
   "sys-a11y-outline-reset": {
     "value": "var(--ref-a11y-outline-reset)",
-    "type": "unknown",
+    "type": "number",
     "scope": "sys",
     "cssVariable": "--sys-a11y-outline-reset",
     "reference": "ref-a11y-outline-reset",
@@ -1407,7 +1407,7 @@ export const flowTokens = {
   },
   "sys-accessibility-contrast-aa": {
     "value": "var(--sys-a11y-contrast-aa)",
-    "type": "unknown",
+    "type": "number",
     "scope": "sys",
     "cssVariable": "--sys-accessibility-contrast-aa",
     "reference": "sys-a11y-contrast-aa",
@@ -1415,7 +1415,7 @@ export const flowTokens = {
   },
   "sys-accessibility-contrast-surface": {
     "value": "var(--sys-a11y-contrast-surface)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-accessibility-contrast-surface",
     "reference": "sys-a11y-contrast-surface",
@@ -1423,7 +1423,7 @@ export const flowTokens = {
   },
   "sys-accessibility-contrast-text": {
     "value": "var(--sys-a11y-contrast-text)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-accessibility-contrast-text",
     "reference": "sys-a11y-contrast-text",
@@ -1439,7 +1439,7 @@ export const flowTokens = {
   },
   "sys-accessibility-focus-ring": {
     "value": "var(--sys-a11y-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-accessibility-focus-ring",
     "reference": "sys-a11y-focus-ring",
@@ -1455,7 +1455,7 @@ export const flowTokens = {
   },
   "sys-accessibility-outline-reset": {
     "value": "var(--sys-a11y-outline-reset)",
-    "type": "unknown",
+    "type": "number",
     "scope": "sys",
     "cssVariable": "--sys-accessibility-outline-reset",
     "reference": "sys-a11y-outline-reset",
@@ -3751,7 +3751,7 @@ export const flowTokens = {
   },
   "sys-frame-doc-icon-lg": {
     "value": "var(--ref-frame-space-10)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-doc-icon-lg",
     "reference": "ref-frame-space-10",
@@ -3759,7 +3759,7 @@ export const flowTokens = {
   },
   "sys-frame-doc-icon-md": {
     "value": "var(--ref-frame-doc-badge-sm)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-doc-icon-md",
     "reference": "ref-frame-doc-badge-sm",
@@ -3767,7 +3767,7 @@ export const flowTokens = {
   },
   "sys-frame-doc-icon-sm": {
     "value": "var(--ref-frame-space-8)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-doc-icon-sm",
     "reference": "ref-frame-space-8",
@@ -3775,7 +3775,7 @@ export const flowTokens = {
   },
   "sys-frame-doc-line": {
     "value": "var(--sys-space-xl)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-doc-line",
     "reference": "sys-space-xl",
@@ -3783,7 +3783,7 @@ export const flowTokens = {
   },
   "sys-frame-doc-panel-min-lg": {
     "value": "var(--sys-frame-content-menu-min)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-doc-panel-min-lg",
     "reference": "sys-frame-content-menu-min",
@@ -3797,7 +3797,7 @@ export const flowTokens = {
   },
   "sys-frame-doc-panel-min-sm": {
     "value": "var(--ref-frame-space-40)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-doc-panel-min-sm",
     "reference": "ref-frame-space-40",
@@ -4405,7 +4405,7 @@ export const flowTokens = {
   },
   "sys-iconography-focus-ring": {
     "value": "var(--sys-a11y-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-iconography-focus-ring",
     "reference": "sys-a11y-focus-ring",
@@ -4517,7 +4517,7 @@ export const flowTokens = {
   },
   "ref-momentum-easing-standard": {
     "value": "var(--ref-momentum-easing-touch)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "ref",
     "cssVariable": "--ref-momentum-easing-standard",
     "reference": "ref-momentum-easing-touch",
@@ -4525,7 +4525,7 @@ export const flowTokens = {
   },
   "ref-momentum-easing-exit": {
     "value": "var(--ref-momentum-easing-move)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "ref",
     "cssVariable": "--ref-momentum-easing-exit",
     "reference": "ref-momentum-easing-move",
@@ -4719,7 +4719,7 @@ export const flowTokens = {
   },
   "sys-momentum-easing-touch": {
     "value": "var(--ref-momentum-easing-touch)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-momentum-easing-touch",
     "reference": "ref-momentum-easing-touch",
@@ -4727,7 +4727,7 @@ export const flowTokens = {
   },
   "sys-momentum-easing-standard": {
     "value": "var(--ref-momentum-easing-standard)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-momentum-easing-standard",
     "reference": "ref-momentum-easing-standard",
@@ -4735,7 +4735,7 @@ export const flowTokens = {
   },
   "sys-momentum-easing-enter": {
     "value": "var(--ref-momentum-easing-enter)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-momentum-easing-enter",
     "reference": "ref-momentum-easing-enter",
@@ -4743,7 +4743,7 @@ export const flowTokens = {
   },
   "sys-momentum-easing-move": {
     "value": "var(--ref-momentum-easing-move)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-momentum-easing-move",
     "reference": "ref-momentum-easing-move",
@@ -4751,7 +4751,7 @@ export const flowTokens = {
   },
   "sys-momentum-easing-exit": {
     "value": "var(--ref-momentum-easing-exit)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-momentum-easing-exit",
     "reference": "ref-momentum-easing-exit",
@@ -4759,7 +4759,7 @@ export const flowTokens = {
   },
   "sys-momentum-easing-linear": {
     "value": "var(--ref-momentum-easing-linear)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-momentum-easing-linear",
     "reference": "ref-momentum-easing-linear",
@@ -4971,7 +4971,7 @@ export const flowTokens = {
   },
   "sys-momentum-scale-hover": {
     "value": "var(--ref-momentum-scale-hover)",
-    "type": "unknown",
+    "type": "number",
     "scope": "sys",
     "cssVariable": "--sys-momentum-scale-hover",
     "reference": "ref-momentum-scale-hover",
@@ -4979,7 +4979,7 @@ export const flowTokens = {
   },
   "sys-momentum-scale-press": {
     "value": "var(--ref-momentum-scale-press)",
-    "type": "unknown",
+    "type": "number",
     "scope": "sys",
     "cssVariable": "--sys-momentum-scale-press",
     "reference": "ref-momentum-scale-press",
@@ -4987,7 +4987,7 @@ export const flowTokens = {
   },
   "sys-momentum-lift-hover": {
     "value": "var(--ref-momentum-lift-hover)",
-    "type": "unknown",
+    "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-momentum-lift-hover",
     "reference": "ref-momentum-lift-hover",
@@ -4997,8 +4997,7 @@ export const flowTokens = {
     "value": "var(--sys-momentum-duration-touch) var(--sys-momentum-easing-touch)",
     "type": "duration",
     "scope": "sys",
-    "cssVariable": "--sys-momentum-transition-touch",
-    "cssReference": "--sys-momentum-duration-touch) var(--sys-momentum-easing-touch"
+    "cssVariable": "--sys-momentum-transition-touch"
   },
   "sys-momentum-transition-fast": {
     "value": "var(--sys-momentum-transition-touch)",
@@ -5012,15 +5011,13 @@ export const flowTokens = {
     "value": "var(--sys-momentum-duration-default) var(--sys-momentum-easing-touch)",
     "type": "duration",
     "scope": "sys",
-    "cssVariable": "--sys-momentum-transition-default",
-    "cssReference": "--sys-momentum-duration-default) var(--sys-momentum-easing-touch"
+    "cssVariable": "--sys-momentum-transition-default"
   },
   "sys-momentum-transition-slow": {
     "value": "var(--sys-momentum-duration-slow) var(--sys-momentum-easing-enter)",
     "type": "duration",
     "scope": "sys",
-    "cssVariable": "--sys-momentum-transition-slow",
-    "cssReference": "--sys-momentum-duration-slow) var(--sys-momentum-easing-enter"
+    "cssVariable": "--sys-momentum-transition-slow"
   },
   "ref-state-opacity-disabled": {
     "value": "0.42",
@@ -5186,8 +5183,7 @@ export const flowTokens = {
     "value": "var(--ref-state-focus-ring-width) solid color-mix(in srgb, var(--sys-energy-action-primary) 35%, transparent)",
     "type": "border",
     "scope": "sys",
-    "cssVariable": "--sys-state-focus-ring",
-    "cssReference": "--ref-state-focus-ring-width) solid color-mix(in srgb, var(--sys-energy-action-primary) 35%, transparent"
+    "cssVariable": "--sys-state-focus-ring"
   },
   "sys-state-focus-offset": {
     "value": "var(--ref-state-focus-ring-offset)",
@@ -5217,7 +5213,7 @@ export const flowTokens = {
   },
   "sys-state-loading-spin": {
     "value": "var(--ref-state-loading-spin)",
-    "type": "unknown",
+    "type": "duration",
     "scope": "sys",
     "cssVariable": "--sys-state-loading-spin",
     "reference": "ref-state-loading-spin",
@@ -6831,7 +6827,7 @@ export const flowTokens = {
   },
   "sys-chart-focus-ring": {
     "value": "var(--sys-a11y-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-chart-focus-ring",
     "reference": "sys-a11y-focus-ring",
@@ -6871,7 +6867,7 @@ export const flowTokens = {
   },
   "sys-chart-motion-easing-enter": {
     "value": "var(--sys-momentum-easing-enter)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-chart-motion-easing-enter",
     "reference": "sys-momentum-easing-enter",
@@ -6879,7 +6875,7 @@ export const flowTokens = {
   },
   "sys-chart-motion-easing-update": {
     "value": "var(--sys-momentum-easing-move)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-chart-motion-easing-update",
     "reference": "sys-momentum-easing-move",
@@ -6887,7 +6883,7 @@ export const flowTokens = {
   },
   "sys-chart-series-primary": {
     "value": "var(--sys-energy-action-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-chart-series-primary",
     "reference": "sys-energy-action-primary",
@@ -6895,7 +6891,7 @@ export const flowTokens = {
   },
   "sys-chart-series-quaternary": {
     "value": "var(--sys-energy-status-warning)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-chart-series-quaternary",
     "reference": "sys-energy-status-warning",
@@ -6903,7 +6899,7 @@ export const flowTokens = {
   },
   "sys-chart-series-secondary": {
     "value": "var(--sys-energy-text-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-chart-series-secondary",
     "reference": "sys-energy-text-primary",
@@ -6911,7 +6907,7 @@ export const flowTokens = {
   },
   "sys-chart-series-tertiary": {
     "value": "var(--sys-energy-status-success)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-chart-series-tertiary",
     "reference": "sys-energy-status-success",
@@ -6951,7 +6947,7 @@ export const flowTokens = {
   },
   "sys-chart-tooltip-background": {
     "value": "var(--sys-energy-text-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-chart-tooltip-background",
     "reference": "sys-energy-text-primary",
@@ -6959,7 +6955,7 @@ export const flowTokens = {
   },
   "sys-chart-tooltip-foreground": {
     "value": "var(--sys-energy-surface-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-chart-tooltip-foreground",
     "reference": "sys-energy-surface-primary",
@@ -7895,7 +7891,7 @@ export const flowTokens = {
   },
   "sys-focus-restore-ring": {
     "value": "var(--sys-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-focus-restore-ring",
     "reference": "sys-focus-ring",
@@ -7903,7 +7899,7 @@ export const flowTokens = {
   },
   "sys-focus-ring": {
     "value": "var(--sys-accessibility-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-focus-ring",
     "reference": "sys-accessibility-focus-ring",
@@ -7919,7 +7915,7 @@ export const flowTokens = {
   },
   "sys-focus-roving-ring": {
     "value": "var(--sys-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-focus-roving-ring",
     "reference": "sys-focus-ring",
@@ -7951,7 +7947,7 @@ export const flowTokens = {
   },
   "sys-focus-visible-ring": {
     "value": "var(--sys-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-focus-visible-ring",
     "reference": "sys-focus-ring",
@@ -8031,7 +8027,7 @@ export const flowTokens = {
   },
   "sys-icon-focus-ring": {
     "value": "var(--sys-iconography-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-icon-focus-ring",
     "reference": "sys-iconography-focus-ring",
@@ -8165,7 +8161,7 @@ export const flowTokens = {
   },
   "sys-loading-easing-linear": {
     "value": "var(--sys-momentum-easing-linear)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-loading-easing-linear",
     "reference": "sys-momentum-easing-linear",
@@ -8173,7 +8169,7 @@ export const flowTokens = {
   },
   "sys-loading-easing-rhythm": {
     "value": "var(--sys-momentum-easing-move)",
-    "type": "unknown",
+    "type": "cubicBezier",
     "scope": "sys",
     "cssVariable": "--sys-loading-easing-rhythm",
     "reference": "sys-momentum-easing-move",
@@ -8189,7 +8185,7 @@ export const flowTokens = {
   },
   "sys-loading-progress-fill": {
     "value": "var(--sys-energy-action-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-loading-progress-fill",
     "reference": "sys-energy-action-primary",
@@ -8197,7 +8193,7 @@ export const flowTokens = {
   },
   "sys-loading-progress-track": {
     "value": "var(--sys-energy-border-default)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-loading-progress-track",
     "reference": "sys-energy-border-default",
@@ -8213,7 +8209,7 @@ export const flowTokens = {
   },
   "sys-loading-skeleton-highlight": {
     "value": "var(--sys-energy-border-default)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-loading-skeleton-highlight",
     "reference": "sys-energy-border-default",
@@ -8237,7 +8233,7 @@ export const flowTokens = {
   },
   "sys-loading-spinner-tone": {
     "value": "var(--sys-energy-action-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-loading-spinner-tone",
     "reference": "sys-energy-action-primary",
@@ -8245,7 +8241,7 @@ export const flowTokens = {
   },
   "sys-loading-spinner-track": {
     "value": "var(--sys-energy-border-default)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-loading-spinner-track",
     "reference": "sys-energy-border-default",
@@ -8293,7 +8289,7 @@ export const flowTokens = {
   },
   "sys-map-focus-ring": {
     "value": "var(--sys-a11y-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-map-focus-ring",
     "reference": "sys-a11y-focus-ring",
@@ -8333,7 +8329,7 @@ export const flowTokens = {
   },
   "sys-map-pin-background": {
     "value": "var(--sys-energy-surface-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-map-pin-background",
     "reference": "sys-energy-surface-primary",
@@ -8349,7 +8345,7 @@ export const flowTokens = {
   },
   "sys-map-pin-cluster-background": {
     "value": "var(--sys-energy-text-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-map-pin-cluster-background",
     "reference": "sys-energy-text-primary",
@@ -8357,7 +8353,7 @@ export const flowTokens = {
   },
   "sys-map-pin-cluster-foreground": {
     "value": "var(--sys-energy-surface-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-map-pin-cluster-foreground",
     "reference": "sys-energy-surface-primary",
@@ -8365,7 +8361,7 @@ export const flowTokens = {
   },
   "sys-map-pin-foreground": {
     "value": "var(--sys-energy-text-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-map-pin-foreground",
     "reference": "sys-energy-text-primary",
@@ -8373,7 +8369,7 @@ export const flowTokens = {
   },
   "sys-map-pin-selected-background": {
     "value": "var(--sys-energy-action-primary)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-map-pin-selected-background",
     "reference": "sys-energy-action-primary",
@@ -8381,7 +8377,7 @@ export const flowTokens = {
   },
   "sys-map-pin-selected-foreground": {
     "value": "var(--sys-energy-text-on-action)",
-    "type": "unknown",
+    "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-map-pin-selected-foreground",
     "reference": "sys-energy-text-on-action",
@@ -8513,7 +8509,7 @@ export const flowTokens = {
   },
   "sys-message-focus-ring": {
     "value": "var(--sys-accessibility-focus-ring)",
-    "type": "unknown",
+    "type": "border",
     "scope": "sys",
     "cssVariable": "--sys-message-focus-ring",
     "reference": "sys-accessibility-focus-ring",

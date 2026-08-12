@@ -32,6 +32,8 @@ const mobilePatternDemosFile = docsFile("pattern-mobile-demos.js");
 const desktopPatternDemosFile = docsFile("pattern-desktop-demos.js");
 const utilityPatternDemosFile = docsFile("pattern-utility-demos.js");
 const journeyPatternDemosFile = docsFile("pattern-journey-demos.js");
+const operationalPatternDemosFile = docsFile("pattern-operational-demos.js");
+const reactPatternDir = docsFile("generated/react/patterns");
 const patternContractGovernance = readPatternContractGovernance();
 const demoPolicyFiles = {
   candidate: candidatePatternDemosFile,
@@ -55,6 +57,26 @@ function primitiveSlotNamesFromCopy(copy, primitives) {
     .split(/\s*\|\s*/)
     .map((part) => part.replace(/\[\]$/, "").trim())
     .filter((part) => primitives.has(slug(part)))))];
+}
+
+function pascalCase(value) {
+  return String(value)
+    .split(/[^a-z0-9]+/i)
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join("");
+}
+
+function reactPatternSource(patternId) {
+  const file = path.join(reactPatternDir, `${pascalCase(patternId)}.js`);
+  return fs.existsSync(file) ? read(file) : "";
+}
+
+function reactPatternComposesComponent(patternId, component) {
+  const source = reactPatternSource(patternId);
+  if (!source) return false;
+  const componentName = pascalCase(component);
+  return source.includes(`import { ${componentName} } from "../${componentName}.js"`);
 }
 
 function generatedPatternContractIds() {
@@ -152,7 +174,15 @@ function checkPatternDemoComposition() {
   if (!fs.existsSync(patternTabsFile)) return;
   checkPatternDemoLocalControls();
   checkSearchSlotSingleSource();
-  const source = [patternTabsFile, candidatePatternDemosFile, mobilePatternDemosFile]
+  const source = [
+    patternTabsFile,
+    candidatePatternDemosFile,
+    desktopPatternDemosFile,
+    mobilePatternDemosFile,
+    utilityPatternDemosFile,
+    journeyPatternDemosFile,
+    operationalPatternDemosFile,
+  ]
     .filter((file) => fs.existsSync(file))
     .map((file) => read(file))
     .join("\n");
@@ -166,8 +196,10 @@ function checkPatternDemoComposition() {
     const nextFunction = source.indexOf("\nfunction ", start + 1);
     const block = source.slice(start, nextFunction === -1 ? source.length : nextFunction);
     for (const component of contract.components) {
+      const mountsReactPattern = block.includes(`patternReactDemo("${id}"`) || block.includes(`patternReactDemo('${id}'`);
       const composed =
         block.includes(`packageDemo("${component}"`) ||
+        (mountsReactPattern && reactPatternComposesComponent(id, component)) ||
         (component === "input" && block.includes("searchSlotMarkup(") && fs.existsSync(patternSearchSlotFile) && read(patternSearchSlotFile).includes(`patternPackageDemo("input"`)) ||
         (id === "notification-panel" && block.includes("notificationPanelMarkup(") && fs.existsSync(notificationPanelSlotFile) && read(notificationPanelSlotFile).includes(`patternPackageDemo("${component}"`)) ||
         (id === "avatar-menu" && block.includes("avatarMenuMarkup(") && fs.existsSync(avatarMenuSlotFile) && (

@@ -442,7 +442,7 @@ function createReport() {
     const imports = importNames(source);
     const importEntryList = importEntries(source);
     const componentImports = imports
-      .filter((item) => item.from.startsWith("../"))
+      .filter((item) => item.from.startsWith("../") && !item.from.startsWith("../internal/"))
       .map((item) => item.name)
       .sort();
     const patternImports = imports

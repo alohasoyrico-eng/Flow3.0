@@ -2890,7 +2890,9 @@
           "--comp-card-summary-tone-warning",
           "--comp-card-summary-width"
         ],
-        "foundationTokenUses": [],
+        "foundationTokenUses": [
+          "--sys-space-24"
+        ],
         "hardcodedColors": [],
         "rawGeometry": [],
         "rawTypography": [],
@@ -3041,6 +3043,7 @@
           "--component-frame-space-none",
           "--component-inline-size-full",
           "--component-inline-size-sm",
+          "--component-inline-size-zero",
           "--component-letter-spacing-widest",
           "--component-line-height-reading",
           "--component-line-height-snug",
@@ -8641,6 +8644,7 @@
           "--component-align-center",
           "--component-border-transparent",
           "--component-border-width",
+          "--component-border-width-indicator",
           "--component-color-action",
           "--component-color-action-text",
           "--component-color-border",
@@ -10942,6 +10946,7 @@
           "--component-align-center",
           "--component-border-none",
           "--component-border-width",
+          "--component-border-width-indicator",
           "--component-color-action",
           "--component-color-border",
           "--component-color-focus",

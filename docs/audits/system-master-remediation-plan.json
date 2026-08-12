@@ -1,0 +1,314 @@
+{
+  "schemaVersion": "flow-master-remediation-plan@1",
+  "generatedAt": "2026-08-11",
+  "purpose": "Track the corrected remediation plan after forensic evidence showed the original 34-iteration estimate was not sufficient.",
+  "estimates": {
+    "initialIterations": 34,
+    "correctedIterations": 66,
+    "deltaIterations": 32,
+    "deltaPercent": 94.1,
+    "reason": "The initial estimate undercounted real TypeScript migration, Style Dictionary multiplatform outputs, token ownership, anti-duplication governance, component/pattern/template 1:1 QA, and FlowDocs reconstruction as a consumer."
+  },
+  "operatingRules": [
+    "Do not advance phases unless the phase gate is explicit and recorded.",
+    "Do not count partial implementation as done unless it satisfies the original Definition of Done.",
+    "Report initial estimate, corrected estimate, and evidence when estimates change.",
+    "FlowDocs cleanup must wait for the underlying Flow contracts it is expected to consume.",
+    "No new docs visual behavior should be used as evidence that Flow itself is ready."
+  ],
+  "currentEvidence": {
+    "styleDictionarySourceGate": {
+      "status": "PASS",
+      "sourceFiles": 36,
+      "sourceTokens": 1131,
+      "outputTokens": 1131,
+      "foundations": 11,
+      "decisionQueueFiles": 5,
+      "decisionQueueTokens": 0,
+      "primitiveSourceFiles": 19,
+      "docsSourceFiles": 1,
+      "multiplatformOutputGate": "PASS",
+      "outputs": [
+        "CSS variables",
+        "JSON contract",
+        "TypeScript",
+        "Flutter Dart",
+        "Android XML",
+        "iOS Swift"
+      ]
+    },
+    "rawTokenValueGovernance": {
+      "status": "PASS",
+      "scannedFiles": 564,
+      "violations": 0,
+      "byRule": {},
+      "totalsByOwner": {}
+    },
+    "generatedTokenOutputGovernance": {
+      "status": "PASS",
+      "outputs": 7,
+      "matchingOutputs": 7,
+      "tokenCount": 1131,
+      "gates": [
+        "generated-output-manifest-exists",
+        "token-source-matches-manifest",
+        "generated-outputs-match-manifest"
+      ]
+    },
+    "primitiveRuntimeMatrix": {
+      "primitives": 24,
+      "typedRuntime": 18,
+      "typedPolicyContract": 6,
+      "jsRuntimeOnly": 0,
+      "missingP0Runtime": 0,
+      "policyOrNonRuntimeDecisionNeeded": 0,
+      "p0RuntimeRequired": 18
+    },
+    "forensicGates": {
+      "status": "fail",
+      "passing": [
+        "style-dictionary-real",
+        "primitive-cascade-runtime"
+      ],
+      "failing": [
+        "typescript-source-real",
+        "docs-ownership"
+      ],
+      "blockers": [
+        "FlowDocs has zero .ts/.tsx source files",
+        "7 docs generated candidates do not map to spec",
+        "162 entities have hand-authored docs surfaces"
+      ]
+    }
+  },
+  "outOfOrderWork": [
+    {
+      "phase": "3. Foundations/Primitives",
+      "correctedIterationRange": "23-28",
+      "workDoneEarly": "Primitive TS runtime/policy contracts were generated before fully closing Style Dictionary multiplatform outputs and TS migration phases.",
+      "status": "Useful but out of sequence; must not be used to claim later phases are complete."
+    }
+  ],
+  "phases": [
+    {
+      "id": 0,
+      "name": "Baseline forense",
+      "initialRange": "1-2",
+      "correctedRange": "1-3",
+      "status": "partial",
+      "objective": "Freeze current truth: inventory, duplication, docs-only, visual debt, token debt, TS debt, repos, commits, exports.",
+      "doneWhen": [
+        "Baseline maestro exists",
+        "Duplicate matrix exists",
+        "Docs-only candidates are listed",
+        "TS debt is measured",
+        "Token debt is measured",
+        "Repo/commit state is captured"
+      ],
+      "remaining": [
+        "Consolidate existing reports into one baseline master with phase ownership and release risk.",
+        "Add commit/repo safety section as a tracked gate."
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Style Dictionary real",
+      "initialRange": "3-7",
+      "correctedRange": "4-10",
+      "status": "complete",
+      "objective": "Create agnostic token source and multiplatform outputs with governance.",
+      "doneWhen": [
+        "Canonical JSON source is not CSS-origin",
+        "Foundation and primitive ownership is resolved",
+        "CSS variables are build output",
+        "TS/JS token contract is generated",
+        "JSON contract is generated",
+        "Flutter Dart output is generated",
+        "Android XML output is generated",
+        "iOS Swift output is generated",
+        "Raw hex/px/bezier/shadow/radius/typography governance exists",
+        "Edited generated outputs are detected"
+      ],
+      "completed": [
+        "style-dictionary dependency/config",
+        "source split into 11 real foundation files",
+        "decision queues for aliases/docs/semantic/unclassified",
+        "token decision queues resolved to zero pending tokens",
+        "primitive token source files created",
+        "docs-only token source isolated",
+        "CSS output",
+        "JSON contract",
+        "TS generated token output",
+        "Flutter Dart output",
+        "Android XML output",
+        "iOS Swift output",
+        "token output gate PASS",
+        "source gate PASS",
+        "raw value governance gate created",
+        "raw value violations classified by owner",
+        "generated output edit governance gate PASS",
+        "email channel token source created",
+        "email inline token value output",
+        "raw value governance gate PASS",
+        "raw value violations remediated to zero"
+      ],
+      "remaining": []
+    },
+    {
+      "id": 2,
+      "name": "TypeScript real",
+      "initialRange": "8-15",
+      "correctedRange": "11-22",
+      "status": "not_started",
+      "objective": "Migrate public Flow packages to real TS/TSX, not JS plus manual .d.ts.",
+      "doneWhen": [
+        "tsconfig exists",
+        "tsc --noEmit gate exists",
+        "package exports point to generated declarations",
+        "No public JS surface ships with manual .d.ts as the only type story",
+        "packages/tokens source is TS",
+        "packages/components contracts are TS",
+        "shared helpers are TS",
+        "React core components are TSX",
+        "TS governance blocks new public JS surfaces"
+      ],
+      "remaining": [
+        "Set up TypeScript project and build pipeline.",
+        "Migrate tokens/components contracts/shared helpers/core React components.",
+        "Create TS governance gate."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Foundations/Primitives",
+      "initialRange": "16-19",
+      "correctedRange": "23-28",
+      "status": "partial_out_of_order",
+      "objective": "Make the base cascade exportable and consumable by higher layers.",
+      "doneWhen": [
+        "Foundations are exportable contracts, not React components",
+        "Primitive runtime/policy contracts exist",
+        "Surface, Typography/Text, Stack/Grid/Layout, FocusRing, VisuallyHidden, Portal/Layer decisions are explicit",
+        "Density/theme/tone/state/responsive/motion cascade is proven",
+        "Primitive governance blocks doc-panel, local typography, fake surface, and gradients/textures outside source"
+      ],
+      "completed": [
+        "24 primitive TS contracts generated",
+        "18 runtime contracts",
+        "6 policy contracts",
+        "primitive-cascade-runtime gate PASS"
+      ],
+      "remaining": [
+        "Do not claim phase complete until TypeScript real and Style Dictionary outputs/governance are complete.",
+        "Add missing structural primitive decisions: Stack/Grid/Layout, FocusRing, VisuallyHidden, Portal/Layer if applicable.",
+        "Prove cascade consumption from components/patterns after TS migration."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Components",
+      "initialRange": "20-24",
+      "correctedRange": "29-40",
+      "status": "not_started",
+      "objective": "Audit and type 60 components as consumable Flow components.",
+      "doneWhen": [
+        "60 component 1:1 audit complete",
+        "Props/ref/state/controlled/uncontrolled/accessibility/tokens/density/theme are verified",
+        "Core controls/forms fixed",
+        "Overlays/navigation/data fixed",
+        "Domain/complex components fixed",
+        "Visual/dark/density/responsive/keyboard/types QA passes"
+      ],
+      "remaining": [
+        "Start only after Style Dictionary and TS foundations are enforceable."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Patterns",
+      "initialRange": "25-29",
+      "correctedRange": "41-52",
+      "status": "not_started",
+      "objective": "Make 63 patterns real, governed, and free of duplicate conceptual implementations.",
+      "doneWhen": [
+        "63 pattern 1:1 audit complete",
+        "Dependencies and ownership are declared",
+        "Topbar/Sidebar/Search/Toolbar/Command Palette are typed and governed",
+        "Interaction/data/domain/mobile patterns are real",
+        "No fake cards, raw overlays, search duplication, or DOM parallel behavior"
+      ],
+      "remaining": [
+        "P0.4 shell pattern contracts are next after returning to the master sequence."
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Templates",
+      "initialRange": "30-31",
+      "correctedRange": "53-58",
+      "status": "not_started",
+      "objective": "Make 9 templates consume real components and patterns.",
+      "doneWhen": [
+        "9 templates audit/fixes complete",
+        "States/modules/permissions/density/theme/responsive QA passes"
+      ],
+      "remaining": [
+        "Blocked until components and patterns are real."
+      ]
+    },
+    {
+      "id": 7,
+      "name": "FlowDocs v2",
+      "initialRange": "32-34",
+      "correctedRange": "59-66",
+      "status": "blocked",
+      "objective": "Rebuild docs as a consumer of Flow rather than a parallel source.",
+      "doneWhen": [
+        "DocsShell consumes Flow real",
+        "Home/foundation/primitive/component/pattern/template detail pages consume Flow",
+        "Legacy docs renderers/CSS/interactions are removed",
+        "Audits pass",
+        "Release/handoff complete"
+      ],
+      "remaining": [
+        "Blocked by TypeScript real, components, patterns, templates, and docs ownership gates."
+      ]
+    }
+  ],
+  "riskCheckpoints": [
+    {
+      "afterIteration": 10,
+      "question": "Are tokens and Style Dictionary defensible?"
+    },
+    {
+      "afterIteration": 22,
+      "question": "Is TypeScript real closed?"
+    },
+    {
+      "afterIteration": 28,
+      "question": "Do foundations/primitives sustain a real cascade?"
+    },
+    {
+      "afterIteration": 40,
+      "question": "Are components consumable?"
+    },
+    {
+      "afterIteration": 52,
+      "question": "Did patterns stop being simulation?"
+    },
+    {
+      "afterIteration": 58,
+      "question": "Do templates prove the cascade?"
+    },
+    {
+      "afterIteration": 66,
+      "question": "Is FlowDocs a real consumer of Flow?"
+    }
+  ],
+  "nextCorrectStep": {
+    "iteration": 10,
+    "status": "checkpoint_due",
+    "checkpoint": "Are tokens and Style Dictionary defensible?",
+    "then": "Phase 2: TypeScript real begins at iteration 11."
+  }
+}

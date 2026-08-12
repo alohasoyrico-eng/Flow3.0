@@ -15,7 +15,7 @@ ZIP guidelines, CSS token outputs, and platform token exports must resolve to Fl
 - zipW3cTokenTypes: 5
 - angularTokenVariables: 85
 - flutterColorConstants: 31
-- flowTokenContractTokens: 1078
+- flowTokenContractTokens: 1131
 - flowFoundations: 11
 - flowPrimitives: 24
 - mappedFlowFoundations: 11

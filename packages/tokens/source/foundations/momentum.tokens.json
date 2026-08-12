@@ -161,7 +161,7 @@
   },
   "ref-momentum-easing-standard": {
     "$value": "{ref-momentum-easing-touch}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--ref-momentum-easing-standard",
@@ -171,7 +171,7 @@
   },
   "ref-momentum-easing-exit": {
     "$value": "{ref-momentum-easing-move}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--ref-momentum-easing-exit",
@@ -431,7 +431,7 @@
   },
   "sys-momentum-easing-touch": {
     "$value": "{ref-momentum-easing-touch}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-easing-touch",
@@ -441,7 +441,7 @@
   },
   "sys-momentum-easing-standard": {
     "$value": "{ref-momentum-easing-standard}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-easing-standard",
@@ -451,7 +451,7 @@
   },
   "sys-momentum-easing-enter": {
     "$value": "{ref-momentum-easing-enter}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-easing-enter",
@@ -461,7 +461,7 @@
   },
   "sys-momentum-easing-move": {
     "$value": "{ref-momentum-easing-move}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-easing-move",
@@ -471,7 +471,7 @@
   },
   "sys-momentum-easing-exit": {
     "$value": "{ref-momentum-easing-exit}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-easing-exit",
@@ -481,7 +481,7 @@
   },
   "sys-momentum-easing-linear": {
     "$value": "{ref-momentum-easing-linear}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-easing-linear",
@@ -811,7 +811,7 @@
   },
   "sys-momentum-scale-hover": {
     "$value": "{ref-momentum-scale-hover}",
-    "$type": "unknown",
+    "$type": "number",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-scale-hover",
@@ -821,7 +821,7 @@
   },
   "sys-momentum-scale-press": {
     "$value": "{ref-momentum-scale-press}",
-    "$type": "unknown",
+    "$type": "number",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-scale-press",
@@ -831,7 +831,7 @@
   },
   "sys-momentum-lift-hover": {
     "$value": "{ref-momentum-lift-hover}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-momentum-lift-hover",

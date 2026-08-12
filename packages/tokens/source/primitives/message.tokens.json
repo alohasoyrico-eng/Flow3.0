@@ -41,7 +41,7 @@
   },
   "sys-message-focus-ring": {
     "$value": "{sys-accessibility-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-message-focus-ring",

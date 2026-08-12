@@ -2061,7 +2061,7 @@
   },
   "sys-frame-doc-icon-lg": {
     "$value": "{ref-frame-space-10}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-frame-doc-icon-lg",
@@ -2071,7 +2071,7 @@
   },
   "sys-frame-doc-icon-md": {
     "$value": "{ref-frame-doc-badge-sm}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-frame-doc-icon-md",
@@ -2081,7 +2081,7 @@
   },
   "sys-frame-doc-icon-sm": {
     "$value": "{ref-frame-space-8}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-frame-doc-icon-sm",
@@ -2091,7 +2091,7 @@
   },
   "sys-frame-doc-line": {
     "$value": "{sys-space-xl}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-frame-doc-line",
@@ -2101,7 +2101,7 @@
   },
   "sys-frame-doc-panel-min-lg": {
     "$value": "{sys-frame-content-menu-min}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-frame-doc-panel-min-lg",
@@ -2121,7 +2121,7 @@
   },
   "sys-frame-doc-panel-min-sm": {
     "$value": "{ref-frame-space-40}",
-    "$type": "unknown",
+    "$type": "dimension",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-frame-doc-panel-min-sm",

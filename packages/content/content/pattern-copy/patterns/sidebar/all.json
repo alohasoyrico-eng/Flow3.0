@@ -107,6 +107,7 @@
       "componentsUsed": [
         "Accordion",
         "Icon Button",
+        "Button",
         "Badge",
         "Breadcrumbs",
         "Drawer"

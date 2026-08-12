@@ -54,7 +54,11 @@ function lineEvidence(ticket, file) {
     .split(/\r?\n/)
     .map((line, index) => ({ line: index + 1, text: line.trim() }))
     .filter((entry) => needles.some((needle) => entry.text.toLowerCase().includes(needle)))
-    .slice(0, 8);
+    .slice(0, 3)
+    .map((entry) => ({
+      ...entry,
+      text: entry.text.length > 180 ? `${entry.text.slice(0, 180)}...` : entry.text
+    }));
 }
 
 function summarizeCategories(surfaces) {

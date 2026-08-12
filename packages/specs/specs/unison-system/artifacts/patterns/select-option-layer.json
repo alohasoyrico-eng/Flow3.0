@@ -38,14 +38,18 @@
         ],
         "componentDependencies": [
           "Select",
+          "Badge",
           "Button",
+          "Card",
           "Inline Validation",
           "Empty State"
         ],
         "patternDependencies": [],
         "tokenDependencies": [
           "comp.select.*",
+          "comp.badge.*",
           "comp.button.*",
+          "comp.card.*",
           "comp.inline-validation.*",
           "comp.empty-state.*",
           "sys.energy.*",
@@ -92,7 +96,9 @@
             "name": "field",
             "owner": "component",
             "uses": [
-              "Select"
+              "Select",
+              "Card",
+              "Badge"
             ],
             "required": true,
             "purpose": "Owns selected value, trigger, labelled field semantics, and value cascade."

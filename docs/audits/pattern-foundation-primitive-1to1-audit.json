@@ -28,7 +28,7 @@
     "patternsWithMissingInferredPrimitiveArtifacts": 0,
     "formalDependencyLayerErrors": 0,
     "patternsWithUndeclaredComponentPrimitives": 0,
-    "patternsRequiringSurfacePrimitive": 41,
+    "patternsRequiringSurfacePrimitive": 42,
     "patternsRequiringDirectSurfaceRuntime": 27,
     "patternsMissingDirectSurfaceRuntime": 0,
     "patternsWithStructuralSurfaceDebt": 0,
@@ -74,7 +74,7 @@
       "patternsWithMissingInferredPrimitiveArtifacts": 0,
       "formalDependencyLayerErrors": 0,
       "patternsWithUndeclaredComponentPrimitives": 0,
-      "patternsRequiringSurfacePrimitive": 41,
+      "patternsRequiringSurfacePrimitive": 42,
       "patternsRequiringDirectSurfaceRuntime": 27,
       "patternsMissingDirectSurfaceRuntime": 0,
       "patternsWithStructuralSurfaceDebt": 0,
@@ -2590,6 +2590,7 @@
         "pricing-operations",
         "pull-to-refresh",
         "radio-group",
+        "select-option-layer",
         "settings",
         "sidebar",
         "snackbar-provider",
@@ -2598,7 +2599,7 @@
         "ticket-queue",
         "waterfall-chart"
       ],
-      "patternCount": 44
+      "patternCount": 45
     },
     {
       "id": "typography",
@@ -14726,7 +14727,9 @@
       "taxonomyWarnings": [],
       "react": {
         "file": "packages/react/src/patterns/EmailTemplateLayout.js",
-        "imports": [],
+        "imports": [
+          "internal/email-token-values"
+        ],
         "debts": []
       },
       "readiness": "ready",
@@ -16579,8 +16582,13 @@
       "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
       "components": [
         "Button",
+        "Checkbox",
+        "Icon Button",
         "Inline Validation",
         "Input",
+        "Radio Button",
+        "Select",
+        "Switch",
         "Text Area",
         "Toast"
       ],
@@ -16650,6 +16658,86 @@
           ],
           "tokens": [
             "comp.button.*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
+          "component": "Checkbox",
+          "id": "checkbox",
+          "exists": true,
+          "file": "packages/components/src/platforms/checkbox.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "iconography",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "iconography",
+            "measurement",
+            "message",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.checkbox.*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.iconography.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
+          "component": "Icon Button",
+          "id": "icon-button",
+          "exists": true,
+          "file": "packages/components/src/platforms/icon-button.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "iconography",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.icon-button.*",
             "sys.accessibility.*",
             "sys.energy.*",
             "sys.frame.*",
@@ -16739,6 +16827,130 @@
             "sys.frame.*",
             "sys.growth.*",
             "sys.iconography.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
+          "component": "Radio Button",
+          "id": "radio-button",
+          "exists": true,
+          "file": "packages/components/src/platforms/radio-button.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "iconography",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "measurement",
+            "message",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.radio-button.*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
+          "component": "Select",
+          "id": "select",
+          "exists": true,
+          "file": "packages/components/src/platforms/select.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "iconography",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "iconography",
+            "loading",
+            "measurement",
+            "message",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.input.*",
+            "comp.select.*",
+            "component-field-*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.iconography.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
+          "component": "Switch",
+          "id": "switch",
+          "exists": true,
+          "file": "packages/components/src/platforms/switch.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "measurement",
+            "message",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.switch.*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
             "sys.momentum.*",
             "sys.state.*",
             "sys.symbol.*",
@@ -16858,8 +17070,13 @@
       ],
       "componentTokenRefs": [
         "comp.button.*",
+        "comp.checkbox.*",
+        "comp.icon-button.*",
         "comp.inline-validation.*",
         "comp.input.*",
+        "comp.radio-button.*",
+        "comp.select.*",
+        "comp.switch.*",
         "comp.text-area.*",
         "comp.toast.*",
         "component-field-*",
@@ -16933,9 +17150,14 @@
         "file": "packages/react/src/patterns/FormSection.js",
         "imports": [
           "Button",
+          "Checkbox",
+          "IconButton",
           "InlineValidation",
           "Input",
+          "RadioButton",
+          "Select",
           "Surface",
+          "Switch",
           "TextArea",
           "Toast"
         ],
@@ -23825,7 +24047,9 @@
       "artifactFile": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
       "components": [
         "Select",
+        "Badge",
         "Button",
+        "Card",
         "Inline Validation",
         "Empty State"
       ],
@@ -23906,6 +24130,46 @@
           ]
         },
         {
+          "component": "Badge",
+          "id": "badge",
+          "exists": true,
+          "file": "packages/components/src/platforms/badge.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "iconography",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "iconography",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.badge.*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.iconography.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
           "component": "Button",
           "id": "button",
           "exists": true,
@@ -23938,6 +24202,54 @@
             "sys.energy.*",
             "sys.frame.*",
             "sys.growth.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
+          "component": "Card",
+          "id": "card",
+          "exists": true,
+          "file": "packages/components/src/platforms/card.js",
+          "foundations": [
+            "accessibility",
+            "depth",
+            "energy",
+            "frame",
+            "growth",
+            "iconography",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "elevation",
+            "focus",
+            "iconography",
+            "loading",
+            "measurement",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.button.*",
+            "comp.card.*",
+            "comp.icon-button.*",
+            "comp.spinner.*",
+            "sys.accessibility.*",
+            "sys.depth.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.iconography.*",
             "sys.momentum.*",
             "sys.state.*",
             "sys.symbol.*",
@@ -24036,6 +24348,7 @@
         "Color",
         "Disabled",
         "Duration",
+        "Elevation",
         "Focus",
         "Iconography",
         "Loading",
@@ -24048,6 +24361,7 @@
       ],
       "componentFoundationNames": [
         "Accessibility",
+        "Depth",
         "Energy",
         "Frame",
         "Growth",
@@ -24059,14 +24373,19 @@
         "Voice"
       ],
       "componentTokenRefs": [
+        "comp.badge.*",
         "comp.button.*",
+        "comp.card.*",
         "comp.empty-state.*",
+        "comp.icon-button.*",
         "comp.inline-validation.*",
         "comp.input.*",
         "comp.select.*",
+        "comp.spinner.*",
         "component-empty-state-*",
         "component-field-*",
         "sys.accessibility.*",
+        "sys.depth.*",
         "sys.energy.*",
         "sys.frame.*",
         "sys.growth.*",
@@ -24090,6 +24409,7 @@
         "Motion Curves",
         "Radius",
         "Spacing",
+        "Surface",
         "Typography"
       ],
       "inferredFoundations": [
@@ -24115,7 +24435,7 @@
       "undeclaredComponentFoundations": [],
       "primitiveMaturityGaps": [],
       "foundationMaturityGaps": [],
-      "slotRequiresSurfacePrimitive": false,
+      "slotRequiresSurfacePrimitive": true,
       "directSurfaceRuntimeRequired": false,
       "structuralSlots": [],
       "structuralSlotDebts": [],
@@ -24124,7 +24444,9 @@
       "react": {
         "file": "packages/react/src/patterns/SelectOptionLayer.js",
         "imports": [
+          "Badge",
           "Button",
+          "Card",
           "EmptyState",
           "InlineValidation",
           "Select"
@@ -24618,6 +24940,7 @@
         "Accordion",
         "Badge",
         "Breadcrumbs",
+        "Button",
         "Drawer",
         "Icon Button"
       ],
@@ -24790,6 +25113,45 @@
           ]
         },
         {
+          "component": "Button",
+          "id": "button",
+          "exists": true,
+          "file": "packages/components/src/platforms/button.js",
+          "foundations": [
+            "accessibility",
+            "energy",
+            "frame",
+            "growth",
+            "momentum",
+            "state",
+            "symbol",
+            "voice"
+          ],
+          "primitives": [
+            "color",
+            "disabled",
+            "duration",
+            "focus",
+            "iconography",
+            "loading",
+            "motion-curves",
+            "radius",
+            "spacing",
+            "typography"
+          ],
+          "tokens": [
+            "comp.button.*",
+            "sys.accessibility.*",
+            "sys.energy.*",
+            "sys.frame.*",
+            "sys.growth.*",
+            "sys.momentum.*",
+            "sys.state.*",
+            "sys.symbol.*",
+            "sys.voice.*"
+          ]
+        },
+        {
           "component": "Drawer",
           "id": "drawer",
           "exists": true,
@@ -24884,6 +25246,7 @@
         "Elevation",
         "Focus",
         "Iconography",
+        "Loading",
         "Measurement",
         "Message",
         "Motion Curves",
@@ -24992,6 +25355,7 @@
           "Accordion",
           "Badge",
           "Breadcrumbs",
+          "Button",
           "Drawer",
           "IconButton",
           "Surface"

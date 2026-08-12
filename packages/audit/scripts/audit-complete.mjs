@@ -202,6 +202,7 @@ const expectedAuditFiles = new Set([
   "report-system-raw-token-value-governance.js",
   "report-system-remediation-matrix.js",
   "report-system-token-output-gates.js",
+  "report-system-typescript-public-surface.js",
   "report-docs-component-demo-ownership.js",
   "report-docs-system-boundary.js",
   "report-taxonomy-boundaries.js",
@@ -387,6 +388,7 @@ const checks = [
   ["pattern react migration audit", () => run("node", ["packages/audit/scripts/report-pattern-react-migration-audit.js", "--check"])],
   ["pattern react migration plan", () => run("node", ["packages/audit/scripts/report-pattern-react-migration-plan.js", "--check"])],
   ["template cascade governance report", () => run("node", ["packages/audit/scripts/report-template-cascade-governance.js", "--check"])],
+  ["system TypeScript public surface baseline", () => run("node", ["packages/audit/scripts/report-system-typescript-public-surface.js", "--check"])],
   ["system debt ledger", () => run("node", ["packages/audit/scripts/report-system-debt-ledger.js", "--check"])],
 ];
 

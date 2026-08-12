@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "flow-system-baseline@1",
+  "generatedAt": "2026-08-11",
+  "scope": {
+    "systemRepo": "Flow3.0",
+    "docsRepo": "FlowDocs",
+    "mode": "forensic-baseline",
+    "implementationChanges": false
+  },
+  "sourceOfTruth": {
+    "inventory": "Flow3.0/packages/specs/specs/unison-system/artifacts",
+    "reactRuntime": "Flow3.0/packages/react/src",
+    "docsGeneratedRuntime": "FlowDocs/apps/docs/generated/react",
+    "tokens": "Flow3.0/packages/tokens"
+  },
+  "inventory": {
+    "foundations": 11,
+    "primitives": 24,
+    "components": 60,
+    "patterns": 63,
+    "templates": 9
+  },
+  "runtimeCoverage": {
+    "foundations": {
+      "specs": 11,
+      "runtime": 0,
+      "react": 0,
+      "status": "spec_only"
+    },
+    "primitives": {
+      "specs": 24,
+      "runtimeJs": 8,
+      "reactJs": 0,
+      "missingRuntime": [
+        "breakpoints",
+        "color",
+        "density",
+        "disabled",
+        "duration",
+        "elevation",
+        "field-action",
+        "focus",
+        "loading",
+        "measurement",
+        "message",
+        "motion-curves",
+        "radius",
+        "research",
+        "spacing",
+        "surface",
+        "typography"
+      ],
+      "missingReact": [
+        "animation-assets",
+        "breakpoints",
+        "charts",
+        "color",
+        "country-flags",
+        "density",
+        "disabled",
+        "duration",
+        "elevation",
+        "field-action",
+        "focus",
+        "iconography",
+        "illustration-assets",
+        "library-sources",
+        "loading",
+        "maps",
+        "measurement",
+        "message",
+        "motion-curves",
+        "radius",
+        "research",
+        "spacing",
+        "surface",
+        "typography"
+      ],
+      "runtimeWithoutSpec": [
+        "country-options"
+      ],
+      "status": "not_cascading"
+    },
+    "components": {
+      "specs": 60,
+      "reactJsTotal": 62,
+      "dtsTotal": 62,
+      "reactJsInSpec": 60,
+      "dtsInSpec": 60,
+      "typescriptSourceFiles": 0,
+      "status": "react_js_with_dts_not_ts_source"
+    },
+    "patterns": {
+      "specs": 63,
+      "reactJsTotal": 64,
+      "dtsTotal": 64,
+      "reactJsInSpec": 63,
+      "dtsInSpec": 63,
+      "typescriptSourceFiles": 0,
+      "status": "react_js_with_dts_not_ts_source"
+    },
+    "templates": {
+      "specs": 9,
+      "reactJsTotal": 10,
+      "dtsTotal": 10,
+      "reactJsInSpec": 9,
+      "dtsInSpec": 9,
+      "typescriptSourceFiles": 0,
+      "status": "react_js_with_dts_not_ts_source"
+    }
+  },
+  "docsGeneratedCoverage": {
+    "componentsGeneratedJs": 62,
+    "patternsGeneratedJs": 64,
+    "templatesGeneratedJs": 10,
+    "typescriptSourceFiles": 0,
+    "status": "generated_js_not_ts_source"
+  },
+  "tokenPipeline": {
+    "tokenJsonFormat": "flow-token-contract@1",
+    "tokenJsonCompatibleWith": [
+      "style-dictionary"
+    ],
+    "styleDictionaryDependency": false,
+    "styleDictionaryConfig": false,
+    "sourceDirection": "css_to_json_contract",
+    "requiredDirection": "style_dictionary_source_to_platform_outputs",
+    "status": "phase1_style_dictionary_complete",
+    "phase1Remediation": {
+      "status": "complete",
+      "styleDictionaryDependency": true,
+      "styleDictionaryConfig": true,
+      "sourceDirection": "style_dictionary_source_to_platform_outputs",
+      "sourceFiles": 36,
+      "sourceTokens": 1131,
+      "outputTokens": 1131,
+      "outputs": [
+        "css",
+        "json",
+        "typescript",
+        "flutter-dart",
+        "android-xml",
+        "ios-swift"
+      ],
+      "generatedOutputGovernance": {
+        "status": "PASS",
+        "outputs": 7,
+        "matchingOutputs": 7
+      },
+      "rawValueGovernance": {
+        "status": "PASS",
+        "scannedFiles": 564,
+        "violations": 0
+      },
+      "emailChannel": {
+        "status": "tokenized",
+        "source": "packages/tokens/source/primitives/email-channel.tokens.json",
+        "generatedValues": "packages/react/src/internal/email-token-values.js",
+        "reason": "Email requires inline-safe values rather than CSS custom property dependence."
+      }
+    }
+  },
+  "knownDuplicateDebt": {
+    "shellPatterns": [
+      "topbar",
+      "sidebar",
+      "search"
+    ],
+    "docOnlyPatternCandidates": [
+      "date-picker",
+      "date-range-picker",
+      "electromobility-dashboard",
+      "finance-dashboard",
+      "fleet-dashboard",
+      "fleet-dashboard-overview",
+      "fuel-dashboard",
+      "maintenance-dashboard",
+      "mobile-card-detail-and-quick-actions",
+      "mobile-card-overview",
+      "mobile-movement-detail",
+      "mobile-recent-movements",
+      "phone-input",
+      "routes-and-nearby-stations-mobile",
+      "station-detail-and-route-guidance",
+      "toll-dashboard"
+    ],
+    "docsVisualLeaks": [
+      "background gradients",
+      "grid texture",
+      "docs-only cards",
+      "docs-only tabs",
+      "docs-only shell layout",
+      "handcrafted demos",
+      "imperative DOM handlers"
+    ],
+    "status": "must_be_expanded_1_to_1_before_remediation"
+  },
+  "criticalFindings": [
+    {
+      "id": "no-typescript-source",
+      "severity": "critical",
+      "finding": "Flow and FlowDocs report zero .ts/.tsx source files outside .d.ts declarations.",
+      "impact": "React APIs are not truly authored in TypeScript; .d.ts files can drift from JS behavior."
+    },
+    {
+      "id": "no-real-style-dictionary",
+      "severity": "critical",
+      "finding": "Tokens expose a JSON contract marked compatible with Style Dictionary, but the repo has no Style Dictionary dependency/config and CSS remains the source direction.",
+      "impact": "Foundations/primitives are not yet an agnostic, generated, multi-platform source of truth.",
+      "status": "remediated_phase1",
+      "remediationEvidence": "Style Dictionary source, config, outputs, raw-value gate, and generated-output manifest gates now pass."
+    },
+    {
+      "id": "primitive-cascade-broken",
+      "severity": "critical",
+      "finding": "24 primitive specs exist, but only 8 primitive runtime JS files and zero React primitive runtime files were found.",
+      "impact": "Components, patterns, templates, and docs cannot honestly claim a complete primitive cascade."
+    },
+    {
+      "id": "docs-duplicates-system",
+      "severity": "critical",
+      "finding": "FlowDocs has generated runtimes plus hand-authored docs surfaces and doc-only visual behavior.",
+      "impact": "Documentation can diverge from Flow and hide system defects instead of exposing them."
+    }
+  ],
+  "nextIteration": {
+    "id": 2,
+    "name": "forensic-definition-of-done-and-gates",
+    "goal": "Convert this baseline into executable gates and a per-layer 1:1 audit checklist before any remediation work.",
+    "mustInclude": [
+      "entity-by-entity matrix for foundations/primitives/components/patterns/templates",
+      "duplicate-surface count per entity",
+      "owner/source-of-truth per entity",
+      "allowed runtime locations",
+      "blocked docs-only CSS/JS patterns",
+      "TypeScript and Style Dictionary non-negotiable gates"
+    ]
+  }
+}

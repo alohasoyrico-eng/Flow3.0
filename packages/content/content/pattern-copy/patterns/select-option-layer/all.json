@@ -51,13 +51,13 @@
         ],
         [
           "groups",
-          "OptionGroup[]",
+          "Card[]",
           "conditional",
           "Groups related choices."
         ],
         [
           "option",
-          "Option",
+          "Option + Badge",
           "yes",
           "Label, value, metadata, selected, disabled, and reason."
         ],
@@ -76,6 +76,8 @@
       ],
       "componentsUsed": [
         "Select",
+        "Card",
+        "Badge",
         "Inline Validation",
         "Button",
         "Empty State"

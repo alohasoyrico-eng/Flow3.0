@@ -40,8 +40,13 @@
         ],
         "componentDependencies": [
           "Button",
+          "Checkbox",
+          "Icon Button",
           "Inline Validation",
           "Input",
+          "Radio Button",
+          "Select",
+          "Switch",
           "Text Area",
           "Toast"
         ],
@@ -50,8 +55,13 @@
         ],
         "tokenDependencies": [
           "comp.button.*",
+          "comp.checkbox.*",
+          "comp.icon-button.*",
           "comp.inline-validation.*",
           "comp.input.*",
+          "comp.radio-button.*",
+          "comp.select.*",
+          "comp.switch.*",
           "comp.text-area.*",
           "comp.toast.*",
           "sys.accessibility.*",
@@ -107,7 +117,12 @@
             "name": "fields",
             "owner": "component",
             "uses": [
+              "Checkbox",
+              "Icon Button",
               "Input",
+              "Radio Button",
+              "Select",
+              "Switch",
               "Text Area",
               "Inline Validation"
             ]
@@ -127,7 +142,7 @@
           "Keep save/cancel controls keyboard reachable."
         ],
         "tests": [
-          "Composes Surface, Input, Text Area, Inline Validation, Button, and Toast.",
+          "Composes Surface, Input, Select, Checkbox, Radio Button, Switch, Icon Button, Text Area, Inline Validation, Button, and Toast.",
           "Covers dirty, validating, invalid, saving, saved, and disabled states.",
           "Keeps Search as optional boundary only."
         ],

@@ -255,7 +255,7 @@
     "patternsWithMissingInferredPrimitiveArtifacts": 0,
     "formalDependencyLayerErrors": 0,
     "patternsWithUndeclaredComponentPrimitives": 0,
-    "patternsRequiringSurfacePrimitive": 41,
+    "patternsRequiringSurfacePrimitive": 42,
     "patternsRequiringDirectSurfaceRuntime": 27,
     "patternsMissingDirectSurfaceRuntime": 0,
     "patternsWithStructuralSurfaceDebt": 0,

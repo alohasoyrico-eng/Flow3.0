@@ -106,14 +106,18 @@ Coordinate grouped options, empty states, unavailable options, stale data, permi
 ### Components
 
 - `Select`
+- `Badge`
 - `Button`
+- `Card`
 - `Inline Validation`
 - `Empty State`
 
 ### Tokens
 
 - `comp.select.*`
+- `comp.badge.*`
 - `comp.button.*`
+- `comp.card.*`
 - `comp.inline-validation.*`
 - `comp.empty-state.*`
 - `sys.energy.*`
@@ -128,7 +132,7 @@ Coordinate grouped options, empty states, unavailable options, stale data, permi
 
 | Slot | Owner | Uses |
 | --- | --- | --- |
-| `field` | `component` | `Select` |
+| `field` | `component` | `Select`, `Card`, `Badge` |
 | `choices` | `component` | `Select` |
 | `optionActions` | `component` | `Button` |
 | `validation` | `component` | `Inline Validation` |
@@ -179,14 +183,16 @@ Coordinate grouped options, empty states, unavailable options, stale data, permi
 | Slot | Type | Required | Notes |
 | --- | --- | --- | --- |
 | field | Select | yes | Selected value and trigger. |
-| groups | OptionGroup[] | conditional | Groups related choices. |
-| option | Option | yes | Label, value, metadata, selected, disabled, and reason. |
+| groups | Card[] | conditional | Groups related choices. |
+| option | Option + Badge | yes | Label, value, metadata, selected, disabled, and reason. |
 | validation | InlineValidation | conditional | Explains required or stale state. |
 | fallback | BottomSheet \| Popover | conditional | Responsive layer when native select is insufficient. |
 
 ## Components Used
 
 - Select
+- Card
+- Badge
 - Inline Validation
 - Button
 - Empty State

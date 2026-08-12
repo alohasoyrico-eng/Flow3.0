@@ -317,19 +317,56 @@ try {
   const formSectionEvents = [];
   const formSectionView = render(React.createElement(FormSection, {
     title: "Vehicle details",
-    fields: [{
-      key: "plate",
-      label: "Plate",
-      value: "MX-4821",
-      onValueChange: (value, meta, event) => formSectionEvents.push(["field-slot", value, event.type]),
-    }],
+    fields: [
+      {
+        key: "plate",
+        label: "Plate",
+        value: "MX-4821",
+        onValueChange: (value, meta, event) => formSectionEvents.push(["field-slot", value, event.type]),
+      },
+      {
+        key: "fleet",
+        kind: "select",
+        label: "Fleet",
+        value: "north",
+        options: [{ value: "north", label: "North" }, { value: "south", label: "South" }],
+        onOpenChange: (open, event) => formSectionEvents.push(["field-open", open, event.type]),
+      },
+      {
+        key: "active",
+        kind: "checkbox",
+        label: "Active vehicle",
+        value: "active",
+        checked: false,
+        onCheckedChange: (checked, meta, event) => formSectionEvents.push(["field-checked", checked, meta.value, event.type]),
+      },
+      {
+        key: "more",
+        kind: "icon-button",
+        label: "More vehicle actions",
+        icon: "more_horiz",
+        onClick: (event) => formSectionEvents.push(["field-click", event.type]),
+      },
+    ],
     primaryAction: { key: "save", label: "Save vehicle" },
     onFieldValueChange: (key, value, meta, event) => formSectionEvents.push(["field", key, value, event.type]),
     onAction: (key, event) => formSectionEvents.push(["action", key, event.type]),
   }));
   fireEvent.input(formSectionView.getByLabelText(/plate/i), { target: { value: "MX-9000" } });
+  fireEvent.click(formSectionView.getByRole("combobox", { name: /fleet/i }));
+  fireEvent.click(formSectionView.getByRole("checkbox", { name: /active vehicle/i }));
+  fireEvent.click(formSectionView.getByRole("button", { name: /more vehicle actions/i }));
   fireEvent.click(formSectionView.getByRole("button", { name: /save vehicle/i }));
-  assert.deepEqual(formSectionEvents.map((event) => event[0]), ["field-slot", "field", "action"]);
+  assert.deepEqual(formSectionEvents.map((event) => event[0]), [
+    "field-slot",
+    "field",
+    "field-open",
+    "field-checked",
+    "field",
+    "field-click",
+    "action",
+    "action",
+  ]);
   cleanup();
 
   const helpEvents = [];
@@ -389,13 +426,14 @@ try {
     value: "north",
     options: [{ value: "north", label: "North" }, { value: "south", label: "South" }],
     action: { key: "apply", label: "Apply station" },
+    onOpenChange: (open, event) => selectLayerEvents.push(["open", open, event.type]),
     onValueChange: (value, meta, event) => selectLayerEvents.push(["value", value, event.type]),
     onAction: (key, event) => selectLayerEvents.push(["action", key, event.type]),
   }));
   fireEvent.click(selectLayerView.getByRole("combobox", { name: /assign station/i }));
   fireEvent.click(selectLayerView.getByRole("option", { name: /south/i }));
   fireEvent.click(selectLayerView.getByRole("button", { name: /apply station/i }));
-  assert.deepEqual(selectLayerEvents.map((event) => event[0]), ["value", "action"]);
+  assert.deepEqual(selectLayerEvents.map((event) => event[0]), ["open", "open", "value", "action"]);
   cleanup();
 
   const settingsEvents = [];

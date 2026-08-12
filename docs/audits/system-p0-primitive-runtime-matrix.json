@@ -1,0 +1,3492 @@
+{
+  "generatedAt": "2026-08-12T01:46:38.097Z",
+  "scope": "P0.2 primitive runtime matrix",
+  "totals": {
+    "primitives": 24,
+    "typedRuntime": 18,
+    "typedPolicyContract": 6,
+    "jsRuntimeOnly": 0,
+    "missingP0Runtime": 0,
+    "policyOrNonRuntimeDecisionNeeded": 0,
+    "p0RuntimeRequired": 18
+  },
+  "rows": [
+    {
+      "name": "Color",
+      "slug": "color",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/color.json",
+      "purpose": "Turn Energy foundation roles into implementation-ready semantic color primitives for action, status, feedback, surface, border, chart, and map usage.",
+      "governingFoundations": [
+        "Energy",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Focus",
+        "Disabled",
+        "Iconography",
+        "Charts",
+        "Maps"
+      ],
+      "tokenDependencies": [
+        "ref.energy.*",
+        "sys.energy.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "focus.*",
+        "disabled.*",
+        "icon.*",
+        "chart.*",
+        "map.*",
+        "color.*",
+        "comp.*.energy aliases"
+      ],
+      "roles": [
+        {
+          "id": "action",
+          "token": "color.action",
+          "use": "Primary and secondary product actions."
+        },
+        {
+          "id": "status",
+          "token": "color.status.*",
+          "use": "Success, warning, error, pending, stale, and disabled states."
+        },
+        {
+          "id": "surface",
+          "token": "color.surface.*",
+          "use": "Page, card, panel, sheet, table, map overlay."
+        },
+        {
+          "id": "border",
+          "token": "color.border.*",
+          "use": "Controls, separators, selected rows, focus-adjacent structures."
+        },
+        {
+          "id": "text",
+          "token": "color.text.*",
+          "use": "Primary, secondary, tertiary, inverse, status copy."
+        },
+        {
+          "id": "data",
+          "token": "color.data.*",
+          "use": "Charts, maps, route lines, threshold bands with accessible alternatives."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/color.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 15,
+      "matchingTokenPrefixes": {
+        "sys-color": 15
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-color-action",
+          "value": "{sys-energy-action-primary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-action-primary"
+        },
+        {
+          "name": "sys-color-action-hover",
+          "value": "{sys-energy-action-hover}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-action-hover"
+        },
+        {
+          "name": "sys-color-action-text",
+          "value": "{sys-energy-text-on-action}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-text-on-action"
+        },
+        {
+          "name": "sys-color-border",
+          "value": "{sys-energy-border-default}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-border-default"
+        },
+        {
+          "name": "sys-color-border-strong",
+          "value": "{sys-energy-border-strong}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-border-strong"
+        },
+        {
+          "name": "sys-color-danger",
+          "value": "{sys-energy-status-error}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-status-error"
+        },
+        {
+          "name": "sys-color-focus",
+          "value": "{sys-energy-action-primary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-action-primary"
+        },
+        {
+          "name": "sys-color-success",
+          "value": "{sys-energy-status-success}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-status-success"
+        },
+        {
+          "name": "sys-color-surface",
+          "value": "{sys-energy-surface-primary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-surface-primary"
+        },
+        {
+          "name": "sys-color-surface-muted",
+          "value": "{sys-energy-surface-sunken}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-surface-sunken"
+        },
+        {
+          "name": "sys-color-surface-raised",
+          "value": "{sys-energy-surface-secondary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-surface-secondary"
+        },
+        {
+          "name": "sys-color-text",
+          "value": "{sys-energy-text-primary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-text-primary"
+        },
+        {
+          "name": "sys-color-text-muted",
+          "value": "{sys-energy-text-secondary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-text-secondary"
+        },
+        {
+          "name": "sys-color-text-subtle",
+          "value": "{sys-energy-text-tertiary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-text-tertiary"
+        },
+        {
+          "name": "sys-color-warning",
+          "value": "{sys-energy-status-warning}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/color.tokens.json",
+          "reference": "sys-energy-status-warning"
+        }
+      ]
+    },
+    {
+      "name": "Typography",
+      "slug": "typography",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/typography.json",
+      "purpose": "Turn Voice foundation roles into implementation-ready text primitives for display, headings, numerals, labels, body, captions, overline, and code.",
+      "governingFoundations": [
+        "Voice",
+        "Tone",
+        "Frame",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Density",
+        "Spacing",
+        "Breakpoints"
+      ],
+      "tokenDependencies": [
+        "ref.voice.*",
+        "sys.voice.*",
+        "sys.tone.*",
+        "sys.frame.*",
+        "sys.accessibility.*",
+        "density.*",
+        "spacing.*",
+        "breakpoint.*",
+        "typography.*",
+        "comp.*.voice aliases"
+      ],
+      "roles": [
+        {
+          "id": "display",
+          "token": "typography.display.*",
+          "use": "Template/page identity and major product moments with Edenred Black."
+        },
+        {
+          "id": "heading",
+          "token": "typography.heading.*",
+          "use": "Section and panel hierarchy with Edenred Black."
+        },
+        {
+          "id": "numeral",
+          "token": "typography.numeral.*",
+          "use": "KPIs, metrics, balances, counts, dashboard values, and prominent operational numbers with Edenred Black."
+        },
+        {
+          "id": "label",
+          "token": "typography.label.*",
+          "use": "Controls, KPI labels, table headers, filters with Ubuntu."
+        },
+        {
+          "id": "paragraph",
+          "token": "typography.paragraph.*",
+          "use": "Guidance, descriptions, empty/error copy with Ubuntu."
+        },
+        {
+          "id": "caption",
+          "token": "typography.caption",
+          "use": "Metadata, helper text, timestamps, legal/support notes."
+        },
+        {
+          "id": "code",
+          "token": "typography.code.*",
+          "use": "Token names, specs, API snippets, agent contracts."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/typography.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Spacing",
+      "slug": "spacing",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json",
+      "purpose": "Turn Frame foundation roles into implementation-ready spacing primitives for page, section, panel, component, inline, grid, and density behavior.",
+      "governingFoundations": [
+        "Frame",
+        "Depth",
+        "State",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Density",
+        "Breakpoints"
+      ],
+      "tokenDependencies": [
+        "ref.frame.space.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.accessibility.*",
+        "density.*",
+        "breakpoint.*",
+        "spacing.*",
+        "comp.*.frame aliases"
+      ],
+      "roles": [
+        {
+          "id": "inline",
+          "token": "spacing.inline.*",
+          "use": "Icon/label gaps, compact metadata, table cell internals."
+        },
+        {
+          "id": "component",
+          "token": "spacing.component.*",
+          "use": "Field stacks, button rows, card internals, menu options."
+        },
+        {
+          "id": "section",
+          "token": "spacing.section.*",
+          "use": "Major document/product sections and dashboard group rhythm."
+        },
+        {
+          "id": "page",
+          "token": "spacing.page.*",
+          "use": "Page rhythm and template-level breathing room."
+        },
+        {
+          "id": "grid",
+          "token": "spacing.grid.*",
+          "use": "Dashboard, settings, tablet, and mobile layout gutters/margins."
+        },
+        {
+          "id": "density",
+          "token": "spacing.density.*",
+          "use": "Compact/default/comfortable remapping by product context."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/spacing.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 36,
+      "matchingTokenPrefixes": {
+        "sys-space": 29,
+        "sys-spacing": 7
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-space-0",
+          "value": "{ref-frame-space-0}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-0"
+        },
+        {
+          "name": "sys-space-1",
+          "value": "{ref-frame-space-1}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-1"
+        },
+        {
+          "name": "sys-space-10",
+          "value": "{ref-frame-space-10}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-10"
+        },
+        {
+          "name": "sys-space-11",
+          "value": "{ref-frame-space-11}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-11"
+        },
+        {
+          "name": "sys-space-12",
+          "value": "{ref-frame-space-12}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-12"
+        },
+        {
+          "name": "sys-space-16",
+          "value": "{ref-frame-space-16}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-16"
+        },
+        {
+          "name": "sys-space-2",
+          "value": "{ref-frame-space-2}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-2"
+        },
+        {
+          "name": "sys-space-20",
+          "value": "{ref-frame-space-20}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-20"
+        },
+        {
+          "name": "sys-space-24",
+          "value": "{ref-frame-space-24}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-24"
+        },
+        {
+          "name": "sys-space-2xl",
+          "value": "{sys-space-8}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-8"
+        },
+        {
+          "name": "sys-space-2xs",
+          "value": "{ref-frame-space-micro}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-micro"
+        },
+        {
+          "name": "sys-space-3",
+          "value": "{ref-frame-space-3}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-3"
+        },
+        {
+          "name": "sys-space-32",
+          "value": "{ref-frame-space-32}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-32"
+        },
+        {
+          "name": "sys-space-3xl",
+          "value": "{sys-space-10}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-10"
+        },
+        {
+          "name": "sys-space-4",
+          "value": "{ref-frame-space-4}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-4"
+        },
+        {
+          "name": "sys-space-40",
+          "value": "{ref-frame-space-40}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-40"
+        },
+        {
+          "name": "sys-space-4xl",
+          "value": "{sys-space-12}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-12"
+        },
+        {
+          "name": "sys-space-5",
+          "value": "{ref-frame-space-5}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-5"
+        },
+        {
+          "name": "sys-space-5xl",
+          "value": "{sys-space-16}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-16"
+        },
+        {
+          "name": "sys-space-6",
+          "value": "{ref-frame-space-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-6"
+        },
+        {
+          "name": "sys-space-7",
+          "value": "{ref-frame-space-7}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-7"
+        },
+        {
+          "name": "sys-space-8",
+          "value": "{ref-frame-space-8}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-8"
+        },
+        {
+          "name": "sys-space-9",
+          "value": "{ref-frame-space-9}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-9"
+        },
+        {
+          "name": "sys-space-lg",
+          "value": "{sys-space-4}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-4"
+        },
+        {
+          "name": "sys-space-md",
+          "value": "{sys-space-3}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-3"
+        },
+        {
+          "name": "sys-space-micro",
+          "value": "{ref-frame-space-micro}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "ref-frame-space-micro"
+        },
+        {
+          "name": "sys-space-sm",
+          "value": "{sys-space-2}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-2"
+        },
+        {
+          "name": "sys-space-xl",
+          "value": "{sys-space-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-6"
+        },
+        {
+          "name": "sys-space-xs",
+          "value": "{sys-space-1}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-1"
+        },
+        {
+          "name": "sys-spacing-component-lg",
+          "value": "{sys-frame-gap-component-lg}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-frame-gap-component-lg"
+        },
+        {
+          "name": "sys-spacing-component-md",
+          "value": "{sys-frame-gap-component}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-frame-gap-component"
+        },
+        {
+          "name": "sys-spacing-component-sm",
+          "value": "{sys-frame-gap-element}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-frame-gap-element"
+        },
+        {
+          "name": "sys-spacing-inline-sm",
+          "value": "{sys-space-sm}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-sm"
+        },
+        {
+          "name": "sys-spacing-inline-xs",
+          "value": "{sys-space-xs}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-space-xs"
+        },
+        {
+          "name": "sys-spacing-page",
+          "value": "{sys-frame-gap-page}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-frame-gap-page"
+        },
+        {
+          "name": "sys-spacing-section",
+          "value": "{sys-frame-gap-section}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/spacing.tokens.json",
+          "reference": "sys-frame-gap-section"
+        }
+      ]
+    },
+    {
+      "name": "Radius",
+      "slug": "radius",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/radius.json",
+      "purpose": "Turn Frame shape roles into implementation-ready primitives for controls, cards, sheets, pills, map pins, table rows, and permission panels.",
+      "governingFoundations": [
+        "Frame",
+        "Depth",
+        "State"
+      ],
+      "coordinatesPrimitives": [
+        "Focus",
+        "Density",
+        "Spacing"
+      ],
+      "tokenDependencies": [
+        "ref.frame.radius.*",
+        "sys.frame.radius.*",
+        "focus.*",
+        "density.*",
+        "spacing.*",
+        "radius.*"
+      ],
+      "roles": [
+        {
+          "id": "control",
+          "token": "radius.control",
+          "use": "Buttons, fields, selects, chips, compact actions."
+        },
+        {
+          "id": "container",
+          "token": "radius.container",
+          "use": "Cards, panels, popovers, dashboard modules."
+        },
+        {
+          "id": "surface",
+          "token": "radius.surface",
+          "use": "Sheets, dialogs, large product surfaces."
+        },
+        {
+          "id": "pill",
+          "token": "radius.full",
+          "use": "Badges, filter chips, status tags."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/radius.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 11,
+      "matchingTokenPrefixes": {
+        "sys-radius": 11
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-radius-0",
+          "value": "{ref-frame-radius-0}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-0"
+        },
+        {
+          "name": "sys-radius-container",
+          "value": "{sys-frame-radius-container}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "sys-frame-radius-container"
+        },
+        {
+          "name": "sys-radius-control",
+          "value": "{sys-frame-radius-control}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "sys-frame-radius-control"
+        },
+        {
+          "name": "sys-radius-full",
+          "value": "{ref-frame-radius-full}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-full"
+        },
+        {
+          "name": "sys-radius-lg",
+          "value": "{ref-frame-radius-5}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-5"
+        },
+        {
+          "name": "sys-radius-md",
+          "value": "{ref-frame-radius-3}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-3"
+        },
+        {
+          "name": "sys-radius-pill",
+          "value": "{sys-frame-radius-full}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "sys-frame-radius-full"
+        },
+        {
+          "name": "sys-radius-sm",
+          "value": "{ref-frame-radius-1}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-1"
+        },
+        {
+          "name": "sys-radius-surface",
+          "value": "{sys-frame-radius-surface}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "sys-frame-radius-surface"
+        },
+        {
+          "name": "sys-radius-xl",
+          "value": "{ref-frame-radius-8}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-8"
+        },
+        {
+          "name": "sys-radius-xs",
+          "value": "{ref-frame-radius-2}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/radius.tokens.json",
+          "reference": "ref-frame-radius-2"
+        }
+      ]
+    },
+    {
+      "name": "Elevation",
+      "slug": "elevation",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/elevation.json",
+      "purpose": "Turn Depth foundation roles into implementation-ready elevation, overlay, and stacking primitives.",
+      "governingFoundations": [
+        "Depth",
+        "Frame",
+        "State",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Focus",
+        "Radius",
+        "Motion Curves"
+      ],
+      "tokenDependencies": [
+        "ref.depth.*",
+        "sys.depth.*",
+        "focus.*",
+        "radius.*",
+        "motionCurve.*",
+        "elevation.*"
+      ],
+      "roles": [
+        {
+          "id": "level0",
+          "token": "elevation.0",
+          "use": "Canvas and sunken areas."
+        },
+        {
+          "id": "level1",
+          "token": "elevation.1",
+          "use": "Cards and low raised surfaces."
+        },
+        {
+          "id": "level2",
+          "token": "elevation.2",
+          "use": "Floating controls and contextual panels."
+        },
+        {
+          "id": "level3",
+          "token": "elevation.3",
+          "use": "Overlays, sheets, dialogs."
+        },
+        {
+          "id": "level4",
+          "token": "elevation.4",
+          "use": "Critical blocking feedback."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/elevation.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 13,
+      "matchingTokenPrefixes": {
+        "sys-elevation": 13
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-elevation-0",
+          "value": "{sys-depth-elevation-0}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-depth-elevation-0"
+        },
+        {
+          "name": "sys-elevation-1",
+          "value": "{sys-depth-elevation-1}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-depth-elevation-1"
+        },
+        {
+          "name": "sys-elevation-2",
+          "value": "{sys-depth-elevation-2}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-depth-elevation-2"
+        },
+        {
+          "name": "sys-elevation-3",
+          "value": "{sys-depth-elevation-3}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-depth-elevation-3"
+        },
+        {
+          "name": "sys-elevation-4",
+          "value": "{sys-depth-elevation-4}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-depth-elevation-4"
+        },
+        {
+          "name": "sys-elevation-card",
+          "value": "{sys-elevation-1}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-1"
+        },
+        {
+          "name": "sys-elevation-card-hover",
+          "value": "{sys-elevation-3}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-3"
+        },
+        {
+          "name": "sys-elevation-control",
+          "value": "{sys-elevation-1}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-1"
+        },
+        {
+          "name": "sys-elevation-floating",
+          "value": "{sys-elevation-2}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-2"
+        },
+        {
+          "name": "sys-elevation-modal",
+          "value": "{sys-elevation-4}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-4"
+        },
+        {
+          "name": "sys-elevation-popover",
+          "value": "{sys-elevation-3}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-3"
+        },
+        {
+          "name": "sys-elevation-sheet",
+          "value": "{sys-elevation-4}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-4"
+        },
+        {
+          "name": "sys-elevation-toast",
+          "value": "{sys-elevation-3}",
+          "type": "shadow",
+          "sourceFile": "packages/tokens/source/primitives/elevation.tokens.json",
+          "reference": "sys-elevation-3"
+        }
+      ]
+    },
+    {
+      "name": "Iconography",
+      "slug": "iconography",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json",
+      "purpose": "Turn the Iconography foundation and Material Symbols library into implementation-ready icon names, sizes, colors, labels, and fallback behavior.",
+      "governingFoundations": [
+        "Iconography",
+        "Symbol",
+        "Accessibility",
+        "State",
+        "Energy"
+      ],
+      "coordinatesPrimitives": [
+        "Library Sources",
+        "Density",
+        "Focus",
+        "Disabled"
+      ],
+      "tokenDependencies": [
+        "ref.symbol.*",
+        "sys.iconography.*",
+        "sys.symbol.*",
+        "sys.accessibility.*",
+        "sys.state.*",
+        "sys.energy.*",
+        "library.*",
+        "density.*",
+        "focus.*",
+        "disabled.*",
+        "icon.*",
+        "Material Symbols Rounded"
+      ],
+      "roles": [
+        {
+          "id": "action",
+          "token": "icon.action",
+          "use": "Action buttons, quick actions, toolbars."
+        },
+        {
+          "id": "navigation",
+          "token": "icon.navigation",
+          "use": "Topbar, drawers, breadcrumbs, tabs."
+        },
+        {
+          "id": "status",
+          "token": "icon.status",
+          "use": "Success, warning, error, pending."
+        },
+        {
+          "id": "object",
+          "token": "icon.object",
+          "use": "Vehicle, card, route, station, driver."
+        },
+        {
+          "id": "decorative",
+          "token": "icon.decorative",
+          "use": "Hidden support glyphs with aria-hidden."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/iconography.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/iconography.ts"
+      ],
+      "p0RuntimeRequired": false,
+      "policyPrimitive": true,
+      "status": "typed-policy-contract",
+      "matchingTokenCount": 48,
+      "matchingTokenPrefixes": {
+        "sys-icon": 24,
+        "sys-iconography": 24
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-iconography-family",
+          "value": "{sys-symbol-family}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-family"
+        },
+        {
+          "name": "sys-iconography-variation-filled",
+          "value": "{sys-symbol-variation-filled}",
+          "type": "fontVariationSettings",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-variation-filled"
+        },
+        {
+          "name": "sys-iconography-variation-filled-strong",
+          "value": "{sys-symbol-variation-filled-strong}",
+          "type": "fontVariationSettings",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-variation-filled-strong"
+        },
+        {
+          "name": "sys-iconography-variation-outline-strong",
+          "value": "{sys-symbol-variation-outline-strong}",
+          "type": "fontVariationSettings",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-variation-outline-strong"
+        },
+        {
+          "name": "sys-iconography-size-sm",
+          "value": "{sys-symbol-size-sm}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-sm"
+        },
+        {
+          "name": "sys-iconography-size-sm-plus",
+          "value": "{sys-symbol-size-sm-plus}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-sm-plus"
+        },
+        {
+          "name": "sys-iconography-size-md",
+          "value": "{sys-symbol-size-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-md"
+        },
+        {
+          "name": "sys-iconography-size-md-plus",
+          "value": "{sys-symbol-size-md-plus}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-md-plus"
+        },
+        {
+          "name": "sys-iconography-size-lg",
+          "value": "{sys-symbol-size-lg}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-lg"
+        },
+        {
+          "name": "sys-iconography-size-lg-plus",
+          "value": "{sys-symbol-size-lg-plus}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-lg-plus"
+        },
+        {
+          "name": "sys-iconography-size-marker",
+          "value": "{sys-symbol-size-marker}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-marker"
+        },
+        {
+          "name": "sys-iconography-size-station",
+          "value": "{sys-symbol-size-station}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-station"
+        },
+        {
+          "name": "sys-iconography-size-display-sm",
+          "value": "{sys-symbol-size-display-sm}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-display-sm"
+        },
+        {
+          "name": "sys-iconography-size-display-md",
+          "value": "{sys-symbol-size-display-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-size-display-md"
+        },
+        {
+          "name": "sys-iconography-color-action",
+          "value": "{sys-symbol-color-action}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-color-action"
+        },
+        {
+          "name": "sys-iconography-color-navigation",
+          "value": "{sys-symbol-color-muted}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-color-muted"
+        },
+        {
+          "name": "sys-iconography-color-status",
+          "value": "{sys-symbol-color-status}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-color-status"
+        },
+        {
+          "name": "sys-iconography-color-warning",
+          "value": "{sys-symbol-color-warning}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-color-warning"
+        },
+        {
+          "name": "sys-iconography-color-danger",
+          "value": "{sys-symbol-color-danger}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-color-danger"
+        },
+        {
+          "name": "sys-iconography-color-muted",
+          "value": "{sys-symbol-color-muted}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-symbol-color-muted"
+        },
+        {
+          "name": "sys-iconography-color-disabled",
+          "value": "color-mix(in srgb, var(--sys-energy-text-tertiary) 58%, transparent)",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-iconography-touch-target-min",
+          "value": "{sys-a11y-touch-target-min}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-a11y-touch-target-min"
+        },
+        {
+          "name": "sys-iconography-focus-ring",
+          "value": "{sys-a11y-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-a11y-focus-ring"
+        },
+        {
+          "name": "sys-iconography-focus-offset",
+          "value": "{sys-a11y-focus-offset}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
+          "reference": "sys-a11y-focus-offset"
+        },
+        {
+          "name": "sys-icon-color-action",
+          "value": "{sys-iconography-color-action}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-action"
+        },
+        {
+          "name": "sys-icon-color-danger",
+          "value": "{sys-iconography-color-danger}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-danger"
+        },
+        {
+          "name": "sys-icon-color-disabled",
+          "value": "{sys-iconography-color-disabled}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-disabled"
+        },
+        {
+          "name": "sys-icon-color-muted",
+          "value": "{sys-iconography-color-muted}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-muted"
+        },
+        {
+          "name": "sys-icon-color-navigation",
+          "value": "{sys-iconography-color-navigation}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-navigation"
+        },
+        {
+          "name": "sys-icon-color-status",
+          "value": "{sys-iconography-color-status}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-status"
+        },
+        {
+          "name": "sys-icon-color-warning",
+          "value": "{sys-iconography-color-warning}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-color-warning"
+        },
+        {
+          "name": "sys-icon-family",
+          "value": "{sys-iconography-family}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-family"
+        },
+        {
+          "name": "sys-icon-focus-offset",
+          "value": "{sys-iconography-focus-offset}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-focus-offset"
+        },
+        {
+          "name": "sys-icon-focus-ring",
+          "value": "{sys-iconography-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-focus-ring"
+        },
+        {
+          "name": "sys-icon-size-display-md",
+          "value": "{sys-iconography-size-display-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-display-md"
+        },
+        {
+          "name": "sys-icon-size-display-sm",
+          "value": "{sys-iconography-size-display-sm}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-display-sm"
+        },
+        {
+          "name": "sys-icon-size-lg",
+          "value": "{sys-iconography-size-lg}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-lg"
+        },
+        {
+          "name": "sys-icon-size-lg-plus",
+          "value": "{sys-iconography-size-lg-plus}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-lg-plus"
+        },
+        {
+          "name": "sys-icon-size-marker",
+          "value": "{sys-iconography-size-marker}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-marker"
+        },
+        {
+          "name": "sys-icon-size-md",
+          "value": "{sys-iconography-size-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-md"
+        },
+        {
+          "name": "sys-icon-size-md-plus",
+          "value": "{sys-iconography-size-md-plus}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-md-plus"
+        },
+        {
+          "name": "sys-icon-size-sm",
+          "value": "{sys-iconography-size-sm}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-sm"
+        },
+        {
+          "name": "sys-icon-size-sm-plus",
+          "value": "{sys-iconography-size-sm-plus}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-sm-plus"
+        },
+        {
+          "name": "sys-icon-size-station",
+          "value": "{sys-iconography-size-station}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-size-station"
+        },
+        {
+          "name": "sys-icon-touch-target-min",
+          "value": "{sys-iconography-touch-target-min}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-touch-target-min"
+        },
+        {
+          "name": "sys-icon-variation-filled",
+          "value": "{sys-iconography-variation-filled}",
+          "type": "fontVariationSettings",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-variation-filled"
+        },
+        {
+          "name": "sys-icon-variation-filled-strong",
+          "value": "{sys-iconography-variation-filled-strong}",
+          "type": "fontVariationSettings",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-variation-filled-strong"
+        },
+        {
+          "name": "sys-icon-variation-outline-strong",
+          "value": "{sys-iconography-variation-outline-strong}",
+          "type": "fontVariationSettings",
+          "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
+          "reference": "sys-iconography-variation-outline-strong"
+        }
+      ]
+    },
+    {
+      "name": "Library Sources",
+      "slug": "library-sources",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/library-sources.json",
+      "purpose": "Govern the approved third-party and open-source visual/runtime libraries that enter Flow so components, patterns, templates, and docs consume primitive APIs instead of duplicating vendors, drawing assets ad hoc, or fetching uncontrolled sources.",
+      "governingFoundations": [
+        "Symbol",
+        "Iconography",
+        "Accessibility",
+        "Momentum",
+        "Energy",
+        "Frame"
+      ],
+      "coordinatesPrimitives": [
+        "Iconography",
+        "Country Flags",
+        "Animation Assets",
+        "Illustration Assets",
+        "Charts",
+        "Maps"
+      ],
+      "tokenDependencies": [
+        "library.*",
+        "sys.symbol.*",
+        "sys.iconography.*",
+        "sys.accessibility.*",
+        "sys.momentum.*",
+        "sys.energy.*",
+        "sys.frame.*",
+        "icon.*",
+        "countryFlag.*",
+        "animationAsset.*",
+        "illustration.*",
+        "chart.*",
+        "map.*"
+      ],
+      "roles": [
+        {
+          "id": "source",
+          "token": "library.source",
+          "use": "Approved package or local vendor source with license and ownership."
+        },
+        {
+          "id": "runtime",
+          "token": "library.runtime",
+          "use": "Browser/runtime bridge used by docs and package demos without remote CDN dependence."
+        },
+        {
+          "id": "license",
+          "token": "library.license",
+          "use": "License evidence required before a source can enter Flow."
+        },
+        {
+          "id": "primitive-api",
+          "token": "library.primitiveApi",
+          "use": "The only API components and patterns may consume for that library family."
+        },
+        {
+          "id": "fallback",
+          "token": "library.fallback",
+          "use": "Accessible non-library fallback for failed or reduced environments."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/library-sources.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/library-sources.ts"
+      ],
+      "p0RuntimeRequired": false,
+      "policyPrimitive": true,
+      "status": "typed-policy-contract",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Country Flags",
+      "slug": "country-flags",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json",
+      "purpose": "Turn country-flag-icons MIT assets into implementation-ready country identity, circular flag masks, accessible labels, asset paths, and fallback behavior.",
+      "governingFoundations": [
+        "Iconography",
+        "Symbol",
+        "Accessibility",
+        "Energy",
+        "Frame"
+      ],
+      "coordinatesPrimitives": [
+        "Library Sources",
+        "Iconography",
+        "Radius",
+        "Spacing"
+      ],
+      "tokenDependencies": [
+        "countryFlag.*",
+        "library.*",
+        "sys.iconography.*",
+        "sys.symbol.*",
+        "sys.accessibility.*",
+        "sys.energy.*",
+        "sys.frame.*",
+        "icon.*",
+        "radius.*",
+        "spacing.*",
+        "country-flag-icons"
+      ],
+      "roles": [
+        {
+          "id": "asset",
+          "token": "countryFlag.asset",
+          "use": "Library-backed flag image for country selectors and phone inputs."
+        },
+        {
+          "id": "mask",
+          "token": "countryFlag.mask",
+          "use": "Circular visual treatment governed by component radius and frame."
+        },
+        {
+          "id": "identity",
+          "token": "countryFlag.identity",
+          "use": "Country code, country name, calling code, and selected state."
+        },
+        {
+          "id": "fallback",
+          "token": "countryFlag.fallback",
+          "use": "Text fallback when an asset cannot load."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/country-flags.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/country-flags.ts"
+      ],
+      "p0RuntimeRequired": false,
+      "policyPrimitive": true,
+      "status": "typed-policy-contract",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Animation Assets",
+      "slug": "animation-assets",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+      "purpose": "Turn lottie-web and Lottie-compatible assets into implementation-ready playback, static fallback, reduced-motion policy, lifecycle controls, and accessibility labels.",
+      "governingFoundations": [
+        "Momentum",
+        "Accessibility",
+        "Symbol",
+        "Energy",
+        "Frame"
+      ],
+      "coordinatesPrimitives": [
+        "Library Sources",
+        "Duration",
+        "Motion Curves",
+        "Loading"
+      ],
+      "tokenDependencies": [
+        "animationAsset.*",
+        "library.*",
+        "duration.*",
+        "motionCurve.*",
+        "loading.*",
+        "sys.momentum.*",
+        "sys.accessibility.*",
+        "sys.symbol.*",
+        "sys.energy.*",
+        "sys.frame.*",
+        "lottie-web"
+      ],
+      "roles": [
+        {
+          "id": "runtime",
+          "token": "animationAsset.runtime",
+          "use": "Library-backed lottie-web renderer and lifecycle bridge."
+        },
+        {
+          "id": "source",
+          "token": "animationAsset.source",
+          "use": "JSON path or animation data reference owned outside bounded components."
+        },
+        {
+          "id": "fallback",
+          "token": "animationAsset.fallback",
+          "use": "Static icon and text fallback when runtime, asset, or motion permission is unavailable."
+        },
+        {
+          "id": "lifecycle",
+          "token": "animationAsset.lifecycle",
+          "use": "Play, pause, complete, disabled, and reduced-motion states."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/animation-assets.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/animation-assets.ts"
+      ],
+      "p0RuntimeRequired": false,
+      "policyPrimitive": true,
+      "status": "typed-policy-contract",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Illustration Assets",
+      "slug": "illustration-assets",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets.json",
+      "purpose": "Turn approved free illustration sources into Flow-owned image assets for purpose, format, theme, accessibility labels, density, responsive framing, and fallback behavior.",
+      "governingFoundations": [
+        "Symbol",
+        "Accessibility",
+        "Energy",
+        "Frame",
+        "Voice"
+      ],
+      "coordinatesPrimitives": [
+        "Library Sources",
+        "Animation Assets",
+        "Iconography",
+        "Density",
+        "Breakpoints"
+      ],
+      "tokenDependencies": [
+        "illustration.*",
+        "library.*",
+        "sys.symbol.*",
+        "sys.energy.*",
+        "sys.frame.*",
+        "sys.voice.*",
+        "sys.accessibility.*"
+      ],
+      "roles": [
+        {
+          "id": "source",
+          "token": "illustration.source.*",
+          "use": "Approved source, license, attribution, and redistribution boundaries."
+        },
+        {
+          "id": "format",
+          "token": "illustration.format.*",
+          "use": "PNG, SVG, GIF, or static fallback selection by product context."
+        },
+        {
+          "id": "purpose",
+          "token": "illustration.purpose.*",
+          "use": "Decorative, informative, onboarding, empty, hero, or guidance role."
+        },
+        {
+          "id": "theme",
+          "token": "illustration.theme.*",
+          "use": "Light, dark, high-contrast, and quiet-mode asset switching."
+        },
+        {
+          "id": "fallback",
+          "token": "illustration.fallback.*",
+          "use": "Fallback copy or symbol when an image cannot load."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/illustration-assets.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/illustration-assets.ts"
+      ],
+      "p0RuntimeRequired": false,
+      "policyPrimitive": true,
+      "status": "typed-policy-contract",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Motion Curves",
+      "slug": "motion-curves",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/motion-curves.json",
+      "purpose": "Turn Momentum easing roles into implementation-ready curves for touch feedback, enter and exit lifecycle motion, move/morph transitions, and linear loading.",
+      "governingFoundations": [
+        "Momentum",
+        "State",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Duration",
+        "Loading"
+      ],
+      "tokenDependencies": [
+        "ref.momentum.easing.*",
+        "sys.momentum.easing.*",
+        "duration.*",
+        "loading.*",
+        "motion.curve.*"
+      ],
+      "roles": [
+        {
+          "id": "touch",
+          "token": "motion.curve.touch",
+          "use": "Controls people touch: hover, press, focus, toggle, and quick feedback."
+        },
+        {
+          "id": "enter",
+          "token": "motion.curve.enter",
+          "use": "Sheets, drawers, menus entering."
+        },
+        {
+          "id": "exit",
+          "token": "motion.curve.exit",
+          "use": "Sheets, drawers, menus, dialogs, and temporary surfaces leaving."
+        },
+        {
+          "id": "move",
+          "token": "motion.curve.move",
+          "use": "Movement, morphing, and layout continuity."
+        },
+        {
+          "id": "standard",
+          "token": "motion.curve.standard",
+          "use": "Alias for touch during migration; do not choose it as a separate style."
+        },
+        {
+          "id": "linear",
+          "token": "motion.curve.linear",
+          "use": "Continuous loading or progress movement."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/motion-curves.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 6,
+      "matchingTokenPrefixes": {
+        "sys-motion": 6
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-motion-curve-enter",
+          "value": "{sys-momentum-easing-enter}",
+          "type": "cubicBezier",
+          "sourceFile": "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "reference": "sys-momentum-easing-enter"
+        },
+        {
+          "name": "sys-motion-curve-exit",
+          "value": "{sys-momentum-easing-exit}",
+          "type": "cubicBezier",
+          "sourceFile": "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "reference": "sys-momentum-easing-exit"
+        },
+        {
+          "name": "sys-motion-curve-linear",
+          "value": "{sys-momentum-easing-linear}",
+          "type": "cubicBezier",
+          "sourceFile": "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "reference": "sys-momentum-easing-linear"
+        },
+        {
+          "name": "sys-motion-curve-move",
+          "value": "{sys-momentum-easing-move}",
+          "type": "cubicBezier",
+          "sourceFile": "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "reference": "sys-momentum-easing-move"
+        },
+        {
+          "name": "sys-motion-curve-standard",
+          "value": "{sys-momentum-easing-standard}",
+          "type": "cubicBezier",
+          "sourceFile": "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "reference": "sys-momentum-easing-standard"
+        },
+        {
+          "name": "sys-motion-curve-touch",
+          "value": "{sys-momentum-easing-touch}",
+          "type": "cubicBezier",
+          "sourceFile": "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "reference": "sys-momentum-easing-touch"
+        }
+      ]
+    },
+    {
+      "name": "Duration",
+      "slug": "duration",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/duration.json",
+      "purpose": "Turn Momentum timing roles into implementation-ready durations for instant, touch, base, slow, loading, and reduced-motion feedback.",
+      "governingFoundations": [
+        "Momentum",
+        "State",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Motion Curves",
+        "Loading"
+      ],
+      "tokenDependencies": [
+        "ref.momentum.duration.*",
+        "sys.momentum.duration.*",
+        "motionCurve.*",
+        "loading.*",
+        "duration.*"
+      ],
+      "roles": [
+        {
+          "id": "instant",
+          "token": "duration.instant",
+          "use": "Critical state and reduced motion."
+        },
+        {
+          "id": "touch",
+          "token": "duration.touch",
+          "use": "Hover, press, focus, toggle, and direct manipulation feedback."
+        },
+        {
+          "id": "base",
+          "token": "duration.base",
+          "use": "Expansion, reveal, tabs, filters, and local panel changes."
+        },
+        {
+          "id": "fast",
+          "token": "duration.fast",
+          "use": "Alias for touch during migration; do not choose it as a separate timing style."
+        },
+        {
+          "id": "slow",
+          "token": "duration.slow",
+          "use": "Sheets, drawers, route transitions."
+        },
+        {
+          "id": "cycle",
+          "token": "duration.cycle",
+          "use": "Continuous loading cycles."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/duration.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 17,
+      "matchingTokenPrefixes": {
+        "sys-duration": 17
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-duration-base",
+          "value": "{sys-momentum-duration-default}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-default"
+        },
+        {
+          "name": "sys-duration-cycle",
+          "value": "{sys-momentum-duration-loop}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-loop"
+        },
+        {
+          "name": "sys-duration-enter",
+          "value": "{sys-momentum-duration-enter}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-enter"
+        },
+        {
+          "name": "sys-duration-fast",
+          "value": "{sys-momentum-duration-fast}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-fast"
+        },
+        {
+          "name": "sys-duration-instant",
+          "value": "{sys-momentum-duration-instant}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-instant"
+        },
+        {
+          "name": "sys-duration-loading-cycle",
+          "value": "{sys-momentum-duration-loading-cycle}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-loading-cycle"
+        },
+        {
+          "name": "sys-duration-loading-spin",
+          "value": "{sys-momentum-duration-loading-spin}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-loading-spin"
+        },
+        {
+          "name": "sys-duration-medium",
+          "value": "{sys-momentum-duration-medium}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-medium"
+        },
+        {
+          "name": "sys-duration-overlay",
+          "value": "{sys-momentum-duration-overlay}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-overlay"
+        },
+        {
+          "name": "sys-duration-press",
+          "value": "{sys-momentum-duration-press}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-press"
+        },
+        {
+          "name": "sys-duration-progress",
+          "value": "{sys-momentum-duration-progress}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-progress"
+        },
+        {
+          "name": "sys-duration-pulse",
+          "value": "{sys-momentum-duration-pulse}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-pulse"
+        },
+        {
+          "name": "sys-duration-reveal",
+          "value": "{sys-momentum-duration-reveal}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-reveal"
+        },
+        {
+          "name": "sys-duration-sheet",
+          "value": "{sys-momentum-duration-sheet}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-sheet"
+        },
+        {
+          "name": "sys-duration-slow",
+          "value": "{sys-momentum-duration-slow}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-slow"
+        },
+        {
+          "name": "sys-duration-snappy",
+          "value": "{sys-momentum-duration-snappy}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-snappy"
+        },
+        {
+          "name": "sys-duration-touch",
+          "value": "{sys-momentum-duration-touch}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/duration.tokens.json",
+          "reference": "sys-momentum-duration-touch"
+        }
+      ]
+    },
+    {
+      "name": "Breakpoints",
+      "slug": "breakpoints",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json",
+      "purpose": "Turn Frame responsive roles into implementation-ready content-driven breakpoints for mobile, tablet, laptop, and desktop.",
+      "governingFoundations": [
+        "Frame",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Density",
+        "Spacing"
+      ],
+      "tokenDependencies": [
+        "ref.frame.breakpoint.*",
+        "sys.frame.grid.*",
+        "breakpoint.*"
+      ],
+      "roles": [
+        {
+          "id": "mobile",
+          "token": "breakpoint.mobile",
+          "use": "Driver app, sheets, stacked actions."
+        },
+        {
+          "id": "tablet",
+          "token": "breakpoint.tablet",
+          "use": "Inspector layouts and split review."
+        },
+        {
+          "id": "laptop",
+          "token": "breakpoint.laptop",
+          "use": "Fleet manager default workstation."
+        },
+        {
+          "id": "desktop",
+          "token": "breakpoint.desktop",
+          "use": "Wide dashboards and dense tables."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/breakpoints.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 5,
+      "matchingTokenPrefixes": {
+        "sys-breakpoint": 5
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-breakpoint-desktop",
+          "value": "{sys-frame-breakpoint-lg}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/breakpoints.tokens.json",
+          "reference": "sys-frame-breakpoint-lg"
+        },
+        {
+          "name": "sys-breakpoint-laptop",
+          "value": "{sys-frame-breakpoint-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/breakpoints.tokens.json",
+          "reference": "sys-frame-breakpoint-md"
+        },
+        {
+          "name": "sys-breakpoint-mobile",
+          "value": "0px",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/breakpoints.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-breakpoint-tablet",
+          "value": "{sys-frame-breakpoint-sm}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/breakpoints.tokens.json",
+          "reference": "sys-frame-breakpoint-sm"
+        },
+        {
+          "name": "sys-breakpoint-wide",
+          "value": "{sys-frame-breakpoint-xl}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/breakpoints.tokens.json",
+          "reference": "sys-frame-breakpoint-xl"
+        }
+      ]
+    },
+    {
+      "name": "Density",
+      "slug": "density",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/density.json",
+      "purpose": "Declare surface-level scale and coordinate spacing, typography, iconography, focus, loading, disabled, and breakpoint behavior before components render.",
+      "governingFoundations": [
+        "Frame",
+        "Accessibility",
+        "Voice"
+      ],
+      "coordinatesPrimitives": [
+        "Spacing",
+        "Typography",
+        "Iconography",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Breakpoints",
+        "Radius"
+      ],
+      "tokenDependencies": [
+        "sys.frame.*",
+        "sys.voice.*",
+        "sys.accessibility.*",
+        "spacing.*",
+        "typography.*",
+        "icon.*",
+        "focus.*",
+        "loading.*",
+        "disabled.*",
+        "breakpoint.*",
+        "radius.*",
+        "density.sm/md/lg"
+      ],
+      "roles": [
+        {
+          "id": "sm",
+          "token": "density.sm",
+          "use": "Dense operations and data tables with efficient rhythm, readable type, clear grouping, and protected targets."
+        },
+        {
+          "id": "md",
+          "token": "density.md",
+          "use": "Standard product rhythm."
+        },
+        {
+          "id": "lg",
+          "token": "density.lg",
+          "use": "Touch-heavy mobile, high-focus review, TV-like dashboards, and distance-friendly reading."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/density.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 44,
+      "matchingTokenPrefixes": {
+        "sys-density": 22,
+        "density-doc": 10,
+        "density-control": 3,
+        "density-component": 2,
+        "density-card": 1,
+        "density-page": 1,
+        "density-panel": 1,
+        "density-row": 1,
+        "density-section": 1,
+        "density-subsection": 1,
+        "density-surface": 1
+      },
+      "matchingTokens": [
+        {
+          "name": "density-doc-body-line-height",
+          "value": "{sys-density-doc-body-line-height}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-body-line-height"
+        },
+        {
+          "name": "density-doc-body-size",
+          "value": "{sys-density-doc-body-size}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-body-size"
+        },
+        {
+          "name": "density-doc-card-body-size",
+          "value": "{sys-density-doc-card-body-size}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-card-body-size"
+        },
+        {
+          "name": "density-doc-card-min-block",
+          "value": "{sys-density-doc-card-min-block}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-card-min-block"
+        },
+        {
+          "name": "density-doc-card-title-size",
+          "value": "{sys-density-doc-card-title-size}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-card-title-size"
+        },
+        {
+          "name": "density-doc-example-min-block",
+          "value": "{sys-density-doc-example-min-block}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-example-min-block"
+        },
+        {
+          "name": "density-doc-heading-line-height",
+          "value": "{sys-density-doc-heading-line-height}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-heading-line-height"
+        },
+        {
+          "name": "density-doc-heading-size",
+          "value": "{sys-density-doc-heading-size}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-heading-size"
+        },
+        {
+          "name": "density-doc-label-size",
+          "value": "{sys-density-doc-label-size}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-label-size"
+        },
+        {
+          "name": "density-doc-subheading-size",
+          "value": "{sys-density-doc-subheading-size}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-density-doc-subheading-size"
+        },
+        {
+          "name": "sys-density-doc-body-line-height",
+          "value": "{sys-voice-line-height-relaxed}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-line-height-relaxed"
+        },
+        {
+          "name": "sys-density-doc-body-size",
+          "value": "{sys-voice-size-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-size-6"
+        },
+        {
+          "name": "sys-density-doc-card-body-size",
+          "value": "{sys-voice-size-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-size-6"
+        },
+        {
+          "name": "sys-density-doc-card-min-block",
+          "value": "calc(var(--sys-density-row-height) * 2)",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-density-doc-card-title-size",
+          "value": "{sys-voice-size-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-size-6"
+        },
+        {
+          "name": "sys-density-doc-example-min-block",
+          "value": "calc(var(--sys-density-row-height) * 3)",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-density-doc-heading-line-height",
+          "value": "{sys-voice-line-height-tight}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-line-height-tight"
+        },
+        {
+          "name": "sys-density-doc-heading-size",
+          "value": "{sys-voice-size-10}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-size-10"
+        },
+        {
+          "name": "sys-density-doc-label-size",
+          "value": "{sys-voice-size-3}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-size-3"
+        },
+        {
+          "name": "sys-density-doc-subheading-size",
+          "value": "{sys-voice-size-9}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/docs/docs-only.tokens.json",
+          "reference": "sys-voice-size-9"
+        },
+        {
+          "name": "density-card-padding",
+          "value": "{sys-density-card-padding}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-card-padding"
+        },
+        {
+          "name": "density-component-gap",
+          "value": "{sys-density-component-gap}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-component-gap"
+        },
+        {
+          "name": "density-component-gap-lg",
+          "value": "{sys-density-component-gap-lg}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-component-gap-lg"
+        },
+        {
+          "name": "density-control-height",
+          "value": "{sys-density-control-height}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-control-height"
+        },
+        {
+          "name": "density-control-padding-x",
+          "value": "{sys-density-control-padding-x}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-control-padding-x"
+        },
+        {
+          "name": "density-control-padding-y",
+          "value": "{sys-density-control-padding-y}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-control-padding-y"
+        },
+        {
+          "name": "density-page-gap",
+          "value": "{sys-density-page-gap}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-page-gap"
+        },
+        {
+          "name": "density-panel-padding",
+          "value": "{sys-density-panel-padding}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-panel-padding"
+        },
+        {
+          "name": "density-row-height",
+          "value": "{sys-density-row-height}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-row-height"
+        },
+        {
+          "name": "density-section-gap",
+          "value": "{sys-density-section-gap}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-section-gap"
+        },
+        {
+          "name": "density-subsection-gap",
+          "value": "{sys-density-subsection-gap}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-subsection-gap"
+        },
+        {
+          "name": "density-surface-padding",
+          "value": "{sys-density-surface-padding}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-density-surface-padding"
+        },
+        {
+          "name": "sys-density-card-padding",
+          "value": "{sys-space-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-6"
+        },
+        {
+          "name": "sys-density-component-gap",
+          "value": "{sys-space-5}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-5"
+        },
+        {
+          "name": "sys-density-component-gap-lg",
+          "value": "{sys-space-7}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-7"
+        },
+        {
+          "name": "sys-density-control-height",
+          "value": "{ref-frame-height-control-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "ref-frame-height-control-md"
+        },
+        {
+          "name": "sys-density-control-padding-x",
+          "value": "{sys-space-5}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-5"
+        },
+        {
+          "name": "sys-density-control-padding-y",
+          "value": "{sys-space-3}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-3"
+        },
+        {
+          "name": "sys-density-page-gap",
+          "value": "{sys-space-20}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-20"
+        },
+        {
+          "name": "sys-density-panel-padding",
+          "value": "{sys-space-6}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-6"
+        },
+        {
+          "name": "sys-density-row-height",
+          "value": "{ref-frame-height-control-md}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "ref-frame-height-control-md"
+        },
+        {
+          "name": "sys-density-section-gap",
+          "value": "{sys-space-16}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-16"
+        },
+        {
+          "name": "sys-density-subsection-gap",
+          "value": "{sys-space-9}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-9"
+        },
+        {
+          "name": "sys-density-surface-padding",
+          "value": "{sys-space-12}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/density.tokens.json",
+          "reference": "sys-space-12"
+        }
+      ]
+    },
+    {
+      "name": "Focus",
+      "slug": "focus",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/focus.json",
+      "purpose": "Turn Accessibility and State focus rules into implementation-ready focus rings, order, restore, trap, skip, and roving behavior.",
+      "governingFoundations": [
+        "Accessibility",
+        "State",
+        "Frame"
+      ],
+      "coordinatesPrimitives": [
+        "Disabled",
+        "Radius",
+        "Spacing",
+        "Motion Curves"
+      ],
+      "tokenDependencies": [
+        "sys.accessibility.focus.*",
+        "sys.state.focus.*",
+        "disabled.*",
+        "radius.*",
+        "spacing.*",
+        "motionCurve.*",
+        "focus.*"
+      ],
+      "roles": [
+        {
+          "id": "visible",
+          "token": "focus.visible",
+          "use": "Keyboard-visible focus ring."
+        },
+        {
+          "id": "restore",
+          "token": "focus.restore",
+          "use": "Return focus after dialogs, sheets, menus."
+        },
+        {
+          "id": "trap",
+          "token": "focus.trap",
+          "use": "Modal and blocking surfaces."
+        },
+        {
+          "id": "roving",
+          "token": "focus.roving",
+          "use": "Menus, tabs, grids, table-like controls."
+        },
+        {
+          "id": "skip",
+          "token": "focus.skip",
+          "use": "Skip navigation and map/list fallback."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/focus.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 8,
+      "matchingTokenPrefixes": {
+        "sys-focus": 8
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-focus-restore-ring",
+          "value": "{sys-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-focus-ring"
+        },
+        {
+          "name": "sys-focus-ring",
+          "value": "{sys-accessibility-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-accessibility-focus-ring"
+        },
+        {
+          "name": "sys-focus-ring-offset",
+          "value": "{sys-accessibility-focus-offset}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-accessibility-focus-offset"
+        },
+        {
+          "name": "sys-focus-roving-ring",
+          "value": "{sys-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-focus-ring"
+        },
+        {
+          "name": "sys-focus-skip-target-offset",
+          "value": "{sys-frame-gap-component}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-frame-gap-component"
+        },
+        {
+          "name": "sys-focus-trap-z-index",
+          "value": "{sys-depth-z-dialog}",
+          "type": "zIndex",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-depth-z-dialog"
+        },
+        {
+          "name": "sys-focus-visible-offset",
+          "value": "{sys-focus-ring-offset}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-focus-ring-offset"
+        },
+        {
+          "name": "sys-focus-visible-ring",
+          "value": "{sys-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
+          "reference": "sys-focus-ring"
+        }
+      ]
+    },
+    {
+      "name": "Loading",
+      "slug": "loading",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/loading.json",
+      "purpose": "Turn State and Momentum loading roles into implementation-ready skeleton, stale, sync, progress, busy, and optimistic patterns.",
+      "governingFoundations": [
+        "State",
+        "Momentum",
+        "Tone",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Duration",
+        "Motion Curves",
+        "Disabled",
+        "Focus"
+      ],
+      "tokenDependencies": [
+        "sys.state.loading.*",
+        "sys.momentum.*",
+        "duration.*",
+        "motionCurve.*",
+        "disabled.*",
+        "focus.*",
+        "loading.*"
+      ],
+      "roles": [
+        {
+          "id": "skeleton",
+          "token": "loading.skeleton",
+          "use": "Unknown content shape during fetch."
+        },
+        {
+          "id": "stale",
+          "token": "loading.stale",
+          "use": "Showing old data while refreshing."
+        },
+        {
+          "id": "sync",
+          "token": "loading.sync",
+          "use": "Background updates and pending changes."
+        },
+        {
+          "id": "progress",
+          "token": "loading.progress",
+          "use": "Known-duration import/upload/setup."
+        },
+        {
+          "id": "busy",
+          "token": "aria-busy",
+          "use": "Assistive announcement of pending state."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/loading.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 14,
+      "matchingTokenPrefixes": {
+        "sys-loading": 14
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-loading-busy-cursor",
+          "value": "progress",
+          "type": "content",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-loading-cycle-duration",
+          "value": "{sys-momentum-duration-loading-cycle}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-momentum-duration-loading-cycle"
+        },
+        {
+          "name": "sys-loading-easing-linear",
+          "value": "{sys-momentum-easing-linear}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-momentum-easing-linear"
+        },
+        {
+          "name": "sys-loading-easing-rhythm",
+          "value": "{sys-momentum-easing-move}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-momentum-easing-move"
+        },
+        {
+          "name": "sys-loading-progress-duration",
+          "value": "{sys-momentum-duration-progress}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-momentum-duration-progress"
+        },
+        {
+          "name": "sys-loading-progress-fill",
+          "value": "{sys-energy-action-primary}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-energy-action-primary"
+        },
+        {
+          "name": "sys-loading-progress-track",
+          "value": "{sys-energy-border-default}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-energy-border-default"
+        },
+        {
+          "name": "sys-loading-pulse-duration",
+          "value": "{sys-momentum-duration-pulse}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-momentum-duration-pulse"
+        },
+        {
+          "name": "sys-loading-skeleton-highlight",
+          "value": "{sys-energy-border-default}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-energy-border-default"
+        },
+        {
+          "name": "sys-loading-skeleton-surface",
+          "value": "{sys-energy-surface-sunken}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-energy-surface-sunken"
+        },
+        {
+          "name": "sys-loading-spin-duration",
+          "value": "{sys-momentum-duration-loading-spin}",
+          "type": "duration",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-momentum-duration-loading-spin"
+        },
+        {
+          "name": "sys-loading-spinner-tone",
+          "value": "{sys-energy-action-primary}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-energy-action-primary"
+        },
+        {
+          "name": "sys-loading-spinner-track",
+          "value": "{sys-energy-border-default}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-energy-border-default"
+        },
+        {
+          "name": "sys-loading-stale-opacity",
+          "value": "{sys-state-closed-opacity}",
+          "type": "opacity",
+          "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
+          "reference": "sys-state-closed-opacity"
+        }
+      ]
+    },
+    {
+      "name": "Disabled",
+      "slug": "disabled",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+      "purpose": "Turn State, Tone, and Accessibility disabled rules into unavailable, permission-blocked, offline-blocked, data-blocked, risk-blocked, and future-available semantics.",
+      "governingFoundations": [
+        "State",
+        "Tone",
+        "Accessibility",
+        "Energy"
+      ],
+      "coordinatesPrimitives": [
+        "Focus",
+        "Loading",
+        "Iconography"
+      ],
+      "tokenDependencies": [
+        "sys.state.disabled.*",
+        "sys.tone.*",
+        "focus.*",
+        "loading.*",
+        "icon.*",
+        "disabled.*"
+      ],
+      "roles": [
+        {
+          "id": "unavailable",
+          "token": "disabled.unavailable",
+          "use": "Temporarily not actionable."
+        },
+        {
+          "id": "permission",
+          "token": "disabled.permission",
+          "use": "Role or scope blocks action."
+        },
+        {
+          "id": "offline",
+          "token": "disabled.offline",
+          "use": "Network/data dependency unavailable."
+        },
+        {
+          "id": "risk",
+          "token": "disabled.risk",
+          "use": "High-risk action needs review or prerequisite."
+        },
+        {
+          "id": "future",
+          "token": "disabled.future",
+          "use": "Not yet available but intentionally visible."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/disabled.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 8,
+      "matchingTokenPrefixes": {
+        "sys-disabled": 8
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-disabled-border-color",
+          "value": "color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-disabled-cursor",
+          "value": "not-allowed",
+          "type": "content",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-disabled-icon-color",
+          "value": "{sys-icon-color-disabled}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": "sys-icon-color-disabled"
+        },
+        {
+          "name": "sys-disabled-opacity",
+          "value": "{sys-state-disabled-opacity}",
+          "type": "opacity",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": "sys-state-disabled-opacity"
+        },
+        {
+          "name": "sys-disabled-pointer-events",
+          "value": "none",
+          "type": "content",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-disabled-readable-opacity",
+          "value": "{sys-state-disabled-readable-opacity}",
+          "type": "opacity",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": "sys-state-disabled-readable-opacity"
+        },
+        {
+          "name": "sys-disabled-surface-opacity",
+          "value": "{sys-state-disabled-readable-opacity}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": "sys-state-disabled-readable-opacity"
+        },
+        {
+          "name": "sys-disabled-text-color",
+          "value": "{sys-energy-text-tertiary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/disabled.tokens.json",
+          "reference": "sys-energy-text-tertiary"
+        }
+      ]
+    },
+    {
+      "name": "Charts",
+      "slug": "charts",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/charts.json",
+      "purpose": "Turn Energy, Accessibility, Momentum, and data roles into implementation-ready ECharts primitives for series, thresholds, legends, summaries, tooltips, empty states, and drilldown.",
+      "governingFoundations": [
+        "Energy",
+        "Accessibility",
+        "Momentum",
+        "Voice",
+        "State"
+      ],
+      "coordinatesPrimitives": [
+        "Library Sources",
+        "Measurement",
+        "Message"
+      ],
+      "tokenDependencies": [
+        "chart.*",
+        "library.*",
+        "sys.energy.*",
+        "sys.momentum.*",
+        "sys.voice.*",
+        "sys.accessibility.*"
+      ],
+      "roles": [
+        {
+          "id": "series",
+          "token": "chart.series.*",
+          "use": "Data series color/shape/label mapping."
+        },
+        {
+          "id": "threshold",
+          "token": "chart.threshold.*",
+          "use": "Risk bands and operational limits."
+        },
+        {
+          "id": "legend",
+          "token": "chart.legend.*",
+          "use": "Toggleable, keyboard-reachable series control."
+        },
+        {
+          "id": "summary",
+          "token": "chart.summary",
+          "use": "Text explanation of chart meaning."
+        },
+        {
+          "id": "empty",
+          "token": "chart.empty",
+          "use": "No data with reason and next action."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/charts.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/charts.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Maps",
+      "slug": "maps",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/maps.json",
+      "purpose": "Turn map product rules into implementation-ready primitives for geolocation, permission, station pins, clusters, route lines, selected states, fallback lists, and errors.",
+      "governingFoundations": [
+        "Energy",
+        "Accessibility",
+        "Frame",
+        "Voice",
+        "Momentum",
+        "Depth",
+        "State"
+      ],
+      "coordinatesPrimitives": [
+        "Library Sources",
+        "Measurement",
+        "Message",
+        "Iconography",
+        "Breakpoints",
+        "Loading"
+      ],
+      "tokenDependencies": [
+        "map.*",
+        "library.*",
+        "sys.energy.*",
+        "sys.frame.*",
+        "sys.voice.*",
+        "sys.momentum.*",
+        "sys.depth.*",
+        "sys.accessibility.*"
+      ],
+      "roles": [
+        {
+          "id": "permission",
+          "token": "map.permission.*",
+          "use": "Granted, denied, prompt, unavailable states."
+        },
+        {
+          "id": "stationPin",
+          "token": "map.pin.station",
+          "use": "Station marker with status and selection."
+        },
+        {
+          "id": "routeLine",
+          "token": "map.route.line",
+          "use": "Route preview and alternatives."
+        },
+        {
+          "id": "cluster",
+          "token": "map.cluster",
+          "use": "Dense station groups."
+        },
+        {
+          "id": "fallbackList",
+          "token": "map.fallback.list",
+          "use": "Non-map access to same station/route information."
+        },
+        {
+          "id": "runtime",
+          "token": "map.runtime.*",
+          "use": "Open map engine, provider readiness, and non-map fallback state."
+        }
+      ],
+      "jsRuntimeFile": "packages/components/src/primitives/maps.js",
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/maps.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Message",
+      "slug": "message",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/message.json",
+      "purpose": "Turn Tone foundation roles into implementation-ready messaging primitives for intent, severity, anatomy, recovery, accessibility, localization, and UI mapping.",
+      "governingFoundations": [
+        "Tone",
+        "Voice",
+        "State",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Iconography",
+        "Measurement"
+      ],
+      "tokenDependencies": [
+        "sys.tone.*",
+        "sys.voice.*",
+        "sys.state.*",
+        "sys.accessibility.*",
+        "focus.*",
+        "loading.*",
+        "disabled.*",
+        "icon.*",
+        "measurement.*",
+        "message.*"
+      ],
+      "roles": [
+        {
+          "id": "intent",
+          "token": "message.intent.*",
+          "use": "Info, success, warning, danger, neutral, and assistive message purpose."
+        },
+        {
+          "id": "severity",
+          "token": "message.severity.*",
+          "use": "Low, medium, high, and blocking operational consequence."
+        },
+        {
+          "id": "anatomy",
+          "token": "message.anatomy.*",
+          "use": "Title, body, consequence, action, recovery, and support path."
+        },
+        {
+          "id": "announcement",
+          "token": "message.a11y.*",
+          "use": "Live region, alert, focus, and status behavior."
+        },
+        {
+          "id": "localization",
+          "token": "message.locale.*",
+          "use": "Length, clarity, ambiguity, and translation guardrails."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/message.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 16,
+      "matchingTokenPrefixes": {
+        "sys-message": 16
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-message-action-weight",
+          "value": "{sys-tone-assistive-weight}",
+          "type": "fontWeight",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-assistive-weight"
+        },
+        {
+          "name": "sys-message-alert-role",
+          "value": "alert",
+          "type": "content",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-message-body-font",
+          "value": "{sys-voice-family-body}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-voice-family-body"
+        },
+        {
+          "name": "sys-message-body-weight",
+          "value": "{sys-tone-neutral-weight}",
+          "type": "fontWeight",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-neutral-weight"
+        },
+        {
+          "name": "sys-message-focus-ring",
+          "value": "{sys-accessibility-focus-ring}",
+          "type": "unknown",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-accessibility-focus-ring"
+        },
+        {
+          "name": "sys-message-intent-assistive-color",
+          "value": "{sys-tone-assistive-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-assistive-color"
+        },
+        {
+          "name": "sys-message-intent-danger-color",
+          "value": "{sys-tone-repair-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-repair-color"
+        },
+        {
+          "name": "sys-message-intent-neutral-color",
+          "value": "{sys-tone-neutral-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-neutral-color"
+        },
+        {
+          "name": "sys-message-intent-success-color",
+          "value": "{sys-tone-confirm-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-confirm-color"
+        },
+        {
+          "name": "sys-message-intent-warning-color",
+          "value": "{sys-tone-urgent-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-urgent-color"
+        },
+        {
+          "name": "sys-message-live-role",
+          "value": "status",
+          "type": "content",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-message-locale-max-inline-size",
+          "value": "72ch",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-message-readable-line-height",
+          "value": "{sys-accessibility-readable-line-height}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-accessibility-readable-line-height"
+        },
+        {
+          "name": "sys-message-recovery-weight",
+          "value": "{sys-tone-repair-weight}",
+          "type": "fontWeight",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-repair-weight"
+        },
+        {
+          "name": "sys-message-title-font",
+          "value": "{sys-voice-family-title}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-voice-family-title"
+        },
+        {
+          "name": "sys-message-title-weight",
+          "value": "{sys-tone-urgent-weight}",
+          "type": "fontWeight",
+          "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
+          "reference": "sys-tone-urgent-weight"
+        }
+      ]
+    },
+    {
+      "name": "Measurement",
+      "slug": "measurement",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/measurement.json",
+      "purpose": "Turn Growth foundation roles into implementation-ready measurement primitives for telemetry, analytics views, success metrics, friction, recovery, quality signals, and ethical guardrails.",
+      "governingFoundations": [
+        "Growth",
+        "State",
+        "Accessibility",
+        "Tone"
+      ],
+      "coordinatesPrimitives": [
+        "Charts",
+        "Message",
+        "Research"
+      ],
+      "tokenDependencies": [
+        "sys.growth.*",
+        "sys.state.*",
+        "sys.accessibility.*",
+        "sys.tone.*",
+        "chart.*",
+        "message.*",
+        "research.*",
+        "measurement.*"
+      ],
+      "roles": [
+        {
+          "id": "event",
+          "token": "measurement.event.*",
+          "use": "Actor, trigger, surface, object, result, and timestamp contract."
+        },
+        {
+          "id": "metric",
+          "token": "measurement.metric.*",
+          "use": "Success, friction, recovery, quality, and support-avoidance signals."
+        },
+        {
+          "id": "analytics",
+          "token": "measurement.analytics.*",
+          "use": "Funnels, cohorts, trends, dashboards, and segment views derived from events."
+        },
+        {
+          "id": "hypothesis",
+          "token": "measurement.hypothesis.*",
+          "use": "Learning claim the metric confirms or rejects."
+        },
+        {
+          "id": "guardrail",
+          "token": "measurement.guardrail.*",
+          "use": "Ethics and anti-vanity constraints."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/measurement.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 10,
+      "matchingTokenPrefixes": {
+        "sys-measurement": 10
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-measurement-analytics-color",
+          "value": "{sys-growth-stage-stable-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-growth-stage-stable-color"
+        },
+        {
+          "name": "sys-measurement-event-color",
+          "value": "{sys-tone-neutral-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-tone-neutral-color"
+        },
+        {
+          "name": "sys-measurement-event-font",
+          "value": "{sys-growth-event-font}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-growth-event-font"
+        },
+        {
+          "name": "sys-measurement-guardrail-background",
+          "value": "color-mix(in srgb, var(--sys-energy-status-warning) 16%, transparent)",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": null
+        },
+        {
+          "name": "sys-measurement-guardrail-color",
+          "value": "{sys-tone-urgent-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-tone-urgent-color"
+        },
+        {
+          "name": "sys-measurement-hypothesis-color",
+          "value": "{sys-tone-assistive-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-tone-assistive-color"
+        },
+        {
+          "name": "sys-measurement-metric-color",
+          "value": "{sys-growth-stage-measured-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-growth-stage-measured-color"
+        },
+        {
+          "name": "sys-measurement-metric-font",
+          "value": "{sys-voice-numeral-family}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-voice-numeral-family"
+        },
+        {
+          "name": "sys-measurement-metric-weight",
+          "value": "{sys-voice-numeral-weight}",
+          "type": "fontWeight",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-voice-numeral-weight"
+        },
+        {
+          "name": "sys-measurement-privacy-color",
+          "value": "{sys-energy-text-secondary}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/measurement.tokens.json",
+          "reference": "sys-energy-text-secondary"
+        }
+      ]
+    },
+    {
+      "name": "Research",
+      "slug": "research",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/research.json",
+      "purpose": "Turn research practice into implementation-ready primitives for questions, hypotheses, audience context, evidence, confidence, risk, decision links, and learning signals.",
+      "governingFoundations": [
+        "Growth",
+        "Tone",
+        "Accessibility",
+        "Voice"
+      ],
+      "coordinatesPrimitives": [
+        "Measurement",
+        "Message",
+        "Charts"
+      ],
+      "tokenDependencies": [
+        "sys.growth.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "sys.voice.*",
+        "measurement.*",
+        "message.*",
+        "chart.*",
+        "research.*"
+      ],
+      "roles": [
+        {
+          "id": "question",
+          "token": "research.question",
+          "use": "What the team needs to learn before or after shipping."
+        },
+        {
+          "id": "hypothesis",
+          "token": "research.hypothesis",
+          "use": "Expected behavior or outcome to validate."
+        },
+        {
+          "id": "context",
+          "token": "research.context.*",
+          "use": "Audience, device, environment, task pressure, and operational risk."
+        },
+        {
+          "id": "evidence",
+          "token": "research.evidence.*",
+          "use": "Interview, usability test, telemetry, support, shadowing, survey, or field data."
+        },
+        {
+          "id": "confidence",
+          "token": "research.confidence.*",
+          "use": "Low, medium, high confidence with stated risk."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/research.ts"
+      ],
+      "p0RuntimeRequired": false,
+      "policyPrimitive": true,
+      "status": "typed-policy-contract",
+      "matchingTokenCount": 11,
+      "matchingTokenPrefixes": {
+        "sys-research": 11
+      },
+      "matchingTokens": [
+        {
+          "name": "sys-research-confidence-high-color",
+          "value": "{sys-tone-confirm-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-tone-confirm-color"
+        },
+        {
+          "name": "sys-research-confidence-low-color",
+          "value": "{sys-tone-urgent-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-tone-urgent-color"
+        },
+        {
+          "name": "sys-research-confidence-medium-color",
+          "value": "{sys-tone-assistive-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-tone-assistive-color"
+        },
+        {
+          "name": "sys-research-context-color",
+          "value": "{sys-tone-neutral-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-tone-neutral-color"
+        },
+        {
+          "name": "sys-research-decision-link-color",
+          "value": "{sys-tone-assistive-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-tone-assistive-color"
+        },
+        {
+          "name": "sys-research-evidence-color",
+          "value": "{sys-measurement-analytics-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-measurement-analytics-color"
+        },
+        {
+          "name": "sys-research-hypothesis-color",
+          "value": "{sys-measurement-hypothesis-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-measurement-hypothesis-color"
+        },
+        {
+          "name": "sys-research-question-font",
+          "value": "{sys-voice-family-title}",
+          "type": "fontFamily",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-voice-family-title"
+        },
+        {
+          "name": "sys-research-question-weight",
+          "value": "{sys-tone-urgent-weight}",
+          "type": "fontWeight",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-tone-urgent-weight"
+        },
+        {
+          "name": "sys-research-readable-line-height",
+          "value": "{sys-a11y-readable-line-height}",
+          "type": "dimension",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-a11y-readable-line-height"
+        },
+        {
+          "name": "sys-research-risk-color",
+          "value": "{sys-measurement-guardrail-color}",
+          "type": "color",
+          "sourceFile": "packages/tokens/source/primitives/research.tokens.json",
+          "reference": "sys-measurement-guardrail-color"
+        }
+      ]
+    },
+    {
+      "name": "Surface",
+      "slug": "surface",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/surface.json",
+      "purpose": "Turn Frame, Depth, Energy, State, and Accessibility foundation roles into implementation-ready ownership for structural backgrounds, panels, sheets, overlays, sections, and grouped content without misusing Card as layout.",
+      "governingFoundations": [
+        "Frame",
+        "Depth",
+        "Energy",
+        "State",
+        "Accessibility"
+      ],
+      "coordinatesPrimitives": [
+        "Color",
+        "Spacing",
+        "Radius",
+        "Elevation",
+        "Density",
+        "Focus",
+        "Breakpoints",
+        "Disabled"
+      ],
+      "tokenDependencies": [
+        "sys.energy.surface.*",
+        "sys.color.surface*",
+        "sys.frame.padding.surface",
+        "sys.frame.radius.surface",
+        "sys.radius.surface",
+        "sys.depth.*",
+        "sys.density.surface.*",
+        "sys.accessibility.contrast.surface",
+        "surface.*"
+      ],
+      "roles": [
+        {
+          "id": "canvas",
+          "token": "surface.canvas",
+          "use": "Base page or app background that receives sections, navigation, and overlays."
+        },
+        {
+          "id": "section",
+          "token": "surface.section",
+          "use": "Semantic grouping that owns spacing and background without becoming an object card."
+        },
+        {
+          "id": "panel",
+          "token": "surface.panel",
+          "use": "Bounded work area, settings group, inspector, or temporary content region."
+        },
+        {
+          "id": "overlay",
+          "token": "surface.overlay",
+          "use": "Temporary focused layer such as dialog body, drawer body, sheet body, or popover body."
+        },
+        {
+          "id": "inline",
+          "token": "surface.inline",
+          "use": "Local grouped surface inside a field, toolbar, row, or compact control cluster."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/surface.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    },
+    {
+      "name": "Field Action",
+      "slug": "field-action",
+      "artifactPath": "packages/specs/specs/unison-system/artifacts/primitives/field-action.json",
+      "purpose": "Turn field-adjacent actions into implementation-ready primitives for clear, reveal, picker, validation, resend, recovery, and inline command behavior without creating fake buttons inside demos or duplicated field controls.",
+      "governingFoundations": [
+        "Accessibility",
+        "State",
+        "Frame",
+        "Tone",
+        "Energy"
+      ],
+      "coordinatesPrimitives": [
+        "Focus",
+        "Message",
+        "Disabled",
+        "Loading",
+        "Iconography",
+        "Spacing",
+        "Radius",
+        "Measurement"
+      ],
+      "tokenDependencies": [
+        "component-field-*",
+        "comp.input.*",
+        "comp.icon-button.*",
+        "sys.accessibility.*",
+        "sys.state.*",
+        "sys.frame.*",
+        "sys.energy.*",
+        "sys.tone.*",
+        "focus.*",
+        "message.*",
+        "loading.*",
+        "disabled.*",
+        "field-action.*"
+      ],
+      "roles": [
+        {
+          "id": "clear",
+          "token": "field-action.clear",
+          "use": "Remove current local value without submitting or changing focus unexpectedly."
+        },
+        {
+          "id": "reveal",
+          "token": "field-action.reveal",
+          "use": "Toggle visibility for sensitive or masked field content."
+        },
+        {
+          "id": "picker",
+          "token": "field-action.picker",
+          "use": "Open a component-owned picker, calendar, country selector, menu, or autocomplete surface."
+        },
+        {
+          "id": "validate",
+          "token": "field-action.validate",
+          "use": "Trigger local validation, availability checks, or parsing without owning submission."
+        },
+        {
+          "id": "recover",
+          "token": "field-action.recover",
+          "use": "Resend, retry, reset, or alternate-path actions tied to one field or field group."
+        }
+      ],
+      "jsRuntimeFile": null,
+      "tsRuntimeFiles": [
+        "packages/tokens/src/primitives/field-action.ts"
+      ],
+      "p0RuntimeRequired": true,
+      "policyPrimitive": false,
+      "status": "typed-runtime",
+      "matchingTokenCount": 0,
+      "matchingTokenPrefixes": {},
+      "matchingTokens": []
+    }
+  ]
+}

@@ -41,7 +41,6 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect }) {
         key,
         "data-sidebar-route": key,
         "data-active": String(Boolean(isActive)),
-        className: "sidebar-route",
       },
       React.createElement(Button, {
         icon: route.icon ?? "circle",
@@ -49,7 +48,6 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect }) {
         density,
         variant: isActive ? "primary" : "ghost",
         fullWidth: true,
-        className: "sidebar-route__control",
         disabled: disabled || route.disabled,
         "aria-current": isActive ? "page" : undefined,
         "aria-pressed": isActive ? "true" : undefined,
@@ -102,7 +100,7 @@ export const Sidebar = forwardRef(function Sidebar({
     "div",
     {
       ref,
-      className: ["pattern-sidebar", className].filter(Boolean).join(" "),
+      className: className || undefined,
       role: "navigation",
       "aria-label": label,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
@@ -154,7 +152,6 @@ export const Sidebar = forwardRef(function Sidebar({
       Surface,
       {
         surfaceRole: "section",
-        className: "pattern-sidebar__groups",
         density,
         state: isDisabled ? "disabled" : collapsed ? "sunken" : "default",
         "data-flow-slot": "groups",

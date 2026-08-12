@@ -7964,22 +7964,37 @@
       "components": {
         "declared": [
           "Button",
+          "Checkbox",
+          "Icon Button",
           "Inline Validation",
           "Input",
+          "Radio Button",
+          "Select",
+          "Switch",
           "Text Area",
           "Toast"
         ],
         "normalizedIds": [
           "button",
+          "checkbox",
+          "icon-button",
           "inline-validation",
           "input",
+          "radio-button",
+          "select",
+          "switch",
           "text-area",
           "toast"
         ],
         "known": [
           "button",
+          "checkbox",
+          "icon-button",
           "inline-validation",
           "input",
+          "radio-button",
+          "select",
+          "switch",
           "text-area",
           "toast"
         ],
@@ -8005,11 +8020,15 @@
         },
         {
           "slot": "fields",
-          "type": "Input | TextArea[]",
+          "type": "Input | Select | Checkbox | RadioButton | Switch | TextArea[]",
           "required": "yes",
           "notes": "Related form controls.",
           "componentRefs": [
-            "input"
+            "button",
+            "checkbox",
+            "input",
+            "select",
+            "switch"
           ],
           "patternRefs": []
         },
@@ -8119,8 +8138,13 @@
         ],
         "tokenDependencies": [
           "comp.button.*",
+          "comp.checkbox.*",
+          "comp.icon-button.*",
           "comp.inline-validation.*",
           "comp.input.*",
+          "comp.radio-button.*",
+          "comp.select.*",
+          "comp.switch.*",
           "comp.text-area.*",
           "comp.toast.*",
           "sys.accessibility.*",
@@ -8158,7 +8182,7 @@
         "Disabled fields explain why when needed."
       ],
       "migration": {
-        "complexityScore": 17,
+        "complexityScore": 22,
         "wave": "wave-0-formalized",
         "blockers": []
       }
@@ -12298,20 +12322,26 @@
       "purpose": "Coordinate grouped options, unavailable choices, stale data, permission reasons, keyboard movement, and responsive popover-to-sheet behavior for Select-based choice flows.",
       "components": {
         "declared": [
+          "Badge",
           "Button",
+          "Card",
           "Empty State",
           "Inline Validation",
           "Select"
         ],
         "normalizedIds": [
+          "badge",
           "button",
+          "card",
           "empty-state",
           "inline-validation",
           "popover",
           "select"
         ],
         "known": [
+          "badge",
           "button",
+          "card",
           "empty-state",
           "inline-validation",
           "popover",
@@ -12333,18 +12363,22 @@
         },
         {
           "slot": "groups",
-          "type": "OptionGroup[]",
+          "type": "Card[]",
           "required": "conditional",
           "notes": "Groups related choices.",
-          "componentRefs": [],
+          "componentRefs": [
+            "card"
+          ],
           "patternRefs": []
         },
         {
           "slot": "option",
-          "type": "Option",
+          "type": "Option + Badge",
           "required": "yes",
           "notes": "Label, value, metadata, selected, disabled, and reason.",
-          "componentRefs": [],
+          "componentRefs": [
+            "badge"
+          ],
           "patternRefs": []
         },
         {
@@ -12446,7 +12480,9 @@
           "Typography"
         ],
         "tokenDependencies": [
+          "comp.badge.*",
           "comp.button.*",
+          "comp.card.*",
           "comp.empty-state.*",
           "comp.inline-validation.*",
           "comp.select.*",
@@ -12486,7 +12522,7 @@
         "Mobile fallback has a close path."
       ],
       "migration": {
-        "complexityScore": 15,
+        "complexityScore": 17,
         "wave": "wave-0-formalized",
         "blockers": []
       }
@@ -12749,6 +12785,7 @@
           "Accordion",
           "Badge",
           "Breadcrumbs",
+          "Button",
           "Drawer",
           "Icon Button"
         ],
@@ -12756,6 +12793,7 @@
           "accordion",
           "badge",
           "breadcrumbs",
+          "button",
           "drawer",
           "icon-button"
         ],
@@ -12763,6 +12801,7 @@
           "accordion",
           "badge",
           "breadcrumbs",
+          "button",
           "drawer",
           "icon-button"
         ],
@@ -12928,6 +12967,7 @@
           "comp.accordion.*",
           "comp.badge.*",
           "comp.breadcrumbs.*",
+          "comp.button.*",
           "comp.drawer.*",
           "comp.icon-button.*",
           "sys.accessibility.*",
@@ -13016,7 +13056,7 @@
         "Reduced motion removes nonessential movement."
       ],
       "migration": {
-        "complexityScore": 49,
+        "complexityScore": 50,
         "wave": "wave-0-formalized",
         "blockers": [
           "referenced by templates; migration needs template-boundary review"

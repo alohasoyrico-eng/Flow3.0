@@ -1,7 +1,7 @@
 {
   "sys-focus-restore-ring": {
     "$value": "{sys-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-focus-restore-ring",
@@ -11,7 +11,7 @@
   },
   "sys-focus-ring": {
     "$value": "{sys-accessibility-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-focus-ring",
@@ -31,7 +31,7 @@
   },
   "sys-focus-roving-ring": {
     "$value": "{sys-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-focus-roving-ring",
@@ -71,7 +71,7 @@
   },
   "sys-focus-visible-ring": {
     "$value": "{sys-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-focus-visible-ring",

@@ -52,6 +52,7 @@
         "Accordion",
         "Badge",
         "Breadcrumbs",
+        "Button",
         "Drawer",
         "Icon Button"
       ],
@@ -154,6 +155,8 @@
         "Content Designers"
       ],
       "componentsUsed": [
+        "Badge",
+        "Card",
         "Select",
         "Button",
         "Inline Validation",

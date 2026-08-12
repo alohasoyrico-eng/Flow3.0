@@ -1,0 +1,6516 @@
+{
+  "schemaVersion": "flow-system-typescript-public-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "baseline_only",
+  "publicExports": [
+    {
+      "packageFile": "package.json",
+      "target": "packages/components/src/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/components/src/contracts.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/components/src/platforms/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/components/styles/components.css",
+      "extension": ".css",
+      "kind": "style",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/catalog.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/component-copy.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/component-docs.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/component-implementation-status.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/foundation-copy.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/home.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/i18n/ui.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/pattern-copy.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/primitive-copy.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/reference-copy.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/content/content/template-blueprints.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/index.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Accordion.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Accordion.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/AnimatedMoment.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/AnimatedMoment.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/AuditEvent.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/AuditEvent.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Avatar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Avatar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Badge.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Badge.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/BiometricPrompt.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/BiometricPrompt.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Breadcrumbs.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Breadcrumbs.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Button.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Button.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Card.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Card.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardExpiryInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardExpiryInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardNumberInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardNumberInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardSecurityCodeInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardSecurityCodeInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardSummary.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CardSummary.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChartPanel.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChartPanel.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChatComposer.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChatComposer.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChatMessage.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChatMessage.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChatThread.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ChatThread.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Checkbox.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Checkbox.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Chip.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Chip.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CodeInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CodeInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Combobox.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Combobox.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CountrySelector.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CountrySelector.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/DatePicker.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/DatePicker.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/DateRangePicker.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/DateRangePicker.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Dialog.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Dialog.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Drawer.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Drawer.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/EmptyState.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/EmptyState.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ErrorPanel.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ErrorPanel.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/FloatingActionButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/FloatingActionButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/IconButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/IconButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/InlineValidation.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/InlineValidation.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Input.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Input.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/InputAmount.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/InputAmount.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/KpiTile.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/KpiTile.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/List.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/List.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Menu.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Menu.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/MotionBoundary.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/MotionBoundary.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/MovementRow.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/MovementRow.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Pagination.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Pagination.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/index.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AccountOperations.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AccountOperations.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ActionSheet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ActionSheet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/BottomSheet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/BottomSheet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AdvancedFilters.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AdvancedFilters.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AgentConversation.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AgentConversation.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Autocomplete.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Autocomplete.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AvatarGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AvatarGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AvatarMenu.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/AvatarMenu.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/BackofficeApproval.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/BackofficeApproval.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/BulkActions.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/BulkActions.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CalendarView.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CalendarView.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CaseManagement.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CaseManagement.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ChartWrapper.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ChartWrapper.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ChartLegendItem.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ChartLegendItem.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CheckboxGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CheckboxGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ColumnConfigurator.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ColumnConfigurator.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CommandPalette.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/CommandPalette.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ConfirmationDialog.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ConfirmationDialog.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DenseOperationalList.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DenseOperationalList.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DragSortableList.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DragSortableList.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DrawerAdapter.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DrawerAdapter.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DriverAndVehicleAdministration.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DriverAndVehicleAdministration.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DriverOnboardingMobile.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DriverOnboardingMobile.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/EmailTemplateLayout.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/EmailTemplateLayout.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ExpandableDetailTable.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ExpandableDetailTable.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FileUpload.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FileUpload.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FilterChipGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FilterChipGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FilterableEditableTable.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FilterableEditableTable.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FleetManagerOnboardingDesktop.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FleetManagerOnboardingDesktop.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FormSection.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FormSection.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FullscreenSheet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/FullscreenSheet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/GanttChart.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/GanttChart.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/HelpCenter.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/HelpCenter.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/KanbanBoard.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/KanbanBoard.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/KpiCard.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/KpiCard.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/MultiSelect.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/MultiSelect.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/MultiStepForm.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/MultiStepForm.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/NotificationPanel.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/NotificationPanel.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PaymentForm.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PaymentForm.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PolarChart.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PolarChart.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PreferenceManagement.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PreferenceManagement.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PricingOperations.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PricingOperations.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PullToRefresh.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/PullToRefresh.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/QuickActionsGrid.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/QuickActionsGrid.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/RadioGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/RadioGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/RolesAndPermissions.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/RolesAndPermissions.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Search.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Search.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SectionHeader.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SectionHeader.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SelectOptionLayer.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SelectOptionLayer.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Settings.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Settings.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Sidebar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Sidebar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SnackbarProvider.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SnackbarProvider.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/StationDiscovery.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/StationDiscovery.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/StatusFeedbackView.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/StatusFeedbackView.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SwipeActions.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/SwipeActions.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/TicketQueue.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/TicketQueue.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Timeline.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Timeline.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Toolbar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Toolbar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Topbar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/Topbar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/TransferList.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/TransferList.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/VirtualDataTable.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/VirtualDataTable.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/WaterfallChart.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/WaterfallChart.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/PhoneInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/PhoneInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Popover.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Popover.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ProgressIndicator.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/ProgressIndicator.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/QuickAction.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/QuickAction.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/RadioButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/RadioButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/RouteSummary.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/RouteSummary.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/SegmentedControl.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/SegmentedControl.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Select.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Select.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Skeleton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Skeleton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Slider.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Slider.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Spinner.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Spinner.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/StationPin.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/StationPin.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Stepper.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Stepper.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Surface.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Surface.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Switch.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Switch.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Table.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Table.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Tabs.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Tabs.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Tag.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Tag.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/index.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/AgentWorkspace.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/AgentWorkspace.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/ConfigurationConsole.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/ConfigurationConsole.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DriverCardWallet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DriverCardWallet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DriverMobileApp.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DriverMobileApp.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/FleetDashboardSuite.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/FleetDashboardSuite.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/FleetManagerDesktop.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/FleetManagerDesktop.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/InternalOperationsConsole.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/InternalOperationsConsole.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/RoutesAndStations.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/RoutesAndStations.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/SettingsWorkspace.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/SettingsWorkspace.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/TextArea.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/TextArea.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Toast.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Toast.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Tooltip.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/Tooltip.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/TreeView.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/TreeView.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/specs/specs/unison-system/artifacts/foundations/*.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": false,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/specs/specs/unison-system/artifacts/patterns/*.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": false,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/specs/specs/unison-system/artifacts/primitives/*.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": false,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/specs/specs/unison.system.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/specs/specs/unison-system/artifacts/templates/*.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": false,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/tokens/src/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/tokens/dist/android/flow_tokens.xml",
+      "extension": ".xml",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/tokens/dist/flutter/flow_tokens.dart",
+      "extension": ".dart",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/tokens/dist/ios/FlowTokens.swift",
+      "extension": ".swift",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/tokens/tokens.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/tokens/styles/tokens.css",
+      "extension": ".css",
+      "kind": "style",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/tokens/package.json",
+      "target": "packages/tokens/src/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/tokens/package.json",
+      "target": "packages/tokens/tokens.json",
+      "extension": ".json",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/tokens/package.json",
+      "target": "packages/tokens/styles/tokens.css",
+      "extension": ".css",
+      "kind": "style",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/tokens/package.json",
+      "target": "packages/tokens/dist/flutter/flow_tokens.dart",
+      "extension": ".dart",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/tokens/package.json",
+      "target": "packages/tokens/dist/android/flow_tokens.xml",
+      "extension": ".xml",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/tokens/package.json",
+      "target": "packages/tokens/dist/ios/FlowTokens.swift",
+      "extension": ".swift",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/components/package.json",
+      "target": "packages/components/src/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/components/package.json",
+      "target": "packages/components/src/contracts.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/components/package.json",
+      "target": "packages/components/src/platforms/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/components/package.json",
+      "target": "packages/components/styles/components.css",
+      "extension": ".css",
+      "kind": "style",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/index.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Accordion.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Accordion.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/AnimatedMoment.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/AnimatedMoment.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/AuditEvent.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/AuditEvent.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Avatar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Avatar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Badge.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Badge.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/BiometricPrompt.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/BiometricPrompt.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Button.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Button.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Card.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Card.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Breadcrumbs.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Breadcrumbs.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardNumberInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardNumberInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/InputAmount.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/InputAmount.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardExpiryInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardExpiryInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardSecurityCodeInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardSecurityCodeInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardSummary.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CardSummary.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChartPanel.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChartPanel.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Checkbox.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Checkbox.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChatComposer.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChatComposer.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChatMessage.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChatMessage.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChatThread.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ChatThread.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Chip.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Chip.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CodeInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CodeInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Combobox.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Combobox.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CountrySelector.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CountrySelector.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/DatePicker.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/DatePicker.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/DateRangePicker.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/DateRangePicker.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Dialog.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Dialog.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Drawer.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Drawer.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/EmptyState.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/EmptyState.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ErrorPanel.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ErrorPanel.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/FloatingActionButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/FloatingActionButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/IconButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/IconButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/InlineValidation.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/InlineValidation.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Input.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Input.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/KpiTile.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/KpiTile.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/List.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/List.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Menu.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Menu.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/MotionBoundary.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/MotionBoundary.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/MovementRow.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/MovementRow.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/PhoneInput.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/PhoneInput.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Popover.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Popover.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Pagination.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Pagination.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/QuickAction.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/QuickAction.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ProgressIndicator.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/ProgressIndicator.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/RadioButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/RadioButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/RouteSummary.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/RouteSummary.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/StationPin.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/StationPin.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Select.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Select.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/SegmentedControl.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/SegmentedControl.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Skeleton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Skeleton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Slider.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Slider.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Spinner.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Spinner.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Surface.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Surface.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Stepper.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Stepper.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Switch.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Switch.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Tabs.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Tabs.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Table.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Table.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Tag.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Tag.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Toast.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Toast.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Tooltip.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/Tooltip.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/TreeView.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/TreeView.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/TextArea.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/TextArea.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/index.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/index.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/index.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/ConfigurationConsole.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/ConfigurationConsole.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DriverCardWallet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DriverCardWallet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DriverMobileApp.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DriverMobileApp.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/FleetDashboardSuite.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/FleetDashboardSuite.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/FleetManagerDesktop.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/FleetManagerDesktop.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/RoutesAndStations.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/RoutesAndStations.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ActionSheet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ActionSheet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/BottomSheet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/BottomSheet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AccountOperations.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AccountOperations.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AgentConversation.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AgentConversation.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AdvancedFilters.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AdvancedFilters.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AvatarGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AvatarGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AvatarMenu.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/AvatarMenu.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/BackofficeApproval.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/BackofficeApproval.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Autocomplete.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Autocomplete.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/BulkActions.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/BulkActions.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DenseOperationalList.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DenseOperationalList.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CalendarView.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CalendarView.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CaseManagement.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CaseManagement.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ChartWrapper.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ChartWrapper.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ChartLegendItem.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ChartLegendItem.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CheckboxGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CheckboxGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ColumnConfigurator.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ColumnConfigurator.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CommandPalette.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/CommandPalette.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ConfirmationDialog.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ConfirmationDialog.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DragSortableList.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DragSortableList.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DriverAndVehicleAdministration.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DriverAndVehicleAdministration.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DriverOnboardingMobile.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DriverOnboardingMobile.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DrawerAdapter.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DrawerAdapter.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/EmailTemplateLayout.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/EmailTemplateLayout.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ExpandableDetailTable.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ExpandableDetailTable.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FileUpload.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FileUpload.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FleetManagerOnboardingDesktop.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FleetManagerOnboardingDesktop.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FilterChipGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FilterChipGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FilterableEditableTable.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FilterableEditableTable.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FormSection.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FormSection.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PreferenceManagement.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PreferenceManagement.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FullscreenSheet.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/FullscreenSheet.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/GanttChart.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/GanttChart.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/HelpCenter.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/HelpCenter.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/KanbanBoard.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/KanbanBoard.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/KpiCard.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/KpiCard.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/MultiSelect.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/MultiSelect.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/MultiStepForm.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/MultiStepForm.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/NotificationPanel.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/NotificationPanel.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PaymentForm.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PaymentForm.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PolarChart.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PolarChart.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PricingOperations.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PricingOperations.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PullToRefresh.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/PullToRefresh.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/QuickActionsGrid.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/QuickActionsGrid.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/RadioGroup.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/RadioGroup.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/RolesAndPermissions.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/RolesAndPermissions.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Search.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Search.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SectionHeader.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SectionHeader.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/VirtualDataTable.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/VirtualDataTable.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/WaterfallChart.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/WaterfallChart.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SelectOptionLayer.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SelectOptionLayer.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Settings.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Settings.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Sidebar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Sidebar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SnackbarProvider.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SnackbarProvider.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/StationDiscovery.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/StationDiscovery.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/StatusFeedbackView.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/StatusFeedbackView.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SwipeActions.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/SwipeActions.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/TicketQueue.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/TicketQueue.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Timeline.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Timeline.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Toolbar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Toolbar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Topbar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/Topbar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/TransferList.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/TransferList.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/AgentWorkspace.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/AgentWorkspace.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/InternalOperationsConsole.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/InternalOperationsConsole.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/SettingsWorkspace.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/SettingsWorkspace.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    }
+  ],
+  "uniquePublicExportTargets": 298,
+  "publicJsRuntimeExports": 280,
+  "uniquePublicJsRuntimeTargets": 140,
+  "publicJsRuntimeExportsWithTsSource": 0,
+  "sourceDeclarationsWithoutTs": [
+    {
+      "file": "packages/react/src/Accordion.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/AnimatedMoment.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/AuditEvent.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Avatar.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Badge.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/BiometricPrompt.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Breadcrumbs.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Button.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Card.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/CardExpiryInput.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/CardNumberInput.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/CardSecurityCodeInput.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/CardSummary.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/ChartPanel.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/ChatComposer.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/ChatMessage.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/ChatThread.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Checkbox.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Chip.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/CodeInput.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Combobox.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/CountrySelector.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/DatePicker.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/DateRangePicker.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Dialog.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Drawer.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/EmptyState.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/ErrorPanel.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/FloatingActionButton.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/IconButton.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/InlineValidation.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Input.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/InputAmount.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/KpiTile.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/List.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Menu.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/MotionBoundary.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/MovementRow.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Pagination.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/PhoneInput.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Popover.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/ProgressIndicator.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/QuickAction.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/RadioButton.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/RouteSummary.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/SegmentedControl.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Select.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Skeleton.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Slider.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Spinner.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/StationPin.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Stepper.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Surface.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Switch.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Table.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Tabs.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Tag.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/TextArea.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Toast.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/Tooltip.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/TreeView.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/index.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/internal/props.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/AccountOperations.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/ActionSheet.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/AdvancedFilters.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/AgentConversation.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Autocomplete.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/AvatarGroup.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/AvatarMenu.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/BackofficeApproval.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/BottomSheet.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/BulkActions.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/CalendarView.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/CaseManagement.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/ChartLegendItem.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/ChartWrapper.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/CheckboxGroup.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/ColumnConfigurator.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/CommandPalette.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/ConfirmationDialog.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/DenseOperationalList.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/DragSortableList.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/DrawerAdapter.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/DriverAndVehicleAdministration.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/DriverOnboardingMobile.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/EmailTemplateLayout.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/ExpandableDetailTable.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/FileUpload.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/FilterChipGroup.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/FilterableEditableTable.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/FormSection.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/FullscreenSheet.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/GanttChart.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/HelpCenter.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/KanbanBoard.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/KpiCard.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/MultiSelect.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/MultiStepForm.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/NotificationPanel.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/PaymentForm.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/PolarChart.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/PreferenceManagement.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/PricingOperations.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/PullToRefresh.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/QuickActionsGrid.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/RadioGroup.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/RolesAndPermissions.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Search.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/SectionHeader.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/SelectOptionLayer.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Settings.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Sidebar.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/SnackbarProvider.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/StationDiscovery.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/StatusFeedbackView.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/SwipeActions.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/TicketQueue.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Timeline.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Toolbar.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/Topbar.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/TransferList.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/VirtualDataTable.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/WaterfallChart.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/patterns/index.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/AgentWorkspace.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/ConfigurationConsole.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/DriverCardWallet.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/DriverMobileApp.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/FleetDashboardSuite.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/FleetManagerDesktop.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/InternalOperationsConsole.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/RoutesAndStations.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/SettingsWorkspace.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    },
+    {
+      "file": "packages/react/src/templates/index.d.ts",
+      "pairedJs": true,
+      "pairedTs": false
+    }
+  ],
+  "sourceInventory": {
+    "counts": {
+      "byExtension": {
+        ".js": 579,
+        ".mjs": 20,
+        ".d.ts": 274,
+        ".ts": 27
+      },
+      "byArea": {
+        "script": 242,
+        "source": 375,
+        "test": 8,
+        "generated-dist": 275
+      }
+    }
+  },
+  "typescriptPublicSurfaceDebt": 417,
+  "uniqueTypescriptPublicSurfaceDebt": 277
+}

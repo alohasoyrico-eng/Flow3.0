@@ -21,7 +21,7 @@
   },
   "sys-chart-focus-ring": {
     "$value": "{sys-a11y-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-focus-ring",
@@ -71,7 +71,7 @@
   },
   "sys-chart-motion-easing-enter": {
     "$value": "{sys-momentum-easing-enter}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-motion-easing-enter",
@@ -81,7 +81,7 @@
   },
   "sys-chart-motion-easing-update": {
     "$value": "{sys-momentum-easing-move}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-motion-easing-update",
@@ -91,7 +91,7 @@
   },
   "sys-chart-series-primary": {
     "$value": "{sys-energy-action-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-series-primary",
@@ -101,7 +101,7 @@
   },
   "sys-chart-series-quaternary": {
     "$value": "{sys-energy-status-warning}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-series-quaternary",
@@ -111,7 +111,7 @@
   },
   "sys-chart-series-secondary": {
     "$value": "{sys-energy-text-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-series-secondary",
@@ -121,7 +121,7 @@
   },
   "sys-chart-series-tertiary": {
     "$value": "{sys-energy-status-success}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-series-tertiary",
@@ -171,7 +171,7 @@
   },
   "sys-chart-tooltip-background": {
     "$value": "{sys-energy-text-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-tooltip-background",
@@ -181,7 +181,7 @@
   },
   "sys-chart-tooltip-foreground": {
     "$value": "{sys-energy-surface-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-chart-tooltip-foreground",

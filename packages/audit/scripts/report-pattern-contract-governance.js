@@ -25,6 +25,15 @@ const mobilePatternDemosFile = docsFile("pattern-mobile-demos.js");
 const patternSearchSlotFile = docsFile("search-slot.js");
 const notificationPanelSlotFile = docsFile("notification-panel-slot.js");
 const avatarMenuSlotFile = docsFile("avatar-menu-slot.js");
+const reactPatternDir = path.join(root, "packages/react/src/patterns");
+
+function pascalCase(value) {
+  return String(value)
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join("");
+}
 
 function markdownContractFiles() {
   if (!fs.existsSync(contractsDir)) return [];
@@ -43,6 +52,14 @@ function demoSource() {
 
 function composedByDemo({ id, component, block }) {
   if (block.includes(`packageDemo("${component}"`)) return true;
+  if (block.includes(`patternReactDemo("${id}"`)) {
+    const patternSourceFile = path.join(reactPatternDir, `${pascalCase(id)}.js`);
+    if (fs.existsSync(patternSourceFile)) {
+      const componentName = pascalCase(component);
+      const source = read(patternSourceFile);
+      if (source.includes(`import { ${componentName} } from "../${componentName}.js"`)) return true;
+    }
+  }
   if (component === "input"
     && block.includes("searchSlotMarkup(")
     && fs.existsSync(patternSearchSlotFile)

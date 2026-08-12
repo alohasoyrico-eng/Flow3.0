@@ -122,6 +122,7 @@ Coordinate app navigation rails, responsive drawer navigation, route grouping, b
 - `Accordion`
 - `Badge`
 - `Breadcrumbs`
+- `Button`
 - `Drawer`
 - `Icon Button`
 
@@ -134,6 +135,7 @@ Coordinate app navigation rails, responsive drawer navigation, route grouping, b
 - `comp.accordion.*`
 - `comp.badge.*`
 - `comp.breadcrumbs.*`
+- `comp.button.*`
 - `comp.drawer.*`
 - `comp.icon-button.*`
 - `sys.accessibility.*`
@@ -155,7 +157,7 @@ Coordinate app navigation rails, responsive drawer navigation, route grouping, b
 | `groups` | `primitive` | `Surface` |
 | `responsiveSurface` | `component` | `Drawer` |
 | `location` | `component` | `Breadcrumbs` |
-| `navigation` | `component` | `Accordion`, `Badge`, `Icon Button` |
+| `navigation` | `component` | `Accordion`, `Badge`, `Button`, `Icon Button` |
 
 ## Formal Governance
 
@@ -192,7 +194,7 @@ Coordinate app navigation rails, responsive drawer navigation, route grouping, b
 
 ### Tests
 
-- Composes Accordion, Badge, Breadcrumbs, Drawer, and Icon Button.
+- Composes Accordion, Badge, Breadcrumbs, Button, Drawer, and Icon Button.
 - Covers expanded, collapsed, mobile, active, loading, and permission-filtered states.
 - Keeps Topbar and templates as boundaries.
 
@@ -225,6 +227,7 @@ Coordinate app navigation rails, responsive drawer navigation, route grouping, b
 
 - Accordion
 - Icon Button
+- Button
 - Badge
 - Breadcrumbs
 - Drawer

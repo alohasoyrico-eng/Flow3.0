@@ -1,16 +1,23 @@
 import React, { forwardRef, useMemo } from "react";
+import { Badge } from "../Badge.js";
 import { Button } from "../Button.js";
+import { Card } from "../Card.js";
 import { EmptyState } from "../EmptyState.js";
 import { InlineValidation } from "../InlineValidation.js";
 import { Select } from "../Select.js";
 
 function normalizeOption(option) {
   if (!option?.label || option.value === undefined || option.value === null || option.value === "") return null;
+  const unavailable = Boolean(option.disabled || option.unavailable);
   return {
     label: option.label,
     value: String(option.value),
     meta: option.reason || option.group || option.meta || "",
-    disabled: Boolean(option.disabled || option.unavailable),
+    reason: option.reason || "",
+    group: option.group || "",
+    tone: option.tone,
+    disabled: unavailable,
+    unavailable,
   };
 }
 
@@ -62,18 +69,48 @@ export const SelectOptionLayer = forwardRef(function SelectOptionLayer({
       ...Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-"))),
     },
     hasOptions
-      ? React.createElement(Select, {
-        label,
-        helper,
-        options: normalizedOptions,
-        value,
-        name,
-        density,
-        state: resolvedState === "open" ? "open" : resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
-        disabled: disabled || resolvedState === "disabled",
-        onOpenChange,
-        onValueChange,
-      })
+      ? React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(Select, {
+          label,
+          helper,
+          options: normalizedOptions,
+          value,
+          name,
+          density,
+          state: resolvedState === "open" ? "open" : resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+          disabled: disabled || resolvedState === "disabled",
+          onOpenChange,
+          onValueChange,
+        }),
+        React.createElement(
+          "div",
+          {
+            role: "list",
+            "aria-label": `${label} option states`,
+            "data-flow-slot": "option-layer",
+          },
+          normalizedOptions.map((option) => React.createElement(Card, {
+            key: option.value,
+            title: option.label,
+            detail: option.reason || option.meta || helper,
+            status: React.createElement(Badge, {
+              label: option.unavailable ? "Unavailable" : option.value === value ? "Selected" : option.group || "Available",
+              tone: option.unavailable ? "warning" : option.value === value ? "success" : option.tone ?? "neutral",
+              variant: "status",
+              state: option.unavailable ? "warning" : option.value === value ? "success" : "default",
+              density,
+            }),
+            variant: "minimal",
+            composition: "compact",
+            state: option.unavailable ? "disabled" : option.value === value ? "selected" : "default",
+            density,
+            "data-flow-slot": "option-card",
+            "data-option-value": option.value,
+          })),
+        ),
+      )
       : React.createElement(EmptyState, {
         title: empty?.title ?? "No options available",
         description: empty?.description ?? helper,

@@ -51,7 +51,7 @@
   },
   "sys-a11y-contrast-aa": {
     "$value": "{ref-a11y-contrast-aa}",
-    "$type": "unknown",
+    "$type": "number",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-a11y-contrast-aa",
@@ -91,7 +91,7 @@
   },
   "sys-a11y-focus-ring": {
     "$value": "{sys-state-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-a11y-focus-ring",
@@ -111,7 +111,7 @@
   },
   "sys-a11y-outline-reset": {
     "$value": "{ref-a11y-outline-reset}",
-    "$type": "unknown",
+    "$type": "number",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-a11y-outline-reset",
@@ -151,7 +151,7 @@
   },
   "sys-accessibility-contrast-aa": {
     "$value": "{sys-a11y-contrast-aa}",
-    "$type": "unknown",
+    "$type": "number",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-accessibility-contrast-aa",
@@ -161,7 +161,7 @@
   },
   "sys-accessibility-contrast-surface": {
     "$value": "{sys-a11y-contrast-surface}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-accessibility-contrast-surface",
@@ -171,7 +171,7 @@
   },
   "sys-accessibility-contrast-text": {
     "$value": "{sys-a11y-contrast-text}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-accessibility-contrast-text",
@@ -191,7 +191,7 @@
   },
   "sys-accessibility-focus-ring": {
     "$value": "{sys-a11y-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-accessibility-focus-ring",
@@ -211,7 +211,7 @@
   },
   "sys-accessibility-outline-reset": {
     "$value": "{sys-a11y-outline-reset}",
-    "$type": "unknown",
+    "$type": "number",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-accessibility-outline-reset",

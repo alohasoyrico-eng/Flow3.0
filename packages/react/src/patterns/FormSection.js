@@ -1,8 +1,13 @@
 import React, { forwardRef } from "react";
 import { Button } from "../Button.js";
+import { Checkbox } from "../Checkbox.js";
+import { IconButton } from "../IconButton.js";
 import { InlineValidation } from "../InlineValidation.js";
 import { Input } from "../Input.js";
+import { RadioButton } from "../RadioButton.js";
+import { Select } from "../Select.js";
 import { Surface } from "../Surface.js";
+import { Switch } from "../Switch.js";
 import { TextArea } from "../TextArea.js";
 import { Toast } from "../Toast.js";
 
@@ -25,6 +30,18 @@ function fieldState(sectionState, field) {
   if (field.loading || sectionState === "validating" || sectionState === "saving") return "loading";
   if (field.error || sectionState === "invalid") return "error";
   return field.state;
+}
+
+function selectionState(sectionState, field, selected) {
+  if (field.disabled || sectionState === "disabled") return "disabled";
+  if (field.error || sectionState === "invalid") return "error";
+  return selected ? "selected" : "unselected";
+}
+
+function checkedState(sectionState, field, checked) {
+  if (field.disabled || sectionState === "disabled") return "disabled";
+  if (field.error || sectionState === "invalid") return "error";
+  return checked ? "checked" : "unchecked";
 }
 
 export const FormSection = forwardRef(function FormSection({
@@ -77,8 +94,9 @@ export const FormSection = forwardRef(function FormSection({
       description ? React.createElement("p", null, description) : null,
       validation?.summary ? React.createElement("p", null, validation.summary) : null,
       normalizedFields.map((field) => {
+        const fieldKey = field.key ?? field.name ?? field.label;
         const sharedProps = {
-          key: field.key ?? field.name ?? field.label,
+          key: fieldKey,
           label: field.label,
           helper: field.helper,
           helperText: field.helperText,
@@ -91,8 +109,91 @@ export const FormSection = forwardRef(function FormSection({
           required: field.required,
           density,
           state: fieldState(resolvedState, field),
-          "data-field-key": field.key ?? field.name,
+          "data-field-key": fieldKey,
         };
+        if (field.kind === "select") {
+          const { helperText, ...selectSharedProps } = sharedProps;
+          return React.createElement(Select, {
+            ...selectSharedProps,
+            helper: field.helper ?? helperText,
+            options: field.options ?? [],
+            value: field.value,
+            open: field.open,
+            density,
+            state: fieldState(resolvedState, field),
+            onOpenChange: field.onOpenChange,
+            onValueChange: (value, meta, event) => {
+              field.onValueChange?.(value, meta, event);
+              onFieldValueChange?.(fieldKey, value, meta, event);
+            },
+          });
+        }
+        if (field.kind === "checkbox") {
+          const { helperText, ...checkboxSharedProps } = sharedProps;
+          return React.createElement(Checkbox, {
+            ...checkboxSharedProps,
+            description: field.description ?? field.helper ?? helperText,
+            checked: Boolean(field.checked),
+            indeterminate: field.indeterminate,
+            value: field.value,
+            density,
+            state: checkedState(resolvedState, field, Boolean(field.checked)),
+            onCheckedChange: (checked, meta, event) => {
+              field.onCheckedChange?.(checked, meta, event);
+              onFieldValueChange?.(fieldKey, checked ? meta.value : "", meta, event);
+            },
+          });
+        }
+        if (field.kind === "switch") {
+          const { helperText, ...switchSharedProps } = sharedProps;
+          return React.createElement(Switch, {
+            ...switchSharedProps,
+            description: field.description ?? field.helper ?? helperText,
+            checked: Boolean(field.checked),
+            density,
+            state: field.disabled || isDisabled ? "disabled" : field.error || resolvedState === "invalid" ? "error" : field.checked ? "on" : "off",
+            onCheckedChange: (checked, meta, event) => {
+              field.onCheckedChange?.(checked, meta, event);
+              onFieldValueChange?.(fieldKey, checked ? "true" : "false", meta, event);
+            },
+          });
+        }
+        if (field.kind === "radio-button") {
+          const { helperText, ...radioSharedProps } = sharedProps;
+          const checked = field.checked ?? (field.value !== undefined && field.value === field.selectedValue);
+          return React.createElement(RadioButton, {
+            ...radioSharedProps,
+            description: field.description ?? field.helper ?? helperText,
+            name: field.name ?? `${fieldKey}-group`,
+            value: field.value,
+            checked: Boolean(checked),
+            density,
+            state: selectionState(resolvedState, field, Boolean(checked)),
+            onCheckedChange: (checkedValue, meta, event) => {
+              field.onCheckedChange?.(checkedValue, meta, event);
+              if (checkedValue) onFieldValueChange?.(fieldKey, meta.value, meta, event);
+            },
+          });
+        }
+        if (field.kind === "icon-button") {
+          return React.createElement(IconButton, {
+            key: fieldKey,
+            icon: field.icon ?? "more_horiz",
+            label: field.label,
+            ariaLabel: field.ariaLabel ?? field.label,
+            variant: field.variant ?? "ghost",
+            density,
+            selected: field.selected,
+            badge: field.badge,
+            disabled: isDisabled || field.disabled,
+            "data-field-key": fieldKey,
+            onClick: (event) => {
+              field.onClick?.(event);
+              if (event.defaultPrevented) return;
+              onAction?.(fieldKey, event);
+            },
+          });
+        }
         if (field.kind === "text-area") {
           return React.createElement(TextArea, {
             ...sharedProps,
@@ -100,7 +201,7 @@ export const FormSection = forwardRef(function FormSection({
             maxLength: field.maxLength,
             onValueChange: (value, meta, event) => {
               field.onValueChange?.(value, meta, event);
-              onFieldValueChange?.(field.key ?? field.name ?? field.label, value, meta, event);
+              onFieldValueChange?.(fieldKey, value, meta, event);
             },
           });
         }
@@ -118,7 +219,7 @@ export const FormSection = forwardRef(function FormSection({
           autocomplete: field.autocomplete,
           onValueChange: (value, meta, event) => {
             field.onValueChange?.(value, meta, event);
-            onFieldValueChange?.(field.key ?? field.name ?? field.label, value, meta, event);
+            onFieldValueChange?.(fieldKey, value, meta, event);
           },
         });
       }),

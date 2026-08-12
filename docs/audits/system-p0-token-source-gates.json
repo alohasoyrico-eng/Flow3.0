@@ -1,0 +1,103 @@
+{
+  "generatedAt": "2026-08-12T03:53:56.730Z",
+  "scope": "P0.1 token source gates",
+  "status": "PASS",
+  "totals": {
+    "sourceFiles": 36,
+    "sourceTokens": 1131,
+    "outputTokens": 1131,
+    "foundations": 11,
+    "decisionQueueFiles": 5,
+    "decisionQueueTokens": 0,
+    "primitiveSourceFiles": 19,
+    "docsSourceFiles": 1
+  },
+  "gates": [
+    {
+      "id": "style-dictionary-output-count-matches-source",
+      "status": "PASS",
+      "evidence": {
+        "sourceTokenCount": 1131,
+        "outputTokenCount": 1131
+      },
+      "failMessage": null
+    },
+    {
+      "id": "legacy-flat-source-removed",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/tokens/source/flow.tokens.json",
+        "present": false
+      },
+      "failMessage": null
+    },
+    {
+      "id": "foundation-files-complete",
+      "status": "PASS",
+      "evidence": {
+        "missingFoundationFiles": [],
+        "emptyFoundationFiles": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "no-duplicate-token-names",
+      "status": "PASS",
+      "evidence": {
+        "duplicates": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "foundation-namespaces-contained",
+      "status": "PASS",
+      "evidence": {
+        "misplacedFoundationTokens": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "decision-queues-empty",
+      "status": "PASS",
+      "evidence": {
+        "decisionQueueFiles": [
+          "packages/tokens/source/decision-queues/aliases-to-foundations.tokens.json",
+          "packages/tokens/source/decision-queues/docs-only-candidates.tokens.json",
+          "packages/tokens/source/decision-queues/primitive-semantic-candidates.tokens.json",
+          "packages/tokens/source/decision-queues/unclassified.tokens.json",
+          "packages/tokens/source/decision-queues/unresolved.tokens.json"
+        ],
+        "decisionQueueTokenCount": 0
+      },
+      "failMessage": null
+    },
+    {
+      "id": "primitive-source-files-present",
+      "status": "PASS",
+      "evidence": {
+        "primitiveSourceFiles": [
+          "packages/tokens/source/primitives/breakpoints.tokens.json",
+          "packages/tokens/source/primitives/charts.tokens.json",
+          "packages/tokens/source/primitives/color.tokens.json",
+          "packages/tokens/source/primitives/density.tokens.json",
+          "packages/tokens/source/primitives/disabled.tokens.json",
+          "packages/tokens/source/primitives/duration.tokens.json",
+          "packages/tokens/source/primitives/elevation.tokens.json",
+          "packages/tokens/source/primitives/email-channel.tokens.json",
+          "packages/tokens/source/primitives/focus.tokens.json",
+          "packages/tokens/source/primitives/iconography.tokens.json",
+          "packages/tokens/source/primitives/loading.tokens.json",
+          "packages/tokens/source/primitives/maps.tokens.json",
+          "packages/tokens/source/primitives/measurement.tokens.json",
+          "packages/tokens/source/primitives/message.tokens.json",
+          "packages/tokens/source/primitives/motion-curves.tokens.json",
+          "packages/tokens/source/primitives/radius.tokens.json",
+          "packages/tokens/source/primitives/research.tokens.json",
+          "packages/tokens/source/primitives/spacing.tokens.json",
+          "packages/tokens/source/primitives/typography.tokens.json"
+        ]
+      },
+      "failMessage": null
+    }
+  ]
+}

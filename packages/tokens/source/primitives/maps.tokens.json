@@ -41,7 +41,7 @@
   },
   "sys-map-focus-ring": {
     "$value": "{sys-a11y-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-focus-ring",
@@ -91,7 +91,7 @@
   },
   "sys-map-pin-background": {
     "$value": "{sys-energy-surface-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-pin-background",
@@ -111,7 +111,7 @@
   },
   "sys-map-pin-cluster-background": {
     "$value": "{sys-energy-text-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-pin-cluster-background",
@@ -121,7 +121,7 @@
   },
   "sys-map-pin-cluster-foreground": {
     "$value": "{sys-energy-surface-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-pin-cluster-foreground",
@@ -131,7 +131,7 @@
   },
   "sys-map-pin-foreground": {
     "$value": "{sys-energy-text-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-pin-foreground",
@@ -141,7 +141,7 @@
   },
   "sys-map-pin-selected-background": {
     "$value": "{sys-energy-action-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-pin-selected-background",
@@ -151,7 +151,7 @@
   },
   "sys-map-pin-selected-foreground": {
     "$value": "{sys-energy-text-on-action}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-map-pin-selected-foreground",

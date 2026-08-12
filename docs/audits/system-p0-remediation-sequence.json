@@ -1,0 +1,685 @@
+{
+  "schemaVersion": "flow-system-p0-remediation-sequence@1",
+  "generatedAt": "2026-08-11",
+  "source": "docs/audits/system-p0-owner-decision-matrix.json",
+  "status": "sequence_only",
+  "completedPrerequisites": {
+    "p01Complete": true,
+    "p02Complete": true,
+    "p03Complete": true
+  },
+  "phaseCount": 5,
+  "iterationCount": 6,
+  "phases": [
+    {
+      "id": "P0.1",
+      "name": "Style Dictionary foundation source",
+      "status": "complete",
+      "tickets": [
+        "foundation:accessibility",
+        "foundation:depth",
+        "foundation:energy",
+        "foundation:frame",
+        "foundation:growth",
+        "foundation:iconography",
+        "foundation:momentum",
+        "foundation:state",
+        "foundation:symbol",
+        "foundation:tone",
+        "foundation:voice"
+      ],
+      "ticketCount": 11,
+      "blockers": [],
+      "exitCriteria": [
+        "token source is canonical JSON",
+        "foundation contracts have typed source",
+        "CSS variables are generated output, not source",
+        "docs visual tokens can map to generated outputs"
+      ],
+      "hotspots": [
+        {
+          "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+          "ticketCount": 19,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 18,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 16,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 16,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 14,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 15,
+            "replace_with_flow_visual_contract": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
+          "ticketCount": 15,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 12,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+          "ticketCount": 15,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 14,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+          "ticketCount": 14,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 13
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 12
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 12
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 12
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 12
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 9,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
+          "ticketCount": 11,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 10,
+            "replace_with_flow_visual_contract": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "P0.2",
+      "name": "Typed primitive runtime for missing primitives",
+      "status": "complete",
+      "tickets": [
+        "primitive:breakpoints",
+        "primitive:color",
+        "primitive:density",
+        "primitive:disabled",
+        "primitive:duration",
+        "primitive:elevation",
+        "primitive:field-action",
+        "primitive:focus",
+        "primitive:loading",
+        "primitive:measurement",
+        "primitive:message",
+        "primitive:motion-curves",
+        "primitive:radius",
+        "primitive:research",
+        "primitive:spacing",
+        "primitive:surface",
+        "primitive:typography"
+      ],
+      "ticketCount": 17,
+      "blockers": [],
+      "exitCriteria": [
+        "missing primitives have TS runtime or explicit non-runtime decision",
+        "surface/color/density/radius/elevation/focus/spacing/typography are available to higher layers",
+        "runtime without spec is classified"
+      ],
+      "hotspots": [
+        {
+          "file": "../FlowDocs/apps/docs/primitive-reference.js",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "keep_as_docs_content_only_after_primitive_source_exists": 13
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/primitive-tabs.js",
+          "ticketCount": 5,
+          "recommendedActions": {
+            "keep_as_docs_content_only_after_primitive_source_exists": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "P0.3",
+      "name": "Convert existing primitive runtimes to TS contracts",
+      "status": "complete",
+      "tickets": [
+        "primitive:animation-assets",
+        "primitive:charts",
+        "primitive:country-flags",
+        "primitive:iconography",
+        "primitive:illustration-assets",
+        "primitive:library-sources",
+        "primitive:maps"
+      ],
+      "ticketCount": 7,
+      "blockers": [],
+      "exitCriteria": [
+        "existing JS primitive runtimes are TS-authored or explicitly docs/asset-owned",
+        "asset primitives have export/ownership policy",
+        "generated types are derived from implementation"
+      ],
+      "hotspots": []
+    },
+    {
+      "id": "P0.4",
+      "name": "Shell pattern contracts",
+      "status": "blocked",
+      "tickets": [
+        "pattern:search",
+        "pattern:sidebar",
+        "pattern:topbar"
+      ],
+      "ticketCount": 3,
+      "blockers": [
+        "zero TS source in shell patterns",
+        "parallel docs DOM behavior"
+      ],
+      "exitCriteria": [
+        "topbar/sidebar/search contracts are TS-authored",
+        "docs shell behavior can consume Flow shell contracts",
+        "hamburger/search/dark-mode responsibilities are assigned to Flow or docs shell explicitly"
+      ],
+      "hotspots": [
+        {
+          "file": "../FlowDocs/apps/docs/reference-demo-interactions.js",
+          "ticketCount": 22,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 22
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+          "ticketCount": 7,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 7
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/template-desktop-interactions.js",
+          "ticketCount": 5,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 5
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/doc-interactions.js",
+          "ticketCount": 4,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 4
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
+          "ticketCount": 4,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 4
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/shell-controls.js",
+          "ticketCount": 4,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 4
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/button-playground-interactions.js",
+          "ticketCount": 3,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/docs-chrome.js",
+          "ticketCount": 3,
+          "recommendedActions": {
+            "block_on_shell_pattern_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/docs-layout.js",
+          "ticketCount": 3,
+          "recommendedActions": {
+            "block_on_shell_pattern_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/index.html",
+          "ticketCount": 3,
+          "recommendedActions": {
+            "block_on_shell_pattern_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/navigation.js",
+          "ticketCount": 3,
+          "recommendedActions": {
+            "block_on_shell_pattern_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
+          "ticketCount": 3,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
+          "ticketCount": 2,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-column-configurator-interactions.js",
+          "ticketCount": 1,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-journey-interactions.js",
+          "ticketCount": 1,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
+          "ticketCount": 1,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
+          "ticketCount": 1,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/stateful-component-interactions.js",
+          "ticketCount": 1,
+          "recommendedActions": {
+            "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "P0.5",
+      "name": "FlowDocs P0 duplicate cleanup",
+      "status": "blocked",
+      "tickets": [
+        "foundation:accessibility",
+        "foundation:depth",
+        "foundation:energy",
+        "foundation:frame",
+        "foundation:growth",
+        "foundation:iconography",
+        "foundation:momentum",
+        "foundation:state",
+        "foundation:symbol",
+        "foundation:tone",
+        "foundation:voice",
+        "pattern:search",
+        "pattern:sidebar",
+        "pattern:topbar",
+        "primitive:animation-assets",
+        "primitive:breakpoints",
+        "primitive:charts",
+        "primitive:color",
+        "primitive:country-flags",
+        "primitive:density",
+        "primitive:disabled",
+        "primitive:duration",
+        "primitive:elevation",
+        "primitive:field-action",
+        "primitive:focus",
+        "primitive:iconography",
+        "primitive:illustration-assets",
+        "primitive:library-sources",
+        "primitive:loading",
+        "primitive:maps",
+        "primitive:measurement",
+        "primitive:message",
+        "primitive:motion-curves",
+        "primitive:radius",
+        "primitive:research",
+        "primitive:spacing",
+        "primitive:surface",
+        "primitive:typography"
+      ],
+      "ticketCount": 38,
+      "blockers": [
+        "P0.1-P0.4 must be complete"
+      ],
+      "exitCriteria": [
+        "P0 docs surfaces are consume Flow, docs-owned content, merged, or removed",
+        "no P0 file is hand-implementing missing lower-layer behavior",
+        "forensic gates show reduced docs-hand-authored P0 count"
+      ],
+      "hotspots": [
+        {
+          "file": "../FlowDocs/apps/docs/pattern-tabs.js",
+          "ticketCount": 25,
+          "recommendedActions": {
+            "move_to_pattern_detail_template_slot_or_delete_duplicate": 25
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/template-domain-demos.js",
+          "ticketCount": 20,
+          "recommendedActions": {
+            "move_to_template_detail_template_slot_or_delete_duplicate": 20
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+          "ticketCount": 19,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 18,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 16,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 16,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 14,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 15,
+            "replace_with_flow_visual_contract": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/template-desktop-demos.js",
+          "ticketCount": 17,
+          "recommendedActions": {
+            "move_to_template_detail_template_slot_or_delete_duplicate": 17
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-shell-renderers.js",
+          "ticketCount": 15,
+          "recommendedActions": {
+            "move_to_pattern_detail_template_slot_or_delete_duplicate": 15
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
+          "ticketCount": 15,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 12,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
+          "ticketCount": 15,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 14,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
+          "ticketCount": 14,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/pattern-focused-design.js",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "move_to_pattern_detail_template_slot_or_delete_duplicate": 13
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
+          "ticketCount": 13,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 2
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 9,
+            "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
+          "ticketCount": 12,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 11,
+            "replace_with_flow_visual_contract": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
+          "ticketCount": 11,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 10,
+            "replace_with_flow_visual_contract": 1
+          }
+        }
+      ]
+    }
+  ],
+  "iterations": [
+    {
+      "iteration": 1,
+      "phase": "P0.1",
+      "scope": "Install/configure Style Dictionary and define canonical token source shape.",
+      "doneWhen": [
+        "dependency/config exists",
+        "source direction is JSON to outputs",
+        "old CSS-derived contract is marked transitional",
+        "forensic gate style-dictionary-real passes"
+      ]
+    },
+    {
+      "iteration": 2,
+      "phase": "P0.1",
+      "scope": "Map foundation outputs and migrate token hotspot classes to generated token references.",
+      "doneWhen": [
+        "foundation source covers color/radius/spacing/elevation/density/focus basics",
+        "foundation gate can distinguish source vs docs content"
+      ]
+    },
+    {
+      "iteration": 3,
+      "phase": "P0.2",
+      "scope": "Create typed primitive runtime for surface, color, density, radius, elevation, focus.",
+      "doneWhen": [
+        "P0 visual primitives have TS exports",
+        "components/patterns can import primitive contracts"
+      ]
+    },
+    {
+      "iteration": 4,
+      "phase": "P0.2-P0.3",
+      "scope": "Create or type remaining P0 primitives and classify asset primitives.",
+      "doneWhen": [
+        "all P0 primitives have runtime or explicit non-runtime owner decision",
+        "country-options is resolved"
+      ]
+    },
+    {
+      "iteration": 5,
+      "phase": "P0.4",
+      "scope": "Audit and type topbar/sidebar/search Flow contracts against docs shell requirements.",
+      "doneWhen": [
+        "shell pattern behavior is owned by Flow or explicitly docs-shell",
+        "parallel DOM handlers are listed for removal/replacement"
+      ]
+    },
+    {
+      "iteration": 6,
+      "phase": "P0.5",
+      "scope": "Clean FlowDocs P0 shell and renderer duplicates only where lower-layer contracts now exist.",
+      "doneWhen": [
+        "P0 owner decisions are applied",
+        "audit:p0-owner-decisions shows reduced hotspots",
+        "FlowDocs shell does not invent primitives/pattern behavior"
+      ]
+    }
+  ]
+}

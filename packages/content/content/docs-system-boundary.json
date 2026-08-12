@@ -28,8 +28,8 @@
     "#design-system/specs/templates/*"
   ],
   "expectedInventory": {
-    "sourceFilesScanned": 205,
-    "generatedFiles": 352,
+    "sourceFilesScanned": 222,
+    "generatedFiles": 355,
     "flowDependencyPresent": 1,
     "flowBoundaryAliases": 20,
     "missingFlowAliases": 0,
@@ -39,8 +39,8 @@
     "docsProtectedFlowClassRoots": 69,
     "docsComponentClassDefinitions": 0,
     "docsComponentClassDefinitionFiles": 0,
-    "docsPatternClassDefinitions": 795,
-    "docsPatternClassRoots": 184,
+    "docsPatternClassDefinitions": 738,
+    "docsPatternClassRoots": 165,
     "docsUnapprovedPatternClassRoots": 0,
     "docsPatternClassPolicyIssues": 0,
     "docsContractualPatternClassDefinitions": 0,

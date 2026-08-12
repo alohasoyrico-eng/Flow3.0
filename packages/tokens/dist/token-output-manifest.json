@@ -1,7 +1,7 @@
 {
   "source": {
     "file": "packages/tokens/.build/flow.tokens.json",
-    "sha256": "91bea5569ba70e2f8395502daca64784e512eb776aca12253f8ed19fad97f39b",
+    "sha256": "03e1bcde2ebcec18722745c5fbcf992dea22fef498d325de0f69fcd7f5c476d1",
     "tokenCount": 1131
   },
   "outputs": [
@@ -11,11 +11,11 @@
     },
     {
       "file": "packages/tokens/tokens.json",
-      "sha256": "5b19656bcd904eec53c9b6e385e9678dc92f69ffa8d326e8a582356af5a0ae59"
+      "sha256": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042"
     },
     {
       "file": "packages/tokens/src/generated/tokens.ts",
-      "sha256": "0a3a4397330612d2c56a7da32205edc13e1b81aeffa3ac04d4a8e731b6df6aa2"
+      "sha256": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f"
     },
     {
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",

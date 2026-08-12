@@ -48,6 +48,7 @@
           "Accordion",
           "Badge",
           "Breadcrumbs",
+          "Button",
           "Drawer",
           "Icon Button"
         ],
@@ -64,6 +65,7 @@
           "comp.accordion.*",
           "comp.badge.*",
           "comp.breadcrumbs.*",
+          "comp.button.*",
           "comp.drawer.*",
           "comp.icon-button.*",
           "sys.accessibility.*",
@@ -141,6 +143,7 @@
             "uses": [
               "Accordion",
               "Badge",
+              "Button",
               "Icon Button"
             ]
           }
@@ -151,7 +154,7 @@
           "Do not hide permission-filtered routes without a template policy."
         ],
         "tests": [
-          "Composes Accordion, Badge, Breadcrumbs, Drawer, and Icon Button.",
+          "Composes Accordion, Badge, Breadcrumbs, Button, Drawer, and Icon Button.",
           "Covers expanded, collapsed, mobile, active, loading, and permission-filtered states.",
           "Keeps Topbar and templates as boundaries."
         ],

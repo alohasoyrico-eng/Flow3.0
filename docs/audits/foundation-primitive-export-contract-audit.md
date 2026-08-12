@@ -10,11 +10,11 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 - Primitives: 24
 - Patterns: 63
 - Templates: 9
-- Tokens: 1078
+- Tokens: 1131
 - Token types: 15
 - Token scopes: 3
-- Tokens with scope: 1078
-- Tokens with CSS variable: 1078
+- Tokens with scope: 1131
+- Tokens with CSS variable: 1131
 - Tokens with CSS reference: 620
 - Unknown token types: 0
 - Invalid token transform fields: 0
@@ -47,11 +47,11 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 | primitives | 24 | 24 |
 | patterns | 63 | 63 |
 | templates | 9 | 9 |
-| tokenCount | 1078 | 1078 |
+| tokenCount | 1131 | 1131 |
 | tokenTypes | 15 | 15 |
 | tokenScopes | 3 | 3 |
-| tokensWithScope | 1078 | 1078 |
-| tokensWithCssVariable | 1078 | 1078 |
+| tokensWithScope | 1131 | 1131 |
+| tokensWithCssVariable | 1131 | 1131 |
 | tokensWithCssReference | 620 | 620 |
 | unknownTokenTypes | 0 | 0 |
 | invalidTokenTransformFields | 0 | 0 |
@@ -104,7 +104,7 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 
 Every token must remain JSON-transformable: stable `type`, explicit `scope`, and a CSS variable name matching the token id. Unknown token types and obvious type/value mismatches are actionable debt.
 
-- Format: flow-token-contract@1
+- Format: flow-token-contract@2
 - Compatible with: style-dictionary
 - Types: border, color, content, cubicBezier, dimension, duration, fontFamily, fontVariationSettings, fontWeight, number, opacity, shadow, textTransform, transform, zIndex
 - Scopes: density, ref, sys

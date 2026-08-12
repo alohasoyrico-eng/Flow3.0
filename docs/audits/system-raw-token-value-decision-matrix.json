@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-08-12T02:03:17.092Z",
+  "scope": "Raw token value decision matrix",
+  "status": "PASS",
+  "sourceReport": "docs/audits/system-raw-token-value-governance.json",
+  "totals": {
+    "violations": 0,
+    "rows": 0,
+    "owners": 0
+  },
+  "totalsByDecision": {},
+  "totalsByOwner": {},
+  "rows": []
+}

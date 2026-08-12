@@ -91,7 +91,7 @@
   },
   "sys-icon-focus-ring": {
     "$value": "{sys-iconography-focus-ring}",
-    "$type": "unknown",
+    "$type": "border",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-icon-focus-ring",

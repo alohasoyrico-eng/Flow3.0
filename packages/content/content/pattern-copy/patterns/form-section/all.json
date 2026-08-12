@@ -50,7 +50,7 @@
         ],
         [
           "fields",
-          "Input | TextArea[]",
+          "Input | Select | Checkbox | RadioButton | Switch | TextArea[]",
           "yes",
           "Related form controls."
         ],
@@ -75,6 +75,11 @@
       ],
       "componentsUsed": [
         "Input",
+        "Select",
+        "Checkbox",
+        "Radio Button",
+        "Switch",
+        "Icon Button",
         "Text Area",
         "Inline Validation",
         "Button",

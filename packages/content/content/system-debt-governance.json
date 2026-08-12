@@ -2,7 +2,22 @@
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "contractArtifactFiles": [
     "energy-quality-contract.json",
-    "foundation-dependency-matrix.json"
+    "foundation-dependency-matrix.json",
+    "system-baseline-master.json",
+    "system-forensic-gates.json",
+    "system-generated-token-output-governance.json",
+    "system-master-remediation-plan.json",
+    "system-p0-forensic-detail.json",
+    "system-p0-owner-decision-matrix.json",
+    "system-p0-primitive-runtime-matrix.json",
+    "system-p0-remediation-sequence.json",
+    "system-p0-token-foundation-classification.json",
+    "system-p0-token-source-gates.json",
+    "system-raw-token-value-decision-matrix.json",
+    "system-raw-token-value-governance.json",
+    "system-remediation-matrix.json",
+    "system-token-output-gates.json",
+    "system-typescript-public-surface.json"
   ],
   "expectedStrategicCategories": [
     "anti-duplication",

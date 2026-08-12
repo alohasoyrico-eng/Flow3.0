@@ -21,7 +21,7 @@
   },
   "sys-loading-easing-linear": {
     "$value": "{sys-momentum-easing-linear}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-easing-linear",
@@ -31,7 +31,7 @@
   },
   "sys-loading-easing-rhythm": {
     "$value": "{sys-momentum-easing-move}",
-    "$type": "unknown",
+    "$type": "cubicBezier",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-easing-rhythm",
@@ -51,7 +51,7 @@
   },
   "sys-loading-progress-fill": {
     "$value": "{sys-energy-action-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-progress-fill",
@@ -61,7 +61,7 @@
   },
   "sys-loading-progress-track": {
     "$value": "{sys-energy-border-default}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-progress-track",
@@ -81,7 +81,7 @@
   },
   "sys-loading-skeleton-highlight": {
     "$value": "{sys-energy-border-default}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-skeleton-highlight",
@@ -111,7 +111,7 @@
   },
   "sys-loading-spinner-tone": {
     "$value": "{sys-energy-action-primary}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-spinner-tone",
@@ -121,7 +121,7 @@
   },
   "sys-loading-spinner-track": {
     "$value": "{sys-energy-border-default}",
-    "$type": "unknown",
+    "$type": "color",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-loading-spinner-track",

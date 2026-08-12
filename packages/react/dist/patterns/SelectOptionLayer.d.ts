@@ -1,4 +1,5 @@
 import type { ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
+import type { BadgeTone } from "../Badge.js";
 import type { ButtonProps } from "../Button.js";
 import type { EmptyStateAction } from "../EmptyState.js";
 import type { SelectDensity, SelectOpenChangeEvent, SelectValueChangeEvent, SelectValueMeta } from "../Select.js";
@@ -19,6 +20,7 @@ export interface SelectOptionLayerOption {
   meta?: string;
   group?: string;
   reason?: string;
+  tone?: BadgeTone;
   disabled?: boolean;
   unavailable?: boolean;
 }

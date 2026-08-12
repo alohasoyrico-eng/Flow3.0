@@ -207,8 +207,13 @@
       ],
       "componentsUsed": [
         "Button",
+        "Checkbox",
+        "Icon Button",
         "Inline Validation",
         "Input",
+        "Radio Button",
+        "Select",
+        "Switch",
         "Text Area",
         "Toast"
       ],

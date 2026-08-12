@@ -301,7 +301,7 @@
   },
   "sys-state-loading-spin": {
     "$value": "{ref-state-loading-spin}",
-    "$type": "unknown",
+    "$type": "duration",
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-state-loading-spin",

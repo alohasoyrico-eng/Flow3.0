@@ -1,0 +1,111 @@
+# System P0 owner decision matrix
+
+Generated: 2026-08-11
+
+This report converts P0 forensic evidence into owner-decision actions. It is still analysis only.
+
+## Summary
+
+- P0 decision tickets: 38
+- Unique hotspot files: 206
+- Total surface refs: 1270
+
+## P0 decisions
+
+| Ticket | Required owner decision | Surface refs | Surface actions |
+| --- | --- | ---: | --- |
+| foundation:accessibility | create_style_dictionary_foundation_source_before_docs_cleanup | 72 | manual_owner_decision_required: 7<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_component_detail_template_slot_or_delete_duplicate: 57<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 3<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 1<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:depth | create_style_dictionary_foundation_source_before_docs_cleanup | 37 | manual_owner_decision_required: 4<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 4<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 24<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:energy | create_style_dictionary_foundation_source_before_docs_cleanup | 65 | manual_owner_decision_required: 4<br>keep_as_docs_content_only_after_foundation_source_exists: 3<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 3<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 52<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:frame | create_style_dictionary_foundation_source_before_docs_cleanup | 76 | manual_owner_decision_required: 7<br>keep_as_docs_content_only_after_foundation_source_exists: 3<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 3<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 2<br>promote_or_map_to_token_source: 59<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:growth | create_style_dictionary_foundation_source_before_docs_cleanup | 19 | manual_owner_decision_required: 3<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 2<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 9<br>move_to_template_detail_template_slot_or_delete_duplicate: 3 |
+| foundation:iconography | create_style_dictionary_foundation_source_before_docs_cleanup | 7 | manual_owner_decision_required: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 2<br>promote_or_map_to_token_source: 1<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:momentum | create_style_dictionary_foundation_source_before_docs_cleanup | 27 | manual_owner_decision_required: 3<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 2<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 19<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:state | create_style_dictionary_foundation_source_before_docs_cleanup | 141 | manual_owner_decision_required: 13<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 11<br>keep_as_docs_content_only_after_foundation_source_exists: 2<br>move_to_component_detail_template_slot_or_delete_duplicate: 60<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 29<br>keep_as_docs_content_only_after_primitive_source_exists: 2<br>promote_or_map_to_token_source: 19<br>move_to_template_detail_template_slot_or_delete_duplicate: 5 |
+| foundation:symbol | create_style_dictionary_foundation_source_before_docs_cleanup | 39 | manual_owner_decision_required: 6<br>block_on_shell_pattern_contract: 2<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 3<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 2<br>promote_or_map_to_token_source: 23<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| foundation:tone | create_style_dictionary_foundation_source_before_docs_cleanup | 73 | manual_owner_decision_required: 13<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 3<br>block_on_shell_pattern_contract: 1<br>keep_as_docs_content_only_after_foundation_source_exists: 3<br>move_to_component_detail_template_slot_or_delete_duplicate: 15<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 26<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>classify_as_reference_content_or_remove_visual_logic: 1<br>promote_or_map_to_token_source: 6<br>move_to_template_detail_template_slot_or_delete_duplicate: 4 |
+| foundation:voice | create_style_dictionary_foundation_source_before_docs_cleanup | 55 | manual_owner_decision_required: 3<br>keep_as_docs_content_only_after_foundation_source_exists: 3<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 4<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 41<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| primitive:animation-assets | create_typed_primitive_runtime_before_docs_cleanup | 0 | None |
+| primitive:breakpoints | create_typed_primitive_runtime_before_docs_cleanup | 2 | manual_owner_decision_required: 1<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1 |
+| primitive:charts | create_typed_primitive_runtime_before_docs_cleanup | 3 | manual_owner_decision_required: 2<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1 |
+| primitive:color | create_typed_primitive_runtime_before_docs_cleanup | 65 | manual_owner_decision_required: 6<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 4<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 52 |
+| primitive:country-flags | create_typed_primitive_runtime_before_docs_cleanup | 0 | None |
+| primitive:density | create_typed_primitive_runtime_before_docs_cleanup | 66 | manual_owner_decision_required: 5<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 3<br>block_on_shell_pattern_contract: 1<br>keep_as_docs_content_only_after_foundation_source_exists: 3<br>move_to_component_detail_template_slot_or_delete_duplicate: 16<br>classify_as_docs_home_content_or_remove_visual_logic: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 11<br>keep_as_docs_content_only_after_primitive_source_exists: 2<br>promote_or_map_to_token_source: 23<br>move_to_template_detail_template_slot_or_delete_duplicate: 1 |
+| primitive:disabled | create_typed_primitive_runtime_before_docs_cleanup | 28 | manual_owner_decision_required: 6<br>move_to_component_detail_template_slot_or_delete_duplicate: 7<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 4<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 4<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>promote_or_map_to_token_source: 6 |
+| primitive:duration | create_typed_primitive_runtime_before_docs_cleanup | 15 | keep_as_docs_content_only_after_foundation_source_exists: 1<br>manual_owner_decision_required: 4<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 2<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 6<br>move_to_template_detail_template_slot_or_delete_duplicate: 1 |
+| primitive:elevation | create_typed_primitive_runtime_before_docs_cleanup | 52 | manual_owner_decision_required: 6<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_component_detail_template_slot_or_delete_duplicate: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 17<br>keep_as_docs_content_only_after_primitive_source_exists: 2<br>classify_as_reference_content_or_remove_visual_logic: 1<br>promote_or_map_to_token_source: 20<br>move_to_template_detail_template_slot_or_delete_duplicate: 4 |
+| primitive:field-action | create_typed_primitive_runtime_before_docs_cleanup | 0 | None |
+| primitive:focus | create_typed_primitive_runtime_before_docs_cleanup | 43 | manual_owner_decision_required: 8<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 4<br>move_to_component_detail_template_slot_or_delete_duplicate: 5<br>block_on_shell_pattern_contract: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 4<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>promote_or_map_to_token_source: 20 |
+| primitive:iconography | create_typed_primitive_runtime_before_docs_cleanup | 7 | manual_owner_decision_required: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 2<br>promote_or_map_to_token_source: 1<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| primitive:illustration-assets | create_typed_primitive_runtime_before_docs_cleanup | 0 | None |
+| primitive:library-sources | create_typed_primitive_runtime_before_docs_cleanup | 0 | None |
+| primitive:loading | create_typed_primitive_runtime_before_docs_cleanup | 34 | manual_owner_decision_required: 7<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 3<br>move_to_component_detail_template_slot_or_delete_duplicate: 7<br>classify_as_docs_home_content_or_remove_visual_logic: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 9<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>promote_or_map_to_token_source: 4<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| primitive:maps | create_typed_primitive_runtime_before_docs_cleanup | 5 | manual_owner_decision_required: 4<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1 |
+| primitive:measurement | create_typed_primitive_runtime_before_docs_cleanup | 3 | promote_or_map_to_token_source: 2<br>manual_owner_decision_required: 1 |
+| primitive:message | create_typed_primitive_runtime_before_docs_cleanup | 36 | manual_owner_decision_required: 9<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 4<br>keep_as_docs_content_only_after_foundation_source_exists: 1<br>move_to_component_detail_template_slot_or_delete_duplicate: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 13<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>promote_or_map_to_token_source: 4<br>move_to_template_detail_template_slot_or_delete_duplicate: 3 |
+| primitive:motion-curves | create_typed_primitive_runtime_before_docs_cleanup | 2 | manual_owner_decision_required: 1<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1 |
+| primitive:radius | create_typed_primitive_runtime_before_docs_cleanup | 59 | replace_with_flow_react_behavior_or_mark_docs_shell_only: 2<br>manual_owner_decision_required: 5<br>move_to_component_detail_template_slot_or_delete_duplicate: 1<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>promote_or_map_to_token_source: 50 |
+| primitive:research | create_typed_primitive_runtime_before_docs_cleanup | 3 | move_to_pattern_detail_template_slot_or_delete_duplicate: 1<br>promote_or_map_to_token_source: 2 |
+| primitive:spacing | create_typed_primitive_runtime_before_docs_cleanup | 16 | manual_owner_decision_required: 4<br>keep_as_docs_content_only_after_foundation_source_exists: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 1<br>promote_or_map_to_token_source: 9 |
+| primitive:surface | create_typed_primitive_runtime_before_docs_cleanup | 96 | manual_owner_decision_required: 9<br>keep_as_docs_content_only_after_foundation_source_exists: 2<br>move_to_component_detail_template_slot_or_delete_duplicate: 11<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 18<br>keep_as_docs_content_only_after_primitive_source_exists: 2<br>classify_as_reference_content_or_remove_visual_logic: 1<br>promote_or_map_to_token_source: 49<br>move_to_template_detail_template_slot_or_delete_duplicate: 4 |
+| primitive:typography | create_typed_primitive_runtime_before_docs_cleanup | 8 | keep_as_docs_content_only_after_foundation_source_exists: 2<br>manual_owner_decision_required: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 1<br>keep_as_docs_content_only_after_primitive_source_exists: 1<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>promote_or_map_to_token_source: 1 |
+| pattern:search | stabilize_shell_pattern_contract_before_flowdocs_shell_cleanup | 61 | manual_owner_decision_required: 7<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 5<br>block_on_shell_pattern_contract: 3<br>move_to_component_detail_template_slot_or_delete_duplicate: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 21<br>replace_with_flow_visual_contract: 22<br>move_to_template_detail_template_slot_or_delete_duplicate: 1 |
+| pattern:sidebar | stabilize_shell_pattern_contract_before_flowdocs_shell_cleanup | 27 | replace_with_flow_react_behavior_or_mark_docs_shell_only: 2<br>block_on_shell_pattern_contract: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 9<br>replace_with_flow_visual_contract: 12<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| pattern:topbar | stabilize_shell_pattern_contract_before_flowdocs_shell_cleanup | 28 | block_on_shell_pattern_contract: 2<br>move_to_component_detail_template_slot_or_delete_duplicate: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 7<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>replace_with_flow_visual_contract: 15<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+
+## Top file hotspots
+
+| File | P0 ticket refs | Categories | Recommended actions |
+| --- | ---: | --- | --- |
+| ../FlowDocs/apps/docs/icon-system.js | 25 | docs-misc-surface: 25 | manual_owner_decision_required: 25 |
+| ../FlowDocs/apps/docs/pattern-tabs.js | 25 | docs-pattern-detail-renderer: 25 | move_to_pattern_detail_template_slot_or_delete_duplicate: 25 |
+| ../FlowDocs/apps/docs/reference-demo-interactions.js | 22 | docs-dom-interaction: 22 | replace_with_flow_react_behavior_or_mark_docs_shell_only: 22 |
+| ../FlowDocs/apps/docs/component-foundation-trace.js | 21 | docs-misc-surface: 21 | manual_owner_decision_required: 21 |
+| ../FlowDocs/apps/docs/template-domain-demos.js | 20 | docs-template-detail-renderer: 20 | move_to_template_detail_template_slot_or_delete_duplicate: 20 |
+| ../FlowDocs/apps/docs/styles/03c-motion-reference-01.css | 19 | docs-css-visual-surface: 19 | promote_or_map_to_token_source: 18<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js | 18 | docs-misc-surface: 18 | manual_owner_decision_required: 18 |
+| ../FlowDocs/apps/docs/styles/03a-reference-core-01.css | 17 | docs-css-visual-surface: 17 | promote_or_map_to_token_source: 16<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css | 17 | docs-css-visual-surface: 17 | promote_or_map_to_token_source: 16<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/styles/06-responsive-01.css | 17 | docs-css-visual-surface: 17 | promote_or_map_to_token_source: 14<br>replace_with_flow_visual_contract: 3 |
+| ../FlowDocs/apps/docs/styles/07-pattern-topbar.css | 17 | docs-css-visual-surface: 17 | promote_or_map_to_token_source: 15<br>replace_with_flow_visual_contract: 2 |
+| ../FlowDocs/apps/docs/template-desktop-demos.js | 17 | docs-template-detail-renderer: 17 | move_to_template_detail_template_slot_or_delete_duplicate: 17 |
+| ../FlowDocs/apps/docs/pattern-shell-renderers.js | 15 | docs-pattern-detail-renderer: 15 | move_to_pattern_detail_template_slot_or_delete_duplicate: 15 |
+| ../FlowDocs/apps/docs/styles/06-responsive-02.css | 15 | docs-css-visual-surface: 15 | promote_or_map_to_token_source: 12<br>replace_with_flow_visual_contract: 3 |
+| ../FlowDocs/apps/docs/styles/07-pattern-foundations.css | 15 | docs-css-visual-surface: 15 | promote_or_map_to_token_source: 14<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/vendor/echarts.esm.min.js | 15 | docs-misc-surface: 15 | manual_owner_decision_required: 15 |
+| ../FlowDocs/apps/docs/family-component-docs.js | 14 | docs-misc-surface: 14 | manual_owner_decision_required: 14 |
+| ../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css | 14 | docs-css-visual-surface: 14 | promote_or_map_to_token_source: 11<br>replace_with_flow_visual_contract: 3 |
+| ../FlowDocs/apps/docs/app.js | 13 | docs-misc-surface: 13 | manual_owner_decision_required: 13 |
+| ../FlowDocs/apps/docs/foundation-explorer.js | 13 | docs-foundation-detail-renderer: 13 | keep_as_docs_content_only_after_foundation_source_exists: 13 |
+| ../FlowDocs/apps/docs/pattern-focused-design.js | 13 | docs-pattern-detail-renderer: 13 | move_to_pattern_detail_template_slot_or_delete_duplicate: 13 |
+| ../FlowDocs/apps/docs/primitive-reference.js | 13 | docs-primitive-detail-renderer: 13 | keep_as_docs_content_only_after_primitive_source_exists: 13 |
+| ../FlowDocs/apps/docs/styles/01-shell-01.css | 13 | docs-css-visual-surface: 13 | promote_or_map_to_token_source: 11<br>replace_with_flow_visual_contract: 2 |
+| ../FlowDocs/apps/docs/styles/01-shell-02.css | 13 | docs-css-visual-surface: 13 | promote_or_map_to_token_source: 11<br>replace_with_flow_visual_contract: 2 |
+| ../FlowDocs/apps/docs/styles/04m-tabs-docs.css | 13 | docs-css-visual-surface: 13 | promote_or_map_to_token_source: 13 |
+| ../FlowDocs/apps/docs/styles/03c-motion-reference-02.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 12 |
+| ../FlowDocs/apps/docs/styles/04a-button-docs-01.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 12 |
+| ../FlowDocs/apps/docs/styles/04b-component-standard-layout.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 12 |
+| ../FlowDocs/apps/docs/styles/04i-simple-component-layout.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 12 |
+| ../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 11<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/styles/07-pattern-docs.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 9<br>replace_with_flow_visual_contract: 3 |
+| ../FlowDocs/apps/docs/styles/07-pattern-settings-help.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 11<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css | 12 | docs-css-visual-surface: 12 | promote_or_map_to_token_source: 11<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js | 12 | docs-misc-surface: 12 | manual_owner_decision_required: 12 |
+| ../FlowDocs/apps/docs/styles/03a-reference-core-02.css | 11 | docs-css-visual-surface: 11 | promote_or_map_to_token_source: 10<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/styles/02-doc-layout.css | 10 | docs-css-visual-surface: 10 | promote_or_map_to_token_source: 10 |
+| ../FlowDocs/apps/docs/styles/04b-card-docs.css | 10 | docs-css-visual-surface: 10 | promote_or_map_to_token_source: 9<br>replace_with_flow_visual_contract: 1 |
+| ../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css | 10 | docs-css-visual-surface: 10 | promote_or_map_to_token_source: 10 |
+| ../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css | 10 | docs-css-visual-surface: 10 | promote_or_map_to_token_source: 10 |
+| ../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css | 10 | docs-css-visual-surface: 10 | promote_or_map_to_token_source: 9<br>replace_with_flow_visual_contract: 1 |
+
+## Shell pattern decisions
+
+| Ticket | Required owner decision | Blockers | Surface actions |
+| --- | --- | --- | --- |
+| pattern:search | stabilize_shell_pattern_contract_before_flowdocs_shell_cleanup | parallel DOM behavior risk<br>docs-only visual surface risk<br>docs shell dependency risk<br>missing TypeScript source<br>dependency:style-dictionary-real<br>dependency:typescript-source-real<br>dependency:primitive-cascade-runtime | manual_owner_decision_required: 7<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 5<br>block_on_shell_pattern_contract: 3<br>move_to_component_detail_template_slot_or_delete_duplicate: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 21<br>replace_with_flow_visual_contract: 22<br>move_to_template_detail_template_slot_or_delete_duplicate: 1 |
+| pattern:sidebar | stabilize_shell_pattern_contract_before_flowdocs_shell_cleanup | parallel DOM behavior risk<br>docs-only visual surface risk<br>docs shell dependency risk<br>missing TypeScript source<br>dependency:style-dictionary-real<br>dependency:typescript-source-real<br>dependency:primitive-cascade-runtime | replace_with_flow_react_behavior_or_mark_docs_shell_only: 2<br>block_on_shell_pattern_contract: 2<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 9<br>replace_with_flow_visual_contract: 12<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+| pattern:topbar | stabilize_shell_pattern_contract_before_flowdocs_shell_cleanup | parallel DOM behavior risk<br>docs-only visual surface risk<br>docs shell dependency risk<br>missing TypeScript source<br>dependency:style-dictionary-real<br>dependency:typescript-source-real<br>dependency:primitive-cascade-runtime | block_on_shell_pattern_contract: 2<br>move_to_component_detail_template_slot_or_delete_duplicate: 1<br>move_to_pattern_detail_template_slot_or_delete_duplicate: 7<br>replace_with_flow_react_behavior_or_mark_docs_shell_only: 1<br>replace_with_flow_visual_contract: 15<br>move_to_template_detail_template_slot_or_delete_duplicate: 2 |
+
+## Interpretation
+
+The correct next remediation order is not docs cleanup first. It is token/foundation source, primitive runtime, then shell pattern contracts, then docs shell cleanup. Otherwise FlowDocs will keep inventing missing lower-layer behavior.
