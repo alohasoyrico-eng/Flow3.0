@@ -80,9 +80,10 @@
     "missing": []
   },
   "implementation": {
+    "docsScope": "external-not-audited",
     "packageDependency": "^1.6.20",
-    "vendorFlagCount": 265,
-    "vendorLicensePresent": true,
+    "vendorFlagCount": null,
+    "vendorLicensePresent": null,
     "exportsPrimitiveApi": true,
     "usesLibraryBridge": true,
     "createsImageAsset": true,

@@ -10,7 +10,8 @@ Country Flags converts a free library into Flow-owned country identity assets so
 ## Signals
 - Roles: 4/4
 - Coordinated primitives: 4/4
-- Vendor flags: 265
+- Docs scope: external-not-audited
+- Vendor flags: not audited here
 - Package dependency: ^1.6.20
 - CSS targets image asset: yes
 - CSS uses circular mask: yes

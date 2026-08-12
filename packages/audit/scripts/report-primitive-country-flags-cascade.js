@@ -22,8 +22,6 @@ const componentIndexFile = resolveBoundaryPath("#design-system/components-js", "
 const reactCountrySelectorFile = path.join(root, "packages/react/src/CountrySelector.js");
 const specFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/country-flags.json");
 const contractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/country-flags.md");
-const vendorDir = path.join(docsAppDir, "vendor/country-flag-icons/3x2");
-const vendorLicenseFile = path.join(docsAppDir, "vendor/country-flag-icons/LICENSE");
 const primitiveReports = {
   "library-sources": path.join(root, "docs/audits/primitive-library-sources-cascade-audit.json"),
   iconography: path.join(root, "docs/audits/primitive-iconography-cascade-audit.json"),
@@ -56,14 +54,26 @@ const requiredTokenDependencies = [
 ];
 
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
+
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsScope = repoDocsAppDir ? "in-repo" : "external-not-audited";
+const vendorDir = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/country-flag-icons/3x2") : null;
+const vendorLicenseFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/country-flag-icons/LICENSE") : null;
 
 function reportStatus(file) {
   return fs.existsSync(file) ? readJson(file)?.status ?? "missing" : "missing";
 }
 
 function countVendorFlags() {
+  if (!vendorDir) return null;
   if (!fs.existsSync(vendorDir)) return 0;
   return fs.readdirSync(vendorDir).filter((file) => /^[A-Z]{2}(?:-[A-Z]{2,3})?\.svg$/.test(file)).length;
 }
@@ -92,9 +102,10 @@ const librarySourcesReport = fs.existsSync(primitiveReports["library-sources"])
   : {};
 
 const implementation = {
+  docsScope,
   packageDependency: packageJson.dependencies?.["country-flag-icons"] ?? null,
   vendorFlagCount,
-  vendorLicensePresent: fs.existsSync(vendorLicenseFile),
+  vendorLicensePresent: vendorLicenseFile ? fs.existsSync(vendorLicenseFile) : null,
   exportsPrimitiveApi: /createCountryFlag/.test(index) && /countryFlagAssetPath/.test(index) && /hasCountryFlag/.test(index),
   usesLibraryBridge: /country-flag-icons/.test(primitive) && /supportedCountryFlags/.test(primitive),
   createsImageAsset: /document\.createElement\("img"\)/.test(primitive) && /country-flag__asset/.test(primitive),
@@ -122,10 +133,12 @@ if (missingFoundations.length) gaps.push(`Missing governing foundations: ${missi
 if (missingCoordinatedPrimitives.length) gaps.push(`Missing coordinated primitives: ${missingCoordinatedPrimitives.join(", ")}.`);
 if (missingTokenDependencies.length) gaps.push(`Missing token dependencies: ${missingTokenDependencies.join(", ")}.`);
 if (!implementation.packageDependency) gaps.push("Components package must declare country-flag-icons as the flag asset dependency.");
-if (implementation.vendorFlagCount < 200) gaps.push(`Docs vendor bridge must include world flag assets; found ${implementation.vendorFlagCount}.`);
-if (!implementation.vendorLicensePresent) gaps.push("Docs vendor bridge must include the country-flag-icons MIT license.");
+if (repoDocsAppDir) {
+  if (implementation.vendorFlagCount < 200) gaps.push(`Docs vendor bridge must include world flag assets; found ${implementation.vendorFlagCount}.`);
+  if (!implementation.vendorLicensePresent) gaps.push("Docs vendor bridge must include the country-flag-icons MIT license.");
+}
 for (const [key, value] of Object.entries(implementation)) {
-  if (["packageDependency", "vendorFlagCount"].includes(key)) continue;
+  if (["docsScope", "packageDependency", "vendorFlagCount", "vendorLicensePresent"].includes(key)) continue;
   if (!value) gaps.push(`Country Flags implementation signal missing: ${key}.`);
 }
 for (const [name, status] of Object.entries(foundationGate)) {
@@ -176,7 +189,8 @@ function writeReport() {
     "## Signals",
     `- Roles: ${report.roles.present.length}/${report.roles.required.length}`,
     `- Coordinated primitives: ${report.coordinatedPrimitives.present.length}/${report.coordinatedPrimitives.required.length}`,
-    `- Vendor flags: ${report.implementation.vendorFlagCount}`,
+    `- Docs scope: ${report.implementation.docsScope}`,
+    `- Vendor flags: ${report.implementation.vendorFlagCount ?? "not audited here"}`,
     `- Package dependency: ${report.implementation.packageDependency ?? "missing"}`,
     `- CSS targets image asset: ${report.implementation.cssTargetsAsset ? "yes" : "no"}`,
     `- CSS uses circular mask: ${report.implementation.cssUsesCircularMask ? "yes" : "no"}`,
