@@ -435,7 +435,14 @@ function run(command, args) {
   if (result.status !== 0) {
     process.stdout.write(result.stdout);
     process.stderr.write(result.stderr);
-    throw new Error(`${command} ${args.join(" ")} failed`);
+    const details = [result.stdout, result.stderr]
+      .filter(Boolean)
+      .join("\n")
+      .trim()
+      .split("\n")
+      .slice(-20)
+      .join("\n");
+    throw new Error(`${command} ${args.join(" ")} failed${details ? `:\n${details}` : ""}`);
   }
 }
 
