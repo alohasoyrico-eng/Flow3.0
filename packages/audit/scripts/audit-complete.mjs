@@ -207,6 +207,7 @@ const expectedAuditFiles = new Set([
   "report-system-phase1-style-dictionary-checkpoint.js",
   "report-system-raw-token-value-decision-matrix.js",
   "report-system-raw-token-value-governance.js",
+  "report-system-react-internal-props-typescript-surface.js",
   "report-system-remediation-matrix.js",
   "report-system-token-ownership-matrix.js",
   "report-system-token-output-gates.js",
@@ -317,6 +318,7 @@ const checks = [
   ["component platform TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-component-platform-typescript-surface.js", "--check"])],
   ["component primitive TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-component-primitive-typescript-surface.js", "--check"])],
   ["component registry TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-component-registry-typescript-surface.js", "--check"])],
+  ["React internal props TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-internal-props-typescript-surface.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),

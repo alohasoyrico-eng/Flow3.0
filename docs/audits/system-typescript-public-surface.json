@@ -6120,11 +6120,6 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/internal/props.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/patterns/AccountOperations.d.ts",
       "pairedJs": true,
       "pairedTs": false
@@ -6483,19 +6478,19 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 588,
+        ".js": 589,
         ".mjs": 20,
-        ".ts": 103,
+        ".ts": 104,
         ".d.ts": 274
       },
       "byArea": {
-        "script": 251,
-        "source": 451,
+        "script": 252,
+        "source": 452,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 414,
-  "uniqueTypescriptPublicSurfaceDebt": 274
+  "typescriptPublicSurfaceDebt": 413,
+  "uniqueTypescriptPublicSurfaceDebt": 273
 }

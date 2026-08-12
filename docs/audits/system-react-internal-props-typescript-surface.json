@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "flow-system-react-internal-props-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "react-internal-props-runtime-has-typescript-source",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/react/src/internal/props.ts",
+        "runtimeFile": "packages/react/src/internal/props.js",
+        "hasSource": true,
+        "hasRuntime": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "flow-data-attributes-contract-owned-in-typescript",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/react/src/internal/props.ts"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "declaration-imports-remain-compatible",
+      "status": "PASS",
+      "evidence": {
+        "declarationFile": "packages/react/src/internal/props.d.ts",
+        "hasDeclaration": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntime": false
+      },
+      "failMessage": null
+    }
+  ],
+  "inventory": {
+    "runtimeFiles": 1,
+    "typeScriptSourceFiles": 1,
+    "declarationFiles": 1,
+    "staleRuntimeFiles": 0,
+    "reactInternalPropsTypescriptSurfaceDebt": 0
+  }
+}

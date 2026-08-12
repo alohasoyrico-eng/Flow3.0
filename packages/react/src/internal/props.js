@@ -1,42 +1,33 @@
 const validFlowDensities = new Set(["sm", "md", "lg"]);
-
 export function flowRestProps(props = {}) {
-  const {
-    contentEditable,
-    dangerouslySetInnerHTML,
-    style,
-    suppressContentEditableWarning,
-    suppressHydrationWarning,
-    ...rest
-  } = props;
-  return rest;
+    const { contentEditable, dangerouslySetInnerHTML, style, suppressContentEditableWarning, suppressHydrationWarning, ...rest } = props;
+    return rest;
 }
-
 export function flowDataProps(props = {}) {
-  return Object.fromEntries(Object.entries(flowRestProps(props)).filter(([key]) => key.startsWith("data-")));
+    return Object.fromEntries(Object.entries(flowRestProps(props)).filter(([key]) => key.startsWith("data-")));
 }
-
 export function normalizeFlowDensity(density) {
-  return validFlowDensities.has(density) ? density : undefined;
+    return typeof density === "string" && validFlowDensities.has(density) ? density : undefined;
 }
-
 export function normalizeFlowValue(value, allowedValues, fallback) {
-  return allowedValues?.has?.(value) ? value : fallback;
+    return allowedValues?.has?.(value) ? value : fallback;
 }
-
+function normalizeDataAttributeValue(value) {
+    return typeof value === "string" || typeof value === "number" || typeof value === "boolean" ? value : undefined;
+}
 export function flowVariantProps(variant) {
-  return variant ? { "data-variant": variant } : {};
+    const value = normalizeDataAttributeValue(variant);
+    return value ? { "data-variant": value } : {};
 }
-
 export function flowStateProps(state) {
-  return state ? { "data-state": state } : {};
+    const value = normalizeDataAttributeValue(state);
+    return value ? { "data-state": value } : {};
 }
-
 export function flowToneProps(tone) {
-  return tone ? { "data-tone": tone } : {};
+    const value = normalizeDataAttributeValue(tone);
+    return value ? { "data-tone": value } : {};
 }
-
 export function flowDensityProps(density) {
-  const normalizedDensity = normalizeFlowDensity(density);
-  return normalizedDensity ? { "data-density": normalizedDensity } : {};
+    const normalizedDensity = normalizeFlowDensity(density);
+    return normalizedDensity ? { "data-density": normalizedDensity } : {};
 }

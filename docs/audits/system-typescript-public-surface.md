@@ -11,14 +11,14 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
 - Public JS runtime exports with TS/TSX source: 14
-- Source declarations paired with JS but not TS/TSX: 134
-- TypeScript surface debt: 414
-- Unique TypeScript surface debt: 274
+- Source declarations paired with JS but not TS/TSX: 133
+- TypeScript surface debt: 413
+- Unique TypeScript surface debt: 273
 
 ## File Counts
 
-- By extension: {".js":588,".mjs":20,".ts":103,".d.ts":274}
-- By area: {"script":251,"source":451,"test":8,"generated-dist":275}
+- By extension: {".js":589,".mjs":20,".ts":104,".d.ts":274}
+- By area: {"script":252,"source":452,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -171,7 +171,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/Tooltip.d.ts | yes | no |
 | packages/react/src/TreeView.d.ts | yes | no |
 | packages/react/src/index.d.ts | yes | no |
-| packages/react/src/internal/props.d.ts | yes | no |
 | packages/react/src/patterns/AccountOperations.d.ts | yes | no |
 | packages/react/src/patterns/ActionSheet.d.ts | yes | no |
 | packages/react/src/patterns/AdvancedFilters.d.ts | yes | no |
@@ -189,6 +188,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/ChartWrapper.d.ts | yes | no |
 | packages/react/src/patterns/CheckboxGroup.d.ts | yes | no |
 | packages/react/src/patterns/ColumnConfigurator.d.ts | yes | no |
+| packages/react/src/patterns/CommandPalette.d.ts | yes | no |
 
 ## Interpretation
 

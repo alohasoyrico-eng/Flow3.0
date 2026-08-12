@@ -27,7 +27,8 @@
     "packages/components/src/index.ts",
     "packages/components/src/registry.ts",
     "packages/components/src/platforms/**/*.ts",
-    "packages/components/src/primitives/**/*.ts"
+    "packages/components/src/primitives/**/*.ts",
+    "packages/react/src/internal/**/*.ts"
   ],
   "exclude": [
     "node_modules",

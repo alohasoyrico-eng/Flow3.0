@@ -640,6 +640,7 @@
     "build:components:primitives": "node scripts/build-components-primitives.mjs",
     "build:components:registry": "node scripts/build-components-registry.mjs",
     "build:pattern-contracts": "node scripts/generate-pattern-contracts.mjs",
+    "build:react:internal-props": "node scripts/build-react-internal-props.mjs",
     "build:react": "npm run build --workspace @design-system/react",
     "test:react": "npm run test --workspace @design-system/react",
     "prepare": "npm run build:react",
@@ -661,6 +662,7 @@
     "audit:components-platforms-typescript": "node packages/audit/scripts/report-system-component-platform-typescript-surface.js",
     "audit:components-primitives-typescript": "node packages/audit/scripts/report-system-component-primitive-typescript-surface.js",
     "audit:components-registry-typescript": "node packages/audit/scripts/report-system-component-registry-typescript-surface.js",
+    "audit:react-internal-props-typescript": "node packages/audit/scripts/report-system-react-internal-props-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },
