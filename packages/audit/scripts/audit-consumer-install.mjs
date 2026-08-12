@@ -172,13 +172,17 @@ function writeConsumerPackage(consumerDir, tarball) {
     private: true,
     dependencies: {
       "@alohasoyrico-eng/flow": `file:${tarball}`,
-      "@types/react": `file:${path.join(root, "node_modules/@types/react")}`,
-      "@types/react-dom": `file:${path.join(root, "node_modules/@types/react-dom")}`,
-      react: `file:${path.join(root, "node_modules/react")}`,
-      "react-dom": `file:${path.join(root, "node_modules/react-dom")}`,
+      "@types/react": dependencyPackagePath("@types/react"),
+      "@types/react-dom": dependencyPackagePath("@types/react-dom"),
+      react: dependencyPackagePath("react"),
+      "react-dom": dependencyPackagePath("react-dom"),
     },
   };
   fs.writeFileSync(path.join(consumerDir, "package.json"), `${JSON.stringify(packageJson, null, 2)}\n`);
+}
+
+function dependencyPackagePath(packageName) {
+  return `file:${fs.realpathSync(path.join(root, "node_modules", packageName))}`;
 }
 
 function writeConsumerScreen(consumerDir) {
