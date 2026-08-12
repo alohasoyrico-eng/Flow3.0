@@ -1,19 +1,60 @@
 import React, { forwardRef } from "react";
+import { emailTokenValues } from "../internal/email-token-values.js";
 
-const brandColor = "#17171A";
-const mutedColor = "#8A8781";
-const secondaryColor = "#55534E";
-const pageColor = "#F3F1ED";
-const borderColor = "#E0DDD7";
-const softBorderColor = "#EEEBE6";
-const accentColor = "#FF3617";
-const linkColor = "#E62D10";
-const successColor = "#0E8A50";
-const warningColor = "#B26A00";
-const dangerColor = "#B42318";
-const whiteColor = "#FFFFFF";
-const fontStack = "Arial,Helvetica,sans-serif";
-const monoStack = "Courier New,monospace";
+const token = (name) => emailTokenValues[name];
+const brandColor = token("sys-email-color-text-primary");
+const mutedColor = token("sys-email-color-text-muted");
+const secondaryColor = token("sys-email-color-text-secondary");
+const pageColor = token("sys-email-color-page");
+const borderColor = token("sys-email-color-border");
+const softBorderColor = token("sys-email-color-border-soft");
+const accentColor = token("sys-email-color-accent");
+const linkColor = token("sys-email-color-link");
+const successColor = token("sys-email-color-success");
+const warningColor = token("sys-email-color-warning");
+const dangerColor = token("sys-email-color-danger");
+const whiteColor = token("sys-email-color-white");
+const fontStack = token("sys-email-font-family-body");
+const monoStack = token("sys-email-font-family-mono");
+const fallbackFontStack = token("sys-email-font-family-fallback");
+const emailHiddenSize = token("sys-email-font-size-hidden");
+const emailFontSizeXs = token("sys-email-font-size-xs");
+const emailFontSizeSm = token("sys-email-font-size-sm");
+const emailFontSizeNote = token("sys-email-font-size-note");
+const emailFontSizeCodeLabel = token("sys-email-font-size-code-label");
+const emailFontSizeList = token("sys-email-font-size-list");
+const emailFontSizeBody = token("sys-email-font-size-body");
+const emailFontSizeStep = token("sys-email-font-size-step");
+const emailFontSizeBrand = token("sys-email-font-size-brand");
+const emailFontSizeHeadline = token("sys-email-font-size-headline");
+const emailFontSizeTransactionalHeadline = token("sys-email-font-size-transactional-headline");
+const emailFontSizeCode = token("sys-email-font-size-code");
+const emailLineHeightHidden = token("sys-email-line-height-hidden");
+const emailLineHeightNote = token("sys-email-line-height-note");
+const emailLineHeightBody = token("sys-email-line-height-body");
+const emailLineHeightHeadline = token("sys-email-line-height-headline");
+const emailLineHeightTransactionalHeadline = token("sys-email-line-height-transactional-headline");
+const emailLetterSpacingTight = token("sys-email-letter-spacing-tight");
+const emailLetterSpacingLabel = token("sys-email-letter-spacing-label");
+const emailLetterSpacingEyebrow = token("sys-email-letter-spacing-eyebrow");
+const emailLetterSpacingCode = token("sys-email-letter-spacing-code");
+const emailBorderWidth = token("sys-email-border-width");
+const emailRadiusCard = token("sys-email-radius-card");
+const emailRadiusPill = token("sys-email-radius-pill");
+const emailRadiusMetric = token("sys-email-radius-metric");
+const emailSpaceXxs = token("sys-email-space-xxs");
+const emailSpaceXs = token("sys-email-space-xs");
+const emailSpaceSm = token("sys-email-space-sm");
+const emailSpaceMd = token("sys-email-space-md");
+const emailSpaceLg = token("sys-email-space-lg");
+const emailSpaceXl = token("sys-email-space-xl");
+const emailSpace2xl = token("sys-email-space-2xl");
+const emailSpace3xl = token("sys-email-space-3xl");
+const emailSpace4xl = token("sys-email-space-4xl");
+const emailSpace5xl = token("sys-email-space-5xl");
+const emailSpace6xl = token("sys-email-space-6xl");
+const emailSpace7xl = token("sys-email-space-7xl");
+const emailContentWidth = token("sys-email-content-width");
 const containerClass = "flow-" + "container";
 const paddingClass = "flow-" + "px";
 
@@ -43,7 +84,7 @@ function text(value, fallback = "") {
 
 function Spacer({ size }) {
   return React.createElement("div", {
-    style: { height: `${size}px`, lineHeight: `${size}px`, fontSize: "1px" },
+    style: { height: size, lineHeight: size, fontSize: emailHiddenSize },
   }, "\u00a0");
 }
 
@@ -55,18 +96,18 @@ function ButtonLink({ action }) {
     cellSpacing: "0",
     border: "0",
   }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
-    style: { borderRadius: "999px", backgroundColor: action.tone === "danger" ? dangerColor : accentColor },
+    style: { borderRadius: emailRadiusPill, backgroundColor: action.tone === "danger" ? dangerColor : accentColor },
   }, React.createElement("a", {
     href: action.href ?? "#",
     style: {
       display: "inline-block",
-      padding: "13px 26px",
+      padding: `${emailFontSizeCodeLabel} ${emailSpace5xl}`,
       fontFamily: fontStack,
-      fontSize: "14px",
+      fontSize: emailFontSizeBody,
       fontWeight: "bold",
       color: whiteColor,
       textDecoration: "none",
-      borderRadius: "999px",
+      borderRadius: emailRadiusPill,
     },
   }, action.label)))));
 }
@@ -80,18 +121,18 @@ function KeyValueRows({ rows }) {
     cellPadding: "0",
     cellSpacing: "0",
     border: "0",
-    style: { fontFamily: fontStack, fontSize: "14px", color: secondaryColor },
+    style: { fontFamily: fontStack, fontSize: emailFontSizeBody, color: secondaryColor },
   }, React.createElement("tbody", null, normalized.map((row, index) => React.createElement("tr", { key: row.key ?? row.label }, [
     React.createElement("td", {
       key: "label",
-      style: { padding: "8px 0", borderBottom: index === normalized.length - 1 ? "0" : `1px solid ${softBorderColor}` },
+      style: { padding: `${emailSpaceSm} 0`, borderBottom: index === normalized.length - 1 ? "0" : `${emailBorderWidth} solid ${softBorderColor}` },
     }, row.label),
     React.createElement("td", {
       key: "value",
       align: "right",
       style: {
-        padding: "8px 0",
-        borderBottom: index === normalized.length - 1 ? "0" : `1px solid ${softBorderColor}`,
+        padding: `${emailSpaceSm} 0`,
+        borderBottom: index === normalized.length - 1 ? "0" : `${emailBorderWidth} solid ${softBorderColor}`,
         color: brandColor,
         fontFamily: row.mono ? monoStack : fontStack,
         fontWeight: row.strong ? "bold" : "normal",
@@ -104,28 +145,28 @@ function MetricCell({ metric }) {
   return React.createElement("td", {
     className: paddingClass,
     width: "50%",
-    style: { padding: metric.offset ? "8px 32px 8px 8px" : "8px 32px", width: "50%" },
+    style: { padding: metric.offset ? `${emailSpaceSm} ${emailSpace7xl} ${emailSpaceSm} ${emailSpaceSm}` : `${emailSpaceSm} ${emailSpace7xl}`, width: "50%" },
   }, React.createElement("table", {
     role: "presentation",
     width: "100%",
     cellPadding: "0",
     cellSpacing: "0",
     border: "0",
-    style: { backgroundColor: pageColor, borderRadius: "14px" },
+    style: { backgroundColor: pageColor, borderRadius: emailRadiusMetric },
   }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
-    style: { padding: "16px 18px", fontFamily: fontStack },
+    style: { padding: `${emailSpaceXl} ${emailSpace2xl}`, fontFamily: fontStack },
   }, [
     React.createElement("div", {
       key: "label",
-      style: { fontSize: "11px", fontWeight: "bold", letterSpacing: "0.6px", textTransform: "uppercase", color: mutedColor },
+      style: { fontSize: emailFontSizeXs, fontWeight: "bold", letterSpacing: emailLetterSpacingLabel, textTransform: "uppercase", color: mutedColor },
     }, metric.label),
     React.createElement("div", {
       key: "value",
-      style: { fontSize: "22px", fontWeight: "bold", color: brandColor, paddingTop: "4px" },
+      style: { fontSize: emailFontSizeHeadline, fontWeight: "bold", color: brandColor, paddingTop: emailSpaceXs },
     }, metric.value),
     metric.delta ? React.createElement("div", {
       key: "delta",
-      style: { fontSize: "12px", fontWeight: "bold", color: toneColor(metric.tone ?? "success"), paddingTop: "2px" },
+      style: { fontSize: emailFontSizeSm, fontWeight: "bold", color: toneColor(metric.tone ?? "success"), paddingTop: emailSpaceXxs },
     }, metric.delta) : null,
   ])))));
 }
@@ -154,7 +195,7 @@ function AlertList({ title, items }) {
   const normalized = normalizeArray(items).filter(Boolean);
   if (!normalized.length) return null;
   const heading = title ? React.createElement("div", {
-    style: { fontFamily: fontStack, fontSize: "14px", fontWeight: "bold", color: brandColor, paddingBottom: "12px" },
+    style: { fontFamily: fontStack, fontSize: emailFontSizeBody, fontWeight: "bold", color: brandColor, paddingBottom: emailSpaceLg },
   }, title) : null;
   const table = React.createElement("table", {
     role: "presentation",
@@ -162,9 +203,9 @@ function AlertList({ title, items }) {
     cellPadding: "0",
     cellSpacing: "0",
     border: "0",
-    style: { fontFamily: fontStack, fontSize: "13.5px", color: secondaryColor },
+    style: { fontFamily: fontStack, fontSize: emailFontSizeList, color: secondaryColor },
   }, React.createElement("tbody", null, normalized.map((item, index) => React.createElement("tr", { key: item.key ?? item }, React.createElement("td", {
-    style: { padding: "8px 0", borderBottom: index === normalized.length - 1 ? "0" : `1px solid ${softBorderColor}` },
+    style: { padding: `${emailSpaceSm} 0`, borderBottom: index === normalized.length - 1 ? "0" : `${emailBorderWidth} solid ${softBorderColor}` },
   }, item.label ?? item)))));
   return React.createElement(React.Fragment, null, heading, table);
 }
@@ -175,15 +216,15 @@ function CodeBlock({ code, helper }) {
     React.createElement("div", {
       style: {
         fontFamily: fontStack,
-        fontSize: "13px",
+        fontSize: emailFontSizeCodeLabel,
         fontWeight: "bold",
-        letterSpacing: "0.6px",
+        letterSpacing: emailLetterSpacingLabel,
         textTransform: "uppercase",
         color: mutedColor,
         textAlign: "center",
       },
     }, "Verification code"),
-    React.createElement(Spacer, { size: 8 }),
+    React.createElement(Spacer, { size: emailSpaceSm }),
     React.createElement("table", {
       role: "presentation",
       width: "100%",
@@ -195,13 +236,13 @@ function CodeBlock({ code, helper }) {
       cellPadding: "0",
       cellSpacing: "0",
       border: "0",
-      style: { backgroundColor: pageColor, borderRadius: "14px" },
+      style: { backgroundColor: pageColor, borderRadius: emailRadiusMetric },
     }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
-      style: { padding: "14px 28px", fontFamily: monoStack, fontSize: "32px", fontWeight: "bold", letterSpacing: "8px", color: brandColor },
+      style: { padding: `${emailRadiusMetric} ${emailSpace6xl}`, fontFamily: monoStack, fontSize: emailFontSizeCode, fontWeight: "bold", letterSpacing: emailLetterSpacingCode, color: brandColor },
     }, code)))))))),
     helper ? React.createElement(React.Fragment, null,
-      React.createElement(Spacer, { size: 8 }),
-      React.createElement("div", { style: { fontFamily: fontStack, fontSize: "12.5px", color: mutedColor, textAlign: "center" } }, helper)) : null);
+      React.createElement(Spacer, { size: emailSpaceSm }),
+      React.createElement("div", { style: { fontFamily: fontStack, fontSize: emailFontSizeNote, color: mutedColor, textAlign: "center" } }, helper)) : null);
 }
 
 function StepList({ steps }) {
@@ -219,11 +260,11 @@ function StepList({ steps }) {
       key: "number",
       width: "36",
       valign: "top",
-      style: { padding: "10px 0", color: successColor, fontWeight: "bold", fontSize: "15px" },
+      style: { padding: `${emailSpaceMd} 0`, color: successColor, fontWeight: "bold", fontSize: emailFontSizeStep },
     }, String(index + 1)),
     React.createElement("td", {
       key: "label",
-      style: { padding: "10px 0", fontSize: "14px", color: brandColor, borderBottom: index === normalized.length - 1 ? "0" : `1px solid ${softBorderColor}` },
+      style: { padding: `${emailSpaceMd} 0`, fontSize: emailFontSizeBody, color: brandColor, borderBottom: index === normalized.length - 1 ? "0" : `${emailBorderWidth} solid ${softBorderColor}` },
     }, step.label ?? step),
   ]))));
 }
@@ -368,7 +409,7 @@ export const EmailTemplateLayout = forwardRef(function EmailTemplateLayout({
       React.createElement("meta", { key: "apple", name: "x-apple-disable-message-reformatting" }),
       React.createElement("meta", { key: "edge", httpEquiv: "X-UA-Compatible", content: "IE=edge" }),
       React.createElement("title", { key: "title" }, text(title, defaults.title)),
-      React.createElement("style", { key: "style" }, `body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}body{margin:0;padding:0;width:100% !important;background-color:${pageColor};}a{color:${linkColor};}@media only screen and (max-width:600px){.${containerClass}{width:100% !important;}.${paddingClass}{padding-left:20px !important;padding-right:20px !important;}}`),
+      React.createElement("style", { key: "style" }, `body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}body{margin:0;padding:0;width:100% !important;background-color:${pageColor};}a{color:${linkColor};}@media only screen and (max-width:${emailContentWidth}){.${containerClass}{width:100% !important;}.${paddingClass}{padding-left:${emailSpace3xl} !important;padding-right:${emailSpace3xl} !important;}}`),
     ]),
     React.createElement("body", {
       key: "body",
@@ -378,14 +419,14 @@ export const EmailTemplateLayout = forwardRef(function EmailTemplateLayout({
         key: "preheader",
         style: {
           display: "none",
-          fontSize: "1px",
-          lineHeight: "1px",
+          fontSize: emailHiddenSize,
+          lineHeight: emailLineHeightHidden,
           maxHeight: 0,
           maxWidth: 0,
           opacity: 0,
           overflow: "hidden",
           msoHide: "all",
-          fontFamily: "sans-serif",
+          fontFamily: fallbackFontStack,
         },
       }, hiddenPreheader),
       React.createElement("table", {
@@ -398,7 +439,7 @@ export const EmailTemplateLayout = forwardRef(function EmailTemplateLayout({
         style: { backgroundColor: pageColor },
       }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
         align: "center",
-        style: { padding: "32px 16px" },
+        style: { padding: `${emailSpace7xl} ${emailSpaceXl}` },
       }, React.createElement("table", {
         role: "presentation",
         className: containerClass,
@@ -406,14 +447,14 @@ export const EmailTemplateLayout = forwardRef(function EmailTemplateLayout({
         cellPadding: "0",
         cellSpacing: "0",
         border: "0",
-        style: { width: "600px", maxWidth: "600px" },
+        style: { width: emailContentWidth, maxWidth: emailContentWidth },
       }, React.createElement("tbody", null, [
         React.createElement("tr", { key: "brand" }, React.createElement("td", {
           align: "center",
-          style: { padding: "0 0 24px" },
-        }, React.createElement("div", { style: { fontFamily: fontStack, fontSize: "20px", fontWeight: "bold", color: brandColor, letterSpacing: "-0.5px" } }, brand))),
+          style: { padding: `0 0 ${emailSpace4xl}` },
+        }, React.createElement("div", { style: { fontFamily: fontStack, fontSize: emailFontSizeBrand, fontWeight: "bold", color: brandColor, letterSpacing: emailLetterSpacingTight } }, brand))),
         React.createElement("tr", { key: "card" }, React.createElement("td", {
-          style: { backgroundColor: whiteColor, border: `1px solid ${borderColor}`, borderRadius: "20px", overflow: "hidden" },
+          style: { backgroundColor: whiteColor, border: `${emailBorderWidth} solid ${borderColor}`, borderRadius: emailRadiusCard, overflow: "hidden" },
         }, React.createElement("table", {
           role: "presentation",
           width: "100%",
@@ -422,53 +463,53 @@ export const EmailTemplateLayout = forwardRef(function EmailTemplateLayout({
           border: "0",
         }, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("td", {
           className: paddingClass,
-          style: { padding: "32px 32px", fontFamily: fontStack },
+          style: { padding: `${emailSpace7xl} ${emailSpace7xl}`, fontFamily: fontStack },
         }, [
           React.createElement("div", {
             key: "eyebrow",
-            style: { fontFamily: fontStack, fontSize: "13px", fontWeight: "bold", letterSpacing: "1px", textTransform: "uppercase", color: toneColor(resolvedTone) },
+            style: { fontFamily: fontStack, fontSize: emailFontSizeCodeLabel, fontWeight: "bold", letterSpacing: emailLetterSpacingEyebrow, textTransform: "uppercase", color: toneColor(resolvedTone) },
           }, text(eyebrow, defaults.eyebrow)),
-          React.createElement(Spacer, { key: "eyebrow-space", size: 8 }),
+          React.createElement(Spacer, { key: "eyebrow-space", size: emailSpaceSm }),
           React.createElement("div", {
             key: "headline",
-            style: { fontFamily: fontStack, fontSize: resolvedVariant === "transactional" ? "34px" : "22px", fontWeight: "bold", color: brandColor, lineHeight: resolvedVariant === "transactional" ? "40px" : "29px" },
+            style: { fontFamily: fontStack, fontSize: resolvedVariant === "transactional" ? emailFontSizeTransactionalHeadline : emailFontSizeHeadline, fontWeight: "bold", color: brandColor, lineHeight: resolvedVariant === "transactional" ? emailLineHeightTransactionalHeadline : emailLineHeightHeadline },
           }, text(headline, defaults.headline)),
           text(body, defaults.body) ? React.createElement(React.Fragment, { key: "body" }, [
-            React.createElement(Spacer, { key: "body-space", size: 12 }),
-            React.createElement("div", { key: "body-text", style: { fontFamily: fontStack, fontSize: "14px", color: secondaryColor, lineHeight: "21px" } }, text(body, defaults.body)),
+            React.createElement(Spacer, { key: "body-space", size: emailSpaceLg }),
+            React.createElement("div", { key: "body-text", style: { fontFamily: fontStack, fontSize: emailFontSizeBody, color: secondaryColor, lineHeight: emailLineHeightBody } }, text(body, defaults.body)),
           ]) : null,
           resolvedRows?.length ? React.createElement(React.Fragment, { key: "rows" }, [
-            React.createElement(Spacer, { key: "rows-space", size: 20 }),
+            React.createElement(Spacer, { key: "rows-space", size: emailSpace3xl }),
             React.createElement(KeyValueRows, { key: "rows-table", rows: resolvedRows }),
           ]) : null,
           resolvedMetrics?.length ? React.createElement(React.Fragment, { key: "metrics" }, [
-            React.createElement(Spacer, { key: "metrics-space", size: 16 }),
+            React.createElement(Spacer, { key: "metrics-space", size: emailSpaceXl }),
             React.createElement(MetricsGrid, { key: "metrics-grid", metrics: resolvedMetrics }),
           ]) : null,
           resolvedAlerts?.length ? React.createElement(React.Fragment, { key: "alerts" }, [
-            React.createElement(Spacer, { key: "alerts-space", size: 20 }),
+            React.createElement(Spacer, { key: "alerts-space", size: emailSpace3xl }),
             React.createElement(AlertList, { key: "alerts-list", title: alertsTitle ?? defaults.alertsTitle, items: resolvedAlerts }),
           ]) : null,
           code ?? defaults.code ? React.createElement(React.Fragment, { key: "code" }, [
-            React.createElement(Spacer, { key: "code-space", size: 24 }),
+            React.createElement(Spacer, { key: "code-space", size: emailSpace4xl }),
             React.createElement(CodeBlock, { key: "code-block", code: code ?? defaults.code, helper: codeHelper ?? defaults.codeHelper }),
           ]) : null,
           resolvedSteps?.length ? React.createElement(React.Fragment, { key: "steps" }, [
-            React.createElement(Spacer, { key: "steps-space", size: 16 }),
+            React.createElement(Spacer, { key: "steps-space", size: emailSpaceXl }),
             React.createElement(StepList, { key: "steps-list", steps: resolvedSteps }),
           ]) : null,
           resolvedAction?.label ? React.createElement(React.Fragment, { key: "action" }, [
-            React.createElement(Spacer, { key: "action-space", size: 24 }),
+            React.createElement(Spacer, { key: "action-space", size: emailSpace4xl }),
             React.createElement(ButtonLink, { key: "button", action: resolvedAction }),
           ]) : null,
           text(note, defaults.note) ? React.createElement(React.Fragment, { key: "note" }, [
-            React.createElement(Spacer, { key: "note-space", size: 16 }),
-            React.createElement("div", { key: "note-copy", style: { fontFamily: fontStack, fontSize: "12.5px", color: mutedColor, lineHeight: "18px" } }, text(note, defaults.note)),
+            React.createElement(Spacer, { key: "note-space", size: emailSpaceXl }),
+            React.createElement("div", { key: "note-copy", style: { fontFamily: fontStack, fontSize: emailFontSizeNote, color: mutedColor, lineHeight: emailLineHeightNote } }, text(note, defaults.note)),
           ]) : null,
         ])))))),
         React.createElement("tr", { key: "footer" }, React.createElement("td", {
           className: paddingClass,
-          style: { padding: "28px 24px 0", textAlign: "center", fontFamily: fontStack, fontSize: "12px", lineHeight: "18px", color: mutedColor },
+          style: { padding: `${emailSpace6xl} ${emailSpace4xl} 0`, textAlign: "center", fontFamily: fontStack, fontSize: emailFontSizeSm, lineHeight: emailLineHeightNote, color: mutedColor },
         }, footer ?? "Flow Mobility S.A. de C.V. · Preferencias · Darse de baja · © 2026 Flow Mobility")),
       ])))))),
     ]),

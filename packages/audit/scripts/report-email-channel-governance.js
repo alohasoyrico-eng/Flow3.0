@@ -73,6 +73,10 @@ function rendererSignals(source, types, variants) {
     specifier: match[1],
     source: match[2],
   }));
+  const allowedImports = new Set([
+    "react",
+    "../internal/email-token-values.js",
+  ]);
   return {
     forwardRef: /forwardRef\(function EmailTemplateLayout/.test(source),
     dataFlowPattern: /"data-flow-pattern":\s*"email-template-layout"/.test(source),
@@ -82,7 +86,7 @@ function rendererSignals(source, types, variants) {
     presentationTables: (source.match(/role:\s*"presentation"/g) ?? []).length,
     anchorCta: /React\.createElement\("a"/.test(source) && /href:\s*action\.href/.test(source),
     hiddenPreheader: /msoHide:\s*"all"/.test(source) && /hiddenPreheader/.test(source),
-    noComponentImports: imports.every((row) => row.source === "react"),
+    noComponentImports: imports.every((row) => allowedImports.has(row.source)),
     typeVariants: variants.filter((variant) => types.includes(`| "${variant}"`)).length,
     imports,
   };
@@ -148,7 +152,7 @@ function createReport() {
     channelSlots: slotRows.filter((slot) => slot.owner === "channel").length,
     primitiveSlots: slotRows.filter((slot) => slot.owner === "primitive").length,
     rendererVariants: renderer.typeVariants,
-    rendererForbiddenImports: renderer.imports.filter((row) => row.source !== "react").length,
+    rendererForbiddenImports: renderer.imports.filter((row) => !["react", "../internal/email-token-values.js"].includes(row.source)).length,
     zipForbiddenSignals: zipRows.reduce((sum, row) => sum + row.forbiddenSignals.length, 0),
     zipDisallowedTags: zipRows.reduce((sum, row) => sum + row.disallowedTags.length, 0),
     zipMissingRequiredSignals: zipRows.reduce((sum, row) => sum + row.missingRequired.length + row.missingConditional.length, 0),
