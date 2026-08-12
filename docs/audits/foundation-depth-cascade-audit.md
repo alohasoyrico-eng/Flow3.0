@@ -8,13 +8,13 @@ Depth must govern surface hierarchy, elevation, overlay, blur, and stacking so U
 
 | Layer | Count | Evidence |
 | --- | ---: | --- |
-| Token declarations | 39 | packages/tokens/styles/tokens.css |
+| Token declarations | 37 | packages/tokens/styles/tokens.css |
 | Primitive refs | 13 | color, duration, elevation, field-action, focus, iconography, library-sources, maps, message, motion-curves, radius, spacing, surface |
 | Component refs | 60 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
 | Pattern refs | 63 | account-operations, action-sheet, advanced-filters, agent-conversation, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator, command-palette... |
 | Template refs | 9 | agent-workspace, configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, internal-operations-console, routes-and-stations, settings-workspace |
 | Package CSS direct uses | 1350 | packages/components/styles/components.css |
-| Docs CSS direct uses | 70 | apps/docs/styles |
+| Docs CSS direct uses | 69 | apps/docs/styles |
 
 ## Dependencies
 

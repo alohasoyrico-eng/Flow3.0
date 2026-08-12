@@ -291,7 +291,7 @@
       ]
     },
     "packageCssDirectUses": 556,
-    "docsCssDirectUses": 449
+    "docsCssDirectUses": 442
   },
   "componentAliasBridge": {
     "file": "packages/components/styles/components.css",
@@ -373,10 +373,10 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "total": 1122,
+    "total": 1115,
     "failures": [],
     "reviews": [],
-    "passCount": 1122
+    "passCount": 1115
   },
   "gaps": [],
   "nextActions": [

@@ -411,10 +411,10 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "totalFindings": 704,
+    "totalFindings": 703,
     "failures": [],
     "reviews": [],
-    "passCount": 704
+    "passCount": 703
   },
   "gaps": [],
   "nextActions": [

@@ -6,7 +6,7 @@
   "principle": "Depth must govern surface hierarchy, elevation, overlay, blur, and stacking so UI layers communicate priority instead of decorative shadow.",
   "tokenOwnership": {
     "tokenCss": "packages/tokens/styles/tokens.css",
-    "declarations": 39,
+    "declarations": 37,
     "requiredTokens": [
       "--ref-depth-shadow-color-rgb",
       "--ref-depth-overlay-light",
@@ -316,7 +316,7 @@
       ]
     },
     "packageCssDirectUses": 1350,
-    "docsCssDirectUses": 70
+    "docsCssDirectUses": 69
   },
   "depthDeclarations": {
     "scannedFiles": [
@@ -394,10 +394,10 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "totalFindings": 348,
+    "totalFindings": 346,
     "failures": [],
     "reviews": [],
-    "passCount": 348
+    "passCount": 346
   },
   "gaps": [],
   "nextActions": [

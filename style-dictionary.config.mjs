@@ -84,6 +84,7 @@ export default {
         format: "flow-token-contract@2",
         source: "packages/tokens/source/**/*.tokens.json",
         generatedBy: "style-dictionary",
+        compatibleWith: ["style-dictionary"],
         tokens: flatContract(dictionary, options.outputReferences !== false),
       }, null, 2)}\n`,
       "flow/typescript-flat": ({ dictionary, options }) => {

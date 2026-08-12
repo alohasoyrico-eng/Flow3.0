@@ -595,6 +595,9 @@
     "./specs/system": "./packages/specs/specs/unison.system.json",
     "./specs/templates/*": "./packages/specs/specs/unison-system/artifacts/templates/*.json",
     "./tokens": "./packages/tokens/src/index.js",
+    "./tokens/android": "./packages/tokens/dist/android/flow_tokens.xml",
+    "./tokens/flutter": "./packages/tokens/dist/flutter/flow_tokens.dart",
+    "./tokens/ios": "./packages/tokens/dist/ios/FlowTokens.swift",
     "./tokens.json": "./packages/tokens/tokens.json",
     "./tokens/styles.css": "./packages/tokens/styles/tokens.css"
   },

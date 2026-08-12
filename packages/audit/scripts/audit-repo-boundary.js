@@ -265,7 +265,7 @@ function checkRepoBoundary() {
     if (scripts["audit:complete"] !== "node packages/audit/scripts/audit-complete.mjs") {
       add("errors", packageJsonFile, 1, "Extracted system repo must expose audit:complete.");
     }
-    if (scripts["build:tokens"] !== "node scripts/generate-token-contract.mjs") {
+    if (scripts["build:tokens"] !== "node scripts/build-tokens.mjs") {
       add("errors", packageJsonFile, 1, "Extracted system repo must expose build:tokens.");
     }
     if (scripts["validate:system"] !== "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete") {

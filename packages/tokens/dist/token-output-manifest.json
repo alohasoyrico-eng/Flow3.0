@@ -11,7 +11,7 @@
     },
     {
       "file": "packages/tokens/tokens.json",
-      "sha256": "5254c4c19403d468026710aabcaacff2d09eed618bedfd6d9c79e1a259e3b8bf"
+      "sha256": "5b19656bcd904eec53c9b6e385e9678dc92f69ffa8d326e8a582356af5a0ae59"
     },
     {
       "file": "packages/tokens/src/generated/tokens.ts",

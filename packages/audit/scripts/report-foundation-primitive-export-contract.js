@@ -244,7 +244,7 @@ function createReport() {
     unexpectedInventoryMetrics: 0,
   };
   const requirements = {
-    tokenFormat: tokenContract.format === "flow-token-contract@1",
+    tokenFormat: tokenContract.format === "flow-token-contract@2",
     styleDictionaryCompatible: Array.isArray(tokenContract.compatibleWith) && tokenContract.compatibleWith.includes("style-dictionary"),
     tokenJsonExists: fs.existsSync(tokenFile),
     tokenCssExists: fs.existsSync(tokenCssFile),

@@ -54,6 +54,9 @@ const tokenPackageExports = {
   ".": "./src/index.js",
   "./tokens.json": "./tokens.json",
   "./styles.css": "./styles/tokens.css",
+  "./flutter": "./dist/flutter/flow_tokens.dart",
+  "./android": "./dist/android/flow_tokens.xml",
+  "./ios": "./dist/ios/FlowTokens.swift",
 };
 
 const specsPackageExports = {
@@ -76,6 +79,9 @@ const installExports = [
   "./tokens",
   "./tokens.json",
   "./tokens/styles.css",
+  "./tokens/android",
+  "./tokens/flutter",
+  "./tokens/ios",
   "./components",
   "./components/contracts",
   "./components/platforms",
@@ -109,6 +115,7 @@ const publishFileAllowlist = [
   "packages/tokens/src",
   "packages/tokens/tokens.json",
   "packages/tokens/styles",
+  "packages/tokens/dist",
   "packages/components/src",
   "packages/components/styles",
   "packages/react/dist",
@@ -267,8 +274,8 @@ function checkPackageApiBoundary() {
   if (exportedTokens["./tokens.json"] !== "./tokens.json") {
     add("errors", tokenPackageJsonFile, 1, "@design-system/tokens must export ./tokens.json for platform-neutral token pipelines.");
   }
-  if (tokenContract?.format !== "flow-token-contract@1") {
-    add("errors", tokenContractFile, 1, "Token JSON contract must declare format flow-token-contract@1.");
+  if (tokenContract?.format !== "flow-token-contract@2") {
+    add("errors", tokenContractFile, 1, "Token JSON contract must declare format flow-token-contract@2.");
   }
   if (!tokenContract?.compatibleWith?.includes?.("style-dictionary")) {
     add("errors", tokenContractFile, 1, "Token JSON contract must declare Style Dictionary compatibility.");

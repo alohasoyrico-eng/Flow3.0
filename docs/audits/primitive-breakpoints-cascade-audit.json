@@ -178,7 +178,7 @@
       },
       {
         "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-        "line": 285,
+        "line": 289,
         "query": "(min-width: 576px) and (max-width: 1439px)",
         "values": [
           "576px",
@@ -187,7 +187,7 @@
       },
       {
         "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-        "line": 316,
+        "line": 320,
         "query": "(max-width: 575px)",
         "values": [
           "575px"

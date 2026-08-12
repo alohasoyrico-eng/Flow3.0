@@ -7,6 +7,7 @@ const SOURCE_DIR = path.join(ROOT, "packages/tokens/source");
 const MANIFEST = path.join(ROOT, "packages/tokens/dist/token-output-manifest.json");
 const OUT_JSON = path.join(ROOT, "docs/audits/system-generated-token-output-governance.json");
 const OUT_MD = path.join(ROOT, "docs/audits/system-generated-token-output-governance.md");
+const CHECK = process.argv.includes("--check");
 
 function sha256Content(content) {
   return crypto.createHash("sha256").update(content).digest("hex");
@@ -108,6 +109,17 @@ function main() {
     gates,
     outputs: outputRows,
   };
+  const consoleSummary = {
+    status,
+    totals: report.totals,
+    gates: gates.map((item) => [item.id, item.status]),
+  };
+
+  if (CHECK) {
+    console.log(JSON.stringify(consoleSummary, null, 2));
+    if (status !== "PASS") process.exitCode = 1;
+    return;
+  }
 
   fs.mkdirSync(path.dirname(OUT_JSON), { recursive: true });
   fs.writeFileSync(OUT_JSON, `${JSON.stringify(report, null, 2)}\n`);
@@ -134,11 +146,7 @@ function main() {
   ];
   fs.writeFileSync(OUT_MD, `${lines.join("\n")}\n`);
 
-  console.log(JSON.stringify({
-    status,
-    totals: report.totals,
-    gates: gates.map((item) => [item.id, item.status]),
-  }, null, 2));
+  console.log(JSON.stringify(consoleSummary, null, 2));
   if (status !== "PASS") process.exitCode = 1;
 }
 

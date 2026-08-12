@@ -15,7 +15,7 @@ Message consumes Tone, Voice, State, and Accessibility, then coordinates Focus, 
 - Component copy refs: 50
 - Pattern refs: 63
 - Template refs: 9
-- Announcement signals: 15
+- Announcement signals: 11
 - Danger/error without recovery: 0
 
 ## Foundation Gate

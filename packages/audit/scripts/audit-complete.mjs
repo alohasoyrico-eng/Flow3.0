@@ -190,6 +190,18 @@ const expectedAuditFiles = new Set([
   "report-family-css-contract-maturity.js",
   "report-component-visual-cascade.js",
   "report-system-debt-ledger.js",
+  "report-system-forensic-gates.js",
+  "report-system-generated-token-output-governance.js",
+  "report-system-p0-forensic-detail.js",
+  "report-system-p0-owner-decision-matrix.js",
+  "report-system-p0-primitive-runtime-matrix.js",
+  "report-system-p0-remediation-sequence.js",
+  "report-system-p0-token-foundation-classification.js",
+  "report-system-p0-token-source-gates.js",
+  "report-system-raw-token-value-decision-matrix.js",
+  "report-system-raw-token-value-governance.js",
+  "report-system-remediation-matrix.js",
+  "report-system-token-output-gates.js",
   "report-docs-component-demo-ownership.js",
   "report-docs-system-boundary.js",
   "report-taxonomy-boundaries.js",
@@ -281,9 +293,10 @@ const checks = [
   ["audit entrypoints", auditEntrypoints],
   ["audit debt metrics", auditDebtMetrics],
   ["public prefix", auditPublicPrefix],
-  ...(hasRepoFile("scripts/generate-token-contract.mjs")
-    ? [["token contract freshness", () => run("node", ["scripts/generate-token-contract.mjs", "--check"])]]
-    : []),
+  ["P0 token source gates", () => run("node", ["packages/audit/scripts/report-system-p0-token-source-gates.js", "--check"])],
+  ["token output gates", () => run("node", ["packages/audit/scripts/report-system-token-output-gates.js", "--check"])],
+  ["generated token output governance", () => run("node", ["packages/audit/scripts/report-system-generated-token-output-governance.js", "--check"])],
+  ["raw token value governance", () => run("node", ["packages/audit/scripts/report-system-raw-token-value-governance.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),
@@ -437,8 +450,8 @@ function auditEntrypoints() {
     if (packageJson.scripts?.["audit:complete"] !== "node packages/audit/scripts/audit-complete.mjs") {
       throw new Error("split system package must expose audit:complete through audit-complete.mjs.");
     }
-    if (packageJson.scripts?.["build:tokens"] !== "node scripts/generate-token-contract.mjs") {
-      throw new Error("split system package must expose build:tokens through generate-token-contract.mjs.");
+    if (packageJson.scripts?.["build:tokens"] !== "node scripts/build-tokens.mjs") {
+      throw new Error("split system package must expose build:tokens through build-tokens.mjs.");
     }
     if (packageJson.scripts?.["validate:system"] !== "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete") {
       throw new Error("split system package must run build:tokens, build:react, test:react, and audit:complete as the full system gate.");
@@ -460,9 +473,20 @@ function auditDebtMetrics() {
   const governance = JSON.parse(fs.readFileSync(path.join(root, "packages/content/content/system-debt-governance.json"), "utf8"));
   const contractArtifactFiles = new Set(Array.isArray(governance.contractArtifactFiles) ? governance.contractArtifactFiles : []);
   if (!fs.existsSync(auditsDir)) return;
+  const trackedResult = spawnSync("git", ["ls-files", "docs/audits/*.json"], {
+    cwd: root,
+    encoding: "utf8",
+    stdio: "pipe",
+  });
+  const trackedAuditFiles = trackedResult.status === 0
+    ? trackedResult.stdout
+      .split("\n")
+      .filter(Boolean)
+      .map((file) => path.basename(file))
+    : fs.readdirSync(auditsDir).filter((item) => item.endsWith(".json"));
   const missing = [];
   const nonNumeric = [];
-  for (const file of fs.readdirSync(auditsDir).filter((item) => item.endsWith(".json") && !contractArtifactFiles.has(item)).sort()) {
+  for (const file of trackedAuditFiles.filter((item) => item.endsWith(".json") && !contractArtifactFiles.has(item)).sort()) {
     const report = JSON.parse(fs.readFileSync(path.join(auditsDir, file), "utf8"));
     const entries = [
       ...Object.entries(report),

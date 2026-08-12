@@ -5,6 +5,7 @@ const ROOT = path.resolve(__dirname, "../../..");
 const TOKEN_CONTRACT = path.join(ROOT, "packages/tokens/tokens.json");
 const OUT_JSON = path.join(ROOT, "docs/audits/system-token-output-gates.json");
 const OUT_MD = path.join(ROOT, "docs/audits/system-token-output-gates.md");
+const CHECK = process.argv.includes("--check");
 
 const outputs = [
   {
@@ -101,6 +102,17 @@ function main() {
     outputs: outputRows,
     gates,
   };
+  const consoleSummary = {
+    status,
+    tokenCount,
+    outputs: outputRows.map((row) => [row.id, row.tokenCount, row.matchesContract ? "PASS" : "FAIL"]),
+  };
+  if (CHECK) {
+    console.log(JSON.stringify(consoleSummary, null, 2));
+    if (status !== "PASS") process.exitCode = 1;
+    return;
+  }
+
   fs.mkdirSync(path.dirname(OUT_JSON), { recursive: true });
   fs.writeFileSync(OUT_JSON, `${JSON.stringify(report, null, 2)}\n`);
 
@@ -117,11 +129,7 @@ function main() {
     "",
   ];
   fs.writeFileSync(OUT_MD, `${lines.join("\n")}\n`);
-  console.log(JSON.stringify({
-    status,
-    tokenCount,
-    outputs: outputRows.map((row) => [row.id, row.tokenCount, row.matchesContract ? "PASS" : "FAIL"]),
-  }, null, 2));
+  console.log(JSON.stringify(consoleSummary, null, 2));
   if (status !== "PASS") process.exitCode = 1;
 }
 

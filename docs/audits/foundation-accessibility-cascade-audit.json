@@ -423,10 +423,10 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "totalFindings": 706,
+    "totalFindings": 720,
     "failures": [],
     "reviews": [],
-    "passCount": 706
+    "passCount": 720
   },
   "missingDependencyEdges": [],
   "gaps": [],

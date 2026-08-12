@@ -8598,7 +8598,7 @@ body[data-contrast="quiet"] .inline-validation {
   --comp-chart-panel-tone: var(--component-color-action);
   --comp-chart-panel-width: min(100%, var(--component-content-size-md));
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
-  --comp-chart-panel-plot-density-offset: 0;
+  --comp-chart-panel-plot-density-offset: var(--component-inline-size-zero);
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
   --comp-chart-panel-donut-bg: color-mix(in srgb, var(--component-color-action) 10%, transparent);
   --comp-chart-panel-figure-gap: var(--component-space-xs);

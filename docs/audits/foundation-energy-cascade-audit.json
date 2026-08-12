@@ -31,70 +31,70 @@
     "docsOwnedEnergyTokens": [
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 106,
+        "line": 107,
         "token": "--sys-energy-surface-primary",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 107,
+        "line": 108,
         "token": "--sys-energy-surface-secondary",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 108,
+        "line": 109,
         "token": "--sys-energy-surface-raised",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 109,
+        "line": 110,
         "token": "--sys-energy-surface-sunken",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 110,
+        "line": 111,
         "token": "--sys-energy-text-primary",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 111,
+        "line": 112,
         "token": "--sys-energy-text-secondary",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 112,
+        "line": 113,
         "token": "--sys-energy-text-tertiary",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 113,
+        "line": 114,
         "token": "--sys-energy-text-on-action",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 114,
+        "line": 115,
         "token": "--sys-energy-border-default",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
       },
       {
         "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-        "line": 115,
+        "line": 116,
         "token": "--sys-energy-border-strong",
         "status": "pass",
         "reason": "Theme context override for light/dark mode."
@@ -418,7 +418,7 @@
       ]
     },
     "packageCssDirectUses": 853,
-    "docsCssDirectUses": 912
+    "docsCssDirectUses": 905
   },
   "semanticLocks": {
     "primaryActionBlue500": true,

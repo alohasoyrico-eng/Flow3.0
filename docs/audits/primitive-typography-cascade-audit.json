@@ -297,7 +297,7 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "typographyAliasUseCount": 325,
+    "typographyAliasUseCount": 318,
     "directRefVoiceConsumerUses": [],
     "note": "Docs consumers must use Typography/Voice system aliases. Direct ref-voice is allowed only in foundation/reference pages that expose the raw scale."
   },

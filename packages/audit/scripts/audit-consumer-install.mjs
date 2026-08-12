@@ -317,7 +317,7 @@ for (const exportedPath of [
   assert.ok(require.resolve(exportedPath), \`Expected package export to resolve: \${exportedPath}\`);
 }
 const tokenContract = require("@alohasoyrico-eng/flow/tokens.json");
-assert.equal(tokenContract.format, "flow-token-contract@1");
+assert.equal(tokenContract.format, "flow-token-contract@2");
 assert.ok(tokenContract.compatibleWith.includes("style-dictionary"));
 assert.ok(Object.keys(tokenContract.tokens).length >= 1000);
 
@@ -2657,7 +2657,7 @@ function auditInstalledPackage(consumerDir) {
       throw new Error(`Installed CSS export ${packageSpecifier} is unexpectedly small.`);
     }
   }
-  if (installedTokenContract.format !== "flow-token-contract@1" || !installedTokenContract.compatibleWith?.includes("style-dictionary")) {
+  if (installedTokenContract.format !== "flow-token-contract@2" || !installedTokenContract.compatibleWith?.includes("style-dictionary")) {
     throw new Error("Installed package must include the platform-neutral token JSON contract.");
   }
   if (Object.keys(installedTokenContract.tokens ?? {}).length < 1000) {
@@ -2796,6 +2796,9 @@ function assertInstalledExportInventory(installedPackage) {
     "./tokens": "./packages/tokens/src/index.js",
     "./tokens.json": "./packages/tokens/tokens.json",
     "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./tokens/android": "./packages/tokens/dist/android/flow_tokens.xml",
+    "./tokens/flutter": "./packages/tokens/dist/flutter/flow_tokens.dart",
+    "./tokens/ios": "./packages/tokens/dist/ios/FlowTokens.swift",
     "./components": "./packages/components/src/index.js",
     "./components/contracts": "./packages/components/src/contracts.js",
     "./components/platforms": "./packages/components/src/platforms/index.js",

@@ -144,7 +144,7 @@
       "--component-block-size-lg"
     ],
     "missing": [],
-    "spacingAliasUseCount": 2155,
+    "spacingAliasUseCount": 2162,
     "directRefFrameSpaceConsumerUses": []
   },
   "foundationGate": {
@@ -256,7 +256,7 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "spacingAliasUseCount": 836,
+    "spacingAliasUseCount": 835,
     "directRefFrameSpaceConsumerUses": [],
     "note": "Docs consumers must use Spacing/Frame system aliases. Direct ref-frame-space is allowed only in foundation/reference pages that expose the raw scale."
   },

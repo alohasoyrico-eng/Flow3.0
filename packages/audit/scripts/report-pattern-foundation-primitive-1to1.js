@@ -145,7 +145,7 @@ function primitiveMaturityRows(primitiveRecords) {
   const exportReport = fs.existsSync(foundationPrimitiveExportReport)
     ? readJson(foundationPrimitiveExportReport)
     : null;
-  const tokenContractOk = exportReport?.tokenContract?.format === "flow-token-contract@1"
+  const tokenContractOk = exportReport?.tokenContract?.format === "flow-token-contract@2"
     && exportReport?.tokenContract?.compatibleWith?.includes("style-dictionary")
     && fs.existsSync(tokensFile);
   const rows = new Map();

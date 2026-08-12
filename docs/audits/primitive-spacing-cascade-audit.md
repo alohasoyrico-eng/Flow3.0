@@ -10,8 +10,8 @@ Spacing converts Frame, Density, Depth, State, and Accessibility into layout-rea
 ## Signals
 - Token aliases: 29/29
 - Component bridge aliases: 11/11
-- Component spacing alias uses: 2155
-- Docs spacing alias uses: 836
+- Component spacing alias uses: 2162
+- Docs spacing alias uses: 835
 - Direct ref-frame-space consumer uses: 0
 - Raw spacing fallback review items: 1
 

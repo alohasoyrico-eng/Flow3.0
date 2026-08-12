@@ -412,12 +412,6 @@
         "statusRole": 0
       },
       {
-        "file": "../FlowDocs/apps/docs/pattern-candidate-demos.js",
-        "ariaLive": 1,
-        "alertRole": 1,
-        "statusRole": 1
-      },
-      {
         "file": "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "ariaLive": 0,
         "alertRole": 1,
@@ -428,15 +422,9 @@
         "ariaLive": 1,
         "alertRole": 0,
         "statusRole": 0
-      },
-      {
-        "file": "../FlowDocs/apps/docs/pattern-utility-demos.js",
-        "ariaLive": 1,
-        "alertRole": 0,
-        "statusRole": 0
       }
     ],
-    "totalSignals": 15
+    "totalSignals": 11
   },
   "review": {
     "dangerWithoutRecovery": []

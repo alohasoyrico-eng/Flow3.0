@@ -300,7 +300,7 @@ function checkReleaseAndAdoption() {
     }
   }
   const expectedSupportScripts = {
-    "build:tokens": "node scripts/generate-token-contract.mjs",
+    "build:tokens": "node scripts/build-tokens.mjs",
     "build:react": "npm run build --workspace @design-system/react",
     "test:react": "npm run test --workspace @design-system/react",
     prepare: "npm run build:react",

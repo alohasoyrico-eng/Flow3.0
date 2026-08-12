@@ -7,6 +7,7 @@ const FOUNDATIONS_META = path.join(ROOT, "packages/specs/specs/unison-system/met
 const TOKENS_OUTPUT = path.join(ROOT, "packages/tokens/tokens.json");
 const OUT_JSON = path.join(ROOT, "docs/audits/system-p0-token-source-gates.json");
 const OUT_MD = path.join(ROOT, "docs/audits/system-p0-token-source-gates.md");
+const CHECK = process.argv.includes("--check");
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -176,6 +177,13 @@ function writeReport() {
     gates,
   };
 
+  const consoleSummary = { status, totals: data.totals, gates: gates.map((item) => [item.id, item.status]) };
+  if (CHECK) {
+    console.log(JSON.stringify(consoleSummary, null, 2));
+    if (status !== "PASS") process.exitCode = 1;
+    return;
+  }
+
   fs.mkdirSync(path.dirname(OUT_JSON), { recursive: true });
   fs.writeFileSync(OUT_JSON, `${JSON.stringify(data, null, 2)}\n`);
 
@@ -205,7 +213,8 @@ function writeReport() {
     "",
   ];
   fs.writeFileSync(OUT_MD, `${lines.join("\n")}\n`);
-  console.log(JSON.stringify({ status, totals: data.totals, gates: gates.map((item) => [item.id, item.status]) }, null, 2));
+  console.log(JSON.stringify(consoleSummary, null, 2));
+  if (status !== "PASS") process.exitCode = 1;
 }
 
 writeReport();

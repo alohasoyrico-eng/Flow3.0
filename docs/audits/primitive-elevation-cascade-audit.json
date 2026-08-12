@@ -229,7 +229,7 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "elevationAliasUseCount": 68,
+    "elevationAliasUseCount": 67,
     "directRefDepthConsumerUses": [],
     "rawBoxShadow": [],
     "note": "State rings may use inset or 0 0 0 shadows. Surface elevation must use Elevation/Depth aliases."

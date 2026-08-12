@@ -370,10 +370,10 @@
       "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
       "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
     ],
-    "totalFindings": 653,
+    "totalFindings": 650,
     "failures": [],
     "reviews": [],
-    "passCount": 653
+    "passCount": 650
   },
   "toneCopyReviews": [],
   "missingDependencyEdges": [],
