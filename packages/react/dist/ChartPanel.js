@@ -67,7 +67,7 @@ function chartSeriesColor(index, role = "series") {
 }
 
 function chartStaggerDelay(index, compact = false) {
-  if (index <= 0) return "0ms";
+  if (index <= 0) return "var(--component-duration-instant)";
   return `calc(var(--sys-momentum-stagger-chart${compact ? "-compact" : ""}) * ${index})`;
 }
 
