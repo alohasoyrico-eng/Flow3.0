@@ -654,6 +654,7 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "jsdom": "^29.1.1",
+    "playwright": "^1.62.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "style-dictionary": "^5.5.1",
