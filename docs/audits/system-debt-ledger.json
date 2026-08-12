@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 99,
-    "categoryMappings": 89,
+    "reports": 100,
+    "categoryMappings": 90,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 99,
-    "debtMetrics": 115,
+    "reportsWithDebtMetrics": 100,
+    "debtMetrics": 116,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -103,10 +103,10 @@
     {
       "category": "react-primary",
       "principle": "React must be the primary implementation with real contracts.",
-      "reports": 33,
+      "reports": 34,
       "minimumReports": 10,
       "coverageGap": 0,
-      "debtMetrics": 35,
+      "debtMetrics": 36,
       "totalDebt": 0
     },
     {
@@ -1368,6 +1368,20 @@
           "report": "system-react-leaf-components-typescript-surface.json",
           "scope": "inventory",
           "metric": "reactLeafComponentTypescriptSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-react-motion-event-typescript-surface.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-react-motion-event-typescript-surface.json",
+          "scope": "inventory",
+          "metric": "reactMotionEventTypescriptSurfaceDebt",
           "value": 0,
           "numericValue": 0
         }

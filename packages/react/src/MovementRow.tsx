@@ -1,0 +1,134 @@
+import React, {
+  type ForwardRefExoticComponent,
+  type HTMLAttributes,
+  type MouseEvent,
+  type RefAttributes,
+  forwardRef,
+} from "react";
+import { movementRowPlatformContract } from "@design-system/components/platforms";
+import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
+import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+
+export type MovementRowVariant = "standard" | "refund" | "declined" | "compact";
+export type MovementRowState = "default" | "hover" | "focus" | "pending" | "error" | "disabled";
+export type MovementRowDensity = FlowDensity;
+export type MovementRowCategory = "fuel" | "charge" | "toll" | "food" | "transfer" | "income";
+export type MovementRowType = "button" | "submit" | "reset";
+
+export interface MovementRowMeta {
+  label: string;
+  meta?: string;
+  amount?: string;
+  status?: string;
+  category: MovementRowCategory;
+  variant: MovementRowVariant;
+  state: MovementRowState;
+}
+
+export interface MovementRowProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
+  label: string;
+  meta?: string;
+  amount?: string;
+  status?: string;
+  category?: MovementRowCategory;
+  variant?: MovementRowVariant;
+  state?: MovementRowState;
+  density?: MovementRowDensity;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  type?: MovementRowType;
+  onSelect?: (meta: MovementRowMeta, event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface MovementRowComponent extends ForwardRefExoticComponent<MovementRowProps & RefAttributes<HTMLElement>> {
+  displayName: "MovementRow";
+  platformContract: typeof movementRowPlatformContract;
+}
+
+const validVariants = new Set<MovementRowVariant>(["standard", "refund", "declined", "compact"]);
+const validStates = new Set<MovementRowState>(["default", "hover", "focus", "pending", "error", "disabled"]);
+const validCategories = new Set<MovementRowCategory>(["fuel", "charge", "toll", "food", "transfer", "income"]);
+const categoryIcons = {
+  fuel: "local_gas_station",
+  charge: "bolt",
+  toll: "toll",
+  food: "restaurant",
+  transfer: "sync_alt",
+  income: "south_west",
+} satisfies Record<MovementRowCategory, string>;
+
+export const MovementRow = forwardRef<HTMLElement, MovementRowProps>(function MovementRow({
+  label,
+  meta,
+  amount,
+  status,
+  category = "transfer",
+  variant = "standard",
+  state = "default",
+  density,
+  fullWidth = false,
+  disabled = false,
+  onSelect,
+  className = "",
+  type = "button",
+  ...rest
+}, ref) {
+  const resolvedVariant = normalizeFlowValue(variant, validVariants, "standard");
+  const resolvedCategory = normalizeFlowValue(category, validCategories, "transfer");
+  const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
+  const resolvedDensity = normalizeFlowDensity(density);
+  if (!label) return null;
+  const canInteract = Boolean(onSelect || rest.onClick);
+  const blocked = disabled || resolvedState === "disabled";
+  const Element = canInteract ? "button" : "article";
+  const selectMeta = {
+    label,
+    ...(meta !== undefined ? { meta } : {}),
+    ...(amount !== undefined ? { amount } : {}),
+    ...(status !== undefined ? { status } : {}),
+    category: resolvedCategory,
+    variant: resolvedVariant,
+    state: resolvedState,
+  };
+
+  return React.createElement(
+    Element,
+    {
+      ...flowRestProps(rest),
+      ref,
+      type: canInteract && ["button", "submit", "reset"].includes(type) ? type : undefined,
+      className: ["movement-row", className].filter(Boolean).join(" "),
+      disabled: canInteract ? blocked : undefined,
+      "aria-disabled": !canInteract && blocked ? "true" : undefined,
+      ...flowVariantProps(resolvedVariant),
+      ...flowStateProps(resolvedState),
+      ...flowDensityProps(resolvedDensity),
+      "data-category": resolvedCategory,
+      "data-full-width": String(Boolean(fullWidth)),
+      onClick: canInteract
+        ? (event: MouseEvent<HTMLButtonElement>) => {
+          if (blocked) return;
+          rest.onClick?.(event);
+          if (event.defaultPrevented) return;
+          onSelect?.(selectMeta, event);
+        }
+        : undefined,
+    },
+    React.createElement("span", { className: "movement-row__icon material-symbol", "aria-hidden": "true" }, categoryIcons[resolvedCategory]),
+    React.createElement(
+      "span",
+      { className: "movement-row__content" },
+      React.createElement("strong", null, label),
+      meta ? React.createElement("small", null, meta) : null,
+    ),
+    React.createElement(
+      "span",
+      { className: "movement-row__value" },
+      amount ? React.createElement("strong", { className: "movement-row__amount" }, amount) : null,
+      status ? React.createElement("small", { className: "movement-row__status" }, status) : null,
+    ),
+  );
+}) as MovementRowComponent;
+
+MovementRow.displayName = "MovementRow";
+MovementRow.platformContract = movementRowPlatformContract;

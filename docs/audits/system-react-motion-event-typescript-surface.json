@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-motion-event-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "motion-event-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "AnimatedMoment",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "MotionBoundary",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "MovementRow",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "AuditEvent",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "AnimatedMoment",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "MotionBoundary",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "MovementRow",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "AuditEvent",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "AnimatedMoment",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "MotionBoundary",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "MovementRow",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "AuditEvent",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "AnimatedMoment",
+      "sourceFile": "packages/react/src/AnimatedMoment.tsx",
+      "runtimeFile": "packages/react/src/AnimatedMoment.js",
+      "declarationFile": "packages/react/src/AnimatedMoment.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "MotionBoundary",
+      "sourceFile": "packages/react/src/MotionBoundary.tsx",
+      "runtimeFile": "packages/react/src/MotionBoundary.js",
+      "declarationFile": "packages/react/src/MotionBoundary.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "MovementRow",
+      "sourceFile": "packages/react/src/MovementRow.tsx",
+      "runtimeFile": "packages/react/src/MovementRow.js",
+      "declarationFile": "packages/react/src/MovementRow.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "AuditEvent",
+      "sourceFile": "packages/react/src/AuditEvent.tsx",
+      "runtimeFile": "packages/react/src/AuditEvent.js",
+      "declarationFile": "packages/react/src/AuditEvent.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactMotionEventTypescriptSurfaceDebt": 0
+  }
+}

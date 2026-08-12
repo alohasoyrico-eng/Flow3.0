@@ -97,10 +97,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Component | Rule | Prop | Default value | React type | System contract | Contract-backed | Location |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AnimatedMoment | variant-default | variant | success | pass | pass | Yes | packages/react/src/AnimatedMoment.js:21 |
-| AnimatedMoment | state-default | state | playing | pass | pass | Yes | packages/react/src/AnimatedMoment.js:22 |
-| AuditEvent | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/AuditEvent.js:25 |
-| AuditEvent | state-default | state | default | pass | pass | Yes | packages/react/src/AuditEvent.js:26 |
+| AnimatedMoment | variant-default | variant | success | pass | pass | Yes | packages/react/src/AnimatedMoment.tsx:58 |
+| AnimatedMoment | state-default | state | playing | pass | pass | Yes | packages/react/src/AnimatedMoment.tsx:59 |
+| AuditEvent | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/AuditEvent.tsx:52 |
+| AuditEvent | state-default | state | default | pass | pass | Yes | packages/react/src/AuditEvent.tsx:53 |
 | Avatar | status-default | status | none | pass | pass | Yes | packages/react/src/Avatar.tsx:65 |
 | Avatar | state-default | state | default | pass | pass | Yes | packages/react/src/Avatar.tsx:66 |
 | Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.tsx:41 |
@@ -164,11 +164,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Menu | avatar-status-default | avatarStatus | none | pass | pass | Yes | packages/react/src/Menu.tsx:82 |
 | Menu | state-default | state | default | pass | pass | Yes | packages/react/src/Menu.tsx:84 |
 | Menu | align-default | align | start | pass | pass | Yes | packages/react/src/Menu.tsx:85 |
-| MotionBoundary | variant-default | variant | fade | pass | pass | Yes | packages/react/src/MotionBoundary.js:17 |
-| MotionBoundary | state-default | state | active | pass | pass | Yes | packages/react/src/MotionBoundary.js:18 |
-| MovementRow | category-default | category | transfer | pass | pass | Yes | packages/react/src/MovementRow.js:22 |
-| MovementRow | variant-default | variant | standard | pass | pass | Yes | packages/react/src/MovementRow.js:23 |
-| MovementRow | state-default | state | default | pass | pass | Yes | packages/react/src/MovementRow.js:24 |
+| MotionBoundary | variant-default | variant | fade | pass | pass | Yes | packages/react/src/MotionBoundary.tsx:44 |
+| MotionBoundary | state-default | state | active | pass | pass | Yes | packages/react/src/MotionBoundary.tsx:45 |
+| MovementRow | category-default | category | transfer | pass | pass | Yes | packages/react/src/MovementRow.tsx:65 |
+| MovementRow | variant-default | variant | standard | pass | pass | Yes | packages/react/src/MovementRow.tsx:66 |
+| MovementRow | state-default | state | default | pass | pass | Yes | packages/react/src/MovementRow.tsx:67 |
 | Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.tsx:90 |
 | Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.tsx:91 |
 | PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.js:56 |
@@ -217,10 +217,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Component | Rule | Prop | Default value | Location | Source |
 | --- | --- | --- | --- | --- | --- |
-| AnimatedMoment | variant-default | variant | success | packages/react/src/AnimatedMoment.js:21 | `variant = "success",` |
-| AnimatedMoment | state-default | state | playing | packages/react/src/AnimatedMoment.js:22 | `state = "playing",` |
-| AuditEvent | tone-default | tone | neutral | packages/react/src/AuditEvent.js:25 | `tone = "neutral",` |
-| AuditEvent | state-default | state | default | packages/react/src/AuditEvent.js:26 | `state = "default",` |
+| AnimatedMoment | variant-default | variant | success | packages/react/src/AnimatedMoment.tsx:58 | `variant = "success",` |
+| AnimatedMoment | state-default | state | playing | packages/react/src/AnimatedMoment.tsx:59 | `state = "playing",` |
+| AuditEvent | tone-default | tone | neutral | packages/react/src/AuditEvent.tsx:52 | `tone = "neutral",` |
+| AuditEvent | state-default | state | default | packages/react/src/AuditEvent.tsx:53 | `state = "default",` |
 | Avatar | status-default | status | none | packages/react/src/Avatar.tsx:65 | `status = "none",` |
 | Avatar | state-default | state | default | packages/react/src/Avatar.tsx:66 | `state = "default",` |
 | Badge | state-default | state | default | packages/react/src/Badge.tsx:41 | `function normalizeState({ hidden = false, state = "default" }: { hidden?: boolean; state?: BadgeState } = {}): BadgeState {` |
@@ -284,11 +284,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Menu | avatar-status-default | avatarStatus | none | packages/react/src/Menu.tsx:82 | `avatarStatus = "none",` |
 | Menu | state-default | state | default | packages/react/src/Menu.tsx:84 | `state = "default",` |
 | Menu | align-default | align | start | packages/react/src/Menu.tsx:85 | `align = "start",` |
-| MotionBoundary | variant-default | variant | fade | packages/react/src/MotionBoundary.js:17 | `variant = "fade",` |
-| MotionBoundary | state-default | state | active | packages/react/src/MotionBoundary.js:18 | `state = "active",` |
-| MovementRow | category-default | category | transfer | packages/react/src/MovementRow.js:22 | `category = "transfer",` |
-| MovementRow | variant-default | variant | standard | packages/react/src/MovementRow.js:23 | `variant = "standard",` |
-| MovementRow | state-default | state | default | packages/react/src/MovementRow.js:24 | `state = "default",` |
+| MotionBoundary | variant-default | variant | fade | packages/react/src/MotionBoundary.tsx:44 | `variant = "fade",` |
+| MotionBoundary | state-default | state | active | packages/react/src/MotionBoundary.tsx:45 | `state = "active",` |
+| MovementRow | category-default | category | transfer | packages/react/src/MovementRow.tsx:65 | `category = "transfer",` |
+| MovementRow | variant-default | variant | standard | packages/react/src/MovementRow.tsx:66 | `variant = "standard",` |
+| MovementRow | state-default | state | default | packages/react/src/MovementRow.tsx:67 | `state = "default",` |
 | Pagination | variant-default | variant | numbered | packages/react/src/Pagination.tsx:90 | `variant = "numbered",` |
 | Pagination | state-default | state | default | packages/react/src/Pagination.tsx:91 | `state = "default",` |
 | PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.js:56 | `variant = "country-code",` |

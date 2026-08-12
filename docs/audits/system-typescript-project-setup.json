@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T23:12:38.549Z",
+  "generatedAt": "2026-08-12T23:17:46.538Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -87,7 +87,11 @@
           "packages/react/src/Accordion.tsx",
           "packages/react/src/TreeView.tsx",
           "packages/react/src/List.tsx",
-          "packages/react/src/Stepper.tsx"
+          "packages/react/src/Stepper.tsx",
+          "packages/react/src/AnimatedMoment.tsx",
+          "packages/react/src/MotionBoundary.tsx",
+          "packages/react/src/MovementRow.tsx",
+          "packages/react/src/AuditEvent.tsx"
         ]
       },
       "failMessage": null
@@ -184,7 +188,11 @@
       "packages/react/src/Accordion.tsx",
       "packages/react/src/TreeView.tsx",
       "packages/react/src/List.tsx",
-      "packages/react/src/Stepper.tsx"
+      "packages/react/src/Stepper.tsx",
+      "packages/react/src/AnimatedMoment.tsx",
+      "packages/react/src/MotionBoundary.tsx",
+      "packages/react/src/MovementRow.tsx",
+      "packages/react/src/AuditEvent.tsx"
     ],
     "exclude": [
       "node_modules",

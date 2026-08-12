@@ -218,6 +218,7 @@ const expectedAuditFiles = new Set([
   "report-system-react-chat-components-typescript-surface.js",
   "report-system-react-feedback-components-typescript-surface.js",
   "report-system-react-navigation-structure-typescript-surface.js",
+  "report-system-react-motion-event-typescript-surface.js",
   "report-system-react-overlay-components-typescript-surface.js",
   "report-system-remediation-matrix.js",
   "report-system-token-ownership-matrix.js",
@@ -341,6 +342,7 @@ const checks = [
   ["React chat components TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-chat-components-typescript-surface.js", "--check"])],
   ["React feedback components TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-feedback-components-typescript-surface.js", "--check"])],
   ["React navigation structure TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-navigation-structure-typescript-surface.js", "--check"])],
+  ["React motion/event TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-react-motion-event-typescript-surface.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),

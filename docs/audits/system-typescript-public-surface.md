@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 102
-- Source declarations paired with JS but not TS/TSX: 89
-- TypeScript surface debt: 369
-- Unique TypeScript surface debt: 229
+- Public JS runtime exports with TS/TSX source: 110
+- Source declarations paired with JS but not TS/TSX: 85
+- TypeScript surface debt: 365
+- Unique TypeScript surface debt: 225
 
 ## File Counts
 
-- By extension: {".js":600,".mjs":20,".ts":104,".d.ts":274,".tsx":44}
-- By area: {"script":263,"source":496,"test":8,"generated-dist":275}
+- By extension: {".js":601,".mjs":20,".ts":104,".d.ts":274,".tsx":48}
+- By area: {"script":264,"source":500,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -29,8 +29,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/components/src/platforms/index.js | yes |
 | package.json | packages/react/dist/index.js | no |
 | package.json | packages/react/dist/Accordion.js | yes |
-| package.json | packages/react/dist/AnimatedMoment.js | no |
-| package.json | packages/react/dist/AuditEvent.js | no |
+| package.json | packages/react/dist/AnimatedMoment.js | yes |
+| package.json | packages/react/dist/AuditEvent.js | yes |
 | package.json | packages/react/dist/Avatar.js | yes |
 | package.json | packages/react/dist/Badge.js | yes |
 | package.json | packages/react/dist/BiometricPrompt.js | no |
@@ -64,8 +64,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/KpiTile.js | no |
 | package.json | packages/react/dist/List.js | yes |
 | package.json | packages/react/dist/Menu.js | yes |
-| package.json | packages/react/dist/MotionBoundary.js | no |
-| package.json | packages/react/dist/MovementRow.js | no |
+| package.json | packages/react/dist/MotionBoundary.js | yes |
+| package.json | packages/react/dist/MovementRow.js | yes |
 | package.json | packages/react/dist/Pagination.js | yes |
 | package.json | packages/react/dist/patterns/index.js | no |
 | package.json | packages/react/dist/patterns/AccountOperations.js | no |
@@ -109,8 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/AnimatedMoment.d.ts | yes | no |
-| packages/react/src/AuditEvent.d.ts | yes | no |
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
 | packages/react/src/CardSummary.d.ts | yes | no |
 | packages/react/src/ChartPanel.d.ts | yes | no |
@@ -119,8 +117,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/FloatingActionButton.d.ts | yes | no |
 | packages/react/src/InputAmount.d.ts | yes | no |
 | packages/react/src/KpiTile.d.ts | yes | no |
-| packages/react/src/MotionBoundary.d.ts | yes | no |
-| packages/react/src/MovementRow.d.ts | yes | no |
 | packages/react/src/PhoneInput.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
@@ -189,6 +185,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/WaterfallChart.d.ts | yes | no |
 | packages/react/src/patterns/index.d.ts | yes | no |
 | packages/react/src/templates/AgentWorkspace.d.ts | yes | no |
+| packages/react/src/templates/ConfigurationConsole.d.ts | yes | no |
+| packages/react/src/templates/DriverCardWallet.d.ts | yes | no |
+| packages/react/src/templates/DriverMobileApp.d.ts | yes | no |
+| packages/react/src/templates/FleetDashboardSuite.d.ts | yes | no |
 
 ## Interpretation
 

@@ -79,7 +79,7 @@
     },
     {
       "component": "AnimatedMoment",
-      "file": "packages/react/src/AnimatedMoment.js",
+      "file": "packages/react/src/AnimatedMoment.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -89,7 +89,7 @@
     },
     {
       "component": "AuditEvent",
-      "file": "packages/react/src/AuditEvent.js",
+      "file": "packages/react/src/AuditEvent.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -441,7 +441,7 @@
     },
     {
       "component": "MotionBoundary",
-      "file": "packages/react/src/MotionBoundary.js",
+      "file": "packages/react/src/MotionBoundary.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -451,7 +451,7 @@
     },
     {
       "component": "MovementRow",
-      "file": "packages/react/src/MovementRow.js",
+      "file": "packages/react/src/MovementRow.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

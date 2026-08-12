@@ -123,7 +123,11 @@ function main() {
         && include.includes("packages/react/src/Accordion.tsx")
         && include.includes("packages/react/src/TreeView.tsx")
         && include.includes("packages/react/src/List.tsx")
-        && include.includes("packages/react/src/Stepper.tsx"),
+        && include.includes("packages/react/src/Stepper.tsx")
+        && include.includes("packages/react/src/AnimatedMoment.tsx")
+        && include.includes("packages/react/src/MotionBoundary.tsx")
+        && include.includes("packages/react/src/MovementRow.tsx")
+        && include.includes("packages/react/src/AuditEvent.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

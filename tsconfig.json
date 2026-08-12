@@ -72,7 +72,11 @@
     "packages/react/src/Accordion.tsx",
     "packages/react/src/TreeView.tsx",
     "packages/react/src/List.tsx",
-    "packages/react/src/Stepper.tsx"
+    "packages/react/src/Stepper.tsx",
+    "packages/react/src/AnimatedMoment.tsx",
+    "packages/react/src/MotionBoundary.tsx",
+    "packages/react/src/MovementRow.tsx",
+    "packages/react/src/AuditEvent.tsx"
   ],
   "exclude": [
     "node_modules",
