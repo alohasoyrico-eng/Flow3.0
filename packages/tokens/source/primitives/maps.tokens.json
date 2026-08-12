@@ -1,0 +1,182 @@
+{
+  "sys-map-depth-pin": {
+    "$value": "{sys-depth-elevation-1}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-depth-pin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-depth-selected": {
+    "$value": "{sys-depth-elevation-2}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-depth-selected",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-fallback-surface": {
+    "$value": "{sys-energy-surface-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-fallback-surface",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-fallback-text-color": {
+    "$value": "{sys-energy-text-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-fallback-text-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-focus-ring": {
+    "$value": "{sys-a11y-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-permission-denied-color": {
+    "$value": "{sys-energy-status-error}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-permission-denied-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-permission-granted-color": {
+    "$value": "{sys-energy-status-success}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-permission-granted-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-permission-prompt-color": {
+    "$value": "{sys-energy-status-warning}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-permission-prompt-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-action-color": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-action-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-background": {
+    "$value": "{sys-energy-surface-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-background",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-border": {
+    "$value": "{sys-energy-border-default}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-border",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-cluster-background": {
+    "$value": "{sys-energy-text-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-cluster-background",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-cluster-foreground": {
+    "$value": "{sys-energy-surface-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-cluster-foreground",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-foreground": {
+    "$value": "{sys-energy-text-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-foreground",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-selected-background": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-selected-background",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-pin-selected-foreground": {
+    "$value": "{sys-energy-text-on-action}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-pin-selected-foreground",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-route-line-color": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-route-line-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-map-route-line-muted-color": {
+    "$value": "{sys-energy-border-default}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-route-line-muted-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

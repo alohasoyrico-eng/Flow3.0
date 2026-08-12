@@ -1,0 +1,382 @@
+{
+  "ref-symbol-size-xs": {
+    "$value": "12px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-xs",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-sm": {
+    "$value": "16px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-sm-plus": {
+    "$value": "18px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-sm-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-md": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-md-plus": {
+    "$value": "22px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-md-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-lg": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-lg-plus": {
+    "$value": "26px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-lg-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-marker": {
+    "$value": "14px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-marker",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-station": {
+    "$value": "17px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-station",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-display-sm": {
+    "$value": "30px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-display-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-xl": {
+    "$value": "32px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-xl",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-size-display-md": {
+    "$value": "34px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-size-display-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-grid-base": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-grid-base",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-live-area": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-live-area",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-stroke": {
+    "$value": "1.5px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-stroke",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-family-material": {
+    "$value": "\"Material Symbols Rounded\"",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-family-material",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-variation-filled": {
+    "$value": "\"FILL\" 1, \"wght\" 500, \"GRAD\" 0, \"opsz\" 24",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-variation-filled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-variation-filled-strong": {
+    "$value": "\"FILL\" 1, \"wght\" 600, \"GRAD\" 0, \"opsz\" 24",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-variation-filled-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-symbol-variation-outline-strong": {
+    "$value": "\"FILL\" 0, \"wght\" 700, \"GRAD\" 0, \"opsz\" 20",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-symbol-variation-outline-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-family": {
+    "$value": "{ref-symbol-family-material}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-family",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-variation-filled": {
+    "$value": "{ref-symbol-variation-filled}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-variation-filled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-variation-filled-strong": {
+    "$value": "{ref-symbol-variation-filled-strong}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-variation-filled-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-variation-outline-strong": {
+    "$value": "{ref-symbol-variation-outline-strong}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-variation-outline-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-sm": {
+    "$value": "{ref-symbol-size-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-sm-plus": {
+    "$value": "{ref-symbol-size-sm-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-sm-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-md": {
+    "$value": "{ref-symbol-size-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-md-plus": {
+    "$value": "{ref-symbol-size-md-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-md-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-lg": {
+    "$value": "{ref-symbol-size-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-lg-plus": {
+    "$value": "{ref-symbol-size-lg-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-lg-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-marker": {
+    "$value": "{ref-symbol-size-marker}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-marker",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-station": {
+    "$value": "{ref-symbol-size-station}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-station",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-display-sm": {
+    "$value": "{ref-symbol-size-display-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-display-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-size-display-md": {
+    "$value": "{ref-symbol-size-display-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-size-display-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-color-action": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-color-action",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-color-status": {
+    "$value": "{sys-energy-status-success}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-color-status",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-color-warning": {
+    "$value": "{sys-energy-status-warning-foreground}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-color-warning",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-color-danger": {
+    "$value": "{sys-energy-status-error}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-color-danger",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-symbol-color-muted": {
+    "$value": "{sys-energy-text-tertiary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-symbol-color-muted",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

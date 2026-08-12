@@ -1,0 +1,202 @@
+{
+  "density-doc-body-line-height": {
+    "$value": "{sys-density-doc-body-line-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-body-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-body-size": {
+    "$value": "{sys-density-doc-body-size}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-body-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-card-body-size": {
+    "$value": "{sys-density-doc-card-body-size}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-card-body-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-card-min-block": {
+    "$value": "{sys-density-doc-card-min-block}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-card-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-card-title-size": {
+    "$value": "{sys-density-doc-card-title-size}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-card-title-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-example-min-block": {
+    "$value": "{sys-density-doc-example-min-block}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-example-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-heading-line-height": {
+    "$value": "{sys-density-doc-heading-line-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-heading-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-heading-size": {
+    "$value": "{sys-density-doc-heading-size}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-heading-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-label-size": {
+    "$value": "{sys-density-doc-label-size}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-label-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-doc-subheading-size": {
+    "$value": "{sys-density-doc-subheading-size}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-doc-subheading-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-body-line-height": {
+    "$value": "{sys-voice-line-height-relaxed}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-body-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-body-size": {
+    "$value": "{sys-voice-size-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-body-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-card-body-size": {
+    "$value": "{sys-voice-size-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-card-body-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-card-min-block": {
+    "$value": "calc(var(--sys-density-row-height) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-card-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-card-title-size": {
+    "$value": "{sys-voice-size-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-card-title-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-example-min-block": {
+    "$value": "calc(var(--sys-density-row-height) * 3)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-example-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-heading-line-height": {
+    "$value": "{sys-voice-line-height-tight}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-heading-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-heading-size": {
+    "$value": "{sys-voice-size-10}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-heading-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-label-size": {
+    "$value": "{sys-voice-size-3}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-label-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-doc-subheading-size": {
+    "$value": "{sys-voice-size-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-doc-subheading-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "ref-growth-stage-seed": {
+    "$value": "1",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-growth-stage-seed",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-growth-stage-stable": {
+    "$value": "2",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-growth-stage-stable",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-growth-stage-measured": {
+    "$value": "3",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-growth-stage-measured",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-growth-stage-deprecated": {
+    "$value": "4",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-growth-stage-deprecated",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-growth-stage-seed-color": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-growth-stage-seed-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-growth-stage-stable-color": {
+    "$value": "{sys-energy-status-success}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-growth-stage-stable-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-growth-stage-measured-color": {
+    "$value": "{sys-energy-status-info}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-growth-stage-measured-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-growth-stage-deprecated-color": {
+    "$value": "{sys-energy-status-error}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-growth-stage-deprecated-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-growth-event-font": {
+    "$value": "{ref-voice-family-mono}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-growth-event-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "sys-font-body": {
+    "$value": "{sys-voice-family-body}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-font-body",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-font-icon": {
+    "$value": "{sys-icon-family}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-font-icon",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-font-mono": {
+    "$value": "{sys-voice-family-mono}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-font-mono",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-font-title": {
+    "$value": "{sys-voice-family-title}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-font-title",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-font-weight-regular": {
+    "$value": "{sys-voice-weight-regular}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-font-weight-regular",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-font-weight-semibold": {
+    "$value": "{sys-voice-weight-semibold}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-font-weight-semibold",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-line-height-normal": {
+    "$value": "{sys-voice-line-height-normal}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-line-height-normal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

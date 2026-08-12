@@ -1,0 +1,2622 @@
+{
+  "ref-frame-border-control": {
+    "$value": "1.5px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-border-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-border-indicator": {
+    "$value": "3px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-border-indicator",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-border-medium": {
+    "$value": "2px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-border-medium",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-border-thin": {
+    "$value": "1px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-border-thin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-breakpoint-lg": {
+    "$value": "1180px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-breakpoint-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-breakpoint-md": {
+    "$value": "992px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-breakpoint-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-breakpoint-shell-sidebar": {
+    "$value": "861px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-breakpoint-shell-sidebar",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-breakpoint-sm": {
+    "$value": "576px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-breakpoint-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-breakpoint-xl": {
+    "$value": "1440px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-breakpoint-xl",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-callout": {
+    "$value": "1040px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-callout",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-dialog": {
+    "$value": "480px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-dialog",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-drawer-lg": {
+    "$value": "800px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-drawer-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-drawer-md": {
+    "$value": "736px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-drawer-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-drawer-sm": {
+    "$value": "672px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-drawer-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-max": {
+    "$value": "1440px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-max",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-narrow": {
+    "$value": "640px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-narrow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-content-prose": {
+    "$value": "680px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-content-prose",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-device-border-block": {
+    "$value": "18px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-device-border-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-device-border-block-sm": {
+    "$value": "12px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-device-border-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-device-border-inline": {
+    "$value": "10px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-device-border-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-device-border-inline-sm": {
+    "$value": "6px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-device-border-inline-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-badge-sm": {
+    "$value": "36px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-badge-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-col-bar": {
+    "$value": "120px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-col-bar",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-col-num": {
+    "$value": "28px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-col-num",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-col-preview": {
+    "$value": "240px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-col-preview",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-col-token": {
+    "$value": "200px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-col-token",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-col-token-lg": {
+    "$value": "220px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-col-token-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-col-value-sm": {
+    "$value": "50px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-col-value-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-demo-radius": {
+    "$value": "56px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-demo-radius",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-grid-lg": {
+    "$value": "42px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-grid-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-grid-md": {
+    "$value": "36px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-grid-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-doc-grid-sm": {
+    "$value": "28px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-doc-grid-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-lg-columns": {
+    "$value": "12",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-lg-columns",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-lg-gutter": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-lg-gutter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-lg-margin": {
+    "$value": "48px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-lg-margin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-lg-max-width": {
+    "$value": "1440px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-lg-max-width",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-md-columns": {
+    "$value": "6",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-md-columns",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-md-gutter": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-md-gutter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-md-margin": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-md-margin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-sm-columns": {
+    "$value": "1",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-sm-columns",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-sm-gutter": {
+    "$value": "0px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-sm-gutter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-grid-sm-margin": {
+    "$value": "16px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-grid-sm-margin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-lg": {
+    "$value": "72px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-lg-comfortable": {
+    "$value": "86px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-lg-comfortable",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-lg-compact": {
+    "$value": "60px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-lg-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-md": {
+    "$value": "60px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-md-comfortable": {
+    "$value": "72px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-md-comfortable",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-md-compact": {
+    "$value": "50px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-md-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-sm": {
+    "$value": "48px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-sm-comfortable": {
+    "$value": "58px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-sm-comfortable",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-sm-compact": {
+    "$value": "40px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-sm-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-xl": {
+    "$value": "88px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-xl",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-xl-comfortable": {
+    "$value": "106px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-xl-comfortable",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-height-control-xl-compact": {
+    "$value": "74px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-height-control-xl-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-0": {
+    "$value": "0px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-0",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-1": {
+    "$value": "4px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-1",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-10": {
+    "$value": "40px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-10",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-11": {
+    "$value": "44px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-11",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-12": {
+    "$value": "48px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-12",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-2": {
+    "$value": "8px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-2",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-3": {
+    "$value": "12px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-3",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-4": {
+    "$value": "16px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-4",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-5": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-5",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-6": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-6",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-7": {
+    "$value": "28px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-7",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-8": {
+    "$value": "32px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-8",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-9": {
+    "$value": "36px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-9",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-radius-full": {
+    "$value": "9999px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-radius-full",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-sidebar-collapsed": {
+    "$value": "56px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-sidebar-collapsed",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-sidebar-expanded": {
+    "$value": "280px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-sidebar-expanded",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-0": {
+    "$value": "0px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-0",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-1": {
+    "$value": "4px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-1",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-10": {
+    "$value": "40px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-10",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-11": {
+    "$value": "44px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-11",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-12": {
+    "$value": "48px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-12",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-16": {
+    "$value": "64px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-16",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-2": {
+    "$value": "8px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-2",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-20": {
+    "$value": "80px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-20",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-24": {
+    "$value": "96px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-24",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-3": {
+    "$value": "12px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-3",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-32": {
+    "$value": "128px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-32",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-4": {
+    "$value": "16px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-4",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-40": {
+    "$value": "160px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-40",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-5": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-5",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-6": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-6",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-7": {
+    "$value": "28px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-7",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-8": {
+    "$value": "32px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-8",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-9": {
+    "$value": "36px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-9",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-frame-space-micro": {
+    "$value": "2px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-frame-space-micro",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-border-width-thin": {
+    "$value": "{sys-frame-border-thin}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-border-width-thin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-border-control": {
+    "$value": "{ref-frame-border-control}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-border-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-border-indicator": {
+    "$value": "{ref-frame-border-indicator}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-border-indicator",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-border-medium": {
+    "$value": "{ref-frame-border-medium}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-border-medium",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-border-thin": {
+    "$value": "{ref-frame-border-thin}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-border-thin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-brand-logo-max": {
+    "$value": "calc(var(--ref-frame-space-12) + var(--ref-frame-space-16) + var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-brand-logo-max",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-brand-logo-min": {
+    "$value": "calc((var(--ref-frame-space-12) * 2) + var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-brand-logo-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-brand-logo-mobile-max": {
+    "$value": "calc(var(--sys-frame-sidebar-collapsed) + var(--sys-space-xl) + var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-brand-logo-mobile-max",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-brand-logo-mobile-min": {
+    "$value": "calc(var(--sys-frame-sidebar-collapsed) + var(--sys-space-lg))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-brand-logo-mobile-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-breakpoint-lg": {
+    "$value": "{ref-frame-breakpoint-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-breakpoint-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-breakpoint-md": {
+    "$value": "{ref-frame-breakpoint-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-breakpoint-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-breakpoint-shell-sidebar": {
+    "$value": "{ref-frame-breakpoint-shell-sidebar}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-breakpoint-shell-sidebar",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-breakpoint-sm": {
+    "$value": "{ref-frame-breakpoint-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-breakpoint-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-breakpoint-xl": {
+    "$value": "{ref-frame-breakpoint-xl}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-breakpoint-xl",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-button-padding-x-lg": {
+    "$value": "{ref-frame-space-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-button-padding-x-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-button-padding-x-md": {
+    "$value": "{ref-frame-space-5}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-button-padding-x-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-button-padding-x-sm": {
+    "$value": "{ref-frame-space-4}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-button-padding-x-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-control-lg": {
+    "$value": "calc(var(--sys-space-11) * 1.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-control-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-control-md": {
+    "$value": "{sys-space-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-control-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-control-sm": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-control-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-label-lg": {
+    "$value": "calc(var(--sys-space-11) * 2.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-label-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-label-md": {
+    "$value": "calc(var(--sys-space-11) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-label-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-label-sm": {
+    "$value": "calc(var(--sys-space-11) * 1.75)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-label-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-label-xl": {
+    "$value": "calc(var(--sys-space-11) * 3.25)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-label-xl",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-min-block-lg": {
+    "$value": "calc(var(--sys-space-11) + (var(--sys-space-11) * 1.5))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-min-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-min-block-md": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-9))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-min-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-min-inline-lg": {
+    "$value": "calc(var(--sys-space-11) * 1.75)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-min-inline-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-min-inline-md": {
+    "$value": "calc(var(--sys-space-11) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-min-inline-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-action-min-inline-sm": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-action-min-inline-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-callout": {
+    "$value": "{ref-frame-content-callout}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-callout",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-chip-block-lg": {
+    "$value": "{sys-space-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-chip-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-chip-block-md": {
+    "$value": "{sys-space-7}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-chip-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-chip-block-sm": {
+    "$value": "{sys-space-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-chip-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-chip-inline-lg": {
+    "$value": "{sys-space-10}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-chip-inline-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-chip-inline-md": {
+    "$value": "{sys-space-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-chip-inline-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-chip-inline-sm": {
+    "$value": "{sys-space-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-chip-inline-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-card-media-block": {
+    "$value": "calc((var(--sys-space-11) * 4) + var(--sys-space-xl))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-card-media-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-code-slot-block-lg": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-code-slot-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-code-slot-block-md": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-frame-border-control))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-code-slot-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-code-slot-block-sm": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-code-slot-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-code-slot-inline-lg": {
+    "$value": "{sys-space-12}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-code-slot-inline-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-code-slot-inline-md": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-code-slot-inline-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-code-slot-inline-sm": {
+    "$value": "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-code-slot-inline-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-country-listbox-inline": {
+    "$value": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-country-listbox-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-country-listbox-max-inline": {
+    "$value": "calc(var(--sys-space-11) * 6)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-country-listbox-max-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-date-panel": {
+    "$value": "calc(var(--sys-space-11) * 6.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-date-panel",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-date-range-panel": {
+    "$value": "calc(var(--sys-space-11) * 7)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-date-range-panel",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-date-range-preset-min-block": {
+    "$value": "{sys-space-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-date-range-preset-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-dialog": {
+    "$value": "{ref-frame-content-dialog}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-dialog",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-disclosure-trigger-min-block-lg": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-xl))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-disclosure-trigger-min-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-disclosure-trigger-min-block-md": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-disclosure-trigger-min-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-disclosure-trigger-min-block-sm": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-disclosure-trigger-min-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-drawer-lg": {
+    "$value": "min(82vw, var(--ref-frame-content-drawer-lg))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-drawer-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-drawer-md": {
+    "$value": "min(72vw, var(--ref-frame-content-drawer-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-drawer-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-drawer-sm": {
+    "$value": "min(68vw, var(--ref-frame-content-drawer-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-drawer-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-feedback-action-size": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-feedback-action-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-hero-copy": {
+    "$value": "calc(var(--ref-frame-content-prose) + var(--sys-frame-gap-component-lg))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-hero-copy",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-hero-visual": {
+    "$value": "calc(var(--ref-frame-content-callout) - (var(--sys-frame-gap-section) * 2))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-hero-visual",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-inline-trigger-min-block-lg": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-inline-trigger-min-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-inline-trigger-min-block-md": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-inline-trigger-min-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-inline-trigger-min-block-sm": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-inline-trigger-min-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-map-pin-min-block-lg": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-map-pin-min-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-map-pin-min-block-md": {
+    "$value": "{sys-space-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-map-pin-min-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-map-pin-min-block-sm": {
+    "$value": "{sys-space-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-map-pin-min-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-max": {
+    "$value": "{ref-frame-content-max}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-max",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-menu-max-block": {
+    "$value": "calc(var(--sys-frame-content-dialog) + (var(--sys-frame-gap-section) * 3))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-menu-max-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-menu-min": {
+    "$value": "{ref-frame-doc-col-preview}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-menu-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-menu-min-lg": {
+    "$value": "calc(var(--ref-frame-space-40) + var(--ref-frame-space-16))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-menu-min-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-menu-min-md": {
+    "$value": "calc(var(--ref-frame-space-40) + var(--ref-frame-space-10))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-menu-min-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-menu-min-sm": {
+    "$value": "calc(var(--ref-frame-space-40) + var(--ref-frame-space-6))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-menu-min-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-menu-wide": {
+    "$value": "calc(var(--ref-frame-content-prose) + var(--sys-frame-gap-component-lg))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-menu-wide",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-metric-min-lg": {
+    "$value": "calc(var(--sys-space-11) * 3)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-metric-min-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-metric-min-md": {
+    "$value": "calc(var(--sys-space-11) * 2.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-metric-min-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-metric-min-sm": {
+    "$value": "calc(var(--sys-space-11) * 2.25)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-metric-min-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-metric-min-xs": {
+    "$value": "calc(var(--sys-space-11) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-metric-min-xs",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-movement-icon-size": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-focus-ring-offset))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-movement-icon-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-movement-row-min-block-lg": {
+    "$value": "calc(var(--sys-space-11) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-movement-row-min-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-movement-row-min-block-md": {
+    "$value": "calc(var(--sys-space-11) * 1.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-movement-row-min-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-movement-row-min-block-sm": {
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-movement-row-min-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-narrow": {
+    "$value": "100%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-narrow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-navigation-ellipsis-inline": {
+    "$value": "calc(var(--sys-space-11) * 0.75)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-navigation-ellipsis-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-navigation-target-lg": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-navigation-target-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-navigation-target-md": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-navigation-target-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-navigation-target-sm": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-md))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-navigation-target-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-option-min-block": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-xs))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-option-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-phone-input-flex-basis": {
+    "$value": "calc(var(--sys-space-11) * 3.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-phone-input-flex-basis",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-phone-input-flex-basis-compact": {
+    "$value": "calc(var(--sys-space-11) * 3)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-phone-input-flex-basis-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-phone-input-min-inline": {
+    "$value": "calc(var(--sys-space-11) * 2.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-phone-input-min-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-phone-input-min-inline-compact": {
+    "$value": "calc(var(--sys-space-11) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-phone-input-min-inline-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-prose": {
+    "$value": "100%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-prose",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-prose-wide": {
+    "$value": "100%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-prose-wide",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-search-min": {
+    "$value": "calc(var(--sys-frame-sidebar-expanded) + var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-search-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-search-results-max-block": {
+    "$value": "calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-component-lg))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-search-results-max-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-segmented-control-inline": {
+    "$value": "calc(var(--sys-space-11) * 9)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-segmented-control-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-skeleton-circle": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-skeleton-circle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-skeleton-row-leading": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-skeleton-row-leading",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-step-marker-lg": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-step-marker-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-step-marker-md": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-lg) - var(--sys-space-xs))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-step-marker-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-step-marker-sm": {
+    "$value": "calc(var(--sys-space-11) - var(--sys-space-lg))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-step-marker-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-step-text-max-inline": {
+    "$value": "calc(var(--sys-space-11) * 3)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-step-text-max-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-step-text-min-inline": {
+    "$value": "calc(var(--sys-space-11) * 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-step-text-min-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-tab-label-max": {
+    "$value": "{ref-frame-space-32}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-tab-label-max",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-table-expander": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-table-expander",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-content-tree-control-lg": {
+    "$value": "{sys-space-11}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-content-tree-control-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-device-border-block": {
+    "$value": "{ref-frame-device-border-block}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-device-border-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-device-border-block-sm": {
+    "$value": "{ref-frame-device-border-block-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-device-border-block-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-device-border-inline": {
+    "$value": "{ref-frame-device-border-inline}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-device-border-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-device-border-inline-sm": {
+    "$value": "{ref-frame-device-border-inline-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-device-border-inline-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-card-grid-min": {
+    "$value": "calc(var(--ref-frame-space-32) + var(--ref-frame-space-11))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-card-grid-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-card-min-block-lg": {
+    "$value": "calc(var(--ref-frame-space-32) + var(--ref-frame-space-16))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-card-min-block-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-card-min-block-md": {
+    "$value": "calc(var(--ref-frame-space-32) + var(--ref-frame-space-12))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-card-min-block-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-device-min-block": {
+    "$value": "calc(var(--sys-frame-content-dialog) + var(--sys-frame-gap-section))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-device-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-device-width": {
+    "$value": "calc(var(--sys-frame-content-dialog) - (var(--sys-frame-gap-section) * 2))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-device-width",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-dot": {
+    "$value": "calc(var(--sys-space-sm) + var(--sys-frame-space-micro))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-dot",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-grid-lg": {
+    "$value": "{ref-frame-doc-grid-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-grid-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-grid-md": {
+    "$value": "{ref-frame-doc-grid-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-grid-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-grid-sm": {
+    "$value": "{ref-frame-doc-grid-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-grid-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-icon-lg": {
+    "$value": "{ref-frame-space-10}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-icon-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-icon-md": {
+    "$value": "{ref-frame-doc-badge-sm}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-icon-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-icon-sm": {
+    "$value": "{ref-frame-space-8}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-icon-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-line": {
+    "$value": "{sys-space-xl}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-line",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-panel-min-lg": {
+    "$value": "{sys-frame-content-menu-min}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-panel-min-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-panel-min-md": {
+    "$value": "calc(var(--ref-frame-space-32) + var(--density-page-gap))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-panel-min-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-panel-min-sm": {
+    "$value": "{ref-frame-space-40}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-panel-min-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-panel-min-xl": {
+    "$value": "calc(var(--sys-frame-content-dialog) - (var(--sys-frame-gap-component-lg) * 4))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-panel-min-xl",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-pill-min-block": {
+    "$value": "{ref-frame-space-7}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-pill-min-block",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-stage-inline": {
+    "$value": "calc(var(--sys-frame-content-dialog) + var(--sys-frame-gap-section))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-stage-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-surface-max-inline": {
+    "$value": "calc(var(--sys-frame-content-max) + var(--sys-frame-gap-page))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-surface-max-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-doc-table-inline": {
+    "$value": "calc(var(--ref-frame-content-prose) + var(--sys-frame-sidebar-collapsed))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-doc-table-inline",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-component": {
+    "$value": "{sys-density-component-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-component",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-component-lg": {
+    "$value": "{sys-density-component-gap-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-component-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-element": {
+    "$value": "{ref-frame-space-3}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-element",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-page": {
+    "$value": "{sys-density-page-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-page",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-section": {
+    "$value": "{sys-density-section-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-section",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-subsection": {
+    "$value": "{sys-density-subsection-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-subsection",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-topnav-max": {
+    "$value": "calc(var(--sys-space-md) + var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-topnav-max",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-gap-topnav-min": {
+    "$value": "calc(var(--sys-frame-space-micro) + var(--sys-space-sm))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-gap-topnav-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-lg-columns": {
+    "$value": "{ref-frame-grid-lg-columns}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-lg-columns",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-lg-gutter": {
+    "$value": "{ref-frame-space-8}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-lg-gutter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-lg-margin": {
+    "$value": "{ref-frame-space-12}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-lg-margin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-lg-max-width": {
+    "$value": "{ref-frame-grid-lg-max-width}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-lg-max-width",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-md-columns": {
+    "$value": "{ref-frame-grid-md-columns}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-md-columns",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-md-gutter": {
+    "$value": "{ref-frame-grid-md-gutter}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-md-gutter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-md-margin": {
+    "$value": "{ref-frame-grid-md-margin}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-md-margin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-sm-columns": {
+    "$value": "{ref-frame-grid-sm-columns}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-sm-columns",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-sm-gutter": {
+    "$value": "{ref-frame-grid-sm-gutter}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-sm-gutter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-grid-sm-margin": {
+    "$value": "{ref-frame-grid-sm-margin}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-grid-sm-margin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-height-control-lg": {
+    "$value": "{ref-frame-height-control-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-height-control-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-height-control-md": {
+    "$value": "{sys-density-control-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-height-control-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-height-control-sm": {
+    "$value": "{ref-frame-height-control-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-height-control-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-height-shell-topbar": {
+    "$value": "calc(var(--sys-frame-height-control-sm) + (var(--sys-space-md) * 2) + var(--sys-frame-border-thin))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-height-shell-topbar",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-height-shell-topbar-mobile": {
+    "$value": "calc((var(--sys-frame-height-control-sm) * 2) + var(--sys-frame-gap-component))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-height-shell-topbar-mobile",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-max-width-control": {
+    "$value": "none",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-max-width-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-min-width-control": {
+    "$value": "0",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-min-width-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-padding-container": {
+    "$value": "{sys-density-panel-padding}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-padding-container",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-padding-control": {
+    "$value": "{sys-density-control-padding-x}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-padding-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-padding-inset-s": {
+    "$value": "{ref-frame-space-2}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-padding-inset-s",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-padding-surface": {
+    "$value": "{sys-density-surface-padding}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-padding-surface",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-position-center": {
+    "$value": "-50%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-position-center",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-radius-container": {
+    "$value": "{ref-frame-radius-3}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-radius-container",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-radius-control": {
+    "$value": "{ref-frame-radius-3}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-radius-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-radius-full": {
+    "$value": "{ref-frame-radius-full}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-radius-full",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-radius-md": {
+    "$value": "{sys-frame-radius-control}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-radius-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-radius-sm": {
+    "$value": "{ref-frame-radius-1}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-radius-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-radius-surface": {
+    "$value": "{ref-frame-radius-4}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-radius-surface",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-ratio-half": {
+    "$value": "0.5",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-ratio-half",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-sidebar-collapsed": {
+    "$value": "{ref-frame-sidebar-collapsed}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-sidebar-collapsed",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-sidebar-expanded": {
+    "$value": "{ref-frame-sidebar-expanded}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-sidebar-expanded",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-space-micro": {
+    "$value": "{ref-frame-space-micro}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-space-micro",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-space-none": {
+    "$value": "{ref-frame-space-0}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-space-none",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-template-desktop-inline-min": {
+    "$value": "calc(var(--ref-frame-content-prose) + (var(--sys-frame-gap-section) * 2))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-template-desktop-inline-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-template-desktop-inline-wide": {
+    "$value": "calc(var(--ref-frame-content-prose) + var(--sys-frame-sidebar-expanded) + (var(--sys-frame-gap-section) * 3))",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-template-desktop-inline-wide",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-frame-width-control": {
+    "$value": "100%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-frame-width-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

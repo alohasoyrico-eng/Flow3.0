@@ -1,0 +1,112 @@
+{
+  "sys-research-confidence-high-color": {
+    "$value": "{sys-tone-confirm-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-confidence-high-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-confidence-low-color": {
+    "$value": "{sys-tone-urgent-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-confidence-low-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-confidence-medium-color": {
+    "$value": "{sys-tone-assistive-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-confidence-medium-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-context-color": {
+    "$value": "{sys-tone-neutral-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-context-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-decision-link-color": {
+    "$value": "{sys-tone-assistive-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-decision-link-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-evidence-color": {
+    "$value": "{sys-measurement-analytics-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-evidence-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-hypothesis-color": {
+    "$value": "{sys-measurement-hypothesis-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-hypothesis-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-question-font": {
+    "$value": "{sys-voice-family-title}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-question-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-question-weight": {
+    "$value": "{sys-tone-urgent-weight}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-question-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-readable-line-height": {
+    "$value": "{sys-a11y-readable-line-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-readable-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-research-risk-color": {
+    "$value": "{sys-measurement-guardrail-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-research-risk-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

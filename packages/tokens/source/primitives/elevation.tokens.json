@@ -1,0 +1,132 @@
+{
+  "sys-elevation-0": {
+    "$value": "{sys-depth-elevation-0}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-0",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-1": {
+    "$value": "{sys-depth-elevation-1}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-1",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-2": {
+    "$value": "{sys-depth-elevation-2}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-2",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-3": {
+    "$value": "{sys-depth-elevation-3}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-3",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-4": {
+    "$value": "{sys-depth-elevation-4}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-4",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-card": {
+    "$value": "{sys-elevation-1}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-card",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-card-hover": {
+    "$value": "{sys-elevation-3}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-card-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-control": {
+    "$value": "{sys-elevation-1}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-control",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-floating": {
+    "$value": "{sys-elevation-2}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-floating",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-modal": {
+    "$value": "{sys-elevation-4}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-modal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-popover": {
+    "$value": "{sys-elevation-3}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-popover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-sheet": {
+    "$value": "{sys-elevation-4}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-sheet",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-elevation-toast": {
+    "$value": "{sys-elevation-3}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-elevation-toast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

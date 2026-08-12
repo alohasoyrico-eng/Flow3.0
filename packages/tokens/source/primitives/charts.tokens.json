@@ -1,0 +1,192 @@
+{
+  "sys-chart-axis-color": {
+    "$value": "{sys-energy-text-secondary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-axis-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-empty-color": {
+    "$value": "{sys-message-intent-neutral-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-empty-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-focus-ring": {
+    "$value": "{sys-a11y-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-grid-color": {
+    "$value": "{sys-energy-border-default}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-grid-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-legend-text-color": {
+    "$value": "{sys-energy-text-secondary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-legend-text-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-motion-duration-enter": {
+    "$value": "{sys-momentum-duration-reveal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-motion-duration-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-motion-duration-update": {
+    "$value": "{sys-momentum-duration-default}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-motion-duration-update",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-motion-easing-enter": {
+    "$value": "{sys-momentum-easing-enter}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-motion-easing-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-motion-easing-update": {
+    "$value": "{sys-momentum-easing-move}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-motion-easing-update",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-series-primary": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-series-primary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-series-quaternary": {
+    "$value": "{sys-energy-status-warning}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-series-quaternary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-series-secondary": {
+    "$value": "{sys-energy-text-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-series-secondary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-series-tertiary": {
+    "$value": "{sys-energy-status-success}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-series-tertiary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-summary-font": {
+    "$value": "{sys-voice-family-body}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-summary-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-summary-line-height": {
+    "$value": "{sys-a11y-readable-line-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-summary-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-threshold-danger": {
+    "$value": "{sys-energy-status-error}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-threshold-danger",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-threshold-warning": {
+    "$value": "{sys-energy-status-warning}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-threshold-warning",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-tooltip-background": {
+    "$value": "{sys-energy-text-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-tooltip-background",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-chart-tooltip-foreground": {
+    "$value": "{sys-energy-surface-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-chart-tooltip-foreground",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

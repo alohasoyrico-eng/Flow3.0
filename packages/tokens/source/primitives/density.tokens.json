@@ -1,0 +1,242 @@
+{
+  "density-card-padding": {
+    "$value": "{sys-density-card-padding}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-card-padding",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-component-gap": {
+    "$value": "{sys-density-component-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-component-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-component-gap-lg": {
+    "$value": "{sys-density-component-gap-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-component-gap-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-control-height": {
+    "$value": "{sys-density-control-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-control-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-control-padding-x": {
+    "$value": "{sys-density-control-padding-x}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-control-padding-x",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-control-padding-y": {
+    "$value": "{sys-density-control-padding-y}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-control-padding-y",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-page-gap": {
+    "$value": "{sys-density-page-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-page-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-panel-padding": {
+    "$value": "{sys-density-panel-padding}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-panel-padding",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-row-height": {
+    "$value": "{sys-density-row-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-row-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-section-gap": {
+    "$value": "{sys-density-section-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-section-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-subsection-gap": {
+    "$value": "{sys-density-subsection-gap}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-subsection-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "density-surface-padding": {
+    "$value": "{sys-density-surface-padding}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--density-surface-padding",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-card-padding": {
+    "$value": "{sys-space-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-card-padding",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-component-gap": {
+    "$value": "{sys-space-5}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-component-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-component-gap-lg": {
+    "$value": "{sys-space-7}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-component-gap-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-control-height": {
+    "$value": "{ref-frame-height-control-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-control-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-control-padding-x": {
+    "$value": "{sys-space-5}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-control-padding-x",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-control-padding-y": {
+    "$value": "{sys-space-3}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-control-padding-y",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-page-gap": {
+    "$value": "{sys-space-20}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-page-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-panel-padding": {
+    "$value": "{sys-space-6}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-panel-padding",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-row-height": {
+    "$value": "{ref-frame-height-control-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-row-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-section-gap": {
+    "$value": "{sys-space-16}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-section-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-subsection-gap": {
+    "$value": "{sys-space-9}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-subsection-gap",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-density-surface-padding": {
+    "$value": "{sys-space-12}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-density-surface-padding",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

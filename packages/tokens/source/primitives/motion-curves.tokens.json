@@ -1,0 +1,62 @@
+{
+  "sys-motion-curve-enter": {
+    "$value": "{sys-momentum-easing-enter}",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-motion-curve-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-motion-curve-exit": {
+    "$value": "{sys-momentum-easing-exit}",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-motion-curve-exit",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-motion-curve-linear": {
+    "$value": "{sys-momentum-easing-linear}",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-motion-curve-linear",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-motion-curve-move": {
+    "$value": "{sys-momentum-easing-move}",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-motion-curve-move",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-motion-curve-standard": {
+    "$value": "{sys-momentum-easing-standard}",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-motion-curve-standard",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-motion-curve-touch": {
+    "$value": "{sys-momentum-easing-touch}",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-motion-curve-touch",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

@@ -6,6 +6,9 @@
   "exports": {
     ".": "./src/index.js",
     "./tokens.json": "./tokens.json",
-    "./styles.css": "./styles/tokens.css"
+    "./styles.css": "./styles/tokens.css",
+    "./flutter": "./dist/flutter/flow_tokens.dart",
+    "./android": "./dist/android/flow_tokens.xml",
+    "./ios": "./dist/ios/FlowTokens.swift"
   }
 }

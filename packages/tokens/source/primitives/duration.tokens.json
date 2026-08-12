@@ -1,0 +1,172 @@
+{
+  "sys-duration-base": {
+    "$value": "{sys-momentum-duration-default}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-base",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-cycle": {
+    "$value": "{sys-momentum-duration-loop}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-cycle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-enter": {
+    "$value": "{sys-momentum-duration-enter}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-fast": {
+    "$value": "{sys-momentum-duration-fast}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-fast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-instant": {
+    "$value": "{sys-momentum-duration-instant}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-instant",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-loading-cycle": {
+    "$value": "{sys-momentum-duration-loading-cycle}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-loading-cycle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-loading-spin": {
+    "$value": "{sys-momentum-duration-loading-spin}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-loading-spin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-medium": {
+    "$value": "{sys-momentum-duration-medium}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-medium",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-overlay": {
+    "$value": "{sys-momentum-duration-overlay}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-press": {
+    "$value": "{sys-momentum-duration-press}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-press",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-progress": {
+    "$value": "{sys-momentum-duration-progress}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-progress",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-pulse": {
+    "$value": "{sys-momentum-duration-pulse}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-pulse",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-reveal": {
+    "$value": "{sys-momentum-duration-reveal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-reveal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-sheet": {
+    "$value": "{sys-momentum-duration-sheet}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-sheet",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-slow": {
+    "$value": "{sys-momentum-duration-slow}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-slow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-snappy": {
+    "$value": "{sys-momentum-duration-snappy}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-snappy",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-duration-touch": {
+    "$value": "{sys-momentum-duration-touch}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-duration-touch",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

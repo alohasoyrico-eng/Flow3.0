@@ -1,0 +1,132 @@
+{
+  "ref-tone-weight-neutral": {
+    "$value": "{ref-voice-weight-regular}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-tone-weight-neutral",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-tone-weight-assistive": {
+    "$value": "{ref-voice-weight-medium}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-tone-weight-assistive",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-tone-weight-urgent": {
+    "$value": "{ref-voice-weight-bold}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-tone-weight-urgent",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-tone-weight-repair": {
+    "$value": "{ref-voice-weight-bold}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-tone-weight-repair",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-neutral-color": {
+    "$value": "{sys-energy-text-secondary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-neutral-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-assistive-color": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-assistive-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-urgent-color": {
+    "$value": "{sys-energy-status-warning-foreground}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-urgent-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-repair-color": {
+    "$value": "{sys-energy-status-error}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-repair-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-confirm-color": {
+    "$value": "{sys-energy-status-success}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-confirm-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-neutral-weight": {
+    "$value": "{ref-tone-weight-neutral}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-neutral-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-assistive-weight": {
+    "$value": "{ref-tone-weight-assistive}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-assistive-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-urgent-weight": {
+    "$value": "{ref-tone-weight-urgent}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-urgent-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-tone-repair-weight": {
+    "$value": "{ref-tone-weight-repair}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-tone-repair-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

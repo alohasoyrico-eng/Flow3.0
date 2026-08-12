@@ -1,0 +1,142 @@
+{
+  "sys-loading-busy-cursor": {
+    "$value": "progress",
+    "$type": "content",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-busy-cursor",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-cycle-duration": {
+    "$value": "{sys-momentum-duration-loading-cycle}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-cycle-duration",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-easing-linear": {
+    "$value": "{sys-momentum-easing-linear}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-easing-linear",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-easing-rhythm": {
+    "$value": "{sys-momentum-easing-move}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-easing-rhythm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-progress-duration": {
+    "$value": "{sys-momentum-duration-progress}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-progress-duration",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-progress-fill": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-progress-fill",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-progress-track": {
+    "$value": "{sys-energy-border-default}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-progress-track",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-pulse-duration": {
+    "$value": "{sys-momentum-duration-pulse}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-pulse-duration",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-skeleton-highlight": {
+    "$value": "{sys-energy-border-default}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-skeleton-highlight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-skeleton-surface": {
+    "$value": "{sys-energy-surface-sunken}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-skeleton-surface",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-spin-duration": {
+    "$value": "{sys-momentum-duration-loading-spin}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-spin-duration",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-spinner-tone": {
+    "$value": "{sys-energy-action-primary}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-spinner-tone",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-spinner-track": {
+    "$value": "{sys-energy-border-default}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-spinner-track",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-loading-stale-opacity": {
+    "$value": "{sys-state-closed-opacity}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-loading-stale-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

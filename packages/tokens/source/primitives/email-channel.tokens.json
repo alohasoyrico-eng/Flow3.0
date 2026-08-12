@@ -1,0 +1,532 @@
+{
+  "sys-email-color-text-primary": {
+    "$value": "#17171A",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-text-primary",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-text-muted": {
+    "$value": "#8A8781",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-text-muted",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-text-secondary": {
+    "$value": "#55534E",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-text-secondary",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-page": {
+    "$value": "#F3F1ED",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-page",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-border": {
+    "$value": "#E0DDD7",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-border",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-border-soft": {
+    "$value": "#EEEBE6",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-border-soft",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-accent": {
+    "$value": "#FF3617",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-accent",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-link": {
+    "$value": "#E62D10",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-link",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-success": {
+    "$value": "#0E8A50",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-success",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-warning": {
+    "$value": "#B26A00",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-warning",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-danger": {
+    "$value": "#B42318",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-danger",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-color-white": {
+    "$value": "#FFFFFF",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-color-white",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-family-body": {
+    "$value": "Arial,Helvetica,sans-serif",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-family-body",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-family-mono": {
+    "$value": "Courier New,monospace",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-family-mono",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-family-fallback": {
+    "$value": "sans-serif",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-family-fallback",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-hidden": {
+    "$value": "1px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-hidden",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-xs": {
+    "$value": "11px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-xs",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-sm": {
+    "$value": "12px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-sm",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-note": {
+    "$value": "12.5px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-note",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-code-label": {
+    "$value": "13px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-code-label",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-list": {
+    "$value": "13.5px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-list",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-body": {
+    "$value": "14px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-body",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-step": {
+    "$value": "15px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-step",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-brand": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-brand",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-headline": {
+    "$value": "22px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-headline",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-transactional-headline": {
+    "$value": "34px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-transactional-headline",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-font-size-code": {
+    "$value": "32px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-font-size-code",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-line-height-hidden": {
+    "$value": "1px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-line-height-hidden",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-line-height-note": {
+    "$value": "18px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-line-height-note",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-line-height-body": {
+    "$value": "21px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-line-height-body",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-line-height-headline": {
+    "$value": "29px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-line-height-headline",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-line-height-transactional-headline": {
+    "$value": "40px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-line-height-transactional-headline",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-letter-spacing-tight": {
+    "$value": "-0.5px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-letter-spacing-tight",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-letter-spacing-label": {
+    "$value": "0.6px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-letter-spacing-label",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-letter-spacing-eyebrow": {
+    "$value": "1px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-letter-spacing-eyebrow",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-letter-spacing-code": {
+    "$value": "8px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-letter-spacing-code",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-border-width": {
+    "$value": "1px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-border-width",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-radius-card": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-radius-card",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-radius-pill": {
+    "$value": "999px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-radius-pill",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-radius-metric": {
+    "$value": "14px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-radius-metric",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-xxs": {
+    "$value": "2px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-xxs",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-xs": {
+    "$value": "4px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-xs",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-sm": {
+    "$value": "8px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-sm",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-md": {
+    "$value": "10px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-md",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-lg": {
+    "$value": "12px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-lg",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-xl": {
+    "$value": "16px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-2xl": {
+    "$value": "18px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-2xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-3xl": {
+    "$value": "20px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-3xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-4xl": {
+    "$value": "24px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-4xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-5xl": {
+    "$value": "26px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-5xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-6xl": {
+    "$value": "28px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-6xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-space-7xl": {
+    "$value": "32px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-space-7xl",
+        "channel": "email"
+      }
+    }
+  },
+  "sys-email-content-width": {
+    "$value": "600px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-email-content-width",
+        "channel": "email"
+      }
+    }
+  }
+}

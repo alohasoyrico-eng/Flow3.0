@@ -1,0 +1,52 @@
+{
+  "sys-breakpoint-desktop": {
+    "$value": "{sys-frame-breakpoint-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-breakpoint-desktop",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-breakpoint-laptop": {
+    "$value": "{sys-frame-breakpoint-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-breakpoint-laptop",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-breakpoint-mobile": {
+    "$value": "0px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-breakpoint-mobile",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-breakpoint-tablet": {
+    "$value": "{sys-frame-breakpoint-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-breakpoint-tablet",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-breakpoint-wide": {
+    "$value": "{sys-frame-breakpoint-xl}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-breakpoint-wide",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

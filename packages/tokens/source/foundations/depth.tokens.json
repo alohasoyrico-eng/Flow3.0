@@ -1,0 +1,372 @@
+{
+  "ref-depth-shadow-color-rgb": {
+    "$value": "16 26 119",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-shadow-color-rgb",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-overlay-light": {
+    "$value": "color-mix(in srgb, var(--ref-energy-neutral-900) 50%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-overlay-light",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-overlay-dark": {
+    "$value": "color-mix(in srgb, var(--ref-energy-neutral-900) 65%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-overlay-dark",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-blur-sm": {
+    "$value": "4px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-blur-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-blur-md": {
+    "$value": "8px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-blur-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-blur-lg": {
+    "$value": "16px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-blur-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-z-base": {
+    "$value": "0",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-z-base",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-z-dropdown": {
+    "$value": "100",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-z-dropdown",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-z-sticky": {
+    "$value": "200",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-z-sticky",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-z-overlay": {
+    "$value": "1000",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-z-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-z-dialog": {
+    "$value": "1001",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-z-dialog",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-depth-z-toast": {
+    "$value": "1100",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-z-toast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-overlay": {
+    "$value": "{ref-depth-overlay-dark}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-backdrop-blur": {
+    "$value": "{ref-depth-blur-sm}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-backdrop-blur",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-blur-sm": {
+    "$value": "{ref-depth-blur-sm}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-blur-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-blur-md": {
+    "$value": "{ref-depth-blur-md}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-blur-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-blur-lg": {
+    "$value": "{ref-depth-blur-lg}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-blur-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-underlay": {
+    "$value": "-1",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-underlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-base": {
+    "$value": "{ref-depth-z-base}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-base",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-raised": {
+    "$value": "1",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-raised",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-floating": {
+    "$value": "2",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-floating",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-local-popover": {
+    "$value": "3",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-local-popover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-dropdown": {
+    "$value": "{ref-depth-z-dropdown}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-dropdown",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-sticky": {
+    "$value": "{ref-depth-z-sticky}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-sticky",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-overlay": {
+    "$value": "{ref-depth-z-overlay}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-dialog": {
+    "$value": "{ref-depth-z-dialog}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-dialog",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-z-toast": {
+    "$value": "{ref-depth-z-toast}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-z-toast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-blur-topbar": {
+    "$value": "{ref-depth-blur-lg}",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-blur-topbar",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-lift-subtle": {
+    "$value": "calc(var(--ref-frame-border-thin) * -1)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-lift-subtle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-lift-rest": {
+    "$value": "calc(var(--ref-frame-space-micro) * -1)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-lift-rest",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-lift-raised": {
+    "$value": "calc(var(--ref-frame-space-3) * -0.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-lift-raised",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-lift-overlay": {
+    "$value": "calc(var(--ref-frame-space-5) * -0.5)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-lift-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-0": {
+    "$value": "none",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-0",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-1": {
+    "$value": "0 1px 3px 0 rgb(var(--ref-depth-shadow-color-rgb) / 6%), 0 1px 2px 0 rgb(var(--ref-depth-shadow-color-rgb) / 4%)",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-1",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-2": {
+    "$value": "0 4px 12px 4px rgb(var(--ref-depth-shadow-color-rgb) / 8%), 0 2px 4px 0 rgb(var(--ref-depth-shadow-color-rgb) / 4%)",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-2",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-3": {
+    "$value": "0 22px 70px color-mix(in srgb, var(--ref-energy-neutral-900) 52%, transparent)",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-3",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-4": {
+    "$value": "0 20px 56px 8px rgb(var(--ref-depth-shadow-color-rgb) / 16%), 0 8px 20px 2px rgb(var(--ref-depth-shadow-color-rgb) / 8%)",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-4",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

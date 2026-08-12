@@ -1,0 +1,82 @@
+{
+  "sys-focus-restore-ring": {
+    "$value": "{sys-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-restore-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-ring": {
+    "$value": "{sys-accessibility-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-ring-offset": {
+    "$value": "{sys-accessibility-focus-offset}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-ring-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-roving-ring": {
+    "$value": "{sys-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-roving-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-skip-target-offset": {
+    "$value": "{sys-frame-gap-component}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-skip-target-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-trap-z-index": {
+    "$value": "{sys-depth-z-dialog}",
+    "$type": "zIndex",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-trap-z-index",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-visible-offset": {
+    "$value": "{sys-focus-ring-offset}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-visible-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-focus-visible-ring": {
+    "$value": "{sys-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-focus-visible-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

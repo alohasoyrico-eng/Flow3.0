@@ -1,0 +1,312 @@
+{
+  "ref-state-opacity-disabled": {
+    "$value": "0.42",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-disabled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-faint": {
+    "$value": "0.35",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-faint",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-subtle": {
+    "$value": "0.12",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-subtle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-low": {
+    "$value": "0.18",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-low",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-muted": {
+    "$value": "0.7",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-muted",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-soft": {
+    "$value": "0.85",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-soft",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-closed": {
+    "$value": "0.48",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-closed",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-opacity-visible": {
+    "$value": "1",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-opacity-visible",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-overlay-hover": {
+    "$value": "6%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-overlay-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-overlay-pressed": {
+    "$value": "12%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-overlay-pressed",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-overlay-selected": {
+    "$value": "10%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-overlay-selected",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-focus-ring-width": {
+    "$value": "3px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-focus-ring-width",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-focus-ring-offset": {
+    "$value": "{ref-frame-border-indicator}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-focus-ring-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-loading-spin": {
+    "$value": "900ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-loading-spin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-precedence-disabled": {
+    "$value": "100",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-precedence-disabled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-precedence-loading": {
+    "$value": "90",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-precedence-loading",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-precedence-error": {
+    "$value": "80",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-precedence-error",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-precedence-focus": {
+    "$value": "70",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-precedence-focus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-state-precedence-hover": {
+    "$value": "30",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-state-precedence-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-disabled-opacity": {
+    "$value": "{ref-state-opacity-disabled}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-disabled-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-hidden-opacity": {
+    "$value": "0",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-hidden-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-disabled-readable-opacity": {
+    "$value": "0.58",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-disabled-readable-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-muted-opacity": {
+    "$value": "{ref-state-opacity-muted}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-muted-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-closed-opacity": {
+    "$value": "{ref-state-opacity-closed}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-closed-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-visible-opacity": {
+    "$value": "{ref-state-opacity-visible}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-visible-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-focus-ring": {
+    "$value": "var(--ref-state-focus-ring-width) solid color-mix(in srgb, var(--sys-energy-action-primary) 35%, transparent)",
+    "$type": "border",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-focus-offset": {
+    "$value": "{ref-state-focus-ring-offset}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-focus-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-hover-overlay": {
+    "$value": "color-mix(in srgb, var(--sys-energy-action-primary) var(--ref-state-overlay-hover), transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-hover-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-pressed-overlay": {
+    "$value": "color-mix(in srgb, var(--sys-energy-action-primary) var(--ref-state-overlay-pressed), transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-pressed-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-selected-overlay": {
+    "$value": "color-mix(in srgb, var(--sys-energy-action-primary) var(--ref-state-overlay-selected), transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-selected-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-state-loading-spin": {
+    "$value": "{ref-state-loading-spin}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-state-loading-spin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

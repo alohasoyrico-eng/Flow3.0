@@ -1,0 +1,882 @@
+{
+  "ref-momentum-duration-instant": {
+    "$value": "1ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-instant",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-press": {
+    "$value": "100ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-press",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-snappy": {
+    "$value": "140ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-snappy",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-fast": {
+    "$value": "160ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-fast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-enter": {
+    "$value": "180ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-normal": {
+    "$value": "240ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-normal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-reveal": {
+    "$value": "260ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-reveal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-slow": {
+    "$value": "400ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-slow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-slower": {
+    "$value": "500ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-slower",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-loading": {
+    "$value": "700ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-loading",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-pulse": {
+    "$value": "1100ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-pulse",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-progress": {
+    "$value": "1150ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-progress",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-duration-cycle": {
+    "$value": "1400ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-duration-cycle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-easing-touch": {
+    "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-easing-touch",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-easing-enter": {
+    "$value": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-easing-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-easing-move": {
+    "$value": "cubic-bezier(0.65, 0, 0.35, 1)",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-easing-move",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-easing-standard": {
+    "$value": "{ref-momentum-easing-touch}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-easing-standard",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-easing-exit": {
+    "$value": "{ref-momentum-easing-move}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-easing-exit",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-easing-linear": {
+    "$value": "cubic-bezier(0, 0, 1, 1)",
+    "$type": "cubicBezier",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-easing-linear",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-scale-hover": {
+    "$value": "1.04",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-scale-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-scale-press": {
+    "$value": "0.96",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-scale-press",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-lift-hover": {
+    "$value": "-3px",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-lift-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-stagger-fast": {
+    "$value": "30ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-stagger-fast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-stagger-normal": {
+    "$value": "50ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-stagger-normal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-momentum-stagger-slow": {
+    "$value": "80ms",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-momentum-stagger-slow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-fast": {
+    "$value": "{ref-momentum-duration-fast}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-fast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-default": {
+    "$value": "{ref-momentum-duration-normal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-default",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-slow": {
+    "$value": "{ref-momentum-duration-slow}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-slow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-critical": {
+    "$value": "{ref-momentum-duration-instant}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-critical",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-touch": {
+    "$value": "{ref-momentum-duration-fast}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-touch",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-instant": {
+    "$value": "{ref-momentum-duration-instant}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-instant",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-press": {
+    "$value": "{ref-momentum-duration-press}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-press",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-snappy": {
+    "$value": "{ref-momentum-duration-snappy}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-snappy",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-enter": {
+    "$value": "{ref-momentum-duration-enter}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-overlay": {
+    "$value": "{ref-momentum-duration-normal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-overlay",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-sheet": {
+    "$value": "{ref-momentum-duration-normal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-sheet",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-reveal": {
+    "$value": "{ref-momentum-duration-reveal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-reveal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-medium": {
+    "$value": "{ref-momentum-duration-normal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-medium",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-loop": {
+    "$value": "{ref-momentum-duration-cycle}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-loop",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-loading-spin": {
+    "$value": "{ref-momentum-duration-loading}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-loading-spin",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-loading-cycle": {
+    "$value": "{ref-momentum-duration-loading}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-loading-cycle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-progress": {
+    "$value": "{ref-momentum-duration-progress}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-progress",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-pulse": {
+    "$value": "{ref-momentum-duration-pulse}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-pulse",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-easing-touch": {
+    "$value": "{ref-momentum-easing-touch}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-easing-touch",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-easing-standard": {
+    "$value": "{ref-momentum-easing-standard}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-easing-standard",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-easing-enter": {
+    "$value": "{ref-momentum-easing-enter}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-easing-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-easing-move": {
+    "$value": "{ref-momentum-easing-move}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-easing-move",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-easing-exit": {
+    "$value": "{ref-momentum-easing-exit}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-easing-exit",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-easing-linear": {
+    "$value": "{ref-momentum-easing-linear}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-easing-linear",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-fast": {
+    "$value": "{ref-momentum-stagger-fast}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-fast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-normal": {
+    "$value": "{ref-momentum-stagger-normal}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-normal",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-slow": {
+    "$value": "{ref-momentum-stagger-slow}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-slow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-chart": {
+    "$value": "{ref-momentum-stagger-fast}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-chart",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-chart-compact": {
+    "$value": "calc(var(--ref-momentum-stagger-fast) - 2ms)",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-chart-compact",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-sequence-2": {
+    "$value": "calc(var(--ref-momentum-stagger-slow) * 1.5)",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-sequence-2",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-stagger-sequence-3": {
+    "$value": "calc(var(--ref-momentum-stagger-slow) * 3)",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-stagger-sequence-3",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-cycle": {
+    "$value": "{ref-momentum-duration-cycle}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-cycle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-slower": {
+    "$value": "{ref-momentum-duration-slower}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-slower",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-duration-route": {
+    "$value": "calc(var(--sys-momentum-duration-cycle) + var(--sys-momentum-duration-slower))",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-duration-route",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-rest": {
+    "$value": "1",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-rest",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-none": {
+    "$value": "0",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-none",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-enter": {
+    "$value": "0.72",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-quiet": {
+    "$value": "0.98",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-quiet",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-settle": {
+    "$value": "0.985",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-settle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-raised": {
+    "$value": "1.08",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-raised",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-current-start": {
+    "$value": "0.88",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-current-start",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-current-overshoot": {
+    "$value": "1.14",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-current-overshoot",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-translate-rest": {
+    "$value": "0",
+    "$type": "number",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-translate-rest",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-translate-inline-nudge": {
+    "$value": "calc(var(--sys-space-xs) / 2)",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-translate-inline-nudge",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-progress-translate-start": {
+    "$value": "-120%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-progress-translate-start",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-progress-translate-mid": {
+    "$value": "40%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-progress-translate-mid",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-progress-translate-end": {
+    "$value": "230%",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-progress-translate-end",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-cue-transform-idle": {
+    "$value": "scaleX(0.18)",
+    "$type": "transform",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-cue-transform-idle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-cue-transform-enter": {
+    "$value": "translateX(32%) scaleX(var(--sys-momentum-scale-enter))",
+    "$type": "transform",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-cue-transform-enter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-cue-transform-active": {
+    "$value": "scaleX(var(--sys-momentum-scale-rest))",
+    "$type": "transform",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-cue-transform-active",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-cue-transform-exit": {
+    "$value": "translateX(86%) scaleX(0.46)",
+    "$type": "transform",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-cue-transform-exit",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-rotate-rest": {
+    "$value": "0deg",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-rotate-rest",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-rotate-quarter": {
+    "$value": "90deg",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-rotate-quarter",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-rotate-tilt": {
+    "$value": "45deg",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-rotate-tilt",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-rotate-expanded": {
+    "$value": "180deg",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-rotate-expanded",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-rotate-cycle": {
+    "$value": "360deg",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-rotate-cycle",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-hover": {
+    "$value": "{ref-momentum-scale-hover}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-scale-press": {
+    "$value": "{ref-momentum-scale-press}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-scale-press",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-lift-hover": {
+    "$value": "{ref-momentum-lift-hover}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-lift-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-transition-touch": {
+    "$value": "var(--sys-momentum-duration-touch) var(--sys-momentum-easing-touch)",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-transition-touch",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-transition-fast": {
+    "$value": "{sys-momentum-transition-touch}",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-transition-fast",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-transition-default": {
+    "$value": "var(--sys-momentum-duration-default) var(--sys-momentum-easing-touch)",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-transition-default",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-momentum-transition-slow": {
+    "$value": "var(--sys-momentum-duration-slow) var(--sys-momentum-easing-enter)",
+    "$type": "duration",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-momentum-transition-slow",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

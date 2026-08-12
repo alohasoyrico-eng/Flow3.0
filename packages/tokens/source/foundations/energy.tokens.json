@@ -1,0 +1,1082 @@
+{
+  "ref-energy-neutral-50": {
+    "$value": "#f8fafc",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-100": {
+    "$value": "#f1f5f9",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-200": {
+    "$value": "#e2e8f0",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-300": {
+    "$value": "#cbd5e1",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-400": {
+    "$value": "#94a3b8",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-500": {
+    "$value": "#64748b",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-600": {
+    "$value": "#475569",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-700": {
+    "$value": "#334155",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-800": {
+    "$value": "#1e293b",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-neutral-900": {
+    "$value": "#0f172a",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-neutral-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-50": {
+    "$value": "#e0eeff",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-100": {
+    "$value": "#c7dfff",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-200": {
+    "$value": "#8abcff",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-300": {
+    "$value": "#529cff",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-400": {
+    "$value": "#1a7cff",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-500": {
+    "$value": "#0060df",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-600": {
+    "$value": "#004db3",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-700": {
+    "$value": "#003985",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-800": {
+    "$value": "#002557",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-blue-900": {
+    "$value": "#00142e",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-blue-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-50": {
+    "$value": "#ffe3e0",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-100": {
+    "$value": "#ffc6c2",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-200": {
+    "$value": "#ff8d85",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-300": {
+    "$value": "#ff5447",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-400": {
+    "$value": "#ff1b0a",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-500": {
+    "$value": "#ca0e00",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-600": {
+    "$value": "#a30b00",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-700": {
+    "$value": "#7a0800",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-800": {
+    "$value": "#520600",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-red-900": {
+    "$value": "#290300",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-red-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-50": {
+    "$value": "#e1f4eb",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-100": {
+    "$value": "#c3efda",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-200": {
+    "$value": "#79e6b4",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-300": {
+    "$value": "#2ee590",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-400": {
+    "$value": "#0dba69",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-500": {
+    "$value": "#007840",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-600": {
+    "$value": "#065b33",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-700": {
+    "$value": "#084026",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-800": {
+    "$value": "#072718",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-green-900": {
+    "$value": "#05140d",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-green-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-50": {
+    "$value": "#fdeae3",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-100": {
+    "$value": "#fbd5c6",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-200": {
+    "$value": "#f6ab8e",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-300": {
+    "$value": "#f28155",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-400": {
+    "$value": "#ed571c",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-500": {
+    "$value": "#bf410f",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-600": {
+    "$value": "#97330c",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-700": {
+    "$value": "#712709",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-800": {
+    "$value": "#4c1a06",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-orange-900": {
+    "$value": "#260d03",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-orange-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-50": {
+    "$value": "#f3eefb",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-100": {
+    "$value": "#ddd2f3",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-200": {
+    "$value": "#c4b5e8",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-300": {
+    "$value": "#a88fdb",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-400": {
+    "$value": "#8d6dd1",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-500": {
+    "$value": "#6b4dc7",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-600": {
+    "$value": "#5a43a8",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-700": {
+    "$value": "#503a99",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-800": {
+    "$value": "#3a2b6e",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-purple-900": {
+    "$value": "#241a42",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-purple-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-50": {
+    "$value": "#e8f7f7",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-100": {
+    "$value": "#c0ebeb",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-200": {
+    "$value": "#8bd9d9",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-300": {
+    "$value": "#52c4c4",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-400": {
+    "$value": "#1aafaf",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-500": {
+    "$value": "#0a7a7a",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-600": {
+    "$value": "#096b6b",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-700": {
+    "$value": "#075c5c",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-800": {
+    "$value": "#053e3e",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-teal-900": {
+    "$value": "#032121",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-teal-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-50": {
+    "$value": "#fffbeb",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-100": {
+    "$value": "#fef3c7",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-200": {
+    "$value": "#fde68a",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-300": {
+    "$value": "#fcd34d",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-400": {
+    "$value": "#fbbf24",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-500": {
+    "$value": "#f59e0b",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-600": {
+    "$value": "#d97706",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-700": {
+    "$value": "#b45309",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-800": {
+    "$value": "#92400e",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-yellow-900": {
+    "$value": "#78350f",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-yellow-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-50": {
+    "$value": "#fdf2f8",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-50",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-100": {
+    "$value": "#fce7f3",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-100",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-200": {
+    "$value": "#fbcfe8",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-200",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-300": {
+    "$value": "#f9a8d4",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-300",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-400": {
+    "$value": "#f472b6",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-400",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-500": {
+    "$value": "#ec4899",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-500",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-600": {
+    "$value": "#db2777",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-600",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-700": {
+    "$value": "#be185d",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-700",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-800": {
+    "$value": "#9d174d",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-800",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-energy-pink-900": {
+    "$value": "#831843",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-energy-pink-900",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-surface-primary": {
+    "$value": "#fff",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-surface-primary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-surface-secondary": {
+    "$value": "{ref-energy-neutral-50}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-surface-secondary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-surface-tertiary": {
+    "$value": "{ref-energy-neutral-100}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-surface-tertiary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-surface-sunken": {
+    "$value": "{ref-energy-neutral-200}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-surface-sunken",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-surface-accent": {
+    "$value": "{ref-energy-blue-50}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-surface-accent",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-text-primary": {
+    "$value": "{ref-energy-neutral-800}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-text-primary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-text-secondary": {
+    "$value": "{ref-energy-neutral-600}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-text-secondary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-text-tertiary": {
+    "$value": "{ref-energy-neutral-500}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-text-tertiary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-text-on-action": {
+    "$value": "{ref-energy-neutral-50}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-text-on-action",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-action-primary": {
+    "$value": "{ref-energy-blue-500}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-action-primary",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-action-hover": {
+    "$value": "{ref-energy-blue-600}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-action-hover",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-status-success": {
+    "$value": "{ref-energy-green-500}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-status-success",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-status-info": {
+    "$value": "{ref-energy-teal-500}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-status-info",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-status-warning": {
+    "$value": "{ref-energy-yellow-400}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-status-warning",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-status-warning-foreground": {
+    "$value": "{ref-energy-yellow-900}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-status-warning-foreground",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-status-error": {
+    "$value": "{ref-energy-red-500}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-status-error",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-border-default": {
+    "$value": "rgb(10 10 15 / 8%)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-border-default",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-energy-border-strong": {
+    "$value": "rgb(10 10 15 / 15%)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-border-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

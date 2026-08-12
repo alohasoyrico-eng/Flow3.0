@@ -1,0 +1,242 @@
+{
+  "sys-icon-color-action": {
+    "$value": "{sys-iconography-color-action}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-action",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-color-danger": {
+    "$value": "{sys-iconography-color-danger}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-danger",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-color-disabled": {
+    "$value": "{sys-iconography-color-disabled}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-disabled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-color-muted": {
+    "$value": "{sys-iconography-color-muted}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-muted",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-color-navigation": {
+    "$value": "{sys-iconography-color-navigation}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-navigation",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-color-status": {
+    "$value": "{sys-iconography-color-status}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-status",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-color-warning": {
+    "$value": "{sys-iconography-color-warning}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-color-warning",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-family": {
+    "$value": "{sys-iconography-family}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-family",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-focus-offset": {
+    "$value": "{sys-iconography-focus-offset}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-focus-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-focus-ring": {
+    "$value": "{sys-iconography-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-display-md": {
+    "$value": "{sys-iconography-size-display-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-display-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-display-sm": {
+    "$value": "{sys-iconography-size-display-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-display-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-lg": {
+    "$value": "{sys-iconography-size-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-lg-plus": {
+    "$value": "{sys-iconography-size-lg-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-lg-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-marker": {
+    "$value": "{sys-iconography-size-marker}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-marker",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-md": {
+    "$value": "{sys-iconography-size-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-md-plus": {
+    "$value": "{sys-iconography-size-md-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-md-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-sm": {
+    "$value": "{sys-iconography-size-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-sm-plus": {
+    "$value": "{sys-iconography-size-sm-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-sm-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-size-station": {
+    "$value": "{sys-iconography-size-station}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-size-station",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-touch-target-min": {
+    "$value": "{sys-iconography-touch-target-min}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-touch-target-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-variation-filled": {
+    "$value": "{sys-iconography-variation-filled}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-variation-filled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-variation-filled-strong": {
+    "$value": "{sys-iconography-variation-filled-strong}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-variation-filled-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-icon-variation-outline-strong": {
+    "$value": "{sys-iconography-variation-outline-strong}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-icon-variation-outline-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

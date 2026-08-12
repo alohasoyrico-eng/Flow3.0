@@ -1,0 +1,82 @@
+{
+  "sys-disabled-border-color": {
+    "$value": "color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-border-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-cursor": {
+    "$value": "not-allowed",
+    "$type": "content",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-cursor",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-icon-color": {
+    "$value": "{sys-icon-color-disabled}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-icon-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-opacity": {
+    "$value": "{sys-state-disabled-opacity}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-pointer-events": {
+    "$value": "none",
+    "$type": "content",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-pointer-events",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-readable-opacity": {
+    "$value": "{sys-state-disabled-readable-opacity}",
+    "$type": "opacity",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-readable-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-surface-opacity": {
+    "$value": "{sys-state-disabled-readable-opacity}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-surface-opacity",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-disabled-text-color": {
+    "$value": "{sys-energy-text-tertiary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-text-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

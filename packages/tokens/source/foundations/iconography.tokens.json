@@ -1,0 +1,242 @@
+{
+  "sys-iconography-family": {
+    "$value": "{sys-symbol-family}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-family",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-variation-filled": {
+    "$value": "{sys-symbol-variation-filled}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-variation-filled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-variation-filled-strong": {
+    "$value": "{sys-symbol-variation-filled-strong}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-variation-filled-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-variation-outline-strong": {
+    "$value": "{sys-symbol-variation-outline-strong}",
+    "$type": "fontVariationSettings",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-variation-outline-strong",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-sm": {
+    "$value": "{sys-symbol-size-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-sm-plus": {
+    "$value": "{sys-symbol-size-sm-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-sm-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-md": {
+    "$value": "{sys-symbol-size-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-md-plus": {
+    "$value": "{sys-symbol-size-md-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-md-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-lg": {
+    "$value": "{sys-symbol-size-lg}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-lg",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-lg-plus": {
+    "$value": "{sys-symbol-size-lg-plus}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-lg-plus",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-marker": {
+    "$value": "{sys-symbol-size-marker}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-marker",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-station": {
+    "$value": "{sys-symbol-size-station}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-station",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-display-sm": {
+    "$value": "{sys-symbol-size-display-sm}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-display-sm",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-size-display-md": {
+    "$value": "{sys-symbol-size-display-md}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-size-display-md",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-action": {
+    "$value": "{sys-symbol-color-action}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-action",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-navigation": {
+    "$value": "{sys-symbol-color-muted}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-navigation",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-status": {
+    "$value": "{sys-symbol-color-status}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-status",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-warning": {
+    "$value": "{sys-symbol-color-warning}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-warning",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-danger": {
+    "$value": "{sys-symbol-color-danger}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-danger",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-muted": {
+    "$value": "{sys-symbol-color-muted}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-muted",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-color-disabled": {
+    "$value": "color-mix(in srgb, var(--sys-energy-text-tertiary) 58%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-color-disabled",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-touch-target-min": {
+    "$value": "{sys-a11y-touch-target-min}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-touch-target-min",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-focus-ring": {
+    "$value": "{sys-a11y-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-iconography-focus-offset": {
+    "$value": "{sys-a11y-focus-offset}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-iconography-focus-offset",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

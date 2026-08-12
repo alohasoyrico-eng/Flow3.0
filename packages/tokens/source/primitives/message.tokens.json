@@ -1,0 +1,162 @@
+{
+  "sys-message-action-weight": {
+    "$value": "{sys-tone-assistive-weight}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-action-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-alert-role": {
+    "$value": "alert",
+    "$type": "content",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-alert-role",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-body-font": {
+    "$value": "{sys-voice-family-body}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-body-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-body-weight": {
+    "$value": "{sys-tone-neutral-weight}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-body-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-focus-ring": {
+    "$value": "{sys-accessibility-focus-ring}",
+    "$type": "unknown",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-focus-ring",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-intent-assistive-color": {
+    "$value": "{sys-tone-assistive-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-intent-assistive-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-intent-danger-color": {
+    "$value": "{sys-tone-repair-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-intent-danger-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-intent-neutral-color": {
+    "$value": "{sys-tone-neutral-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-intent-neutral-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-intent-success-color": {
+    "$value": "{sys-tone-confirm-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-intent-success-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-intent-warning-color": {
+    "$value": "{sys-tone-urgent-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-intent-warning-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-live-role": {
+    "$value": "status",
+    "$type": "content",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-live-role",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-locale-max-inline-size": {
+    "$value": "72ch",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-locale-max-inline-size",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-readable-line-height": {
+    "$value": "{sys-accessibility-readable-line-height}",
+    "$type": "dimension",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-readable-line-height",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-recovery-weight": {
+    "$value": "{sys-tone-repair-weight}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-recovery-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-title-font": {
+    "$value": "{sys-voice-family-title}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-title-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-message-title-weight": {
+    "$value": "{sys-tone-urgent-weight}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-message-title-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}

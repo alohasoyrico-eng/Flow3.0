@@ -1,0 +1,102 @@
+{
+  "sys-measurement-analytics-color": {
+    "$value": "{sys-growth-stage-stable-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-analytics-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-event-color": {
+    "$value": "{sys-tone-neutral-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-event-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-event-font": {
+    "$value": "{sys-growth-event-font}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-event-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-guardrail-background": {
+    "$value": "color-mix(in srgb, var(--sys-energy-status-warning) 16%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-guardrail-background",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-guardrail-color": {
+    "$value": "{sys-tone-urgent-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-guardrail-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-hypothesis-color": {
+    "$value": "{sys-tone-assistive-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-hypothesis-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-metric-color": {
+    "$value": "{sys-growth-stage-measured-color}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-metric-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-metric-font": {
+    "$value": "{sys-voice-numeral-family}",
+    "$type": "fontFamily",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-metric-font",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-metric-weight": {
+    "$value": "{sys-voice-numeral-weight}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-metric-weight",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-measurement-privacy-color": {
+    "$value": "{sys-energy-text-secondary}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-measurement-privacy-color",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  }
+}
