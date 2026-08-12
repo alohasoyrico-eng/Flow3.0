@@ -12,7 +12,9 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
-  const sourceFile = path.join(root || process.cwd(), "packages/react/src/Pagination.js");
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Pagination.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Pagination.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".pagination");
   const fullWidthBlock = blockFor(blocks, selectorKey, ".pagination[data-full-width=\"true\"]");
@@ -27,7 +29,7 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
   const densitySmBlock = blockFor(blocks, selectorKey, ".pagination[data-density=\"sm\"]");
   const densityLgBlock = blockFor(blocks, selectorKey, ".pagination[data-density=\"lg\"]");
 
-  if (!source.includes("const currentPage = isPageControlled ? normalized.currentPage : internalPage;") || !source.includes("if (!isPageControlled) setInternalPage(next);") || !source.includes("onPageChange(next, event);")) {
+  if (!source.includes("const currentPage = isPageControlled ? normalized.currentPage : internalPage;") || !source.includes("if (!isPageControlled) setInternalPage(next);") || !/onPageChange(?:\?\.)?\(next, event\)/.test(source)) {
     add("errors", sourceFile, 1, "Pagination must keep real controlled/uncontrolled page behavior and pass the source event.");
   }
   if (!source.includes("if (!hasLabels || !hasPages) return null;") || !source.includes("\"aria-current\": current ? \"page\" : undefined")) {

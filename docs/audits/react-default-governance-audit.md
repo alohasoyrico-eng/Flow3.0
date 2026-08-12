@@ -109,8 +109,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Badge | state-default | state | default | pass | pass | Yes | packages/react/src/Badge.tsx:50 |
 | BiometricPrompt | variant-default | variant | fingerprint | pass | pass | Yes | packages/react/src/BiometricPrompt.js:26 |
 | BiometricPrompt | state-default | state | default | pass | pass | Yes | packages/react/src/BiometricPrompt.js:27 |
-| Breadcrumbs | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Breadcrumbs.js:45 |
-| Breadcrumbs | state-default | state | default | pass | pass | Yes | packages/react/src/Breadcrumbs.js:46 |
+| Breadcrumbs | variant-default | variant | standard | pass | pass | Yes | packages/react/src/Breadcrumbs.tsx:82 |
+| Breadcrumbs | state-default | state | default | pass | pass | Yes | packages/react/src/Breadcrumbs.tsx:83 |
 | Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.tsx:37 |
 | Button | intent-default | intent | default | pass | pass | Yes | packages/react/src/Button.tsx:37 |
 | Button | variant-default | variant | primary | pass | pass | Yes | packages/react/src/Button.tsx:53 |
@@ -169,8 +169,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | MovementRow | category-default | category | transfer | pass | pass | Yes | packages/react/src/MovementRow.js:22 |
 | MovementRow | variant-default | variant | standard | pass | pass | Yes | packages/react/src/MovementRow.js:23 |
 | MovementRow | state-default | state | default | pass | pass | Yes | packages/react/src/MovementRow.js:24 |
-| Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.js:53 |
-| Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.js:54 |
+| Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.tsx:90 |
+| Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.tsx:91 |
 | PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.js:56 |
 | Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.tsx:81 |
 | Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.tsx:82 |
@@ -185,12 +185,12 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.js:57 |
 | RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.js:58 |
 | RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.js:60 |
-| SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.js:42 |
+| SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.tsx:73 |
 | Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.js:26 |
 | Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.js:27 |
 | Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.tsx:113 |
-| Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.js:38 |
-| Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.js:39 |
+| Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.tsx:76 |
+| Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.tsx:77 |
 | Spinner | tone-default | tone | accent | pass | pass | Yes | packages/react/src/Spinner.tsx:38 |
 | Spinner | state-default | state | loading | pass | pass | Yes | packages/react/src/Spinner.tsx:39 |
 | StationPin | variant-default | variant | fuel | pass | pass | Yes | packages/react/src/StationPin.js:15 |
@@ -229,8 +229,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Badge | state-default | state | default | packages/react/src/Badge.tsx:50 | `state = "default",` |
 | BiometricPrompt | variant-default | variant | fingerprint | packages/react/src/BiometricPrompt.js:26 | `variant = "fingerprint",` |
 | BiometricPrompt | state-default | state | default | packages/react/src/BiometricPrompt.js:27 | `state = "default",` |
-| Breadcrumbs | variant-default | variant | standard | packages/react/src/Breadcrumbs.js:45 | `variant = "standard",` |
-| Breadcrumbs | state-default | state | default | packages/react/src/Breadcrumbs.js:46 | `state = "default",` |
+| Breadcrumbs | variant-default | variant | standard | packages/react/src/Breadcrumbs.tsx:82 | `variant = "standard",` |
+| Breadcrumbs | state-default | state | default | packages/react/src/Breadcrumbs.tsx:83 | `state = "default",` |
 | Button | variant-default | variant | primary | packages/react/src/Button.tsx:37 | `function buttonClassName({ variant = "primary", intent = "default", className = "" }: {` |
 | Button | intent-default | intent | default | packages/react/src/Button.tsx:37 | `function buttonClassName({ variant = "primary", intent = "default", className = "" }: {` |
 | Button | variant-default | variant | primary | packages/react/src/Button.tsx:53 | `variant = "primary",` |
@@ -289,8 +289,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | MovementRow | category-default | category | transfer | packages/react/src/MovementRow.js:22 | `category = "transfer",` |
 | MovementRow | variant-default | variant | standard | packages/react/src/MovementRow.js:23 | `variant = "standard",` |
 | MovementRow | state-default | state | default | packages/react/src/MovementRow.js:24 | `state = "default",` |
-| Pagination | variant-default | variant | numbered | packages/react/src/Pagination.js:53 | `variant = "numbered",` |
-| Pagination | state-default | state | default | packages/react/src/Pagination.js:54 | `state = "default",` |
+| Pagination | variant-default | variant | numbered | packages/react/src/Pagination.tsx:90 | `variant = "numbered",` |
+| Pagination | state-default | state | default | packages/react/src/Pagination.tsx:91 | `state = "default",` |
 | PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.js:56 | `variant = "country-code",` |
 | Popover | variant-default | variant | information | packages/react/src/Popover.tsx:81 | `variant = "information",` |
 | Popover | state-default | state | default | packages/react/src/Popover.tsx:82 | `state = "default",` |
@@ -305,12 +305,12 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | RouteSummary | variant-default | variant | standard | packages/react/src/RouteSummary.js:57 | `variant = "standard",` |
 | RouteSummary | state-default | state | default | packages/react/src/RouteSummary.js:58 | `state = "default",` |
 | RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.js:60 | `tone = "neutral",` |
-| SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.js:42 | `variant = "outlined",` |
+| SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.tsx:73 | `variant = "outlined",` |
 | Select | variant-default | variant | default | packages/react/src/Select.js:26 | `variant = "default",` |
 | Select | state-default | state | default | packages/react/src/Select.js:27 | `state = "default",` |
 | Skeleton | variant-default | variant | text | packages/react/src/Skeleton.tsx:113 | `variant = "text",` |
-| Slider | variant-default | variant | continuous | packages/react/src/Slider.js:38 | `variant = "continuous",` |
-| Slider | state-default | state | default | packages/react/src/Slider.js:39 | `state = "default",` |
+| Slider | variant-default | variant | continuous | packages/react/src/Slider.tsx:76 | `variant = "continuous",` |
+| Slider | state-default | state | default | packages/react/src/Slider.tsx:77 | `state = "default",` |
 | Spinner | tone-default | tone | accent | packages/react/src/Spinner.tsx:38 | `tone = "accent",` |
 | Spinner | state-default | state | loading | packages/react/src/Spinner.tsx:39 | `state = "loading",` |
 | StationPin | variant-default | variant | fuel | packages/react/src/StationPin.js:15 | `variant = "fuel",` |

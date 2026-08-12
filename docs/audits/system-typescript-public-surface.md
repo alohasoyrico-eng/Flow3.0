@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 56
-- Source declarations paired with JS but not TS/TSX: 112
-- TypeScript surface debt: 392
-- Unique TypeScript surface debt: 252
+- Public JS runtime exports with TS/TSX source: 64
+- Source declarations paired with JS but not TS/TSX: 108
+- TypeScript surface debt: 388
+- Unique TypeScript surface debt: 248
 
 ## File Counts
 
-- By extension: {".js":593,".mjs":20,".ts":104,".d.ts":274,".tsx":21}
-- By area: {"script":256,"source":473,"test":8,"generated-dist":275}
+- By extension: {".js":594,".mjs":20,".ts":104,".d.ts":274,".tsx":25}
+- By area: {"script":257,"source":477,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -34,7 +34,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/Avatar.js | yes |
 | package.json | packages/react/dist/Badge.js | yes |
 | package.json | packages/react/dist/BiometricPrompt.js | no |
-| package.json | packages/react/dist/Breadcrumbs.js | no |
+| package.json | packages/react/dist/Breadcrumbs.js | yes |
 | package.json | packages/react/dist/Button.js | yes |
 | package.json | packages/react/dist/Card.js | yes |
 | package.json | packages/react/dist/CardExpiryInput.js | no |
@@ -66,7 +66,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/Menu.js | yes |
 | package.json | packages/react/dist/MotionBoundary.js | no |
 | package.json | packages/react/dist/MovementRow.js | no |
-| package.json | packages/react/dist/Pagination.js | no |
+| package.json | packages/react/dist/Pagination.js | yes |
 | package.json | packages/react/dist/patterns/index.js | no |
 | package.json | packages/react/dist/patterns/AccountOperations.js | no |
 | package.json | packages/react/dist/patterns/ActionSheet.js | no |
@@ -113,7 +113,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/AnimatedMoment.d.ts | yes | no |
 | packages/react/src/AuditEvent.d.ts | yes | no |
 | packages/react/src/BiometricPrompt.d.ts | yes | no |
-| packages/react/src/Breadcrumbs.d.ts | yes | no |
 | packages/react/src/CardExpiryInput.d.ts | yes | no |
 | packages/react/src/CardNumberInput.d.ts | yes | no |
 | packages/react/src/CardSecurityCodeInput.d.ts | yes | no |
@@ -136,13 +135,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/List.d.ts | yes | no |
 | packages/react/src/MotionBoundary.d.ts | yes | no |
 | packages/react/src/MovementRow.d.ts | yes | no |
-| packages/react/src/Pagination.d.ts | yes | no |
 | packages/react/src/PhoneInput.d.ts | yes | no |
 | packages/react/src/QuickAction.d.ts | yes | no |
 | packages/react/src/RouteSummary.d.ts | yes | no |
-| packages/react/src/SegmentedControl.d.ts | yes | no |
 | packages/react/src/Select.d.ts | yes | no |
-| packages/react/src/Slider.d.ts | yes | no |
 | packages/react/src/StationPin.d.ts | yes | no |
 | packages/react/src/Stepper.d.ts | yes | no |
 | packages/react/src/Table.d.ts | yes | no |
@@ -189,6 +185,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/MultiSelect.d.ts | yes | no |
 | packages/react/src/patterns/MultiStepForm.d.ts | yes | no |
 | packages/react/src/patterns/NotificationPanel.d.ts | yes | no |
+| packages/react/src/patterns/PaymentForm.d.ts | yes | no |
+| packages/react/src/patterns/PolarChart.d.ts | yes | no |
+| packages/react/src/patterns/PreferenceManagement.d.ts | yes | no |
+| packages/react/src/patterns/PricingOperations.d.ts | yes | no |
 
 ## Interpretation
 

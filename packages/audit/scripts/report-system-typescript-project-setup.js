@@ -100,7 +100,11 @@ function main() {
         && include.includes("packages/react/src/Spinner.tsx")
         && include.includes("packages/react/src/Skeleton.tsx")
         && include.includes("packages/react/src/Tag.tsx")
-        && include.includes("packages/react/src/Chip.tsx"),
+        && include.includes("packages/react/src/Chip.tsx")
+        && include.includes("packages/react/src/Breadcrumbs.tsx")
+        && include.includes("packages/react/src/Pagination.tsx")
+        && include.includes("packages/react/src/SegmentedControl.tsx")
+        && include.includes("packages/react/src/Slider.tsx"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

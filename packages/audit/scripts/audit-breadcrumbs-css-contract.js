@@ -12,7 +12,9 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
-  const sourceFile = path.join(root || process.cwd(), "packages/react/src/Breadcrumbs.js");
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Breadcrumbs.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Breadcrumbs.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".breadcrumbs");
   const fullWidthBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-full-width=\"true\"]");

@@ -23,6 +23,7 @@ export interface BreadcrumbItem {
 export interface BreadcrumbsProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onClick" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   items: BreadcrumbItem[];
   label?: string;
+  collapsedLabel?: string;
   maxItems?: number;
   separator?: string;
   density?: BreadcrumbsDensity;

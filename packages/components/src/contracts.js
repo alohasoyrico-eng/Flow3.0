@@ -1087,6 +1087,7 @@ export const componentContracts = {
         props: [
             { name: "items", type: "BreadcrumbItem[]", required: true },
             { name: "label", type: "string", required: false },
+            { name: "collapsedLabel", type: "string", required: false },
             { name: "maxItems", type: "number", required: false },
             { name: "separator", type: "string", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },

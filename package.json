@@ -667,6 +667,7 @@
     "audit:react-overlay-components-typescript": "node packages/audit/scripts/report-system-react-overlay-components-typescript-surface.js",
     "audit:react-form-controls-typescript": "node packages/audit/scripts/report-system-react-form-controls-typescript-surface.js",
     "audit:react-leaf-components-typescript": "node packages/audit/scripts/report-system-react-leaf-components-typescript-surface.js",
+    "audit:react-navigation-controls-typescript": "node packages/audit/scripts/report-system-react-navigation-controls-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

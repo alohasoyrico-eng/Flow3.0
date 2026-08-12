@@ -135,7 +135,7 @@
     },
     {
       "component": "Breadcrumbs",
-      "file": "packages/react/src/Breadcrumbs.js",
+      "file": "packages/react/src/Breadcrumbs.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -461,7 +461,7 @@
     },
     {
       "component": "Pagination",
-      "file": "packages/react/src/Pagination.js",
+      "file": "packages/react/src/Pagination.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -531,7 +531,7 @@
     },
     {
       "component": "SegmentedControl",
-      "file": "packages/react/src/SegmentedControl.js",
+      "file": "packages/react/src/SegmentedControl.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,
@@ -575,7 +575,7 @@
     },
     {
       "component": "Slider",
-      "file": "packages/react/src/Slider.js",
+      "file": "packages/react/src/Slider.tsx",
       "allowedInlineStyleKeys": [
         "--comp-slider-percent"
       ],

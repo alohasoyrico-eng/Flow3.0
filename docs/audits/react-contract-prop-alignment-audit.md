@@ -10,15 +10,15 @@ The public React prop surface must stay aligned with componentContracts so produ
 - Prop alignment debt: 0
 - Pass: 60
 - Fail: 0
-- Contract props: 722
-- Public React props: 603
+- Contract props: 723
+- Public React props: 604
 - Semantic inherited props: 1
 - Contract props satisfied by React DOM inheritance: 28
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 604
+- Public props expected in source: 605
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -32,15 +32,15 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | propAlignmentDebt | 0 | 0 |
 | pass | 60 | 60 |
 | fail | 0 | 0 |
-| contractProps | 722 | 722 |
-| publicReactProps | 603 | 603 |
+| contractProps | 723 | 723 |
+| publicReactProps | 604 | 604 |
 | semanticInheritedProps | 1 | 1 |
 | inheritedContractProps | 28 | 28 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 604 | 604 |
+| publicPropsExpectedInSource | 605 | 605 |
 | unreferencedPublicProps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
 
@@ -60,7 +60,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | Avatar | pass | 5 | 4 | 4 | None | None | None | None | None |
 | Badge | pass | 9 | 9 | 9 | None | None | None | None | None |
 | BiometricPrompt | pass | 11 | 11 | 11 | None | None | None | None | None |
-| Breadcrumbs | pass | 9 | 8 | 8 | None | None | None | None | None |
+| Breadcrumbs | pass | 10 | 9 | 9 | None | None | None | None | None |
 | Button | pass | 11 | 9 | 9 | None | None | None | None | None |
 | Card | pass | 21 | 18 | 18 | None | None | None | None | None |
 | CardExpiryInput | pass | 14 | 9 | 9 | None | None | None | None | None |

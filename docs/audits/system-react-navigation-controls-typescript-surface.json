@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "flow-system-react-navigation-controls-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "navigation-controls-have-tsx-source-runtime-and-declarations",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Breadcrumbs",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Pagination",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "SegmentedControl",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        },
+        {
+          "id": "Slider",
+          "hasSource": true,
+          "hasRuntime": true,
+          "hasDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "component-contracts-owned-in-tsx-source",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Breadcrumbs",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Pagination",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "SegmentedControl",
+          "hasComponentTypeInSource": true
+        },
+        {
+          "id": "Slider",
+          "hasComponentTypeInSource": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "declarations-remain-compatible",
+      "status": "PASS",
+      "evidence": [
+        {
+          "id": "Breadcrumbs",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Pagination",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "SegmentedControl",
+          "hasComponentTypeInDeclaration": true
+        },
+        {
+          "id": "Slider",
+          "hasComponentTypeInDeclaration": true
+        }
+      ],
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-tsx",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": 0
+      },
+      "failMessage": null
+    }
+  ],
+  "components": [
+    {
+      "id": "Breadcrumbs",
+      "sourceFile": "packages/react/src/Breadcrumbs.tsx",
+      "runtimeFile": "packages/react/src/Breadcrumbs.js",
+      "declarationFile": "packages/react/src/Breadcrumbs.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Pagination",
+      "sourceFile": "packages/react/src/Pagination.tsx",
+      "runtimeFile": "packages/react/src/Pagination.js",
+      "declarationFile": "packages/react/src/Pagination.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "SegmentedControl",
+      "sourceFile": "packages/react/src/SegmentedControl.tsx",
+      "runtimeFile": "packages/react/src/SegmentedControl.js",
+      "declarationFile": "packages/react/src/SegmentedControl.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    },
+    {
+      "id": "Slider",
+      "sourceFile": "packages/react/src/Slider.tsx",
+      "runtimeFile": "packages/react/src/Slider.js",
+      "declarationFile": "packages/react/src/Slider.d.ts",
+      "hasSource": true,
+      "hasRuntime": true,
+      "hasDeclaration": true,
+      "hasComponentTypeInSource": true,
+      "hasComponentTypeInDeclaration": true,
+      "staleRuntime": false
+    }
+  ],
+  "inventory": {
+    "componentsAudited": 4,
+    "runtimeFiles": 4,
+    "tsxSourceFiles": 4,
+    "declarationFiles": 4,
+    "staleRuntimeFiles": 0,
+    "reactNavigationControlTypescriptSurfaceDebt": 0
+  }
+}
