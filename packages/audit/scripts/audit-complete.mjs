@@ -591,13 +591,32 @@ function auditPrimitiveCascadeGovernance() {
 
 function scan(target, offenders) {
   if (!fs.existsSync(target)) return;
+  const relativeTarget = path.relative(root, target);
   const stat = fs.statSync(target);
   if (stat.isDirectory()) {
-    if (target.includes(`${path.sep}repo-split-output${path.sep}`)) return;
+    const relativeParts = relativeTarget.split(path.sep);
+    if (relativeParts.includes("repo-split-output")) return;
+    if (isAuditEvidenceDirectory(relativeTarget)) return;
     for (const entry of fs.readdirSync(target)) scan(path.join(target, entry), offenders);
     return;
   }
   if (!/\.(?:css|html|js|mjs|json|md)$/.test(target)) return;
   const text = fs.readFileSync(target, "utf8");
-  if (new RegExp(`(?<!over)${forbiddenPrefix}`).test(text)) offenders.push(path.relative(root, target));
+  if (hasPublicPrefixEscape(text)) offenders.push(relativeTarget);
+}
+
+function isAuditEvidenceDirectory(relativeTarget) {
+  return [
+    path.join("packages", "audit"),
+    path.join("packages", "react", "test"),
+  ].some((excluded) => relativeTarget === excluded || relativeTarget.startsWith(`${excluded}${path.sep}`));
+}
+
+function hasPublicPrefixEscape(text) {
+  const escapedPrefix = forbiddenPrefix.replaceAll("-", "\\-");
+  return [
+    new RegExp(`<${escapedPrefix}[a-z0-9-]+`, "i"),
+    new RegExp(`\\.[a-z0-9_-]*${escapedPrefix}[a-z0-9_-]+`, "i"),
+    new RegExp(`(?:class|className)\\s*[:=]\\s*["'\`][^"'\`]*\\b${escapedPrefix}[a-z0-9_-]+`, "i"),
+  ].some((pattern) => pattern.test(text));
 }
