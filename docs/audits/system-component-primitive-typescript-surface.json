@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "flow-system-component-primitive-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "all-primitive-runtimes-have-typescript-source",
+      "status": "PASS",
+      "evidence": {
+        "runtimeFiles": 8,
+        "missingTypeScriptSources": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typescript-source-count-matches-runtime-count",
+      "status": "PASS",
+      "evidence": {
+        "runtimeFiles": 8,
+        "sourceFiles": 8
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": []
+      },
+      "failMessage": null
+    }
+  ],
+  "staleRuntimeFiles": [],
+  "missingTypeScriptSources": [],
+  "inventory": {
+    "primitiveRuntimeFiles": 8,
+    "primitiveTypeScriptSourceFiles": 8,
+    "missingTypeScriptSources": 0,
+    "staleRuntimeFiles": 0,
+    "componentPrimitiveTypescriptSurfaceDebt": 0
+  }
+}

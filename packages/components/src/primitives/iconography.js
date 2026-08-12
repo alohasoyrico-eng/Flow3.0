@@ -1,14 +1,16 @@
 const materialSymbolAliases = Object.freeze({
-  menu_open: "keyboard_arrow_down",
-  toast: "notifications",
+    menu_open: "keyboard_arrow_down",
+    toast: "notifications",
 });
-
-export function iconGlyph(name = "") {
-  return materialSymbolAliases[name] ?? name;
+function hasMaterialSymbolAlias(name) {
+    return Object.prototype.hasOwnProperty.call(materialSymbolAliases, name);
 }
-
+export function iconGlyph(name = "") {
+    return hasMaterialSymbolAlias(name) ? materialSymbolAliases[name] : name;
+}
 export function setIconGlyph(node, name = "") {
-  if (!node) return node;
-  node.textContent = iconGlyph(name);
-  return node;
+    if (!node)
+        return node;
+    node.textContent = iconGlyph(name);
+    return node;
 }
