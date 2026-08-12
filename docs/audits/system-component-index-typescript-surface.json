@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "flow-system-component-index-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "component-index-runtime-has-typescript-source",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/components/src/index.ts",
+        "runtimeFile": "packages/components/src/index.js",
+        "hasSource": true,
+        "hasRuntime": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "component-index-source-has-no-cachebuster-imports",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/components/src/index.ts"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "component-index-exports-owned-surfaces",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/components/src/index.ts"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntime": false
+      },
+      "failMessage": null
+    }
+  ],
+  "inventory": {
+    "indexRuntimeFiles": 1,
+    "indexTypeScriptSourceFiles": 1,
+    "staleRuntimeFiles": 0,
+    "componentIndexTypescriptSurfaceDebt": 0
+  }
+}

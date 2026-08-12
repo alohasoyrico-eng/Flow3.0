@@ -62,6 +62,7 @@
     "foundation-frame-cascade-audit.json": "cascade",
     "foundation-primitive-export-contract-audit.json": "foundations-primitives",
     "system-component-contract-typescript-surface.json": "react-primary",
+    "system-component-index-typescript-surface.json": "react-primary",
     "system-component-platform-typescript-surface.json": "react-primary",
     "system-component-primitive-typescript-surface.json": "react-primary",
     "system-component-registry-typescript-surface.json": "react-primary",

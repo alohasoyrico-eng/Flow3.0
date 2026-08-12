@@ -635,6 +635,7 @@
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs",
     "build:components:contracts": "node scripts/build-components-contracts.mjs",
+    "build:components:index": "node scripts/build-components-index.mjs",
     "build:components:platforms": "node scripts/build-components-platforms.mjs",
     "build:components:primitives": "node scripts/build-components-primitives.mjs",
     "build:components:registry": "node scripts/build-components-registry.mjs",
@@ -656,6 +657,7 @@
     "audit:typescript-setup": "node packages/audit/scripts/report-system-typescript-project-setup.js",
     "audit:tokens-typescript": "node packages/audit/scripts/report-system-token-typescript-surface.js",
     "audit:components-contracts-typescript": "node packages/audit/scripts/report-system-component-contract-typescript-surface.js",
+    "audit:components-index-typescript": "node packages/audit/scripts/report-system-component-index-typescript-surface.js",
     "audit:components-platforms-typescript": "node packages/audit/scripts/report-system-component-platform-typescript-surface.js",
     "audit:components-primitives-typescript": "node packages/audit/scripts/report-system-component-primitive-typescript-surface.js",
     "audit:components-registry-typescript": "node packages/audit/scripts/report-system-component-registry-typescript-surface.js",
