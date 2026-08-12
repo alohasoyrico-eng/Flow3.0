@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 10
+- Public JS runtime exports with TS/TSX source: 12
 - Source declarations paired with JS but not TS/TSX: 134
 - TypeScript surface debt: 414
 - Unique TypeScript surface debt: 274
 
 ## File Counts
 
-- By extension: {".js":584,".mjs":20,".ts":32,".d.ts":274}
-- By area: {"script":247,"source":380,"test":8,"generated-dist":275}
+- By extension: {".js":585,".mjs":20,".ts":93,".d.ts":274}
+- By area: {"script":248,"source":441,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -26,7 +26,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | --- | --- | --- |
 | package.json | packages/components/src/index.js | no |
 | package.json | packages/components/src/contracts.js | yes |
-| package.json | packages/components/src/platforms/index.js | no |
+| package.json | packages/components/src/platforms/index.js | yes |
 | package.json | packages/react/dist/index.js | no |
 | package.json | packages/react/dist/Accordion.js | no |
 | package.json | packages/react/dist/AnimatedMoment.js | no |

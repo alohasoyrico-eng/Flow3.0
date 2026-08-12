@@ -74,7 +74,8 @@ function main() {
       "typed-source-included",
       include.includes("packages/tokens/src/**/*.ts")
         && include.includes("packages/tokens/src/**/*.tsx")
-        && include.includes("packages/components/src/contracts.ts"),
+        && include.includes("packages/components/src/contracts.ts")
+        && include.includes("packages/components/src/platforms/**/*.ts"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

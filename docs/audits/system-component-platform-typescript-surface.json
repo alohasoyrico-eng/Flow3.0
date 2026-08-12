@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "flow-system-component-platform-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "all-platform-runtimes-have-typescript-source",
+      "status": "PASS",
+      "evidence": {
+        "runtimeFiles": 61,
+        "missingTypeScriptSources": []
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typescript-source-count-matches-runtime-count",
+      "status": "PASS",
+      "evidence": {
+        "runtimeFiles": 61,
+        "sourceFiles": 61
+      },
+      "failMessage": null
+    },
+    {
+      "id": "platform-index-is-typescript-source",
+      "status": "PASS",
+      "evidence": {
+        "file": "packages/components/src/platforms/index.ts",
+        "exists": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntimeFiles": []
+      },
+      "failMessage": null
+    }
+  ],
+  "staleRuntimeFiles": [],
+  "missingTypeScriptSources": [],
+  "inventory": {
+    "platformRuntimeFiles": 61,
+    "platformTypeScriptSourceFiles": 61,
+    "missingTypeScriptSources": 0,
+    "staleRuntimeFiles": 0,
+    "componentPlatformTypescriptSurfaceDebt": 0
+  }
+}

@@ -192,6 +192,7 @@ const expectedAuditFiles = new Set([
   "report-component-visual-cascade.js",
   "report-system-debt-ledger.js",
   "report-system-component-contract-typescript-surface.js",
+  "report-system-component-platform-typescript-surface.js",
   "report-system-forensic-gates.js",
   "report-system-generated-token-output-governance.js",
   "report-system-p0-forensic-detail.js",
@@ -309,6 +310,7 @@ const checks = [
   ["phase 1 Style Dictionary checkpoint", () => run("node", ["packages/audit/scripts/report-system-phase1-style-dictionary-checkpoint.js", "--check"])],
   ["TypeScript project setup", () => run("node", ["packages/audit/scripts/report-system-typescript-project-setup.js", "--check"])],
   ["component contract TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-component-contract-typescript-surface.js", "--check"])],
+  ["component platform TypeScript surface", () => run("node", ["packages/audit/scripts/report-system-component-platform-typescript-surface.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),
