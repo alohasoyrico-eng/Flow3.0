@@ -10,13 +10,17 @@ const repoRoot = path.resolve(__dirname, "../../..");
 const forbiddenDocsSystemImports = /\bimport\s*\{[^}]*\bhydrate[A-Z][A-Za-z0-9_]*\b[^}]*\}\s*from\s*["']#design-system\/components["']/;
 
 function docsModulePath(fileName) {
+  const found = docsModulePathOptional(fileName);
+  if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
+  return found;
+}
+
+function docsModulePathOptional(fileName) {
   const candidates = [
     path.join(repoRoot, "../FlowDocs/apps/docs", fileName),
     path.join(repoRoot, "apps/docs", fileName),
   ];
-  const found = candidates.find((file) => fs.existsSync(file));
-  if (!found) throw new Error(`Docs module not found for split audit: ${fileName}`);
-  return found;
+  return candidates.find((file) => fs.existsSync(file));
 }
 
 class InteractionEvent {
@@ -188,6 +192,15 @@ globalThis.window = {
 
 globalThis.document = new DemoElement("document");
 globalThis.document.createElement = (tagName) => new DemoElement(tagName);
+
+if (!docsModulePathOptional("stateful-component-interactions.js")) {
+  console.log(JSON.stringify({
+    status: "skipped",
+    scope: "external-docs-not-available",
+    reason: "component demo interactions audit requires apps/docs or sibling FlowDocs/apps/docs.",
+  }, null, 2));
+  process.exit(0);
+}
 
 for (const fileName of [
   "stateful-component-interactions.js",

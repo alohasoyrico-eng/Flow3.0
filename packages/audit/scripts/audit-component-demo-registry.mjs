@@ -118,8 +118,18 @@ globalThis.document = {
   },
 };
 
+const componentDemoFile = docsModulePathOptional("component-demo.js");
+if (!componentDemoFile) {
+  console.log(JSON.stringify({
+    status: "skipped",
+    scope: "external-docs-not-available",
+    reason: "component demo registry audit requires apps/docs or sibling FlowDocs/apps/docs.",
+  }, null, 2));
+  process.exit(0);
+}
+
 const { componentDemo } = await import(
-  pathToFileURL(docsModulePath("component-demo.js")).href
+  pathToFileURL(componentDemoFile).href
 );
 
 for (const fileName of ["component-demo.js"]) {

@@ -342,9 +342,9 @@ const checks = [
   ...(hasRepoFile("scripts/audit-docs-split.mjs")
     ? [["docs split", () => run("node", ["scripts/audit-docs-split.mjs"])]]
     : []),
-  ["component demo registry", () => run("node", ["packages/audit/scripts/audit-component-demo-registry.mjs"])],
+  ...(hasDocsConsumerApp ? [["component demo registry", () => run("node", ["packages/audit/scripts/audit-component-demo-registry.mjs"])]] : []),
   ...(hasDocsConsumerApp ? [["component catalog classification", () => run("node", ["packages/audit/scripts/audit-component-catalog-classification.mjs"])]] : []),
-  ["component demo interactions", () => run("node", ["packages/audit/scripts/audit-component-demo-interactions.mjs"])],
+  ...(hasDocsConsumerApp ? [["component demo interactions", () => run("node", ["packages/audit/scripts/audit-component-demo-interactions.mjs"])]] : []),
   ["docs component demo ownership report", () => run("node", ["packages/audit/scripts/report-docs-component-demo-ownership.js", "--check"])],
   ["docs system boundary report", () => run("node", ["packages/audit/scripts/report-docs-system-boundary.js", "--check"])],
   ["taxonomy boundaries report", () => run("node", ["packages/audit/scripts/report-taxonomy-boundaries.js", "--check"])],
