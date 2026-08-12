@@ -1,0 +1,148 @@
+{
+  "generatedAt": "2026-08-12T19:55:39.581Z",
+  "scope": "Phase 1 Style Dictionary checkpoint",
+  "status": "pass",
+  "phase1Debt": 0,
+  "definitionOfDone": [
+    "Token source lives in governed family files under packages/tokens/source.",
+    "No legacy flat source can bypass family ownership.",
+    "Style Dictionary produces every required token output.",
+    "Generated outputs match the current build manifest.",
+    "Raw visual values are blocked in public Flow source outside token source/generated outputs."
+  ],
+  "gates": [
+    {
+      "id": "style-dictionary-source-owned",
+      "status": "PASS",
+      "evidence": {
+        "reports": [
+          {
+            "id": "token-source-gates",
+            "file": "docs/audits/system-p0-token-source-gates.json",
+            "exists": true,
+            "status": "pass",
+            "requiredStatus": "pass",
+            "debtMetric": null,
+            "debt": 0,
+            "pass": true
+          },
+          {
+            "id": "token-ownership-matrix",
+            "file": "docs/audits/system-token-ownership-matrix.json",
+            "exists": true,
+            "status": "pass",
+            "requiredStatus": "pass",
+            "debtMetric": "ownershipDebt",
+            "debt": 0,
+            "pass": true
+          }
+        ]
+      },
+      "failMessage": null
+    },
+    {
+      "id": "style-dictionary-outputs-reproducible",
+      "status": "PASS",
+      "evidence": {
+        "reports": [
+          {
+            "id": "token-output-gates",
+            "file": "docs/audits/system-token-output-gates.json",
+            "exists": true,
+            "status": "pass",
+            "requiredStatus": "pass",
+            "debtMetric": null,
+            "debt": 0,
+            "pass": true
+          },
+          {
+            "id": "generated-token-output-governance",
+            "file": "docs/audits/system-generated-token-output-governance.json",
+            "exists": true,
+            "status": "pass",
+            "requiredStatus": "pass",
+            "debtMetric": null,
+            "debt": 0,
+            "pass": true
+          }
+        ]
+      },
+      "failMessage": null
+    },
+    {
+      "id": "raw-token-values-blocked",
+      "status": "PASS",
+      "evidence": {
+        "report": {
+          "id": "raw-token-value-governance",
+          "file": "docs/audits/system-raw-token-value-governance.json",
+          "exists": true,
+          "status": "pass",
+          "requiredStatus": "pass",
+          "debtMetric": [
+            "totals",
+            "violations"
+          ],
+          "debt": 0,
+          "pass": true
+        }
+      },
+      "failMessage": null
+    }
+  ],
+  "reports": [
+    {
+      "id": "token-source-gates",
+      "file": "docs/audits/system-p0-token-source-gates.json",
+      "exists": true,
+      "status": "pass",
+      "requiredStatus": "pass",
+      "debtMetric": null,
+      "debt": 0,
+      "pass": true
+    },
+    {
+      "id": "token-ownership-matrix",
+      "file": "docs/audits/system-token-ownership-matrix.json",
+      "exists": true,
+      "status": "pass",
+      "requiredStatus": "pass",
+      "debtMetric": "ownershipDebt",
+      "debt": 0,
+      "pass": true
+    },
+    {
+      "id": "token-output-gates",
+      "file": "docs/audits/system-token-output-gates.json",
+      "exists": true,
+      "status": "pass",
+      "requiredStatus": "pass",
+      "debtMetric": null,
+      "debt": 0,
+      "pass": true
+    },
+    {
+      "id": "generated-token-output-governance",
+      "file": "docs/audits/system-generated-token-output-governance.json",
+      "exists": true,
+      "status": "pass",
+      "requiredStatus": "pass",
+      "debtMetric": null,
+      "debt": 0,
+      "pass": true
+    },
+    {
+      "id": "raw-token-value-governance",
+      "file": "docs/audits/system-raw-token-value-governance.json",
+      "exists": true,
+      "status": "pass",
+      "requiredStatus": "pass",
+      "debtMetric": [
+        "totals",
+        "violations"
+      ],
+      "debt": 0,
+      "pass": true
+    }
+  ]
+}

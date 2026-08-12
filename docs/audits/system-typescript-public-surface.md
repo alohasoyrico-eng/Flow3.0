@@ -17,8 +17,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 ## File Counts
 
-- By extension: {".js":580,".mjs":20,".d.ts":274,".ts":30}
-- By area: {"script":243,"source":378,"test":8,"generated-dist":275}
+- By extension: {".js":581,".mjs":20,".d.ts":274,".ts":30}
+- By area: {"script":244,"source":378,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 

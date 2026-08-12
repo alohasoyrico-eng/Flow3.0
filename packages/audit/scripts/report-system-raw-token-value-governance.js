@@ -10,6 +10,7 @@ const SCOPES = [
   "packages/components/src",
   "packages/components/styles",
   "packages/react/src",
+  "packages/tokens/src",
 ];
 
 const EXCLUDED_PATH_PARTS = [

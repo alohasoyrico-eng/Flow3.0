@@ -6,7 +6,7 @@ This report detects raw visual values in public Flow source. Token source files 
 
 ## Totals
 
-- Scanned files: 347
+- Scanned files: 377
 - Violations: 0
 - Rules: 8
 
