@@ -64,6 +64,7 @@
     "system-component-contract-typescript-surface.json": "react-primary",
     "system-component-platform-typescript-surface.json": "react-primary",
     "system-component-primitive-typescript-surface.json": "react-primary",
+    "system-component-registry-typescript-surface.json": "react-primary",
     "system-phase1-style-dictionary-checkpoint.json": "foundations-primitives",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",

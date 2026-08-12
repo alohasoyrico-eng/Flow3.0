@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "flow-system-component-registry-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "registry-runtime-has-typescript-source",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/components/src/registry.ts",
+        "runtimeFile": "packages/components/src/registry.js",
+        "hasSource": true,
+        "hasRuntime": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "registry-exports-component-demo-props-contract",
+      "status": "PASS",
+      "evidence": {
+        "sourceFile": "packages/components/src/registry.ts"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "runtime-generated-from-typescript",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntime": false
+      },
+      "failMessage": null
+    }
+  ],
+  "inventory": {
+    "registryRuntimeFiles": 1,
+    "registryTypeScriptSourceFiles": 1,
+    "staleRuntimeFiles": 0,
+    "componentRegistryTypescriptSurfaceDebt": 0
+  }
+}

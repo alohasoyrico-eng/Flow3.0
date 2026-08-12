@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 85
-- Category mappings: 75
+- Reports scanned: 86
+- Category mappings: 76
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 85
-- Debt metrics: 101
+- Reports with debt metrics: 86
+- Debt metrics: 102
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -44,7 +44,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 14 | 1 | 0 | 26 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
-| react-primary | React must be the primary implementation with real contracts. | 19 | 10 | 0 | 21 | 0 |
+| react-primary | React must be the primary implementation with real contracts. | 20 | 10 | 0 | 22 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
 ## Non-Pass Reports
@@ -159,6 +159,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-component-contract-typescript-surface.json | react-primary | pass | componentContractTypescriptSurfaceDebt: 0 |
 | system-component-platform-typescript-surface.json | react-primary | pass | componentPlatformTypescriptSurfaceDebt: 0 |
 | system-component-primitive-typescript-surface.json | react-primary | pass | componentPrimitiveTypescriptSurfaceDebt: 0 |
+| system-component-registry-typescript-surface.json | react-primary | pass | componentRegistryTypescriptSurfaceDebt: 0 |
 | system-phase1-style-dictionary-checkpoint.json | foundations-primitives | pass | phase1Debt: 0 |
 | system-token-ownership-matrix.json | foundations-primitives | pass | ownershipDebt: 0 |
 | system-token-typescript-surface.json | react-primary | pass | tokenTypescriptSurfaceDebt: 0 |

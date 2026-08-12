@@ -24,6 +24,7 @@
     "packages/tokens/src/**/*.ts",
     "packages/tokens/src/**/*.tsx",
     "packages/components/src/contracts.ts",
+    "packages/components/src/registry.ts",
     "packages/components/src/platforms/**/*.ts",
     "packages/components/src/primitives/**/*.ts"
   ],

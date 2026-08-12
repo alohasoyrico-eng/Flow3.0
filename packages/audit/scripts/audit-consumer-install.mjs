@@ -3249,7 +3249,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 667,
+    filesScanned: 669,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3854,15 +3854,24 @@ function assertReactGovernanceBaselines() {
     componentPrimitiveTypescriptSurfaceDebt: 0,
   }, "System component primitive TypeScript surface");
 
+  const componentRegistryTypescriptSurface = readAuditReport("docs/audits/system-component-registry-typescript-surface.json");
+  assertReportStatus(componentRegistryTypescriptSurface, "System component registry TypeScript surface");
+  assertInventory(componentRegistryTypescriptSurface, {
+    registryRuntimeFiles: 1,
+    registryTypeScriptSourceFiles: 1,
+    staleRuntimeFiles: 0,
+    componentRegistryTypescriptSurfaceDebt: 0,
+  }, "System component registry TypeScript surface");
+
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 85,
-    categoryMappings: 75,
+    reports: 86,
+    categoryMappings: 76,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 85,
-    debtMetrics: 101,
+    reportsWithDebtMetrics: 86,
+    debtMetrics: 102,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,
