@@ -1,6 +1,7 @@
 {
   "status": "pass",
   "docsDir": "../FlowDocs/apps/docs",
+  "scope": "external-sibling",
   "expected": {
     "fullModules": 8,
     "functionRegions": 4,

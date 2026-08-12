@@ -30,6 +30,21 @@ function docsDemoOwnershipPolicyIssues() {
 
 function createReport() {
   const report = createDocsComponentDemoOwnershipReport();
+  if (!report.docsDir) {
+    return {
+      ...report,
+      status: "skipped",
+      principle: "FlowDocs may register and frame React-owned component demos, but Flow3 does not audit external Docs sources in CI.",
+      baseline: {
+        inventory: expectedInventory,
+        mismatches: [],
+      },
+      governance: {
+        file: path.relative(root, docsBoundaryFile),
+        issues: [],
+      },
+    };
+  }
   const policyIssues = docsDemoOwnershipPolicyIssues();
   const inventory = {
     ...report.inventory,
@@ -121,6 +136,10 @@ function main() {
   const nextMarkdown = `${toMarkdown(report)}\n`;
 
   if (checkMode) {
+    if (report.status === "skipped") {
+      console.log("Docs component demo ownership report skipped: docs app is external to Flow3.");
+      return;
+    }
     const currentJson = fs.existsSync(jsonOutput) ? fs.readFileSync(jsonOutput, "utf8") : "";
     const currentMarkdown = fs.existsSync(markdownOutput) ? fs.readFileSync(markdownOutput, "utf8") : "";
     if (currentJson !== nextJson || currentMarkdown !== nextMarkdown) {
