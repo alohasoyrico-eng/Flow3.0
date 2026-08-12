@@ -111,6 +111,7 @@
     "react-template-interaction-governance-audit.json": "react-primary",
     "react-template-runtime-governance-audit.json": "react-primary",
     "react-template-visual-governance-audit.json": "react-primary",
+    "system-typescript-project-setup.json": "react-primary",
     "template-cascade-governance-audit.json": "patterns",
     "zip-foundation-primitive-validation-audit.json": "foundations-primitives",
     "taxonomy-boundaries-audit.json": "taxonomy",

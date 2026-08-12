@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-08-12T20:02:08.292Z",
+  "scope": "TypeScript project setup checkpoint",
+  "status": "pass",
+  "typescriptProjectSetupDebt": 0,
+  "gates": [
+    {
+      "id": "tsconfig-exists",
+      "status": "PASS",
+      "evidence": {
+        "file": "tsconfig.json",
+        "exists": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typecheck-script-owned",
+      "status": "PASS",
+      "evidence": {
+        "typecheckScript": "tsc --noEmit --project tsconfig.json"
+      },
+      "failMessage": null
+    },
+    {
+      "id": "strict-no-emit-configuration",
+      "status": "PASS",
+      "evidence": {
+        "strict": true,
+        "noEmit": true,
+        "allowJs": false
+      },
+      "failMessage": null
+    },
+    {
+      "id": "typed-source-included",
+      "status": "PASS",
+      "evidence": {
+        "include": [
+          "packages/tokens/src/**/*.ts",
+          "packages/tokens/src/**/*.tsx"
+        ]
+      },
+      "failMessage": null
+    },
+    {
+      "id": "tsc-no-emit-passes",
+      "status": "PASS",
+      "evidence": {
+        "status": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      "failMessage": null
+    }
+  ],
+  "tsconfig": {
+    "compilerOptions": {
+      "allowJs": false,
+      "declaration": false,
+      "emitDeclarationOnly": false,
+      "exactOptionalPropertyTypes": true,
+      "isolatedModules": true,
+      "jsx": "react-jsx",
+      "lib": [
+        "ES2022",
+        "DOM",
+        "DOM.Iterable"
+      ],
+      "module": "ESNext",
+      "moduleDetection": "force",
+      "moduleResolution": "Bundler",
+      "noEmit": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noUncheckedIndexedAccess": true,
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "ES2022",
+      "types": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "include": [
+      "packages/tokens/src/**/*.ts",
+      "packages/tokens/src/**/*.tsx"
+    ],
+    "exclude": [
+      "node_modules",
+      "packages/react/dist",
+      "packages/tokens/dist"
+    ]
+  }
+}

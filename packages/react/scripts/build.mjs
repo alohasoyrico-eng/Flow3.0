@@ -35,6 +35,7 @@ function compileTypescriptSources() {
   const outDir = fs.mkdtempSync(path.join(os.tmpdir(), "flow-react-ts-"));
   const tscBin = path.join(repoRoot, "node_modules/.bin/tsc");
   const result = spawnSync(tscBin, [
+    "--ignoreConfig",
     "--target", "ES2020",
     "--module", "ESNext",
     "--jsx", "react",

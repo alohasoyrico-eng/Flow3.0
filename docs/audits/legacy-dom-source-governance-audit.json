@@ -8,7 +8,7 @@
       "packages/react/src",
       "packages/components/src"
     ],
-    "filesScanned": 592,
+    "filesScanned": 593,
     "violations": 0,
     "legacyDomSourceDebt": 0
   },

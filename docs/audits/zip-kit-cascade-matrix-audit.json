@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip kit cascade matrix",
   "principle": "Every ZIP kit must resolve detected UI references into Flow foundations, primitives, components, patterns, templates, or an explicit separate channel without creating a parallel cascade.",
-  "generatedAt": "2026-08-12T19:57:47.931Z",
+  "generatedAt": "2026-08-12T20:04:57.701Z",
   "inventory": {
     "kits": 16,
     "zipPaths": 40,

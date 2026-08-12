@@ -648,6 +648,8 @@
     "audit:raw-token-values": "node packages/audit/scripts/report-system-raw-token-value-governance.js",
     "audit:generated-token-outputs": "node packages/audit/scripts/report-system-generated-token-output-governance.js",
     "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",
+    "typecheck": "tsc --noEmit --project tsconfig.json",
+    "audit:typescript-setup": "node packages/audit/scripts/report-system-typescript-project-setup.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

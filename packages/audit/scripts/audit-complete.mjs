@@ -205,6 +205,7 @@ const expectedAuditFiles = new Set([
   "report-system-remediation-matrix.js",
   "report-system-token-ownership-matrix.js",
   "report-system-token-output-gates.js",
+  "report-system-typescript-project-setup.js",
   "report-system-typescript-public-surface.js",
   "report-docs-component-demo-ownership.js",
   "report-docs-system-boundary.js",
@@ -303,6 +304,7 @@ const checks = [
   ["generated token output governance", () => run("node", ["packages/audit/scripts/report-system-generated-token-output-governance.js", "--check"])],
   ["raw token value governance", () => run("node", ["packages/audit/scripts/report-system-raw-token-value-governance.js", "--check"])],
   ["phase 1 Style Dictionary checkpoint", () => run("node", ["packages/audit/scripts/report-system-phase1-style-dictionary-checkpoint.js", "--check"])],
+  ["TypeScript project setup", () => run("node", ["packages/audit/scripts/report-system-typescript-project-setup.js", "--check"])],
   ...(hasRepoFile("scripts/generate-pattern-contracts.mjs")
     ? [["pattern contract freshness", () => run("node", ["scripts/generate-pattern-contracts.mjs", "--check"])]]
     : []),
