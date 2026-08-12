@@ -129,11 +129,12 @@
     "missing": []
   },
   "implementation": {
+    "docsScope": "external-not-audited",
     "packageDependency": "5.24.0",
-    "docsLoadsLocalRuntime": true,
-    "vendorRuntimePresent": true,
-    "vendorCssPresent": true,
-    "vendorLicensePresent": true,
+    "docsLoadsLocalRuntime": null,
+    "vendorRuntimePresent": null,
+    "vendorCssPresent": null,
+    "vendorLicensePresent": null,
     "exportsFactory": true,
     "publicIndexExport": true,
     "resolvesMapLibreRuntime": true,

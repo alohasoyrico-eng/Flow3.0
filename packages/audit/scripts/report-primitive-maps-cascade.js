@@ -40,11 +40,6 @@ const iconographyReportFile = path.join(root, "docs/audits/primitive-iconography
 const breakpointsReportFile = path.join(root, "docs/audits/primitive-breakpoints-cascade-audit.json");
 const loadingReportFile = path.join(root, "docs/audits/primitive-loading-cascade-audit.json");
 const packageJsonFile = path.join(root, "packages/components/package.json");
-const docsIndexFile = path.join(docsAppDir, "index.html");
-const vendorRuntimeFile = path.join(docsAppDir, "vendor/maplibre-gl/maplibre-gl.js");
-const vendorCssFile = path.join(docsAppDir, "vendor/maplibre-gl/maplibre-gl.css");
-const vendorLicenseFile = path.join(docsAppDir, "vendor/maplibre-gl/LICENSE.txt");
-
 const requiredRoles = ["permission", "stationPin", "routeLine", "cluster", "fallbackList", "runtime"];
 const requiredFoundations = ["Energy", "Accessibility", "Frame", "Voice", "Momentum", "Depth", "State"];
 const requiredCoordinatedPrimitives = ["Library Sources", "Measurement", "Message", "Iconography", "Breakpoints", "Loading"];
@@ -92,8 +87,21 @@ function walkFiles(dir, predicate = () => true) {
 }
 
 function readIfExists(file) {
+  if (!file) return "";
   return fs.existsSync(file) ? read(file) : "";
 }
+
+function isInsideRoot(file) {
+  const relative = path.relative(root, file);
+  return Boolean(relative) && !relative.startsWith("..") && !path.isAbsolute(relative);
+}
+
+const repoDocsAppDir = isInsideRoot(docsAppDir) ? docsAppDir : null;
+const docsScope = repoDocsAppDir ? "in-repo" : "external-not-audited";
+const docsIndexFile = repoDocsAppDir ? path.join(repoDocsAppDir, "index.html") : null;
+const vendorRuntimeFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/maplibre-gl/maplibre-gl.js") : null;
+const vendorCssFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/maplibre-gl/maplibre-gl.css") : null;
+const vendorLicenseFile = repoDocsAppDir ? path.join(repoDocsAppDir, "vendor/maplibre-gl/LICENSE.txt") : null;
 
 function collectDeclarations(css) {
   const map = new Map();
@@ -155,14 +163,16 @@ const tokenAliases = {
 };
 
 const implementation = {
+  docsScope,
   packageDependency: packageJson.dependencies?.["maplibre-gl"] ?? null,
-  docsLoadsLocalRuntime:
-    /vendor\/maplibre-gl\/maplibre-gl\.js/.test(docsIndex) &&
-    /vendor\/maplibre-gl\/maplibre-gl\.css/.test(docsIndex) &&
-    !/unpkg|jsdelivr|cdnjs/.test(docsIndex),
-  vendorRuntimePresent: /maplibregl/.test(vendorRuntime) && vendorRuntime.length > 500000,
-  vendorCssPresent: /maplibre/.test(vendorCss) && vendorCss.length > 10000,
-  vendorLicensePresent: /BSD|MapLibre/i.test(vendorLicense),
+  docsLoadsLocalRuntime: repoDocsAppDir
+    ? /vendor\/maplibre-gl\/maplibre-gl\.js/.test(docsIndex) &&
+      /vendor\/maplibre-gl\/maplibre-gl\.css/.test(docsIndex) &&
+      !/unpkg|jsdelivr|cdnjs/.test(docsIndex)
+    : null,
+  vendorRuntimePresent: repoDocsAppDir ? /maplibregl/.test(vendorRuntime) && vendorRuntime.length > 500000 : null,
+  vendorCssPresent: repoDocsAppDir ? /maplibre/.test(vendorCss) && vendorCss.length > 10000 : null,
+  vendorLicensePresent: repoDocsAppDir ? /BSD|MapLibre/i.test(vendorLicense) : null,
   exportsFactory: /export function createMapsPrimitive/.test(mapsPrimitive),
   publicIndexExport: /export \{ createMapsPrimitive \}/.test(componentIndex),
   resolvesMapLibreRuntime: /resolveMapRuntime/.test(mapsPrimitive) && /globalThis\.maplibregl/.test(mapsPrimitive),
@@ -229,7 +239,11 @@ if (implementation.packageDependency !== "5.24.0") {
   gaps.push("Components package must pin maplibre-gl to the vendored runtime version.");
 }
 for (const [key, value] of Object.entries(implementation)) {
-  if (key === "packageDependency") continue;
+  if (key === "docsScope" || key === "packageDependency") continue;
+  if (["docsLoadsLocalRuntime", "vendorRuntimePresent", "vendorCssPresent", "vendorLicensePresent"].includes(key)) {
+    if (repoDocsAppDir && !value) gaps.push(`Maps implementation signal missing: ${key}.`);
+    continue;
+  }
   if (key === "stationPinCssUsesMapTokens") continue;
   if (!value) gaps.push(`Maps implementation signal missing: ${key}.`);
 }
@@ -295,8 +309,9 @@ function writeReport() {
     "## Signals",
     `- Roles: ${report.roles.present.length}/${report.roles.required.length}`,
     `- Coordinated primitives: ${report.coordinatedPrimitives.present.length}/${report.coordinatedPrimitives.required.length}`,
+    `- Docs scope: ${report.implementation.docsScope}`,
     `- Runtime dependency: ${report.implementation.packageDependency || "missing"}`,
-    `- Local runtime: ${report.implementation.docsLoadsLocalRuntime ? "yes" : "no"}`,
+    `- Local runtime: ${report.implementation.docsLoadsLocalRuntime === null ? "not audited here" : report.implementation.docsLoadsLocalRuntime ? "yes" : "no"}`,
     `- Token aliases: ${report.tokenAliases.present.length}/${report.tokenAliases.required.length}`,
     `- Station Pin sys-map CSS uses: ${report.implementation.stationPinCssUsesMapTokens}`,
     `- Template refs: ${report.references.templates.join(", ") || "None"}`,

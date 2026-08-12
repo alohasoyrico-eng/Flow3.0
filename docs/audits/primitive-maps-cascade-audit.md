@@ -10,8 +10,9 @@ Maps governs geolocation, permission, pins, routes, fallback lists, MapLibre run
 ## Signals
 - Roles: 6/6
 - Coordinated primitives: 6/6
+- Docs scope: external-not-audited
 - Runtime dependency: 5.24.0
-- Local runtime: yes
+- Local runtime: not audited here
 - Token aliases: 18/18
 - Station Pin sys-map CSS uses: 11
 - Template refs: driver-mobile-app, routes-and-stations
