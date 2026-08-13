@@ -111,6 +111,7 @@
     "packages/react/src/patterns/ColumnConfigurator.ts",
     "packages/react/src/patterns/CommandPalette.ts",
     "packages/react/src/patterns/ConfirmationDialog.ts",
+    "packages/react/src/patterns/DenseOperationalList.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T02:48:55.420Z",
+  "generatedAt": "2026-08-13T02:54:24.078Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -126,6 +126,7 @@
           "packages/react/src/patterns/ColumnConfigurator.ts",
           "packages/react/src/patterns/CommandPalette.ts",
           "packages/react/src/patterns/ConfirmationDialog.ts",
+          "packages/react/src/patterns/DenseOperationalList.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -265,6 +266,7 @@
       "packages/react/src/patterns/ColumnConfigurator.ts",
       "packages/react/src/patterns/CommandPalette.ts",
       "packages/react/src/patterns/ConfirmationDialog.ts",
+      "packages/react/src/patterns/DenseOperationalList.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",

@@ -1371,7 +1371,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4721,7 +4721,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 186,
+  "publicJsRuntimeExportsWithTsSource": 188,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/DenseOperationalList.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/DragSortableList.d.ts",
       "pairedJs": true,
@@ -6050,18 +6045,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 129,
+        ".ts": 130,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 538,
+        "source": 539,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 327,
-  "uniqueTypescriptPublicSurfaceDebt": 187
+  "typescriptPublicSurfaceDebt": 326,
+  "uniqueTypescriptPublicSurfaceDebt": 186
 }
