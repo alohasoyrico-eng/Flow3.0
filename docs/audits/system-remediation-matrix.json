@@ -19,16 +19,16 @@
         "P2": 0,
         "blocked": 11,
         "needsOwnerDecision": 0,
-        "docsHandSurfaces": 611
+        "docsHandSurfaces": 511
       },
       "primitive": {
         "total": 24,
         "P0": 24,
         "P1": 0,
         "P2": 0,
-        "blocked": 24,
-        "needsOwnerDecision": 0,
-        "docsHandSurfaces": 543
+        "blocked": 0,
+        "needsOwnerDecision": 19,
+        "docsHandSurfaces": 485
       },
       "component": {
         "total": 60,
@@ -37,7 +37,7 @@
         "P2": 0,
         "blocked": 60,
         "needsOwnerDecision": 0,
-        "docsHandSurfaces": 1306
+        "docsHandSurfaces": 1193
       },
       "pattern": {
         "total": 63,
@@ -46,7 +46,7 @@
         "P2": 0,
         "blocked": 63,
         "needsOwnerDecision": 0,
-        "docsHandSurfaces": 408
+        "docsHandSurfaces": 350
       },
       "template": {
         "total": 9,
@@ -55,11 +55,16 @@
         "P2": 0,
         "blocked": 9,
         "needsOwnerDecision": 0,
-        "docsHandSurfaces": 37
+        "docsHandSurfaces": 26
       }
     }
   },
   "gates": [
+    {
+      "id": "forensic-matrix-completeness",
+      "status": "pass",
+      "blockers": []
+    },
     {
       "id": "style-dictionary-real",
       "status": "pass",
@@ -74,11 +79,8 @@
     },
     {
       "id": "primitive-cascade-runtime",
-      "status": "fail",
-      "blockers": [
-        "17 primitives missing Flow runtime",
-        "24 primitives missing TS source"
-      ]
+      "status": "pass",
+      "blockers": []
     },
     {
       "id": "docs-ownership",
@@ -144,7 +146,7 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 72,
+      "docsHandSurfaceCount": 69,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-docs.js",
@@ -212,12 +214,9 @@
         "../FlowDocs/apps/docs/gold-tree-view-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
-        "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/03a-reference-core-01.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -263,20 +262,20 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 37,
+      "docsHandSurfaceCount": 30,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-design-lead.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
         "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
@@ -290,16 +289,9 @@
         "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
       ],
@@ -347,7 +339,7 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 65,
+      "docsHandSurfaceCount": 50,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -356,9 +348,6 @@
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -392,28 +381,16 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
-        "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -459,7 +436,7 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 76,
+      "docsHandSurfaceCount": 61,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -468,9 +445,6 @@
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/shell-controls.js",
         "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
@@ -478,6 +452,7 @@
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
         "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
@@ -510,29 +485,16 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.css",
@@ -582,26 +544,18 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 19,
+      "docsHandSurfaceCount": 11,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js"
       ],
       "dependencies": [
@@ -648,15 +602,11 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 7,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
-        "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/03a-reference-core-01.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -702,15 +652,14 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 27,
+      "docsHandSurfaceCount": 19,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
@@ -722,15 +671,8 @@
         "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
         "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-        "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
         "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-        "../FlowDocs/apps/docs/styles/06-responsive-01.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/06-responsive-01.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -776,7 +718,7 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 141,
+      "docsHandSurfaceCount": 133,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -786,6 +728,7 @@
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/detail-tabs-core.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/docs-state.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
@@ -851,7 +794,6 @@
         "../FlowDocs/apps/docs/gold-tooltip-docs.js",
         "../FlowDocs/apps/docs/gold-tree-view-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
@@ -882,7 +824,6 @@
         "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
@@ -892,7 +833,6 @@
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/shell-controls.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
-        "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
         "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
@@ -906,13 +846,7 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js",
         "../FlowDocs/apps/docs/template-tabs.js",
@@ -964,19 +898,14 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 39,
+      "docsHandSurfaceCount": 26,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/catalog-renderers.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
-        "../FlowDocs/apps/docs/docs-chrome.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/index.html",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
-        "../FlowDocs/apps/docs/shell-controls.js",
         "../FlowDocs/apps/docs/styles/00-foundations-01.css",
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -992,15 +921,7 @@
         "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
@@ -1050,12 +971,12 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 73,
+      "docsHandSurfaceCount": 67,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/candidate-component-docs.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
+        "../FlowDocs/apps/docs/catalog-renderers.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -1081,7 +1002,6 @@
         "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/gold-toast-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -1106,7 +1026,6 @@
         "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/primitive-tabs.js",
@@ -1116,10 +1035,6 @@
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
@@ -1170,7 +1085,7 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 55,
+      "docsHandSurfaceCount": 42,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
@@ -1178,10 +1093,7 @@
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-react-candidate-file-upload-island.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
@@ -1211,22 +1123,12 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -1260,17 +1162,18 @@
       "layer": "primitive",
       "slug": "animation-assets",
       "priority": "P0",
-      "status": "blocked",
+      "status": "ready_for_verification",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/animation-assets",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
-        "flow-react-js"
+        "flow-react-js",
+        "flow-ts-source"
       ],
       "docsHandSurfaceCount": 0,
       "docsHandSurfaceFiles": [],
@@ -1290,7 +1193,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "map foundation/token dependency before component consumption"
       ],
       "acceptanceCriteria": [
@@ -1306,16 +1208,17 @@
       "layer": "primitive",
       "slug": "breakpoints",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 2,
@@ -1339,8 +1242,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1357,17 +1258,18 @@
       "layer": "primitive",
       "slug": "charts",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/charts",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 3,
@@ -1392,7 +1294,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1409,19 +1310,20 @@
       "layer": "primitive",
       "slug": "color",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/color",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 65,
+      "docsHandSurfaceCount": 56,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -1438,6 +1340,7 @@
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
         "../FlowDocs/apps/docs/styles/01-shell-icons.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
@@ -1459,7 +1362,6 @@
         "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
         "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-        "../FlowDocs/apps/docs/styles/04o-toast-docs.css",
         "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
@@ -1468,21 +1370,12 @@
         "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
@@ -1505,8 +1398,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1523,17 +1414,18 @@
       "layer": "primitive",
       "slug": "country-flags",
       "priority": "P0",
-      "status": "blocked",
+      "status": "ready_for_verification",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/country-flags",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
-        "flow-react-js"
+        "flow-react-js",
+        "flow-ts-source"
       ],
       "docsHandSurfaceCount": 0,
       "docsHandSurfaceFiles": [],
@@ -1553,7 +1445,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "map foundation/token dependency before component consumption"
       ],
       "acceptanceCriteria": [
@@ -1569,25 +1460,26 @@
       "layer": "primitive",
       "slug": "density",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/density",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 66,
+      "docsHandSurfaceCount": 63,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/docs-layout.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
@@ -1612,7 +1504,6 @@
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-react-demos.js",
         "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
@@ -1623,7 +1514,6 @@
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/primitive-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
-        "../FlowDocs/apps/docs/search-slot.js",
         "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
@@ -1643,7 +1533,6 @@
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
@@ -1666,8 +1555,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1684,16 +1571,17 @@
       "layer": "primitive",
       "slug": "disabled",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/disabled",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 28,
@@ -1713,7 +1601,6 @@
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
@@ -1723,6 +1610,7 @@
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
         "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
+        "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.css",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
@@ -1743,8 +1631,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1761,32 +1647,29 @@
       "layer": "primitive",
       "slug": "duration",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/duration",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 15,
+      "docsHandSurfaceCount": 11,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
@@ -1807,8 +1690,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1825,19 +1706,20 @@
       "layer": "primitive",
       "slug": "elevation",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/elevation",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 52,
+      "docsHandSurfaceCount": 45,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -1878,15 +1760,8 @@
         "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
@@ -1908,8 +1783,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -1926,16 +1799,18 @@
       "layer": "primitive",
       "slug": "field-action",
       "priority": "P0",
-      "status": "blocked",
+      "status": "ready_for_verification",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/field-action",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
-      "duplicateSurfaces": [],
+      "duplicateSurfaces": [
+        "flow-ts-source"
+      ],
       "docsHandSurfaceCount": 0,
       "docsHandSurfaceFiles": [],
       "dependencies": [
@@ -1954,8 +1829,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "map foundation/token dependency before component consumption"
       ],
       "acceptanceCriteria": [
@@ -1971,19 +1844,20 @@
       "layer": "primitive",
       "slug": "focus",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/focus",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 43,
+      "docsHandSurfaceCount": 35,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -1995,7 +1869,6 @@
         "../FlowDocs/apps/docs/gold-select-docs.js",
         "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/navigation.js",
         "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
         "../FlowDocs/apps/docs/pattern-mobile-demos.js",
@@ -2003,7 +1876,6 @@
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
-        "../FlowDocs/apps/docs/search-slot.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -2016,13 +1888,7 @@
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
         "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
@@ -2045,8 +1911,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2063,28 +1927,25 @@
       "layer": "primitive",
       "slug": "iconography",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/iconography",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 7,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
-        "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/03a-reference-core-01.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -2102,7 +1963,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2119,17 +1979,18 @@
       "layer": "primitive",
       "slug": "illustration-assets",
       "priority": "P0",
-      "status": "blocked",
+      "status": "ready_for_verification",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/illustration-assets",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
-        "flow-react-js"
+        "flow-react-js",
+        "flow-ts-source"
       ],
       "docsHandSurfaceCount": 0,
       "docsHandSurfaceFiles": [],
@@ -2149,7 +2010,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "map foundation/token dependency before component consumption"
       ],
       "acceptanceCriteria": [
@@ -2165,17 +2025,18 @@
       "layer": "primitive",
       "slug": "library-sources",
       "priority": "P0",
-      "status": "blocked",
+      "status": "ready_for_verification",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/library-sources",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
-        "flow-react-js"
+        "flow-react-js",
+        "flow-ts-source"
       ],
       "docsHandSurfaceCount": 0,
       "docsHandSurfaceFiles": [],
@@ -2195,7 +2056,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "map foundation/token dependency before component consumption"
       ],
       "acceptanceCriteria": [
@@ -2211,19 +2071,20 @@
       "layer": "primitive",
       "slug": "loading",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/loading",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 34,
+      "docsHandSurfaceCount": 31,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
@@ -2248,14 +2109,11 @@
         "../FlowDocs/apps/docs/pattern-react-journey-islands.js",
         "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
         "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
@@ -2276,8 +2134,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2294,17 +2150,18 @@
       "layer": "primitive",
       "slug": "maps",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/maps",
       "runtime": {
         "flowJs": true,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 5,
@@ -2331,7 +2188,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2348,16 +2204,17 @@
       "layer": "primitive",
       "slug": "measurement",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/measurement",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 3,
@@ -2382,8 +2239,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2400,19 +2255,20 @@
       "layer": "primitive",
       "slug": "message",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/message",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 36,
+      "docsHandSurfaceCount": 34,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -2442,9 +2298,7 @@
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
@@ -2467,8 +2321,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2485,16 +2337,17 @@
       "layer": "primitive",
       "slug": "motion-curves",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/motion-curves",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 2,
@@ -2518,8 +2371,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2536,19 +2387,20 @@
       "layer": "primitive",
       "slug": "radius",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/radius",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 59,
+      "docsHandSurfaceCount": 52,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -2558,6 +2410,7 @@
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
@@ -2587,22 +2440,14 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
@@ -2626,8 +2471,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2644,16 +2487,17 @@
       "layer": "primitive",
       "slug": "research",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/research",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
       "docsHandSurfaceCount": 3,
@@ -2678,8 +2522,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2696,32 +2538,31 @@
       "layer": "primitive",
       "slug": "spacing",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/spacing",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 16,
+      "docsHandSurfaceCount": 14,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/styles/01-shell-icons.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.css",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
@@ -2743,8 +2584,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2761,21 +2600,22 @@
       "layer": "primitive",
       "slug": "surface",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/surface",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 96,
+      "docsHandSurfaceCount": 88,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -2819,6 +2659,7 @@
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
@@ -2848,25 +2689,16 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-design-lead.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
         "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
@@ -2890,8 +2722,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2908,24 +2738,24 @@
       "layer": "primitive",
       "slug": "typography",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/primitives/typography",
       "runtime": {
         "flowJs": false,
         "flowDts": false,
         "docsGeneratedJs": false,
         "docsGeneratedDts": false,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
+        "flow-ts-source",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 8,
+      "docsHandSurfaceCount": 7,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
@@ -2947,8 +2777,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "create or promote Flow runtime for this entity",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "map foundation/token dependency before component consumption"
       ],
@@ -2991,7 +2819,7 @@
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css"
+        "../FlowDocs/apps/docs/styles/01-shell-react.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -3095,7 +2923,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 21,
+      "docsHandSurfaceCount": 19,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -3115,9 +2943,7 @@
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/template-desktop-interactions.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -3165,10 +2991,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 24,
+      "docsHandSurfaceCount": 22,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
@@ -3182,7 +3007,6 @@
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
         "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
         "../FlowDocs/apps/docs/pattern-react-islands.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
@@ -3238,17 +3062,17 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 38,
+      "docsHandSurfaceCount": 31,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/gold-badge-docs.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-icon-button-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
@@ -3260,7 +3084,6 @@
         "../FlowDocs/apps/docs/pattern-react-candidate-toolbar-island.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
@@ -3270,14 +3093,8 @@
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/04j-badge-docs.css",
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/template-desktop-interactions.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -3383,7 +3200,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 19,
+      "docsHandSurfaceCount": 16,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -3400,10 +3217,7 @@
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
-        "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css"
+        "../FlowDocs/apps/docs/styles/06-responsive-02.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -3451,7 +3265,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 84,
+      "docsHandSurfaceCount": 73,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -3460,7 +3274,6 @@
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
-        "../FlowDocs/apps/docs/docs-chrome.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/gold-button-docs.js",
@@ -3480,8 +3293,6 @@
         "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/index.html",
-        "../FlowDocs/apps/docs/navigation.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
@@ -3493,7 +3304,6 @@
         "../FlowDocs/apps/docs/pattern-mobile-demos.js",
         "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
@@ -3503,6 +3313,7 @@
         "../FlowDocs/apps/docs/styles/00-foundations-03.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
@@ -3521,17 +3332,9 @@
         "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.css",
@@ -3584,13 +3387,14 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 90,
+      "docsHandSurfaceCount": 98,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/catalog-renderers.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
+        "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/detail-tabs-core.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
         "../FlowDocs/apps/docs/docs-layout.js",
@@ -3598,28 +3402,37 @@
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/foundation-reference.js",
         "../FlowDocs/apps/docs/foundation-visual-sections.js",
+        "../FlowDocs/apps/docs/gold-button-docs.js",
         "../FlowDocs/apps/docs/gold-card-docs.js",
         "../FlowDocs/apps/docs/gold-card-expiry-input-docs.js",
         "../FlowDocs/apps/docs/gold-card-number-input-docs.js",
         "../FlowDocs/apps/docs/gold-card-security-code-input-docs.js",
         "../FlowDocs/apps/docs/gold-card-summary-docs.js",
+        "../FlowDocs/apps/docs/gold-checkbox-docs.js",
+        "../FlowDocs/apps/docs/gold-combobox-docs.js",
+        "../FlowDocs/apps/docs/gold-component-core.js",
         "../FlowDocs/apps/docs/gold-component-data.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-dialog-docs.js",
         "../FlowDocs/apps/docs/gold-drawer-docs.js",
+        "../FlowDocs/apps/docs/gold-icon-button-docs.js",
+        "../FlowDocs/apps/docs/gold-input-docs.js",
         "../FlowDocs/apps/docs/gold-progress-indicator-docs.js",
         "../FlowDocs/apps/docs/gold-quick-action-docs.js",
+        "../FlowDocs/apps/docs/gold-radio-button-docs.js",
+        "../FlowDocs/apps/docs/gold-select-docs.js",
+        "../FlowDocs/apps/docs/gold-simple-component-docs.js",
         "../FlowDocs/apps/docs/gold-skeleton-docs.js",
+        "../FlowDocs/apps/docs/gold-switch-docs.js",
+        "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/gold-toast-docs.js",
         "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/index.html",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-react-demos.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
@@ -3635,8 +3448,10 @@
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
+        "../FlowDocs/apps/docs/primitive-tabs.js",
         "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
+        "../FlowDocs/apps/docs/reference-layout.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
@@ -3661,16 +3476,12 @@
         "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js",
         "../FlowDocs/apps/docs/template-tabs.js",
@@ -3894,7 +3705,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 14,
+      "docsHandSurfaceCount": 13,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -3908,7 +3719,6 @@
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js"
       ],
       "dependencies": [
@@ -3957,7 +3767,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 11,
+      "docsHandSurfaceCount": 10,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo.js",
@@ -3968,8 +3778,7 @@
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js"
+        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4017,13 +3826,12 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
-        "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/react-component-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4071,13 +3879,12 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
-        "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/react-component-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4248,7 +4055,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 22,
+      "docsHandSurfaceCount": 21,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -4270,8 +4077,7 @@
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-tabs.js"
+        "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4490,7 +4296,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 10,
+      "docsHandSurfaceCount": 9,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo.js",
@@ -4500,8 +4306,7 @@
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js"
+        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4605,7 +4410,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 28,
+      "docsHandSurfaceCount": 23,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
@@ -4615,7 +4420,6 @@
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-dialog-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/overlay-demo-interactions.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
@@ -4628,13 +4432,9 @@
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4682,13 +4482,13 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 31,
+      "docsHandSurfaceCount": 28,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
-        "../FlowDocs/apps/docs/docs-layout.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-drawer-docs.js",
         "../FlowDocs/apps/docs/overlay-demo-interactions.js",
@@ -4710,10 +4510,7 @@
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
       "dependencies": [
@@ -4762,7 +4559,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 16,
+      "docsHandSurfaceCount": 14,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -4771,13 +4568,11 @@
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-empty-state-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
@@ -4827,7 +4622,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 13,
+      "docsHandSurfaceCount": 11,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -4839,9 +4634,7 @@
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -4945,20 +4738,16 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 25,
+      "docsHandSurfaceCount": 16,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
-        "../FlowDocs/apps/docs/docs-chrome.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-icon-button-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/index.html",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles.css",
@@ -4966,12 +4755,7 @@
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
         "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
-        "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css"
+        "../FlowDocs/apps/docs/styles/06-responsive-02.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -5019,7 +4803,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 14,
+      "docsHandSurfaceCount": 13,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -5033,8 +4817,7 @@
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-mobile-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -5082,7 +4865,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 71,
+      "docsHandSurfaceCount": 60,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -5090,7 +4873,6 @@
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
-        "../FlowDocs/apps/docs/docs-chrome.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/gold-button-docs.js",
         "../FlowDocs/apps/docs/gold-card-docs.js",
@@ -5111,7 +4893,6 @@
         "../FlowDocs/apps/docs/gold-switch-docs.js",
         "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/navigation.js",
         "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -5121,7 +4902,6 @@
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-react-demos.js",
         "../FlowDocs/apps/docs/pattern-mobile-demos.js",
@@ -5132,13 +4912,10 @@
         "../FlowDocs/apps/docs/pattern-react-candidate-toolbar-island.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/pattern-utility-interactions.js",
         "../FlowDocs/apps/docs/primitive-reference.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/search-slot.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -5147,12 +4924,7 @@
         "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
         "../FlowDocs/apps/docs/styles/05h-code-input-docs.css",
         "../FlowDocs/apps/docs/styles/05i-phone-input-docs.css",
-        "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
       ],
@@ -5255,7 +5027,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 9,
+      "docsHandSurfaceCount": 7,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
@@ -5263,9 +5035,7 @@
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
-        "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/react-component-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -5313,7 +5083,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 83,
+      "docsHandSurfaceCount": 68,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -5330,25 +5100,14 @@
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/foundation-reference.js",
-        "../FlowDocs/apps/docs/foundation-visual-sections.js",
         "../FlowDocs/apps/docs/gold-button-docs.js",
         "../FlowDocs/apps/docs/gold-card-docs.js",
         "../FlowDocs/apps/docs/gold-checkbox-docs.js",
         "../FlowDocs/apps/docs/gold-component-core.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
-        "../FlowDocs/apps/docs/gold-icon-button-docs.js",
-        "../FlowDocs/apps/docs/gold-input-docs.js",
         "../FlowDocs/apps/docs/gold-list-docs.js",
-        "../FlowDocs/apps/docs/gold-radio-button-docs.js",
-        "../FlowDocs/apps/docs/gold-select-docs.js",
-        "../FlowDocs/apps/docs/gold-simple-component-docs.js",
-        "../FlowDocs/apps/docs/gold-switch-docs.js",
-        "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/home-illustrations.js",
-        "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/navigation.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
@@ -5384,13 +5143,9 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
         "../FlowDocs/apps/docs/styles/07-pattern-miel.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/utils.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
@@ -5445,19 +5200,15 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 39,
+      "docsHandSurfaceCount": 31,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
-        "../FlowDocs/apps/docs/doc-interactions.js",
-        "../FlowDocs/apps/docs/docs-chrome.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-menu-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/index.html",
-        "../FlowDocs/apps/docs/navigation.js",
         "../FlowDocs/apps/docs/overlay-demo-interactions.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -5468,7 +5219,6 @@
         "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
         "../FlowDocs/apps/docs/pattern-react-candidate-toolbar-island.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles.css",
@@ -5480,9 +5230,6 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
@@ -5589,7 +5336,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 11,
+      "docsHandSurfaceCount": 10,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -5600,8 +5347,7 @@
         "../FlowDocs/apps/docs/pattern-mobile-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -5770,7 +5516,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 12,
+      "docsHandSurfaceCount": 11,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -5782,8 +5528,7 @@
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css"
+        "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -5831,7 +5576,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 9,
+      "docsHandSurfaceCount": 8,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
@@ -5840,8 +5585,7 @@
         "../FlowDocs/apps/docs/gold-progress-indicator-docs.js",
         "../FlowDocs/apps/docs/gold-simple-component-docs.js",
         "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
-        "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/react-component-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -5889,7 +5633,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 18,
+      "docsHandSurfaceCount": 17,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -5907,7 +5651,6 @@
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js"
       ],
       "dependencies": [
@@ -6017,7 +5760,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 10,
+      "docsHandSurfaceCount": 9,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo.js",
@@ -6027,8 +5770,7 @@
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -6076,7 +5818,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 12,
+      "docsHandSurfaceCount": 10,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo.js",
@@ -6087,9 +5829,7 @@
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -6137,7 +5877,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 82,
+      "docsHandSurfaceCount": 78,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -6150,6 +5890,7 @@
         "../FlowDocs/apps/docs/doc-interactions.js",
         "../FlowDocs/apps/docs/docs-chrome.js",
         "../FlowDocs/apps/docs/docs-layout.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/gold-card-docs.js",
         "../FlowDocs/apps/docs/gold-checkbox-docs.js",
@@ -6162,7 +5903,6 @@
         "../FlowDocs/apps/docs/gold-select-docs.js",
         "../FlowDocs/apps/docs/home-illustrations.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/navigation.js",
         "../FlowDocs/apps/docs/overlay-demo-interactions.js",
         "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
@@ -6172,7 +5912,6 @@
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-interactions.js",
         "../FlowDocs/apps/docs/pattern-journey-react-demos.js",
@@ -6191,7 +5930,6 @@
         "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/pattern-utility-interactions.js",
         "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
@@ -6210,9 +5948,7 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js",
         "../FlowDocs/apps/docs/toast-demo-interactions.js",
@@ -6447,7 +6183,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 13,
+      "docsHandSurfaceCount": 12,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/candidate-component-plans.js",
         "../FlowDocs/apps/docs/component-demo.js",
@@ -6460,8 +6196,7 @@
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -6572,7 +6307,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 37,
+      "docsHandSurfaceCount": 33,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -6583,13 +6318,11 @@
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-switch-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/index.html",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
@@ -6604,9 +6337,7 @@
         "../FlowDocs/apps/docs/styles/04e-switch-docs.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
@@ -6658,7 +6389,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 71,
+      "docsHandSurfaceCount": 68,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-docs.js",
@@ -6721,12 +6452,9 @@
         "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/04x-table-docs.css",
-        "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
         "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js",
         "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
@@ -6778,7 +6506,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 45,
+      "docsHandSurfaceCount": 41,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-docs.js",
@@ -6809,20 +6537,16 @@
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
         "../FlowDocs/apps/docs/primitive-tabs.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/search-slot.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-tabs.js"
       ],
@@ -6872,14 +6596,16 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 36,
+      "docsHandSurfaceCount": 32,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
+        "../FlowDocs/apps/docs/catalog-renderers.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/detail-tabs-core.js",
         "../FlowDocs/apps/docs/docs-layout.js",
         "../FlowDocs/apps/docs/docs-state.js",
+        "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/gold-component-core.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
@@ -6899,14 +6625,8 @@
         "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
         "../FlowDocs/apps/docs/styles/04l-tag-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
         "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
+        "../FlowDocs/apps/docs/template-tabs.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
@@ -7020,7 +6740,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 32,
+      "docsHandSurfaceCount": 27,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -7031,7 +6751,6 @@
         "../FlowDocs/apps/docs/gold-simple-component-docs.js",
         "../FlowDocs/apps/docs/gold-toast-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
@@ -7040,7 +6759,6 @@
         "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-interactions.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
         "../FlowDocs/apps/docs/styles.css",
@@ -7048,11 +6766,8 @@
         "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
         "../FlowDocs/apps/docs/styles/04o-toast-docs.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
         "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/toast-demo-interactions.js"
       ],
       "dependencies": [
@@ -7335,7 +7050,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 10,
+      "docsHandSurfaceCount": 9,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -7345,8 +7060,7 @@
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
         "../FlowDocs/apps/docs/pattern-react-desktop-islands.js",
-        "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -7396,12 +7110,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-react-operational-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -7504,17 +7217,14 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 10,
+      "docsHandSurfaceCount": 7,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/docs-chrome.js",
         "../FlowDocs/apps/docs/gold-input-docs.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
         "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
-        "../FlowDocs/apps/docs/search-slot.js",
         "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css"
       ],
       "dependencies": [
@@ -7620,13 +7330,10 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 7,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
-        "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css"
       ],
@@ -8176,12 +7883,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
-        "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js"
+        "../FlowDocs/apps/docs/pattern-react-candidate-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -8231,13 +7937,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
-        "../FlowDocs/apps/docs/pattern-utility-demos.js",
-        "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-utility-demos.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -8395,7 +8099,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 8,
+      "docsHandSurfaceCount": 7,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-mobile-demos.js",
         "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
@@ -8403,8 +8107,7 @@
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
         "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
-        "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -8454,14 +8157,12 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 6,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-react-operational-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -8511,12 +8212,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-journey-demos.js",
         "../FlowDocs/apps/docs/pattern-journey-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-journey-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-react-journey-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -9324,9 +9024,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 7,
+      "docsHandSurfaceCount": 6,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-focused-design.js",
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
@@ -9382,12 +9081,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-react-operational-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -9490,11 +9188,10 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-react-islands.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js"
       ],
       "dependencies": [
@@ -9762,7 +9459,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 10,
+      "docsHandSurfaceCount": 8,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
@@ -9771,8 +9468,6 @@
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-react-desktop-islands.js",
         "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js"
       ],
       "dependencies": [
@@ -9823,19 +9518,15 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 61,
+      "docsHandSurfaceCount": 49,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
-        "../FlowDocs/apps/docs/docs-chrome.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/docs-state.js",
         "../FlowDocs/apps/docs/gold-input-docs.js",
         "../FlowDocs/apps/docs/gold-slider-docs.js",
-        "../FlowDocs/apps/docs/index.html",
-        "../FlowDocs/apps/docs/navigation.js",
-        "../FlowDocs/apps/docs/notification-panel-slot.js",
         "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -9856,11 +9547,10 @@
         "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
         "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/pattern-utility-demos.js",
-        "../FlowDocs/apps/docs/search-slot.js",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
         "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
         "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
@@ -9872,18 +9562,11 @@
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-command-overlays.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-journey-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
         "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
       ],
@@ -10044,9 +9727,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 27,
+      "docsHandSurfaceCount": 24,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/avatar-menu-slot.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
         "../FlowDocs/apps/docs/gold-switch-docs.js",
@@ -10066,8 +9748,6 @@
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/01-shell-icons.css",
         "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js",
         "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
@@ -10122,11 +9802,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 27,
+      "docsHandSurfaceCount": 17,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/doc-interactions.js",
         "../FlowDocs/apps/docs/docs-layout.js",
-        "../FlowDocs/apps/docs/navigation.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
         "../FlowDocs/apps/docs/pattern-design-lead.js",
         "../FlowDocs/apps/docs/pattern-focused-design.js",
@@ -10134,23 +9814,13 @@
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
         "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
-        "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-foundations.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-motion.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-demo.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-sidebar-slots.css",
         "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-desktop-interactions.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/template-desktop-interactions.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -10254,12 +9924,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
         "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js"
       ],
       "dependencies": [
@@ -10310,12 +9979,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-react-operational-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -10475,7 +10143,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 12,
+      "docsHandSurfaceCount": 11,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
@@ -10486,7 +10154,6 @@
         "../FlowDocs/apps/docs/pattern-utility-interactions.js",
         "../FlowDocs/apps/docs/styles/05-catalog-and-examples-02.css",
         "../FlowDocs/apps/docs/styles/07-pattern-utility-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/vendor/echarts.esm.min.js"
       ],
@@ -10538,7 +10205,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 15,
+      "docsHandSurfaceCount": 14,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/doc-interactions.js",
         "../FlowDocs/apps/docs/gold-icon-button-docs.js",
@@ -10553,8 +10220,7 @@
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
         "../FlowDocs/apps/docs/styles/04h-icon-button-docs.css",
         "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js"
+        "../FlowDocs/apps/docs/styles/07-pattern-desktop-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -10604,9 +10270,10 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 28,
+      "docsHandSurfaceCount": 20,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/docs-chrome.js",
+        "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/gold-icon-button-docs.js",
         "../FlowDocs/apps/docs/index.html",
         "../FlowDocs/apps/docs/pattern-design-lead.js",
@@ -10614,26 +10281,17 @@
         "../FlowDocs/apps/docs/pattern-miel-tabs.js",
         "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-shell-renderers.js",
         "../FlowDocs/apps/docs/pattern-tabs.js",
         "../FlowDocs/apps/docs/shell-controls.js",
-        "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/01-shell-01.css",
         "../FlowDocs/apps/docs/styles/01-shell-02.css",
         "../FlowDocs/apps/docs/styles/01-shell-hero.css",
+        "../FlowDocs/apps/docs/styles/01-shell-react.css",
         "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-01.css",
         "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-demo-responsive.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-focused-demos.css",
         "../FlowDocs/apps/docs/styles/07-pattern-focused-design.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-package-slots.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar-sections.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-topbar.css",
-        "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -10738,14 +10396,13 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 6,
+      "docsHandSurfaceCount": 5,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
         "../FlowDocs/apps/docs/pattern-operational-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-desktop-islands.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js"
+        "../FlowDocs/apps/docs/pattern-react-desktop-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",
@@ -10848,9 +10505,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 3,
+      "docsHandSurfaceCount": 2,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -10903,10 +10559,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-desktop-interactions.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
@@ -10960,10 +10615,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -11016,11 +10670,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -11073,11 +10725,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-tabs.js",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -11130,11 +10780,10 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 4,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-        "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -11187,9 +10836,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 3,
+      "docsHandSurfaceCount": 2,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -11242,10 +10890,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],
@@ -11298,9 +10945,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 3,
+      "docsHandSurfaceCount": 2,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/template-domain-demos.js",
         "../FlowDocs/apps/docs/template-react-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
       ],

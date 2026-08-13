@@ -173,7 +173,7 @@
     }
   },
   "language": {
-    "flowTsSourceFiles": 30,
+    "flowTsSourceFiles": 237,
     "docsTsSourceFiles": 0
   },
   "styleDictionary": {
@@ -380,7 +380,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 79,
+        "docsHandSurfaceCount": 78,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -433,7 +433,6 @@
           "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
           "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
           "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/pattern-utility-demos.js",
           "../FlowDocs/apps/docs/pattern-utility-interactions.js",
           "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
@@ -884,7 +883,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 61,
+        "docsHandSurfaceCount": 60,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -931,7 +930,6 @@
           "../FlowDocs/apps/docs/pattern-react-candidate-toolbar-island.js",
           "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
           "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/pattern-utility-demos.js",
           "../FlowDocs/apps/docs/pattern-utility-interactions.js",
           "../FlowDocs/apps/docs/primitive-reference.js",
@@ -2586,7 +2584,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 15,
+        "docsHandSurfaceCount": 14,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -2600,7 +2598,6 @@
           "../FlowDocs/apps/docs/pattern-journey-demos.js",
           "../FlowDocs/apps/docs/pattern-operational-demos.js",
           "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/react-component-islands.js",
           "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
         ]
@@ -3081,7 +3078,7 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 51,
+        "docsHandSurfaceCount": 50,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -3090,7 +3087,6 @@
           "../FlowDocs/apps/docs/foundation-reference.js",
           "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -3178,7 +3174,7 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 62,
+        "docsHandSurfaceCount": 61,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -3187,7 +3183,6 @@
           "../FlowDocs/apps/docs/foundation-reference.js",
           "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/shell-controls.js",
           "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
@@ -3286,13 +3281,12 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 12,
+        "docsHandSurfaceCount": 11,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/family-component-docs.js",
           "../FlowDocs/apps/docs/foundation-explorer.js",
           "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
@@ -3344,11 +3338,10 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 4,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/styles/03a-reference-core-01.css"
         ]
       },
@@ -3399,9 +3392,9 @@
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/family-component-docs.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/01-shell-02.css",
+          "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
@@ -3638,14 +3631,13 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 27,
+        "docsHandSurfaceCount": 26,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/catalog-renderers.js",
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/foundation-explorer.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/index.html",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/00-foundations-01.css",
           "../FlowDocs/apps/docs/styles/00-foundations-03.css",
@@ -3824,7 +3816,7 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 43,
+        "docsHandSurfaceCount": 42,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/family-component-docs.js",
@@ -3833,7 +3825,6 @@
           "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/pattern-react-candidate-file-upload-island.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/primitive-reference.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/00-foundations-03.css",
@@ -4315,7 +4306,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 29,
+        "docsHandSurfaceCount": 28,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/candidate-component-plans.js",
           "../FlowDocs/apps/docs/component-foundation-trace.js",
@@ -4332,7 +4323,6 @@
           "../FlowDocs/apps/docs/pattern-contract-tabs.js",
           "../FlowDocs/apps/docs/pattern-desktop-demos.js",
           "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/pattern-utility-demos.js",
           "../FlowDocs/apps/docs/primitive-reference.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
@@ -4390,12 +4380,11 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 12,
+        "docsHandSurfaceCount": 11,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/foundation-explorer.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/pattern-operational-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
@@ -4666,11 +4655,10 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 4,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/styles/03a-reference-core-01.css"
         ]
       },
@@ -4808,7 +4796,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 32,
+        "docsHandSurfaceCount": 31,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/component-demo-interactions.js",
@@ -4833,7 +4821,6 @@
           "../FlowDocs/apps/docs/pattern-react-journey-islands.js",
           "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
           "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/primitive-reference.js",
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
@@ -5263,13 +5250,12 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 15,
+        "docsHandSurfaceCount": 14,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/foundation-reference.js",
           "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/styles/01-shell-icons.css",
           "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
@@ -7403,7 +7389,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 15,
+        "docsHandSurfaceCount": 14,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/candidate-component-plans.js",
@@ -7417,7 +7403,6 @@
           "../FlowDocs/apps/docs/pattern-journey-demos.js",
           "../FlowDocs/apps/docs/pattern-operational-demos.js",
           "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/react-component-islands.js",
           "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css"
         ]
@@ -7735,7 +7720,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 61,
+        "docsHandSurfaceCount": 60,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -7782,7 +7767,6 @@
           "../FlowDocs/apps/docs/pattern-react-candidate-toolbar-island.js",
           "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
           "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/pattern-utility-demos.js",
           "../FlowDocs/apps/docs/pattern-utility-interactions.js",
           "../FlowDocs/apps/docs/primitive-reference.js",
@@ -8823,7 +8807,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 79,
+        "docsHandSurfaceCount": 78,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -8876,7 +8860,6 @@
           "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
           "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
           "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
           "../FlowDocs/apps/docs/pattern-utility-demos.js",
           "../FlowDocs/apps/docs/pattern-utility-interactions.js",
           "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
@@ -10951,12 +10934,11 @@
         "hasRuntime": true,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 4,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/pattern-candidate-demos.js",
           "../FlowDocs/apps/docs/pattern-miel-tabs.js",
-          "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js"
+          "../FlowDocs/apps/docs/pattern-react-candidate-islands.js"
         ]
       },
       "remediationOwnerDecision": "undecided",
