@@ -41,6 +41,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 5 pattern 1:1 checkpoint | PASS | 63 patterns, 7/7 pattern audit reports, 2/2 row reports with 63 rows, 0 debt |
 | Phase 5 shell patterns checkpoint | PASS | 5/5 shell patterns, 25 shell checks, 4/4 audit reports, 5/5 policy checks, 0 debt |
 | Phase 5 interaction patterns checkpoint | PASS | 27/27 interaction patterns, 80/80 callbacks tested, 113 slots, 193 slot uses, 0 debt |
+| Phase 5 data/domain/mobile patterns checkpoint | PASS | 31/31 data/domain/mobile patterns, 170/170 callbacks tested, 170 slots, 247 slot uses, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -151,6 +152,12 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Interaction slots covered: 113.
 - Interaction slot uses covered: 193.
 - Interaction pattern debt: 0.
+- Data/domain/mobile patterns checkpoint PASS.
+- Data/domain/mobile patterns covered: 31/31.
+- Data/domain/mobile callbacks tested: 170/170.
+- Data/domain/mobile slots covered: 170.
+- Data/domain/mobile slot uses covered: 247.
+- Data/domain/mobile pattern debt: 0.
 
 ## Checkpoints
 
@@ -166,4 +173,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 5 Data/domain/mobile patterns**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.
+The next correct step is **Phase 5 Pattern governance checkpoint**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.

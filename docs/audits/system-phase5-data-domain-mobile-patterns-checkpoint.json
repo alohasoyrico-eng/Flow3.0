@@ -1,0 +1,1434 @@
+{
+  "status": "pass",
+  "audit": "system phase 5 data/domain/mobile patterns checkpoint",
+  "principle": "Data/domain/mobile patterns close only when data visualization, operational domain orchestration, mobile task, channel, and template-facing patterns have formal artifacts, Markdown contracts, TS/JS/d.ts runtime surfaces, governed component/pattern/template dependencies, state/type parity, slot/token governance, no docs/runtime duplication, and zero debt.",
+  "scope": "Original plan iteration 28: data/domain/mobile patterns. Phase 5 governance remains for iteration 29.",
+  "inventory": {
+    "dataDomainMobilePatterns": 31,
+    "passingDataDomainMobilePatterns": 31,
+    "families": 3,
+    "requiredReports": 5,
+    "passingRequiredReports": 5,
+    "reportDebt": 0,
+    "runtimeFiles": 155,
+    "runtimeFilesPresent": 155,
+    "states": 238,
+    "componentDependencies": 145,
+    "patternDependencies": 56,
+    "primitiveDependencies": 501,
+    "foundationDependencies": 341,
+    "callbacks": 170,
+    "testedCallbacks": 170,
+    "slots": 170,
+    "slotUses": 247,
+    "tokenDependencies": 424,
+    "dataDomainMobilePatternDebt": 0
+  },
+  "families": {
+    "dataAndVisualization": [
+      "calendar-view",
+      "chart-legend-item",
+      "chart-wrapper",
+      "expandable-detail-table",
+      "filterable-editable-table",
+      "gantt-chart",
+      "kanban-board",
+      "kpi-card",
+      "polar-chart",
+      "virtual-data-table",
+      "waterfall-chart"
+    ],
+    "domainOperations": [
+      "account-operations",
+      "agent-conversation",
+      "backoffice-approval",
+      "case-management",
+      "dense-operational-list",
+      "driver-and-vehicle-administration",
+      "fleet-manager-onboarding-desktop",
+      "preference-management",
+      "pricing-operations",
+      "roles-and-permissions",
+      "status-feedback-view",
+      "ticket-queue"
+    ],
+    "mobileChannelAndTask": [
+      "authentication-login-biometrics-and-otp",
+      "driver-onboarding-mobile",
+      "email-template-layout",
+      "help-center",
+      "payment-form",
+      "pull-to-refresh",
+      "section-header",
+      "station-discovery"
+    ]
+  },
+  "reports": [
+    {
+      "id": "pattern-behavior",
+      "file": "docs/audits/react-pattern-behavior-governance-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "pattern-composition",
+      "file": "docs/audits/react-pattern-composition-governance-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "pattern-migration",
+      "file": "docs/audits/pattern-react-migration-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "foundation-primitive-1to1",
+      "file": "docs/audits/pattern-foundation-primitive-1to1-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "template-cascade-governance",
+      "file": "docs/audits/template-cascade-governance-audit.json",
+      "status": "pass",
+      "debt": 0
+    }
+  ],
+  "patterns": [
+    {
+      "id": "calendar-view",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/calendar-view.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/CalendarView.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/CalendarView.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/CalendarView.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 9,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 3,
+      "slotUses": 9,
+      "tokenDependencies": 15,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "chart-legend-item",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/chart-legend-item.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/ChartLegendItem.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/ChartLegendItem.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/ChartLegendItem.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 6,
+      "patternDependencies": 1,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 4,
+      "slotUses": 8,
+      "tokenDependencies": 17,
+      "primitiveDependencies": 15,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "chart-wrapper",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/ChartWrapper.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/ChartWrapper.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/ChartWrapper.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 10,
+      "patternDependencies": 0,
+      "callbacks": 1,
+      "testedCallbacks": 1,
+      "slots": 3,
+      "slotUses": 10,
+      "tokenDependencies": 16,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "expandable-detail-table",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/expandable-detail-table.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/ExpandableDetailTable.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/ExpandableDetailTable.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/ExpandableDetailTable.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 1,
+      "patternDependencies": 3,
+      "callbacks": 7,
+      "testedCallbacks": 7,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "filterable-editable-table",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/filterable-editable-table.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/FilterableEditableTable.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/FilterableEditableTable.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/FilterableEditableTable.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 9,
+      "components": 1,
+      "patternDependencies": 4,
+      "callbacks": 11,
+      "testedCallbacks": 11,
+      "slots": 7,
+      "slotUses": 7,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "gantt-chart",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/gantt-chart.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/gantt-chart.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/GanttChart.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/GanttChart.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/GanttChart.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 1,
+      "patternDependencies": 1,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "kanban-board",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/kanban-board.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/kanban-board.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/KanbanBoard.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/KanbanBoard.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/KanbanBoard.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 5,
+      "patternDependencies": 1,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 5,
+      "slotUses": 7,
+      "tokenDependencies": 16,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "kpi-card",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/kpi-card.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/KpiCard.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/KpiCard.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/KpiCard.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 0,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 4,
+      "slotUses": 7,
+      "tokenDependencies": 13,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "polar-chart",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/polar-chart.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/PolarChart.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/PolarChart.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/PolarChart.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 1,
+      "patternDependencies": 1,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "virtual-data-table",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/virtual-data-table.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/VirtualDataTable.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/VirtualDataTable.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/VirtualDataTable.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 8,
+      "patternDependencies": 2,
+      "callbacks": 6,
+      "testedCallbacks": 6,
+      "slots": 3,
+      "slotUses": 8,
+      "tokenDependencies": 14,
+      "primitiveDependencies": 15,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "waterfall-chart",
+      "family": "dataAndVisualization",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/waterfall-chart.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/WaterfallChart.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/WaterfallChart.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/WaterfallChart.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 1,
+      "patternDependencies": 1,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "account-operations",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/account-operations.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/AccountOperations.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/AccountOperations.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/AccountOperations.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 1,
+      "patternDependencies": 3,
+      "callbacks": 13,
+      "testedCallbacks": 13,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "agent-conversation",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/AgentConversation.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/AgentConversation.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/AgentConversation.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 2,
+      "patternDependencies": 1,
+      "callbacks": 6,
+      "testedCallbacks": 6,
+      "slots": 4,
+      "slotUses": 4,
+      "tokenDependencies": 13,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "backoffice-approval",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/BackofficeApproval.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/BackofficeApproval.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/BackofficeApproval.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 1,
+      "patternDependencies": 3,
+      "callbacks": 12,
+      "testedCallbacks": 12,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "case-management",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/case-management.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/CaseManagement.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/CaseManagement.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/CaseManagement.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 1,
+      "patternDependencies": 5,
+      "callbacks": 18,
+      "testedCallbacks": 18,
+      "slots": 8,
+      "slotUses": 8,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "dense-operational-list",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/dense-operational-list.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/DenseOperationalList.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/DenseOperationalList.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/DenseOperationalList.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 1,
+      "patternDependencies": 6,
+      "callbacks": 9,
+      "testedCallbacks": 9,
+      "slots": 8,
+      "slotUses": 8,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "driver-and-vehicle-administration",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/driver-and-vehicle-administration.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/DriverAndVehicleAdministration.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/DriverAndVehicleAdministration.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/DriverAndVehicleAdministration.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 11,
+      "patternDependencies": 1,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 4,
+      "slotUses": 12,
+      "tokenDependencies": 17,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "fleet-manager-onboarding-desktop",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/fleet-manager-onboarding-desktop.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/FleetManagerOnboardingDesktop.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/FleetManagerOnboardingDesktop.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 11,
+      "patternDependencies": 1,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 4,
+      "slotUses": 12,
+      "tokenDependencies": 17,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "preference-management",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/preference-management.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/PreferenceManagement.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/PreferenceManagement.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/PreferenceManagement.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 1,
+      "patternDependencies": 3,
+      "callbacks": 9,
+      "testedCallbacks": 9,
+      "slots": 5,
+      "slotUses": 5,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "pricing-operations",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/pricing-operations.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/PricingOperations.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/PricingOperations.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/PricingOperations.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 1,
+      "patternDependencies": 5,
+      "callbacks": 11,
+      "testedCallbacks": 11,
+      "slots": 8,
+      "slotUses": 8,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "roles-and-permissions",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/roles-and-permissions.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/RolesAndPermissions.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/RolesAndPermissions.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/RolesAndPermissions.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 10,
+      "patternDependencies": 0,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 3,
+      "slotUses": 10,
+      "tokenDependencies": 16,
+      "primitiveDependencies": 15,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "status-feedback-view",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/status-feedback-view.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/StatusFeedbackView.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/StatusFeedbackView.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/StatusFeedbackView.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 14,
+      "components": 4,
+      "patternDependencies": 2,
+      "callbacks": 8,
+      "testedCallbacks": 8,
+      "slots": 6,
+      "slotUses": 6,
+      "tokenDependencies": 15,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "ticket-queue",
+      "family": "domainOperations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/ticket-queue.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/TicketQueue.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/TicketQueue.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/TicketQueue.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 1,
+      "patternDependencies": 4,
+      "callbacks": 15,
+      "testedCallbacks": 15,
+      "slots": 7,
+      "slotUses": 7,
+      "tokenDependencies": 12,
+      "primitiveDependencies": 16,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "authentication-login-biometrics-and-otp",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 8,
+      "patternDependencies": 0,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 4,
+      "slotUses": 9,
+      "tokenDependencies": 14,
+      "primitiveDependencies": 18,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "driver-onboarding-mobile",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/driver-onboarding-mobile.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/DriverOnboardingMobile.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/DriverOnboardingMobile.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/DriverOnboardingMobile.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 11,
+      "patternDependencies": 1,
+      "callbacks": 1,
+      "testedCallbacks": 1,
+      "slots": 5,
+      "slotUses": 12,
+      "tokenDependencies": 17,
+      "primitiveDependencies": 19,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "email-template-layout",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/email-template-layout.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/EmailTemplateLayout.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/EmailTemplateLayout.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/EmailTemplateLayout.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 5,
+      "components": 0,
+      "patternDependencies": 0,
+      "callbacks": 0,
+      "testedCallbacks": 0,
+      "slots": 11,
+      "slotUses": 12,
+      "tokenDependencies": 11,
+      "primitiveDependencies": 9,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "help-center",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/help-center.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/HelpCenter.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/HelpCenter.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/HelpCenter.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 5,
+      "patternDependencies": 2,
+      "callbacks": 5,
+      "testedCallbacks": 5,
+      "slots": 5,
+      "slotUses": 7,
+      "tokenDependencies": 11,
+      "primitiveDependencies": 18,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "payment-form",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/payment-form.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/payment-form.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/PaymentForm.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/PaymentForm.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/PaymentForm.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 6,
+      "patternDependencies": 1,
+      "callbacks": 7,
+      "testedCallbacks": 7,
+      "slots": 6,
+      "slotUses": 8,
+      "tokenDependencies": 17,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "pull-to-refresh",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/pull-to-refresh.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/PullToRefresh.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/PullToRefresh.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/PullToRefresh.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 0,
+      "callbacks": 1,
+      "testedCallbacks": 1,
+      "slots": 4,
+      "slotUses": 8,
+      "tokenDependencies": 13,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "section-header",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/section-header.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/SectionHeader.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/SectionHeader.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/SectionHeader.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 5,
+      "patternDependencies": 3,
+      "callbacks": 0,
+      "testedCallbacks": 0,
+      "slots": 5,
+      "slotUses": 8,
+      "tokenDependencies": 11,
+      "primitiveDependencies": 15,
+      "foundationDependencies": 11,
+      "debts": []
+    },
+    {
+      "id": "station-discovery",
+      "family": "mobileChannelAndTask",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/station-discovery.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/StationDiscovery.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/StationDiscovery.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/StationDiscovery.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 11,
+      "components": 8,
+      "patternDependencies": 1,
+      "callbacks": 5,
+      "testedCallbacks": 5,
+      "slots": 8,
+      "slotUses": 11,
+      "tokenDependencies": 17,
+      "primitiveDependencies": 17,
+      "foundationDependencies": 11,
+      "debts": []
+    }
+  ],
+  "issues": []
+}

@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 835,
+    filesScanned: 836,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3573,6 +3573,30 @@ function assertReactGovernanceBaselines() {
     slotUses: 193,
     interactionPatternDebt: 0,
   }, "Phase 5 interaction patterns checkpoint");
+
+  const phase5DataDomainMobilePatterns = readAuditReport("docs/audits/system-phase5-data-domain-mobile-patterns-checkpoint.json");
+  assertReportStatus(phase5DataDomainMobilePatterns, "Phase 5 data/domain/mobile patterns checkpoint");
+  assertInventory(phase5DataDomainMobilePatterns, {
+    dataDomainMobilePatterns: 31,
+    passingDataDomainMobilePatterns: 31,
+    families: 3,
+    requiredReports: 5,
+    passingRequiredReports: 5,
+    reportDebt: 0,
+    runtimeFiles: 155,
+    runtimeFilesPresent: 155,
+    states: 238,
+    componentDependencies: 145,
+    patternDependencies: 56,
+    primitiveDependencies: 501,
+    foundationDependencies: 341,
+    callbacks: 170,
+    testedCallbacks: 170,
+    slots: 170,
+    slotUses: 247,
+    tokenDependencies: 424,
+    dataDomainMobilePatternDebt: 0,
+  }, "Phase 5 data/domain/mobile patterns checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4236,12 +4260,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 117,
-    categoryMappings: 107,
+    reports: 118,
+    categoryMappings: 108,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 117,
-    debtMetrics: 135,
+    reportsWithDebtMetrics: 118,
+    debtMetrics: 137,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

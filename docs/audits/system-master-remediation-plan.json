@@ -359,7 +359,6 @@
         "No fake cards, raw overlays, search duplication, or DOM parallel behavior"
       ],
       "remaining": [
-        "Data/domain/mobile patterns.",
         "Pattern governance checkpoint."
       ],
       "completed": [
@@ -379,7 +378,13 @@
         "Interaction callbacks tested: 80/80",
         "Interaction slots covered: 113",
         "Interaction slot uses covered: 193",
-        "Interaction pattern debt: 0"
+        "Interaction pattern debt: 0",
+        "Data/domain/mobile patterns checkpoint PASS",
+        "Data/domain/mobile patterns covered: 31/31",
+        "Data/domain/mobile callbacks tested: 170/170",
+        "Data/domain/mobile slots covered: 170",
+        "Data/domain/mobile slot uses covered: 247",
+        "Data/domain/mobile pattern debt: 0"
       ]
     },
     {
@@ -447,9 +452,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 28,
+    "iteration": 29,
     "status": "phase_in_progress",
     "phase": "5. Patterns",
-    "then": "Continue with Data/domain/mobile patterns."
+    "then": "Continue with Pattern governance checkpoint."
   }
 }
