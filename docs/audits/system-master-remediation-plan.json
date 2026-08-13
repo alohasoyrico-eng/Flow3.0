@@ -39,15 +39,15 @@
     },
     "rawTokenValueGovernance": {
       "status": "PASS",
-      "scannedFiles": 564,
+      "scannedFiles": 584,
       "violations": 0,
       "byRule": {},
       "totalsByOwner": {}
     },
     "generatedTokenOutputGovernance": {
       "status": "PASS",
-      "outputs": 7,
-      "matchingOutputs": 7,
+      "outputs": 9,
+      "matchingOutputs": 9,
       "tokenCount": 1131,
       "gates": [
         "generated-output-manifest-exists",
@@ -64,18 +64,29 @@
       "policyOrNonRuntimeDecisionNeeded": 0,
       "p0RuntimeRequired": 18
     },
+    "phase3FoundationsPrimitivesCheckpoint": {
+      "status": "PASS",
+      "foundationCascadeReports": 11,
+      "passingFoundationCascadeReports": 11,
+      "primitiveCascadeReports": 24,
+      "passingPrimitiveCascadeReports": 24,
+      "activePrimitiveCascadeReports": 24,
+      "backlogPrimitiveCascadeReports": 0,
+      "sourceBoundaryViolations": 0,
+      "phase3FoundationsPrimitivesDebt": 0
+    },
     "forensicGates": {
       "status": "fail",
       "passing": [
         "style-dictionary-real",
-        "primitive-cascade-runtime"
+        "typescript-source-real",
+        "primitive-cascade-runtime",
+        "phase3-foundations-primitives"
       ],
       "failing": [
-        "typescript-source-real",
         "docs-ownership"
       ],
       "blockers": [
-        "FlowDocs has zero .ts/.tsx source files",
         "7 docs generated candidates do not map to spec",
         "162 entities have hand-authored docs surfaces"
       ]
@@ -86,7 +97,7 @@
       "phase": "3. Foundations/Primitives",
       "correctedIterationRange": "23-28",
       "workDoneEarly": "Primitive TS runtime/policy contracts were generated before fully closing Style Dictionary multiplatform outputs and TS migration phases.",
-      "status": "Useful but out of sequence; must not be used to claim later phases are complete."
+      "status": "Reconciled by later TypeScript and Phase 3 checkpoint gates in audit:complete."
     }
   ],
   "phases": [
@@ -159,7 +170,7 @@
       "name": "TypeScript real",
       "initialRange": "8-15",
       "correctedRange": "11-22",
-      "status": "not_started",
+      "status": "complete",
       "objective": "Migrate public Flow packages to real TS/TSX, not JS plus manual .d.ts.",
       "doneWhen": [
         "tsconfig exists",
@@ -172,18 +183,22 @@
         "React core components are TSX",
         "TS governance blocks new public JS surfaces"
       ],
-      "remaining": [
-        "Set up TypeScript project and build pipeline.",
-        "Migrate tokens/components contracts/shared helpers/core React components.",
-        "Create TS governance gate."
-      ]
+      "completed": [
+        "TypeScript project setup gate PASS",
+        "Token TypeScript surface PASS",
+        "Component contract/platform/registry TypeScript surfaces PASS",
+        "React public source/declaration parity PASS",
+        "React root and section index TypeScript surfaces PASS",
+        "TS governance is included in audit:complete"
+      ],
+      "remaining": []
     },
     {
       "id": 3,
       "name": "Foundations/Primitives",
       "initialRange": "16-19",
       "correctedRange": "23-28",
-      "status": "partial_out_of_order",
+      "status": "complete",
       "objective": "Make the base cascade exportable and consumable by higher layers.",
       "doneWhen": [
         "Foundations are exportable contracts, not React components",
@@ -196,13 +211,14 @@
         "24 primitive TS contracts generated",
         "18 runtime contracts",
         "6 policy contracts",
-        "primitive-cascade-runtime gate PASS"
+        "primitive-cascade-runtime gate PASS",
+        "11 foundation cascade reports PASS",
+        "24 primitive cascade reports PASS",
+        "primitive cascade backlog is 0",
+        "foundation/primitive export contract PASS",
+        "phase 3 foundations/primitives checkpoint PASS"
       ],
-      "remaining": [
-        "Do not claim phase complete until TypeScript real and Style Dictionary outputs/governance are complete.",
-        "Add missing structural primitive decisions: Stack/Grid/Layout, FocusRing, VisuallyHidden, Portal/Layer if applicable.",
-        "Prove cascade consumption from components/patterns after TS migration."
-      ]
+      "remaining": []
     },
     {
       "id": 4,
@@ -271,7 +287,7 @@
         "Release/handoff complete"
       ],
       "remaining": [
-        "Blocked by TypeScript real, components, patterns, templates, and docs ownership gates."
+        "Blocked by components, patterns, templates, and docs ownership gates."
       ]
     }
   ],
@@ -306,9 +322,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 10,
-    "status": "checkpoint_due",
-    "checkpoint": "Are tokens and Style Dictionary defensible?",
-    "then": "Phase 2: TypeScript real begins at iteration 11."
+    "iteration": 20,
+    "status": "phase_start",
+    "phase": "4. Components",
+    "then": "Begin component cascade audit 1:1 and component fixes on top of the governed lower layers."
   }
 }

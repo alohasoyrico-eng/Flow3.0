@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 108,
-    "categoryMappings": 98,
+    "reports": 109,
+    "categoryMappings": 99,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 108,
-    "debtMetrics": 124,
+    "reportsWithDebtMetrics": 109,
+    "debtMetrics": 126,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -76,10 +76,10 @@
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
-      "reports": 30,
+      "reports": 31,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 31,
+      "debtMetrics": 33,
       "totalDebt": 0
     },
     {
@@ -1298,6 +1298,27 @@
           "report": "system-phase1-style-dictionary-checkpoint.json",
           "scope": "topLevel",
           "metric": "phase1Debt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-phase3-foundations-primitives-checkpoint.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-phase3-foundations-primitives-checkpoint.json",
+          "scope": "inventory",
+          "metric": "foundationPrimitiveExportDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-phase3-foundations-primitives-checkpoint.json",
+          "scope": "inventory",
+          "metric": "phase3FoundationsPrimitivesDebt",
           "value": 0,
           "numericValue": 0
         }

@@ -29,20 +29,21 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | --- | --- | --- |
 | Style Dictionary source gate | PASS | 36 source files, 1131 source tokens, 1131 output tokens, 11 foundations, 19 primitive source files, 1 docs-only source file, 0 decision queue tokens |
 | Token output gate | PASS | CSS, JSON, TypeScript, Flutter Dart, Android XML, iOS Swift all match 1131 tokens |
-| Raw token value governance | PASS | 0 violations across 564 scanned files |
-| Generated token output governance | PASS | 7 generated outputs match manifest; token source hash matches manifest |
+| Raw token value governance | PASS | 0 violations across 584 scanned files |
+| Generated token output governance | PASS | 9 generated outputs match manifest; token source hash matches manifest |
 | Primitive runtime matrix | PASS for primitive cascade | 24 primitives, 18 typed runtime contracts, 6 typed policy contracts, 0 JS-only without TS boundary |
-| Forensic gates | FAIL | TS real and docs ownership still fail |
+| TypeScript real | PASS | TS project setup, public token surface, component contracts, registries, React surfaces, root index, and section indexes pass in audit:complete |
+| Phase 3 foundations/primitives checkpoint | PASS | 11/11 foundation cascades, 24/24 primitive cascades, 24 active primitive gates, 0 backlog, 0 source-boundary violations |
+| Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
 
-- FlowDocs has zero `.ts/.tsx` source files.
 - 7 docs generated candidates do not map to spec.
 - 162 entities have hand-authored docs surfaces.
 
 ## Out Of Order Work
 
-Primitive TS runtime/policy contracts were generated before fully closing Style Dictionary multiplatform outputs and TS migration phases. This work is useful, but it must not be used to claim later phases are complete.
+Primitive TS runtime/policy contracts were originally generated out of order, but the later TypeScript and Phase 3 gates now pass together in `audit:complete`.
 
 ## Phase Plan
 
@@ -50,8 +51,8 @@ Primitive TS runtime/policy contracts were generated before fully closing Style 
 | --- | --- | --- | --- | --- |
 | 0. Baseline forense | 1-2 | 1-3 | partial | Freeze inventory, duplication, docs-only, visual debt, token debt, TS debt, repos, commits, exports. |
 | 1. Style Dictionary real | 3-7 | 4-10 | complete | Create agnostic token source and multiplatform outputs with governance. |
-| 2. TypeScript real | 8-15 | 11-22 | not_started | Migrate public Flow packages to TS/TSX real. |
-| 3. Foundations/Primitives | 16-19 | 23-28 | partial_out_of_order | Make the base cascade exportable and consumable. |
+| 2. TypeScript real | 8-15 | 11-22 | complete | Migrate public Flow packages to TS/TSX real. |
+| 3. Foundations/Primitives | 16-19 | 23-28 | complete | Make the base cascade exportable and consumable. |
 | 4. Components | 20-24 | 29-40 | not_started | Audit and type 60 components. |
 | 5. Patterns | 25-29 | 41-52 | not_started | Make 63 patterns real and governed. |
 | 6. Templates | 30-31 | 53-58 | not_started | Make 9 templates consume real components/patterns. |
@@ -67,6 +68,28 @@ Primitive TS runtime/policy contracts were generated before fully closing Style 
 - Generated output edit governance PASS.
 - Email channel values moved behind generated token values for email-safe inline rendering.
 
+## Phase 2 Status
+
+**Complete by audit evidence.**
+
+- TypeScript project setup PASS.
+- Token TypeScript surface PASS.
+- Component contract/platform/registry TypeScript surfaces PASS.
+- React public source/declaration parity PASS across root and section indexes.
+- TS governance blocks public surface drift through `audit:complete`.
+
+## Phase 3 Status
+
+**Complete by audit evidence.**
+
+- Foundation cascade reports PASS: 11/11.
+- Primitive cascade reports PASS: 24/24.
+- Active primitive gates: 24; backlog: 0.
+- Primitive runtime contracts: 18; policy contracts: 6.
+- JS-only primitive runtime debt: 0.
+- Missing P0 primitive runtime debt: 0.
+- Source boundary violations for doc-panel/local typography/fake surface/gradients outside governed source: 0.
+
 ## Checkpoints
 
 | After iteration | Checkpoint |
@@ -81,4 +104,4 @@ Primitive TS runtime/policy contracts were generated before fully closing Style 
 
 ## Next Correct Step
 
-The next correct step is the iteration 10 checkpoint, then **Phase 2: TypeScript real** starting at iteration 11. FlowDocs remains blocked until Flow lower layers are defensible.
+The next correct step is **Phase 4: Components**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.

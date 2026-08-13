@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 826,
+    filesScanned: 827,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -4077,15 +4077,40 @@ function assertReactGovernanceBaselines() {
     reactSectionIndexTypescriptSurfaceDebt: 0,
   }, "React section indexes TypeScript surface");
 
+  const phase3FoundationsPrimitives = readAuditReport("docs/audits/system-phase3-foundations-primitives-checkpoint.json");
+  assertReportStatus(phase3FoundationsPrimitives, "Phase 3 foundations/primitives checkpoint");
+  assertInventory(phase3FoundationsPrimitives, {
+    foundationCascadeReports: 11,
+    passingFoundationCascadeReports: 11,
+    primitiveCascadeReports: 24,
+    passingPrimitiveCascadeReports: 24,
+    activePrimitiveCascadeReports: 24,
+    backlogPrimitiveCascadeReports: 0,
+    primitiveRuntimeContracts: 18,
+    primitivePolicyContracts: 6,
+    jsRuntimeOnlyPrimitives: 0,
+    missingP0RuntimePrimitives: 0,
+    unresolvedPrimitiveRuntimeDecisions: 0,
+    exportedFoundations: 11,
+    exportedPrimitives: 24,
+    foundationPrimitiveExportDebt: 0,
+    generatedTokenOutputs: 9,
+    matchingGeneratedTokenOutputs: 9,
+    rawTokenValueViolations: 0,
+    sourceBoundaryFilesScanned: 617,
+    sourceBoundaryViolations: 0,
+    phase3FoundationsPrimitivesDebt: 0,
+  }, "Phase 3 foundations/primitives checkpoint");
+
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 108,
-    categoryMappings: 98,
+    reports: 109,
+    categoryMappings: 99,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 108,
-    debtMetrics: 124,
+    reportsWithDebtMetrics: 109,
+    debtMetrics: 126,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

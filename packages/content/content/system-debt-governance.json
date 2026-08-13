@@ -86,6 +86,7 @@
     "system-react-section-indexes-typescript-surface.json": "react-primary",
     "system-react-overlay-components-typescript-surface.json": "react-primary",
     "system-phase1-style-dictionary-checkpoint.json": "foundations-primitives",
+    "system-phase3-foundations-primitives-checkpoint.json": "foundations-primitives",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",
     "package-css-root-governance-audit.json": "cascade",

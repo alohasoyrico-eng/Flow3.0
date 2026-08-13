@@ -1,0 +1,231 @@
+{
+  "status": "pass",
+  "audit": "system phase 3 foundations/primitives checkpoint",
+  "principle": "Foundations and primitives can close only when source tokens, generated outputs, export contracts, runtime/policy primitive contracts, active primitive cascade gates, and source-boundary governance all pass together.",
+  "scope": "Original plan iteration 19: close Foundations/Primitives cascade base.",
+  "inventory": {
+    "foundationCascadeReports": 11,
+    "passingFoundationCascadeReports": 11,
+    "primitiveCascadeReports": 24,
+    "passingPrimitiveCascadeReports": 24,
+    "activePrimitiveCascadeReports": 24,
+    "backlogPrimitiveCascadeReports": 0,
+    "primitiveRuntimeContracts": 18,
+    "primitivePolicyContracts": 6,
+    "jsRuntimeOnlyPrimitives": 0,
+    "missingP0RuntimePrimitives": 0,
+    "unresolvedPrimitiveRuntimeDecisions": 0,
+    "exportedFoundations": 11,
+    "exportedPrimitives": 24,
+    "foundationPrimitiveExportDebt": 0,
+    "generatedTokenOutputs": 9,
+    "matchingGeneratedTokenOutputs": 9,
+    "rawTokenValueViolations": 0,
+    "sourceBoundaryFilesScanned": 617,
+    "sourceBoundaryViolations": 0,
+    "phase3FoundationsPrimitivesDebt": 0
+  },
+  "foundationReports": [
+    {
+      "id": "energy",
+      "file": "docs/audits/foundation-energy-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "voice",
+      "file": "docs/audits/foundation-voice-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "frame",
+      "file": "docs/audits/foundation-frame-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "depth",
+      "file": "docs/audits/foundation-depth-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "momentum",
+      "file": "docs/audits/foundation-momentum-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "state",
+      "file": "docs/audits/foundation-state-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "tone",
+      "file": "docs/audits/foundation-tone-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "growth",
+      "file": "docs/audits/foundation-growth-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "symbol",
+      "file": "docs/audits/foundation-symbol-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "iconography",
+      "file": "docs/audits/foundation-iconography-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "accessibility",
+      "file": "docs/audits/foundation-accessibility-cascade-audit.json",
+      "status": "pass"
+    }
+  ],
+  "primitiveReports": [
+    {
+      "id": "color",
+      "file": "docs/audits/primitive-color-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "typography",
+      "file": "docs/audits/primitive-typography-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "spacing",
+      "file": "docs/audits/primitive-spacing-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "radius",
+      "file": "docs/audits/primitive-radius-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "elevation",
+      "file": "docs/audits/primitive-elevation-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "iconography",
+      "file": "docs/audits/primitive-iconography-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "library-sources",
+      "file": "docs/audits/primitive-library-sources-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "country-flags",
+      "file": "docs/audits/primitive-country-flags-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "animation-assets",
+      "file": "docs/audits/primitive-animation-assets-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "illustration-assets",
+      "file": "docs/audits/primitive-illustration-assets-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "motion-curves",
+      "file": "docs/audits/primitive-motion-curves-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "duration",
+      "file": "docs/audits/primitive-duration-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "breakpoints",
+      "file": "docs/audits/primitive-breakpoints-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "density",
+      "file": "docs/audits/primitive-density-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "focus",
+      "file": "docs/audits/primitive-focus-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "loading",
+      "file": "docs/audits/primitive-loading-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "disabled",
+      "file": "docs/audits/primitive-disabled-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "charts",
+      "file": "docs/audits/primitive-charts-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "maps",
+      "file": "docs/audits/primitive-maps-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "message",
+      "file": "docs/audits/primitive-message-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "measurement",
+      "file": "docs/audits/primitive-measurement-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "research",
+      "file": "docs/audits/primitive-research-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "surface",
+      "file": "docs/audits/primitive-surface-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "field-action",
+      "file": "docs/audits/primitive-field-action-cascade-audit.json",
+      "status": "pass"
+    }
+  ],
+  "forbiddenSourcePatterns": [
+    {
+      "id": "docs-only-doc-panel",
+      "label": "Docs-only doc-panel boundary outside token source"
+    },
+    {
+      "id": "docs-demo-surface",
+      "label": "Docs demo surface leaking into Flow source"
+    },
+    {
+      "id": "decorative-gradient",
+      "label": "Decorative gradient outside token source"
+    },
+    {
+      "id": "local-background-image",
+      "label": "Local background image/texture outside token source"
+    },
+    {
+      "id": "local-font-family",
+      "label": "Local typography family outside token source"
+    }
+  ],
+  "sourceBoundaryViolations": [],
+  "issues": []
+}
