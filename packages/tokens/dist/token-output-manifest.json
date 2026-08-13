@@ -10,6 +10,10 @@
       "sha256": "c504ed96b96c4fa8580ce892d7d4d924554aa12ba78a1ccefd2cac14fb893887"
     },
     {
+      "file": "packages/tokens/styles/token-contexts.css",
+      "sha256": "40cb2a5352c669cf08e2a37f12034126b7bebb3833f2b0bb7c972196f30a8030"
+    },
+    {
       "file": "packages/tokens/tokens.json",
       "sha256": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042"
     },

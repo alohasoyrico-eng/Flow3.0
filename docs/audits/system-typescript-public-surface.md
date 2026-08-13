@@ -6,8 +6,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 ## Summary
 
-- Public export targets: 580
-- Unique public export targets: 298
+- Public export targets: 582
+- Unique public export targets: 299
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
 - Public JS runtime exports with TS/TSX source: 280

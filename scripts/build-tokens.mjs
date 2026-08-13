@@ -16,6 +16,7 @@ const tokenRuntimeSource = path.join(root, "packages/tokens/src/index.ts");
 const tokenRuntimeOutput = path.join(root, "packages/tokens/src/index.js");
 const outputFiles = [
   "packages/tokens/styles/tokens.css",
+  "packages/tokens/styles/token-contexts.css",
   "packages/tokens/tokens.json",
   "packages/tokens/src/generated/tokens.ts",
   "packages/tokens/src/index.js",

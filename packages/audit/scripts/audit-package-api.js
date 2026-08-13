@@ -23,6 +23,7 @@ const boundaryImports = [
   "#design-system/specs/templates/*",
   "#design-system/tokens-json",
   "#design-system/tokens-css",
+  "#design-system/token-contexts-css",
 ];
 
 const contentExports = [
@@ -54,6 +55,7 @@ const tokenPackageExports = {
   ".": "./src/index.js",
   "./tokens.json": "./tokens.json",
   "./styles.css": "./styles/tokens.css",
+  "./context-styles.css": "./styles/token-contexts.css",
   "./flutter": "./dist/flutter/flow_tokens.dart",
   "./android": "./dist/android/flow_tokens.xml",
   "./ios": "./dist/ios/FlowTokens.swift",
@@ -79,6 +81,7 @@ const installExports = [
   "./tokens",
   "./tokens.json",
   "./tokens/styles.css",
+  "./tokens/context-styles.css",
   "./tokens/android",
   "./tokens/flutter",
   "./tokens/ios",

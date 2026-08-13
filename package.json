@@ -596,6 +596,7 @@
     "./specs/templates/*": "./packages/specs/specs/unison-system/artifacts/templates/*.json",
     "./tokens": "./packages/tokens/src/index.js",
     "./tokens/android": "./packages/tokens/dist/android/flow_tokens.xml",
+    "./tokens/context-styles.css": "./packages/tokens/styles/token-contexts.css",
     "./tokens/flutter": "./packages/tokens/dist/flutter/flow_tokens.dart",
     "./tokens/ios": "./packages/tokens/dist/ios/FlowTokens.swift",
     "./tokens.json": "./packages/tokens/tokens.json",
@@ -627,7 +628,8 @@
     "#design-system/specs/patterns/*": "./packages/specs/specs/unison-system/artifacts/patterns/*.json",
     "#design-system/specs/templates/*": "./packages/specs/specs/unison-system/artifacts/templates/*.json",
     "#design-system/tokens-json": "./packages/tokens/tokens.json",
-    "#design-system/tokens-css": "./packages/tokens/styles/tokens.css"
+    "#design-system/tokens-css": "./packages/tokens/styles/tokens.css",
+    "#design-system/token-contexts-css": "./packages/tokens/styles/token-contexts.css"
   },
   "workspaces": [
     "packages/*"

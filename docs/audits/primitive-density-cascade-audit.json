@@ -160,6 +160,7 @@
     "note": "The public primitive API is sys-density. Legacy density aliases remain internal compatibility only while consumers migrate."
   },
   "contextBridge": {
+    "file": "packages/tokens/styles/token-contexts.css",
     "requiredContextFields": [
       "--sys-density-control-height",
       "--sys-density-control-padding-x",
@@ -172,8 +173,35 @@
       "--sys-density-doc-body-size",
       "--sys-density-doc-label-size"
     ],
-    "checks": [],
-    "failing": []
+    "checks": [
+      {
+        "selector": ":where([data-density=\"sm\"], [data-density-context=\"sm\"], .density-sm)",
+        "file": "packages/tokens/styles/token-contexts.css",
+        "status": "pass",
+        "missing": []
+      },
+      {
+        "selector": ":where([data-density=\"md\"], [data-density-context=\"md\"], .density-md)",
+        "file": "packages/tokens/styles/token-contexts.css",
+        "status": "pass",
+        "missing": []
+      },
+      {
+        "selector": ":where([data-density=\"lg\"], [data-density-context=\"lg\"], .density-lg),",
+        "file": "packages/tokens/styles/token-contexts.css",
+        "status": "pass",
+        "missing": []
+      },
+      {
+        "selector": ".density-responsive",
+        "file": "packages/tokens/styles/token-contexts.css",
+        "status": "pass",
+        "missing": []
+      }
+    ],
+    "failing": [],
+    "docsDuplicates": [],
+    "note": "Density context evidence must come from generated Flow token contexts, not FlowDocs CSS. Docs duplicates are tracked as P0 cleanup debt."
   },
   "componentBridge": {
     "file": "packages/components/styles/components.css",

@@ -21,6 +21,7 @@ const EXCLUDED_PATH_PARTS = [
   "packages/tokens/src/generated",
   "packages/react/src/internal/email-token-values.js",
   "packages/tokens/styles/tokens.css",
+  "packages/tokens/styles/token-contexts.css",
   "packages/tokens/tokens.json",
 ];
 

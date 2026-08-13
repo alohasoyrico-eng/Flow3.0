@@ -16,6 +16,7 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "primitive-density-cascade-audit.json");
 const markdownOutput = path.join(outputDir, "primitive-density-cascade-audit.md");
 const tokenCssFile = resolveBoundaryPath("#design-system/tokens-css", "packages/tokens/styles/tokens.css");
+const tokenContextCssFile = path.join(root, "packages/tokens/styles/token-contexts.css");
 const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
 const densitySpecFile = path.join(root, "packages/specs/specs/unison-system/artifacts/primitives/density.json");
 const densityContractFile = path.join(root, "packages/content/content/primitive-contracts/primitives/density.md");
@@ -297,16 +298,24 @@ function createReport() {
   const componentAliasBypasses = requiredComponentAliases
     .filter((alias) => !/^var\(--sys-density-/.test(componentDecls.get(alias) ?? ""))
     .map((alias) => ({ alias, actual: componentDecls.get(alias) ?? null }));
-  const contextChecks = docsFoundationDensityFile && docsShellDensityFile ? [
-    ...contextCompleteness(docsFoundationDensityFile, [
+  const contextChecks = fs.existsSync(tokenContextCssFile) ? [
+    ...contextCompleteness(tokenContextCssFile, [
       ':where([data-density="sm"], [data-density-context="sm"], .density-sm)',
       ':where([data-density="md"], [data-density-context="md"], .density-md)',
-      ':where([data-density="lg"], [data-density-context="lg"], .density-lg)',
+      ':where([data-density="lg"], [data-density-context="lg"], .density-lg),',
     ]),
-    ...contextCompleteness(docsShellDensityFile, [
+    ...contextCompleteness(tokenContextCssFile, [
       ".density-responsive",
     ]),
   ] : [];
+  const docsContextDuplicates = [docsFoundationDensityFile, docsShellDensityFile]
+    .filter(Boolean)
+    .map((file) => ({
+      file: rel(file),
+      densityContextDeclarations: countMatches(readIfExists(file), /--sys-density-[a-z0-9-]+(?=\s*:)/g),
+      status: "docs-duplicate-after-flow-token-context-source",
+    }))
+    .filter((item) => item.densityContextDeclarations > 0);
   const failingContexts = contextChecks.filter((item) => item.status !== "pass");
   const legacyDeclarations = findLegacyDensityDeclarations([componentCssFile, ...docsCssFiles]);
   const componentDensitySelectors = countMatches(componentCss, /\[data-density="(?:sm|md|lg)"\]/g);
@@ -325,7 +334,8 @@ function createReport() {
   if (brokenLegacyAliases.length) gaps.push(`Legacy density aliases do not map to sys-density: ${brokenLegacyAliases.join(", ")}.`);
   if (missingComponentAliases.length) gaps.push(`Component package is missing required Density bridge aliases: ${missingComponentAliases.join(", ")}.`);
   if (componentAliasBypasses.length) gaps.push("Component package Density bridge aliases must consume sys-density aliases directly.");
-  if (failingContexts.length) gaps.push("Density contexts do not expose the required spacing, type, row, and control remaps.");
+  if (!fs.existsSync(tokenContextCssFile)) gaps.push("Token package is missing generated token context CSS.");
+  if (failingContexts.length) gaps.push("Generated token context CSS does not expose the required spacing, type, row, and control remaps.");
   if (legacyDeclarations.length) gaps.push("Docs or components still declare legacy --density-* tokens outside the token/reference layer.");
   if (frameReport.status !== "pass") gaps.push("Density cannot pass while Frame foundation cascade report is not pass.");
   if (accessibilityReport.status !== "pass") gaps.push("Density cannot pass while Accessibility foundation cascade report is not pass.");
@@ -370,9 +380,12 @@ function createReport() {
       note: "The public primitive API is sys-density. Legacy density aliases remain internal compatibility only while consumers migrate.",
     },
     contextBridge: {
+      file: rel(tokenContextCssFile),
       requiredContextFields,
       checks: contextChecks,
       failing: failingContexts,
+      docsDuplicates: docsContextDuplicates,
+      note: "Density context evidence must come from generated Flow token contexts, not FlowDocs CSS. Docs duplicates are tracked as P0 cleanup debt.",
     },
     componentBridge: {
       file: rel(componentCssFile),

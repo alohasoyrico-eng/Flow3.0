@@ -7,6 +7,7 @@
     ".": "./src/index.js",
     "./tokens.json": "./tokens.json",
     "./styles.css": "./styles/tokens.css",
+    "./context-styles.css": "./styles/token-contexts.css",
     "./flutter": "./dist/flutter/flow_tokens.dart",
     "./android": "./dist/android/flow_tokens.xml",
     "./ios": "./dist/ios/FlowTokens.swift"

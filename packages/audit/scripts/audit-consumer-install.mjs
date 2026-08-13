@@ -2650,6 +2650,7 @@ function auditInstalledPackage(consumerDir) {
   assertInstalledExportInventory(installedPackage);
   for (const [exportPath, expectedTarget] of Object.entries({
     "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./tokens/context-styles.css": "./packages/tokens/styles/token-contexts.css",
     "./components/styles.css": "./packages/components/styles/components.css",
   })) {
     if (installedPackage.exports?.[exportPath] !== expectedTarget) {
@@ -2803,6 +2804,7 @@ function assertInstalledExportInventory(installedPackage) {
     "./tokens": "./packages/tokens/src/index.js",
     "./tokens.json": "./packages/tokens/tokens.json",
     "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./tokens/context-styles.css": "./packages/tokens/styles/token-contexts.css",
     "./tokens/android": "./packages/tokens/dist/android/flow_tokens.xml",
     "./tokens/flutter": "./packages/tokens/dist/flutter/flow_tokens.dart",
     "./tokens/ios": "./packages/tokens/dist/ios/FlowTokens.swift",
