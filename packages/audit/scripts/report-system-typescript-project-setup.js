@@ -152,6 +152,7 @@ function main() {
         && include.includes("packages/react/src/patterns/AvatarGroup.ts")
         && include.includes("packages/react/src/patterns/AvatarMenu.ts")
         && include.includes("packages/react/src/patterns/BackofficeApproval.ts")
+        && include.includes("packages/react/src/patterns/BottomSheet.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")

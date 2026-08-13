@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 166
-- Source declarations paired with JS but not TS/TSX: 57
-- TypeScript surface debt: 337
-- Unique TypeScript surface debt: 197
+- Public JS runtime exports with TS/TSX source: 168
+- Source declarations paired with JS but not TS/TSX: 56
+- TypeScript surface debt: 336
+- Unique TypeScript surface debt: 196
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":119,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":528,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":120,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":529,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -70,7 +70,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/index.js | yes |
 | package.json | packages/react/dist/patterns/AccountOperations.js | yes |
 | package.json | packages/react/dist/patterns/ActionSheet.js | yes |
-| package.json | packages/react/dist/patterns/BottomSheet.js | no |
+| package.json | packages/react/dist/patterns/BottomSheet.js | yes |
 | package.json | packages/react/dist/patterns/AdvancedFilters.js | yes |
 | package.json | packages/react/dist/patterns/AgentConversation.js | yes |
 | package.json | packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js | yes |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/BottomSheet.d.ts | yes | no |
 | packages/react/src/patterns/BulkActions.d.ts | yes | no |
 | packages/react/src/patterns/CalendarView.d.ts | yes | no |
 | packages/react/src/patterns/CaseManagement.d.ts | yes | no |
