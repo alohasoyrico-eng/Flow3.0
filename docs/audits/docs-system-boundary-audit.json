@@ -5,9 +5,9 @@
   "docsRoot": "../FlowDocs",
   "inventory": {
     "sourceFilesScanned": 210,
-    "generatedFiles": 355,
+    "generatedFiles": 356,
     "flowDependencyPresent": 1,
-    "flowBoundaryAliases": 20,
+    "flowBoundaryAliases": 21,
     "missingFlowAliases": 0,
     "localFlowImportViolations": 0,
     "docsComponentTokenDefinitions": 0,
@@ -28,9 +28,9 @@
   "baseline": {
     "inventory": {
       "sourceFilesScanned": 210,
-      "generatedFiles": 355,
+      "generatedFiles": 356,
       "flowDependencyPresent": 1,
-      "flowBoundaryAliases": 20,
+      "flowBoundaryAliases": 21,
       "missingFlowAliases": 0,
       "localFlowImportViolations": 0,
       "docsComponentTokenDefinitions": 0,

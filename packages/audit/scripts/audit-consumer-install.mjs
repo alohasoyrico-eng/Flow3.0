@@ -3313,9 +3313,9 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(docsSystemBoundary, "Docs system boundary");
   assertInventory(docsSystemBoundary, {
     sourceFilesScanned: 210,
-    generatedFiles: 355,
+    generatedFiles: 356,
     flowDependencyPresent: 1,
-    flowBoundaryAliases: 20,
+    flowBoundaryAliases: 21,
     missingFlowAliases: 0,
     localFlowImportViolations: 0,
     docsComponentTokenDefinitions: 0,

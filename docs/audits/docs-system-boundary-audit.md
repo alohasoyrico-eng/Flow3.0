@@ -8,9 +8,9 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 
 - Docs root: ../FlowDocs
 - Source files scanned: 210
-- Generated files: 355
+- Generated files: 356
 - Flow dependency present: 1
-- Flow boundary aliases: 20
+- Flow boundary aliases: 21
 - Missing Flow aliases: 0
 - Local Flow import violations: 0
 - Docs component token definitions: 0
@@ -32,9 +32,9 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | sourceFilesScanned | 210 | 210 |
-| generatedFiles | 355 | 355 |
+| generatedFiles | 356 | 356 |
 | flowDependencyPresent | 1 | 1 |
-| flowBoundaryAliases | 20 | 20 |
+| flowBoundaryAliases | 21 | 21 |
 | missingFlowAliases | 0 | 0 |
 | localFlowImportViolations | 0 | 0 |
 | docsComponentTokenDefinitions | 0 | 0 |

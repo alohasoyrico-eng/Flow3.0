@@ -89,7 +89,9 @@
     --frame-grid-gutter: var(--sys-frame-grid-md-gutter);
     --frame-grid-margin: var(--sys-frame-grid-md-margin);
   }
+}
 
+@media (min-width: 576px) and (max-width: 1439px) {
   .density-responsive {
     --sys-density-control-height: var(--ref-frame-height-control-md);
     --sys-density-control-padding-x: var(--ref-frame-space-5);
@@ -121,7 +123,9 @@
     --frame-grid-gutter: var(--sys-frame-grid-lg-gutter);
     --frame-grid-margin: var(--sys-frame-grid-lg-margin);
   }
+}
 
+@media (max-width: 575px) {
   .density-responsive {
     --sys-density-control-height: var(--ref-frame-height-control-md);
     --sys-density-control-padding-x: var(--ref-frame-space-5);

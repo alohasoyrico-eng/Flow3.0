@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T10:43:09.386Z",
+  "generatedAt": "2026-08-13T10:48:04.464Z",
   "scope": "Generated token output edit governance",
   "status": "PASS",
   "manifest": "packages/tokens/dist/token-output-manifest.json",
@@ -44,8 +44,8 @@
           {
             "file": "packages/tokens/styles/token-contexts.css",
             "exists": true,
-            "expectedSha": "40cb2a5352c669cf08e2a37f12034126b7bebb3833f2b0bb7c972196f30a8030",
-            "actualSha": "40cb2a5352c669cf08e2a37f12034126b7bebb3833f2b0bb7c972196f30a8030",
+            "expectedSha": "47314fe843551d03567e7462703a66ffef5d4894e2ee017cbdc258bb841618f0",
+            "actualSha": "47314fe843551d03567e7462703a66ffef5d4894e2ee017cbdc258bb841618f0",
             "matchesManifest": true
           },
           {
@@ -113,8 +113,8 @@
     {
       "file": "packages/tokens/styles/token-contexts.css",
       "exists": true,
-      "expectedSha": "40cb2a5352c669cf08e2a37f12034126b7bebb3833f2b0bb7c972196f30a8030",
-      "actualSha": "40cb2a5352c669cf08e2a37f12034126b7bebb3833f2b0bb7c972196f30a8030",
+      "expectedSha": "47314fe843551d03567e7462703a66ffef5d4894e2ee017cbdc258bb841618f0",
+      "actualSha": "47314fe843551d03567e7462703a66ffef5d4894e2ee017cbdc258bb841618f0",
       "matchesManifest": true
     },
     {
