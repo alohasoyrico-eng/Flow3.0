@@ -143,6 +143,7 @@ function main() {
         && include.includes("packages/react/src/RouteSummary.tsx")
         && include.includes("packages/react/src/index.ts")
         && include.includes("packages/react/src/patterns/index.ts")
+        && include.includes("packages/react/src/patterns/AccountOperations.ts")
         && include.includes("packages/react/src/patterns/AvatarMenu.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")

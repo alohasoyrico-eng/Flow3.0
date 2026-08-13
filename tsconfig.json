@@ -92,6 +92,7 @@
     "packages/react/src/RouteSummary.tsx",
     "packages/react/src/index.ts",
     "packages/react/src/patterns/index.ts",
+    "packages/react/src/patterns/AccountOperations.ts",
     "packages/react/src/patterns/AvatarMenu.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
