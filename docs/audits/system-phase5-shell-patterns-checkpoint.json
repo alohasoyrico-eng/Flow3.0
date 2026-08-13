@@ -1,0 +1,232 @@
+{
+  "status": "pass",
+  "audit": "system phase 5 shell patterns checkpoint",
+  "principle": "Shell patterns close only when Topbar, Sidebar, Search, Toolbar, and Command Palette have formal artifacts, Markdown contracts, TS/JS/d.ts runtime surfaces, shell-specific governance checks, cross-pattern behavior/composition gates, and zero policy debt.",
+  "scope": "Original plan iteration 26: shell patterns.",
+  "inventory": {
+    "shellPatterns": 5,
+    "shellPatternsPassing": 5,
+    "shellPatternChecks": 25,
+    "sourceFiles": 15,
+    "contractFiles": 10,
+    "filesPresent": 25,
+    "reports": 4,
+    "reportsPassing": 4,
+    "policyChecks": 5,
+    "policyChecksPassing": 5,
+    "shellPatternDebt": 0
+  },
+  "shellPatterns": [
+    {
+      "id": "topbar",
+      "name": "Topbar",
+      "status": "pass",
+      "checks": 6,
+      "failures": 0,
+      "sourceFiles": [
+        "packages/react/src/patterns/Topbar.ts",
+        "packages/react/src/patterns/Topbar.js",
+        "packages/react/src/patterns/Topbar.d.ts"
+      ]
+    },
+    {
+      "id": "sidebar",
+      "name": "Sidebar",
+      "status": "pass",
+      "checks": 5,
+      "failures": 0,
+      "sourceFiles": [
+        "packages/react/src/patterns/Sidebar.ts",
+        "packages/react/src/patterns/Sidebar.js",
+        "packages/react/src/patterns/Sidebar.d.ts"
+      ]
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "status": "pass",
+      "checks": 4,
+      "failures": 0,
+      "sourceFiles": [
+        "packages/react/src/patterns/Search.ts",
+        "packages/react/src/patterns/Search.js",
+        "packages/react/src/patterns/Search.d.ts"
+      ]
+    },
+    {
+      "id": "toolbar",
+      "name": "Toolbar",
+      "status": "pass",
+      "checks": 5,
+      "failures": 0,
+      "sourceFiles": [
+        "packages/react/src/patterns/Toolbar.ts",
+        "packages/react/src/patterns/Toolbar.js",
+        "packages/react/src/patterns/Toolbar.d.ts"
+      ]
+    },
+    {
+      "id": "command-palette",
+      "name": "Command Palette",
+      "status": "pass",
+      "checks": 5,
+      "failures": 0,
+      "sourceFiles": [
+        "packages/react/src/patterns/CommandPalette.ts",
+        "packages/react/src/patterns/CommandPalette.js",
+        "packages/react/src/patterns/CommandPalette.d.ts"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "id": "shell-contract-governance",
+      "file": "docs/audits/shell-pattern-contract-governance-audit.json",
+      "status": "pass",
+      "mismatches": []
+    },
+    {
+      "id": "pattern-composition",
+      "file": "docs/audits/react-pattern-composition-governance-audit.json",
+      "status": "pass",
+      "mismatches": []
+    },
+    {
+      "id": "pattern-behavior",
+      "file": "docs/audits/react-pattern-behavior-governance-audit.json",
+      "status": "pass",
+      "mismatches": []
+    },
+    {
+      "id": "pattern-react-migration",
+      "file": "docs/audits/pattern-react-migration-audit.json",
+      "status": "pass",
+      "mismatches": []
+    }
+  ],
+  "policies": [
+    {
+      "id": "single-mobile-navigation-action",
+      "status": "pass"
+    },
+    {
+      "id": "sidebar-controlled-drawer",
+      "status": "pass"
+    },
+    {
+      "id": "search-composes-input",
+      "status": "pass"
+    },
+    {
+      "id": "toolbar-delegates-search-topbar",
+      "status": "pass"
+    },
+    {
+      "id": "command-palette-composes-dialog-menu",
+      "status": "pass"
+    }
+  ],
+  "files": [
+    {
+      "file": "packages/react/src/patterns/Topbar.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Topbar.js",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Topbar.d.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Sidebar.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Sidebar.js",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Sidebar.d.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Search.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Search.js",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Search.d.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Toolbar.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Toolbar.js",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/Toolbar.d.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/CommandPalette.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/CommandPalette.js",
+      "exists": true
+    },
+    {
+      "file": "packages/react/src/patterns/CommandPalette.d.ts",
+      "exists": true
+    },
+    {
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+      "exists": true
+    },
+    {
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+      "exists": true
+    },
+    {
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+      "exists": true
+    },
+    {
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+      "exists": true
+    },
+    {
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+      "exists": true
+    },
+    {
+      "file": "packages/content/content/pattern-contracts/patterns/topbar.md",
+      "exists": true
+    },
+    {
+      "file": "packages/content/content/pattern-contracts/patterns/sidebar.md",
+      "exists": true
+    },
+    {
+      "file": "packages/content/content/pattern-contracts/patterns/search.md",
+      "exists": true
+    },
+    {
+      "file": "packages/content/content/pattern-contracts/patterns/toolbar.md",
+      "exists": true
+    },
+    {
+      "file": "packages/content/content/pattern-contracts/patterns/command-palette.md",
+      "exists": true
+    }
+  ],
+  "issues": []
+}

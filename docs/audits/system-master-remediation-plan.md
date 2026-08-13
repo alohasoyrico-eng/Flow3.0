@@ -39,6 +39,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 4 domain/complex checkpoint | PASS | 25/25 domain/complex components, 8/8 gate reports, 200/200 component gate edges, 0 debt |
 | Phase 4 component QA checkpoint | PASS | 60/60 batch components, 60/60 unique components, 480/480 component gate edges, 12/12 QA reports, 0 debt |
 | Phase 5 pattern 1:1 checkpoint | PASS | 63 patterns, 7/7 pattern audit reports, 2/2 row reports with 63 rows, 0 debt |
+| Phase 5 shell patterns checkpoint | PASS | 5/5 shell patterns, 25 shell checks, 4/4 audit reports, 5/5 policy checks, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -137,6 +138,12 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Pattern audit reports PASS: 7/7.
 - Pattern row reports with 63 rows PASS: 2/2.
 - Pattern audit debt: 0.
+- Shell patterns checkpoint PASS.
+- Shell patterns covered: Topbar, Sidebar, Search, Toolbar, Command Palette.
+- Shell pattern checks PASS: 25/25.
+- Shell audit reports PASS: 4/4.
+- Shell policy checks PASS: 5/5.
+- Shell pattern debt: 0.
 
 ## Checkpoints
 
@@ -152,4 +159,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 5 Shell patterns**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.
+The next correct step is **Phase 5 Interaction patterns**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.

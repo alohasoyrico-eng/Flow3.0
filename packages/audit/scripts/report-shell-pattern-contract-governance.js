@@ -122,6 +122,90 @@ const shellPatterns = [
       },
     ],
   },
+  {
+    id: "toolbar",
+    name: "Toolbar",
+    file: path.join(reactPatternDir, "Toolbar.ts"),
+    checks: [
+      {
+        id: "typed-source",
+        description: "Toolbar is authored in TS as the public local action shell contract.",
+        test: (source) => source.includes("export interface ToolbarProps"),
+      },
+      {
+        id: "toolbar-role",
+        description: "Toolbar carries the semantic toolbar role and Flow pattern marker.",
+        test: (source) => source.includes('role: "toolbar"')
+          && source.includes('"data-flow-pattern": "toolbar"'),
+      },
+      {
+        id: "composes-flow-controls",
+        description: "Toolbar composes Flow controls for actions, filters, status, overflow, and feedback.",
+        test: (source) => [
+          "React.createElement(Button",
+          "React.createElement(Chip",
+          "React.createElement(Badge",
+          "React.createElement(Menu",
+          "React.createElement(Toast",
+        ].every((needle) => source.includes(needle)),
+      },
+      {
+        id: "delegates-search-boundary",
+        description: "Toolbar delegates complex query behavior to Search instead of cloning the pattern.",
+        test: (source) => source.includes("search?.delegate")
+          && source.includes("React.createElement(Search"),
+      },
+      {
+        id: "delegates-topbar-boundary",
+        description: "Toolbar keeps global shell actions in Topbar instead of owning them locally.",
+        test: (source) => source.includes("topbar")
+          && source.includes("React.createElement(Topbar"),
+      },
+    ],
+  },
+  {
+    id: "command-palette",
+    name: "Command Palette",
+    file: path.join(reactPatternDir, "CommandPalette.ts"),
+    checks: [
+      {
+        id: "typed-source",
+        description: "Command Palette is authored in TS as the public command shell contract.",
+        test: (source) => source.includes("export interface CommandPaletteProps"),
+      },
+      {
+        id: "pattern-marker",
+        description: "Command Palette carries a Flow pattern marker and explicit state model.",
+        test: (source) => source.includes('"data-flow-pattern": "command-palette"')
+          && source.includes("export type CommandPaletteState"),
+      },
+      {
+        id: "composes-dialog-input-menu",
+        description: "Command Palette composes Flow Dialog, Input, and Menu instead of raw overlay rows.",
+        test: (source) => [
+          "React.createElement(Dialog",
+          "React.createElement(Input",
+          "React.createElement(Menu",
+        ].every((needle) => source.includes(needle)),
+      },
+      {
+        id: "empty-and-feedback",
+        description: "Command Palette owns empty recovery and feedback through Flow components.",
+        test: (source) => source.includes("React.createElement(EmptyState")
+          && source.includes("React.createElement(Toast"),
+      },
+      {
+        id: "controlled-open-query-execution",
+        description: "Command Palette exposes controlled open, query, command select, and primary action callbacks.",
+        test: (source) => [
+          "onOpenChange",
+          "onQueryChange",
+          "onCommandSelect",
+          "onPrimaryAction",
+        ].every((needle) => source.includes(needle)),
+      },
+    ],
+  },
 ];
 
 function createReport() {
@@ -150,7 +234,7 @@ function createReport() {
   return {
     status: debt ? "fail" : "pass",
     audit: "shell pattern contract governance",
-    principle: "FlowDocs shell dependencies must rely on governed Flow patterns. Topbar, Sidebar, and Search must expose typed contracts, controlled shell state, and no parallel mobile drawer close control by default.",
+    principle: "FlowDocs shell dependencies must rely on governed Flow patterns. Topbar, Sidebar, Search, Toolbar, and Command Palette must expose typed contracts, controlled shell state, delegated pattern boundaries, and no parallel shell behavior by default.",
     inventory: {
       shellPatterns: rows.length,
       checks: rows.reduce((total, row) => total + row.checks.length, 0),

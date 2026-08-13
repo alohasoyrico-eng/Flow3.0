@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip kit runtime coverage",
   "principle": "ZIP kits may only be considered absorbed when their Flow owners are covered by React runtime, visual, composition, interaction, or explicit separate-channel renderer audits.",
-  "generatedAt": "2026-08-13T15:33:49.090Z",
+  "generatedAt": "2026-08-13T15:40:33.924Z",
   "inventory": {
     "kits": 16,
     "productTemplateKits": 10,

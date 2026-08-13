@@ -359,7 +359,6 @@
         "No fake cards, raw overlays, search duplication, or DOM parallel behavior"
       ],
       "remaining": [
-        "Shell patterns.",
         "Interaction patterns.",
         "Data/domain/mobile patterns.",
         "Pattern governance checkpoint."
@@ -369,7 +368,13 @@
         "Patterns covered: 63",
         "Pattern audit reports PASS: 7/7",
         "Pattern row reports with 63 rows PASS: 2/2",
-        "Pattern audit debt: 0"
+        "Pattern audit debt: 0",
+        "Shell patterns checkpoint PASS",
+        "Shell patterns covered: Topbar, Sidebar, Search, Toolbar, Command Palette",
+        "Shell pattern checks PASS: 25/25",
+        "Shell audit reports PASS: 4/4",
+        "Shell policy checks PASS: 5/5",
+        "Shell pattern debt: 0"
       ]
     },
     {
@@ -437,9 +442,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 26,
+    "iteration": 27,
     "status": "phase_in_progress",
     "phase": "5. Patterns",
-    "then": "Continue with Shell patterns."
+    "then": "Continue with Interaction patterns."
   }
 }

@@ -93,6 +93,7 @@
     "system-phase4-domain-complex-checkpoint.json": "quality",
     "system-phase4-overlays-navigation-data-checkpoint.json": "quality",
     "system-phase5-pattern-1to1-checkpoint.json": "patterns",
+    "system-phase5-shell-patterns-checkpoint.json": "patterns",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",
     "package-css-root-governance-audit.json": "cascade",
