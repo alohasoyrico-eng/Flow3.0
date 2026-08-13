@@ -166,6 +166,14 @@ export const Topbar: TopbarComponent = forwardRef<HTMLDivElement, TopbarProps>(f
   const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
   const sidebarDrawer = sidebar?.drawer === false ? undefined : sidebar?.drawer;
   const shouldRenderDrawer = Boolean(sidebar) && sidebar?.drawer !== false && (Boolean(sidebarDrawer) || Boolean(mobile && sidebar?.drawerOpen));
+  const isNavigationDrawerOpen = Boolean(sidebar?.drawerOpen);
+  const defaultNavigationLabel = isNavigationDrawerOpen ? "Close navigation" : "Open navigation";
+  const handleNavigationActionClick = (event: MouseEvent<HTMLButtonElement>) => {
+    navigationAction?.onClick?.(event);
+    if (event.defaultPrevented) return;
+    if (!sidebar || sidebar.drawer === false) return;
+    sidebar.onDrawerOpenChange?.(!isNavigationDrawerOpen, event);
+  };
 
   return React.createElement(
     "div",
@@ -188,7 +196,7 @@ export const Topbar: TopbarComponent = forwardRef<HTMLDivElement, TopbarProps>(f
       description: sidebarDrawer?.description,
       id: sidebarDrawer?.id,
       closeLabel: sidebarDrawer?.closeLabel ?? "Close navigation",
-      showCloseButton: sidebarDrawer?.showCloseButton ?? true,
+      showCloseButton: sidebarDrawer?.showCloseButton ?? false,
       open: Boolean(mobile && sidebar?.drawerOpen),
       state: mobile && sidebar?.drawerOpen ? "open" : "closed",
       variant: "side-sheet",
@@ -201,14 +209,14 @@ export const Topbar: TopbarComponent = forwardRef<HTMLDivElement, TopbarProps>(f
     React.createElement(IconButton, flowDefinedProps({
       ...sanitizeRestProps(navigationAction ?? {}),
       icon: navigationAction?.icon ?? "menu",
-      label: navigationAction?.label ?? "Open navigation",
-      ariaLabel: navigationAction?.ariaLabel ?? navigationAction?.label ?? "Open navigation",
+      label: navigationAction?.label ?? defaultNavigationLabel,
+      ariaLabel: navigationAction?.ariaLabel ?? navigationAction?.label ?? defaultNavigationLabel,
       density,
       variant: "ghost",
       disabled: isDisabled || navigationAction?.disabled,
       "aria-expanded": navigationAction?.["aria-expanded"],
       "aria-controls": navigationAction?.["aria-controls"],
-      onClick: navigationAction?.onClick,
+      onClick: handleNavigationActionClick,
       "data-flow-slot": "navigation-action",
     })),
     search

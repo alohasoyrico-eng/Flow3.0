@@ -283,8 +283,8 @@
       "density": "sm",
       "state": "loaded",
       "selected": "tickets",
-      "markupBytes": 24926,
-      "densityMarkers": 72,
+      "markupBytes": 24492,
+      "densityMarkers": 70,
       "failures": []
     },
     {
@@ -360,8 +360,8 @@
       "density": "md",
       "state": "loaded",
       "selected": "pricing",
-      "markupBytes": 24878,
-      "densityMarkers": 72,
+      "markupBytes": 24444,
+      "densityMarkers": 70,
       "failures": []
     },
     {
@@ -459,8 +459,8 @@
       "density": "sm",
       "state": "loaded",
       "selected": "drivers",
-      "markupBytes": 21986,
-      "densityMarkers": 62,
+      "markupBytes": 21552,
+      "densityMarkers": 60,
       "failures": []
     },
     {
@@ -536,8 +536,8 @@
       "density": "md",
       "state": "loaded",
       "selected": "vehicles",
-      "markupBytes": 21945,
-      "densityMarkers": 62,
+      "markupBytes": 21511,
+      "densityMarkers": 60,
       "failures": []
     },
     {
@@ -811,8 +811,8 @@
       "density": "sm",
       "state": "loaded",
       "selected": "finance",
-      "markupBytes": 14799,
-      "densityMarkers": 39,
+      "markupBytes": 14365,
+      "densityMarkers": 37,
       "failures": []
     },
     {
@@ -888,8 +888,8 @@
       "density": "md",
       "state": "loaded",
       "selected": "ev",
-      "markupBytes": 14752,
-      "densityMarkers": 39,
+      "markupBytes": 14318,
+      "densityMarkers": 37,
       "failures": []
     },
     {
@@ -899,8 +899,8 @@
       "density": "sm",
       "state": "loaded",
       "selected": "fuel",
-      "markupBytes": 18010,
-      "densityMarkers": 47,
+      "markupBytes": 17576,
+      "densityMarkers": 45,
       "failures": []
     },
     {
@@ -976,8 +976,8 @@
       "density": "md",
       "state": "loaded",
       "selected": "fleet",
-      "markupBytes": 17969,
-      "densityMarkers": 47,
+      "markupBytes": 17535,
+      "densityMarkers": 45,
       "failures": []
     }
   ],

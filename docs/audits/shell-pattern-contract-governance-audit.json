@@ -1,0 +1,114 @@
+{
+  "status": "pass",
+  "audit": "shell pattern contract governance",
+  "principle": "FlowDocs shell dependencies must rely on governed Flow patterns. Topbar, Sidebar, and Search must expose typed contracts, controlled shell state, and no parallel mobile drawer close control by default.",
+  "inventory": {
+    "shellPatterns": 3,
+    "checks": 15,
+    "shellPatternContractDebt": 0
+  },
+  "rows": [
+    {
+      "id": "topbar",
+      "name": "Topbar",
+      "file": "packages/react/src/patterns/Topbar.ts",
+      "status": "pass",
+      "checks": [
+        {
+          "id": "typed-source",
+          "description": "Topbar is authored in TS as the public shell contract.",
+          "status": "pass"
+        },
+        {
+          "id": "navigation-action",
+          "description": "Topbar exposes a single navigation action slot for small viewports.",
+          "status": "pass"
+        },
+        {
+          "id": "controlled-navigation-drawer",
+          "description": "Topbar navigation drawer is controlled by the shell state contract.",
+          "status": "pass"
+        },
+        {
+          "id": "navigation-action-toggle",
+          "description": "Topbar navigation action toggles drawer state unless the consumer prevents default.",
+          "status": "pass"
+        },
+        {
+          "id": "no-default-drawer-close",
+          "description": "Topbar navigation drawer does not render a parallel close button by default.",
+          "status": "pass"
+        },
+        {
+          "id": "delegates-sidebar",
+          "description": "Topbar delegates navigation content to Sidebar instead of duplicating the shell list.",
+          "status": "pass"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "sidebar",
+      "name": "Sidebar",
+      "file": "packages/react/src/patterns/Sidebar.ts",
+      "status": "pass",
+      "checks": [
+        {
+          "id": "typed-source",
+          "description": "Sidebar is authored in TS as the public shell navigation contract.",
+          "status": "pass"
+        },
+        {
+          "id": "controlled-navigation-drawer",
+          "description": "Sidebar drawer state is controlled through drawerOpen/onDrawerOpenChange.",
+          "status": "pass"
+        },
+        {
+          "id": "no-default-drawer-close",
+          "description": "Sidebar drawer does not render a parallel close button by default.",
+          "status": "pass"
+        },
+        {
+          "id": "route-actions-use-flow-button",
+          "description": "Sidebar routes compose Flow Button instead of local anchor/button markup.",
+          "status": "pass"
+        },
+        {
+          "id": "groups-use-surface-accordion",
+          "description": "Sidebar groups compose Surface and Accordion for structure.",
+          "status": "pass"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "id": "search",
+      "name": "Search",
+      "file": "packages/react/src/patterns/Search.ts",
+      "status": "pass",
+      "checks": [
+        {
+          "id": "typed-source",
+          "description": "Search is authored in TS as the public shell search contract.",
+          "status": "pass"
+        },
+        {
+          "id": "search-role",
+          "description": "Search carries the semantic search role and Flow pattern marker.",
+          "status": "pass"
+        },
+        {
+          "id": "composes-flow-input",
+          "description": "Search composes Flow Input for query entry.",
+          "status": "pass"
+        },
+        {
+          "id": "no-dom-parallel-runtime",
+          "description": "Search does not own global DOM behavior directly.",
+          "status": "pass"
+        }
+      ],
+      "failures": []
+    }
+  ]
+}

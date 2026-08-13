@@ -224,7 +224,7 @@ export const Sidebar: SidebarComponent = forwardRef<HTMLDivElement, SidebarProps
       description: drawer?.description,
       id: drawer?.id,
       closeLabel: drawer?.closeLabel ?? "Close navigation",
-      showCloseButton: drawer?.showCloseButton ?? true,
+      showCloseButton: drawer?.showCloseButton ?? false,
       open: drawerOpen || mobileDrawer,
       state: drawerOpen || mobileDrawer ? "open" : "closed",
       variant: "side-sheet",

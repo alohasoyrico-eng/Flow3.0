@@ -1768,14 +1768,17 @@ function assertInstalledTemplateControlledSelection({ Component, id, selectedAtt
   harness.unmount();
 }
 
-function assertInstalledTemplateDrawerClose({ Component, id }) {
+function assertInstalledTemplateShellDrawerToggle({ Component, id }) {
   const events = [];
   const harness = mount(React.createElement(Component, {
     drawerOpen: true,
     onDrawerOpenChange: (open, event) => events.push([open, event?.type]),
   }));
   assert.equal(templateRoot(harness.container, id).getAttribute("data-flow-template"), id);
-  clickLastButtonByLabel(harness.container, "Close navigation");
+  const parallelCloseButtons = [...harness.container.querySelectorAll("button")]
+    .filter((button) => button.getAttribute("aria-label") === "Close navigation");
+  assert.equal(parallelCloseButtons.length, 0, "Shell navigation drawer must not render a parallel close button by default.");
+  clickLastButtonByLabel(harness.container, "Open navigation");
   assert.deepEqual(events.at(-1), [false, "click"]);
   harness.unmount();
 }
@@ -1972,7 +1975,7 @@ assertInstalledTemplateControlledSelection({
   targetSelector: '[data-sidebar-route="drivers"] button',
   expected: "drivers",
 });
-assertInstalledTemplateDrawerClose({ Component: ConfigurationConsole, id: "configuration-console" });
+assertInstalledTemplateShellDrawerToggle({ Component: ConfigurationConsole, id: "configuration-console" });
 
 assertInstalledTemplateUncontrolledSelection({
   Component: DriverCardWallet,
@@ -2036,7 +2039,7 @@ assertInstalledTemplateControlledSelection({
   targetSelector: '[data-sidebar-route="finance"] button',
   expected: "finance",
 });
-assertInstalledTemplateDrawerClose({ Component: FleetDashboardSuite, id: "fleet-dashboard-suite" });
+assertInstalledTemplateShellDrawerToggle({ Component: FleetDashboardSuite, id: "fleet-dashboard-suite" });
 
 assertInstalledTemplateUncontrolledSelection({
   Component: FleetManagerDesktop,
@@ -2058,7 +2061,7 @@ assertInstalledTemplateControlledSelection({
   targetSelector: '[data-sidebar-route="fuel"] button',
   expected: "fuel",
 });
-assertInstalledTemplateDrawerClose({ Component: FleetManagerDesktop, id: "fleet-manager-desktop" });
+assertInstalledTemplateShellDrawerToggle({ Component: FleetManagerDesktop, id: "fleet-manager-desktop" });
 
 assertInstalledTemplateUncontrolledSelection({
   Component: RoutesAndStations,
@@ -3249,7 +3252,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 823,
+    filesScanned: 824,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -4075,12 +4078,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 105,
-    categoryMappings: 95,
+    reports: 106,
+    categoryMappings: 96,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 105,
-    debtMetrics: 121,
+    reportsWithDebtMetrics: 106,
+    debtMetrics: 122,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

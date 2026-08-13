@@ -128,6 +128,7 @@
     "react-interaction-coverage-audit.json": "react-primary",
     "react-pattern-behavior-governance-audit.json": "patterns",
     "react-pattern-composition-governance-audit.json": "patterns",
+    "shell-pattern-contract-governance-audit.json": "patterns",
     "react-primary-coverage-audit.json": "react-primary",
     "react-style-governance-audit.json": "react-primary",
     "react-template-composition-governance-audit.json": "react-primary",
