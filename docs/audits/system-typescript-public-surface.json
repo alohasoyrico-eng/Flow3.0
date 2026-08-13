@@ -1811,7 +1811,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5121,7 +5121,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 230,
+  "publicJsRuntimeExportsWithTsSource": 232,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/PreferenceManagement.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/PricingOperations.d.ts",
       "pairedJs": true,
@@ -5940,18 +5935,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 151,
+        ".ts": 152,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 560,
+        "source": 561,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 305,
-  "uniqueTypescriptPublicSurfaceDebt": 165
+  "typescriptPublicSurfaceDebt": 304,
+  "uniqueTypescriptPublicSurfaceDebt": 164
 }
