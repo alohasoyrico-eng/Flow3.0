@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T01:46:38.097Z",
+  "generatedAt": "2026-08-13T07:16:06.054Z",
   "scope": "P0.2 primitive runtime matrix",
   "totals": {
     "primitives": 24,
@@ -948,6 +948,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/iconography.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/iconography.ts",
         "packages/tokens/src/primitives/iconography.ts"
       ],
       "p0RuntimeRequired": false,
@@ -1116,7 +1117,7 @@
         {
           "name": "sys-iconography-focus-ring",
           "value": "{sys-a11y-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/foundations/iconography.tokens.json",
           "reference": "sys-a11y-focus-ring"
         },
@@ -1193,7 +1194,7 @@
         {
           "name": "sys-icon-focus-ring",
           "value": "{sys-iconography-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/primitives/iconography.tokens.json",
           "reference": "sys-iconography-focus-ring"
         },
@@ -1362,6 +1363,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/library-sources.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/library-sources.ts",
         "packages/tokens/src/primitives/library-sources.ts"
       ],
       "p0RuntimeRequired": false,
@@ -1426,6 +1428,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/country-flags.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/country-flags.ts",
         "packages/tokens/src/primitives/country-flags.ts"
       ],
       "p0RuntimeRequired": false,
@@ -1490,6 +1493,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/animation-assets.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/animation-assets.ts",
         "packages/tokens/src/primitives/animation-assets.ts"
       ],
       "p0RuntimeRequired": false,
@@ -1556,6 +1560,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/illustration-assets.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/illustration-assets.ts",
         "packages/tokens/src/primitives/illustration-assets.ts"
       ],
       "p0RuntimeRequired": false,
@@ -2399,14 +2404,14 @@
         {
           "name": "sys-focus-restore-ring",
           "value": "{sys-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
           "reference": "sys-focus-ring"
         },
         {
           "name": "sys-focus-ring",
           "value": "{sys-accessibility-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
           "reference": "sys-accessibility-focus-ring"
         },
@@ -2420,7 +2425,7 @@
         {
           "name": "sys-focus-roving-ring",
           "value": "{sys-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
           "reference": "sys-focus-ring"
         },
@@ -2448,7 +2453,7 @@
         {
           "name": "sys-focus-visible-ring",
           "value": "{sys-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/primitives/focus.tokens.json",
           "reference": "sys-focus-ring"
         }
@@ -2536,14 +2541,14 @@
         {
           "name": "sys-loading-easing-linear",
           "value": "{sys-momentum-easing-linear}",
-          "type": "unknown",
+          "type": "cubicBezier",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-momentum-easing-linear"
         },
         {
           "name": "sys-loading-easing-rhythm",
           "value": "{sys-momentum-easing-move}",
-          "type": "unknown",
+          "type": "cubicBezier",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-momentum-easing-move"
         },
@@ -2557,14 +2562,14 @@
         {
           "name": "sys-loading-progress-fill",
           "value": "{sys-energy-action-primary}",
-          "type": "unknown",
+          "type": "color",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-energy-action-primary"
         },
         {
           "name": "sys-loading-progress-track",
           "value": "{sys-energy-border-default}",
-          "type": "unknown",
+          "type": "color",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-energy-border-default"
         },
@@ -2578,7 +2583,7 @@
         {
           "name": "sys-loading-skeleton-highlight",
           "value": "{sys-energy-border-default}",
-          "type": "unknown",
+          "type": "color",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-energy-border-default"
         },
@@ -2599,14 +2604,14 @@
         {
           "name": "sys-loading-spinner-tone",
           "value": "{sys-energy-action-primary}",
-          "type": "unknown",
+          "type": "color",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-energy-action-primary"
         },
         {
           "name": "sys-loading-spinner-track",
           "value": "{sys-energy-border-default}",
-          "type": "unknown",
+          "type": "color",
           "sourceFile": "packages/tokens/source/primitives/loading.tokens.json",
           "reference": "sys-energy-border-default"
         },
@@ -2794,6 +2799,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/charts.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/charts.ts",
         "packages/tokens/src/primitives/charts.ts"
       ],
       "p0RuntimeRequired": true,
@@ -2869,6 +2875,7 @@
       ],
       "jsRuntimeFile": "packages/components/src/primitives/maps.js",
       "tsRuntimeFiles": [
+        "packages/components/src/primitives/maps.ts",
         "packages/tokens/src/primitives/maps.ts"
       ],
       "p0RuntimeRequired": true,
@@ -2978,7 +2985,7 @@
         {
           "name": "sys-message-focus-ring",
           "value": "{sys-accessibility-focus-ring}",
-          "type": "unknown",
+          "type": "border",
           "sourceFile": "packages/tokens/source/primitives/message.tokens.json",
           "reference": "sys-accessibility-focus-ring"
         },
