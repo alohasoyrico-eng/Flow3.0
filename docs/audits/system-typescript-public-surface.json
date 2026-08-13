@@ -2211,7 +2211,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5481,7 +5481,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 258,
+  "publicJsRuntimeExportsWithTsSource": 260,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/VirtualDataTable.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/WaterfallChart.d.ts",
       "pairedJs": true,
@@ -5870,18 +5865,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 165,
+        ".ts": 166,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 574,
+        "source": 575,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 291,
-  "uniqueTypescriptPublicSurfaceDebt": 151
+  "typescriptPublicSurfaceDebt": 290,
+  "uniqueTypescriptPublicSurfaceDebt": 150
 }
