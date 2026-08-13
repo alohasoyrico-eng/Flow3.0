@@ -2631,7 +2631,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5761,7 +5761,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 262,
+  "publicJsRuntimeExportsWithTsSource": 264,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/templates/AgentWorkspace.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/templates/ConfigurationConsole.d.ts",
       "pairedJs": true,
@@ -5860,18 +5855,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 167,
+        ".ts": 168,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 576,
+        "source": 577,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 289,
-  "uniqueTypescriptPublicSurfaceDebt": 149
+  "typescriptPublicSurfaceDebt": 288,
+  "uniqueTypescriptPublicSurfaceDebt": 148
 }

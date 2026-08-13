@@ -202,6 +202,14 @@ function checkNeedle(issues, source, needle, label, file) {
   return true;
 }
 
+function checkPattern(issues, source, pattern, label, file) {
+  if (!pattern.test(source)) {
+    issues.push(`${label} missing in ${rel(file)}: ${pattern}`);
+    return false;
+  }
+  return true;
+}
+
 function testBlock(testSource, helperName, componentName) {
   const marker = `${helperName}({`;
   let index = testSource.indexOf(marker);
@@ -261,9 +269,16 @@ const rows = templateContracts.map((contract) => {
     [contract.handler, "selection handler"],
     [`useState(${contract.defaultProp})`, "default selection state seed"],
     [`${contract.resolvedSelection} = ${contract.selectedProp} ?? ${contract.internalState}`, "controlled/uncontrolled resolver"],
-    [`if (${contract.selectedProp} === undefined) ${contract.internalSetter}(key)`, "controlled selection mutation guard"],
     [contract.eventForwarding, "selection callback event forwarding"],
   ].forEach(([needle, label]) => checkNeedle(rowIssues, source, needle, label, sourcePath));
+
+  checkPattern(
+    rowIssues,
+    source,
+    new RegExp(`if\\s*\\(\\s*${contract.selectedProp}\\s*===\\s*undefined\\s*\\)\\s*${contract.internalSetter}\\s*\\(\\s*key\\s*\\)`),
+    "controlled selection mutation guard",
+    sourcePath,
+  );
 
   [
     `${contract.selectedProp}?`,

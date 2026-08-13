@@ -620,7 +620,7 @@ function createSourceChecks(contract) {
   ];
   const requiredSourceNeedles = [
     ["forwardRef", `forwardRef(function ${contract.componentName}`],
-    ["Surface root", "React.createElement(\n    Surface"],
+    ["Surface root", "React.createElement(Surface"],
     ["Surface import", 'import { Surface } from "../Surface.js"'],
     ["data-flow-template", `"data-flow-template": "${contract.id}"`],
     ["data-template-state", '"data-template-state": resolvedState'],
