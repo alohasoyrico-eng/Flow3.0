@@ -197,6 +197,7 @@ function main() {
         && include.includes("packages/react/src/patterns/StatusFeedbackView.ts")
         && include.includes("packages/react/src/patterns/SwipeActions.ts")
         && include.includes("packages/react/src/patterns/TicketQueue.ts")
+        && include.includes("packages/react/src/patterns/Timeline.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
         && include.includes("packages/react/src/templates/index.ts"),
       { include },
