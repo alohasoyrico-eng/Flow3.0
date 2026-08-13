@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 194
-- Source declarations paired with JS but not TS/TSX: 43
-- TypeScript surface debt: 323
-- Unique TypeScript surface debt: 183
+- Public JS runtime exports with TS/TSX source: 196
+- Source declarations paired with JS but not TS/TSX: 42
+- TypeScript surface debt: 322
+- Unique TypeScript surface debt: 182
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":133,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":542,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":134,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":543,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -91,7 +91,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/DragSortableList.js | yes |
 | package.json | packages/react/dist/patterns/DrawerAdapter.js | yes |
 | package.json | packages/react/dist/patterns/DriverAndVehicleAdministration.js | yes |
-| package.json | packages/react/dist/patterns/DriverOnboardingMobile.js | no |
+| package.json | packages/react/dist/patterns/DriverOnboardingMobile.js | yes |
 | package.json | packages/react/dist/patterns/EmailTemplateLayout.js | no |
 | package.json | packages/react/dist/patterns/ExpandableDetailTable.js | no |
 | package.json | packages/react/dist/patterns/FileUpload.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/DriverOnboardingMobile.d.ts | yes | no |
 | packages/react/src/patterns/EmailTemplateLayout.d.ts | yes | no |
 | packages/react/src/patterns/ExpandableDetailTable.d.ts | yes | no |
 | packages/react/src/patterns/FileUpload.d.ts | yes | no |
