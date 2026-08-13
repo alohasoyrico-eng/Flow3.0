@@ -1351,7 +1351,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4881,7 +4881,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 184,
+  "publicJsRuntimeExportsWithTsSource": 186,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/ConfirmationDialog.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/DenseOperationalList.d.ts",
       "pairedJs": true,
@@ -6055,18 +6050,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 128,
+        ".ts": 129,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 537,
+        "source": 538,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 328,
-  "uniqueTypescriptPublicSurfaceDebt": 188
+  "typescriptPublicSurfaceDebt": 327,
+  "uniqueTypescriptPublicSurfaceDebt": 187
 }
