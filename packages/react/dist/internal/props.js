@@ -6,6 +6,9 @@ export function flowRestProps(props = {}) {
 export function flowDataProps(props = {}) {
     return Object.fromEntries(Object.entries(flowRestProps(props)).filter(([key]) => key.startsWith("data-")));
 }
+export function flowDefinedProps(props) {
+    return Object.fromEntries(Object.entries(props).filter(([, value]) => value !== undefined));
+}
 export function normalizeFlowDensity(density) {
     return typeof density === "string" && validFlowDensities.has(density) ? density : undefined;
 }

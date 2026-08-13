@@ -89,7 +89,8 @@
     "packages/react/src/ChartPanel.tsx",
     "packages/react/src/KpiTile.tsx",
     "packages/react/src/QuickAction.tsx",
-    "packages/react/src/RouteSummary.tsx"
+    "packages/react/src/RouteSummary.tsx",
+    "packages/react/src/index.ts"
   ],
   "exclude": [
     "node_modules",

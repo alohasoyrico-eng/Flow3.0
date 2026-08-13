@@ -171,7 +171,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -3101,7 +3101,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 136,
+  "publicJsRuntimeExportsWithTsSource": 138,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/index.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/AccountOperations.d.ts",
       "pairedJs": true,
@@ -6173,20 +6168,20 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 604,
+        ".js": 605,
         ".mjs": 20,
-        ".ts": 104,
+        ".ts": 105,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
-        "script": 267,
-        "source": 513,
+        "script": 268,
+        "source": 514,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 352,
-  "uniqueTypescriptPublicSurfaceDebt": 212
+  "typescriptPublicSurfaceDebt": 351,
+  "uniqueTypescriptPublicSurfaceDebt": 211
 }

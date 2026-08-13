@@ -403,7 +403,9 @@ function reactPatterns() {
   for (const file of fs.readdirSync(reactPatternDir).filter((item) => /^[A-Z].*\.js$/.test(item)).sort()) {
     const source = fs.readFileSync(path.join(reactPatternDir, file), "utf8");
     const id = source.match(/"data-flow-pattern": "([^"]+)"/)?.[1] ?? slug(file.replace(/\.js$/, ""));
-    const imports = [...source.matchAll(/import \{ ([^}]+) \} from "\.\.\/([^".]+)\.js"/g)].map((match) => match[2]);
+    const imports = [...source.matchAll(/import \{ ([^}]+) \} from "\.\.\/([^".]+)\.js"/g)]
+      .map((match) => match[2])
+      .filter((importPath) => !importPath.includes("/"));
     rows.set(id, {
       file: rel(path.join(reactPatternDir, file)),
       imports,

@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 136
-- Source declarations paired with JS but not TS/TSX: 72
-- TypeScript surface debt: 352
-- Unique TypeScript surface debt: 212
+- Public JS runtime exports with TS/TSX source: 138
+- Source declarations paired with JS but not TS/TSX: 71
+- TypeScript surface debt: 351
+- Unique TypeScript surface debt: 211
 
 ## File Counts
 
-- By extension: {".js":604,".mjs":20,".ts":104,".d.ts":274,".tsx":61}
-- By area: {"script":267,"source":513,"test":8,"generated-dist":275}
+- By extension: {".js":605,".mjs":20,".ts":105,".d.ts":274,".tsx":61}
+- By area: {"script":268,"source":514,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -27,7 +27,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/components/src/index.js | yes |
 | package.json | packages/components/src/contracts.js | yes |
 | package.json | packages/components/src/platforms/index.js | yes |
-| package.json | packages/react/dist/index.js | no |
+| package.json | packages/react/dist/index.js | yes |
 | package.json | packages/react/dist/Accordion.js | yes |
 | package.json | packages/react/dist/AnimatedMoment.js | yes |
 | package.json | packages/react/dist/AuditEvent.js | yes |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/index.d.ts | yes | no |
 | packages/react/src/patterns/AccountOperations.d.ts | yes | no |
 | packages/react/src/patterns/ActionSheet.d.ts | yes | no |
 | packages/react/src/patterns/AdvancedFilters.d.ts | yes | no |

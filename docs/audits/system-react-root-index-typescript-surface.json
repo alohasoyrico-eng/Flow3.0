@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "flow-system-react-root-index-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "gates": [
+    {
+      "id": "root-index-has-ts-source-runtime-and-declaration",
+      "status": "PASS",
+      "evidence": {
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "failMessage": null
+    },
+    {
+      "id": "root-index-runtime-generated-from-ts",
+      "status": "PASS",
+      "evidence": {
+        "compileStatus": 0,
+        "stderr": "",
+        "staleRuntime": false
+      },
+      "failMessage": null
+    },
+    {
+      "id": "root-index-runtime-export-parity",
+      "status": "PASS",
+      "evidence": {
+        "sourceExports": 124,
+        "runtimeExports": 124
+      },
+      "failMessage": null
+    },
+    {
+      "id": "root-index-declaration-export-parity",
+      "status": "PASS",
+      "evidence": {
+        "sourceExports": 124,
+        "declarationExports": 124
+      },
+      "failMessage": null
+    },
+    {
+      "id": "root-index-owns-type-exports-in-ts-source",
+      "status": "PASS",
+      "evidence": {
+        "sourceTypeExportGroups": 124,
+        "declarationTypeExportGroups": 124
+      },
+      "failMessage": null
+    }
+  ],
+  "inventory": {
+    "sourceExports": 124,
+    "runtimeExports": 124,
+    "declarationExports": 124,
+    "sourceTypeExportGroups": 124,
+    "declarationTypeExportGroups": 124,
+    "staleRuntimeFiles": 0,
+    "reactRootIndexTypescriptSurfaceDebt": 0
+  }
+}

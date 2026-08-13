@@ -6,6 +6,7 @@ import { Button } from "../Button.js";
 import { Drawer } from "../Drawer.js";
 import { IconButton } from "../IconButton.js";
 import { Surface } from "../Surface.js";
+import { flowDefinedProps } from "../internal/props.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
@@ -41,7 +42,7 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect, }) {
             key,
             "data-sidebar-route": key,
             "data-active": String(Boolean(isActive)),
-        }, React.createElement(Button, {
+        }, React.createElement(Button, flowDefinedProps({
             icon: route.icon ?? "circle",
             label: route.label,
             density,
@@ -52,8 +53,8 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect, }) {
             "aria-pressed": isActive ? "true" : undefined,
             onClick: (event) => onRouteSelect?.(key, route, event),
             "data-flow-slot": "route-action",
-        }), route.badge
-            ? React.createElement(Badge, {
+        })), route.badge
+            ? React.createElement(Badge, flowDefinedProps({
                 label: route.badge,
                 tone: route.badgeTone ?? "info",
                 variant: route.badgeVariant ?? "count",
@@ -61,13 +62,13 @@ function routeNodes(routes, { density, activeKey, disabled, onRouteSelect, }) {
                 state: disabled || route.disabled ? "disabled" : "default",
                 live: route.badgeLive,
                 "data-flow-slot": "route-badge",
-            })
+            }))
             : null);
     });
 }
 export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", density, state, collapsed = false, mobileDrawer = false, drawerOpen = false, loading = false, disabled = false, permissionFiltered = false, groups = [], breadcrumbs = [], activeKey, expandedIds, collapseAction, drawer, onExpandedChange, onDrawerOpenChange, onRouteSelect, onCollapse, className = "", ...rest }, ref) {
     const normalizedGroups = normalizeGroups(groups);
-    const resolvedState = resolveState({ disabled, loading, permissionFiltered, mobileDrawer, collapsed, activeKey, state });
+    const resolvedState = resolveState(flowDefinedProps({ disabled, loading, permissionFiltered, mobileDrawer, collapsed, activeKey, state }));
     const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
     const routeCount = normalizedGroups.reduce((total, group) => total + group.routes.length, 0);
     const openIds = expandedIds ?? normalizedGroups.filter((group) => group.open || group.routes.some((route) => route.active || String(route.key ?? route.id ?? route.label) === activeKey)).map((group) => group.key);
@@ -85,7 +86,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
         "data-route-count": String(routeCount),
         "data-collapsed": String(Boolean(collapsed)),
         ...sanitizeRestProps(rest),
-    }, shouldRenderDrawer ? React.createElement(Drawer, {
+    }, shouldRenderDrawer ? React.createElement(Drawer, flowDefinedProps({
         label: drawer?.label ?? label,
         description: drawer?.description,
         id: drawer?.id,
@@ -101,16 +102,16 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
         ],
         onOpenChange: onDrawerOpenChange,
         "data-flow-slot": "navigation-drawer",
-    }) : null, breadcrumbs.length
-        ? React.createElement(Breadcrumbs, {
+    })) : null, breadcrumbs.length
+        ? React.createElement(Breadcrumbs, flowDefinedProps({
             items: breadcrumbs,
             label: `${label} location`,
             density,
             variant: collapsed ? "compact" : "standard",
             state: isDisabled ? "disabled" : "default",
             "data-flow-slot": "breadcrumbs",
-        })
-        : null, React.createElement(IconButton, {
+        }))
+        : null, React.createElement(IconButton, flowDefinedProps({
         ...sanitizeRestProps(collapseAction ?? {}),
         icon: collapsed ? "keyboard_double_arrow_right" : "keyboard_double_arrow_left",
         label: collapseAction?.label ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
@@ -125,29 +126,31 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             onCollapse?.(!collapsed, event);
         },
         "data-flow-slot": "collapse-action",
-    }), React.createElement(Surface, {
+    })), React.createElement(Surface, flowDefinedProps({
         surfaceRole: "section",
         density,
         state: isDisabled ? "disabled" : collapsed ? "sunken" : "default",
         "data-flow-slot": "groups",
         "aria-label": `${label} groups`,
-    }, React.createElement(Accordion, {
+    }), React.createElement(Accordion, flowDefinedProps({
         items: normalizedGroups.map((group) => ({
             id: group.key,
             title: group.title,
-            meta: group.badge,
-            icon: group.icon,
             open: openIds.includes(group.key),
-            disabled: isDisabled || group.disabled,
-            content: React.createElement("div", { "data-sidebar-group": group.key }, routeNodes(group.routes, { density, activeKey, disabled: isDisabled, onRouteSelect })),
+            content: React.createElement("div", { "data-sidebar-group": group.key }, routeNodes(group.routes, flowDefinedProps({ density, activeKey, disabled: isDisabled, onRouteSelect }))),
+            ...flowDefinedProps({
+                meta: group.badge,
+                icon: group.icon,
+                disabled: isDisabled || group.disabled,
+            }),
         })),
         multiple: true,
         expandedIds: openIds,
         density,
         onExpandedChange,
         "data-flow-slot": "group-accordion",
-    })), permissionFiltered
-        ? React.createElement(Badge, {
+    }))), permissionFiltered
+        ? React.createElement(Badge, flowDefinedProps({
             label: "Permission filtered",
             tone: "warning",
             variant: "status",
@@ -155,7 +158,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             state: isDisabled ? "disabled" : "default",
             live: true,
             "data-flow-slot": "permission-status",
-        })
+        }))
         : null);
 });
 Sidebar.displayName = "Sidebar";

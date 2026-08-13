@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import type { ChangeEvent, MouseEvent } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
 import type { ButtonProps } from "../Button.js";
 import type { EmptyStateAction, EmptyStateVariant } from "../EmptyState.js";
 import type { InlineValidationState } from "../InlineValidation.js";
@@ -13,6 +13,7 @@ import { InlineValidation } from "../InlineValidation.js";
 import { Input } from "../Input.js";
 import { List } from "../List.js";
 import { Select } from "../Select.js";
+import { flowDefinedProps } from "../internal/props.js";
 
 export type SearchState = "idle" | "typing" | "results" | "empty" | "invalid" | "loading" | "disabled" | "selected";
 export type SearchDensity = InputDensity;
@@ -76,6 +77,10 @@ export interface SearchProps extends FlowDataAttributes {
   "aria-labelledby"?: string;
 }
 
+export interface SearchComponent extends ForwardRefExoticComponent<SearchProps & RefAttributes<HTMLDivElement>> {
+  displayName?: string;
+}
+
 function sanitizeRestProps(rest: Record<string, unknown>) {
   return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
@@ -88,9 +93,11 @@ function normalizeResults(results: SearchResult[] | undefined) {
       label: result.label,
       meta: result.meta ?? result.description,
       value: result.valueLabel ?? result.value,
-      icon: result.icon,
-      state: result.state,
       disabled: Boolean(result.disabled),
+      ...flowDefinedProps({
+        icon: result.icon,
+        state: result.state,
+      }),
     }));
 }
 
@@ -115,7 +122,7 @@ function resolveState({
   return results.length ? "results" : "idle";
 }
 
-export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
+export const Search: SearchComponent = forwardRef<HTMLDivElement, SearchProps>(function Search({
   label,
   helper = "",
   value,
@@ -148,7 +155,7 @@ export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
   const normalizedScopes = (Array.isArray(scopes) ? scopes : []).filter((scope) => scope?.label);
   const currentValue = query ?? value ?? "";
   const resolvedCount = resultCount ?? normalizedResults.length;
-  const resolvedState = resolveState({ disabled, loading, validation, results: normalizedResults, state });
+  const resolvedState = resolveState(flowDefinedProps({ disabled, loading, validation, results: normalizedResults, state }));
   const isDisabled = disabled || resolvedState === "disabled";
   const inputState = resolvedState === "invalid" ? "error" : resolvedState === "loading" ? "loading" : currentValue ? "filled" : "default";
 
@@ -169,7 +176,7 @@ export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
       "data-has-scope": String(Boolean(normalizedScopes.length)),
       ...sanitizeRestProps(rest),
     },
-    React.createElement(Input, {
+    React.createElement(Input, flowDefinedProps({
       label,
       helper,
       value: currentValue,
@@ -183,9 +190,9 @@ export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
       state: inputState,
       error: validation?.state === "error" ? validation.message : "",
       onValueChange: onQueryChange,
-    }),
+    })),
     normalizedScopes.length
-      ? React.createElement(Select, {
+      ? React.createElement(Select, flowDefinedProps({
         label: scopeLabel ?? `${label} scope`,
         options: normalizedScopes,
         value: scopeValue,
@@ -194,19 +201,19 @@ export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
         variant: "inline",
         state: isDisabled ? "disabled" : scopeValue ? "filled" : "default",
         onValueChange: onScopeChange,
-      })
+      }))
       : null,
     resolvedCount || currentValue
-      ? React.createElement(InlineValidation, {
+      ? React.createElement(InlineValidation, flowDefinedProps({
         label: `${label} result count`,
         message: `${resolvedCount} result${resolvedCount === 1 ? "" : "s"}`,
         state: resolvedState === "invalid" ? "error" : "info",
         density,
         live: true,
-      })
+      }))
       : null,
     normalizedResults.length
-      ? React.createElement(List, {
+      ? React.createElement(List, flowDefinedProps({
         label: `${label} results`,
         items: normalizedResults,
         variant: "action",
@@ -215,10 +222,10 @@ export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
         selectedKey,
         interactive: Boolean(onResultSelect),
         onSelect: onResultSelect,
-      })
+      }))
       : null,
     !normalizedResults.length && resolvedState === "empty"
-      ? React.createElement(EmptyState, {
+      ? React.createElement(EmptyState, flowDefinedProps({
         title: empty?.title ?? "No results",
         description: empty?.description ?? helper,
         icon: empty?.icon,
@@ -227,48 +234,48 @@ export const Search = forwardRef<HTMLDivElement, SearchProps>(function Search({
         state: "search-empty",
         density,
         onAction: empty?.onAction,
-      })
+      }))
       : null,
     validation?.message && validation.state !== "error"
-      ? React.createElement(InlineValidation, {
+      ? React.createElement(InlineValidation, flowDefinedProps({
         label: validation.label ?? label,
         message: validation.message,
         state: validation.state ?? "default",
         density,
         live: validation.live,
-      })
+      }))
       : null,
     submitAction?.label
-      ? React.createElement(Button, {
+      ? React.createElement(Button, flowDefinedProps({
         ...submitAction,
         label: submitAction.label,
         variant: submitAction.variant ?? "primary",
         density: submitAction.density ?? density,
         disabled: isDisabled || submitAction.disabled,
         loading: submitAction.loading,
-        onClick: (event) => {
+        onClick: (event: MouseEvent<HTMLButtonElement>) => {
           submitAction.onClick?.(event);
           if (event.defaultPrevented) return;
           onSubmit?.(currentValue, event);
         },
-      })
+      }))
       : null,
     clearAction?.label
-      ? React.createElement(Button, {
+      ? React.createElement(Button, flowDefinedProps({
         ...clearAction,
         label: clearAction.label,
         variant: clearAction.variant ?? "ghost",
         density: clearAction.density ?? density,
         disabled: isDisabled || !currentValue || clearAction.disabled,
         loading: clearAction.loading,
-        onClick: (event) => {
+        onClick: (event: MouseEvent<HTMLButtonElement>) => {
           clearAction.onClick?.(event);
           if (event.defaultPrevented) return;
           onClear?.(event);
         },
-      })
+      }))
       : null,
   );
-});
+}) as SearchComponent;
 
 Search.displayName = "Search";

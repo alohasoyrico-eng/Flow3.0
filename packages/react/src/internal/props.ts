@@ -6,6 +6,11 @@ export type FlowDensity = "sm" | "md" | "lg";
 
 type FlowRestPropsInput = Record<string, unknown>;
 type FlowDataAttributeValue = string | number | boolean;
+type FlowDefinedProps<TProps extends Record<string, unknown>> = {
+  [TKey in keyof TProps as undefined extends TProps[TKey] ? never : TKey]: TProps[TKey];
+} & {
+  [TKey in keyof TProps as undefined extends TProps[TKey] ? TKey : never]?: Exclude<TProps[TKey], undefined>;
+};
 
 const validFlowDensities = new Set<string>(["sm", "md", "lg"]);
 
@@ -30,6 +35,10 @@ export function flowRestProps<TProps extends FlowRestPropsInput>(props: TProps =
 
 export function flowDataProps(props: FlowRestPropsInput = {}): FlowDataAttributes {
   return Object.fromEntries(Object.entries(flowRestProps(props)).filter(([key]) => key.startsWith("data-"))) as FlowDataAttributes;
+}
+
+export function flowDefinedProps<const TProps extends Record<string, unknown>>(props: TProps): FlowDefinedProps<TProps> {
+  return Object.fromEntries(Object.entries(props).filter(([, value]) => value !== undefined)) as FlowDefinedProps<TProps>;
 }
 
 export function normalizeFlowDensity(density: unknown): FlowDensity | undefined {

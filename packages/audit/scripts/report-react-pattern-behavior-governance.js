@@ -333,7 +333,7 @@ function propContractIssues(source) {
     .map((entry) => [entry.name, entry]));
   const issues = [];
   const validated = [];
-  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*\{/g)) {
+  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*(?:\{|flowDefinedProps\(\s*\{)/g)) {
     const name = match[1];
     const entry = flowImports.get(name);
     if (!entry) continue;
@@ -361,7 +361,7 @@ function literalContractIssues(source) {
     .map((entry) => [entry.name, entry]));
   const issues = [];
   const validated = [];
-  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*\{/g)) {
+  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*(?:\{|flowDefinedProps\(\s*\{)/g)) {
     const name = match[1];
     const entry = flowImports.get(name);
     if (!entry) continue;
@@ -396,7 +396,7 @@ function densityCascadeIssues(source) {
   const densityObjects = localObjectsWithDensity(source);
   const children = [];
   const issues = [];
-  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*\{/g)) {
+  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*(?:\{|flowDefinedProps\(\s*\{)/g)) {
     const name = match[1];
     if (!flowImports.has(name)) continue;
     const openIndex = source.indexOf("{", match.index);
@@ -420,7 +420,7 @@ function stateCascadeIssues(source) {
   const direct = [];
   const boundary = [];
   const issues = [];
-  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*\{/g)) {
+  for (const match of source.matchAll(/React\.createElement\(\s*([A-Z][A-Za-z0-9]*)\s*,\s*(?:\{|flowDefinedProps\(\s*\{)/g)) {
     const name = match[1];
     if (!statefulImports.has(name)) continue;
     const line = lineForIndex(source, match.index);

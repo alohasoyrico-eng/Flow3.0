@@ -14727,9 +14727,7 @@
       "taxonomyWarnings": [],
       "react": {
         "file": "packages/react/src/patterns/EmailTemplateLayout.js",
-        "imports": [
-          "internal/email-token-values"
-        ],
+        "imports": [],
         "debts": []
       },
       "readiness": "ready",

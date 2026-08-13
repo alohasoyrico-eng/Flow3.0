@@ -5,6 +5,7 @@ import { InlineValidation } from "../InlineValidation.js";
 import { Input } from "../Input.js";
 import { List } from "../List.js";
 import { Select } from "../Select.js";
+import { flowDefinedProps } from "../internal/props.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
@@ -16,9 +17,11 @@ function normalizeResults(results) {
         label: result.label,
         meta: result.meta ?? result.description,
         value: result.valueLabel ?? result.value,
-        icon: result.icon,
-        state: result.state,
         disabled: Boolean(result.disabled),
+        ...flowDefinedProps({
+            icon: result.icon,
+            state: result.state,
+        }),
     }));
 }
 function resolveState({ disabled, loading, validation, results, state, }) {
@@ -39,7 +42,7 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
     const normalizedScopes = (Array.isArray(scopes) ? scopes : []).filter((scope) => scope?.label);
     const currentValue = query ?? value ?? "";
     const resolvedCount = resultCount ?? normalizedResults.length;
-    const resolvedState = resolveState({ disabled, loading, validation, results: normalizedResults, state });
+    const resolvedState = resolveState(flowDefinedProps({ disabled, loading, validation, results: normalizedResults, state }));
     const isDisabled = disabled || resolvedState === "disabled";
     const inputState = resolvedState === "invalid" ? "error" : resolvedState === "loading" ? "loading" : currentValue ? "filled" : "default";
     if (!label)
@@ -56,7 +59,7 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
         "data-result-count": String(resolvedCount),
         "data-has-scope": String(Boolean(normalizedScopes.length)),
         ...sanitizeRestProps(rest),
-    }, React.createElement(Input, {
+    }, React.createElement(Input, flowDefinedProps({
         label,
         helper,
         value: currentValue,
@@ -70,8 +73,8 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
         state: inputState,
         error: validation?.state === "error" ? validation.message : "",
         onValueChange: onQueryChange,
-    }), normalizedScopes.length
-        ? React.createElement(Select, {
+    })), normalizedScopes.length
+        ? React.createElement(Select, flowDefinedProps({
             label: scopeLabel ?? `${label} scope`,
             options: normalizedScopes,
             value: scopeValue,
@@ -80,17 +83,17 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
             variant: "inline",
             state: isDisabled ? "disabled" : scopeValue ? "filled" : "default",
             onValueChange: onScopeChange,
-        })
+        }))
         : null, resolvedCount || currentValue
-        ? React.createElement(InlineValidation, {
+        ? React.createElement(InlineValidation, flowDefinedProps({
             label: `${label} result count`,
             message: `${resolvedCount} result${resolvedCount === 1 ? "" : "s"}`,
             state: resolvedState === "invalid" ? "error" : "info",
             density,
             live: true,
-        })
+        }))
         : null, normalizedResults.length
-        ? React.createElement(List, {
+        ? React.createElement(List, flowDefinedProps({
             label: `${label} results`,
             items: normalizedResults,
             variant: "action",
@@ -99,9 +102,9 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
             selectedKey,
             interactive: Boolean(onResultSelect),
             onSelect: onResultSelect,
-        })
+        }))
         : null, !normalizedResults.length && resolvedState === "empty"
-        ? React.createElement(EmptyState, {
+        ? React.createElement(EmptyState, flowDefinedProps({
             title: empty?.title ?? "No results",
             description: empty?.description ?? helper,
             icon: empty?.icon,
@@ -110,17 +113,17 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
             state: "search-empty",
             density,
             onAction: empty?.onAction,
-        })
+        }))
         : null, validation?.message && validation.state !== "error"
-        ? React.createElement(InlineValidation, {
+        ? React.createElement(InlineValidation, flowDefinedProps({
             label: validation.label ?? label,
             message: validation.message,
             state: validation.state ?? "default",
             density,
             live: validation.live,
-        })
+        }))
         : null, submitAction?.label
-        ? React.createElement(Button, {
+        ? React.createElement(Button, flowDefinedProps({
             ...submitAction,
             label: submitAction.label,
             variant: submitAction.variant ?? "primary",
@@ -133,9 +136,9 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
                     return;
                 onSubmit?.(currentValue, event);
             },
-        })
+        }))
         : null, clearAction?.label
-        ? React.createElement(Button, {
+        ? React.createElement(Button, flowDefinedProps({
             ...clearAction,
             label: clearAction.label,
             variant: clearAction.variant ?? "ghost",
@@ -148,7 +151,7 @@ export const Search = forwardRef(function Search({ label, helper = "", value, qu
                     return;
                 onClear?.(event);
             },
-        })
+        }))
         : null);
 });
 Search.displayName = "Search";

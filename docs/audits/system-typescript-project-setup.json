@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T23:48:04.272Z",
+  "generatedAt": "2026-08-12T23:56:46.457Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -104,7 +104,8 @@
           "packages/react/src/ChartPanel.tsx",
           "packages/react/src/KpiTile.tsx",
           "packages/react/src/QuickAction.tsx",
-          "packages/react/src/RouteSummary.tsx"
+          "packages/react/src/RouteSummary.tsx",
+          "packages/react/src/index.ts"
         ]
       },
       "failMessage": null
@@ -218,7 +219,8 @@
       "packages/react/src/ChartPanel.tsx",
       "packages/react/src/KpiTile.tsx",
       "packages/react/src/QuickAction.tsx",
-      "packages/react/src/RouteSummary.tsx"
+      "packages/react/src/RouteSummary.tsx",
+      "packages/react/src/index.ts"
     ],
     "exclude": [
       "node_modules",
