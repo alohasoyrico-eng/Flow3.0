@@ -95,6 +95,7 @@
     "packages/react/src/patterns/AvatarMenu.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
+    "packages/react/src/patterns/QuickActionsGrid.ts",
     "packages/react/src/templates/index.ts"
   ],
   "exclude": [

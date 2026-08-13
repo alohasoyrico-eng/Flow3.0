@@ -146,6 +146,7 @@ function main() {
         && include.includes("packages/react/src/patterns/AvatarMenu.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
+        && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
         && include.includes("packages/react/src/templates/index.ts"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
