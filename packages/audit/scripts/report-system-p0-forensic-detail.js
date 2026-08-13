@@ -80,7 +80,7 @@ function detailTicket(ticket) {
     ...(categoryCounts["docs-css-visual-surface"] ? ["docs-only visual surface risk"] : []),
     ...(categoryCounts["docs-shell"] ? ["docs shell dependency risk"] : []),
     ...(ticket.layer === "primitive" && !ticket.runtime.flowJs ? ["missing primitive runtime"] : []),
-    ...(!ticket.runtime.tsSource ? ["missing TypeScript source"] : [])
+    ...(ticket.layer !== "foundation" && !ticket.runtime.tsSource ? ["missing TypeScript source"] : [])
   ];
   return {
     id: ticket.id,

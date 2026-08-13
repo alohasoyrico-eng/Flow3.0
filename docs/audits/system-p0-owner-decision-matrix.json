@@ -14,7 +14,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -329,7 +328,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -671,7 +669,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -1067,7 +1064,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -1449,7 +1445,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -1645,7 +1640,6 @@
       "status": "decision_required",
       "blockers": [
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -1719,7 +1713,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -2045,7 +2038,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -2455,7 +2447,6 @@
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
         "docs shell dependency risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -2826,7 +2817,6 @@
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
         "docs shell dependency risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -3175,7 +3165,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real"
       ],
@@ -7899,7 +7888,6 @@
       "blockers": [
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real",
         "dependency:primitive-cascade-runtime"
@@ -8256,7 +8244,6 @@
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
         "docs shell dependency risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real",
         "dependency:primitive-cascade-runtime"
@@ -8563,7 +8550,6 @@
         "parallel DOM behavior risk",
         "docs-only visual surface risk",
         "docs shell dependency risk",
-        "missing TypeScript source",
         "dependency:style-dictionary-real",
         "dependency:typescript-source-real",
         "dependency:primitive-cascade-runtime"

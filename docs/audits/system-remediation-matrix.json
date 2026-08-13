@@ -232,13 +232,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -308,13 +307,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -403,13 +401,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -509,13 +506,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -567,13 +563,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -617,13 +612,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -682,13 +676,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -861,13 +854,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -932,13 +924,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -1046,13 +1037,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]
@@ -1133,13 +1123,12 @@
       ],
       "requiredWork": [
         "define canonical token/foundation source; no ad hoc docs-only visual behavior",
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
         "source of truth is explicit",
         "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
+        "foundation source exists in Style Dictionary/token source",
         "docs consume Flow or are explicitly marked docs-owned content",
         "gate can be rerun and produce stable evidence"
       ]

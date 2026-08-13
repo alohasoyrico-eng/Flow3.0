@@ -50,7 +50,9 @@ function requiredWork(entity) {
     if (entity.layer === "foundation") work.push("define canonical token/foundation source; no ad hoc docs-only visual behavior");
     else work.push("create or promote Flow runtime for this entity");
   }
-  if (!entity.gates.hasTypescriptSource) work.push("convert implementation contract to real TypeScript source, not JS plus .d.ts");
+  if (!entity.gates.hasTypescriptSource && entity.layer !== "foundation") {
+    work.push("convert implementation contract to real TypeScript source, not JS plus .d.ts");
+  }
   if (entity.gates.docsHandSurfaceCount > 0) work.push("classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete");
   if (!entity.gates.hasDocsGeneratedRuntime && ["component", "pattern", "template"].includes(entity.layer)) {
     work.push("ensure FlowDocs generated runtime consumes Flow export");
@@ -86,7 +88,7 @@ function ticketFor(entity) {
     acceptanceCriteria: [
       "source of truth is explicit",
       "no second visual/conceptual implementation remains without owner decision",
-      "TypeScript source exists where runtime exists",
+      entity.layer === "foundation" ? "foundation source exists in Style Dictionary/token source" : "TypeScript source exists where runtime exists",
       "docs consume Flow or are explicitly marked docs-owned content",
       "gate can be rerun and produce stable evidence"
     ]
