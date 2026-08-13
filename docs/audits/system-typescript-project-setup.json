@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T06:16:25.491Z",
+  "generatedAt": "2026-08-13T06:21:05.993Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -165,6 +165,7 @@
           "packages/react/src/patterns/Toolbar.ts",
           "packages/react/src/patterns/TransferList.ts",
           "packages/react/src/patterns/VirtualDataTable.ts",
+          "packages/react/src/patterns/WaterfallChart.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
           "packages/react/src/templates/index.ts"
         ]
@@ -341,6 +342,7 @@
       "packages/react/src/patterns/Toolbar.ts",
       "packages/react/src/patterns/TransferList.ts",
       "packages/react/src/patterns/VirtualDataTable.ts",
+      "packages/react/src/patterns/WaterfallChart.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
       "packages/react/src/templates/index.ts"
     ],

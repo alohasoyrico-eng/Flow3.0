@@ -201,6 +201,7 @@ function main() {
         && include.includes("packages/react/src/patterns/Toolbar.ts")
         && include.includes("packages/react/src/patterns/TransferList.ts")
         && include.includes("packages/react/src/patterns/VirtualDataTable.ts")
+        && include.includes("packages/react/src/patterns/WaterfallChart.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
         && include.includes("packages/react/src/templates/index.ts"),
       { include },

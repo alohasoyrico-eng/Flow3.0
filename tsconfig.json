@@ -150,6 +150,7 @@
     "packages/react/src/patterns/Toolbar.ts",
     "packages/react/src/patterns/TransferList.ts",
     "packages/react/src/patterns/VirtualDataTable.ts",
+    "packages/react/src/patterns/WaterfallChart.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
     "packages/react/src/templates/index.ts"
   ],
