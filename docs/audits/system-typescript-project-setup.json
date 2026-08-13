@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T06:43:16.279Z",
+  "generatedAt": "2026-08-13T06:47:20.619Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -170,6 +170,7 @@
           "packages/react/src/templates/AgentWorkspace.ts",
           "packages/react/src/templates/ConfigurationConsole.ts",
           "packages/react/src/templates/DriverCardWallet.ts",
+          "packages/react/src/templates/DriverMobileApp.ts",
           "packages/react/src/templates/index.ts"
         ]
       },
@@ -350,6 +351,7 @@
       "packages/react/src/templates/AgentWorkspace.ts",
       "packages/react/src/templates/ConfigurationConsole.ts",
       "packages/react/src/templates/DriverCardWallet.ts",
+      "packages/react/src/templates/DriverMobileApp.ts",
       "packages/react/src/templates/index.ts"
     ],
     "exclude": [

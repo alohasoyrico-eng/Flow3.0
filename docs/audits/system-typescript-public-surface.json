@@ -2691,7 +2691,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4421,7 +4421,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 268,
+  "publicJsRuntimeExportsWithTsSource": 270,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/templates/DriverMobileApp.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/templates/FleetDashboardSuite.d.ts",
       "pairedJs": true,
@@ -5845,18 +5840,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 170,
+        ".ts": 171,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 579,
+        "source": 580,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 286,
-  "uniqueTypescriptPublicSurfaceDebt": 146
+  "typescriptPublicSurfaceDebt": 285,
+  "uniqueTypescriptPublicSurfaceDebt": 145
 }
