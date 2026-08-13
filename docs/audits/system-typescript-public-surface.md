@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 158
-- Source declarations paired with JS but not TS/TSX: 61
-- TypeScript surface debt: 341
-- Unique TypeScript surface debt: 201
+- Public JS runtime exports with TS/TSX source: 160
+- Source declarations paired with JS but not TS/TSX: 60
+- TypeScript surface debt: 340
+- Unique TypeScript surface debt: 200
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":115,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":524,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":116,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":525,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -73,7 +73,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/BottomSheet.js | no |
 | package.json | packages/react/dist/patterns/AdvancedFilters.js | yes |
 | package.json | packages/react/dist/patterns/AgentConversation.js | yes |
-| package.json | packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js | no |
+| package.json | packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js | yes |
 | package.json | packages/react/dist/patterns/Autocomplete.js | no |
 | package.json | packages/react/dist/patterns/AvatarGroup.js | no |
 | package.json | packages/react/dist/patterns/AvatarMenu.js | yes |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.d.ts | yes | no |
 | packages/react/src/patterns/Autocomplete.d.ts | yes | no |
 | packages/react/src/patterns/AvatarGroup.d.ts | yes | no |
 | packages/react/src/patterns/BackofficeApproval.d.ts | yes | no |
