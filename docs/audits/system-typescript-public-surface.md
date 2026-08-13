@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 246
-- Source declarations paired with JS but not TS/TSX: 17
-- TypeScript surface debt: 297
-- Unique TypeScript surface debt: 157
+- Public JS runtime exports with TS/TSX source: 248
+- Source declarations paired with JS but not TS/TSX: 16
+- TypeScript surface debt: 296
+- Unique TypeScript surface debt: 156
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":159,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":568,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":160,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":569,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/StatusFeedbackView.d.ts | yes | no |
 | packages/react/src/patterns/SwipeActions.d.ts | yes | no |
 | packages/react/src/patterns/TicketQueue.d.ts | yes | no |
 | packages/react/src/patterns/Timeline.d.ts | yes | no |

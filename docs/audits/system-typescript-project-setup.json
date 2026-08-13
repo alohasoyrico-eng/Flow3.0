@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T05:38:51.685Z",
+  "generatedAt": "2026-08-13T05:46:08.962Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -158,6 +158,7 @@
           "packages/react/src/patterns/Settings.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/StationDiscovery.ts",
+          "packages/react/src/patterns/StatusFeedbackView.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
           "packages/react/src/templates/index.ts"
         ]
@@ -327,6 +328,7 @@
       "packages/react/src/patterns/Settings.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/StationDiscovery.ts",
+      "packages/react/src/patterns/StatusFeedbackView.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
       "packages/react/src/templates/index.ts"
     ],
