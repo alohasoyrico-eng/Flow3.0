@@ -3249,7 +3249,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 818,
+    filesScanned: 819,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");

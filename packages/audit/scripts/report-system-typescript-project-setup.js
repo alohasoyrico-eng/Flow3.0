@@ -207,6 +207,7 @@ function main() {
         && include.includes("packages/react/src/templates/ConfigurationConsole.ts")
         && include.includes("packages/react/src/templates/DriverCardWallet.ts")
         && include.includes("packages/react/src/templates/DriverMobileApp.ts")
+        && include.includes("packages/react/src/templates/FleetDashboardSuite.ts")
         && include.includes("packages/react/src/templates/index.ts"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",

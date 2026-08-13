@@ -156,6 +156,7 @@
     "packages/react/src/templates/ConfigurationConsole.ts",
     "packages/react/src/templates/DriverCardWallet.ts",
     "packages/react/src/templates/DriverMobileApp.ts",
+    "packages/react/src/templates/FleetDashboardSuite.ts",
     "packages/react/src/templates/index.ts"
   ],
   "exclude": [
