@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T01:54:45.717Z",
+  "generatedAt": "2026-08-13T01:59:24.082Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -117,6 +117,7 @@
           "packages/react/src/patterns/AvatarMenu.ts",
           "packages/react/src/patterns/BackofficeApproval.ts",
           "packages/react/src/patterns/BottomSheet.ts",
+          "packages/react/src/patterns/BulkActions.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -247,6 +248,7 @@
       "packages/react/src/patterns/AvatarMenu.ts",
       "packages/react/src/patterns/BackofficeApproval.ts",
       "packages/react/src/patterns/BottomSheet.ts",
+      "packages/react/src/patterns/BulkActions.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",

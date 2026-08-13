@@ -102,6 +102,7 @@
     "packages/react/src/patterns/AvatarMenu.ts",
     "packages/react/src/patterns/BackofficeApproval.ts",
     "packages/react/src/patterns/BottomSheet.ts",
+    "packages/react/src/patterns/BulkActions.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
