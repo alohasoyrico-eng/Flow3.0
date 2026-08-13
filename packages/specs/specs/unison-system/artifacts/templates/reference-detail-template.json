@@ -1,0 +1,112 @@
+{
+  "artifacts": {
+    "templates": {
+      "reference-detail-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "covers": [
+          "Foundation Detail Template",
+          "Primitive Detail Template"
+        ],
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Agents"
+        ],
+        "purpose": "Render foundation and primitive reference pages through governed reference sections, specimens, token chains, and API/spec tables.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Symbol",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Message",
+          "Research",
+          "Measurement"
+        ],
+        "componentDependencies": [
+          "Breadcrumbs",
+          "Tabs",
+          "Table",
+          "List",
+          "Badge",
+          "Tag",
+          "Card",
+          "Code Block"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Documentation Hero",
+          "Documentation Section",
+          "On This Page Nav",
+          "Demo Preview Frame"
+        ],
+        "documentationSlots": [
+          {
+            "name": "specimen",
+            "owner": "docs-specimen-slots",
+            "uses": [
+              "Card",
+              "Typography",
+              "Surface"
+            ]
+          },
+          {
+            "name": "tokenTable",
+            "owner": "Documentation Section",
+            "uses": [
+              "Table",
+              "Code Block"
+            ]
+          },
+          {
+            "name": "localNavigation",
+            "owner": "On This Page Nav",
+            "uses": [
+              "Tabs",
+              "Focus"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "foundation reference copy",
+          "primitive reference copy",
+          "token chains",
+          "roles",
+          "responsibilities",
+          "API/spec rows"
+        ],
+        "states": [
+          "default",
+          "tabbed",
+          "loading",
+          "missing-specimen",
+          "dark",
+          "mobile"
+        ],
+        "qualityGates": [
+          "Foundation and primitive pages do not render local specimen cards.",
+          "Token/code displays use Code Block or a governed table slot.",
+          "Reference tabs preserve keyboard and focus behavior."
+        ],
+        "rejectIf": [
+          "A foundation or primitive page creates unmanaged visual specimens.",
+          "Reference content hardcodes typography, color, spacing, or table structure outside Flow slots.",
+          "Code or token examples render as raw pre/code without Code Block governance."
+        ]
+      }
+    }
+  }
+}

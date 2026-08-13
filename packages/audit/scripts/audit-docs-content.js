@@ -182,6 +182,7 @@ function checkI18nReadiness() {
     "shell.searchResults",
     "shell.noSearchResults",
     "shell.openNavigation",
+    "shell.closeNavigation",
     "shell.showGrid",
     "shell.hideGrid",
     "shell.toggleContrast",

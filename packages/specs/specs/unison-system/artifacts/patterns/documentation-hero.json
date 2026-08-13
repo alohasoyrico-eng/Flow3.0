@@ -1,0 +1,146 @@
+{
+  "artifacts": {
+    "patterns": {
+      "documentation-hero": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Agents"
+        ],
+        "purpose": "Coordinate documentation page hero content, metadata, calls to action, and governed background treatment without creating local hero markup per page.",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "Energy",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Color",
+          "Density"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Badge",
+          "Tag",
+          "Card",
+          "Progress Indicator"
+        ],
+        "patternDependencies": [
+          "Artifact Metadata Bar",
+          "Documentation Section"
+        ],
+        "templateDependencies": [
+          "Docs Home Template",
+          "Reference Detail Template",
+          "Component Detail Template",
+          "Pattern Detail Template",
+          "Template Detail Template"
+        ],
+        "states": [
+          "default",
+          "with-actions",
+          "with-metadata",
+          "with-status",
+          "dark",
+          "mobile",
+          "loading"
+        ],
+        "slots": [
+          {
+            "name": "title",
+            "owner": "primitive",
+            "uses": [
+              "Typography"
+            ],
+            "required": true,
+            "purpose": "Owns the page title with correct heading level supplied by the template."
+          },
+          {
+            "name": "metadata",
+            "owner": "pattern",
+            "uses": [
+              "Artifact Metadata Bar",
+              "Badge",
+              "Tag"
+            ],
+            "required": "conditional",
+            "purpose": "Renders maturity, layer, platform, status, and counts without local pill systems."
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ],
+            "required": "conditional",
+            "purpose": "Renders primary and secondary hero actions through Flow buttons."
+          },
+          {
+            "name": "backgroundTreatment",
+            "owner": "pattern",
+            "uses": [
+              "Surface",
+              "Color",
+              "Frame"
+            ],
+            "required": "conditional",
+            "purpose": "Owns hero tint, depth, and documentation texture using existing tokens."
+          }
+        ],
+        "entryConditions": [
+          "A documentation page needs a first-screen or detail-header introduction.",
+          "The hero includes status, metadata, action, or background treatment.",
+          "The hero must adapt across documentation templates."
+        ],
+        "decisionTree": [
+          "Use plain heading when the page only needs a title.",
+          "Use Documentation Hero when heading, metadata, action, or visual treatment must be coordinated.",
+          "Use Artifact Metadata Bar for compact metadata rows inside the hero.",
+          "Do not create a new Card variant for hero containers."
+        ],
+        "failureModes": [
+          "Hero background is page-local CSS.",
+          "Metadata is rendered as custom pills instead of Badge/Tag/Artifact Metadata Bar.",
+          "Hero typography bypasses Flow typography primitives.",
+          "Hero actions bypass Button."
+        ],
+        "successMetrics": [
+          "Hero hierarchy remains readable and consistent across docs pages.",
+          "Metadata and actions are reusable without local wrappers.",
+          "Background treatment can be governed from Flow contracts."
+        ],
+        "accessibility": [
+          "Use one visible h1 per documentation page.",
+          "Keep actions keyboard reachable.",
+          "Do not hide status or metadata behind color-only cues."
+        ],
+        "tests": [
+          "Covers title-only, metadata, actions, status, dark, mobile, and loading states.",
+          "Rejects unmanaged gradient/grid CSS in migrated pages.",
+          "Checks heading order and action focus order."
+        ],
+        "agentInstructions": [
+          "Do not invent a docs hero component in FlowDocs.",
+          "Treat background treatments as governed slots, not new foundations by default.",
+          "Use existing Card, Badge, Tag, and Button contracts when needed."
+        ],
+        "rejectIf": [
+          "The hero requires a docs-only component to render basic title, copy, metadata, or actions.",
+          "Background treatment is a local CSS implementation detail.",
+          "Metadata chips are custom spans.",
+          "The hero creates a new public variant without satisfying variant criteria."
+        ]
+      }
+    }
+  }
+}

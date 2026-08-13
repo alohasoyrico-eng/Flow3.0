@@ -1,0 +1,98 @@
+{
+  "artifacts": {
+    "templates": {
+      "docs-collection-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Agents"
+        ],
+        "purpose": "Render documentation collection pages from catalog entries, metadata, filters, and grouped artifact cards without local docs link-card wrappers.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus"
+        ],
+        "componentDependencies": [
+          "Card",
+          "Tag",
+          "Badge",
+          "Breadcrumbs",
+          "Empty State",
+          "Skeleton"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Search",
+          "Toolbar",
+          "Artifact Metadata Bar",
+          "Documentation Section"
+        ],
+        "documentationSlots": [
+          {
+            "name": "collectionHeader",
+            "owner": "Section Header",
+            "uses": [
+              "Breadcrumbs",
+              "Badge"
+            ]
+          },
+          {
+            "name": "artifactGrid",
+            "owner": "Docs Collection Template",
+            "uses": [
+              "Card",
+              "Artifact Metadata Bar"
+            ]
+          },
+          {
+            "name": "emptyState",
+            "owner": "Empty State",
+            "uses": [
+              "Empty State"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "catalog entries",
+          "collectionMeta",
+          "grouping rules",
+          "artifact metadata"
+        ],
+        "states": [
+          "default",
+          "filtered",
+          "loading",
+          "empty",
+          "error",
+          "mobile"
+        ],
+        "qualityGates": [
+          "Artifact cards are Card compositions inside a template slot.",
+          "Filtering and empty states reuse Search, Toolbar, Empty State, and Skeleton.",
+          "Collection counts and metadata come from catalog data."
+        ],
+        "rejectIf": [
+          "FlowDocs reintroduces docs-link-card or artifact-card as unmanaged local wrappers.",
+          "Collection cards create new Card variants for docs-only visual roles.",
+          "Filter or search controls bypass Flow Search and Toolbar contracts."
+        ]
+      }
+    }
+  }
+}

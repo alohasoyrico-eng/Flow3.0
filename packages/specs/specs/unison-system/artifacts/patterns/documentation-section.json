@@ -1,0 +1,154 @@
+{
+  "artifacts": {
+    "patterns": {
+      "documentation-section": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "runtime-preview",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "QA",
+          "Agents"
+        ],
+        "purpose": "Coordinate documentation sections, section surfaces, local headings, content density, guidelines, callouts, and grouped evidence without FlowDocs owning section wrappers.",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Tone",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Message"
+        ],
+        "componentDependencies": [
+          "Card",
+          "Table",
+          "List",
+          "Badge",
+          "Tag",
+          "Accordion",
+          "Empty State"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Artifact Metadata Bar"
+        ],
+        "templateDependencies": [
+          "Docs Home Template",
+          "Docs Collection Template",
+          "Reference Detail Template",
+          "Component Detail Template",
+          "Pattern Detail Template",
+          "Template Detail Template"
+        ],
+        "states": [
+          "default",
+          "dense",
+          "callout",
+          "matrix",
+          "empty",
+          "loading",
+          "error",
+          "dark",
+          "mobile"
+        ],
+        "slots": [
+          {
+            "name": "header",
+            "owner": "pattern",
+            "uses": [
+              "Section Header"
+            ],
+            "required": "conditional",
+            "purpose": "Provides local title, description, status, and actions."
+          },
+          {
+            "name": "body",
+            "owner": "template",
+            "uses": [
+              "Surface",
+              "Typography",
+              "Spacing"
+            ],
+            "required": true,
+            "purpose": "Hosts documentation content without creating a local docs panel."
+          },
+          {
+            "name": "matrix",
+            "owner": "component",
+            "uses": [
+              "Table",
+              "Badge",
+              "Tag"
+            ],
+            "required": "conditional",
+            "purpose": "Renders variant, state, token, dependency, or QA matrices through governed components."
+          },
+          {
+            "name": "cards",
+            "owner": "component",
+            "uses": [
+              "Card"
+            ],
+            "required": "conditional",
+            "purpose": "Allows card composition inside template slots without creating docs-only Card variants."
+          }
+        ],
+        "entryConditions": [
+          "A docs page needs a reusable section boundary.",
+          "Content needs a heading, matrix, card group, callout, or evidence block.",
+          "The section appears across more than one documentation template."
+        ],
+        "decisionTree": [
+          "Use plain content when no reusable boundary is needed.",
+          "Use Documentation Section when heading, surface, grouped content, callout, or matrix structure repeats.",
+          "Use Table for structured matrices and Card for bounded repeated items.",
+          "Use template private slots for docs-only composition that is not public."
+        ],
+        "failureModes": [
+          "docs-section-surface or detail-section-surface remains as local FlowDocs structure.",
+          "Cards are used as generic nested page sections.",
+          "Matrices use local div grids after Table/List can own the role.",
+          "Callouts communicate status by color alone."
+        ],
+        "successMetrics": [
+          "Migrated pages share section structure and density.",
+          "Local wrapper count decreases instead of moving names around.",
+          "Section content remains data-driven from FlowDocs adapters."
+        ],
+        "accessibility": [
+          "Maintain heading order from the host template.",
+          "Use semantic tables/lists for structured data.",
+          "Expose callout tone and status in text."
+        ],
+        "tests": [
+          "Covers default, dense, callout, matrix, empty, loading, dark, and mobile states.",
+          "Fails when migrated pages use docs-section-surface or local matrix wrappers.",
+          "Checks Table/List semantics for structured content."
+        ],
+        "agentInstructions": [
+          "Do not create a new primitive for every documentation section layout.",
+          "Use this pattern to replace docs-section-surface and detail-section-surface.",
+          "Reject Card variants that only describe docs section visuals."
+        ],
+        "rejectIf": [
+          "FlowDocs creates local section wrapper classes for a migrated page.",
+          "A section contains another page-level card wrapper.",
+          "Matrix content is rendered through local div grids when Table/List is appropriate.",
+          "A new Card variant is proposed only for documentation section styling."
+        ]
+      }
+    }
+  }
+}

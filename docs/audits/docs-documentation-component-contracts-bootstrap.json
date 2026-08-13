@@ -1,0 +1,54 @@
+{
+  "schema": "flow-docs-documentation-component-contracts-bootstrap.v1",
+  "date": "2026-08-13",
+  "iteration": 38,
+  "scope": "Supporting public component contracts required by Flow documentation templates and documentation patterns.",
+  "sourceAudit": {
+    "repo": "FlowDocs",
+    "file": "docs/audits/docs-template-cascade-crosswalk.json",
+    "baselineCommit": "e3ac668"
+  },
+  "flowBaseline": {
+    "repo": "Flow3.0",
+    "baselineCommit": "3bf65830"
+  },
+  "createdContracts": [
+    {
+      "id": "code-block",
+      "file": "packages/specs/specs/unison-system/artifacts/components/code-block.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "copy-button",
+      "file": "packages/specs/specs/unison-system/artifacts/components/copy-button.json",
+      "status": "contract-only"
+    }
+  ],
+  "indexRegistration": {
+    "file": "packages/specs/specs/unison.system.json",
+    "registeredShards": 2,
+    "missingRegisteredShards": 0
+  },
+  "decision": {
+    "newFoundations": 0,
+    "newPrimitives": 0,
+    "runtimeCreated": false,
+    "reason": "Code Block and Copy Button are public component contracts because documentation templates and patterns need reusable source/copy behavior. Implementation remains blocked until audit gates and runtime work are scheduled."
+  },
+  "existingInternalEvidence": [
+    {
+      "file": "packages/react/src/patterns/EmailTemplateLayout.ts",
+      "finding": "Contains an internal CodeBlock function for email layout.",
+      "decision": "Do not treat this internal email helper as the public Code Block component because email markup has channel-specific constraints."
+    }
+  ],
+  "governanceCoverage": [
+    "Code Block replaces raw pre/code and local source wrappers in migrated documentation pages.",
+    "Copy Button replaces local copy controls and owns clipboard feedback, disabled state, and accessible naming.",
+    "Email OTP/security code blocks remain governed by Email Template Layout, not Code Block."
+  ],
+  "nextRequiredWork": [
+    "Add audit gates that fail on raw pre/code, local copy controls, local docs demo frames, local metadata pills, local docs-section surfaces, and local shell wrappers in migrated FlowDocs pages.",
+    "Then implement runtime React components or explicitly defer them before migrating FlowDocs adapters."
+  ]
+}

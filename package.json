@@ -405,6 +405,10 @@
       "types": "./packages/react/dist/patterns/SectionHeader.d.ts",
       "default": "./packages/react/dist/patterns/SectionHeader.js"
     },
+    "./react/patterns/documentation-section": {
+      "types": "./packages/react/dist/patterns/DocumentationSection.d.ts",
+      "default": "./packages/react/dist/patterns/DocumentationSection.js"
+    },
     "./react/patterns/select-option-layer": {
       "types": "./packages/react/dist/patterns/SelectOptionLayer.d.ts",
       "default": "./packages/react/dist/patterns/SelectOptionLayer.js"
@@ -552,6 +556,10 @@
     "./react/templates/driver-mobile-app": {
       "types": "./packages/react/dist/templates/DriverMobileApp.d.ts",
       "default": "./packages/react/dist/templates/DriverMobileApp.js"
+    },
+    "./react/templates/docs-shell": {
+      "types": "./packages/react/dist/templates/DocsShellTemplate.d.ts",
+      "default": "./packages/react/dist/templates/DocsShellTemplate.js"
     },
     "./react/templates/fleet-dashboard-suite": {
       "types": "./packages/react/dist/templates/FleetDashboardSuite.d.ts",

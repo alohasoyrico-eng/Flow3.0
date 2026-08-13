@@ -53,6 +53,16 @@ export type {
   AuthenticationLoginBiometricsAndOtpRecovery,
   AuthenticationLoginBiometricsAndOtpState,
 } from "./AuthenticationLoginBiometricsAndOtp.js";
+export { ArtifactMetadataBar } from "./ArtifactMetadataBar.js";
+export type {
+  ArtifactMetadataBarAction,
+  ArtifactMetadataBarComponent,
+  ArtifactMetadataBarDensity,
+  ArtifactMetadataBarItem,
+  ArtifactMetadataBarItemKind,
+  ArtifactMetadataBarProps,
+  ArtifactMetadataBarState,
+} from "./ArtifactMetadataBar.js";
 export { AvatarGroup } from "./AvatarGroup.js";
 export type {
   AvatarGroupAction,
@@ -522,6 +532,64 @@ export type {
   SectionHeaderProps,
   SectionHeaderState,
 } from "./SectionHeader.js";
+export { DocumentationSection } from "./DocumentationSection.js";
+export type {
+  DocumentationSectionComponent,
+  DocumentationSectionDensity,
+  DocumentationSectionHeader,
+  DocumentationSectionLayout,
+  DocumentationSectionProps,
+  DocumentationSectionState,
+  DocumentationSectionTone,
+} from "./DocumentationSection.js";
+export { DocumentationReferenceGrid } from "./DocumentationReferenceGrid.js";
+export type {
+  DocumentationReferenceGridComponent,
+  DocumentationReferenceGridDensity,
+  DocumentationReferenceGridItem,
+  DocumentationReferenceGridKind,
+  DocumentationReferenceGridProps,
+} from "./DocumentationReferenceGrid.js";
+export { DocumentationPrimitiveDemo } from "./DocumentationPrimitiveDemo.js";
+export type {
+  DocumentationPrimitiveDemoCard,
+  DocumentationPrimitiveDemoCardAction,
+  DocumentationPrimitiveDemoChoice,
+  DocumentationPrimitiveDemoComponent,
+  DocumentationPrimitiveDemoDensity,
+  DocumentationPrimitiveDemoProps,
+  DocumentationPrimitiveDemoType,
+} from "./DocumentationPrimitiveDemo.js";
+export { DocumentationTokenGrid } from "./DocumentationTokenGrid.js";
+export type {
+  DocumentationTokenGridComponent,
+  DocumentationTokenGridDensity,
+  DocumentationTokenGridItem,
+  DocumentationTokenGridProps,
+  DocumentationTokenGridVariant,
+} from "./DocumentationTokenGrid.js";
+export { DemoPreviewFrame } from "./DemoPreviewFrame.js";
+export type {
+  DemoPreviewFrameComponent,
+  DemoPreviewFrameDensity,
+  DemoPreviewFrameFallback,
+  DemoPreviewFrameKind,
+  DemoPreviewFrameProps,
+  DemoPreviewFrameState,
+  DemoPreviewFrameTone,
+} from "./DemoPreviewFrame.js";
+export { DocumentationHero } from "./DocumentationHero.js";
+export type {
+  DocumentationHeroAction,
+  DocumentationHeroBackground,
+  DocumentationHeroComponent,
+  DocumentationHeroDensity,
+  DocumentationHeroMetadata,
+  DocumentationHeroMetadataKind,
+  DocumentationHeroProps,
+  DocumentationHeroState,
+  DocumentationHeroTone,
+} from "./DocumentationHero.js";
 export { SelectOptionLayer } from "./SelectOptionLayer.js";
 export type {
   SelectOptionLayerComponent,

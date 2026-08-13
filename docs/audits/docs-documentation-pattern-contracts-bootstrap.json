@@ -1,0 +1,71 @@
+{
+  "schema": "flow-docs-documentation-pattern-contracts-bootstrap.v1",
+  "date": "2026-08-13",
+  "iteration": 37,
+  "scope": "Flow-owned documentation pattern contracts required by documentation templates.",
+  "sourceAudit": {
+    "repo": "FlowDocs",
+    "file": "docs/audits/docs-template-cascade-crosswalk.json",
+    "baselineCommit": "e3ac668"
+  },
+  "flowBaseline": {
+    "repo": "Flow3.0",
+    "baselineCommit": "3bf65830"
+  },
+  "createdContracts": [
+    {
+      "id": "documentation-page-shell",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "documentation-hero",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "documentation-section",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "demo-preview-frame",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "on-this-page-nav",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "artifact-metadata-bar",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+      "status": "contract-only"
+    }
+  ],
+  "indexRegistration": {
+    "file": "packages/specs/specs/unison.system.json",
+    "registeredShards": 6,
+    "missingRegisteredShards": 0
+  },
+  "decision": {
+    "newFoundations": 0,
+    "newPrimitives": 0,
+    "runtimeCreated": false,
+    "reason": "The patterns close the public contract gap for documentation templates while preserving the rule that FlowDocs cannot own structural wrappers. React/runtime work remains blocked until components and audit gates are explicit."
+  },
+  "governanceCoverage": [
+    "documentation-page-shell owns shell/page background and grid overlay boundary.",
+    "documentation-hero owns docs hero hierarchy, metadata, actions, and governed background treatment.",
+    "documentation-section owns docs section surfaces, matrices, callouts, and grouped evidence.",
+    "demo-preview-frame owns demo, viewport, source, loading, and error frame boundaries.",
+    "on-this-page-nav owns local page section navigation and avoids Sidebar/Tabs duplication.",
+    "artifact-metadata-bar owns repeated artifact metadata without local pill wrappers."
+  ],
+  "nextRequiredWork": [
+    "Create or explicitly defer supporting component contracts: Code Block and Copy Button.",
+    "Add audit gates that fail on local FlowDocs wrappers for shell, hero, section, demo frame, local navigation, metadata bars, raw pre/code, and copy buttons.",
+    "Then start documentation template runtime work in Flow before migrating FlowDocs adapters."
+  ]
+}

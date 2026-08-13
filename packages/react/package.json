@@ -272,6 +272,10 @@
       "types": "./dist/templates/DriverMobileApp.d.ts",
       "default": "./dist/templates/DriverMobileApp.js"
     },
+    "./templates/docs-shell": {
+      "types": "./dist/templates/DocsShellTemplate.d.ts",
+      "default": "./dist/templates/DocsShellTemplate.js"
+    },
     "./templates/fleet-dashboard-suite": {
       "types": "./dist/templates/FleetDashboardSuite.d.ts",
       "default": "./dist/templates/FleetDashboardSuite.js"
@@ -479,6 +483,10 @@
     "./patterns/section-header": {
       "types": "./dist/patterns/SectionHeader.d.ts",
       "default": "./dist/patterns/SectionHeader.js"
+    },
+    "./patterns/documentation-section": {
+      "types": "./dist/patterns/DocumentationSection.d.ts",
+      "default": "./dist/patterns/DocumentationSection.js"
     },
     "./patterns/virtual-data-table": {
       "types": "./dist/patterns/VirtualDataTable.d.ts",

@@ -1,0 +1,146 @@
+{
+  "artifacts": {
+    "patterns": {
+      "documentation-page-shell": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate documentation page chrome, responsive content rails, background treatment, grid overlay, and page-level navigation boundaries without FlowDocs owning shell markup.",
+        "governingFoundations": [
+          "Accessibility",
+          "Depth",
+          "Frame",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Color",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Icon Button",
+          "Badge",
+          "Breadcrumbs"
+        ],
+        "patternDependencies": [
+          "Topbar",
+          "Sidebar",
+          "Search",
+          "Command Palette"
+        ],
+        "templateDependencies": [
+          "Docs Shell Template",
+          "Docs Home Template",
+          "Docs Collection Template",
+          "Reference Detail Template",
+          "Component Detail Template",
+          "Pattern Detail Template",
+          "Template Detail Template"
+        ],
+        "states": [
+          "desktop",
+          "mobile",
+          "sidebar-open",
+          "sidebar-closed",
+          "search-open",
+          "dark",
+          "light",
+          "grid-overlay-visible",
+          "loading"
+        ],
+        "slots": [
+          {
+            "name": "shellContent",
+            "owner": "template",
+            "uses": [
+              "Surface",
+              "Breakpoints"
+            ],
+            "required": true,
+            "purpose": "Hosts the active documentation template content without adding local page wrappers."
+          },
+          {
+            "name": "backgroundTreatment",
+            "owner": "pattern",
+            "uses": [
+              "Surface",
+              "Color",
+              "Frame"
+            ],
+            "required": "conditional",
+            "purpose": "Owns documentation background color, grid texture, and overlay behavior from existing tokens."
+          },
+          {
+            "name": "navigationBoundary",
+            "owner": "pattern",
+            "uses": [
+              "Topbar",
+              "Sidebar",
+              "Search"
+            ],
+            "required": true,
+            "purpose": "Defines the boundary between shell navigation and page content."
+          }
+        ],
+        "entryConditions": [
+          "A documentation page needs shell navigation, topbar, content rail, background treatment, or grid overlay.",
+          "The page is rendered by FlowDocs but structure must be owned by Flow.",
+          "Responsive shell behavior must remain consistent across documentation templates."
+        ],
+        "decisionTree": [
+          "Use Docs Shell Template for the complete shell.",
+          "Use Documentation Page Shell as the reusable shell pattern inside docs templates.",
+          "Use Topbar, Sidebar, and Search for their dedicated interaction responsibilities.",
+          "Do not create a new foundation or primitive for docs-only background treatment unless existing Frame, Surface, Color, and Breakpoints cannot express it."
+        ],
+        "failureModes": [
+          "FlowDocs owns static shell HTML or local shell CSS after this pattern exists.",
+          "Grid overlay metrics or background treatment are unmanaged local CSS.",
+          "Sidebar close behavior is duplicated outside the hamburger trigger.",
+          "Topbar search width is controlled by docs-specific local overrides."
+        ],
+        "successMetrics": [
+          "All documentation templates render inside one governed shell boundary.",
+          "Mobile navigation, search, theme, and active route state behave consistently.",
+          "Page background and grid texture can be changed through Flow tokens and pattern slots."
+        ],
+        "accessibility": [
+          "Expose one navigation landmark for primary docs navigation.",
+          "Keep sidebar toggle focusable and reversible with the same control on mobile.",
+          "Preserve skip-link and heading order across templates.",
+          "Do not communicate active state by color alone."
+        ],
+        "tests": [
+          "Desktop, mobile, dark, light, sidebar-open, sidebar-closed, and search-open states are covered.",
+          "Topbar and Sidebar do not duplicate drawer ownership.",
+          "No migrated docs page reintroduces local shell wrappers."
+        ],
+        "agentInstructions": [
+          "Do not hardcode FlowDocs shell DOM.",
+          "Keep DocsShellTemplate as the template owner and this pattern as the reusable shell behavior.",
+          "Reject docs-only background or grid CSS that bypasses Flow primitives."
+        ],
+        "rejectIf": [
+          "The page shell is implemented with local FlowDocs HTML wrappers.",
+          "The grid texture or red/blue background treatment is an unmanaged CSS effect.",
+          "Navigation counts, active state, or shell labels are static strings disconnected from the content model.",
+          "Topbar, Sidebar, or Search behavior is reimplemented inside a docs template."
+        ]
+      }
+    }
+  }
+}

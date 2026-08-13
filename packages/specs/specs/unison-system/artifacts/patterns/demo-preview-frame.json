@@ -1,0 +1,156 @@
+{
+  "artifacts": {
+    "patterns": {
+      "demo-preview-frame": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Developers",
+          "Product Designers",
+          "QA",
+          "Agents"
+        ],
+        "purpose": "Frame live examples, specimens, viewport demos, playgrounds, and visual QA targets while preserving the boundary between Flow artifacts and FlowDocs content data.",
+        "governingFoundations": [
+          "Accessibility",
+          "Frame",
+          "Depth",
+          "State",
+          "Tone"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Loading",
+          "Disabled",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Card",
+          "Button",
+          "Icon Button",
+          "Badge",
+          "Tag",
+          "Code Block",
+          "Copy Button",
+          "Skeleton",
+          "Error Panel"
+        ],
+        "patternDependencies": [
+          "Documentation Section",
+          "Toolbar"
+        ],
+        "templateDependencies": [
+          "Reference Detail Template",
+          "Component Detail Template",
+          "Pattern Detail Template",
+          "Template Detail Template"
+        ],
+        "states": [
+          "default",
+          "interactive",
+          "static",
+          "viewport-mobile",
+          "viewport-desktop",
+          "loading",
+          "error",
+          "unsupported",
+          "dark",
+          "density-compact"
+        ],
+        "slots": [
+          {
+            "name": "preview",
+            "owner": "template",
+            "uses": [
+              "Surface",
+              "Card"
+            ],
+            "required": true,
+            "purpose": "Hosts the actual demo artifact without local structural wrappers."
+          },
+          {
+            "name": "controls",
+            "owner": "component",
+            "uses": [
+              "Button",
+              "Icon Button",
+              "Toolbar"
+            ],
+            "required": "conditional",
+            "purpose": "Provides density, theme, viewport, or state controls for demos."
+          },
+          {
+            "name": "source",
+            "owner": "component",
+            "uses": [
+              "Code Block",
+              "Copy Button"
+            ],
+            "required": "conditional",
+            "purpose": "Renders code and copy actions through governed components."
+          },
+          {
+            "name": "fallback",
+            "owner": "component",
+            "uses": [
+              "Skeleton",
+              "Error Panel"
+            ],
+            "required": "conditional",
+            "purpose": "Owns loading, error, unsupported, or missing-demo states."
+          }
+        ],
+        "entryConditions": [
+          "A documentation page needs to show a live component, pattern, template, specimen, or viewport example.",
+          "The example requires controls, source, loading, error, or QA frame boundaries.",
+          "The frame repeats across component, pattern, reference, or template details."
+        ],
+        "decisionTree": [
+          "Use direct inline content for simple text-only examples.",
+          "Use Demo Preview Frame for live UI examples, viewport previews, playgrounds, or code-linked demos.",
+          "Use Code Block and Copy Button for source snippets.",
+          "Do not create per-artifact demo wrappers inside FlowDocs."
+        ],
+        "failureModes": [
+          "Demo frames are implemented as local docs-demo-layout wrappers.",
+          "Source code uses raw pre/code without Code Block governance.",
+          "Loading or error demos bypass Skeleton or Error Panel.",
+          "Viewport frames are visually fixed and fail mobile layout."
+        ],
+        "successMetrics": [
+          "Component, pattern, and template demos share framing behavior.",
+          "Visual QA can target stable frame boundaries.",
+          "Demo controls remain accessible and token-driven."
+        ],
+        "accessibility": [
+          "Label interactive demos and controls.",
+          "Keep focus inside demo controls predictable.",
+          "Provide text fallback for unsupported or failed demos.",
+          "Do not trap keyboard focus in preview content unless the demo requires modal behavior."
+        ],
+        "tests": [
+          "Covers static, interactive, mobile viewport, desktop viewport, loading, error, dark, and density states.",
+          "Fails when migrated pages use local docs-demo-layout wrappers.",
+          "Checks source slot uses Code Block and Copy Button when source is shown."
+        ],
+        "agentInstructions": [
+          "Do not hand-roll demo frame markup in FlowDocs.",
+          "Keep demo artifact behavior separate from frame behavior.",
+          "Reject visual-only frame variants that are not tied to state, viewport, or source behavior."
+        ],
+        "rejectIf": [
+          "A docs page creates a local demo frame wrapper after this pattern is available.",
+          "Demo source is copied with local buttons or raw pre/code.",
+          "The frame owns the component or pattern being demonstrated.",
+          "Viewport examples cannot be tested at mobile and desktop sizes."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "flow-docs-template-contract-bootstrap.v1",
+  "date": "2026-08-13",
+  "iteration": 36,
+  "scope": "Flow-owned documentation template contracts created from FlowDocs docs-template cascade crosswalk.",
+  "sourceAudit": {
+    "repo": "FlowDocs",
+    "file": "docs/audits/docs-template-cascade-crosswalk.json",
+    "baselineCommit": "e3ac668"
+  },
+  "flowBaseline": {
+    "repo": "Flow3.0",
+    "baselineCommit": "3bf65830"
+  },
+  "createdContracts": [
+    {
+      "id": "docs-shell-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "docs-home-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "docs-collection-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "reference-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "component-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "pattern-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+      "status": "contract-only"
+    },
+    {
+      "id": "template-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+      "status": "contract-only"
+    }
+  ],
+  "createdMetadata": [
+    {
+      "id": "documentationtemplates",
+      "file": "packages/specs/specs/unison-system/meta/documentationtemplates.json"
+    }
+  ],
+  "indexRegistration": {
+    "file": "packages/specs/specs/unison.system.json",
+    "registeredShards": 8,
+    "missingRegisteredShards": 0
+  },
+  "decision": {
+    "newFoundations": 0,
+    "newPrimitives": 0,
+    "runtimeCreated": false,
+    "reason": "This iteration establishes Flow ownership for documentation-page templates before any FlowDocs migration. Runtime React implementation remains blocked until contracts and audit gates are explicit."
+  },
+  "nextRequiredWork": [
+    "Create specs for supporting documentation patterns: Documentation Page Shell, Documentation Hero, Documentation Section, Demo Preview Frame, On This Page Nav, Artifact Metadata Bar.",
+    "Create or defer supporting component contracts: Code Block and Copy Button.",
+    "Add audits that fail when FlowDocs migrated page families reintroduce local structural wrappers.",
+    "Only then start implementation for documentation templates or FlowDocs adapters."
+  ]
+}

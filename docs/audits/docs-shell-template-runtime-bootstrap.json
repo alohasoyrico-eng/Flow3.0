@@ -1,0 +1,74 @@
+{
+  "audit": "docs-shell-template-runtime-bootstrap",
+  "date": "2026-08-13",
+  "scope": "Flow React documentation template runtime",
+  "template": {
+    "id": "docs-shell-template",
+    "name": "DocsShellTemplate",
+    "implementationStatus": "runtime-preview",
+    "source": "packages/react/src/templates/DocsShellTemplate.ts",
+    "types": "packages/react/src/templates/DocsShellTemplate.d.ts",
+    "dist": [
+      "packages/react/dist/templates/DocsShellTemplate.js",
+      "packages/react/dist/templates/DocsShellTemplate.d.ts"
+    ],
+    "publicExports": [
+      "@alohasoyrico-eng/flow/react/templates",
+      "@alohasoyrico-eng/flow/react/templates/docs-shell",
+      "@design-system/react/templates",
+      "@design-system/react/templates/docs-shell"
+    ]
+  },
+  "composition": {
+    "usesFlowTopbar": true,
+    "usesFlowSidebar": true,
+    "topbarOwnsSidebarSlot": false,
+    "usesFlowSurfaceForPageSlot": true,
+    "localInlineStyles": false,
+    "localDrawerCloseButton": false,
+    "shellSlots": [
+      "skip-link",
+      "shell-header",
+      "brand",
+      "topbar",
+      "shell-body",
+      "primary-navigation",
+      "page",
+      "page-description"
+    ]
+  },
+  "validation": {
+    "commands": [
+      {
+        "command": "npm run build:react",
+        "status": "pass",
+        "evidence": {
+          "package": "@design-system/react",
+          "outDir": "dist",
+          "files": 277
+        }
+      },
+      {
+        "command": "node import('@alohasoyrico-eng/flow/react/templates/docs-shell')",
+        "status": "pass",
+        "evidence": {
+          "DocsShellTemplate": "exported"
+        }
+      },
+      {
+        "command": "React renderToStaticMarkup(DocsShellTemplate)",
+        "status": "pass",
+        "evidence": {
+          "hasTemplateBoundary": true,
+          "hasTopbar": true,
+          "hasSidebar": true
+        }
+      }
+    ]
+  },
+  "remainingBeforeFlowDocsMigration": [
+    "Visual QA against existing FlowDocs shell on desktop and mobile.",
+    "Adapter in FlowDocs that maps catalog routes, counts, search, theme, and drawer state into DocsShellTemplate.",
+    "Strict FlowDocs gate that forbids local docs shell wrappers once the adapter is active."
+  ]
+}

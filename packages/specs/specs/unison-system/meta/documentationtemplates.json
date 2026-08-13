@@ -1,0 +1,20 @@
+{
+  "documentationTemplates": [
+    "Docs Shell Template",
+    "Docs Home Template",
+    "Docs Collection Template",
+    "Reference Detail Template",
+    "Component Detail Template",
+    "Pattern Detail Template",
+    "Template Detail Template"
+  ],
+  "status": "contract-only",
+  "sourceAudit": "FlowDocs docs/audits/docs-template-cascade-crosswalk.json",
+  "governance": [
+    "Documentation templates are Flow-owned page composition contracts.",
+    "FlowDocs keeps routing, content data, localization, and adapters.",
+    "FlowDocs must not own structural UI wrappers once a documentation template owns the role.",
+    "Documentation templates must reuse existing foundations and primitives before adding public artifacts.",
+    "Documentation-specific slots do not become public components unless they satisfy public variant or component criteria."
+  ]
+}

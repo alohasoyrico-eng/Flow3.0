@@ -1,0 +1,138 @@
+{
+  "artifacts": {
+    "patterns": {
+      "artifact-metadata-bar": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "PMs",
+          "Agents"
+        ],
+        "purpose": "Render compact metadata for Flow artifacts such as layer, platform, maturity, status, counts, dependencies, and ownership without local pill or card-meta wrappers.",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "State",
+          "Tone",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Density",
+          "Focus",
+          "Color"
+        ],
+        "componentDependencies": [
+          "Badge",
+          "Tag",
+          "Chip",
+          "Tooltip",
+          "Button"
+        ],
+        "patternDependencies": [
+          "Documentation Section"
+        ],
+        "templateDependencies": [
+          "Docs Home Template",
+          "Docs Collection Template",
+          "Documentation Hero",
+          "Reference Detail Template",
+          "Component Detail Template",
+          "Pattern Detail Template",
+          "Template Detail Template"
+        ],
+        "states": [
+          "default",
+          "compact",
+          "overflow",
+          "interactive",
+          "loading",
+          "empty",
+          "dark",
+          "mobile"
+        ],
+        "slots": [
+          {
+            "name": "items",
+            "owner": "component",
+            "uses": [
+              "Badge",
+              "Tag",
+              "Chip"
+            ],
+            "required": true,
+            "purpose": "Renders metadata values with Flow status and tag components."
+          },
+          {
+            "name": "explanations",
+            "owner": "component",
+            "uses": [
+              "Tooltip"
+            ],
+            "required": "conditional",
+            "purpose": "Explains compact metadata labels without visible text duplication."
+          },
+          {
+            "name": "actions",
+            "owner": "component",
+            "uses": [
+              "Button"
+            ],
+            "required": "conditional",
+            "purpose": "Supports metadata-driven actions such as filter, inspect, or copy link."
+          }
+        ],
+        "entryConditions": [
+          "A docs template needs to show artifact metadata repeatedly.",
+          "Metadata includes status, layer, platform, maturity, ownership, dependency, count, or QA signals.",
+          "The metadata must be compact but still accessible."
+        ],
+        "decisionTree": [
+          "Use Badge or Tag directly for one-off metadata.",
+          "Use Artifact Metadata Bar when multiple metadata values repeat across docs cards, heroes, or detail headers.",
+          "Use Tooltip only when compact labels require explanation.",
+          "Do not create docs-specific pill wrappers."
+        ],
+        "failureModes": [
+          "Metadata chips are custom spans.",
+          "Status or maturity is color-only.",
+          "Overflow wraps unpredictably in mobile cards.",
+          "Metadata is embedded in each docs card implementation."
+        ],
+        "successMetrics": [
+          "Metadata rendering is consistent across home, collections, and details.",
+          "Cards and heroes can use the same metadata contract.",
+          "Metadata remains readable and accessible at compact sizes."
+        ],
+        "accessibility": [
+          "Expose abbreviated metadata with accessible labels.",
+          "Do not rely on color alone for status.",
+          "Preserve readable order when metadata wraps."
+        ],
+        "tests": [
+          "Covers default, compact, overflow, interactive, loading, empty, dark, and mobile states.",
+          "Fails when migrated pages use local card-meta-row or custom pill wrappers.",
+          "Checks accessible names for compact metadata items."
+        ],
+        "agentInstructions": [
+          "Use this pattern for repeated artifact metadata.",
+          "Do not promote every docs metadata layout to a Card variant.",
+          "Ask before metadata implies maturity, compliance, or release readiness."
+        ],
+        "rejectIf": [
+          "Metadata is rendered with local pill classes.",
+          "Status, maturity, or readiness is color-only.",
+          "A docs card duplicates metadata layout internally after this pattern exists.",
+          "The pattern becomes a general product status bar without product use evidence."
+        ]
+      }
+    }
+  }
+}

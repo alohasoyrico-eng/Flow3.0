@@ -2,6 +2,8 @@ export { AgentWorkspace } from "./AgentWorkspace.js";
 export { ConfigurationConsole } from "./ConfigurationConsole.js";
 export { DriverCardWallet } from "./DriverCardWallet.js";
 export { DriverMobileApp } from "./DriverMobileApp.js";
+export { DocsArtifactDetailTemplate } from "./DocsArtifactDetailTemplate.js";
+export { DocsShellTemplate } from "./DocsShellTemplate.js";
 export { FleetDashboardSuite } from "./FleetDashboardSuite.js";
 export { FleetManagerDesktop } from "./FleetManagerDesktop.js";
 export { InternalOperationsConsole } from "./InternalOperationsConsole.js";
@@ -42,6 +44,19 @@ export type {
   DriverMobileAppTab,
   DriverMobileAppTabItem,
 } from "./DriverMobileApp.js";
+export type {
+  DocsArtifactDetailTemplateComponent,
+  DocsArtifactDetailTemplateDensity,
+  DocsArtifactDetailTemplateProps,
+  DocsArtifactDetailTemplateState,
+} from "./DocsArtifactDetailTemplate.js";
+export type {
+  DocsShellTemplateComponent,
+  DocsShellTemplateDensity,
+  DocsShellTemplateProps,
+  DocsShellTemplateState,
+  DocsShellTemplateTheme,
+} from "./DocsShellTemplate.js";
 export type {
   FleetDashboardSuiteComponent,
   FleetDashboardSuiteDashboard,

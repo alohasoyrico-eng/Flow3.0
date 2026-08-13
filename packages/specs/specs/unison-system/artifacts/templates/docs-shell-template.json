@@ -1,0 +1,114 @@
+{
+  "artifacts": {
+    "templates": {
+      "docs-shell-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "runtime-preview",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Provide the Flow-owned documentation shell so FlowDocs can render navigation, search, theme, responsive layout, and page chrome without local structural wrappers.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Frame",
+          "Depth",
+          "State",
+          "Accessibility",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Color",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Icon Button",
+          "Input",
+          "Badge",
+          "Avatar"
+        ],
+        "patternDependencies": [
+          "Topbar",
+          "Sidebar",
+          "Search",
+          "Command Palette",
+          "Documentation Page Shell"
+        ],
+        "documentationSlots": [
+          {
+            "name": "brand",
+            "owner": "DocsShellTemplate",
+            "uses": [
+              "Surface",
+              "Typography"
+            ]
+          },
+          {
+            "name": "primaryNavigation",
+            "owner": "Sidebar",
+            "uses": [
+              "Sidebar",
+              "Badge"
+            ]
+          },
+          {
+            "name": "topbar",
+            "owner": "Topbar",
+            "uses": [
+              "Topbar",
+              "Search",
+              "Icon Button"
+            ]
+          },
+          {
+            "name": "page",
+            "owner": "Documentation Page Shell",
+            "uses": [
+              "Surface",
+              "Breakpoints"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "route model",
+          "catalog counts",
+          "localized shell labels",
+          "navigation groups"
+        ],
+        "states": [
+          "desktop",
+          "mobile",
+          "sidebar-open",
+          "sidebar-closed",
+          "search-open",
+          "dark",
+          "light",
+          "loading"
+        ],
+        "qualityGates": [
+          "The mobile hamburger controls sidebar open and close without a second close button.",
+          "Search uses available topbar space at supported breakpoints.",
+          "Dark mode changes shell and content surfaces from Flow tokens.",
+          "Sidebar counts come from the catalog model, not static shell text."
+        ],
+        "rejectIf": [
+          "FlowDocs hardcodes shell layout as static HTML outside this template.",
+          "Topbar and Sidebar both own the same drawer trigger.",
+          "The shell uses raw colors, spacing, or local card wrappers instead of Flow primitives.",
+          "The grid overlay or background treatment is injected as unmanaged page CSS."
+        ]
+      }
+    }
+  }
+}

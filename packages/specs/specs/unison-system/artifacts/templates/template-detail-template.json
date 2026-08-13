@@ -1,0 +1,110 @@
+{
+  "artifacts": {
+    "templates": {
+      "template-detail-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "PMs",
+          "Agents"
+        ],
+        "purpose": "Render product template documentation through governed module previews, dependency maps, permissions, states, data ownership, and QA evidence.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Tone",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Loading"
+        ],
+        "componentDependencies": [
+          "Breadcrumbs",
+          "Tabs",
+          "Table",
+          "Card",
+          "Badge",
+          "Tag",
+          "Button",
+          "Code Block"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Documentation Section",
+          "Demo Preview Frame",
+          "Artifact Metadata Bar"
+        ],
+        "documentationSlots": [
+          {
+            "name": "modulePreview",
+            "owner": "docs-template-preview-slot",
+            "uses": [
+              "Card",
+              "Demo Preview Frame"
+            ]
+          },
+          {
+            "name": "dependencyMap",
+            "owner": "Documentation Section",
+            "uses": [
+              "Table",
+              "Tag",
+              "Badge"
+            ]
+          },
+          {
+            "name": "stateAndPermissionMatrix",
+            "owner": "Template Detail Template",
+            "uses": [
+              "Table",
+              "Badge"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "product template specs",
+          "template blueprint content",
+          "modules",
+          "permissions",
+          "states",
+          "data sources",
+          "telemetry",
+          "quality gates"
+        ],
+        "states": [
+          "default",
+          "module-loading",
+          "missing-template",
+          "permission-filtered",
+          "deprecated",
+          "mobile",
+          "dark"
+        ],
+        "qualityGates": [
+          "Product template documentation does not redefine product template behavior.",
+          "Module cards are template slots over Card, not new Card variants.",
+          "Dependencies, states, permissions, and telemetry are visible from the contract."
+        ],
+        "rejectIf": [
+          "Template docs implement product module behavior locally.",
+          "Module previews create docs-only component variants.",
+          "Permissions, data, states, or telemetry are omitted from the detail page."
+        ]
+      }
+    }
+  }
+}

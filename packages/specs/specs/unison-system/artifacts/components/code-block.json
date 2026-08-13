@@ -1,0 +1,254 @@
+{
+  "artifacts": {
+    "components": {
+      "code-block": {
+        "id": "code-block",
+        "name": "Code Block",
+        "layer": "Component",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Design",
+          "Engineering",
+          "Content",
+          "Agents"
+        ],
+        "maturityTarget": 2,
+        "status": "contract-only",
+        "purpose": "Render code, token paths, command snippets, and structured source examples with readable typography, overflow behavior, optional language metadata, and accessible copy/source affordances.",
+        "anatomy": [
+          {
+            "part": "Container",
+            "rule": "Surface that owns border, background, radius, density, and overflow without page-local wrappers.",
+            "tokens": [
+              "comp.code-block.*",
+              "sys.surface.*",
+              "sys.frame.*"
+            ]
+          },
+          {
+            "part": "Header",
+            "rule": "Optional metadata row for language, filename, status, or copy action.",
+            "tokens": [
+              "sys.typography.*",
+              "sys.spacing.*"
+            ]
+          },
+          {
+            "part": "Code content",
+            "rule": "Monospace readable content with preserved whitespace, wrapping policy, and scroll behavior.",
+            "tokens": [
+              "sys.typography.*",
+              "sys.color.*"
+            ]
+          },
+          {
+            "part": "Copy action",
+            "rule": "Optional Copy Button composes the copy behavior and feedback.",
+            "tokens": [
+              "comp.copy-button.*",
+              "sys.state.*"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "id": "block",
+            "description": "Full-width snippet or source example."
+          },
+          {
+            "id": "inline-group",
+            "description": "Compact grouped token or command snippets."
+          },
+          {
+            "id": "specimen",
+            "description": "Documentation specimen for tokens, APIs, or generated outputs."
+          }
+        ],
+        "states": [
+          "default",
+          "wrapped",
+          "scrollable",
+          "with-header",
+          "with-copy",
+          "copied",
+          "error",
+          "disabled"
+        ],
+        "statePrecedence": "disabled > error > copied > with-copy > with-header > scrollable > wrapped > default",
+        "foundations": {
+          "Voice": {
+            "status": "covered",
+            "decision": "Use clear labels for language, filename, and copy feedback.",
+            "tokens": [
+              "sys.voice.*"
+            ],
+            "behavior": "Users understand what the snippet represents before copying.",
+            "example": "React example.",
+            "test": "Verify visible or accessible label describes source context.",
+            "rejectIf": "Snippet context is only implied by visual placement."
+          },
+          "Frame": {
+            "status": "covered",
+            "decision": "Use Flow spacing, radius, density, and overflow rules.",
+            "tokens": [
+              "comp.code-block.*",
+              "sys.frame.*"
+            ],
+            "behavior": "Long snippets do not break the page layout.",
+            "example": "API props table code cell.",
+            "test": "Verify mobile overflow and wrapping behavior.",
+            "rejectIf": "The code block causes horizontal page overflow."
+          },
+          "Depth": {
+            "status": "covered",
+            "decision": "Use surface hierarchy rather than decorative shadows.",
+            "tokens": [
+              "sys.depth.*",
+              "sys.surface.*"
+            ],
+            "behavior": "Code reads as reference content, not a floating card.",
+            "example": "Component API source snippet.",
+            "test": "Verify surface contrast in light and dark modes.",
+            "rejectIf": "Depth is used as decoration."
+          },
+          "State": {
+            "status": "covered",
+            "decision": "Expose copied, error, disabled, wrapped, and scrollable states explicitly.",
+            "tokens": [
+              "sys.state.*"
+            ],
+            "behavior": "Snippet state and copy feedback are machine-readable.",
+            "example": "Copied source feedback.",
+            "test": "Verify copied and error messages are announced.",
+            "rejectIf": "Copy feedback is visual-only."
+          },
+          "Accessibility": {
+            "status": "covered",
+            "decision": "Provide code semantics, readable contrast, keyboard access to copy action, and non-color feedback.",
+            "tokens": [
+              "sys.accessibility.*"
+            ],
+            "behavior": "Keyboard and assistive technology users can read and copy snippets.",
+            "example": "Token output code block.",
+            "test": "Verify accessible label, focus order, contrast, and copy feedback.",
+            "rejectIf": "Raw pre/code is used without labeling or overflow governance."
+          }
+        },
+        "primitiveDependencies": [
+          "Color",
+          "Typography",
+          "Spacing",
+          "Radius",
+          "Surface",
+          "Density",
+          "Focus",
+          "Disabled",
+          "Breakpoints",
+          "Message"
+        ],
+        "componentDependencies": [
+          "Copy Button",
+          "Badge",
+          "Tag",
+          "Inline Validation"
+        ],
+        "tokenDependencies": [
+          "comp.code-block.*",
+          "comp.copy-button.*",
+          "sys.frame.*",
+          "sys.surface.*",
+          "sys.typography.*",
+          "sys.state.*",
+          "sys.accessibility.*"
+        ],
+        "props": [
+          {
+            "name": "code",
+            "type": "string",
+            "required": true,
+            "notes": "Raw code or token text to render."
+          },
+          {
+            "name": "language",
+            "type": "string",
+            "required": false,
+            "notes": "Language or source type label."
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": false,
+            "notes": "Optional source filename."
+          },
+          {
+            "name": "copyable",
+            "type": "boolean",
+            "required": false,
+            "notes": "When true, compose Copy Button."
+          },
+          {
+            "name": "wrap",
+            "type": "boolean",
+            "required": false,
+            "notes": "Controls wrapping versus horizontal scroll."
+          },
+          {
+            "name": "variant",
+            "type": "'block' | 'inline-group' | 'specimen'",
+            "required": false,
+            "notes": "Snippet layout role."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "FlowDocs component detail",
+            "example": "API prop examples and generated usage snippets."
+          },
+          {
+            "context": "FlowDocs reference detail",
+            "example": "Token path and generated Style Dictionary output."
+          },
+          {
+            "context": "Email Template Layout",
+            "example": "OTP/security code presentation remains an email pattern, not the public Code Block component."
+          }
+        ],
+        "guidelines": {
+          "do": [
+            "Use for source, token, command, API, or generated-output snippets.",
+            "Provide a language or context label when the code is not obvious.",
+            "Compose Copy Button for copyable snippets."
+          ],
+          "dont": [
+            "Do not use raw pre/code as a page-local visual block.",
+            "Do not use for OTP/security codes inside email templates.",
+            "Do not let long snippets resize page layout."
+          ],
+          "info": [
+            "Email OTP code blocks remain governed by Email Template Layout because email HTML has channel-specific constraints."
+          ]
+        },
+        "tests": [
+          "Accessible label and readable contrast.",
+          "Mobile overflow or wrapping behavior.",
+          "Dark mode surface and code color.",
+          "Copy Button composition when copyable.",
+          "Copied and error feedback announcement.",
+          "No page-level horizontal overflow."
+        ],
+        "agentInstructions": [
+          "Use Code Block for documentation code snippets, token paths, commands, and generated output.",
+          "Do not copy the internal EmailTemplateLayout CodeBlock as the public component contract.",
+          "Reject local raw pre/code wrappers once Code Block exists."
+        ],
+        "rejectIf": [
+          "The use is an email OTP/security code block.",
+          "Raw pre/code is styled locally after Code Block is available.",
+          "Long content breaks mobile layout.",
+          "Copy feedback is visual-only.",
+          "The snippet lacks context when copied text could be ambiguous."
+        ]
+      }
+    }
+  }
+}

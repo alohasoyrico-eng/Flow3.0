@@ -1,0 +1,126 @@
+{
+  "artifacts": {
+    "templates": {
+      "component-detail-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "QA",
+          "Agents"
+        ],
+        "purpose": "Render component documentation through governed detail sections, demos, variants, states, API tables, guidelines, playgrounds, and QA evidence.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Tone",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Loading",
+          "Disabled"
+        ],
+        "componentDependencies": [
+          "Breadcrumbs",
+          "Tabs",
+          "Table",
+          "Card",
+          "Badge",
+          "Tag",
+          "Button",
+          "Icon Button",
+          "Code Block",
+          "Copy Button"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Documentation Section",
+          "Demo Preview Frame",
+          "On This Page Nav",
+          "Artifact Metadata Bar"
+        ],
+        "documentationSlots": [
+          {
+            "name": "demo",
+            "owner": "Demo Preview Frame",
+            "uses": [
+              "Surface",
+              "Card",
+              "Code Block"
+            ]
+          },
+          {
+            "name": "variantMatrix",
+            "owner": "Component Detail Template",
+            "uses": [
+              "Table",
+              "Tag",
+              "Badge"
+            ]
+          },
+          {
+            "name": "playground",
+            "owner": "docs-playground-slot",
+            "uses": [
+              "Demo Preview Frame",
+              "Button",
+              "Icon Button"
+            ]
+          },
+          {
+            "name": "api",
+            "owner": "Documentation Section",
+            "uses": [
+              "Table",
+              "Code Block",
+              "Copy Button"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "component specs",
+          "component copy",
+          "demo data",
+          "governed custom renderer exceptions",
+          "API props",
+          "variant and state matrices",
+          "QA evidence"
+        ],
+        "states": [
+          "default",
+          "demo-loading",
+          "demo-error",
+          "missing-contract",
+          "deprecated",
+          "mobile",
+          "dark"
+        ],
+        "qualityGates": [
+          "Every component detail page uses this template or an explicit governed exception.",
+          "Custom renderers are slots inside the template boundary, not full page renderers.",
+          "Variant, state, responsive, and API sections share template-owned structure.",
+          "Demo frames support visual parity checks in light, dark, mobile, density, and focus states."
+        ],
+        "rejectIf": [
+          "A component page owns its own tabs, section cards, demo frames, or API tables.",
+          "A docs-only card or matrix style becomes a public component variant without satisfying variant criteria.",
+          "A custom renderer bypasses the template boundary.",
+          "Examples use local raw HTML wrappers after a slot owner exists."
+        ]
+      }
+    }
+  }
+}

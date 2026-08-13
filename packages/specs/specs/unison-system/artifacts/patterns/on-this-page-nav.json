@@ -1,0 +1,134 @@
+{
+  "artifacts": {
+    "patterns": {
+      "on-this-page-nav": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Coordinate local page navigation across documentation sections, tabs, anchors, active section state, and responsive collapse without duplicating Sidebar or Tabs behavior.",
+        "governingFoundations": [
+          "Accessibility",
+          "Frame",
+          "Depth",
+          "State",
+          "Voice"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Color"
+        ],
+        "componentDependencies": [
+          "Tabs",
+          "Button",
+          "Icon Button",
+          "Badge"
+        ],
+        "patternDependencies": [
+          "Sidebar",
+          "Documentation Page Shell"
+        ],
+        "templateDependencies": [
+          "Reference Detail Template",
+          "Component Detail Template",
+          "Pattern Detail Template"
+        ],
+        "states": [
+          "default",
+          "sticky",
+          "collapsed",
+          "active-section",
+          "overflow",
+          "mobile",
+          "dark"
+        ],
+        "slots": [
+          {
+            "name": "items",
+            "owner": "template",
+            "uses": [
+              "Tabs",
+              "Button"
+            ],
+            "required": true,
+            "purpose": "Maps page sections or tab groups to navigable items."
+          },
+          {
+            "name": "activeIndicator",
+            "owner": "component",
+            "uses": [
+              "Tabs",
+              "Badge"
+            ],
+            "required": "conditional",
+            "purpose": "Shows active section or status without color-only state."
+          },
+          {
+            "name": "mobileToggle",
+            "owner": "component",
+            "uses": [
+              "Icon Button"
+            ],
+            "required": "conditional",
+            "purpose": "Collapses local page navigation when viewport cannot support a rail."
+          }
+        ],
+        "entryConditions": [
+          "A long documentation detail page needs local section navigation.",
+          "A page mixes tabs, anchors, or section groups.",
+          "Local navigation must not become primary app navigation."
+        ],
+        "decisionTree": [
+          "Use Tabs for short mutually exclusive panels.",
+          "Use On This Page Nav for long pages with anchorable sections.",
+          "Use Sidebar for app-level navigation only.",
+          "Use Documentation Page Shell to position the local navigation rail."
+        ],
+        "failureModes": [
+          "Local nav duplicates Sidebar responsibilities.",
+          "Tabs and anchor nav are both active for the same content without a clear hierarchy.",
+          "Active section is color-only.",
+          "Mobile local navigation has no collapse or focus recovery."
+        ],
+        "successMetrics": [
+          "Users can scan long docs pages and jump to sections.",
+          "Active section state remains clear in desktop and mobile.",
+          "Local navigation never changes app route ownership."
+        ],
+        "accessibility": [
+          "Use nav landmarks only when the host page can distinguish local nav from primary nav.",
+          "Keep anchor targets focusable or announceable.",
+          "Preserve keyboard traversal and visible focus."
+        ],
+        "tests": [
+          "Covers default, sticky, collapsed, active-section, overflow, mobile, and dark states.",
+          "Verifies Sidebar and On This Page Nav landmarks are distinct.",
+          "Checks active section is not color-only."
+        ],
+        "agentInstructions": [
+          "Do not use Sidebar for local page anchors.",
+          "Do not create custom tablists inside FlowDocs.",
+          "Ask before mixing tabs and anchor navigation on the same content group."
+        ],
+        "rejectIf": [
+          "The local nav changes app route groups.",
+          "A docs page implements custom tablist or anchor wrappers.",
+          "Active section state depends only on color.",
+          "Mobile local nav cannot be opened, closed, and refocused predictably."
+        ]
+      }
+    }
+  }
+}

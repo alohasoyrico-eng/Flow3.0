@@ -53,6 +53,7 @@ export interface SidebarDrawer {
 export interface SidebarCollapseAction extends Pick<IconButtonProps, "label" | "ariaLabel" | "disabled" | "onClick"> {}
 
 export interface SidebarProps extends FlowDataAttributes {
+  id?: string;
   label?: string;
   density?: SidebarDensity;
   state?: SidebarState;
@@ -83,7 +84,7 @@ export interface SidebarComponent extends ForwardRefExoticComponent<SidebarProps
 }
 
 function sanitizeRestProps(rest: object | undefined) {
-  return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
+  return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key === "id" || key.startsWith("data-") || key.startsWith("aria-")));
 }
 
 function normalizeGroups(groups: SidebarGroup[] | undefined) {

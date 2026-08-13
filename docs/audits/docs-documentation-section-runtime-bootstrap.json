@@ -1,0 +1,37 @@
+{
+  "schema": "flow-docs-pattern-runtime-bootstrap.v1",
+  "date": "2026-08-13",
+  "artifact": "documentation-section",
+  "layer": "Pattern",
+  "status": "runtime-preview",
+  "sourceRuntime": "packages/react/src/patterns/DocumentationSection.ts",
+  "sourceTypes": "packages/react/src/patterns/DocumentationSection.d.ts",
+  "distRuntime": "packages/react/dist/patterns/DocumentationSection.js",
+  "distTypes": "packages/react/dist/patterns/DocumentationSection.d.ts",
+  "exports": [
+    "packages/react/src/patterns/index.ts",
+    "packages/react/src/index.ts",
+    "packages/react/package.json#./patterns/documentation-section",
+    "package.json#./react/patterns/documentation-section"
+  ],
+  "contract": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+  "validated": {
+    "buildReact": "pass",
+    "buildReactCheck": "pass",
+    "serverRender": {
+      "hasPatternAttribute": true,
+      "hasSurfacePrimitive": true,
+      "hasBodySlot": true
+    }
+  },
+  "flowDocsBridge": {
+    "status": "available-after-build-docs-assets",
+    "runtime": "../FlowDocs/apps/docs/generated/react/patterns/DocumentationSection.js",
+    "types": "../FlowDocs/apps/docs/generated/react/patterns/DocumentationSection.d.ts",
+    "adapterStatus": "pending"
+  },
+  "notes": [
+    "This closes the contract-only gap for the documentation-section boundary.",
+    "FlowDocs still has local section wrappers inventoried by audit; those are adapter/migration debt, not runtime availability debt."
+  ]
+}

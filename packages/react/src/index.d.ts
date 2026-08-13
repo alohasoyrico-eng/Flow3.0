@@ -60,6 +60,16 @@ export type {
   AuthenticationLoginBiometricsAndOtpRecovery,
   AuthenticationLoginBiometricsAndOtpState,
 } from "./patterns/AuthenticationLoginBiometricsAndOtp.js";
+export { ArtifactMetadataBar } from "./patterns/ArtifactMetadataBar.js";
+export type {
+  ArtifactMetadataBarAction,
+  ArtifactMetadataBarComponent,
+  ArtifactMetadataBarDensity,
+  ArtifactMetadataBarItem,
+  ArtifactMetadataBarItemKind,
+  ArtifactMetadataBarProps,
+  ArtifactMetadataBarState,
+} from "./patterns/ArtifactMetadataBar.js";
 export { AvatarGroup } from "./patterns/AvatarGroup.js";
 export type {
   AvatarGroupAction,
@@ -556,6 +566,64 @@ export type {
   SectionHeaderProps,
   SectionHeaderState,
 } from "./patterns/SectionHeader.js";
+export { DocumentationSection } from "./patterns/DocumentationSection.js";
+export type {
+  DocumentationSectionComponent,
+  DocumentationSectionDensity,
+  DocumentationSectionHeader,
+  DocumentationSectionLayout,
+  DocumentationSectionProps,
+  DocumentationSectionState,
+  DocumentationSectionTone,
+} from "./patterns/DocumentationSection.js";
+export { DocumentationReferenceGrid } from "./patterns/DocumentationReferenceGrid.js";
+export type {
+  DocumentationReferenceGridComponent,
+  DocumentationReferenceGridDensity,
+  DocumentationReferenceGridItem,
+  DocumentationReferenceGridKind,
+  DocumentationReferenceGridProps,
+} from "./patterns/DocumentationReferenceGrid.js";
+export { DocumentationPrimitiveDemo } from "./patterns/DocumentationPrimitiveDemo.js";
+export type {
+  DocumentationPrimitiveDemoCard,
+  DocumentationPrimitiveDemoCardAction,
+  DocumentationPrimitiveDemoChoice,
+  DocumentationPrimitiveDemoComponent,
+  DocumentationPrimitiveDemoDensity,
+  DocumentationPrimitiveDemoProps,
+  DocumentationPrimitiveDemoType,
+} from "./patterns/DocumentationPrimitiveDemo.js";
+export { DocumentationTokenGrid } from "./patterns/DocumentationTokenGrid.js";
+export type {
+  DocumentationTokenGridComponent,
+  DocumentationTokenGridDensity,
+  DocumentationTokenGridItem,
+  DocumentationTokenGridProps,
+  DocumentationTokenGridVariant,
+} from "./patterns/DocumentationTokenGrid.js";
+export { DemoPreviewFrame } from "./patterns/DemoPreviewFrame.js";
+export type {
+  DemoPreviewFrameComponent,
+  DemoPreviewFrameDensity,
+  DemoPreviewFrameFallback,
+  DemoPreviewFrameKind,
+  DemoPreviewFrameProps,
+  DemoPreviewFrameState,
+  DemoPreviewFrameTone,
+} from "./patterns/DemoPreviewFrame.js";
+export { DocumentationHero } from "./patterns/DocumentationHero.js";
+export type {
+  DocumentationHeroAction,
+  DocumentationHeroBackground,
+  DocumentationHeroComponent,
+  DocumentationHeroDensity,
+  DocumentationHeroMetadata,
+  DocumentationHeroMetadataKind,
+  DocumentationHeroProps,
+  DocumentationHeroState,
+  DocumentationHeroTone,
+} from "./patterns/DocumentationHero.js";
 export { SelectOptionLayer } from "./patterns/SelectOptionLayer.js";
 export type {
   SelectOptionLayerComponent,
@@ -761,6 +829,7 @@ export { CardNumberInput } from "./CardNumberInput.js";
 export { CardSecurityCodeInput } from "./CardSecurityCodeInput.js";
 export { Checkbox } from "./Checkbox.js";
 export { Chip } from "./Chip.js";
+export { CodeBlock } from "./CodeBlock.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
 export { CountrySelector } from "./CountrySelector.js";
@@ -770,6 +839,14 @@ export { FloatingActionButton } from "./FloatingActionButton.js";
 export { KpiTile } from "./KpiTile.js";
 export { List } from "./List.js";
 export { Menu } from "./Menu.js";
+export type {
+  CodeBlockAction,
+  CodeBlockComponent,
+  CodeBlockDensity,
+  CodeBlockProps,
+  CodeBlockState,
+  CodeBlockVariant,
+} from "./CodeBlock.js";
 export type {
   FloatingActionButtonComponent,
   FloatingActionButtonDensity,
@@ -1208,3 +1285,10 @@ export type {
   TextAreaProps,
   TextAreaState,
 } from "./TextArea.js";
+export { DocsArtifactDetailTemplate } from "./templates/DocsArtifactDetailTemplate.js";
+export type {
+  DocsArtifactDetailTemplateComponent,
+  DocsArtifactDetailTemplateDensity,
+  DocsArtifactDetailTemplateProps,
+  DocsArtifactDetailTemplateState,
+} from "./templates/DocsArtifactDetailTemplate.js";

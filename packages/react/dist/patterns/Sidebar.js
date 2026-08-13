@@ -8,7 +8,7 @@ import { IconButton } from "../IconButton.js";
 import { Surface } from "../Surface.js";
 import { flowDefinedProps } from "../internal/props.js";
 function sanitizeRestProps(rest) {
-    return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
+    return Object.fromEntries(Object.entries(rest ?? {}).filter(([key]) => key === "id" || key.startsWith("data-") || key.startsWith("aria-")));
 }
 function normalizeGroups(groups) {
     return (Array.isArray(groups) ? groups : [])

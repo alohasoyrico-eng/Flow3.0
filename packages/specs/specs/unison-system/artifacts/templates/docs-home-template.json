@@ -1,0 +1,102 @@
+{
+  "artifacts": {
+    "templates": {
+      "docs-home-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Agents"
+        ],
+        "purpose": "Render the documentation home page from Flow-owned hero, section, status, and collection composition while FlowDocs supplies content data.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "Growth",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Iconography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Card",
+          "Badge",
+          "Tag",
+          "Progress Indicator"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Documentation Hero",
+          "Documentation Section",
+          "Artifact Metadata Bar"
+        ],
+        "documentationSlots": [
+          {
+            "name": "hero",
+            "owner": "Documentation Hero",
+            "uses": [
+              "Surface",
+              "Button",
+              "Badge"
+            ]
+          },
+          {
+            "name": "coverageSummary",
+            "owner": "Documentation Section",
+            "uses": [
+              "Card",
+              "Progress Indicator",
+              "Tag"
+            ]
+          },
+          {
+            "name": "statusPanels",
+            "owner": "Documentation Section",
+            "uses": [
+              "Card",
+              "Badge"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "homeContent.hero",
+          "homeContent.coverage",
+          "homeContent.documentationStatus",
+          "homeContent.visualMigration",
+          "homeContent.architecture",
+          "homeContent.fastPaths"
+        ],
+        "states": [
+          "default",
+          "loading",
+          "empty",
+          "degraded-content",
+          "dark",
+          "mobile"
+        ],
+        "qualityGates": [
+          "Hero background treatment is governed by Documentation Hero and existing foundations.",
+          "Cards use Card composition through template slots, not new Card variants by default.",
+          "Status and coverage data can change without editing template markup."
+        ],
+        "rejectIf": [
+          "The home page defines a parallel card system.",
+          "Background gradients, grid texture, or hero tint are local unmanaged CSS.",
+          "A docs-only card treatment is promoted to a public Card variant without satisfying variant criteria."
+        ]
+      }
+    }
+  }
+}

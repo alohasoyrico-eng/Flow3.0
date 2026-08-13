@@ -1,0 +1,116 @@
+{
+  "artifacts": {
+    "templates": {
+      "pattern-detail-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "Researchers",
+          "Agents"
+        ],
+        "purpose": "Render pattern documentation through governed sections for scenario, dependencies, interactive demos, states, behavior, accessibility, and implementation evidence.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Growth",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Message"
+        ],
+        "componentDependencies": [
+          "Breadcrumbs",
+          "Tabs",
+          "Table",
+          "Card",
+          "Badge",
+          "Tag",
+          "Button",
+          "Code Block"
+        ],
+        "patternDependencies": [
+          "Section Header",
+          "Documentation Section",
+          "Demo Preview Frame",
+          "On This Page Nav",
+          "Artifact Metadata Bar"
+        ],
+        "documentationSlots": [
+          {
+            "name": "scenario",
+            "owner": "Documentation Section",
+            "uses": [
+              "Card",
+              "Tag"
+            ]
+          },
+          {
+            "name": "demo",
+            "owner": "Demo Preview Frame",
+            "uses": [
+              "Surface",
+              "Card"
+            ]
+          },
+          {
+            "name": "dependencyMap",
+            "owner": "Documentation Section",
+            "uses": [
+              "Table",
+              "Badge"
+            ]
+          },
+          {
+            "name": "behaviorMatrix",
+            "owner": "Pattern Detail Template",
+            "uses": [
+              "Table",
+              "Tag"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "pattern specs",
+          "pattern copy",
+          "pattern demo data",
+          "dependency evidence",
+          "states and behavior contracts",
+          "QA evidence"
+        ],
+        "states": [
+          "default",
+          "demo-loading",
+          "demo-error",
+          "missing-dependency",
+          "deprecated",
+          "mobile",
+          "dark"
+        ],
+        "qualityGates": [
+          "Pattern demos use template slots and Flow artifacts instead of local wrapper systems.",
+          "Dependencies are declared and visible before implementation examples.",
+          "Pattern behavior, states, and accessibility are documented through shared sections."
+        ],
+        "rejectIf": [
+          "A pattern page creates its own shell, section cards, or demo frame.",
+          "A pattern demo implements fake components or local variants instead of consuming Flow artifacts.",
+          "Pattern dependencies are implied by markup instead of declared in the template content model."
+        ]
+      }
+    }
+  }
+}

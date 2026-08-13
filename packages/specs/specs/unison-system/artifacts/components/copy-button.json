@@ -1,0 +1,239 @@
+{
+  "artifacts": {
+    "components": {
+      "copy-button": {
+        "id": "copy-button",
+        "name": "Copy Button",
+        "layer": "Component",
+        "platform": "Cross-platform",
+        "audiences": [
+          "Design",
+          "Engineering",
+          "Content",
+          "Agents"
+        ],
+        "maturityTarget": 2,
+        "status": "contract-only",
+        "purpose": "Copy a specific value or source snippet to the clipboard with clear accessible name, success/error feedback, disabled state, and no ambiguity about what will be copied.",
+        "anatomy": [
+          {
+            "part": "Button root",
+            "rule": "Native button semantics with Flow button or icon-button behavior.",
+            "tokens": [
+              "comp.button.*",
+              "comp.icon-button.*",
+              "comp.copy-button.*"
+            ]
+          },
+          {
+            "part": "Label or icon",
+            "rule": "Visible label or icon-only mode must have a clear accessible name.",
+            "tokens": [
+              "sys.voice.*",
+              "sys.iconography.*"
+            ]
+          },
+          {
+            "part": "Feedback",
+            "rule": "Copied and error feedback is exposed through text and live announcement.",
+            "tokens": [
+              "sys.state.*",
+              "sys.message.*"
+            ]
+          }
+        ],
+        "variants": [
+          {
+            "id": "text",
+            "description": "Visible text button for explicit copy actions."
+          },
+          {
+            "id": "icon",
+            "description": "Compact icon-only copy action with required accessible name."
+          },
+          {
+            "id": "inline",
+            "description": "Small action paired with token, command, or metadata value."
+          }
+        ],
+        "states": [
+          "default",
+          "hover",
+          "focus",
+          "pressed",
+          "copied",
+          "error",
+          "disabled",
+          "loading"
+        ],
+        "statePrecedence": "disabled > loading > error > copied > pressed > focus > hover > default",
+        "foundations": {
+          "Voice": {
+            "status": "covered",
+            "decision": "Use labels that name the copied value or source.",
+            "tokens": [
+              "sys.voice.*"
+            ],
+            "behavior": "Users understand the copy target before activation.",
+            "example": "Copy token path.",
+            "test": "Verify accessible name includes copy target when needed.",
+            "rejectIf": "The label is only 'Copy' when multiple copy targets are present."
+          },
+          "Frame": {
+            "status": "covered",
+            "decision": "Use Flow button/icon-button sizing and density.",
+            "tokens": [
+              "comp.copy-button.*",
+              "comp.button.*",
+              "comp.icon-button.*",
+              "sys.frame.*"
+            ],
+            "behavior": "Copy actions fit inline or header contexts without resizing layout.",
+            "example": "Code block header copy action.",
+            "test": "Verify layout stability after copied feedback.",
+            "rejectIf": "Feedback changes control size unpredictably."
+          },
+          "State": {
+            "status": "covered",
+            "decision": "Resolve disabled, loading, error, copied, pressed, focus, and hover states.",
+            "tokens": [
+              "sys.state.*",
+              "sys.message.*"
+            ],
+            "behavior": "Clipboard success and failure are explicit and recoverable.",
+            "example": "Copy fails because clipboard API is unavailable.",
+            "test": "Verify copied/error state timing and announcement.",
+            "rejectIf": "Failures are silent."
+          },
+          "Accessibility": {
+            "status": "covered",
+            "decision": "Preserve native button semantics, focus, accessible name, live feedback, and disabled behavior.",
+            "tokens": [
+              "sys.accessibility.*"
+            ],
+            "behavior": "Keyboard and assistive technology users can copy and receive feedback.",
+            "example": "Copy code snippet button.",
+            "test": "Verify name, role, focus, disabled, and live feedback.",
+            "rejectIf": "Copy is implemented as a div/span or visual icon only."
+          }
+        },
+        "primitiveDependencies": [
+          "Color",
+          "Typography",
+          "Spacing",
+          "Radius",
+          "Iconography",
+          "Duration",
+          "Motion Curves",
+          "Density",
+          "Focus",
+          "Disabled",
+          "Message"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Icon Button",
+          "Inline Validation",
+          "Tooltip"
+        ],
+        "tokenDependencies": [
+          "comp.copy-button.*",
+          "comp.button.*",
+          "comp.icon-button.*",
+          "sys.voice.*",
+          "sys.state.*",
+          "sys.message.*",
+          "sys.accessibility.*"
+        ],
+        "props": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "notes": "Exact text copied to clipboard."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false,
+            "notes": "Visible label for text variant."
+          },
+          {
+            "name": "ariaLabel",
+            "type": "string",
+            "required": "conditional",
+            "notes": "Required for icon or ambiguous contexts."
+          },
+          {
+            "name": "variant",
+            "type": "'text' | 'icon' | 'inline'",
+            "required": false,
+            "notes": "Visual/action density."
+          },
+          {
+            "name": "feedbackDuration",
+            "type": "number",
+            "required": false,
+            "notes": "Duration for copied feedback, using Duration/Motion contracts."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "notes": "Blocks copy and exposes disabled state."
+          }
+        ],
+        "productExamples": [
+          {
+            "context": "Code Block",
+            "example": "Copy a source snippet."
+          },
+          {
+            "context": "Artifact Metadata Bar",
+            "example": "Copy a token path or package import."
+          },
+          {
+            "context": "FlowDocs detail pages",
+            "example": "Copy API prop examples without local buttons."
+          }
+        ],
+        "guidelines": {
+          "do": [
+            "Name the copied target when there are multiple copy actions.",
+            "Use icon variant only with an accessible name.",
+            "Provide copied and error feedback."
+          ],
+          "dont": [
+            "Do not silently fail when clipboard access is unavailable.",
+            "Do not use generic labels for multiple copy targets.",
+            "Do not implement copy as a local span or div."
+          ],
+          "info": [
+            "Copy Button composes Button or Icon Button semantics; it exists because clipboard state and feedback need a reusable contract."
+          ]
+        },
+        "tests": [
+          "Native button semantics.",
+          "Accessible name for icon and ambiguous contexts.",
+          "Copied feedback announcement.",
+          "Clipboard error feedback.",
+          "Disabled non-interaction.",
+          "Layout stability after state change.",
+          "No local copy controls in migrated docs pages."
+        ],
+        "agentInstructions": [
+          "Use Copy Button for clipboard actions in documentation templates and code blocks.",
+          "Do not create local copy controls in FlowDocs.",
+          "Reject ambiguous copy labels when multiple values can be copied."
+        ],
+        "rejectIf": [
+          "The action copies an unclear or changing value.",
+          "The control has no accessible name.",
+          "Clipboard errors are not exposed.",
+          "The copy action is implemented with local HTML instead of Button or Icon Button semantics.",
+          "State feedback changes layout size unpredictably."
+        ]
+      }
+    }
+  }
+}
