@@ -7,7 +7,8 @@
     "p01Complete": true,
     "p02Complete": true,
     "p03Complete": true,
-    "p04ShellTypedSource": true
+    "p04ShellTypedSource": true,
+    "p04ShellGoverned": true
   },
   "phaseCount": 5,
   "iterationCount": 6,
@@ -267,16 +268,14 @@
     {
       "id": "P0.4",
       "name": "Shell pattern contracts",
-      "status": "blocked",
+      "status": "complete",
       "tickets": [
         "pattern:search",
         "pattern:sidebar",
         "pattern:topbar"
       ],
       "ticketCount": 3,
-      "blockers": [
-        "parallel docs DOM behavior"
-      ],
+      "blockers": [],
       "exitCriteria": [
         "topbar/sidebar/search contracts are TS-authored",
         "docs shell behavior can consume Flow shell contracts",
@@ -414,7 +413,7 @@
     {
       "id": "P0.5",
       "name": "FlowDocs P0 duplicate cleanup",
-      "status": "blocked",
+      "status": "ready",
       "tickets": [
         "foundation:accessibility",
         "foundation:depth",
@@ -456,9 +455,7 @@
         "primitive:typography"
       ],
       "ticketCount": 38,
-      "blockers": [
-        "P0.1-P0.4 must be complete"
-      ],
+      "blockers": [],
       "exitCriteria": [
         "P0 docs surfaces are consume Flow, docs-owned content, merged, or removed",
         "no P0 file is hand-implementing missing lower-layer behavior",

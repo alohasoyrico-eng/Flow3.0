@@ -7,6 +7,7 @@ const root = process.cwd();
 const inputFile = path.join(root, "docs/audits/system-p0-owner-decision-matrix.json");
 const tokenSourceGatesFile = path.join(root, "docs/audits/system-p0-token-source-gates.json");
 const primitiveRuntimeMatrixFile = path.join(root, "docs/audits/system-p0-primitive-runtime-matrix.json");
+const shellPatternContractGovernanceFile = path.join(root, "docs/audits/shell-pattern-contract-governance-audit.json");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-p0-remediation-sequence.json");
 const markdownOutput = path.join(outputDir, "system-p0-remediation-sequence.md");
@@ -34,11 +35,11 @@ function hotspotFiles(hotspots, matcher, limit = 20) {
     }));
 }
 
-function phase(id, name, tickets, blockers, exitCriteria, hotspots = []) {
+function phase(id, name, tickets, blockers, exitCriteria, hotspots = [], statusOverride) {
   return {
     id,
     name,
-    status: blockers.length ? "blocked" : "complete",
+    status: statusOverride ?? (blockers.length ? "blocked" : "complete"),
     tickets: ticketIds(tickets),
     ticketCount: tickets.length,
     blockers,
@@ -110,11 +111,14 @@ function main() {
   const ownerMatrix = readJson(inputFile);
   const tokenSourceGates = fs.existsSync(tokenSourceGatesFile) ? readJson(tokenSourceGatesFile) : null;
   const primitiveRuntimeMatrix = fs.existsSync(primitiveRuntimeMatrixFile) ? readJson(primitiveRuntimeMatrixFile) : null;
+  const shellPatternContractGovernance = fs.existsSync(shellPatternContractGovernanceFile) ? readJson(shellPatternContractGovernanceFile) : null;
   const p01Complete = tokenSourceGates?.status === "PASS";
   const p02Complete = primitiveRuntimeMatrix?.totals?.missingP0Runtime === 0;
   const p03Complete = primitiveRuntimeMatrix?.totals?.jsRuntimeOnly === 0
     && primitiveRuntimeMatrix?.totals?.policyOrNonRuntimeDecisionNeeded === 0;
   const p04ShellTypedSource = shellPatternsHaveTypedSource();
+  const p04ShellGoverned = shellPatternContractGovernance?.status === "pass"
+    && shellPatternContractGovernance?.inventory?.shellPatternContractDebt === 0;
   const tickets = ownerMatrix.decisionTickets;
   const foundations = tickets.filter((ticket) => ticket.layer === "foundation");
   const primitives = tickets.filter((ticket) => ticket.layer === "primitive");
@@ -182,7 +186,7 @@ function main() {
       [
         ...(!(p02Complete && p03Complete) ? ["primitive cascade must exist"] : []),
         ...(!p04ShellTypedSource ? ["zero TS source in shell patterns"] : []),
-        "parallel docs DOM behavior"
+        ...(!p04ShellGoverned ? ["shell pattern contract governance must pass"] : [])
       ],
       [
         "topbar/sidebar/search contracts are TS-authored",
@@ -195,13 +199,14 @@ function main() {
       "P0.5",
       "FlowDocs P0 duplicate cleanup",
       tickets,
-      ["P0.1-P0.4 must be complete"],
+      (p01Complete && p02Complete && p03Complete && p04ShellTypedSource && p04ShellGoverned) ? [] : ["P0.1-P0.4 must be complete"],
       [
         "P0 docs surfaces are consume Flow, docs-owned content, merged, or removed",
         "no P0 file is hand-implementing missing lower-layer behavior",
         "forensic gates show reduced docs-hand-authored P0 count"
       ],
-      docsCleanupHotspots
+      docsCleanupHotspots,
+      (p01Complete && p02Complete && p03Complete && p04ShellTypedSource && p04ShellGoverned) ? "ready" : undefined
     )
   ];
 
@@ -254,6 +259,7 @@ function main() {
       p02Complete,
       p03Complete,
       p04ShellTypedSource,
+      p04ShellGoverned,
     },
     phaseCount: phases.length,
     iterationCount: iterations.length,
