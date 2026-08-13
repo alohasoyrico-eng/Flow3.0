@@ -39,7 +39,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | --- | --- | --- |
 | forensic-matrix-completeness | pass | None |
 | style-dictionary-real | pass | None |
-| typescript-source-real | fail | FlowDocs has zero .ts/.tsx source files |
+| typescript-source-real | pass | None |
 | primitive-cascade-runtime | pass | None |
 | docs-ownership | fail | 7 docs generated candidates do not map to spec<br>162 entities have hand-authored docs surfaces |
 

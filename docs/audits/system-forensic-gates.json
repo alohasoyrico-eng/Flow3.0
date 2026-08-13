@@ -116,10 +116,8 @@
     },
     {
       "id": "typescript-source-real",
-      "status": "fail",
-      "blockers": [
-        "FlowDocs has zero .ts/.tsx source files"
-      ]
+      "status": "pass",
+      "blockers": []
     },
     {
       "id": "primitive-cascade-runtime",
@@ -174,7 +172,7 @@
   },
   "language": {
     "flowTsSourceFiles": 237,
-    "docsTsSourceFiles": 0
+    "docsTsSourceFiles": 1
   },
   "styleDictionary": {
     "dependency": true,

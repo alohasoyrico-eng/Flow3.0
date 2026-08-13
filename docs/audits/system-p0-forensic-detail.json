@@ -3,7 +3,7 @@
   "generatedAt": "2026-08-11",
   "source": "docs/audits/system-remediation-matrix.json",
   "status": "forensic_detail_only",
-  "totalDocsHandSurfaceRefs": 1082,
+  "totalDocsHandSurfaceRefs": 1059,
   "foundationTickets": [
     {
       "id": "foundation:accessibility",
@@ -865,14 +865,14 @@
       "slug": "depth",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 30,
+      "docsHandSurfaceCount": 29,
       "categoryCounts": {
         "docs-misc-surface": 4,
         "docs-foundation-detail-renderer": 1,
         "docs-pattern-detail-renderer": 3,
         "docs-primitive-detail-renderer": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 20
+        "docs-css-visual-surface": 19
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -1188,11 +1188,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -1288,12 +1283,12 @@
       "slug": "energy",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 50,
+      "docsHandSurfaceCount": 48,
       "categoryCounts": {
         "docs-misc-surface": 4,
         "docs-foundation-detail-renderer": 3,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 42
+        "docs-css-visual-surface": 40
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -1429,11 +1424,6 @@
               "text": "const [title, copy, value, token, action, iconName] = foundationCopy?.explorers?.items?.Energy?.states?.[role] ?? [];"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -1914,11 +1904,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -2160,12 +2145,12 @@
       "slug": "frame",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 61,
+      "docsHandSurfaceCount": 59,
       "categoryCounts": {
         "docs-misc-surface": 7,
         "docs-foundation-detail-renderer": 3,
         "docs-dom-interaction": 2,
-        "docs-css-visual-surface": 49
+        "docs-css-visual-surface": 47
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -2321,11 +2306,6 @@
               "text": "/* Frame context aliases are generated from Flow in apps/docs/generated/token-contexts.css. */"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -2856,11 +2836,6 @@
               "text": "border: var(--sys-frame-border-thin) solid var(--sys-energy-border-strong);"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
@@ -3412,11 +3387,11 @@
       "slug": "momentum",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 19,
+      "docsHandSurfaceCount": 18,
       "categoryCounts": {
         "docs-misc-surface": 3,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 15
+        "docs-css-visual-surface": 14
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -3692,11 +3667,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -3718,7 +3688,7 @@
       "slug": "state",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 133,
+      "docsHandSurfaceCount": 132,
       "categoryCounts": {
         "docs-misc-surface": 13,
         "docs-dom-interaction": 11,
@@ -3726,7 +3696,7 @@
         "docs-component-detail-renderer": 60,
         "docs-pattern-detail-renderer": 28,
         "docs-primitive-detail-renderer": 2,
-        "docs-css-visual-surface": 14,
+        "docs-css-visual-surface": 13,
         "docs-template-detail-renderer": 3
       },
       "riskFlags": [
@@ -5849,11 +5819,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -6005,13 +5970,13 @@
       "slug": "symbol",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 26,
+      "docsHandSurfaceCount": 24,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-foundation-detail-renderer": 1,
         "docs-shell": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 17
+        "docs-css-visual-surface": 15
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -6140,11 +6105,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -6207,11 +6167,6 @@
               "text": ".reference-badge[data-foundation=\"symbol\"] { --badge-color: var(--sys-color-action-hover); }"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
@@ -7430,14 +7385,14 @@
       "slug": "voice",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 42,
+      "docsHandSurfaceCount": 40,
       "categoryCounts": {
         "docs-misc-surface": 3,
         "docs-foundation-detail-renderer": 3,
         "docs-pattern-detail-renderer": 1,
         "docs-primitive-detail-renderer": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 33
+        "docs-css-visual-surface": 31
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -7599,11 +7554,6 @@
               "text": "const [title, heading, labelText, body] = foundationCopy?.explorers?.items?.Voice?.states?.[role] ?? [];"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -7990,11 +7940,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -8256,14 +8201,14 @@
       "slug": "color",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 56,
+      "docsHandSurfaceCount": 54,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-foundation-detail-renderer": 1,
         "docs-pattern-detail-renderer": 4,
         "docs-primitive-detail-renderer": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 43
+        "docs-css-visual-surface": 41
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -8401,11 +8346,6 @@
               "text": "color-scheme: light;"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -8882,11 +8822,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -9117,7 +9052,7 @@
       "slug": "density",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 63,
+      "docsHandSurfaceCount": 60,
       "categoryCounts": {
         "docs-dom-interaction": 3,
         "docs-misc-surface": 4,
@@ -9127,7 +9062,7 @@
         "docs-home-renderer": 1,
         "docs-pattern-detail-renderer": 10,
         "docs-primitive-detail-renderer": 2,
-        "docs-css-visual-surface": 22,
+        "docs-css-visual-surface": 19,
         "docs-template-detail-renderer": 1
       },
       "riskFlags": [
@@ -9757,21 +9692,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/01-shell-hero.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -10101,14 +10021,14 @@
       "slug": "disabled",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 28,
+      "docsHandSurfaceCount": 27,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-component-detail-renderer": 7,
         "docs-dom-interaction": 4,
         "docs-pattern-detail-renderer": 3,
         "docs-primitive-detail-renderer": 1,
-        "docs-css-visual-surface": 6,
+        "docs-css-visual-surface": 5,
         "docs-template-detail-renderer": 1
       },
       "riskFlags": [
@@ -10383,11 +10303,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/template-desktop-interactions.js",
           "category": "docs-dom-interaction",
           "evidence": [
@@ -10626,7 +10541,7 @@
       "slug": "elevation",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 45,
+      "docsHandSurfaceCount": 44,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-foundation-detail-renderer": 1,
@@ -10634,7 +10549,7 @@
         "docs-pattern-detail-renderer": 17,
         "docs-primitive-detail-renderer": 2,
         "docs-reference-renderer": 1,
-        "docs-css-visual-surface": 15,
+        "docs-css-visual-surface": 14,
         "docs-template-detail-renderer": 2
       },
       "riskFlags": [
@@ -11160,11 +11075,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -11289,14 +11199,14 @@
       "slug": "focus",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 35,
+      "docsHandSurfaceCount": 34,
       "categoryCounts": {
         "docs-misc-surface": 7,
         "docs-dom-interaction": 4,
         "docs-component-detail-renderer": 5,
         "docs-pattern-detail-renderer": 4,
         "docs-primitive-detail-renderer": 1,
-        "docs-css-visual-surface": 14
+        "docs-css-visual-surface": 13
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -11536,11 +11446,6 @@
               "text": "@import \"./styles/07-pattern-focused-design.css?v=7\";"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -13022,13 +12927,13 @@
       "slug": "radius",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 52,
+      "docsHandSurfaceCount": 51,
       "categoryCounts": {
         "docs-dom-interaction": 2,
         "docs-misc-surface": 5,
         "docs-component-detail-renderer": 1,
         "docs-primitive-detail-renderer": 1,
-        "docs-css-visual-surface": 43
+        "docs-css-visual-surface": 42
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -13550,11 +13455,6 @@
               "text": "border-radius: var(--sys-frame-radius-full);"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
@@ -14113,7 +14013,7 @@
       "slug": "surface",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 88,
+      "docsHandSurfaceCount": 86,
       "categoryCounts": {
         "docs-misc-surface": 9,
         "docs-foundation-detail-renderer": 2,
@@ -14121,7 +14021,7 @@
         "docs-pattern-detail-renderer": 18,
         "docs-primitive-detail-renderer": 2,
         "docs-reference-renderer": 1,
-        "docs-css-visual-surface": 43,
+        "docs-css-visual-surface": 41,
         "docs-template-detail-renderer": 2
       },
       "riskFlags": [
@@ -14777,11 +14677,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -15220,11 +15115,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -15643,13 +15533,13 @@
       "slug": "search",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 49,
+      "docsHandSurfaceCount": 48,
       "categoryCounts": {
         "docs-misc-surface": 5,
         "docs-dom-interaction": 5,
         "docs-component-detail-renderer": 2,
         "docs-pattern-detail-renderer": 20,
-        "docs-css-visual-surface": 17
+        "docs-css-visual-surface": 16
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -16209,11 +16099,6 @@
               "text": "max-inline-size: var(--sys-frame-content-search-min);"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
@@ -17840,14 +17725,14 @@
       "slug": "depth",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 30,
+      "docsHandSurfaceCount": 29,
       "categoryCounts": {
         "docs-misc-surface": 4,
         "docs-foundation-detail-renderer": 1,
         "docs-pattern-detail-renderer": 3,
         "docs-primitive-detail-renderer": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 20
+        "docs-css-visual-surface": 19
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -18163,11 +18048,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -18263,12 +18143,12 @@
       "slug": "energy",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 50,
+      "docsHandSurfaceCount": 48,
       "categoryCounts": {
         "docs-misc-surface": 4,
         "docs-foundation-detail-renderer": 3,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 42
+        "docs-css-visual-surface": 40
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -18404,11 +18284,6 @@
               "text": "const [title, copy, value, token, action, iconName] = foundationCopy?.explorers?.items?.Energy?.states?.[role] ?? [];"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -18889,11 +18764,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -19135,12 +19005,12 @@
       "slug": "frame",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 61,
+      "docsHandSurfaceCount": 59,
       "categoryCounts": {
         "docs-misc-surface": 7,
         "docs-foundation-detail-renderer": 3,
         "docs-dom-interaction": 2,
-        "docs-css-visual-surface": 49
+        "docs-css-visual-surface": 47
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -19296,11 +19166,6 @@
               "text": "/* Frame context aliases are generated from Flow in apps/docs/generated/token-contexts.css. */"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -19831,11 +19696,6 @@
               "text": "border: var(--sys-frame-border-thin) solid var(--sys-energy-border-strong);"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
@@ -20387,11 +20247,11 @@
       "slug": "momentum",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 19,
+      "docsHandSurfaceCount": 18,
       "categoryCounts": {
         "docs-misc-surface": 3,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 15
+        "docs-css-visual-surface": 14
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -20667,11 +20527,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -20693,7 +20548,7 @@
       "slug": "state",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 133,
+      "docsHandSurfaceCount": 132,
       "categoryCounts": {
         "docs-misc-surface": 13,
         "docs-dom-interaction": 11,
@@ -20701,7 +20556,7 @@
         "docs-component-detail-renderer": 60,
         "docs-pattern-detail-renderer": 28,
         "docs-primitive-detail-renderer": 2,
-        "docs-css-visual-surface": 14,
+        "docs-css-visual-surface": 13,
         "docs-template-detail-renderer": 3
       },
       "riskFlags": [
@@ -22824,11 +22679,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -22980,13 +22830,13 @@
       "slug": "symbol",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 26,
+      "docsHandSurfaceCount": 24,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-foundation-detail-renderer": 1,
         "docs-shell": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 17
+        "docs-css-visual-surface": 15
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -23115,11 +22965,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -23182,11 +23027,6 @@
               "text": ".reference-badge[data-foundation=\"symbol\"] { --badge-color: var(--sys-color-action-hover); }"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
@@ -24405,14 +24245,14 @@
       "slug": "voice",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 42,
+      "docsHandSurfaceCount": 40,
       "categoryCounts": {
         "docs-misc-surface": 3,
         "docs-foundation-detail-renderer": 3,
         "docs-pattern-detail-renderer": 1,
         "docs-primitive-detail-renderer": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 33
+        "docs-css-visual-surface": 31
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -24574,11 +24414,6 @@
               "text": "const [title, heading, labelText, body] = foundationCopy?.explorers?.items?.Voice?.states?.[role] ?? [];"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -24965,11 +24800,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -25229,14 +25059,14 @@
       "slug": "color",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 56,
+      "docsHandSurfaceCount": 54,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-foundation-detail-renderer": 1,
         "docs-pattern-detail-renderer": 4,
         "docs-primitive-detail-renderer": 1,
         "docs-dom-interaction": 1,
-        "docs-css-visual-surface": 43
+        "docs-css-visual-surface": 41
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -25374,11 +25204,6 @@
               "text": "color-scheme: light;"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -25855,11 +25680,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -26090,7 +25910,7 @@
       "slug": "density",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 63,
+      "docsHandSurfaceCount": 60,
       "categoryCounts": {
         "docs-dom-interaction": 3,
         "docs-misc-surface": 4,
@@ -26100,7 +25920,7 @@
         "docs-home-renderer": 1,
         "docs-pattern-detail-renderer": 10,
         "docs-primitive-detail-renderer": 2,
-        "docs-css-visual-surface": 22,
+        "docs-css-visual-surface": 19,
         "docs-template-detail-renderer": 1
       },
       "riskFlags": [
@@ -26730,21 +26550,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/01-shell-hero.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -27074,14 +26879,14 @@
       "slug": "disabled",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 28,
+      "docsHandSurfaceCount": 27,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-component-detail-renderer": 7,
         "docs-dom-interaction": 4,
         "docs-pattern-detail-renderer": 3,
         "docs-primitive-detail-renderer": 1,
-        "docs-css-visual-surface": 6,
+        "docs-css-visual-surface": 5,
         "docs-template-detail-renderer": 1
       },
       "riskFlags": [
@@ -27356,11 +27161,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/template-desktop-interactions.js",
           "category": "docs-dom-interaction",
           "evidence": [
@@ -27599,7 +27399,7 @@
       "slug": "elevation",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 45,
+      "docsHandSurfaceCount": 44,
       "categoryCounts": {
         "docs-misc-surface": 6,
         "docs-foundation-detail-renderer": 1,
@@ -27607,7 +27407,7 @@
         "docs-pattern-detail-renderer": 17,
         "docs-primitive-detail-renderer": 2,
         "docs-reference-renderer": 1,
-        "docs-css-visual-surface": 15,
+        "docs-css-visual-surface": 14,
         "docs-template-detail-renderer": 2
       },
       "riskFlags": [
@@ -28133,11 +27933,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -28262,14 +28057,14 @@
       "slug": "focus",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 35,
+      "docsHandSurfaceCount": 34,
       "categoryCounts": {
         "docs-misc-surface": 7,
         "docs-dom-interaction": 4,
         "docs-component-detail-renderer": 5,
         "docs-pattern-detail-renderer": 4,
         "docs-primitive-detail-renderer": 1,
-        "docs-css-visual-surface": 14
+        "docs-css-visual-surface": 13
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -28509,11 +28304,6 @@
               "text": "@import \"./styles/07-pattern-focused-design.css?v=7\";"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -29995,13 +29785,13 @@
       "slug": "radius",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 52,
+      "docsHandSurfaceCount": 51,
       "categoryCounts": {
         "docs-dom-interaction": 2,
         "docs-misc-surface": 5,
         "docs-component-detail-renderer": 1,
         "docs-primitive-detail-renderer": 1,
-        "docs-css-visual-surface": 43
+        "docs-css-visual-surface": 42
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -30523,11 +30313,6 @@
               "text": "border-radius: var(--sys-frame-radius-full);"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
@@ -31086,7 +30871,7 @@
       "slug": "surface",
       "priority": "P0",
       "status": "needs_owner_decision",
-      "docsHandSurfaceCount": 88,
+      "docsHandSurfaceCount": 86,
       "categoryCounts": {
         "docs-misc-surface": 9,
         "docs-foundation-detail-renderer": 2,
@@ -31094,7 +30879,7 @@
         "docs-pattern-detail-renderer": 18,
         "docs-primitive-detail-renderer": 2,
         "docs-reference-renderer": 1,
-        "docs-css-visual-surface": 43,
+        "docs-css-visual-surface": 41,
         "docs-template-detail-renderer": 2
       },
       "riskFlags": [
@@ -31750,11 +31535,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -32193,11 +31973,6 @@
           ]
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
           "category": "docs-css-visual-surface",
           "evidence": [
@@ -32614,13 +32389,13 @@
       "slug": "search",
       "priority": "P0",
       "status": "blocked",
-      "docsHandSurfaceCount": 49,
+      "docsHandSurfaceCount": 48,
       "categoryCounts": {
         "docs-misc-surface": 5,
         "docs-dom-interaction": 5,
         "docs-component-detail-renderer": 2,
         "docs-pattern-detail-renderer": 20,
-        "docs-css-visual-surface": 17
+        "docs-css-visual-surface": 16
       },
       "riskFlags": [
         "parallel DOM behavior risk",
@@ -33180,11 +32955,6 @@
               "text": "max-inline-size: var(--sys-frame-content-search-min);"
             }
           ]
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "category": "docs-css-visual-surface",
-          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/05f-station-pin-docs.css",
