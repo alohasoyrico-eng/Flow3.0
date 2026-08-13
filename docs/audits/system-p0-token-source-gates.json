@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T03:53:56.730Z",
+  "generatedAt": "2026-08-13T11:08:16.903Z",
   "scope": "P0.1 token source gates",
   "status": "PASS",
   "totals": {
@@ -96,6 +96,65 @@
           "packages/tokens/source/primitives/spacing.tokens.json",
           "packages/tokens/source/primitives/typography.tokens.json"
         ]
+      },
+      "failMessage": null
+    },
+    {
+      "id": "source-manifest-current",
+      "status": "PASS",
+      "evidence": {
+        "manifestCounts": {
+          "sourcePath": "packages/tokens/source/**/*.tokens.json",
+          "foundations": {
+            "Energy": 108,
+            "Voice": 160,
+            "Frame": 262,
+            "Depth": 37,
+            "Momentum": 88,
+            "State": 31,
+            "Tone": 13,
+            "Growth": 9,
+            "Symbol": 38,
+            "Iconography": 24,
+            "Accessibility": 26
+          },
+          "primitives": 315,
+          "docs": 20,
+          "decisionQueues": {
+            "aliasesToFoundations": 0,
+            "docsOnlyCandidates": 0,
+            "primitiveSemanticCandidates": 0,
+            "unclassified": 0,
+            "unresolved": 0
+          },
+          "total": 1131
+        },
+        "actualCounts": {
+          "sourcePath": "packages/tokens/source/**/*.tokens.json",
+          "foundations": {
+            "Energy": 108,
+            "Voice": 160,
+            "Frame": 262,
+            "Depth": 37,
+            "Momentum": 88,
+            "State": 31,
+            "Tone": 13,
+            "Growth": 9,
+            "Symbol": 38,
+            "Iconography": 24,
+            "Accessibility": 26
+          },
+          "primitives": 315,
+          "docs": 20,
+          "decisionQueues": {
+            "aliasesToFoundations": 0,
+            "docsOnlyCandidates": 0,
+            "primitiveSemanticCandidates": 0,
+            "unclassified": 0,
+            "unresolved": 0
+          },
+          "total": 1131
+        }
       },
       "failMessage": null
     }

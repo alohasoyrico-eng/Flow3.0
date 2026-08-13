@@ -57,13 +57,13 @@ This report defines the audit gates that must pass before remediation can be cal
 
 | Layer | Entity | Duplicate surfaces | Hand docs files | Surfaces |
 | --- | --- | ---: | ---: | --- |
-| component | card | 5 | 98 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| component | card | 5 | 94 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | select | 5 | 78 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
-| component | button | 5 | 73 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| component | button | 5 | 71 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | list | 5 | 68 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
-| component | table | 5 | 68 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| component | table | 5 | 65 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | input | 5 | 60 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
-| pattern | search | 5 | 49 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| pattern | search | 5 | 48 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | tabs | 5 | 41 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | switch | 5 | 33 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | tag | 5 | 32 | flow-react-js, flow-dts, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
@@ -105,27 +105,27 @@ This report defines the audit gates that must pass before remediation can be cal
 | Layer | Entity | Owner | Duplicate surfaces | Hand docs files | Current runtime locations |
 | --- | --- | --- | ---: | ---: | --- |
 | foundation | accessibility | Flow token/spec source | 1 | 69 | None |
-| foundation | depth | Flow token/spec source | 1 | 30 | None |
-| foundation | energy | Flow token/spec source | 1 | 50 | None |
-| foundation | frame | Flow token/spec source | 1 | 61 | None |
+| foundation | depth | Flow token/spec source | 1 | 29 | None |
+| foundation | energy | Flow token/spec source | 1 | 48 | None |
+| foundation | frame | Flow token/spec source | 1 | 59 | None |
 | foundation | growth | Flow token/spec source | 1 | 11 | None |
 | foundation | iconography | Flow token/spec source | 1 | 3 | None |
-| foundation | momentum | Flow token/spec source | 1 | 19 | None |
-| foundation | state | Flow token/spec source | 1 | 133 | None |
-| foundation | symbol | Flow token/spec source | 1 | 26 | None |
+| foundation | momentum | Flow token/spec source | 1 | 18 | None |
+| foundation | state | Flow token/spec source | 1 | 132 | None |
+| foundation | symbol | Flow token/spec source | 1 | 24 | None |
 | foundation | tone | Flow token/spec source | 1 | 67 | None |
-| foundation | voice | Flow token/spec source | 1 | 42 | None |
+| foundation | voice | Flow token/spec source | 1 | 40 | None |
 | primitive | animation-assets | Flow primitive/token source | 2 | 0 | packages/components/src/primitives/animation-assets.js<br>packages/components/src/primitives/animation-assets.d.ts |
 | primitive | breakpoints | Flow primitive/token source | 2 | 2 | packages/components/src/primitives/breakpoints.d.ts |
 | primitive | charts | Flow primitive/token source | 3 | 3 | packages/components/src/primitives/charts.js<br>packages/components/src/primitives/charts.d.ts |
-| primitive | color | Flow primitive/token source | 2 | 56 | packages/components/src/primitives/color.d.ts |
+| primitive | color | Flow primitive/token source | 2 | 54 | packages/components/src/primitives/color.d.ts |
 | primitive | country-flags | Flow primitive/token source | 2 | 0 | packages/components/src/primitives/country-flags.js<br>packages/components/src/primitives/country-flags.d.ts |
-| primitive | density | Flow primitive/token source | 2 | 63 | packages/components/src/primitives/density.d.ts |
-| primitive | disabled | Flow primitive/token source | 2 | 28 | packages/components/src/primitives/disabled.d.ts |
+| primitive | density | Flow primitive/token source | 2 | 60 | packages/components/src/primitives/density.d.ts |
+| primitive | disabled | Flow primitive/token source | 2 | 27 | packages/components/src/primitives/disabled.d.ts |
 | primitive | duration | Flow primitive/token source | 2 | 11 | packages/components/src/primitives/duration.d.ts |
-| primitive | elevation | Flow primitive/token source | 2 | 45 | packages/components/src/primitives/elevation.d.ts |
+| primitive | elevation | Flow primitive/token source | 2 | 44 | packages/components/src/primitives/elevation.d.ts |
 | primitive | field-action | Flow primitive/token source | 1 | 0 | packages/components/src/primitives/field-action.d.ts |
-| primitive | focus | Flow primitive/token source | 2 | 35 | packages/components/src/primitives/focus.d.ts |
+| primitive | focus | Flow primitive/token source | 2 | 34 | packages/components/src/primitives/focus.d.ts |
 | primitive | iconography | Flow primitive/token source | 3 | 3 | packages/components/src/primitives/iconography.js<br>packages/components/src/primitives/iconography.d.ts |
 | primitive | illustration-assets | Flow primitive/token source | 2 | 0 | packages/components/src/primitives/illustration-assets.js<br>packages/components/src/primitives/illustration-assets.d.ts |
 | primitive | library-sources | Flow primitive/token source | 2 | 0 | packages/components/src/primitives/library-sources.js<br>packages/components/src/primitives/library-sources.d.ts |
@@ -134,10 +134,10 @@ This report defines the audit gates that must pass before remediation can be cal
 | primitive | measurement | Flow primitive/token source | 2 | 3 | packages/components/src/primitives/measurement.d.ts |
 | primitive | message | Flow primitive/token source | 2 | 34 | packages/components/src/primitives/message.d.ts |
 | primitive | motion-curves | Flow primitive/token source | 2 | 2 | packages/components/src/primitives/motion-curves.d.ts |
-| primitive | radius | Flow primitive/token source | 2 | 52 | packages/components/src/primitives/radius.d.ts |
+| primitive | radius | Flow primitive/token source | 2 | 51 | packages/components/src/primitives/radius.d.ts |
 | primitive | research | Flow primitive/token source | 2 | 3 | packages/components/src/primitives/research.d.ts |
 | primitive | spacing | Flow primitive/token source | 2 | 14 | packages/components/src/primitives/spacing.d.ts |
-| primitive | surface | Flow primitive/token source | 4 | 88 | packages/components/src/primitives/surface.d.ts<br>apps/docs/generated/react/Surface.js<br>apps/docs/generated/react/Surface.d.ts |
+| primitive | surface | Flow primitive/token source | 4 | 86 | packages/components/src/primitives/surface.d.ts<br>apps/docs/generated/react/Surface.js<br>apps/docs/generated/react/Surface.d.ts |
 | primitive | typography | Flow primitive/token source | 2 | 7 | packages/components/src/primitives/typography.d.ts |
 | component | accordion | Flow React component package | 5 | 9 | packages/react/src/Accordion.js<br>packages/react/src/Accordion.d.ts<br>apps/docs/generated/react/Accordion.js<br>apps/docs/generated/react/Accordion.d.ts |
 | component | animated-moment | Flow React component package | 5 | 7 | packages/react/src/AnimatedMoment.js<br>packages/react/src/AnimatedMoment.d.ts<br>apps/docs/generated/react/AnimatedMoment.js<br>apps/docs/generated/react/AnimatedMoment.d.ts |
@@ -146,8 +146,8 @@ This report defines the audit gates that must pass before remediation can be cal
 | component | badge | Flow React component package | 5 | 31 | packages/react/src/Badge.js<br>packages/react/src/Badge.d.ts<br>apps/docs/generated/react/Badge.js<br>apps/docs/generated/react/Badge.d.ts |
 | component | biometric-prompt | Flow React component package | 5 | 9 | packages/react/src/BiometricPrompt.js<br>packages/react/src/BiometricPrompt.d.ts<br>apps/docs/generated/react/BiometricPrompt.js<br>apps/docs/generated/react/BiometricPrompt.d.ts |
 | component | breadcrumbs | Flow React component package | 5 | 16 | packages/react/src/Breadcrumbs.js<br>packages/react/src/Breadcrumbs.d.ts<br>apps/docs/generated/react/Breadcrumbs.js<br>apps/docs/generated/react/Breadcrumbs.d.ts |
-| component | button | Flow React component package | 5 | 73 | packages/react/src/Button.js<br>packages/react/src/Button.d.ts<br>apps/docs/generated/react/Button.js<br>apps/docs/generated/react/Button.d.ts |
-| component | card | Flow React component package | 5 | 98 | packages/react/src/Card.js<br>packages/react/src/Card.d.ts<br>apps/docs/generated/react/Card.js<br>apps/docs/generated/react/Card.d.ts |
+| component | button | Flow React component package | 5 | 71 | packages/react/src/Button.js<br>packages/react/src/Button.d.ts<br>apps/docs/generated/react/Button.js<br>apps/docs/generated/react/Button.d.ts |
+| component | card | Flow React component package | 5 | 94 | packages/react/src/Card.js<br>packages/react/src/Card.d.ts<br>apps/docs/generated/react/Card.js<br>apps/docs/generated/react/Card.d.ts |
 | component | card-expiry-input | Flow React component package | 5 | 8 | packages/react/src/CardExpiryInput.js<br>packages/react/src/CardExpiryInput.d.ts<br>apps/docs/generated/react/CardExpiryInput.js<br>apps/docs/generated/react/CardExpiryInput.d.ts |
 | component | card-number-input | Flow React component package | 5 | 8 | packages/react/src/CardNumberInput.js<br>packages/react/src/CardNumberInput.d.ts<br>apps/docs/generated/react/CardNumberInput.js<br>apps/docs/generated/react/CardNumberInput.d.ts |
 | component | card-security-code-input | Flow React component package | 5 | 8 | packages/react/src/CardSecurityCodeInput.js<br>packages/react/src/CardSecurityCodeInput.d.ts<br>apps/docs/generated/react/CardSecurityCodeInput.js<br>apps/docs/generated/react/CardSecurityCodeInput.d.ts |
@@ -192,7 +192,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | component | station-pin | Flow React component package | 5 | 12 | packages/react/src/StationPin.js<br>packages/react/src/StationPin.d.ts<br>apps/docs/generated/react/StationPin.js<br>apps/docs/generated/react/StationPin.d.ts |
 | component | stepper | Flow React component package | 5 | 14 | packages/react/src/Stepper.js<br>packages/react/src/Stepper.d.ts<br>apps/docs/generated/react/Stepper.js<br>apps/docs/generated/react/Stepper.d.ts |
 | component | switch | Flow React component package | 5 | 33 | packages/react/src/Switch.js<br>packages/react/src/Switch.d.ts<br>apps/docs/generated/react/Switch.js<br>apps/docs/generated/react/Switch.d.ts |
-| component | table | Flow React component package | 5 | 68 | packages/react/src/Table.js<br>packages/react/src/Table.d.ts<br>apps/docs/generated/react/Table.js<br>apps/docs/generated/react/Table.d.ts |
+| component | table | Flow React component package | 5 | 65 | packages/react/src/Table.js<br>packages/react/src/Table.d.ts<br>apps/docs/generated/react/Table.js<br>apps/docs/generated/react/Table.d.ts |
 | component | tabs | Flow React component package | 5 | 41 | packages/react/src/Tabs.js<br>packages/react/src/Tabs.d.ts<br>apps/docs/generated/react/Tabs.js<br>apps/docs/generated/react/Tabs.d.ts |
 | component | tag | Flow React component package | 5 | 32 | packages/react/src/Tag.js<br>packages/react/src/Tag.d.ts<br>apps/docs/generated/react/Tag.js<br>apps/docs/generated/react/Tag.d.ts |
 | component | text-area | Flow React component package | 5 | 14 | packages/react/src/TextArea.js<br>packages/react/src/TextArea.d.ts<br>apps/docs/generated/react/TextArea.js<br>apps/docs/generated/react/TextArea.d.ts |
@@ -208,7 +208,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | pattern | avatar-group | Flow React pattern package | 5 | 4 | packages/react/src/patterns/AvatarGroup.js<br>packages/react/src/patterns/AvatarGroup.d.ts<br>apps/docs/generated/react/patterns/AvatarGroup.js<br>apps/docs/generated/react/patterns/AvatarGroup.d.ts |
 | pattern | avatar-menu | Flow React pattern package | 5 | 4 | packages/react/src/patterns/AvatarMenu.js<br>packages/react/src/patterns/AvatarMenu.d.ts<br>apps/docs/generated/react/patterns/AvatarMenu.js<br>apps/docs/generated/react/patterns/AvatarMenu.d.ts |
 | pattern | backoffice-approval | Flow React pattern package | 5 | 3 | packages/react/src/patterns/BackofficeApproval.js<br>packages/react/src/patterns/BackofficeApproval.d.ts<br>apps/docs/generated/react/patterns/BackofficeApproval.js<br>apps/docs/generated/react/patterns/BackofficeApproval.d.ts |
-| pattern | bottom-sheet | Flow React pattern package | 5 | 8 | packages/react/src/patterns/BottomSheet.js<br>packages/react/src/patterns/BottomSheet.d.ts<br>apps/docs/generated/react/patterns/BottomSheet.js<br>apps/docs/generated/react/patterns/BottomSheet.d.ts |
+| pattern | bottom-sheet | Flow React pattern package | 5 | 3 | packages/react/src/patterns/BottomSheet.js<br>packages/react/src/patterns/BottomSheet.d.ts<br>apps/docs/generated/react/patterns/BottomSheet.js<br>apps/docs/generated/react/patterns/BottomSheet.d.ts |
 | pattern | bulk-actions | Flow React pattern package | 5 | 6 | packages/react/src/patterns/BulkActions.js<br>packages/react/src/patterns/BulkActions.d.ts<br>apps/docs/generated/react/patterns/BulkActions.js<br>apps/docs/generated/react/patterns/BulkActions.d.ts |
 | pattern | calendar-view | Flow React pattern package | 5 | 2 | packages/react/src/patterns/CalendarView.js<br>packages/react/src/patterns/CalendarView.d.ts<br>apps/docs/generated/react/patterns/CalendarView.js<br>apps/docs/generated/react/patterns/CalendarView.d.ts |
 | pattern | case-management | Flow React pattern package | 5 | 3 | packages/react/src/patterns/CaseManagement.js<br>packages/react/src/patterns/CaseManagement.d.ts<br>apps/docs/generated/react/patterns/CaseManagement.js<br>apps/docs/generated/react/patterns/CaseManagement.d.ts |
@@ -246,7 +246,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | pattern | quick-actions-grid | Flow React pattern package | 5 | 5 | packages/react/src/patterns/QuickActionsGrid.js<br>packages/react/src/patterns/QuickActionsGrid.d.ts<br>apps/docs/generated/react/patterns/QuickActionsGrid.js<br>apps/docs/generated/react/patterns/QuickActionsGrid.d.ts |
 | pattern | radio-group | Flow React pattern package | 5 | 3 | packages/react/src/patterns/RadioGroup.js<br>packages/react/src/patterns/RadioGroup.d.ts<br>apps/docs/generated/react/patterns/RadioGroup.js<br>apps/docs/generated/react/patterns/RadioGroup.d.ts |
 | pattern | roles-and-permissions | Flow React pattern package | 5 | 8 | packages/react/src/patterns/RolesAndPermissions.js<br>packages/react/src/patterns/RolesAndPermissions.d.ts<br>apps/docs/generated/react/patterns/RolesAndPermissions.js<br>apps/docs/generated/react/patterns/RolesAndPermissions.d.ts |
-| pattern | search | Flow React pattern package | 5 | 49 | packages/react/src/patterns/Search.js<br>packages/react/src/patterns/Search.d.ts<br>apps/docs/generated/react/patterns/Search.js<br>apps/docs/generated/react/patterns/Search.d.ts |
+| pattern | search | Flow React pattern package | 5 | 48 | packages/react/src/patterns/Search.js<br>packages/react/src/patterns/Search.d.ts<br>apps/docs/generated/react/patterns/Search.js<br>apps/docs/generated/react/patterns/Search.d.ts |
 | pattern | section-header | Flow React pattern package | 5 | 5 | packages/react/src/patterns/SectionHeader.js<br>packages/react/src/patterns/SectionHeader.d.ts<br>apps/docs/generated/react/patterns/SectionHeader.js<br>apps/docs/generated/react/patterns/SectionHeader.d.ts |
 | pattern | select-option-layer | Flow React pattern package | 5 | 2 | packages/react/src/patterns/SelectOptionLayer.js<br>packages/react/src/patterns/SelectOptionLayer.d.ts<br>apps/docs/generated/react/patterns/SelectOptionLayer.js<br>apps/docs/generated/react/patterns/SelectOptionLayer.d.ts |
 | pattern | settings | Flow React pattern package | 5 | 24 | packages/react/src/patterns/Settings.js<br>packages/react/src/patterns/Settings.d.ts<br>apps/docs/generated/react/patterns/Settings.js<br>apps/docs/generated/react/patterns/Settings.d.ts |

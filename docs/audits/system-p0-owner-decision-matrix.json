@@ -826,20 +826,7 @@
           "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "category": "docs-css-visual-surface",
           "action": "promote_or_map_to_token_source",
-          "evidence": [
-            {
-              "line": 107,
-              "text": "--sys-energy-surface-primary: var(--sys-energy-text-primary);"
-            },
-            {
-              "line": 108,
-              "text": "--sys-energy-surface-secondary: var(--sys-energy-text-primary);"
-            },
-            {
-              "line": 109,
-              "text": "--sys-energy-surface-raised: var(--sys-energy-text-secondary);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -931,7 +918,7 @@
               "text": "color: var(--sys-energy-surface-secondary);"
             },
             {
-              "line": 84,
+              "line": 18,
               "text": "border: var(--sys-frame-border-thin) solid var(--sys-energy-border-default);"
             }
           ]
@@ -1237,16 +1224,8 @@
           "action": "promote_or_map_to_token_source",
           "evidence": [
             {
-              "line": 2,
-              "text": "--frame-grid-columns: var(--sys-frame-grid-sm-columns);"
-            },
-            {
-              "line": 3,
-              "text": "--frame-grid-gutter: var(--sys-frame-grid-sm-gutter);"
-            },
-            {
-              "line": 4,
-              "text": "--frame-grid-margin: var(--sys-frame-grid-sm-margin);"
+              "line": 1,
+              "text": "/* Frame context aliases are generated from Flow in apps/docs/generated/token-contexts.css. */"
             }
           ]
         },
@@ -1254,20 +1233,7 @@
           "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "category": "docs-css-visual-surface",
           "action": "promote_or_map_to_token_source",
-          "evidence": [
-            {
-              "line": 2,
-              "text": "--sys-density-control-height: var(--ref-frame-height-control-md-compact);"
-            },
-            {
-              "line": 3,
-              "text": "--sys-density-control-padding-x: var(--ref-frame-space-4);"
-            },
-            {
-              "line": 4,
-              "text": "--sys-density-control-padding-y: var(--ref-frame-space-2);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -1389,16 +1355,16 @@
           "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
-              "line": 7,
-              "text": "--density-control-height: var(--ref-frame-height-control-md-compact);"
-            },
-            {
-              "line": 8,
-              "text": "--density-control-padding-x: var(--ref-frame-space-4);"
+              "line": 6,
+              "text": ".frame-demo-columns {"
             },
             {
               "line": 9,
-              "text": "--density-control-padding-y: var(--ref-frame-space-2);"
+              "text": "gap: var(--density-component-gap, var(--sys-frame-gap-component-lg));"
+            },
+            {
+              "line": 10,
+              "text": "margin-block-start: var(--sys-frame-gap-component-lg);"
             }
           ]
         },
@@ -1864,15 +1830,15 @@
           "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
-              "line": 77,
+              "line": 11,
               "text": "transition: gap var(--sys-momentum-transition-default);"
             },
             {
-              "line": 88,
+              "line": 22,
               "text": "gap var(--sys-momentum-transition-default),"
             },
             {
-              "line": 89,
+              "line": 23,
               "text": "padding var(--sys-momentum-transition-default);"
             }
           ]
@@ -2025,12 +1991,7 @@
           "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
           "category": "docs-css-visual-surface",
           "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
-          "evidence": [
-            {
-              "line": 14,
-              "text": "--pattern-bottom-sheet-motion: var(--sys-momentum-transition-default);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
@@ -2620,20 +2581,7 @@
           "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "category": "docs-css-visual-surface",
           "action": "promote_or_map_to_token_source",
-          "evidence": [
-            {
-              "line": 27,
-              "text": "--button-default-icon-size: var(--sys-symbol-size-sm);"
-            },
-            {
-              "line": 56,
-              "text": "--button-default-icon-size: var(--sys-symbol-size-sm);"
-            },
-            {
-              "line": 85,
-              "text": "--button-default-icon-size: var(--sys-symbol-size-lg);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -2707,20 +2655,7 @@
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
           "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
-          "evidence": [
-            {
-              "line": 23,
-              "text": "--button-default-icon-size: var(--sys-symbol-size-sm);"
-            },
-            {
-              "line": 45,
-              "text": "--button-default-icon-size: var(--sys-symbol-size-sm);"
-            },
-            {
-              "line": 67,
-              "text": "--button-default-icon-size: var(--sys-symbol-size-lg);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
@@ -3384,20 +3319,7 @@
           "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "category": "docs-css-visual-surface",
           "action": "promote_or_map_to_token_source",
-          "evidence": [
-            {
-              "line": 14,
-              "text": "--sys-density-doc-heading-size: var(--ref-voice-size-9);"
-            },
-            {
-              "line": 15,
-              "text": "--sys-density-doc-heading-line-height: var(--ref-voice-line-height-tight);"
-            },
-            {
-              "line": 16,
-              "text": "--sys-density-doc-body-size: var(--ref-voice-size-5);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -3500,16 +3422,16 @@
           "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
-              "line": 21,
-              "text": "--button-default-font-size: var(--ref-voice-size-5);"
+              "line": 102,
+              "text": "font-family: var(--sys-voice-numeral-family);"
             },
             {
-              "line": 43,
-              "text": "--button-default-font-size: var(--ref-voice-size-6);"
+              "line": 103,
+              "text": "font-weight: var(--sys-voice-numeral-weight);"
             },
             {
-              "line": 65,
-              "text": "--button-default-font-size: var(--ref-voice-size-8);"
+              "line": 104,
+              "text": "line-height: var(--sys-voice-numeral-line-height);"
             }
           ]
         },
@@ -3909,20 +3831,7 @@
           "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "category": "docs-css-visual-surface",
           "action": "promote_or_map_to_token_source",
-          "evidence": [
-            {
-              "line": 106,
-              "text": "color-scheme: dark;"
-            },
-            {
-              "line": 115,
-              "text": "--sys-energy-border-default: color-mix(in srgb, var(--sys-energy-text-on-action) 16%, transparent);"
-            },
-            {
-              "line": 116,
-              "text": "--sys-energy-border-strong: color-mix(in srgb, var(--sys-energy-text-on-action) 32%, transparent);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -4044,11 +3953,11 @@
               "text": "color: var(--sys-energy-surface-secondary);"
             },
             {
-              "line": 111,
+              "line": 45,
               "text": "--energy-bg: color-mix(in srgb, var(--sys-energy-status-success) 10%, var(--sys-energy-surface-primary));"
             },
             {
-              "line": 116,
+              "line": 50,
               "text": "--energy-bg: color-mix(in srgb, var(--sys-energy-status-warning) 18%, var(--sys-energy-surface-primary));"
             }
           ]
@@ -5113,15 +5022,15 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 65,
+              "line": 34,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-command-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"default..."
             },
             {
-              "line": 88,
+              "line": 57,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-notification-demo-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-ton..."
             },
             {
-              "line": 110,
+              "line": 79,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-avatar-menu-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"def..."
             }
           ]
@@ -5268,15 +5177,15 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 57,
+              "line": 26,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-mobile-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"default\"..."
             },
             {
-              "line": 94,
+              "line": 63,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-mobile-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"default\"..."
             },
             {
-              "line": 117,
+              "line": 86,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-mobile-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"default\"..."
             }
           ]
@@ -5560,7 +5469,7 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 86,
+              "line": 55,
               "text": "<div data-fullscreen-toast hidden>${packageDemo(\"toast\", { label: \"Station policy saved\", description: \"Mobile task completed and focus returned.\", tone: \"success\" }, { \"data-patte..."
             }
           ]
@@ -5571,11 +5480,11 @@
           "action": "replace_with_flow_react_behavior_or_mark_docs_shell_only",
           "evidence": [
             {
-              "line": 65,
+              "line": 64,
               "text": "demo.querySelector(\"[data-fullscreen-sheet-open]\")?.focus();"
             },
             {
-              "line": 129,
+              "line": 128,
               "text": "if (!open) demo.querySelector(\"[data-drawer-adapter-open]\")?.focus();"
             }
           ]
@@ -5644,12 +5553,7 @@
           "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
           "category": "docs-css-visual-surface",
           "action": "promote_or_map_to_token_source",
-          "evidence": [
-            {
-              "line": 126,
-              "text": "--sys-color-focus: var(--sys-energy-action-primary);"
-            }
-          ]
+          "evidence": []
         },
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
@@ -6467,11 +6371,11 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 144,
+              "line": 113,
               "text": "validation: { label: \"Freeze card\", message: \"This action creates an audit event.\", state: \"warning\" },"
             },
             {
-              "line": 378,
+              "line": 347,
               "text": "validation: { label: \"File policy\", message: \"Only PDF, JPG, or PNG files under 10 MB are accepted.\", state: \"warning\", live: true },"
             }
           ]
@@ -6554,7 +6458,7 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 74,
+              "line": 43,
               "text": "<div data-fullscreen-validation hidden>${packageDemo(\"inline-validation\", { label: \"Daily fuel limit\", message: \"Enter a limit before reviewing.\", state: \"warning\" })}</div>"
             }
           ]
@@ -6891,15 +6795,15 @@
           "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
-              "line": 85,
+              "line": 19,
               "text": "border-radius: var(--sys-frame-radius-container);"
             },
             {
-              "line": 95,
+              "line": 29,
               "text": "border-radius: var(--ref-frame-radius-full);"
             },
             {
-              "line": 143,
+              "line": 77,
               "text": "border-radius: var(--sys-frame-radius-container);"
             }
           ]
@@ -7754,15 +7658,15 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 65,
+              "line": 34,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-command-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"default..."
             },
             {
-              "line": 88,
+              "line": 57,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-notification-demo-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-ton..."
             },
             {
-              "line": 110,
+              "line": 79,
               "text": "<section class=\"surface docs-section-surface detail-section-surface wide pattern-avatar-menu-panel\" data-surface-role=\"section\" data-surface-elevation=\"none\" data-surface-tone=\"def..."
             }
           ]
@@ -8081,15 +7985,15 @@
           "action": "move_to_pattern_detail_template_slot_or_delete_duplicate",
           "evidence": [
             {
-              "line": 52,
+              "line": 21,
               "text": "if (patternId === \"search\") return searchDemoPanel();"
             },
             {
-              "line": 70,
+              "line": 39,
               "text": "description: \"Search routes, actions, entities, and help topics.\","
             },
             {
-              "line": 79,
+              "line": 48,
               "text": "empty: { title: \"No commands found\", description: \"Try a route, entity, or action keyword.\", icon: \"search_off\" },"
             }
           ]
