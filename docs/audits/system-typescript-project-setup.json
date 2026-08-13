@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T01:41:44.067Z",
+  "generatedAt": "2026-08-13T01:49:41.721Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -115,6 +115,7 @@
           "packages/react/src/patterns/Autocomplete.ts",
           "packages/react/src/patterns/AvatarGroup.ts",
           "packages/react/src/patterns/AvatarMenu.ts",
+          "packages/react/src/patterns/BackofficeApproval.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -243,6 +244,7 @@
       "packages/react/src/patterns/Autocomplete.ts",
       "packages/react/src/patterns/AvatarGroup.ts",
       "packages/react/src/patterns/AvatarMenu.ts",
+      "packages/react/src/patterns/BackofficeApproval.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
