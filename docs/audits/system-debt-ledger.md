@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 107
-- Category mappings: 97
+- Reports scanned: 108
+- Category mappings: 98
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 107
-- Debt metrics: 123
+- Reports with debt metrics: 108
+- Debt metrics: 124
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -41,7 +41,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | anti-duplication | One visual or conceptual source per system concept. | 4 | 1 | 0 | 4 | 0 |
 | cascade | Component styling must cascade from exported system contracts. | 15 | 4 | 0 | 16 | 0 |
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 3 | 2 | 0 | 3 | 0 |
-| foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
+| foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 30 | 1 | 0 | 31 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 15 | 1 | 0 | 27 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 39 | 10 | 0 | 41 | 0 |
@@ -128,6 +128,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | primitive-disabled-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
 | primitive-duration-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
 | primitive-elevation-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
+| primitive-field-action-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
 | primitive-focus-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
 | primitive-iconography-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |
 | primitive-illustration-assets-cascade-audit.json | foundations-primitives | pass | gapsDebt: 0 |

@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 107,
-    "categoryMappings": 97,
+    "reports": 108,
+    "categoryMappings": 98,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 107,
-    "debtMetrics": 123,
+    "reportsWithDebtMetrics": 108,
+    "debtMetrics": 124,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -76,10 +76,10 @@
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
-      "reports": 29,
+      "reports": 30,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 30,
+      "debtMetrics": 31,
       "totalDebt": 0
     },
     {
@@ -750,6 +750,20 @@
       "debtEntries": [
         {
           "report": "primitive-elevation-cascade-audit.json",
+          "scope": "topLevel",
+          "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "primitive-field-action-cascade-audit.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "primitive-field-action-cascade-audit.json",
           "scope": "topLevel",
           "metric": "gapsDebt",
           "value": 0,

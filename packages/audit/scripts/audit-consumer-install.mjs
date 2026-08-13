@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 825,
+    filesScanned: 826,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3312,7 +3312,7 @@ function assertReactGovernanceBaselines() {
   const docsSystemBoundary = readAuditReport("docs/audits/docs-system-boundary-audit.json");
   assertReportStatus(docsSystemBoundary, "Docs system boundary");
   assertInventory(docsSystemBoundary, {
-    sourceFilesScanned: 210,
+    sourceFilesScanned: 209,
     generatedFiles: 356,
     flowDependencyPresent: 1,
     flowBoundaryAliases: 21,
@@ -3794,8 +3794,8 @@ function assertReactGovernanceBaselines() {
   const primitiveCascadeGovernance = readAuditReport("docs/audits/primitive-cascade-governance-audit.json");
   assertReportStatus(primitiveCascadeGovernance, "Primitive cascade governance");
   assertInventory(primitiveCascadeGovernance, {
-    availablePrimitiveCascadeReports: 23,
-    activePrimitiveCascadeReports: 23,
+    availablePrimitiveCascadeReports: 24,
+    activePrimitiveCascadeReports: 24,
     backlogPrimitiveCascadeReports: 0,
     unknownActivePrimitiveCascadeReports: 0,
     unknownBacklogPrimitiveCascadeReports: 0,
@@ -4080,12 +4080,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 107,
-    categoryMappings: 97,
+    reports: 108,
+    categoryMappings: 98,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 107,
-    debtMetrics: 123,
+    reportsWithDebtMetrics: 108,
+    debtMetrics: 124,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,
