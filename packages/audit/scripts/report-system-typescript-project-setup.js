@@ -183,6 +183,7 @@ function main() {
         && include.includes("packages/react/src/patterns/MultiStepForm.ts")
         && include.includes("packages/react/src/patterns/NotificationPanel.ts")
         && include.includes("packages/react/src/patterns/PaymentForm.ts")
+        && include.includes("packages/react/src/patterns/PolarChart.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
