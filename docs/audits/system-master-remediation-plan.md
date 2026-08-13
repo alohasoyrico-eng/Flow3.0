@@ -36,6 +36,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 3 foundations/primitives checkpoint | PASS | 11/11 foundation cascades, 24/24 primitive cascades, 24 active primitive gates, 0 backlog, 0 source-boundary violations |
 | Phase 4 core controls/forms checkpoint | PASS | 21/21 core control components, 8/8 gate reports, 168/168 component gate edges, 0 debt |
 | Phase 4 overlays/navigation/data checkpoint | PASS | 14/14 overlay/navigation/data components, 8/8 gate reports, 112/112 component gate edges, 0 debt |
+| Phase 4 domain/complex checkpoint | PASS | 25/25 domain/complex components, 8/8 gate reports, 200/200 component gate edges, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -113,6 +114,11 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Overlays/navigation/data gate reports PASS: 8/8.
 - Overlays/navigation/data component gate edges PASS: 112/112.
 - Overlays/navigation/data debt: 0.
+- Domain/complex checkpoint PASS.
+- Domain/complex components PASS: 25/25.
+- Domain/complex gate reports PASS: 8/8.
+- Domain/complex component gate edges PASS: 200/200.
+- Domain/complex debt: 0.
 
 ## Checkpoints
 
@@ -128,4 +134,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 4 Components fixes batch 3: domain/complex components**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.
+The next correct step is **Phase 4 Component QA checkpoint**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.

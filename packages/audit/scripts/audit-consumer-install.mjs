@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 830,
+    filesScanned: 831,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3488,6 +3488,21 @@ function assertReactGovernanceBaselines() {
     passingComponentGateEdges: 112,
     overlaysNavigationDataDebt: 0,
   }, "Phase 4 overlays/navigation/data checkpoint");
+
+  const phase4DomainComplex = readAuditReport("docs/audits/system-phase4-domain-complex-checkpoint.json");
+  assertReportStatus(phase4DomainComplex, "Phase 4 domain/complex checkpoint");
+  assertInventory(phase4DomainComplex, {
+    domainComplexComponents: 25,
+    passingDomainComplexComponents: 25,
+    gateReports: 8,
+    passingGateReports: 8,
+    tsxSources: 25,
+    runtimeFiles: 25,
+    declarationFiles: 25,
+    componentGateEdges: 200,
+    passingComponentGateEdges: 200,
+    domainComplexDebt: 0,
+  }, "Phase 4 domain/complex checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4151,12 +4166,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 112,
-    categoryMappings: 102,
+    reports: 113,
+    categoryMappings: 103,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 112,
-    debtMetrics: 129,
+    reportsWithDebtMetrics: 113,
+    debtMetrics: 130,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 112
-- Category mappings: 102
+- Reports scanned: 113
+- Category mappings: 103
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 112
-- Debt metrics: 129
+- Reports with debt metrics: 113
+- Debt metrics: 130
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -43,7 +43,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 3 | 2 | 0 | 3 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 31 | 1 | 0 | 33 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 15 | 1 | 0 | 27 | 0 |
-| quality | Component coverage must prove production readiness, not just presence. | 4 | 1 | 0 | 4 | 0 |
+| quality | Component coverage must prove production readiness, not just presence. | 5 | 1 | 0 | 5 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 39 | 10 | 0 | 41 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 
@@ -168,6 +168,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-phase3-foundations-primitives-checkpoint.json | foundations-primitives | pass | foundationPrimitiveExportDebt: 0<br>phase3FoundationsPrimitivesDebt: 0 |
 | system-phase4-component-cascade-checkpoint.json | quality | pass | componentCascadeAuditDebt: 0 |
 | system-phase4-core-controls-checkpoint.json | quality | pass | coreControlsFormsDebt: 0 |
+| system-phase4-domain-complex-checkpoint.json | quality | pass | domainComplexDebt: 0 |
 | system-phase4-overlays-navigation-data-checkpoint.json | quality | pass | overlaysNavigationDataDebt: 0 |
 | system-react-affordance-typescript-surface.json | react-primary | pass | reactAffordanceTypescriptSurfaceDebt: 0 |
 | system-react-base-components-typescript-surface.json | react-primary | pass | reactBaseComponentTypescriptSurfaceDebt: 0 |
