@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T05:24:35.400Z",
+  "generatedAt": "2026-08-13T05:30:28.260Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -155,6 +155,7 @@
           "packages/react/src/patterns/RolesAndPermissions.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SelectOptionLayer.ts",
+          "packages/react/src/patterns/Settings.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
           "packages/react/src/templates/index.ts"
@@ -322,6 +323,7 @@
       "packages/react/src/patterns/RolesAndPermissions.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SelectOptionLayer.ts",
+      "packages/react/src/patterns/Settings.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
       "packages/react/src/templates/index.ts"

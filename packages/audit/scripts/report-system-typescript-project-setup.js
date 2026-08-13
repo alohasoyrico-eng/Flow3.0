@@ -191,6 +191,7 @@ function main() {
         && include.includes("packages/react/src/patterns/RolesAndPermissions.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SelectOptionLayer.ts")
+        && include.includes("packages/react/src/patterns/Settings.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
         && include.includes("packages/react/src/templates/index.ts"),
