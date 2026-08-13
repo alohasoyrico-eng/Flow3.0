@@ -175,19 +175,19 @@
     ],
     "checks": [
       {
-        "selector": ":where([data-density=\"sm\"], [data-density-context=\"sm\"], .density-sm)",
+        "selector": ":where([data-density=\"sm\"], [data-density-context=\"sm\"], [data-density-demo=\"sm\"], .density-sm)",
         "file": "packages/tokens/styles/token-contexts.css",
         "status": "pass",
         "missing": []
       },
       {
-        "selector": ":where([data-density=\"md\"], [data-density-context=\"md\"], .density-md)",
+        "selector": ":where([data-density=\"md\"], [data-density-context=\"md\"], [data-density-demo=\"md\"], .density-md)",
         "file": "packages/tokens/styles/token-contexts.css",
         "status": "pass",
         "missing": []
       },
       {
-        "selector": ":where([data-density=\"lg\"], [data-density-context=\"lg\"], .density-lg),",
+        "selector": ":where([data-density=\"lg\"], [data-density-context=\"lg\"], [data-density-demo=\"lg\"], .density-lg),",
         "file": "packages/tokens/styles/token-contexts.css",
         "status": "pass",
         "missing": []

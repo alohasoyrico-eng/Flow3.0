@@ -300,9 +300,9 @@ function createReport() {
     .map((alias) => ({ alias, actual: componentDecls.get(alias) ?? null }));
   const contextChecks = fs.existsSync(tokenContextCssFile) ? [
     ...contextCompleteness(tokenContextCssFile, [
-      ':where([data-density="sm"], [data-density-context="sm"], .density-sm)',
-      ':where([data-density="md"], [data-density-context="md"], .density-md)',
-      ':where([data-density="lg"], [data-density-context="lg"], .density-lg),',
+      ':where([data-density="sm"], [data-density-context="sm"], [data-density-demo="sm"], .density-sm)',
+      ':where([data-density="md"], [data-density-context="md"], [data-density-demo="md"], .density-md)',
+      ':where([data-density="lg"], [data-density-context="lg"], [data-density-demo="lg"], .density-lg),',
     ]),
     ...contextCompleteness(tokenContextCssFile, [
       ".density-responsive",
