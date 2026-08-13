@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 188
-- Source declarations paired with JS but not TS/TSX: 46
-- TypeScript surface debt: 326
-- Unique TypeScript surface debt: 186
+- Public JS runtime exports with TS/TSX source: 190
+- Source declarations paired with JS but not TS/TSX: 45
+- TypeScript surface debt: 325
+- Unique TypeScript surface debt: 185
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":130,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":539,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":131,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":540,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -88,7 +88,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/CommandPalette.js | yes |
 | package.json | packages/react/dist/patterns/ConfirmationDialog.js | yes |
 | package.json | packages/react/dist/patterns/DenseOperationalList.js | yes |
-| package.json | packages/react/dist/patterns/DragSortableList.js | no |
+| package.json | packages/react/dist/patterns/DragSortableList.js | yes |
 | package.json | packages/react/dist/patterns/DrawerAdapter.js | no |
 | package.json | packages/react/dist/patterns/DriverAndVehicleAdministration.js | no |
 | package.json | packages/react/dist/patterns/DriverOnboardingMobile.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/DragSortableList.d.ts | yes | no |
 | packages/react/src/patterns/DrawerAdapter.d.ts | yes | no |
 | packages/react/src/patterns/DriverAndVehicleAdministration.d.ts | yes | no |
 | packages/react/src/patterns/DriverOnboardingMobile.d.ts | yes | no |

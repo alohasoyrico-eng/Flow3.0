@@ -163,6 +163,7 @@ function main() {
         && include.includes("packages/react/src/patterns/CommandPalette.ts")
         && include.includes("packages/react/src/patterns/ConfirmationDialog.ts")
         && include.includes("packages/react/src/patterns/DenseOperationalList.ts")
+        && include.includes("packages/react/src/patterns/DragSortableList.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
