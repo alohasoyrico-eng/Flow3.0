@@ -349,7 +349,7 @@
       "name": "Patterns",
       "initialRange": "25-29",
       "correctedRange": "41-52",
-      "status": "in_progress",
+      "status": "complete",
       "objective": "Make 63 patterns real, governed, and free of duplicate conceptual implementations.",
       "doneWhen": [
         "63 pattern 1:1 audit complete",
@@ -358,9 +358,7 @@
         "Interaction/data/domain/mobile patterns are real",
         "No fake cards, raw overlays, search duplication, or DOM parallel behavior"
       ],
-      "remaining": [
-        "Pattern governance checkpoint."
-      ],
+      "remaining": [],
       "completed": [
         "Pattern 1:1 checkpoint PASS",
         "Patterns covered: 63",
@@ -384,7 +382,12 @@
         "Data/domain/mobile callbacks tested: 170/170",
         "Data/domain/mobile slots covered: 170",
         "Data/domain/mobile slot uses covered: 247",
-        "Data/domain/mobile pattern debt: 0"
+        "Data/domain/mobile pattern debt: 0",
+        "Pattern governance checkpoint PASS",
+        "Patterns classified exactly once: 63/63",
+        "Pattern checkpoints PASS: 4/4",
+        "Pattern global reports PASS: 8/8",
+        "Pattern governance debt: 0"
       ]
     },
     {
@@ -452,9 +455,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 29,
-    "status": "phase_in_progress",
-    "phase": "5. Patterns",
-    "then": "Continue with Pattern governance checkpoint."
+    "iteration": 30,
+    "status": "phase_ready",
+    "phase": "6. Templates",
+    "then": "Continue with Template audit/fixes."
   }
 }

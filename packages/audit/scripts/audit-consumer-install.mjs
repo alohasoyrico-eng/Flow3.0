@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 836,
+    filesScanned: 837,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3597,6 +3597,27 @@ function assertReactGovernanceBaselines() {
     tokenDependencies: 424,
     dataDomainMobilePatternDebt: 0,
   }, "Phase 5 data/domain/mobile patterns checkpoint");
+
+  const phase5PatternGovernance = readAuditReport("docs/audits/system-phase5-pattern-governance-checkpoint.json");
+  assertReportStatus(phase5PatternGovernance, "Phase 5 pattern governance checkpoint");
+  assertInventory(phase5PatternGovernance, {
+    patterns: 63,
+    classifiedPatterns: 63,
+    uniqueClassifiedPatterns: 63,
+    shellPatterns: 5,
+    interactionPatterns: 27,
+    dataDomainMobilePatterns: 31,
+    checkpointReports: 4,
+    passingCheckpointReports: 4,
+    globalReports: 8,
+    passingGlobalReports: 8,
+    checkpointDebt: 0,
+    globalDebt: 0,
+    duplicatePatternClassifications: 0,
+    missingPatternClassifications: 0,
+    unexpectedPatternClassifications: 0,
+    patternGovernanceDebt: 0,
+  }, "Phase 5 pattern governance checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4260,12 +4281,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 118,
-    categoryMappings: 108,
+    reports: 119,
+    categoryMappings: 109,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 118,
-    debtMetrics: 137,
+    reportsWithDebtMetrics: 119,
+    debtMetrics: 140,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,
