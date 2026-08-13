@@ -186,6 +186,7 @@ function main() {
         && include.includes("packages/react/src/patterns/PolarChart.ts")
         && include.includes("packages/react/src/patterns/PreferenceManagement.ts")
         && include.includes("packages/react/src/patterns/PricingOperations.ts")
+        && include.includes("packages/react/src/patterns/PullToRefresh.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")

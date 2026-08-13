@@ -1851,7 +1851,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5361,7 +5361,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 234,
+  "publicJsRuntimeExportsWithTsSource": 236,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/PullToRefresh.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/RadioGroup.d.ts",
       "pairedJs": true,
@@ -5930,18 +5925,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 153,
+        ".ts": 154,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 562,
+        "source": 563,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 303,
-  "uniqueTypescriptPublicSurfaceDebt": 163
+  "typescriptPublicSurfaceDebt": 302,
+  "uniqueTypescriptPublicSurfaceDebt": 162
 }
