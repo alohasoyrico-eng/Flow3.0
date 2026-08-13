@@ -165,6 +165,7 @@ function main() {
         && include.includes("packages/react/src/patterns/DenseOperationalList.ts")
         && include.includes("packages/react/src/patterns/DragSortableList.ts")
         && include.includes("packages/react/src/patterns/DrawerAdapter.ts")
+        && include.includes("packages/react/src/patterns/DriverAndVehicleAdministration.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")

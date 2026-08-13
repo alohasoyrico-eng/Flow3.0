@@ -114,6 +114,7 @@
     "packages/react/src/patterns/DenseOperationalList.ts",
     "packages/react/src/patterns/DragSortableList.ts",
     "packages/react/src/patterns/DrawerAdapter.ts",
+    "packages/react/src/patterns/DriverAndVehicleAdministration.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
