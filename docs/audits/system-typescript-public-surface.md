@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 216
-- Source declarations paired with JS but not TS/TSX: 32
-- TypeScript surface debt: 312
-- Unique TypeScript surface debt: 172
+- Public JS runtime exports with TS/TSX source: 218
+- Source declarations paired with JS but not TS/TSX: 31
+- TypeScript surface debt: 311
+- Unique TypeScript surface debt: 171
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":144,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":553,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":145,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":554,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -102,14 +102,13 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/FullscreenSheet.js | yes |
 | package.json | packages/react/dist/patterns/GanttChart.js | yes |
 | package.json | packages/react/dist/patterns/HelpCenter.js | yes |
-| package.json | packages/react/dist/patterns/KanbanBoard.js | no |
+| package.json | packages/react/dist/patterns/KanbanBoard.js | yes |
 | package.json | packages/react/dist/patterns/KpiCard.js | no |
 
 ## Source Declarations Without TS Source
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/KanbanBoard.d.ts | yes | no |
 | packages/react/src/patterns/KpiCard.d.ts | yes | no |
 | packages/react/src/patterns/MultiSelect.d.ts | yes | no |
 | packages/react/src/patterns/MultiStepForm.d.ts | yes | no |
