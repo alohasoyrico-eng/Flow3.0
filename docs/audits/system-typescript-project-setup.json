@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T05:11:15.740Z",
+  "generatedAt": "2026-08-13T05:15:17.276Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -151,6 +151,7 @@
           "packages/react/src/patterns/PreferenceManagement.ts",
           "packages/react/src/patterns/PricingOperations.ts",
           "packages/react/src/patterns/PullToRefresh.ts",
+          "packages/react/src/patterns/RadioGroup.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -315,6 +316,7 @@
       "packages/react/src/patterns/PreferenceManagement.ts",
       "packages/react/src/patterns/PricingOperations.ts",
       "packages/react/src/patterns/PullToRefresh.ts",
+      "packages/react/src/patterns/RadioGroup.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",

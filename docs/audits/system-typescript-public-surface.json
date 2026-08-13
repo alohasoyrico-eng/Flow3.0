@@ -1891,7 +1891,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5401,7 +5401,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 236,
+  "publicJsRuntimeExportsWithTsSource": 238,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/RadioGroup.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/RolesAndPermissions.d.ts",
       "pairedJs": true,
@@ -5925,18 +5920,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 154,
+        ".ts": 155,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 563,
+        "source": 564,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 302,
-  "uniqueTypescriptPublicSurfaceDebt": 162
+  "typescriptPublicSurfaceDebt": 301,
+  "uniqueTypescriptPublicSurfaceDebt": 161
 }
