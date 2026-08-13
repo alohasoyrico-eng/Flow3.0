@@ -100,6 +100,19 @@
       "passingComponentGateEdges": 168,
       "coreControlsFormsDebt": 0
     },
+    "phase4OverlaysNavigationDataCheckpoint": {
+      "status": "PASS",
+      "overlaysNavigationDataComponents": 14,
+      "passingOverlaysNavigationDataComponents": 14,
+      "gateReports": 8,
+      "passingGateReports": 8,
+      "tsxSources": 14,
+      "runtimeFiles": 14,
+      "declarationFiles": 14,
+      "componentGateEdges": 112,
+      "passingComponentGateEdges": 112,
+      "overlaysNavigationDataDebt": 0
+    },
     "forensicGates": {
       "status": "fail",
       "passing": [
@@ -269,10 +282,14 @@
         "Core controls/forms components PASS: 21/21",
         "Core controls/forms gate reports PASS: 8/8",
         "Core controls/forms component gate edges PASS: 168/168",
-        "Core controls/forms debt: 0"
+        "Core controls/forms debt: 0",
+        "Overlays/navigation/data checkpoint PASS",
+        "Overlays/navigation/data components PASS: 14/14",
+        "Overlays/navigation/data gate reports PASS: 8/8",
+        "Overlays/navigation/data component gate edges PASS: 112/112",
+        "Overlays/navigation/data debt: 0"
       ],
       "remaining": [
-        "Overlays/navigation/data fixes batch.",
         "Domain/complex components fixes batch.",
         "Component QA checkpoint."
       ]
@@ -360,9 +377,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 22,
+    "iteration": 23,
     "status": "phase_in_progress",
     "phase": "4. Components",
-    "then": "Continue with component fixes batch 2: overlays/navigation/data."
+    "then": "Continue with component fixes batch 3: domain/complex components."
   }
 }

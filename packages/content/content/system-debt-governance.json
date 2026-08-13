@@ -89,6 +89,7 @@
     "system-phase3-foundations-primitives-checkpoint.json": "foundations-primitives",
     "system-phase4-component-cascade-checkpoint.json": "quality",
     "system-phase4-core-controls-checkpoint.json": "quality",
+    "system-phase4-overlays-navigation-data-checkpoint.json": "quality",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",
     "package-css-root-governance-audit.json": "cascade",
