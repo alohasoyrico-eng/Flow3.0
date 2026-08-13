@@ -1311,7 +1311,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4841,7 +4841,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 180,
+  "publicJsRuntimeExportsWithTsSource": 182,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/ColumnConfigurator.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/CommandPalette.d.ts",
       "pairedJs": true,
@@ -6065,18 +6060,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 126,
+        ".ts": 127,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 535,
+        "source": 536,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 330,
-  "uniqueTypescriptPublicSurfaceDebt": 190
+  "typescriptPublicSurfaceDebt": 329,
+  "uniqueTypescriptPublicSurfaceDebt": 189
 }

@@ -108,6 +108,7 @@
     "packages/react/src/patterns/ChartLegendItem.ts",
     "packages/react/src/patterns/ChartWrapper.ts",
     "packages/react/src/patterns/CheckboxGroup.ts",
+    "packages/react/src/patterns/ColumnConfigurator.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
