@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip foundation primitive validation",
   "principle": "ZIP guidelines, CSS token outputs, and platform token exports must resolve to Flow foundations/primitives before UI promotion.",
-  "generatedAt": "2026-08-13T07:53:55.273Z",
+  "generatedAt": "2026-08-13T10:37:23.713Z",
   "inventory": {
     "zipGuidelineFiles": 15,
     "mappedGuidelineFiles": 15,

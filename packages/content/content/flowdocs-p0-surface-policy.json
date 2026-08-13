@@ -1,0 +1,48 @@
+{
+  "principle": "FlowDocs P0 surfaces must be classified by ownership before remediation. Vendor dependencies, docs-only editorial helpers, and tokenized reference CSS are not the same risk as duplicated Flow component, pattern, or template behavior.",
+  "docsSupportFiles": {
+    "../FlowDocs/apps/docs/icon-system.js": {
+      "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
+      "reason": "Docs maps artifact names to semantic icons while icon glyph resolution is delegated to Flow component primitives."
+    },
+    "../FlowDocs/apps/docs/component-foundation-trace.js": {
+      "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
+      "reason": "The file renders explanatory foundation trace content and delegates the card surface to the governed component demo bridge."
+    },
+    "../FlowDocs/apps/docs/foundation-explorer.js": {
+      "action": "keep_as_docs_foundation_reference_content_after_token_source",
+      "reason": "Foundation explorers are reference documentation for token behavior; they are allowed after Style Dictionary source exists and raw values remain governed."
+    },
+    "../FlowDocs/apps/docs/primitive-reference.js": {
+      "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
+      "reason": "Primitive reference pages may explain primitive behavior after the primitive has typed/runtime source ownership."
+    },
+    "../FlowDocs/apps/docs/foundation-visual-sections.js": {
+      "action": "keep_as_docs_foundation_reference_content_after_token_source",
+      "reason": "Foundation visual sections are editorial reference content, not Flow runtime ownership."
+    },
+    "../FlowDocs/apps/docs/family-component-docs.js": {
+      "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
+      "reason": "Family documentation is docs content, but sections that behave like component detail structure should move into the component detail template."
+    }
+  },
+  "vendorPrefixes": [
+    {
+      "prefix": "../FlowDocs/apps/docs/vendor/",
+      "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
+      "reason": "Vendored chart/map/animation libraries are external docs dependencies and must not be counted as Flow runtime duplicates; channel ownership is governed separately."
+    }
+  ],
+  "tokenizedReferenceCssPrefixes": [
+    "../FlowDocs/apps/docs/styles/01-shell-",
+    "../FlowDocs/apps/docs/styles/02-doc-layout",
+    "../FlowDocs/apps/docs/styles/03",
+    "../FlowDocs/apps/docs/styles/04",
+    "../FlowDocs/apps/docs/styles/05",
+    "../FlowDocs/apps/docs/styles/06",
+    "../FlowDocs/apps/docs/styles/07",
+    "../FlowDocs/apps/docs/styles/08"
+  ],
+  "tokenizedReferenceCssAction": "classify_as_tokenized_docs_reference_css_after_source_contract",
+  "tokenizedReferenceCssReason": "Docs CSS may style documentation/reference demos when it consumes generated system tokens and does not define Flow component, pattern, or template behavior."
+}

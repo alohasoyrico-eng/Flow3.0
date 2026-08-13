@@ -28,12 +28,15 @@
         "docs-css-visual-surface": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 7,
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "manual_owner_decision_required": 4,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 57,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 2,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       },
       "firstFiles": [
         {
@@ -73,7 +76,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 46,
@@ -118,7 +121,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 19,
@@ -137,7 +140,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 85,
@@ -340,18 +343,20 @@
         "docs-css-visual-surface": 20
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 4,
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 3,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 20
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 20,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 2
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 50,
@@ -370,7 +375,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 62,
@@ -385,7 +390,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 101,
@@ -433,7 +438,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 101,
@@ -463,7 +468,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 40,
@@ -482,7 +487,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 27,
@@ -501,7 +506,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-hero.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 40,
@@ -512,7 +517,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 120,
@@ -527,7 +532,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 40,
@@ -546,7 +551,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 114,
@@ -557,7 +562,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 261,
@@ -576,7 +581,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 152,
@@ -595,7 +600,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 130,
@@ -610,7 +615,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04b-card-docs.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 20,
@@ -621,7 +626,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 34,
@@ -636,7 +641,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 28,
@@ -678,10 +683,15 @@
         "docs-css-visual-surface": 42
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 4,
-        "keep_as_docs_content_only_after_foundation_source_exists": 3,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 2,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 42
+        "promote_or_map_to_token_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 41
       },
       "firstFiles": [
         {
@@ -698,7 +708,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 46,
@@ -717,7 +727,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 305,
@@ -728,7 +738,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 42,
@@ -766,7 +776,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 12,
@@ -785,7 +795,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 97,
@@ -834,7 +844,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 12,
@@ -853,7 +863,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 13,
@@ -872,7 +882,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 4,
@@ -891,7 +901,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 7,
@@ -910,7 +920,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 2,
@@ -929,7 +939,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 1,
@@ -948,7 +958,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 5,
@@ -967,7 +977,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 12,
@@ -986,7 +996,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 12,
@@ -1005,7 +1015,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 14,
@@ -1024,7 +1034,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 5,
@@ -1070,10 +1080,16 @@
         "docs-css-visual-surface": 49
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 7,
-        "keep_as_docs_content_only_after_foundation_source_exists": 3,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 2,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 2,
-        "promote_or_map_to_token_source": 49
+        "promote_or_map_to_token_source": 2,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 46,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
@@ -1090,7 +1106,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 46,
@@ -1109,7 +1125,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 307,
@@ -1124,7 +1140,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 53,
@@ -1158,7 +1174,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 86,
@@ -1177,7 +1193,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 96,
@@ -1256,7 +1272,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 28,
@@ -1275,7 +1291,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 31,
@@ -1294,7 +1310,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-hero.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 2,
@@ -1313,7 +1329,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 41,
@@ -1332,7 +1348,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 3,
@@ -1351,7 +1367,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 3,
@@ -1370,7 +1386,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 7,
@@ -1389,7 +1405,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 177,
@@ -1408,7 +1424,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 3,
@@ -1455,17 +1471,19 @@
         "docs-template-detail-renderer": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 3,
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 5,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5,
         "move_to_template_detail_template_slot_or_delete_duplicate": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 49,
@@ -1484,7 +1502,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 304,
@@ -1499,7 +1517,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 80,
@@ -1514,7 +1532,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 98,
@@ -1544,7 +1562,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 122,
@@ -1555,7 +1573,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 97,
@@ -1574,7 +1592,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 39,
@@ -1585,7 +1603,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/07-pattern-multi-step-form.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 58,
@@ -1596,7 +1614,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 42,
@@ -1646,14 +1664,15 @@
         "docs-css-visual-surface": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 2,
-        "promote_or_map_to_token_source": 1
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 55,
@@ -1672,7 +1691,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 108,
@@ -1683,7 +1702,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 126,
@@ -1720,9 +1739,11 @@
         "docs-css-visual-surface": 15
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 3,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 15
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 15
       },
       "firstFiles": [
         {
@@ -1739,7 +1760,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 51,
@@ -1758,7 +1779,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 306,
@@ -1780,7 +1801,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 90,
@@ -1799,7 +1820,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 138,
@@ -1814,7 +1835,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 143,
@@ -1829,7 +1850,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 116,
@@ -1840,7 +1861,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 77,
@@ -1859,7 +1880,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 281,
@@ -1878,7 +1899,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 88,
@@ -1897,7 +1918,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 16,
@@ -1916,7 +1937,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 120,
@@ -1935,7 +1956,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 26,
@@ -1954,7 +1975,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 43,
@@ -1973,7 +1994,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 20,
@@ -1992,7 +2013,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 112,
@@ -2003,7 +2024,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 14,
@@ -2014,7 +2035,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 76,
@@ -2060,14 +2081,19 @@
         "docs-template-detail-renderer": 3
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 13,
+        "manual_owner_decision_required": 7,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 11,
-        "keep_as_docs_content_only_after_foundation_source_exists": 2,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 2,
         "move_to_component_detail_template_slot_or_delete_duplicate": 60,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 28,
-        "keep_as_docs_content_only_after_primitive_source_exists": 2,
-        "promote_or_map_to_token_source": 14,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 3
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "keep_as_docs_content_only_after_primitive_source_exists": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 14,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 3,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 3
       },
       "firstFiles": [
         {
@@ -2168,7 +2194,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 46,
@@ -2251,7 +2277,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 53,
@@ -2270,7 +2296,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 44,
@@ -2289,7 +2315,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 37,
@@ -2462,11 +2488,15 @@
         "docs-css-visual-surface": 17
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 6,
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "block_on_shell_pattern_contract": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 17
+        "promote_or_map_to_token_source": 2,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 14,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
@@ -2487,7 +2517,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 54,
@@ -2506,7 +2536,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 38,
@@ -2525,7 +2555,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 10,
@@ -2608,7 +2638,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 217,
@@ -2623,7 +2653,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 7,
@@ -2642,7 +2672,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-icons.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 1,
@@ -2661,7 +2691,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 66,
@@ -2676,7 +2706,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 23,
@@ -2695,7 +2725,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 235,
@@ -2710,7 +2740,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 89,
@@ -2721,7 +2751,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 214,
@@ -2740,7 +2770,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04a-button-docs-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 11,
@@ -2755,7 +2785,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04d-checkbox-docs.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 34,
@@ -2774,7 +2804,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 49,
@@ -2785,7 +2815,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/05-catalog-and-examples-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 196,
@@ -2838,16 +2868,21 @@
         "docs-template-detail-renderer": 2
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 12,
+        "manual_owner_decision_required": 7,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 3,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
         "block_on_shell_pattern_contract": 1,
-        "keep_as_docs_content_only_after_foundation_source_exists": 3,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 2,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 15,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 25,
         "keep_as_docs_content_only_after_primitive_source_exists": 1,
         "classify_as_reference_content_or_remove_visual_logic": 1,
-        "promote_or_map_to_token_source": 4,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 2
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 4,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 2,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 2
       },
       "firstFiles": [
         {
@@ -2935,7 +2970,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 20,
@@ -2992,7 +3027,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 310,
@@ -3011,7 +3046,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 75,
@@ -3045,7 +3080,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 35,
@@ -3178,18 +3213,22 @@
         "docs-css-visual-surface": 33
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 3,
-        "keep_as_docs_content_only_after_foundation_source_exists": 3,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 2,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 1,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 33
+        "promote_or_map_to_token_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 32
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 46,
@@ -3208,7 +3247,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 303,
@@ -3223,7 +3262,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 57,
@@ -3257,7 +3296,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 55,
@@ -3276,7 +3315,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 39,
@@ -3314,7 +3353,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 86,
@@ -3363,7 +3402,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 14,
@@ -3382,7 +3421,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 8,
@@ -3401,7 +3440,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-icons.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 12,
@@ -3420,7 +3459,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 53,
@@ -3439,7 +3478,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 39,
@@ -3458,7 +3497,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 21,
@@ -3477,7 +3516,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 181,
@@ -3496,7 +3535,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 1,
@@ -3515,7 +3554,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 18,
@@ -3534,7 +3573,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 27,
@@ -3599,14 +3638,14 @@
         "docs-dom-interaction": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 111,
@@ -3651,14 +3690,15 @@
         "docs-dom-interaction": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 2,
-        "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 116,
@@ -3680,7 +3720,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 45,
@@ -3720,12 +3760,16 @@
         "docs-css-visual-surface": 43
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 6,
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 4,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 43
+        "promote_or_map_to_token_source": 2,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 40,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
@@ -3742,7 +3786,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 71,
@@ -3753,7 +3797,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 37,
@@ -3764,7 +3808,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 103,
@@ -3827,7 +3871,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 95,
@@ -3883,7 +3927,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 13,
@@ -3902,7 +3946,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 13,
@@ -3921,7 +3965,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-icons.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 3,
@@ -3940,7 +3984,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 37,
@@ -3955,7 +3999,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 32,
@@ -3974,7 +4018,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 38,
@@ -3993,7 +4037,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 3,
@@ -4012,7 +4056,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 35,
@@ -4088,15 +4132,21 @@
       },
       "surfaceActions": {
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 3,
-        "manual_owner_decision_required": 4,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
         "block_on_shell_pattern_contract": 1,
-        "keep_as_docs_content_only_after_foundation_source_exists": 3,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 2,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 16,
         "classify_as_docs_home_content_or_remove_visual_logic": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 10,
-        "keep_as_docs_content_only_after_primitive_source_exists": 2,
-        "promote_or_map_to_token_source": 22,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 1
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "keep_as_docs_content_only_after_primitive_source_exists": 1,
+        "promote_or_map_to_token_source": 2,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 20,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 1,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 1
       },
       "firstFiles": [
         {
@@ -4136,7 +4186,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 73,
@@ -4173,7 +4223,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 47,
@@ -4207,7 +4257,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 131,
@@ -4456,13 +4506,17 @@
         "docs-template-detail-renderer": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 6,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 7,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 4,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 3,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
-        "promote_or_map_to_token_source": 6,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 1
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 1,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 3
       },
       "firstFiles": [
         {
@@ -4479,7 +4533,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 74,
@@ -4490,7 +4544,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 350,
@@ -4586,7 +4640,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 115,
@@ -4660,7 +4714,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 115,
@@ -4694,7 +4748,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 165,
@@ -4705,7 +4759,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 293,
@@ -4744,17 +4798,18 @@
         "docs-css-visual-surface": 4
       },
       "surfaceActions": {
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
-        "manual_owner_decision_required": 4,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 4
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 4,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 3
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 69,
@@ -4765,7 +4820,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 110,
@@ -4798,7 +4853,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 31,
@@ -4817,7 +4872,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 16,
@@ -4836,7 +4891,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 24,
@@ -4855,7 +4910,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 5,
@@ -4870,7 +4925,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 35,
@@ -4885,7 +4940,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 1,
@@ -4896,7 +4951,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 42,
@@ -4941,14 +4996,18 @@
         "docs-template-detail-renderer": 2
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 6,
+        "manual_owner_decision_required": 3,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
         "keep_as_docs_content_only_after_foundation_source_exists": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 17,
-        "keep_as_docs_content_only_after_primitive_source_exists": 2,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "keep_as_docs_content_only_after_primitive_source_exists": 1,
         "classify_as_reference_content_or_remove_visual_logic": 1,
-        "promote_or_map_to_token_source": 15,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 2
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 15,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 2,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 1
       },
       "firstFiles": [
         {
@@ -4965,7 +5024,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 20,
@@ -5029,7 +5088,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 107,
@@ -5326,12 +5385,17 @@
         "docs-css-visual-surface": 14
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 7,
+        "manual_owner_decision_required": 1,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 4,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 5,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 4,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
-        "promote_or_map_to_token_source": 14
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "promote_or_map_to_token_source": 2,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
@@ -5348,7 +5412,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 74,
@@ -5386,7 +5450,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 350,
@@ -5452,7 +5516,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 45,
@@ -5534,7 +5598,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 109,
@@ -5590,7 +5654,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 23,
@@ -5628,14 +5692,15 @@
         "docs-css-visual-surface": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 2,
-        "promote_or_map_to_token_source": 1
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 55,
@@ -5654,7 +5719,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 108,
@@ -5665,7 +5730,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 126,
@@ -5751,14 +5816,18 @@
         "docs-template-detail-renderer": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 7,
+        "manual_owner_decision_required": 2,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 3,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 7,
         "classify_as_docs_home_content_or_remove_visual_logic": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 8,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
-        "promote_or_map_to_token_source": 3,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 1
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 3,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 1,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 2
       },
       "firstFiles": [
         {
@@ -5801,7 +5870,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 51,
@@ -5820,7 +5889,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 344,
@@ -5931,7 +6000,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 114,
@@ -6067,14 +6136,16 @@
         "docs-dom-interaction": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 4,
-        "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 2
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 328,
@@ -6085,7 +6156,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 117,
@@ -6107,7 +6178,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 45,
@@ -6118,7 +6189,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 46,
@@ -6153,14 +6224,14 @@
         "docs-misc-surface": 1
       },
       "surfaceActions": {
-        "promote_or_map_to_token_source": 2,
-        "manual_owner_decision_required": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 2,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 297,
@@ -6179,7 +6250,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 112,
@@ -6190,7 +6261,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 46,
@@ -6232,14 +6303,16 @@
         "docs-template-detail-renderer": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 9,
+        "manual_owner_decision_required": 5,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 4,
-        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 1,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 13,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
-        "promote_or_map_to_token_source": 4,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 1
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 3,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 1,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
@@ -6339,7 +6412,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 156,
@@ -6358,7 +6431,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 78,
@@ -6581,14 +6654,14 @@
         "docs-dom-interaction": 1
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 109,
@@ -6639,10 +6712,12 @@
       },
       "surfaceActions": {
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 2,
-        "manual_owner_decision_required": 5,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 1,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
-        "promote_or_map_to_token_source": 43
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 42,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
@@ -6659,7 +6734,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 73,
@@ -6681,7 +6756,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 106,
@@ -6692,7 +6767,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 97,
@@ -6726,7 +6801,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 95,
@@ -6745,7 +6820,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 36,
@@ -6764,7 +6839,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 39,
@@ -6775,7 +6850,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 31,
@@ -6794,7 +6869,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 8,
@@ -6813,7 +6888,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 85,
@@ -6832,7 +6907,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 178,
@@ -6851,7 +6926,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-04.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 6,
@@ -6862,7 +6937,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 13,
@@ -6881,7 +6956,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 13,
@@ -6900,7 +6975,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 13,
@@ -6919,7 +6994,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 4,
@@ -6938,7 +7013,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 6,
@@ -6957,7 +7032,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/04a-button-docs-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 36,
@@ -7001,7 +7076,7 @@
       },
       "surfaceActions": {
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 1,
-        "promote_or_map_to_token_source": 2
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 2
       },
       "firstFiles": [
         {
@@ -7026,7 +7101,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 298,
@@ -7045,7 +7120,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 113,
@@ -7081,15 +7156,18 @@
         "docs-css-visual-surface": 8
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 4,
-        "keep_as_docs_content_only_after_foundation_source_exists": 2,
-        "promote_or_map_to_token_source": 8
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 4
       },
       "firstFiles": [
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 73,
@@ -7115,7 +7193,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 86,
@@ -7134,7 +7212,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 105,
@@ -7145,7 +7223,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/01-shell-icons.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 15,
@@ -7156,7 +7234,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 55,
@@ -7167,7 +7245,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-03.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 284,
@@ -7186,7 +7264,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 1,
@@ -7205,7 +7283,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 163,
@@ -7224,7 +7302,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 110,
@@ -7243,7 +7321,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 1,
@@ -7254,7 +7332,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 1,
@@ -7265,7 +7343,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 42,
@@ -7280,7 +7358,7 @@
         {
           "file": "../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "keep_as_docs_vendor_dependency_with_explicit_channel_owner",
           "evidence": [
             {
               "line": 32,
@@ -7321,14 +7399,20 @@
         "docs-template-detail-renderer": 2
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 9,
-        "keep_as_docs_content_only_after_foundation_source_exists": 2,
+        "manual_owner_decision_required": 4,
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 1,
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
         "move_to_component_detail_template_slot_or_delete_duplicate": 11,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 18,
-        "keep_as_docs_content_only_after_primitive_source_exists": 2,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
+        "keep_as_docs_content_only_after_primitive_source_exists": 1,
         "classify_as_reference_content_or_remove_visual_logic": 1,
-        "promote_or_map_to_token_source": 43,
-        "move_to_template_detail_template_slot_or_delete_duplicate": 2
+        "promote_or_map_to_token_source": 1,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 42,
+        "move_to_template_detail_template_slot_or_delete_duplicate": 2,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 3
       },
       "firstFiles": [
         {
@@ -7345,7 +7429,7 @@
         {
           "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_foundation_trace_content_consuming_flow_card_demo",
           "evidence": [
             {
               "line": 20,
@@ -7383,7 +7467,7 @@
         {
           "file": "../FlowDocs/apps/docs/family-component-docs.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "move_to_component_detail_template_slot_or_keep_as_docs_family_content",
           "evidence": [
             {
               "line": 81,
@@ -7398,7 +7482,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-explorer.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 64,
@@ -7714,11 +7798,13 @@
         "docs-css-visual-surface": 1
       },
       "surfaceActions": {
-        "keep_as_docs_content_only_after_foundation_source_exists": 2,
-        "manual_owner_decision_required": 2,
-        "keep_as_docs_content_only_after_primitive_source_exists": 1,
+        "keep_as_docs_content_only_after_foundation_source_exists": 1,
+        "keep_as_docs_foundation_reference_content_after_token_source": 1,
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 1,
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 1,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 1,
-        "promote_or_map_to_token_source": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1,
+        "manual_owner_decision_required": 1
       },
       "firstFiles": [
         {
@@ -7739,7 +7825,7 @@
         {
           "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
           "category": "docs-foundation-detail-renderer",
-          "action": "keep_as_docs_content_only_after_foundation_source_exists",
+          "action": "keep_as_docs_foundation_reference_content_after_token_source",
           "evidence": [
             {
               "line": 55,
@@ -7754,7 +7840,7 @@
         {
           "file": "../FlowDocs/apps/docs/icon-system.js",
           "category": "docs-misc-surface",
-          "action": "manual_owner_decision_required",
+          "action": "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive",
           "evidence": [
             {
               "line": 104,
@@ -7765,7 +7851,7 @@
         {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "category": "docs-primitive-detail-renderer",
-          "action": "keep_as_docs_content_only_after_primitive_source_exists",
+          "action": "keep_as_docs_primitive_reference_content_after_runtime_source",
           "evidence": [
             {
               "line": 84,
@@ -7791,7 +7877,7 @@
         {
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "category": "docs-css-visual-surface",
-          "action": "promote_or_map_to_token_source",
+          "action": "classify_as_tokenized_docs_reference_css_after_source_contract",
           "evidence": [
             {
               "line": 184,
@@ -7850,11 +7936,12 @@
         "docs-css-visual-surface": 17
       },
       "surfaceActions": {
-        "manual_owner_decision_required": 5,
+        "manual_owner_decision_required": 3,
         "replace_with_flow_react_behavior_or_mark_docs_shell_only": 5,
         "move_to_component_detail_template_slot_or_delete_duplicate": 2,
         "move_to_pattern_detail_template_slot_or_delete_duplicate": 20,
-        "replace_with_flow_visual_contract": 17
+        "replace_with_flow_visual_contract": 17,
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 2
       },
       "firstFiles": [
         {
@@ -8899,7 +8986,7 @@
         "docs-misc-surface": 25
       },
       "recommendedActions": {
-        "manual_owner_decision_required": 25
+        "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 25
       }
     },
     {
@@ -8966,7 +9053,7 @@
         "docs-misc-surface": 21
       },
       "recommendedActions": {
-        "manual_owner_decision_required": 21
+        "keep_as_docs_foundation_trace_content_consuming_flow_card_demo": 21
       }
     },
     {
@@ -8997,7 +9084,7 @@
         "docs-css-visual-surface": 19
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 18,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 18,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9028,7 +9115,7 @@
         "docs-misc-surface": 18
       },
       "recommendedActions": {
-        "manual_owner_decision_required": 18
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 18
       }
     },
     {
@@ -9057,7 +9144,7 @@
         "docs-css-visual-surface": 17
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 16,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 16,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9087,7 +9174,7 @@
         "docs-css-visual-surface": 17
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 16,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 16,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9117,7 +9204,7 @@
         "docs-css-visual-surface": 17
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 14,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 14,
         "replace_with_flow_visual_contract": 3
       }
     },
@@ -9145,7 +9232,7 @@
         "docs-css-visual-surface": 15
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 12,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 12,
         "replace_with_flow_visual_contract": 3
       }
     },
@@ -9173,7 +9260,7 @@
         "docs-misc-surface": 15
       },
       "recommendedActions": {
-        "manual_owner_decision_required": 15
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 15
       }
     },
     {
@@ -9199,7 +9286,7 @@
         "docs-misc-surface": 14
       },
       "recommendedActions": {
-        "manual_owner_decision_required": 14
+        "move_to_component_detail_template_slot_or_keep_as_docs_family_content": 14
       }
     },
     {
@@ -9249,7 +9336,7 @@
         "docs-foundation-detail-renderer": 13
       },
       "recommendedActions": {
-        "keep_as_docs_content_only_after_foundation_source_exists": 13
+        "keep_as_docs_foundation_reference_content_after_token_source": 13
       }
     },
     {
@@ -9274,7 +9361,7 @@
         "docs-primitive-detail-renderer": 13
       },
       "recommendedActions": {
-        "keep_as_docs_content_only_after_primitive_source_exists": 13
+        "keep_as_docs_primitive_reference_content_after_runtime_source": 13
       }
     },
     {
@@ -9299,7 +9386,7 @@
         "docs-css-visual-surface": 13
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 11,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
         "replace_with_flow_visual_contract": 2
       }
     },
@@ -9325,7 +9412,7 @@
         "docs-css-visual-surface": 13
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 13
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 13
       }
     },
     {
@@ -9373,7 +9460,7 @@
         "docs-css-visual-surface": 12
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 10,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 10,
         "replace_with_flow_visual_contract": 2
       }
     },
@@ -9398,7 +9485,7 @@
         "docs-css-visual-surface": 12
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 12
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 12
       }
     },
     {
@@ -9422,7 +9509,7 @@
         "docs-css-visual-surface": 12
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 12
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 12
       }
     },
     {
@@ -9446,7 +9533,7 @@
         "docs-css-visual-surface": 12
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 12
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 12
       }
     },
     {
@@ -9470,7 +9557,7 @@
         "docs-css-visual-surface": 12
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 11,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9495,7 +9582,7 @@
         "docs-css-visual-surface": 12
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 11,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9520,7 +9607,7 @@
         "docs-misc-surface": 12
       },
       "recommendedActions": {
-        "manual_owner_decision_required": 12
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 12
       }
     },
     {
@@ -9543,7 +9630,7 @@
         "docs-css-visual-surface": 11
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 10,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 10,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9567,7 +9654,7 @@
         "docs-css-visual-surface": 11
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 11
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 11
       }
     },
     {
@@ -9589,7 +9676,7 @@
         "docs-css-visual-surface": 10
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 10
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 10
       }
     },
     {
@@ -9611,7 +9698,7 @@
         "docs-css-visual-surface": 10
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 9,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 9,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -9634,7 +9721,7 @@
         "docs-css-visual-surface": 10
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 10
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 10
       }
     },
     {
@@ -9655,7 +9742,7 @@
         "docs-foundation-detail-renderer": 9
       },
       "recommendedActions": {
-        "keep_as_docs_content_only_after_foundation_source_exists": 9
+        "keep_as_docs_foundation_reference_content_after_token_source": 9
       }
     },
     {
@@ -9802,7 +9889,7 @@
         "docs-css-visual-surface": 9
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
         "replace_with_flow_visual_contract": 3
       }
     },
@@ -9824,7 +9911,7 @@
         "docs-css-visual-surface": 9
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 9
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 9
       }
     },
     {
@@ -9845,7 +9932,7 @@
         "docs-css-visual-surface": 9
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 9
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 9
       }
     },
     {
@@ -9866,7 +9953,7 @@
         "docs-css-visual-surface": 9
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 9
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 9
       }
     },
     {
@@ -9887,7 +9974,7 @@
         "docs-css-visual-surface": 9
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
         "replace_with_flow_visual_contract": 3
       }
     },
@@ -10008,7 +10095,7 @@
         "docs-css-visual-surface": 8
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 8
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 8
       }
     },
     {
@@ -10028,7 +10115,7 @@
         "docs-css-visual-surface": 8
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 7,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 7,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -10049,7 +10136,7 @@
         "docs-css-visual-surface": 8
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 7,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 7,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -10259,7 +10346,7 @@
         "docs-css-visual-surface": 7
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 7
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 7
       }
     },
     {
@@ -10278,7 +10365,7 @@
         "docs-css-visual-surface": 7
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -10298,7 +10385,7 @@
         "docs-css-visual-surface": 7
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 7
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 7
       }
     },
     {
@@ -10317,7 +10404,7 @@
         "docs-css-visual-surface": 7
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -10337,7 +10424,7 @@
         "docs-css-visual-surface": 7
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 7
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 7
       }
     },
     {
@@ -10375,7 +10462,7 @@
         "docs-css-visual-surface": 7
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 7
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 7
       }
     },
     {
@@ -10519,7 +10606,7 @@
         "docs-css-visual-surface": 6
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6
       }
     },
     {
@@ -10537,7 +10624,7 @@
         "docs-css-visual-surface": 6
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6
       }
     },
     {
@@ -10555,7 +10642,7 @@
         "docs-css-visual-surface": 6
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -10574,7 +10661,7 @@
         "docs-css-visual-surface": 6
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6
       }
     },
     {
@@ -10592,7 +10679,7 @@
         "docs-css-visual-surface": 6
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 6
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 6
       }
     },
     {
@@ -10763,7 +10850,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10780,7 +10867,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10797,7 +10884,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10814,7 +10901,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10831,7 +10918,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10848,7 +10935,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10865,7 +10952,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 5
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 5
       }
     },
     {
@@ -10882,7 +10969,7 @@
         "docs-css-visual-surface": 5
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 4,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 4,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -11044,7 +11131,7 @@
         "docs-css-visual-surface": 4
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 3,
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 3,
         "replace_with_flow_visual_contract": 1
       }
     },
@@ -11391,7 +11478,7 @@
         "docs-css-visual-surface": 3
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 3
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 3
       }
     },
     {
@@ -12021,7 +12108,7 @@
         "docs-css-visual-surface": 2
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 2
+        "keep_as_docs_vendor_dependency_with_explicit_channel_owner": 2
       }
     },
     {
@@ -12203,7 +12290,7 @@
         "docs-css-visual-surface": 1
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       }
     },
     {
@@ -12216,7 +12303,7 @@
         "docs-css-visual-surface": 1
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       }
     },
     {
@@ -12229,7 +12316,7 @@
         "docs-css-visual-surface": 1
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       }
     },
     {
@@ -12255,7 +12342,7 @@
         "docs-css-visual-surface": 1
       },
       "recommendedActions": {
-        "promote_or_map_to_token_source": 1
+        "classify_as_tokenized_docs_reference_css_after_source_contract": 1
       }
     },
     {

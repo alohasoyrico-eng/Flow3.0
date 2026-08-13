@@ -5,6 +5,7 @@ const path = require("path");
 
 const root = process.cwd();
 const inputFile = path.join(root, "docs/audits/system-p0-forensic-detail.json");
+const surfacePolicyFile = path.join(root, "packages/content/content/flowdocs-p0-surface-policy.json");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-p0-owner-decision-matrix.json");
 const markdownOutput = path.join(outputDir, "system-p0-owner-decision-matrix.md");
@@ -13,7 +14,34 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
-function actionForSurface(ticket, surface) {
+function readSurfacePolicy() {
+  if (!fs.existsSync(surfacePolicyFile)) {
+    return {
+      docsSupportFiles: {},
+      vendorPrefixes: [],
+      tokenizedReferenceCssPrefixes: [],
+      tokenizedReferenceCssAction: "classify_as_tokenized_docs_reference_css_after_source_contract"
+    };
+  }
+  return readJson(surfacePolicyFile);
+}
+
+function policyActionForSurface(ticket, surface, policy) {
+  const exact = policy.docsSupportFiles?.[surface.file];
+  if (exact?.action) return exact.action;
+  const vendor = (policy.vendorPrefixes ?? []).find((entry) => surface.file.startsWith(entry.prefix));
+  if (vendor?.action) return vendor.action;
+  const isTokenizedReferenceCss = surface.category === "docs-css-visual-surface"
+    && (policy.tokenizedReferenceCssPrefixes ?? []).some((prefix) => surface.file.startsWith(prefix));
+  if (isTokenizedReferenceCss && (ticket.layer === "foundation" || ticket.layer === "primitive")) {
+    return policy.tokenizedReferenceCssAction ?? "classify_as_tokenized_docs_reference_css_after_source_contract";
+  }
+  return null;
+}
+
+function actionForSurface(ticket, surface, policy) {
+  const policyAction = policyActionForSurface(ticket, surface, policy);
+  if (policyAction) return policyAction;
   if (surface.category === "docs-css-visual-surface") {
     if (ticket.layer === "foundation" || ticket.layer === "primitive") {
       return "promote_or_map_to_token_source";
@@ -53,6 +81,7 @@ function ticketBlockers(ticket) {
 }
 
 function buildFileHotspots(tickets) {
+  const policy = readSurfacePolicy();
   const files = new Map();
   for (const ticket of tickets) {
     for (const surface of ticket.surfaces) {
@@ -69,7 +98,7 @@ function buildFileHotspots(tickets) {
       row.ticketCount += 1;
       row.tickets.push(ticket.id);
       row.categories[surface.category] = (row.categories[surface.category] || 0) + 1;
-      const action = actionForSurface(ticket, surface);
+      const action = actionForSurface(ticket, surface, policy);
       row.recommendedActions[action] = (row.recommendedActions[action] || 0) + 1;
     }
   }
@@ -82,10 +111,11 @@ function buildFileHotspots(tickets) {
 }
 
 function buildDecisionTickets(tickets) {
+  const policy = readSurfacePolicy();
   return tickets.map((ticket) => {
     const surfaceActions = {};
     for (const surface of ticket.surfaces) {
-      const action = actionForSurface(ticket, surface);
+      const action = actionForSurface(ticket, surface, policy);
       surfaceActions[action] = (surfaceActions[action] || 0) + 1;
     }
     return {
@@ -101,7 +131,7 @@ function buildDecisionTickets(tickets) {
       firstFiles: ticket.surfaces.slice(0, 20).map((surface) => ({
         file: surface.file,
         category: surface.category,
-        action: actionForSurface(ticket, surface),
+        action: actionForSurface(ticket, surface, policy),
         evidence: surface.evidence
       })),
       acceptanceBeforeRemediation: [

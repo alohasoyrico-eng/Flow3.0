@@ -41,155 +41,38 @@
       ],
       "hotspots": [
         {
-          "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
-          "ticketCount": 19,
+          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
+          "ticketCount": 8,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 18,
-            "replace_with_flow_visual_contract": 1
+            "promote_or_map_to_token_source": 8
           }
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
-          "ticketCount": 17,
+          "file": "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
+          "ticketCount": 2,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 16,
-            "replace_with_flow_visual_contract": 1
+            "promote_or_map_to_token_source": 2
           }
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
-          "ticketCount": 17,
+          "file": "../FlowDocs/apps/docs/styles.css",
+          "ticketCount": 1,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 16,
-            "replace_with_flow_visual_contract": 1
+            "promote_or_map_to_token_source": 1
           }
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
-          "ticketCount": 17,
+          "file": "../FlowDocs/apps/docs/styles/00-foundations-01.css",
+          "ticketCount": 1,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 14,
-            "replace_with_flow_visual_contract": 3
+            "promote_or_map_to_token_source": 1
           }
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
-          "ticketCount": 15,
+          "file": "../FlowDocs/apps/docs/styles/00-foundations-02-01.css",
+          "ticketCount": 1,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 12,
-            "replace_with_flow_visual_contract": 3
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-          "ticketCount": 13,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 11,
-            "replace_with_flow_visual_contract": 2
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/04m-tabs-docs.css",
-          "ticketCount": 13,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 13
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
-          "ticketCount": 12,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 10,
-            "replace_with_flow_visual_contract": 2
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
-          "ticketCount": 12,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 12
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
-          "ticketCount": 12,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 12
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/04i-simple-component-layout.css",
-          "ticketCount": 12,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 12
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
-          "ticketCount": 12,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 11,
-            "replace_with_flow_visual_contract": 1
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
-          "ticketCount": 12,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 11,
-            "replace_with_flow_visual_contract": 1
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
-          "ticketCount": 11,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 10,
-            "replace_with_flow_visual_contract": 1
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-          "ticketCount": 11,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 11
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
-          "ticketCount": 10,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 10
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/04b-card-docs.css",
-          "ticketCount": 10,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 9,
-            "replace_with_flow_visual_contract": 1
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/07-pattern-bulk-actions.css",
-          "ticketCount": 10,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 10
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
-          "ticketCount": 9,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 6,
-            "replace_with_flow_visual_contract": 3
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-01.css",
-          "ticketCount": 9,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 9
+            "promote_or_map_to_token_source": 1
           }
         }
       ]
@@ -226,10 +109,17 @@
       ],
       "hotspots": [
         {
+          "file": "../FlowDocs/apps/docs/icon-system.js",
+          "ticketCount": 25,
+          "recommendedActions": {
+            "keep_as_docs_semantic_icon_mapping_consuming_flow_icon_primitive": 25
+          }
+        },
+        {
           "file": "../FlowDocs/apps/docs/primitive-reference.js",
           "ticketCount": 13,
           "recommendedActions": {
-            "keep_as_docs_content_only_after_primitive_source_exists": 13
+            "keep_as_docs_primitive_reference_content_after_runtime_source": 13
           }
         },
         {
@@ -459,7 +349,7 @@
           "file": "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
           "ticketCount": 19,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 18,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 18,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -467,7 +357,7 @@
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-01.css",
           "ticketCount": 17,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 16,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 16,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -475,7 +365,7 @@
           "file": "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
           "ticketCount": 17,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 16,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 16,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -483,7 +373,7 @@
           "file": "../FlowDocs/apps/docs/styles/06-responsive-01.css",
           "ticketCount": 17,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 14,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 14,
             "replace_with_flow_visual_contract": 3
           }
         },
@@ -491,7 +381,7 @@
           "file": "../FlowDocs/apps/docs/styles/06-responsive-02.css",
           "ticketCount": 15,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 12,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 12,
             "replace_with_flow_visual_contract": 3
           }
         },
@@ -499,7 +389,7 @@
           "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "ticketCount": 13,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 11,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
             "replace_with_flow_visual_contract": 2
           }
         },
@@ -514,7 +404,7 @@
           "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
           "ticketCount": 12,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 10,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 10,
             "replace_with_flow_visual_contract": 2
           }
         },
@@ -522,7 +412,7 @@
           "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
           "ticketCount": 12,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 11,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -530,7 +420,7 @@
           "file": "../FlowDocs/apps/docs/styles/07-pattern-settings-help.css",
           "ticketCount": 12,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 11,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -538,7 +428,7 @@
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
           "ticketCount": 11,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 10,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 10,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -546,7 +436,7 @@
           "file": "../FlowDocs/apps/docs/styles/04b-card-docs.css",
           "ticketCount": 10,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 9,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 9,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -596,7 +486,7 @@
           "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
           "ticketCount": 9,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 6,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
             "replace_with_flow_visual_contract": 3
           }
         },
@@ -604,7 +494,7 @@
           "file": "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
           "ticketCount": 9,
           "recommendedActions": {
-            "promote_or_map_to_token_source": 6,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
             "replace_with_flow_visual_contract": 3
           }
         }
