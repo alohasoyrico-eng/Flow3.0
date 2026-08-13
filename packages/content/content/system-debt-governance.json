@@ -106,6 +106,7 @@
     "primitive-disabled-cascade-audit.json": "foundations-primitives",
     "primitive-duration-cascade-audit.json": "foundations-primitives",
     "primitive-elevation-cascade-audit.json": "foundations-primitives",
+    "primitive-field-action-cascade-audit.json": "foundations-primitives",
     "primitive-focus-cascade-audit.json": "foundations-primitives",
     "primitive-iconography-cascade-audit.json": "foundations-primitives",
     "primitive-illustration-assets-cascade-audit.json": "foundations-primitives",

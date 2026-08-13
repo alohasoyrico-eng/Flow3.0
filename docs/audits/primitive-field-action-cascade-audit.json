@@ -1,0 +1,229 @@
+{
+  "status": "pass",
+  "primitive": "Field Action",
+  "principle": "Field Action turns field-adjacent clear, reveal, picker, validation, and recovery actions into a primitive contract so components and patterns do not invent local fake controls.",
+  "gaps": [],
+  "roles": {
+    "required": [
+      "clear",
+      "reveal",
+      "picker",
+      "validate",
+      "recover"
+    ],
+    "present": [
+      "clear",
+      "reveal",
+      "picker",
+      "validate",
+      "recover"
+    ],
+    "missing": []
+  },
+  "states": {
+    "required": [
+      "default",
+      "hover",
+      "focus",
+      "pressed",
+      "loading",
+      "success",
+      "error",
+      "disabled"
+    ],
+    "present": [
+      "default",
+      "hover",
+      "focus",
+      "pressed",
+      "loading",
+      "success",
+      "error",
+      "disabled"
+    ],
+    "missing": []
+  },
+  "governingFoundations": {
+    "required": [
+      "Accessibility",
+      "State",
+      "Frame",
+      "Tone",
+      "Energy"
+    ],
+    "present": [
+      "Accessibility",
+      "State",
+      "Frame",
+      "Tone",
+      "Energy"
+    ],
+    "missing": []
+  },
+  "coordinatedPrimitives": {
+    "required": [
+      "Focus",
+      "Message",
+      "Disabled",
+      "Loading",
+      "Iconography",
+      "Spacing",
+      "Radius",
+      "Measurement"
+    ],
+    "present": [
+      "Focus",
+      "Message",
+      "Disabled",
+      "Loading",
+      "Iconography",
+      "Spacing",
+      "Radius",
+      "Measurement"
+    ],
+    "missing": []
+  },
+  "tokenDependencies": {
+    "required": [
+      "component-field-*",
+      "comp.input.*",
+      "comp.icon-button.*",
+      "sys.accessibility.*",
+      "sys.state.*",
+      "sys.frame.*",
+      "sys.energy.*",
+      "sys.tone.*",
+      "focus.*",
+      "message.*",
+      "loading.*",
+      "disabled.*",
+      "field-action.*"
+    ],
+    "present": [
+      "component-field-*",
+      "comp.input.*",
+      "comp.icon-button.*",
+      "sys.accessibility.*",
+      "sys.state.*",
+      "sys.frame.*",
+      "sys.energy.*",
+      "sys.tone.*",
+      "focus.*",
+      "message.*",
+      "loading.*",
+      "disabled.*",
+      "field-action.*"
+    ],
+    "missing": []
+  },
+  "implementation": {
+    "runtimeFile": "packages/tokens/src/primitives/field-action.ts",
+    "hasRuntimeSource": true,
+    "marksP0RuntimeRequired": true,
+    "exportsFromPrimitiveIndex": true,
+    "exportsSpecSubpath": true,
+    "exposesRejectIf": true,
+    "exposesStateContract": true
+  },
+  "downstreamReferences": {
+    "components": {
+      "count": 2,
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/components/chat-composer.json",
+        "packages/specs/specs/unison-system/artifacts/components/input.json"
+      ]
+    },
+    "patterns": {
+      "count": 18,
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+        "packages/specs/specs/unison-system/artifacts/patterns/payment-form.json"
+      ]
+    },
+    "templates": {
+      "count": 1,
+      "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      ]
+    }
+  },
+  "foundationGate": {
+    "accessibility": {
+      "file": "docs/audits/foundation-accessibility-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "state": {
+      "file": "docs/audits/foundation-state-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "frame": {
+      "file": "docs/audits/foundation-frame-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "tone": {
+      "file": "docs/audits/foundation-tone-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "energy": {
+      "file": "docs/audits/foundation-energy-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    }
+  },
+  "primitiveGate": {
+    "focus": {
+      "file": "docs/audits/primitive-focus-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "message": {
+      "file": "docs/audits/primitive-message-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "disabled": {
+      "file": "docs/audits/primitive-disabled-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "loading": {
+      "file": "docs/audits/primitive-loading-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "iconography": {
+      "file": "docs/audits/primitive-iconography-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "spacing": {
+      "file": "docs/audits/primitive-spacing-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "radius": {
+      "file": "docs/audits/primitive-radius-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    },
+    "measurement": {
+      "file": "docs/audits/primitive-measurement-cascade-audit.json",
+      "status": "pass",
+      "gaps": []
+    }
+  }
+}
