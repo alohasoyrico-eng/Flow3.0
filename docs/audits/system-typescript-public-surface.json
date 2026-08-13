@@ -1951,7 +1951,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5461,7 +5461,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 144,
+  "publicJsRuntimeExportsWithTsSource": 146,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/patterns/AccountOperations.d.ts",
@@ -6040,11 +6040,6 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/patterns/SectionHeader.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/patterns/SelectOptionLayer.d.ts",
       "pairedJs": true,
       "pairedTs": false
@@ -6155,18 +6150,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 108,
+        ".ts": 109,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 517,
+        "source": 518,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 348,
-  "uniqueTypescriptPublicSurfaceDebt": 208
+  "typescriptPublicSurfaceDebt": 347,
+  "uniqueTypescriptPublicSurfaceDebt": 207
 }

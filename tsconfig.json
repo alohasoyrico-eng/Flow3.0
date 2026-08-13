@@ -93,6 +93,7 @@
     "packages/react/src/index.ts",
     "packages/react/src/patterns/index.ts",
     "packages/react/src/patterns/AvatarMenu.ts",
+    "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/templates/index.ts"
   ],
   "exclude": [
