@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 138
-- Source declarations paired with JS but not TS/TSX: 71
-- TypeScript surface debt: 351
-- Unique TypeScript surface debt: 211
+- Public JS runtime exports with TS/TSX source: 142
+- Source declarations paired with JS but not TS/TSX: 69
+- TypeScript surface debt: 349
+- Unique TypeScript surface debt: 209
 
 ## File Counts
 
-- By extension: {".js":605,".mjs":20,".ts":105,".d.ts":274,".tsx":61}
-- By area: {"script":268,"source":514,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":107,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":516,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -67,7 +67,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/MotionBoundary.js | yes |
 | package.json | packages/react/dist/MovementRow.js | yes |
 | package.json | packages/react/dist/Pagination.js | yes |
-| package.json | packages/react/dist/patterns/index.js | no |
+| package.json | packages/react/dist/patterns/index.js | yes |
 | package.json | packages/react/dist/patterns/AccountOperations.js | no |
 | package.json | packages/react/dist/patterns/ActionSheet.js | no |
 | package.json | packages/react/dist/patterns/BottomSheet.js | no |
@@ -169,7 +169,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/TransferList.d.ts | yes | no |
 | packages/react/src/patterns/VirtualDataTable.d.ts | yes | no |
 | packages/react/src/patterns/WaterfallChart.d.ts | yes | no |
-| packages/react/src/patterns/index.d.ts | yes | no |
 | packages/react/src/templates/AgentWorkspace.d.ts | yes | no |
 | packages/react/src/templates/ConfigurationConsole.d.ts | yes | no |
 | packages/react/src/templates/DriverCardWallet.d.ts | yes | no |
@@ -179,7 +178,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/templates/InternalOperationsConsole.d.ts | yes | no |
 | packages/react/src/templates/RoutesAndStations.d.ts | yes | no |
 | packages/react/src/templates/SettingsWorkspace.d.ts | yes | no |
-| packages/react/src/templates/index.d.ts | yes | no |
 
 ## Interpretation
 

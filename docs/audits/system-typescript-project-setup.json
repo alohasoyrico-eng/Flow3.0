@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T23:56:46.457Z",
+  "generatedAt": "2026-08-13T00:12:42.459Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -105,7 +105,9 @@
           "packages/react/src/KpiTile.tsx",
           "packages/react/src/QuickAction.tsx",
           "packages/react/src/RouteSummary.tsx",
-          "packages/react/src/index.ts"
+          "packages/react/src/index.ts",
+          "packages/react/src/patterns/index.ts",
+          "packages/react/src/templates/index.ts"
         ]
       },
       "failMessage": null
@@ -220,7 +222,9 @@
       "packages/react/src/KpiTile.tsx",
       "packages/react/src/QuickAction.tsx",
       "packages/react/src/RouteSummary.tsx",
-      "packages/react/src/index.ts"
+      "packages/react/src/index.ts",
+      "packages/react/src/patterns/index.ts",
+      "packages/react/src/templates/index.ts"
     ],
     "exclude": [
       "node_modules",

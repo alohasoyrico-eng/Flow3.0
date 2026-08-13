@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "flow-system-react-section-indexes-typescript-surface@1",
+  "generatedAt": "2026-08-12",
+  "status": "pass",
+  "targets": [
+    {
+      "id": "patterns",
+      "sourceFile": "packages/react/src/patterns/index.ts",
+      "runtimeFile": "packages/react/src/patterns/index.js",
+      "declarationFile": "packages/react/src/patterns/index.d.ts",
+      "gates": [
+        {
+          "id": "patterns-index-has-ts-source-runtime-and-declaration",
+          "status": "PASS",
+          "evidence": {
+            "hasSource": true,
+            "hasRuntime": true,
+            "hasDeclaration": true
+          },
+          "failMessage": null
+        },
+        {
+          "id": "patterns-index-runtime-generated-from-ts",
+          "status": "PASS",
+          "evidence": {
+            "compileStatus": 0,
+            "stderr": "",
+            "staleRuntime": false
+          },
+          "failMessage": null
+        },
+        {
+          "id": "patterns-index-runtime-export-parity",
+          "status": "PASS",
+          "evidence": {
+            "sourceExports": 63,
+            "runtimeExports": 63
+          },
+          "failMessage": null
+        },
+        {
+          "id": "patterns-index-declaration-export-parity",
+          "status": "PASS",
+          "evidence": {
+            "sourceExports": 63,
+            "declarationExports": 63
+          },
+          "failMessage": null
+        },
+        {
+          "id": "patterns-index-owns-type-exports-in-ts-source",
+          "status": "PASS",
+          "evidence": {
+            "sourceTypeExportGroups": 63,
+            "declarationTypeExportGroups": 63
+          },
+          "failMessage": null
+        }
+      ],
+      "inventory": {
+        "sourceExports": 63,
+        "runtimeExports": 63,
+        "declarationExports": 63,
+        "sourceTypeExportGroups": 63,
+        "declarationTypeExportGroups": 63,
+        "staleRuntimeFiles": 0,
+        "debt": 0
+      }
+    },
+    {
+      "id": "templates",
+      "sourceFile": "packages/react/src/templates/index.ts",
+      "runtimeFile": "packages/react/src/templates/index.js",
+      "declarationFile": "packages/react/src/templates/index.d.ts",
+      "gates": [
+        {
+          "id": "templates-index-has-ts-source-runtime-and-declaration",
+          "status": "PASS",
+          "evidence": {
+            "hasSource": true,
+            "hasRuntime": true,
+            "hasDeclaration": true
+          },
+          "failMessage": null
+        },
+        {
+          "id": "templates-index-runtime-generated-from-ts",
+          "status": "PASS",
+          "evidence": {
+            "compileStatus": 0,
+            "stderr": "",
+            "staleRuntime": false
+          },
+          "failMessage": null
+        },
+        {
+          "id": "templates-index-runtime-export-parity",
+          "status": "PASS",
+          "evidence": {
+            "sourceExports": 9,
+            "runtimeExports": 9
+          },
+          "failMessage": null
+        },
+        {
+          "id": "templates-index-declaration-export-parity",
+          "status": "PASS",
+          "evidence": {
+            "sourceExports": 9,
+            "declarationExports": 9
+          },
+          "failMessage": null
+        },
+        {
+          "id": "templates-index-owns-type-exports-in-ts-source",
+          "status": "PASS",
+          "evidence": {
+            "sourceTypeExportGroups": 9,
+            "declarationTypeExportGroups": 9
+          },
+          "failMessage": null
+        }
+      ],
+      "inventory": {
+        "sourceExports": 9,
+        "runtimeExports": 9,
+        "declarationExports": 9,
+        "sourceTypeExportGroups": 9,
+        "declarationTypeExportGroups": 9,
+        "staleRuntimeFiles": 0,
+        "debt": 0
+      }
+    }
+  ],
+  "inventory": {
+    "sectionIndexesAudited": 2,
+    "sourceExports": 72,
+    "runtimeExports": 72,
+    "declarationExports": 72,
+    "sourceTypeExportGroups": 72,
+    "declarationTypeExportGroups": 72,
+    "staleRuntimeFiles": 0,
+    "reactSectionIndexTypescriptSurfaceDebt": 0
+  }
+}

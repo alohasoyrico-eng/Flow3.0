@@ -177,6 +177,25 @@ export type {
   ConfirmationDialogState,
   ConfirmationDialogValidation,
 } from "./ConfirmationDialog.js";
+export { BottomSheet } from "./BottomSheet.js";
+export type {
+  BottomSheetAction,
+  BottomSheetComponent,
+  BottomSheetDensity,
+  BottomSheetProps,
+  BottomSheetState,
+  BottomSheetValidation,
+} from "./BottomSheet.js";
+export { CheckboxGroup } from "./CheckboxGroup.js";
+export type {
+  CheckboxGroupComponent,
+  CheckboxGroupDensity,
+  CheckboxGroupOption,
+  CheckboxGroupProps,
+  CheckboxGroupState,
+  CheckboxGroupValidation,
+  CheckboxGroupValueMeta,
+} from "./CheckboxGroup.js";
 export { DenseOperationalList } from "./DenseOperationalList.js";
 export type {
   DenseOperationalListBulkActions,
@@ -513,6 +532,16 @@ export type {
   SelectOptionLayerState,
   SelectOptionLayerValidation,
 } from "./SelectOptionLayer.js";
+export { RadioGroup } from "./RadioGroup.js";
+export type {
+  RadioGroupComponent,
+  RadioGroupDensity,
+  RadioGroupOption,
+  RadioGroupProps,
+  RadioGroupState,
+  RadioGroupValidation,
+  RadioGroupValueMeta,
+} from "./RadioGroup.js";
 export { Settings } from "./Settings.js";
 export type {
   SettingsAction,

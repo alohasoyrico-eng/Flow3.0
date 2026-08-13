@@ -971,7 +971,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -2611,7 +2611,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4341,7 +4341,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -4361,7 +4361,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 138,
+  "publicJsRuntimeExportsWithTsSource": 142,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/patterns/AccountOperations.d.ts",
@@ -6110,11 +6110,6 @@
       "pairedTs": false
     },
     {
-      "file": "packages/react/src/patterns/index.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
       "file": "packages/react/src/templates/AgentWorkspace.d.ts",
       "pairedJs": true,
       "pairedTs": false
@@ -6158,30 +6153,25 @@
       "file": "packages/react/src/templates/SettingsWorkspace.d.ts",
       "pairedJs": true,
       "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/templates/index.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
     }
   ],
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 605,
+        ".js": 606,
         ".mjs": 20,
-        ".ts": 105,
+        ".ts": 107,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
-        "script": 268,
-        "source": 514,
+        "script": 269,
+        "source": 516,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 351,
-  "uniqueTypescriptPublicSurfaceDebt": 211
+  "typescriptPublicSurfaceDebt": 349,
+  "uniqueTypescriptPublicSurfaceDebt": 209
 }

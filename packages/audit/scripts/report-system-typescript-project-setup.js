@@ -141,7 +141,9 @@ function main() {
         && include.includes("packages/react/src/KpiTile.tsx")
         && include.includes("packages/react/src/QuickAction.tsx")
         && include.includes("packages/react/src/RouteSummary.tsx")
-        && include.includes("packages/react/src/index.ts"),
+        && include.includes("packages/react/src/index.ts")
+        && include.includes("packages/react/src/patterns/index.ts")
+        && include.includes("packages/react/src/templates/index.ts"),
       { include },
       "tsconfig must include the current real TypeScript source surface.",
     ),

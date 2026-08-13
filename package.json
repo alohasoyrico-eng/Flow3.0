@@ -679,6 +679,7 @@
     "audit:react-affordance-typescript": "node packages/audit/scripts/report-system-react-affordance-typescript-surface.js",
     "audit:react-summary-action-typescript": "node packages/audit/scripts/report-system-react-summary-action-typescript-surface.js",
     "audit:react-root-index-typescript": "node packages/audit/scripts/report-system-react-root-index-typescript-surface.js",
+    "audit:react-section-indexes-typescript": "node packages/audit/scripts/report-system-react-section-indexes-typescript-surface.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },
