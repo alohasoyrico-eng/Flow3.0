@@ -315,9 +315,16 @@ const rows = templateContracts.map((contract) => {
       ["internalDrawerOpen", "internal drawer state"],
       ["setInternalDrawerOpen", "internal drawer setter"],
       ["resolvedDrawerOpen = drawerOpen ?? internalDrawerOpen", "controlled drawer resolver"],
-      ["if (drawerOpen === undefined) setInternalDrawerOpen(open)", "controlled drawer mutation guard"],
       ["onDrawerOpenChange?.(open, event)", "drawer callback event forwarding"],
     ].forEach(([needle, label]) => checkNeedle(rowIssues, source, needle, label, sourcePath));
+
+    checkPattern(
+      rowIssues,
+      source,
+      /if\s*\(\s*drawerOpen\s*===\s*undefined\s*\)\s*setInternalDrawerOpen\s*\(\s*open\s*\)/,
+      "controlled drawer mutation guard",
+      sourcePath,
+    );
 
     [
       ["drawerOpen?", "drawer type prop"],

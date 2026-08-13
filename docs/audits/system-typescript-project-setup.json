@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T06:35:05.052Z",
+  "generatedAt": "2026-08-13T06:38:48.140Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -168,6 +168,7 @@
           "packages/react/src/patterns/WaterfallChart.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
           "packages/react/src/templates/AgentWorkspace.ts",
+          "packages/react/src/templates/ConfigurationConsole.ts",
           "packages/react/src/templates/index.ts"
         ]
       },
@@ -346,6 +347,7 @@
       "packages/react/src/patterns/WaterfallChart.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
       "packages/react/src/templates/AgentWorkspace.ts",
+      "packages/react/src/templates/ConfigurationConsole.ts",
       "packages/react/src/templates/index.ts"
     ],
     "exclude": [

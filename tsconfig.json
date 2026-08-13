@@ -153,6 +153,7 @@
     "packages/react/src/patterns/WaterfallChart.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
     "packages/react/src/templates/AgentWorkspace.ts",
+    "packages/react/src/templates/ConfigurationConsole.ts",
     "packages/react/src/templates/index.ts"
   ],
   "exclude": [
