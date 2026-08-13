@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 114
-- Category mappings: 104
+- Reports scanned: 115
+- Category mappings: 105
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 114
-- Debt metrics: 131
+- Reports with debt metrics: 115
+- Debt metrics: 132
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -42,7 +42,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | cascade | Component styling must cascade from exported system contracts. | 15 | 4 | 0 | 16 | 0 |
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 3 | 2 | 0 | 3 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 31 | 1 | 0 | 33 | 0 |
-| patterns | Patterns must compose components through governed contracts before template promotion. | 15 | 1 | 0 | 27 | 0 |
+| patterns | Patterns must compose components through governed contracts before template promotion. | 16 | 1 | 0 | 28 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 6 | 1 | 0 | 6 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 39 | 10 | 0 | 41 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
@@ -171,6 +171,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-phase4-core-controls-checkpoint.json | quality | pass | coreControlsFormsDebt: 0 |
 | system-phase4-domain-complex-checkpoint.json | quality | pass | domainComplexDebt: 0 |
 | system-phase4-overlays-navigation-data-checkpoint.json | quality | pass | overlaysNavigationDataDebt: 0 |
+| system-phase5-pattern-1to1-checkpoint.json | patterns | pass | patternAuditDebt: 0 |
 | system-react-affordance-typescript-surface.json | react-primary | pass | reactAffordanceTypescriptSurfaceDebt: 0 |
 | system-react-base-components-typescript-surface.json | react-primary | pass | reactBaseComponentTypescriptSurfaceDebt: 0 |
 | system-react-chat-components-typescript-surface.json | react-primary | pass | reactChatComponentsTypescriptSurfaceDebt: 0 |

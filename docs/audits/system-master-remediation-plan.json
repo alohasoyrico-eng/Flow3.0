@@ -144,6 +144,17 @@
       "componentQaInventoryMismatches": 0,
       "componentQaDebt": 0
     },
+    "phase5Pattern1to1Checkpoint": {
+      "status": "PASS",
+      "patterns": 63,
+      "patternAuditReports": 7,
+      "passingPatternAuditReports": 7,
+      "patternReportsWithRows": 2,
+      "patternReportsWith63Rows": 2,
+      "patternInventoryMismatches": 0,
+      "patternSetIssues": 0,
+      "patternAuditDebt": 0
+    },
     "forensicGates": {
       "status": "fail",
       "passing": [
@@ -338,7 +349,7 @@
       "name": "Patterns",
       "initialRange": "25-29",
       "correctedRange": "41-52",
-      "status": "not_started",
+      "status": "in_progress",
       "objective": "Make 63 patterns real, governed, and free of duplicate conceptual implementations.",
       "doneWhen": [
         "63 pattern 1:1 audit complete",
@@ -348,7 +359,17 @@
         "No fake cards, raw overlays, search duplication, or DOM parallel behavior"
       ],
       "remaining": [
-        "P0.4 shell pattern contracts are next after returning to the master sequence."
+        "Shell patterns.",
+        "Interaction patterns.",
+        "Data/domain/mobile patterns.",
+        "Pattern governance checkpoint."
+      ],
+      "completed": [
+        "Pattern 1:1 checkpoint PASS",
+        "Patterns covered: 63",
+        "Pattern audit reports PASS: 7/7",
+        "Pattern row reports with 63 rows PASS: 2/2",
+        "Pattern audit debt: 0"
       ]
     },
     {
@@ -416,9 +437,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 25,
+    "iteration": 26,
     "status": "phase_in_progress",
     "phase": "5. Patterns",
-    "then": "Continue with Pattern audit 1:1."
+    "then": "Continue with Shell patterns."
   }
 }

@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 114,
-    "categoryMappings": 104,
+    "reports": 115,
+    "categoryMappings": 105,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 114,
-    "debtMetrics": 131,
+    "reportsWithDebtMetrics": 115,
+    "debtMetrics": 132,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -85,10 +85,10 @@
     {
       "category": "patterns",
       "principle": "Patterns must compose components through governed contracts before template promotion.",
-      "reports": 15,
+      "reports": 16,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 27,
+      "debtMetrics": 28,
       "totalDebt": 0
     },
     {
@@ -1389,6 +1389,20 @@
           "report": "system-phase4-overlays-navigation-data-checkpoint.json",
           "scope": "inventory",
           "metric": "overlaysNavigationDataDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-phase5-pattern-1to1-checkpoint.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-phase5-pattern-1to1-checkpoint.json",
+          "scope": "inventory",
+          "metric": "patternAuditDebt",
           "value": 0,
           "numericValue": 0
         }

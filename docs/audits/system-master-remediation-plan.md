@@ -38,6 +38,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 4 overlays/navigation/data checkpoint | PASS | 14/14 overlay/navigation/data components, 8/8 gate reports, 112/112 component gate edges, 0 debt |
 | Phase 4 domain/complex checkpoint | PASS | 25/25 domain/complex components, 8/8 gate reports, 200/200 component gate edges, 0 debt |
 | Phase 4 component QA checkpoint | PASS | 60/60 batch components, 60/60 unique components, 480/480 component gate edges, 12/12 QA reports, 0 debt |
+| Phase 5 pattern 1:1 checkpoint | PASS | 63 patterns, 7/7 pattern audit reports, 2/2 row reports with 63 rows, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -58,7 +59,7 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 | 2. TypeScript real | 8-15 | 11-22 | complete | Migrate public Flow packages to TS/TSX real. |
 | 3. Foundations/Primitives | 16-19 | 23-28 | complete | Make the base cascade exportable and consumable. |
 | 4. Components | 20-24 | 29-40 | complete | Audit and type 60 components. |
-| 5. Patterns | 25-29 | 41-52 | not_started | Make 63 patterns real and governed. |
+| 5. Patterns | 25-29 | 41-52 | in_progress | Make 63 patterns real and governed. |
 | 6. Templates | 30-31 | 53-58 | not_started | Make 9 templates consume real components/patterns. |
 | 7. FlowDocs v2 | 32-34 | 59-66 | blocked | Rebuild docs as a consumer of Flow. |
 
@@ -127,6 +128,16 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Component QA reports PASS: 12/12.
 - Component QA debt: 0.
 
+## Phase 5 Status
+
+**Started by audit evidence.**
+
+- Pattern 1:1 checkpoint PASS.
+- Patterns covered: 63.
+- Pattern audit reports PASS: 7/7.
+- Pattern row reports with 63 rows PASS: 2/2.
+- Pattern audit debt: 0.
+
 ## Checkpoints
 
 | After iteration | Checkpoint |
@@ -141,4 +152,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 5 Pattern audit 1:1**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.
+The next correct step is **Phase 5 Shell patterns**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.
