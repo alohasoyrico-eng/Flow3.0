@@ -160,6 +160,7 @@ function main() {
         && include.includes("packages/react/src/patterns/ChartWrapper.ts")
         && include.includes("packages/react/src/patterns/CheckboxGroup.ts")
         && include.includes("packages/react/src/patterns/ColumnConfigurator.ts")
+        && include.includes("packages/react/src/patterns/CommandPalette.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
