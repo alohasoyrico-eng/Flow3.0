@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 172
-- Source declarations paired with JS but not TS/TSX: 54
-- TypeScript surface debt: 334
-- Unique TypeScript surface debt: 194
+- Public JS runtime exports with TS/TSX source: 174
+- Source declarations paired with JS but not TS/TSX: 53
+- TypeScript surface debt: 333
+- Unique TypeScript surface debt: 193
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":122,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":531,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":123,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":532,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -80,7 +80,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/BackofficeApproval.js | yes |
 | package.json | packages/react/dist/patterns/BulkActions.js | yes |
 | package.json | packages/react/dist/patterns/CalendarView.js | yes |
-| package.json | packages/react/dist/patterns/CaseManagement.js | no |
+| package.json | packages/react/dist/patterns/CaseManagement.js | yes |
 | package.json | packages/react/dist/patterns/ChartWrapper.js | no |
 | package.json | packages/react/dist/patterns/ChartLegendItem.js | no |
 | package.json | packages/react/dist/patterns/CheckboxGroup.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/CaseManagement.d.ts | yes | no |
 | packages/react/src/patterns/ChartLegendItem.d.ts | yes | no |
 | packages/react/src/patterns/ChartWrapper.d.ts | yes | no |
 | packages/react/src/patterns/CheckboxGroup.d.ts | yes | no |
