@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T04:27:28.756Z",
+  "generatedAt": "2026-08-13T04:32:37.239Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -143,6 +143,7 @@
           "packages/react/src/patterns/HelpCenter.ts",
           "packages/react/src/patterns/KanbanBoard.ts",
           "packages/react/src/patterns/KpiCard.ts",
+          "packages/react/src/patterns/MultiSelect.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -299,6 +300,7 @@
       "packages/react/src/patterns/HelpCenter.ts",
       "packages/react/src/patterns/KanbanBoard.ts",
       "packages/react/src/patterns/KpiCard.ts",
+      "packages/react/src/patterns/MultiSelect.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
