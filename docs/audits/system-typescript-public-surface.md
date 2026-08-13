@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 272
-- Source declarations paired with JS but not TS/TSX: 4
-- TypeScript surface debt: 284
-- Unique TypeScript surface debt: 144
+- Public JS runtime exports with TS/TSX source: 274
+- Source declarations paired with JS but not TS/TSX: 3
+- TypeScript surface debt: 283
+- Unique TypeScript surface debt: 143
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":172,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":581,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":173,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":582,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/templates/FleetManagerDesktop.d.ts | yes | no |
 | packages/react/src/templates/InternalOperationsConsole.d.ts | yes | no |
 | packages/react/src/templates/RoutesAndStations.d.ts | yes | no |
 | packages/react/src/templates/SettingsWorkspace.d.ts | yes | no |
