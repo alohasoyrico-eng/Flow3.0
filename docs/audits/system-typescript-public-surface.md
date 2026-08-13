@@ -11,9 +11,10 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
 - Public JS runtime exports with TS/TSX source: 280
+- Public JS runtime exports without TS/TSX source: 0
 - Source declarations paired with JS but not TS/TSX: 0
-- TypeScript surface debt: 280
-- Unique TypeScript surface debt: 140
+- TypeScript surface debt: 0
+- Unique TypeScript surface debt: 0
 
 ## File Counts
 
@@ -104,6 +105,12 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/HelpCenter.js | yes |
 | package.json | packages/react/dist/patterns/KanbanBoard.js | yes |
 | package.json | packages/react/dist/patterns/KpiCard.js | yes |
+
+## Public JS Runtime Exports Without TS Source
+
+| Package | Target |
+| --- | --- |
+| None | None |
 
 ## Source Declarations Without TS Source
 

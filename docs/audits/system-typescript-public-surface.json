@@ -1,7 +1,7 @@
 {
   "schemaVersion": "flow-system-typescript-public-surface@1",
   "generatedAt": "2026-08-12",
-  "status": "baseline_only",
+  "status": "pass",
   "publicExports": [
     {
       "packageFile": "package.json",
@@ -5808,6 +5808,7 @@
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
   "publicJsRuntimeExportsWithTsSource": 280,
+  "publicJsRuntimeExportsWithoutTsSource": [],
   "sourceDeclarationsWithoutTs": [],
   "sourceInventory": {
     "counts": {
@@ -5826,6 +5827,6 @@
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 280,
-  "uniqueTypescriptPublicSurfaceDebt": 140
+  "typescriptPublicSurfaceDebt": 0,
+  "uniqueTypescriptPublicSurfaceDebt": 0
 }

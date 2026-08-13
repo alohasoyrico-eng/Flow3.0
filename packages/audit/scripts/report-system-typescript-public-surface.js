@@ -123,6 +123,10 @@ function renderMarkdown(report) {
     .slice(0, 80)
     .map((row) => `| ${row.packageFile} | ${row.target} | ${row.tsSourceExists ? "yes" : "no"} |`)
     .join("\n");
+  const publicDebtRows = report.publicJsRuntimeExportsWithoutTsSource
+    .slice(0, 80)
+    .map((row) => `| ${row.packageFile} | ${row.target} |`)
+    .join("\n");
   const declarationRows = report.sourceDeclarationsWithoutTs
     .slice(0, 80)
     .map((row) => `| ${row.file} | ${row.pairedJs ? "yes" : "no"} | ${row.pairedTs ? "yes" : "no"} |`)
@@ -141,6 +145,7 @@ function renderMarkdown(report) {
     `- Public JS runtime exports: ${report.publicJsRuntimeExports}`,
     `- Unique public JS runtime export targets: ${report.uniquePublicJsRuntimeTargets}`,
     `- Public JS runtime exports with TS/TSX source: ${report.publicJsRuntimeExportsWithTsSource}`,
+    `- Public JS runtime exports without TS/TSX source: ${report.publicJsRuntimeExportsWithoutTsSource.length}`,
     `- Source declarations paired with JS but not TS/TSX: ${report.sourceDeclarationsWithoutTs.length}`,
     `- TypeScript surface debt: ${report.typescriptPublicSurfaceDebt}`,
     `- Unique TypeScript surface debt: ${report.uniqueTypescriptPublicSurfaceDebt}`,
@@ -155,6 +160,12 @@ function renderMarkdown(report) {
     "| Package | Target | TS/TSX source |",
     "| --- | --- | --- |",
     publicRows || "| None | None | None |",
+    "",
+    "## Public JS Runtime Exports Without TS Source",
+    "",
+    "| Package | Target |",
+    "| --- | --- |",
+    publicDebtRows || "| None | None |",
     "",
     "## Source Declarations Without TS Source",
     "",
@@ -174,24 +185,27 @@ function main() {
   const sourceInventory = buildSourceInventory();
   const publicJsRuntimeExports = publicExports.filter((row) => row.kind === "runtime" && row.jsRuntime);
   const publicJsRuntimeExportsWithTsSource = publicJsRuntimeExports.filter((row) => row.tsSourceExists);
+  const publicJsRuntimeExportsWithoutTsSource = publicJsRuntimeExports.filter((row) => !row.tsSourceExists);
   const sourceDeclarationsWithoutTs = sourceInventory.sourceDeclarationsWithoutTs;
   const uniquePublicExportTargets = new Set(publicExports.map((row) => row.target));
   const uniquePublicJsRuntimeTargets = new Set(publicJsRuntimeExports.map((row) => row.target));
+  const uniquePublicJsRuntimeTargetsWithoutTsSource = new Set(publicJsRuntimeExportsWithoutTsSource.map((row) => row.target));
   const report = {
     schemaVersion: "flow-system-typescript-public-surface@1",
     generatedAt: "2026-08-12",
-    status: "baseline_only",
+    status: publicJsRuntimeExportsWithoutTsSource.length || sourceDeclarationsWithoutTs.length ? "baseline_only" : "pass",
     publicExports,
     uniquePublicExportTargets: uniquePublicExportTargets.size,
     publicJsRuntimeExports: publicJsRuntimeExports.length,
     uniquePublicJsRuntimeTargets: uniquePublicJsRuntimeTargets.size,
     publicJsRuntimeExportsWithTsSource: publicJsRuntimeExportsWithTsSource.length,
+    publicJsRuntimeExportsWithoutTsSource,
     sourceDeclarationsWithoutTs,
     sourceInventory: {
       counts: sourceInventory.counts
     },
-    typescriptPublicSurfaceDebt: publicJsRuntimeExports.length + sourceDeclarationsWithoutTs.length,
-    uniqueTypescriptPublicSurfaceDebt: uniquePublicJsRuntimeTargets.size + sourceDeclarationsWithoutTs.length
+    typescriptPublicSurfaceDebt: publicJsRuntimeExportsWithoutTsSource.length + sourceDeclarationsWithoutTs.length,
+    uniqueTypescriptPublicSurfaceDebt: uniquePublicJsRuntimeTargetsWithoutTsSource.size + sourceDeclarationsWithoutTs.length
   };
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
@@ -203,6 +217,7 @@ function main() {
     publicJsRuntimeExports: report.publicJsRuntimeExports,
     uniquePublicJsRuntimeTargets: report.uniquePublicJsRuntimeTargets,
     sourceDeclarationsWithoutTs: report.sourceDeclarationsWithoutTs.length,
+    publicJsRuntimeExportsWithoutTsSource: report.publicJsRuntimeExportsWithoutTsSource.length,
     typescriptPublicSurfaceDebt: report.typescriptPublicSurfaceDebt,
     uniqueTypescriptPublicSurfaceDebt: report.uniqueTypescriptPublicSurfaceDebt,
     outputs: [
