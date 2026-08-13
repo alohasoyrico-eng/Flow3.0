@@ -117,6 +117,7 @@
     "packages/react/src/patterns/DriverAndVehicleAdministration.ts",
     "packages/react/src/patterns/DriverOnboardingMobile.ts",
     "packages/react/src/patterns/EmailTemplateLayout.ts",
+    "packages/react/src/patterns/ExpandableDetailTable.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",

@@ -1491,7 +1491,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5001,7 +5001,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 198,
+  "publicJsRuntimeExportsWithTsSource": 200,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/ExpandableDetailTable.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/FileUpload.d.ts",
       "pairedJs": true,
@@ -6020,18 +6015,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 135,
+        ".ts": 136,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 544,
+        "source": 545,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 321,
-  "uniqueTypescriptPublicSurfaceDebt": 181
+  "typescriptPublicSurfaceDebt": 320,
+  "uniqueTypescriptPublicSurfaceDebt": 180
 }
