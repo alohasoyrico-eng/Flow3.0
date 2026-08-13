@@ -1511,7 +1511,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5021,7 +5021,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 200,
+  "publicJsRuntimeExportsWithTsSource": 202,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/FileUpload.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/FilterChipGroup.d.ts",
       "pairedJs": true,
@@ -6015,18 +6010,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 136,
+        ".ts": 137,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 545,
+        "source": 546,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 320,
-  "uniqueTypescriptPublicSurfaceDebt": 180
+  "typescriptPublicSurfaceDebt": 319,
+  "uniqueTypescriptPublicSurfaceDebt": 179
 }

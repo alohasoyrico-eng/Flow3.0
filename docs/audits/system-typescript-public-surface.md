@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 200
-- Source declarations paired with JS but not TS/TSX: 40
-- TypeScript surface debt: 320
-- Unique TypeScript surface debt: 180
+- Public JS runtime exports with TS/TSX source: 202
+- Source declarations paired with JS but not TS/TSX: 39
+- TypeScript surface debt: 319
+- Unique TypeScript surface debt: 179
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":136,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":545,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":137,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":546,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -94,7 +94,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/DriverOnboardingMobile.js | yes |
 | package.json | packages/react/dist/patterns/EmailTemplateLayout.js | yes |
 | package.json | packages/react/dist/patterns/ExpandableDetailTable.js | yes |
-| package.json | packages/react/dist/patterns/FileUpload.js | no |
+| package.json | packages/react/dist/patterns/FileUpload.js | yes |
 | package.json | packages/react/dist/patterns/FilterChipGroup.js | no |
 | package.json | packages/react/dist/patterns/FilterableEditableTable.js | no |
 | package.json | packages/react/dist/patterns/FleetManagerOnboardingDesktop.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/FileUpload.d.ts | yes | no |
 | packages/react/src/patterns/FilterChipGroup.d.ts | yes | no |
 | packages/react/src/patterns/FilterableEditableTable.d.ts | yes | no |
 | packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts | yes | no |
