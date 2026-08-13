@@ -1691,7 +1691,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5221,7 +5221,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 218,
+  "publicJsRuntimeExportsWithTsSource": 220,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/KpiCard.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/MultiSelect.d.ts",
       "pairedJs": true,
@@ -5970,18 +5965,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 145,
+        ".ts": 146,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 554,
+        "source": 555,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 311,
-  "uniqueTypescriptPublicSurfaceDebt": 171
+  "typescriptPublicSurfaceDebt": 310,
+  "uniqueTypescriptPublicSurfaceDebt": 170
 }

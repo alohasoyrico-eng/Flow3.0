@@ -127,6 +127,7 @@
     "packages/react/src/patterns/GanttChart.ts",
     "packages/react/src/patterns/HelpCenter.ts",
     "packages/react/src/patterns/KanbanBoard.ts",
+    "packages/react/src/patterns/KpiCard.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
