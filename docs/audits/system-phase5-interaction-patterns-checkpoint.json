@@ -1,0 +1,1172 @@
+{
+  "status": "pass",
+  "audit": "system phase 5 interaction patterns checkpoint",
+  "principle": "Interaction patterns close only when filters, selection groups, overlays/sheets/menus, local form orchestration, settings, feedback, reveal, and transfer flows have formal artifacts, Markdown contracts, TS/JS/d.ts runtime surfaces, governed component/pattern dependencies, tested callbacks, state/type parity, slot/token governance, no docs/runtime duplication, and zero debt.",
+  "scope": "Original plan iteration 27: interaction patterns. Data/domain/mobile/template-facing patterns remain for iteration 28.",
+  "inventory": {
+    "interactionPatterns": 27,
+    "passingInteractionPatterns": 27,
+    "families": 5,
+    "requiredReports": 4,
+    "passingRequiredReports": 4,
+    "reportDebt": 0,
+    "runtimeFiles": 135,
+    "runtimeFilesPresent": 135,
+    "states": 200,
+    "componentDependencies": 161,
+    "patternDependencies": 17,
+    "callbacks": 80,
+    "testedCallbacks": 80,
+    "slots": 113,
+    "slotUses": 193,
+    "interactionPatternDebt": 0
+  },
+  "families": {
+    "filters": [
+      "advanced-filters",
+      "filter-chip-group"
+    ],
+    "selection": [
+      "bulk-actions",
+      "checkbox-group",
+      "multi-select",
+      "radio-group",
+      "select-option-layer",
+      "transfer-list"
+    ],
+    "overlaysSheetsMenus": [
+      "action-sheet",
+      "avatar-menu",
+      "bottom-sheet",
+      "confirmation-dialog",
+      "drawer-adapter",
+      "fullscreen-sheet",
+      "notification-panel",
+      "quick-actions-grid",
+      "swipe-actions"
+    ],
+    "formsAndSettings": [
+      "autocomplete",
+      "column-configurator",
+      "file-upload",
+      "form-section",
+      "multi-step-form",
+      "settings"
+    ],
+    "feedbackAndReveal": [
+      "avatar-group",
+      "drag-sortable-list",
+      "snackbar-provider",
+      "timeline"
+    ]
+  },
+  "reports": [
+    {
+      "id": "pattern-behavior",
+      "file": "docs/audits/react-pattern-behavior-governance-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "pattern-composition",
+      "file": "docs/audits/react-pattern-composition-governance-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "pattern-migration",
+      "file": "docs/audits/pattern-react-migration-audit.json",
+      "status": "pass",
+      "debt": 0
+    },
+    {
+      "id": "foundation-primitive-1to1",
+      "file": "docs/audits/pattern-foundation-primitive-1to1-audit.json",
+      "status": "pass",
+      "debt": 0
+    }
+  ],
+  "patterns": [
+    {
+      "id": "action-sheet",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/action-sheet.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/ActionSheet.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/ActionSheet.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/ActionSheet.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 5,
+      "patternDependencies": 1,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 4,
+      "slotUses": 6,
+      "debts": []
+    },
+    {
+      "id": "advanced-filters",
+      "family": "filters",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/AdvancedFilters.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/AdvancedFilters.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/AdvancedFilters.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 10,
+      "patternDependencies": 1,
+      "callbacks": 0,
+      "testedCallbacks": 0,
+      "slots": 4,
+      "slotUses": 11,
+      "debts": []
+    },
+    {
+      "id": "autocomplete",
+      "family": "formsAndSettings",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/autocomplete.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/Autocomplete.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/Autocomplete.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/Autocomplete.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 5,
+      "patternDependencies": 0,
+      "callbacks": 4,
+      "testedCallbacks": 4,
+      "slots": 3,
+      "slotUses": 5,
+      "debts": []
+    },
+    {
+      "id": "avatar-group",
+      "family": "feedbackAndReveal",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/avatar-group.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/AvatarGroup.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/AvatarGroup.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/AvatarGroup.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 7,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 4,
+      "slotUses": 7,
+      "debts": []
+    },
+    {
+      "id": "avatar-menu",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/AvatarMenu.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/AvatarMenu.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/AvatarMenu.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 2,
+      "patternDependencies": 1,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 2,
+      "slotUses": 2,
+      "debts": []
+    },
+    {
+      "id": "bottom-sheet",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/BottomSheet.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/BottomSheet.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/BottomSheet.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 4,
+      "patternDependencies": 1,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 6,
+      "slotUses": 8,
+      "debts": []
+    },
+    {
+      "id": "bulk-actions",
+      "family": "selection",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/BulkActions.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/BulkActions.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/BulkActions.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 8,
+      "patternDependencies": 1,
+      "callbacks": 0,
+      "testedCallbacks": 0,
+      "slots": 4,
+      "slotUses": 9,
+      "debts": []
+    },
+    {
+      "id": "checkbox-group",
+      "family": "selection",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/checkbox-group.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/CheckboxGroup.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/CheckboxGroup.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/CheckboxGroup.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 3,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 6,
+      "slotUses": 7,
+      "debts": []
+    },
+    {
+      "id": "column-configurator",
+      "family": "formsAndSettings",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/column-configurator.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/ColumnConfigurator.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/ColumnConfigurator.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/ColumnConfigurator.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 9,
+      "patternDependencies": 0,
+      "callbacks": 4,
+      "testedCallbacks": 4,
+      "slots": 3,
+      "slotUses": 9,
+      "debts": []
+    },
+    {
+      "id": "confirmation-dialog",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/confirmation-dialog.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/ConfirmationDialog.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/ConfirmationDialog.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/ConfirmationDialog.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 5,
+      "patternDependencies": 0,
+      "callbacks": 4,
+      "testedCallbacks": 4,
+      "slots": 3,
+      "slotUses": 5,
+      "debts": []
+    },
+    {
+      "id": "drag-sortable-list",
+      "family": "feedbackAndReveal",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/drag-sortable-list.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/DragSortableList.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/DragSortableList.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/DragSortableList.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 9,
+      "components": 5,
+      "patternDependencies": 1,
+      "callbacks": 5,
+      "testedCallbacks": 5,
+      "slots": 4,
+      "slotUses": 6,
+      "debts": []
+    },
+    {
+      "id": "drawer-adapter",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/drawer-adapter.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/DrawerAdapter.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/DrawerAdapter.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/DrawerAdapter.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 3,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 8,
+      "slotUses": 11,
+      "debts": []
+    },
+    {
+      "id": "file-upload",
+      "family": "formsAndSettings",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/file-upload.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/FileUpload.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/FileUpload.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/FileUpload.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 6,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 4,
+      "slotUses": 7,
+      "debts": []
+    },
+    {
+      "id": "filter-chip-group",
+      "family": "filters",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/filter-chip-group.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/FilterChipGroup.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/FilterChipGroup.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/FilterChipGroup.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 5,
+      "patternDependencies": 0,
+      "callbacks": 5,
+      "testedCallbacks": 5,
+      "slots": 5,
+      "slotUses": 5,
+      "debts": []
+    },
+    {
+      "id": "form-section",
+      "family": "formsAndSettings",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/form-section.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/FormSection.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/FormSection.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/FormSection.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 10,
+      "patternDependencies": 1,
+      "callbacks": 6,
+      "testedCallbacks": 6,
+      "slots": 3,
+      "slotUses": 11,
+      "debts": []
+    },
+    {
+      "id": "fullscreen-sheet",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/fullscreen-sheet.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/FullscreenSheet.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/FullscreenSheet.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/FullscreenSheet.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 1,
+      "callbacks": 1,
+      "testedCallbacks": 1,
+      "slots": 4,
+      "slotUses": 8,
+      "debts": []
+    },
+    {
+      "id": "multi-select",
+      "family": "selection",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/multi-select.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/MultiSelect.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/MultiSelect.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/MultiSelect.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 7,
+      "patternDependencies": 1,
+      "callbacks": 4,
+      "testedCallbacks": 4,
+      "slots": 3,
+      "slotUses": 7,
+      "debts": []
+    },
+    {
+      "id": "multi-step-form",
+      "family": "formsAndSettings",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/multi-step-form.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/MultiStepForm.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/MultiStepForm.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/MultiStepForm.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 1,
+      "callbacks": 0,
+      "testedCallbacks": 0,
+      "slots": 6,
+      "slotUses": 9,
+      "debts": []
+    },
+    {
+      "id": "notification-panel",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/notification-panel.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/NotificationPanel.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/NotificationPanel.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/NotificationPanel.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 1,
+      "callbacks": 5,
+      "testedCallbacks": 5,
+      "slots": 3,
+      "slotUses": 7,
+      "debts": []
+    },
+    {
+      "id": "quick-actions-grid",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/quick-actions-grid.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/QuickActionsGrid.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/QuickActionsGrid.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/QuickActionsGrid.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 5,
+      "patternDependencies": 1,
+      "callbacks": 1,
+      "testedCallbacks": 1,
+      "slots": 4,
+      "slotUses": 6,
+      "debts": []
+    },
+    {
+      "id": "radio-group",
+      "family": "selection",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/radio-group.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/RadioGroup.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/RadioGroup.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/RadioGroup.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 3,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 5,
+      "slotUses": 5,
+      "debts": []
+    },
+    {
+      "id": "select-option-layer",
+      "family": "selection",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/select-option-layer.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/SelectOptionLayer.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/SelectOptionLayer.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/SelectOptionLayer.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 6,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 5,
+      "slotUses": 7,
+      "debts": []
+    },
+    {
+      "id": "settings",
+      "family": "formsAndSettings",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/settings.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/Settings.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/Settings.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/Settings.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 0,
+      "callbacks": 5,
+      "testedCallbacks": 5,
+      "slots": 5,
+      "slotUses": 8,
+      "debts": []
+    },
+    {
+      "id": "snackbar-provider",
+      "family": "feedbackAndReveal",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/snackbar-provider.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/SnackbarProvider.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/SnackbarProvider.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/SnackbarProvider.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 3,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 4,
+      "slotUses": 4,
+      "debts": []
+    },
+    {
+      "id": "swipe-actions",
+      "family": "overlaysSheetsMenus",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/swipe-actions.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/SwipeActions.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/SwipeActions.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/SwipeActions.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 7,
+      "components": 5,
+      "patternDependencies": 0,
+      "callbacks": 2,
+      "testedCallbacks": 2,
+      "slots": 3,
+      "slotUses": 5,
+      "debts": []
+    },
+    {
+      "id": "timeline",
+      "family": "feedbackAndReveal",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/timeline.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/Timeline.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/Timeline.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/Timeline.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 6,
+      "components": 6,
+      "patternDependencies": 0,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 3,
+      "slotUses": 6,
+      "debts": []
+    },
+    {
+      "id": "transfer-list",
+      "family": "selection",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json",
+          "exists": true
+        },
+        {
+          "kind": "contract",
+          "file": "packages/content/content/pattern-contracts/patterns/transfer-list.md",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/patterns/TransferList.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/patterns/TransferList.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/patterns/TransferList.d.ts",
+          "exists": true
+        }
+      ],
+      "states": 8,
+      "components": 7,
+      "patternDependencies": 2,
+      "callbacks": 3,
+      "testedCallbacks": 3,
+      "slots": 5,
+      "slotUses": 12,
+      "debts": []
+    }
+  ],
+  "issues": []
+}

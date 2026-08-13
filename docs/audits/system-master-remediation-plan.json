@@ -359,7 +359,6 @@
         "No fake cards, raw overlays, search duplication, or DOM parallel behavior"
       ],
       "remaining": [
-        "Interaction patterns.",
         "Data/domain/mobile patterns.",
         "Pattern governance checkpoint."
       ],
@@ -374,7 +373,13 @@
         "Shell pattern checks PASS: 25/25",
         "Shell audit reports PASS: 4/4",
         "Shell policy checks PASS: 5/5",
-        "Shell pattern debt: 0"
+        "Shell pattern debt: 0",
+        "Interaction patterns checkpoint PASS",
+        "Interaction patterns covered: 27/27",
+        "Interaction callbacks tested: 80/80",
+        "Interaction slots covered: 113",
+        "Interaction slot uses covered: 193",
+        "Interaction pattern debt: 0"
       ]
     },
     {
@@ -442,9 +447,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 27,
+    "iteration": 28,
     "status": "phase_in_progress",
     "phase": "5. Patterns",
-    "then": "Continue with Interaction patterns."
+    "then": "Continue with Data/domain/mobile patterns."
   }
 }

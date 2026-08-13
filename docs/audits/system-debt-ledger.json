@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 116,
-    "categoryMappings": 106,
+    "reports": 117,
+    "categoryMappings": 107,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 116,
-    "debtMetrics": 133,
+    "reportsWithDebtMetrics": 117,
+    "debtMetrics": 135,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -85,10 +85,10 @@
     {
       "category": "patterns",
       "principle": "Patterns must compose components through governed contracts before template promotion.",
-      "reports": 17,
+      "reports": 18,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 29,
+      "debtMetrics": 31,
       "totalDebt": 0
     },
     {
@@ -1389,6 +1389,27 @@
           "report": "system-phase4-overlays-navigation-data-checkpoint.json",
           "scope": "inventory",
           "metric": "overlaysNavigationDataDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-phase5-interaction-patterns-checkpoint.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-phase5-interaction-patterns-checkpoint.json",
+          "scope": "inventory",
+          "metric": "reportDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-phase5-interaction-patterns-checkpoint.json",
+          "scope": "inventory",
+          "metric": "interactionPatternDebt",
           "value": 0,
           "numericValue": 0
         }

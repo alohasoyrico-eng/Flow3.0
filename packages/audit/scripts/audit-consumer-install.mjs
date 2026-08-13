@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 834,
+    filesScanned: 835,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3552,6 +3552,27 @@ function assertReactGovernanceBaselines() {
     policyChecksPassing: 5,
     shellPatternDebt: 0,
   }, "Phase 5 shell patterns checkpoint");
+
+  const phase5InteractionPatterns = readAuditReport("docs/audits/system-phase5-interaction-patterns-checkpoint.json");
+  assertReportStatus(phase5InteractionPatterns, "Phase 5 interaction patterns checkpoint");
+  assertInventory(phase5InteractionPatterns, {
+    interactionPatterns: 27,
+    passingInteractionPatterns: 27,
+    families: 5,
+    requiredReports: 4,
+    passingRequiredReports: 4,
+    reportDebt: 0,
+    runtimeFiles: 135,
+    runtimeFilesPresent: 135,
+    states: 200,
+    componentDependencies: 161,
+    patternDependencies: 17,
+    callbacks: 80,
+    testedCallbacks: 80,
+    slots: 113,
+    slotUses: 193,
+    interactionPatternDebt: 0,
+  }, "Phase 5 interaction patterns checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4215,12 +4236,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 116,
-    categoryMappings: 106,
+    reports: 117,
+    categoryMappings: 107,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 116,
-    debtMetrics: 133,
+    reportsWithDebtMetrics: 117,
+    debtMetrics: 135,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

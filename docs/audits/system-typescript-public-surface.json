@@ -5833,14 +5833,14 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 617,
+        ".js": 618,
         ".mjs": 20,
         ".ts": 176,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
-        "script": 280,
+        "script": 281,
         "source": 585,
         "test": 8,
         "generated-dist": 275
