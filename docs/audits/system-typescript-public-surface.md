@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 146
-- Source declarations paired with JS but not TS/TSX: 67
-- TypeScript surface debt: 347
-- Unique TypeScript surface debt: 207
+- Public JS runtime exports with TS/TSX source: 148
+- Source declarations paired with JS but not TS/TSX: 66
+- TypeScript surface debt: 346
+- Unique TypeScript surface debt: 206
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":109,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":518,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":110,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":519,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -157,7 +157,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/RolesAndPermissions.d.ts | yes | no |
 | packages/react/src/patterns/SelectOptionLayer.d.ts | yes | no |
 | packages/react/src/patterns/Settings.d.ts | yes | no |
-| packages/react/src/patterns/SnackbarProvider.d.ts | yes | no |
 | packages/react/src/patterns/StationDiscovery.d.ts | yes | no |
 | packages/react/src/patterns/StatusFeedbackView.d.ts | yes | no |
 | packages/react/src/patterns/SwipeActions.d.ts | yes | no |
