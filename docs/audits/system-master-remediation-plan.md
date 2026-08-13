@@ -34,6 +34,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Primitive runtime matrix | PASS for primitive cascade | 24 primitives, 18 typed runtime contracts, 6 typed policy contracts, 0 JS-only without TS boundary |
 | TypeScript real | PASS | TS project setup, public token surface, component contracts, registries, React surfaces, root index, and section indexes pass in audit:complete |
 | Phase 3 foundations/primitives checkpoint | PASS | 11/11 foundation cascades, 24/24 primitive cascades, 24 active primitive gates, 0 backlog, 0 source-boundary violations |
+| Phase 4 core controls/forms checkpoint | PASS | 21/21 core control components, 8/8 gate reports, 168/168 component gate edges, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -101,6 +102,11 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Legacy matrix gaps explicitly listed: chat-composer, chat-message, chat-thread, input-amount.
 - Those 4 gaps are covered by current 60-component gates.
 - Component cascade audit debt: 0.
+- Core controls/forms checkpoint PASS.
+- Core controls/forms components PASS: 21/21.
+- Core controls/forms gate reports PASS: 8/8.
+- Core controls/forms component gate edges PASS: 168/168.
+- Core controls/forms debt: 0.
 
 ## Checkpoints
 
@@ -116,4 +122,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 4 Components fixes batch 1: core controls/forms**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.
+The next correct step is **Phase 4 Components fixes batch 2: overlays/navigation/data**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.

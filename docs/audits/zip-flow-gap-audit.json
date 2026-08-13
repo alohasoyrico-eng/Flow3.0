@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip flow gap 1:1",
   "principle": "Every ZIP component, pattern concept, and template/screen must resolve to a Flow component, primitive, pattern, template, channel contract, or explicit gap before runtime migration.",
-  "generatedAt": "2026-08-13T15:03:11.054Z",
+  "generatedAt": "2026-08-13T15:10:32.411Z",
   "inventory": {
     "zipComponents": 83,
     "exactFlowComponentMatches": 33,

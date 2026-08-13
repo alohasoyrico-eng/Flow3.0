@@ -1,0 +1,1260 @@
+{
+  "status": "pass",
+  "audit": "system phase 4 core controls/forms checkpoint",
+  "principle": "Core controls and form components must pass TypeScript source/runtime/declaration checks plus React primary, props, controlled state, accessibility, interaction, visual cascade, CSS contract, and style governance before later component batches build on them.",
+  "scope": "Original plan iteration 21: component fixes batch 1, core controls/forms.",
+  "inventory": {
+    "coreControlComponents": 21,
+    "passingCoreControlComponents": 21,
+    "gateReports": 8,
+    "passingGateReports": 8,
+    "tsxSources": 21,
+    "runtimeFiles": 21,
+    "declarationFiles": 21,
+    "componentGateEdges": 168,
+    "passingComponentGateEdges": 168,
+    "coreControlsFormsDebt": 0
+  },
+  "gates": [
+    {
+      "id": "react-primary",
+      "file": "docs/audits/react-primary-coverage-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "prop-alignment",
+      "file": "docs/audits/react-contract-prop-alignment-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "controlled",
+      "file": "docs/audits/react-controlled-governance-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "accessibility",
+      "file": "docs/audits/react-accessibility-governance-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "interaction",
+      "file": "docs/audits/react-interaction-coverage-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "visual-cascade",
+      "file": "docs/audits/component-visual-cascade-audit.json",
+      "status": "pass"
+    },
+    {
+      "id": "css-contract",
+      "file": "docs/audits/component-css-contract-coverage.json",
+      "status": "pass"
+    },
+    {
+      "id": "style",
+      "file": "docs/audits/react-style-governance-audit.json",
+      "status": "pass"
+    }
+  ],
+  "components": [
+    {
+      "id": "button",
+      "component": "Button",
+      "ts": {
+        "component": "Button",
+        "sourceFile": "packages/react/src/Button.tsx",
+        "runtimeFile": "packages/react/src/Button.js",
+        "declarationFile": "packages/react/src/Button.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "icon-button",
+      "component": "IconButton",
+      "ts": {
+        "component": "IconButton",
+        "sourceFile": "packages/react/src/IconButton.tsx",
+        "runtimeFile": "packages/react/src/IconButton.js",
+        "declarationFile": "packages/react/src/IconButton.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "input",
+      "component": "Input",
+      "ts": {
+        "component": "Input",
+        "sourceFile": "packages/react/src/Input.tsx",
+        "runtimeFile": "packages/react/src/Input.js",
+        "declarationFile": "packages/react/src/Input.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "select",
+      "component": "Select",
+      "ts": {
+        "component": "Select",
+        "sourceFile": "packages/react/src/Select.tsx",
+        "runtimeFile": "packages/react/src/Select.js",
+        "declarationFile": "packages/react/src/Select.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "checkbox",
+      "component": "Checkbox",
+      "ts": {
+        "component": "Checkbox",
+        "sourceFile": "packages/react/src/Checkbox.tsx",
+        "runtimeFile": "packages/react/src/Checkbox.js",
+        "declarationFile": "packages/react/src/Checkbox.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "radio-button",
+      "component": "RadioButton",
+      "ts": {
+        "component": "RadioButton",
+        "sourceFile": "packages/react/src/RadioButton.tsx",
+        "runtimeFile": "packages/react/src/RadioButton.js",
+        "declarationFile": "packages/react/src/RadioButton.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "switch",
+      "component": "Switch",
+      "ts": {
+        "component": "Switch",
+        "sourceFile": "packages/react/src/Switch.tsx",
+        "runtimeFile": "packages/react/src/Switch.js",
+        "declarationFile": "packages/react/src/Switch.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "text-area",
+      "component": "TextArea",
+      "ts": {
+        "component": "TextArea",
+        "sourceFile": "packages/react/src/TextArea.tsx",
+        "runtimeFile": "packages/react/src/TextArea.js",
+        "declarationFile": "packages/react/src/TextArea.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "combobox",
+      "component": "Combobox",
+      "ts": {
+        "component": "Combobox",
+        "sourceFile": "packages/react/src/Combobox.tsx",
+        "runtimeFile": "packages/react/src/Combobox.js",
+        "declarationFile": "packages/react/src/Combobox.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "country-selector",
+      "component": "CountrySelector",
+      "ts": {
+        "component": "CountrySelector",
+        "sourceFile": "packages/react/src/CountrySelector.tsx",
+        "runtimeFile": "packages/react/src/CountrySelector.js",
+        "declarationFile": "packages/react/src/CountrySelector.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "code-input",
+      "component": "CodeInput",
+      "ts": {
+        "component": "CodeInput",
+        "sourceFile": "packages/react/src/CodeInput.tsx",
+        "runtimeFile": "packages/react/src/CodeInput.js",
+        "declarationFile": "packages/react/src/CodeInput.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "phone-input",
+      "component": "PhoneInput",
+      "ts": {
+        "component": "PhoneInput",
+        "sourceFile": "packages/react/src/PhoneInput.tsx",
+        "runtimeFile": "packages/react/src/PhoneInput.js",
+        "declarationFile": "packages/react/src/PhoneInput.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "input-amount",
+      "component": "InputAmount",
+      "ts": {
+        "component": "InputAmount",
+        "sourceFile": "packages/react/src/InputAmount.tsx",
+        "runtimeFile": "packages/react/src/InputAmount.js",
+        "declarationFile": "packages/react/src/InputAmount.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "card-number-input",
+      "component": "CardNumberInput",
+      "ts": {
+        "component": "CardNumberInput",
+        "sourceFile": "packages/react/src/CardNumberInput.tsx",
+        "runtimeFile": "packages/react/src/CardNumberInput.js",
+        "declarationFile": "packages/react/src/CardNumberInput.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "card-expiry-input",
+      "component": "CardExpiryInput",
+      "ts": {
+        "component": "CardExpiryInput",
+        "sourceFile": "packages/react/src/CardExpiryInput.tsx",
+        "runtimeFile": "packages/react/src/CardExpiryInput.js",
+        "declarationFile": "packages/react/src/CardExpiryInput.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "card-security-code-input",
+      "component": "CardSecurityCodeInput",
+      "ts": {
+        "component": "CardSecurityCodeInput",
+        "sourceFile": "packages/react/src/CardSecurityCodeInput.tsx",
+        "runtimeFile": "packages/react/src/CardSecurityCodeInput.js",
+        "declarationFile": "packages/react/src/CardSecurityCodeInput.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "date-picker",
+      "component": "DatePicker",
+      "ts": {
+        "component": "DatePicker",
+        "sourceFile": "packages/react/src/DatePicker.tsx",
+        "runtimeFile": "packages/react/src/DatePicker.js",
+        "declarationFile": "packages/react/src/DatePicker.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "date-range-picker",
+      "component": "DateRangePicker",
+      "ts": {
+        "component": "DateRangePicker",
+        "sourceFile": "packages/react/src/DateRangePicker.tsx",
+        "runtimeFile": "packages/react/src/DateRangePicker.js",
+        "declarationFile": "packages/react/src/DateRangePicker.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "segmented-control",
+      "component": "SegmentedControl",
+      "ts": {
+        "component": "SegmentedControl",
+        "sourceFile": "packages/react/src/SegmentedControl.tsx",
+        "runtimeFile": "packages/react/src/SegmentedControl.js",
+        "declarationFile": "packages/react/src/SegmentedControl.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "slider",
+      "component": "Slider",
+      "ts": {
+        "component": "Slider",
+        "sourceFile": "packages/react/src/Slider.tsx",
+        "runtimeFile": "packages/react/src/Slider.js",
+        "declarationFile": "packages/react/src/Slider.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "stepper",
+      "component": "Stepper",
+      "ts": {
+        "component": "Stepper",
+        "sourceFile": "packages/react/src/Stepper.tsx",
+        "runtimeFile": "packages/react/src/Stepper.js",
+        "declarationFile": "packages/react/src/Stepper.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    }
+  ],
+  "issues": []
+}
