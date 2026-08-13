@@ -88,6 +88,7 @@
     "system-phase1-style-dictionary-checkpoint.json": "foundations-primitives",
     "system-phase3-foundations-primitives-checkpoint.json": "foundations-primitives",
     "system-phase4-component-cascade-checkpoint.json": "quality",
+    "system-phase4-component-qa-checkpoint.json": "quality",
     "system-phase4-core-controls-checkpoint.json": "quality",
     "system-phase4-domain-complex-checkpoint.json": "quality",
     "system-phase4-overlays-navigation-data-checkpoint.json": "quality",

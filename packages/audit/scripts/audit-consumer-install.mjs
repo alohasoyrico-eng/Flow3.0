@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 831,
+    filesScanned: 832,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3503,6 +3503,26 @@ function assertReactGovernanceBaselines() {
     passingComponentGateEdges: 200,
     domainComplexDebt: 0,
   }, "Phase 4 domain/complex checkpoint");
+
+  const phase4ComponentQa = readAuditReport("docs/audits/system-phase4-component-qa-checkpoint.json");
+  assertReportStatus(phase4ComponentQa, "Phase 4 component QA checkpoint");
+  assertInventory(phase4ComponentQa, {
+    expectedComponents: 60,
+    phase4BatchReports: 3,
+    passingPhase4BatchReports: 3,
+    phase4BatchComponents: 60,
+    passingPhase4BatchComponents: 60,
+    uniquePhase4BatchComponents: 60,
+    duplicatePhase4BatchComponents: 0,
+    missingPhase4BatchComponents: 0,
+    unexpectedPhase4BatchComponents: 0,
+    phase4ComponentGateEdges: 480,
+    passingPhase4ComponentGateEdges: 480,
+    componentQaReports: 12,
+    passingComponentQaReports: 12,
+    componentQaInventoryMismatches: 0,
+    componentQaDebt: 0,
+  }, "Phase 4 component QA checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4166,12 +4186,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 113,
-    categoryMappings: 103,
+    reports: 114,
+    categoryMappings: 104,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 113,
-    debtMetrics: 130,
+    reportsWithDebtMetrics: 114,
+    debtMetrics: 131,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

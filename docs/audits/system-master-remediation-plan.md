@@ -37,6 +37,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 4 core controls/forms checkpoint | PASS | 21/21 core control components, 8/8 gate reports, 168/168 component gate edges, 0 debt |
 | Phase 4 overlays/navigation/data checkpoint | PASS | 14/14 overlay/navigation/data components, 8/8 gate reports, 112/112 component gate edges, 0 debt |
 | Phase 4 domain/complex checkpoint | PASS | 25/25 domain/complex components, 8/8 gate reports, 200/200 component gate edges, 0 debt |
+| Phase 4 component QA checkpoint | PASS | 60/60 batch components, 60/60 unique components, 480/480 component gate edges, 12/12 QA reports, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -56,7 +57,7 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 | 1. Style Dictionary real | 3-7 | 4-10 | complete | Create agnostic token source and multiplatform outputs with governance. |
 | 2. TypeScript real | 8-15 | 11-22 | complete | Migrate public Flow packages to TS/TSX real. |
 | 3. Foundations/Primitives | 16-19 | 23-28 | complete | Make the base cascade exportable and consumable. |
-| 4. Components | 20-24 | 29-40 | in_progress | Audit and type 60 components. |
+| 4. Components | 20-24 | 29-40 | complete | Audit and type 60 components. |
 | 5. Patterns | 25-29 | 41-52 | not_started | Make 63 patterns real and governed. |
 | 6. Templates | 30-31 | 53-58 | not_started | Make 9 templates consume real components/patterns. |
 | 7. FlowDocs v2 | 32-34 | 59-66 | blocked | Rebuild docs as a consumer of Flow. |
@@ -95,7 +96,7 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Phase 4 Status
 
-**Started by audit evidence.**
+**Complete by audit evidence.**
 
 - Component cascade checkpoint PASS.
 - Current 60-component gates passing: 11/11.
@@ -119,6 +120,12 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Domain/complex gate reports PASS: 8/8.
 - Domain/complex component gate edges PASS: 200/200.
 - Domain/complex debt: 0.
+- Component QA checkpoint PASS.
+- Phase 4 batch components PASS: 60/60.
+- Unique Phase 4 batch components PASS: 60/60.
+- Phase 4 component gate edges PASS: 480/480.
+- Component QA reports PASS: 12/12.
+- Component QA debt: 0.
 
 ## Checkpoints
 
@@ -134,4 +141,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 4 Component QA checkpoint**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.
+The next correct step is **Phase 5 Pattern audit 1:1**. FlowDocs remains blocked until patterns and templates close on top of the governed lower layers.
