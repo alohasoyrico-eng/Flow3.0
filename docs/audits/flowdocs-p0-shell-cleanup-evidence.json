@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "flowdocs-p0-shell-cleanup-evidence@1",
+  "status": "pass",
+  "generatedAt": "2026-08-13",
+  "flowDocs": {
+    "exists": true,
+    "root": "../FlowDocs",
+    "head": "ca84eb6",
+    "branch": "main"
+  },
+  "inventory": {
+    "checks": 13,
+    "failures": 0,
+    "flowDocsP0ShellCleanupDebt": 0
+  },
+  "checks": [
+    {
+      "id": "generated-sidebar-no-default-close",
+      "file": "../FlowDocs/apps/docs/generated/react/patterns/Sidebar.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "showCloseButton: drawer?.showCloseButton ?? false",
+      "description": "FlowDocs generated Sidebar bridge consumes the governed Flow default: no parallel drawer close button."
+    },
+    {
+      "id": "generated-sidebar-no-stale-default-close",
+      "file": "../FlowDocs/apps/docs/generated/react/patterns/Sidebar.js",
+      "line": 1,
+      "status": "pass",
+      "type": "forbidden",
+      "token": "showCloseButton: drawer?.showCloseButton ?? true",
+      "description": "FlowDocs generated Sidebar bridge must not preserve the stale close-button default."
+    },
+    {
+      "id": "generated-topbar-no-default-close",
+      "file": "../FlowDocs/apps/docs/generated/react/patterns/Topbar.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "showCloseButton: sidebarDrawer?.showCloseButton ?? false",
+      "description": "FlowDocs generated Topbar bridge consumes the governed Flow default: no parallel drawer close button."
+    },
+    {
+      "id": "generated-topbar-no-stale-default-close",
+      "file": "../FlowDocs/apps/docs/generated/react/patterns/Topbar.js",
+      "line": 1,
+      "status": "pass",
+      "type": "forbidden",
+      "token": "showCloseButton: sidebarDrawer?.showCloseButton ?? true",
+      "description": "FlowDocs generated Topbar bridge must not preserve the stale close-button default."
+    },
+    {
+      "id": "docs-shell-cachebust-sidebar",
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "from \"./generated/react/patterns/Sidebar.js?v=3\"",
+      "description": "FlowDocs shell imports the regenerated Sidebar bridge with a fresh cache key."
+    },
+    {
+      "id": "docs-shell-cachebust-topbar",
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "from \"./generated/react/patterns/Topbar.js?v=2\"",
+      "description": "FlowDocs shell imports the regenerated Topbar bridge with a fresh cache key."
+    },
+    {
+      "id": "docs-shell-mobile-action-attributes",
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "\"data-doc-shell-action\": \"contrast\"",
+      "description": "FlowDocs shell exposes governed action attributes for responsive CSS decisions."
+    },
+    {
+      "id": "docs-shell-mobile-sidebar-state",
+      "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "body[data-nav-open=\"true\"] .docs-react-shell-sidebar-mount",
+      "description": "FlowDocs mobile sidebar visibility is controlled by the same hamburger state."
+    },
+    {
+      "id": "docs-shell-mobile-no-sidebar-column",
+      "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "grid-template-columns: minmax(0, 1fr);",
+      "description": "FlowDocs mobile layout removes the persistent sidebar column."
+    },
+    {
+      "id": "docs-shell-mobile-search-space",
+      "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": ".docs-react-shell-topbar__action[data-doc-shell-action=\"grid\"]",
+      "description": "FlowDocs mobile shell hides secondary actions so search can use available width."
+    },
+    {
+      "id": "docs-bridge-prunes-source-ts",
+      "file": "../FlowDocs/scripts/build-docs-assets.mjs",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "function pruneSourceTypes(dir)",
+      "description": "FlowDocs bridge avoids copying raw TS component sources as a second source of truth."
+    },
+    {
+      "id": "docs-audit-blocks-stale-sidebar-close-default",
+      "file": "../FlowDocs/audit/audit-docs-shell-boundary.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "showCloseButton: drawer?.showCloseButton ?? true",
+      "description": "FlowDocs audit fails if stale Sidebar close-button defaults return."
+    },
+    {
+      "id": "docs-audit-blocks-stale-topbar-close-default",
+      "file": "../FlowDocs/audit/audit-docs-shell-boundary.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "showCloseButton: sidebarDrawer?.showCloseButton ?? true",
+      "description": "FlowDocs audit fails if stale Topbar close-button defaults return."
+    }
+  ],
+  "failures": []
+}

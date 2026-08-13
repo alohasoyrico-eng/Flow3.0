@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 106
-- Category mappings: 96
+- Reports scanned: 107
+- Category mappings: 97
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 106
-- Debt metrics: 122
+- Reports with debt metrics: 107
+- Debt metrics: 123
 - Categories: 8
 - Category minimums: 8
 - Category principles: 8
@@ -40,7 +40,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | anti-duplication | One visual or conceptual source per system concept. | 4 | 1 | 0 | 4 | 0 |
 | cascade | Component styling must cascade from exported system contracts. | 15 | 4 | 0 | 16 | 0 |
-| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 2 | 2 | 0 | 2 | 0 |
+| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 3 | 2 | 0 | 3 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 29 | 1 | 0 | 30 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 15 | 1 | 0 | 27 | 0 |
 | quality | Component coverage must prove production readiness, not just presence. | 1 | 1 | 0 | 1 | 0 |
@@ -96,6 +96,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | email-channel-governance-audit.json | patterns | pass | emailChannelDebt: 0 |
 | email-channel-renderer-audit.json | patterns | pass | emailRendererDebt: 0 |
 | family-css-contract-maturity.json | cascade | pass | familyCssMaturityDebt: 0 |
+| flowdocs-p0-shell-cleanup-evidence.json | docs-system-boundary | pass | flowDocsP0ShellCleanupDebt: 0 |
 | foundation-accessibility-cascade-audit.json | cascade | pass | gapsDebt: 0 |
 | foundation-depth-cascade-audit.json | cascade | pass | gapsDebt: 0 |
 | foundation-energy-cascade-audit.json | cascade | pass | gapsDebt: 0 |

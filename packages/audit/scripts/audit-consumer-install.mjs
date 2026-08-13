@@ -3252,7 +3252,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 824,
+    filesScanned: 825,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -4078,12 +4078,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 106,
-    categoryMappings: 96,
+    reports: 107,
+    categoryMappings: 97,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 106,
-    debtMetrics: 122,
+    reportsWithDebtMetrics: 107,
+    debtMetrics: 123,
     categories: 8,
     categoryMinimums: 8,
     categoryPrinciples: 8,

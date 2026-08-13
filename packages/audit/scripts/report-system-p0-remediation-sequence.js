@@ -8,6 +8,7 @@ const inputFile = path.join(root, "docs/audits/system-p0-owner-decision-matrix.j
 const tokenSourceGatesFile = path.join(root, "docs/audits/system-p0-token-source-gates.json");
 const primitiveRuntimeMatrixFile = path.join(root, "docs/audits/system-p0-primitive-runtime-matrix.json");
 const shellPatternContractGovernanceFile = path.join(root, "docs/audits/shell-pattern-contract-governance-audit.json");
+const flowDocsP0ShellCleanupEvidenceFile = path.join(root, "docs/audits/flowdocs-p0-shell-cleanup-evidence.json");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-p0-remediation-sequence.json");
 const markdownOutput = path.join(outputDir, "system-p0-remediation-sequence.md");
@@ -112,6 +113,7 @@ function main() {
   const tokenSourceGates = fs.existsSync(tokenSourceGatesFile) ? readJson(tokenSourceGatesFile) : null;
   const primitiveRuntimeMatrix = fs.existsSync(primitiveRuntimeMatrixFile) ? readJson(primitiveRuntimeMatrixFile) : null;
   const shellPatternContractGovernance = fs.existsSync(shellPatternContractGovernanceFile) ? readJson(shellPatternContractGovernanceFile) : null;
+  const flowDocsP0ShellCleanupEvidence = fs.existsSync(flowDocsP0ShellCleanupEvidenceFile) ? readJson(flowDocsP0ShellCleanupEvidenceFile) : null;
   const p01Complete = tokenSourceGates?.status === "PASS";
   const p02Complete = primitiveRuntimeMatrix?.totals?.missingP0Runtime === 0;
   const p03Complete = primitiveRuntimeMatrix?.totals?.jsRuntimeOnly === 0
@@ -119,6 +121,8 @@ function main() {
   const p04ShellTypedSource = shellPatternsHaveTypedSource();
   const p04ShellGoverned = shellPatternContractGovernance?.status === "pass"
     && shellPatternContractGovernance?.inventory?.shellPatternContractDebt === 0;
+  const p05FlowDocsShellCleanupComplete = flowDocsP0ShellCleanupEvidence?.status === "pass"
+    && flowDocsP0ShellCleanupEvidence?.inventory?.failures === 0;
   const tickets = ownerMatrix.decisionTickets;
   const foundations = tickets.filter((ticket) => ticket.layer === "foundation");
   const primitives = tickets.filter((ticket) => ticket.layer === "primitive");
@@ -141,6 +145,15 @@ function main() {
     ownerMatrix.fileHotspots,
     (hotspot) => Object.keys(hotspot.recommendedActions).some((action) => action.includes("delete_duplicate") || action === "replace_with_flow_visual_contract"),
   );
+  const p05LowerLayersReady = p01Complete && p02Complete && p03Complete && p04ShellTypedSource && p04ShellGoverned;
+  const p05RemainingHotspots = docsCleanupHotspots.length > 0;
+  const p05Status = p05FlowDocsShellCleanupComplete && p05RemainingHotspots
+    ? "in_progress"
+    : p05FlowDocsShellCleanupComplete
+      ? "complete"
+      : p05LowerLayersReady
+        ? "ready"
+        : undefined;
 
   const phases = [
     phase(
@@ -199,14 +212,18 @@ function main() {
       "P0.5",
       "FlowDocs P0 duplicate cleanup",
       tickets,
-      (p01Complete && p02Complete && p03Complete && p04ShellTypedSource && p04ShellGoverned) ? [] : ["P0.1-P0.4 must be complete"],
+      (p05FlowDocsShellCleanupComplete && !p05RemainingHotspots) ? [] : [
+        ...(p05LowerLayersReady ? [] : ["P0.1-P0.4 must be complete"]),
+        ...(!p05FlowDocsShellCleanupComplete ? ["FlowDocs P0 shell cleanup evidence must pass"] : []),
+        ...(p05FlowDocsShellCleanupComplete && p05RemainingHotspots ? ["FlowDocs non-shell duplicate/template/style hotspots remain"] : []),
+      ],
       [
         "P0 docs surfaces are consume Flow, docs-owned content, merged, or removed",
         "no P0 file is hand-implementing missing lower-layer behavior",
         "forensic gates show reduced docs-hand-authored P0 count"
       ],
       docsCleanupHotspots,
-      (p01Complete && p02Complete && p03Complete && p04ShellTypedSource && p04ShellGoverned) ? "ready" : undefined
+      p05Status
     )
   ];
 
@@ -260,6 +277,7 @@ function main() {
       p03Complete,
       p04ShellTypedSource,
       p04ShellGoverned,
+      p05FlowDocsShellCleanupComplete,
     },
     phaseCount: phases.length,
     iterationCount: iterations.length,

@@ -56,6 +56,7 @@
     "component-visual-cascade-audit.json": "cascade",
     "docs-component-demo-ownership.json": "docs-system-boundary",
     "docs-system-boundary-audit.json": "docs-system-boundary",
+    "flowdocs-p0-shell-cleanup-evidence.json": "docs-system-boundary",
     "email-channel-governance-audit.json": "patterns",
     "email-channel-renderer-audit.json": "patterns",
     "family-css-contract-maturity.json": "cascade",

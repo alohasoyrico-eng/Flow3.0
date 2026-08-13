@@ -8,7 +8,8 @@
     "p02Complete": true,
     "p03Complete": true,
     "p04ShellTypedSource": true,
-    "p04ShellGoverned": true
+    "p04ShellGoverned": true,
+    "p05FlowDocsShellCleanupComplete": true
   },
   "phaseCount": 5,
   "iterationCount": 6,
@@ -413,7 +414,7 @@
     {
       "id": "P0.5",
       "name": "FlowDocs P0 duplicate cleanup",
-      "status": "ready",
+      "status": "in_progress",
       "tickets": [
         "foundation:accessibility",
         "foundation:depth",
@@ -455,7 +456,9 @@
         "primitive:typography"
       ],
       "ticketCount": 38,
-      "blockers": [],
+      "blockers": [
+        "FlowDocs non-shell duplicate/template/style hotspots remain"
+      ],
       "exitCriteria": [
         "P0 docs surfaces are consume Flow, docs-owned content, merged, or removed",
         "no P0 file is hand-implementing missing lower-layer behavior",

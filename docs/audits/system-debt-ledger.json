@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 106,
-    "categoryMappings": 96,
+    "reports": 107,
+    "categoryMappings": 97,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 106,
-    "debtMetrics": 122,
+    "reportsWithDebtMetrics": 107,
+    "debtMetrics": 123,
     "categories": 8,
     "categoryMinimums": 8,
     "categoryPrinciples": 8,
@@ -67,10 +67,10 @@
     {
       "category": "docs-system-boundary",
       "principle": "FlowDocs must consume Flow instead of owning system behavior.",
-      "reports": 2,
+      "reports": 3,
       "minimumReports": 2,
       "coverageGap": 0,
-      "debtMetrics": 2,
+      "debtMetrics": 3,
       "totalDebt": 0
     },
     {
@@ -241,6 +241,20 @@
           "report": "family-css-contract-maturity.json",
           "scope": "inventory",
           "metric": "familyCssMaturityDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "flowdocs-p0-shell-cleanup-evidence.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "flowdocs-p0-shell-cleanup-evidence.json",
+          "scope": "inventory",
+          "metric": "flowDocsP0ShellCleanupDebt",
           "value": 0,
           "numericValue": 0
         }
