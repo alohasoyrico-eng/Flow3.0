@@ -125,6 +125,7 @@
     "packages/react/src/patterns/FormSection.ts",
     "packages/react/src/patterns/FullscreenSheet.ts",
     "packages/react/src/patterns/GanttChart.ts",
+    "packages/react/src/patterns/HelpCenter.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",

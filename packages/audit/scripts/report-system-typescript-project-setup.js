@@ -176,6 +176,7 @@ function main() {
         && include.includes("packages/react/src/patterns/FormSection.ts")
         && include.includes("packages/react/src/patterns/FullscreenSheet.ts")
         && include.includes("packages/react/src/patterns/GanttChart.ts")
+        && include.includes("packages/react/src/patterns/HelpCenter.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")

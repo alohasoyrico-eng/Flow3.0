@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T04:10:06.825Z",
+  "generatedAt": "2026-08-13T04:16:47.404Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -140,6 +140,7 @@
           "packages/react/src/patterns/FormSection.ts",
           "packages/react/src/patterns/FullscreenSheet.ts",
           "packages/react/src/patterns/GanttChart.ts",
+          "packages/react/src/patterns/HelpCenter.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -293,6 +294,7 @@
       "packages/react/src/patterns/FormSection.ts",
       "packages/react/src/patterns/FullscreenSheet.ts",
       "packages/react/src/patterns/GanttChart.ts",
+      "packages/react/src/patterns/HelpCenter.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
