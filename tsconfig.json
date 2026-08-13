@@ -134,6 +134,7 @@
     "packages/react/src/patterns/PaymentForm.ts",
     "packages/react/src/patterns/PolarChart.ts",
     "packages/react/src/patterns/PreferenceManagement.ts",
+    "packages/react/src/patterns/PricingOperations.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
