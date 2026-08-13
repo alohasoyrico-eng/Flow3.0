@@ -106,6 +106,7 @@
     "packages/react/src/patterns/CalendarView.ts",
     "packages/react/src/patterns/CaseManagement.ts",
     "packages/react/src/patterns/ChartLegendItem.ts",
+    "packages/react/src/patterns/ChartWrapper.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
