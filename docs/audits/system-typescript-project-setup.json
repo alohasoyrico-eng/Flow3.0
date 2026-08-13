@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T03:50:37.171Z",
+  "generatedAt": "2026-08-13T03:55:55.344Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -136,6 +136,7 @@
           "packages/react/src/patterns/FileUpload.ts",
           "packages/react/src/patterns/FilterChipGroup.ts",
           "packages/react/src/patterns/FilterableEditableTable.ts",
+          "packages/react/src/patterns/FleetManagerOnboardingDesktop.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -285,6 +286,7 @@
       "packages/react/src/patterns/FileUpload.ts",
       "packages/react/src/patterns/FilterChipGroup.ts",
       "packages/react/src/patterns/FilterableEditableTable.ts",
+      "packages/react/src/patterns/FleetManagerOnboardingDesktop.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",

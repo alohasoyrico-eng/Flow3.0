@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 206
-- Source declarations paired with JS but not TS/TSX: 37
-- TypeScript surface debt: 317
-- Unique TypeScript surface debt: 177
+- Public JS runtime exports with TS/TSX source: 208
+- Source declarations paired with JS but not TS/TSX: 36
+- TypeScript surface debt: 316
+- Unique TypeScript surface debt: 176
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":139,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":548,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":140,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":549,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -97,7 +97,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/FileUpload.js | yes |
 | package.json | packages/react/dist/patterns/FilterChipGroup.js | yes |
 | package.json | packages/react/dist/patterns/FilterableEditableTable.js | yes |
-| package.json | packages/react/dist/patterns/FleetManagerOnboardingDesktop.js | no |
+| package.json | packages/react/dist/patterns/FleetManagerOnboardingDesktop.js | yes |
 | package.json | packages/react/dist/patterns/FormSection.js | no |
 | package.json | packages/react/dist/patterns/FullscreenSheet.js | no |
 | package.json | packages/react/dist/patterns/GanttChart.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts | yes | no |
 | packages/react/src/patterns/FormSection.d.ts | yes | no |
 | packages/react/src/patterns/FullscreenSheet.d.ts | yes | no |
 | packages/react/src/patterns/GanttChart.d.ts | yes | no |
