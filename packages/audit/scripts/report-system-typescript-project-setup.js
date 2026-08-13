@@ -195,6 +195,7 @@ function main() {
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/StationDiscovery.ts")
         && include.includes("packages/react/src/patterns/StatusFeedbackView.ts")
+        && include.includes("packages/react/src/patterns/SwipeActions.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
         && include.includes("packages/react/src/templates/index.ts"),
       { include },
