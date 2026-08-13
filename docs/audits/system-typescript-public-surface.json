@@ -2051,7 +2051,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5601,7 +5601,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 244,
+  "publicJsRuntimeExportsWithTsSource": 246,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/StationDiscovery.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/StatusFeedbackView.d.ts",
       "pairedJs": true,
@@ -5905,18 +5900,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 158,
+        ".ts": 159,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 567,
+        "source": 568,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 298,
-  "uniqueTypescriptPublicSurfaceDebt": 158
+  "typescriptPublicSurfaceDebt": 297,
+  "uniqueTypescriptPublicSurfaceDebt": 157
 }
