@@ -2151,7 +2151,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5701,7 +5701,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 254,
+  "publicJsRuntimeExportsWithTsSource": 256,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/Toolbar.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/TransferList.d.ts",
       "pairedJs": true,
@@ -5880,18 +5875,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 163,
+        ".ts": 164,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 572,
+        "source": 573,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 293,
-  "uniqueTypescriptPublicSurfaceDebt": 153
+  "typescriptPublicSurfaceDebt": 292,
+  "uniqueTypescriptPublicSurfaceDebt": 152
 }
