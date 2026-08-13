@@ -2771,7 +2771,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4481,7 +4481,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 276,
+  "publicJsRuntimeExportsWithTsSource": 278,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/templates/RoutesAndStations.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/templates/SettingsWorkspace.d.ts",
       "pairedJs": true,
@@ -5825,18 +5820,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 174,
+        ".ts": 175,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 583,
+        "source": 584,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 282,
-  "uniqueTypescriptPublicSurfaceDebt": 142
+  "typescriptPublicSurfaceDebt": 281,
+  "uniqueTypescriptPublicSurfaceDebt": 141
 }

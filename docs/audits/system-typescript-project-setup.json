@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T07:02:56.800Z",
+  "generatedAt": "2026-08-13T07:06:30.553Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -174,6 +174,7 @@
           "packages/react/src/templates/FleetDashboardSuite.ts",
           "packages/react/src/templates/FleetManagerDesktop.ts",
           "packages/react/src/templates/InternalOperationsConsole.ts",
+          "packages/react/src/templates/RoutesAndStations.ts",
           "packages/react/src/templates/index.ts"
         ]
       },
@@ -358,6 +359,7 @@
       "packages/react/src/templates/FleetDashboardSuite.ts",
       "packages/react/src/templates/FleetManagerDesktop.ts",
       "packages/react/src/templates/InternalOperationsConsole.ts",
+      "packages/react/src/templates/RoutesAndStations.ts",
       "packages/react/src/templates/index.ts"
     ],
     "exclude": [
