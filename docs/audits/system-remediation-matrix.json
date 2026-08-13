@@ -7,8 +7,8 @@
     "totalTickets": 167,
     "priorities": {
       "P0": 38,
-      "P1": 129,
-      "P2": 0
+      "P1": 9,
+      "P2": 120
     },
     "undecidedOwnerDecisions": 167,
     "byLayer": {
@@ -33,19 +33,19 @@
       "component": {
         "total": 60,
         "P0": 0,
-        "P1": 60,
-        "P2": 0,
-        "blocked": 60,
-        "needsOwnerDecision": 0,
+        "P1": 0,
+        "P2": 60,
+        "blocked": 0,
+        "needsOwnerDecision": 60,
         "docsHandSurfaces": 1184
       },
       "pattern": {
         "total": 63,
         "P0": 3,
-        "P1": 60,
-        "P2": 0,
-        "blocked": 63,
-        "needsOwnerDecision": 0,
+        "P1": 0,
+        "P2": 60,
+        "blocked": 0,
+        "needsOwnerDecision": 63,
         "docsHandSurfaces": 344
       },
       "template": {
@@ -53,8 +53,8 @@
         "P0": 0,
         "P1": 9,
         "P2": 0,
-        "blocked": 9,
-        "needsOwnerDecision": 0,
+        "blocked": 0,
+        "needsOwnerDecision": 9,
         "docsHandSurfaces": 26
       }
     }
@@ -2768,19 +2768,20 @@
       "id": "component:accordion",
       "layer": "component",
       "slug": "accordion",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/accordion",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -2811,7 +2812,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -2826,19 +2826,20 @@
       "id": "component:animated-moment",
       "layer": "component",
       "slug": "animated-moment",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/animated-moment",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -2867,7 +2868,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -2882,19 +2882,20 @@
       "id": "component:audit-event",
       "layer": "component",
       "slug": "audit-event",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/audit-event",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -2935,7 +2936,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -2950,19 +2950,20 @@
       "id": "component:avatar",
       "layer": "component",
       "slug": "avatar",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/avatar",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3006,7 +3007,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3021,19 +3021,20 @@
       "id": "component:badge",
       "layer": "component",
       "slug": "badge",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/badge",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3086,7 +3087,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3101,19 +3101,20 @@
       "id": "component:biometric-prompt",
       "layer": "component",
       "slug": "biometric-prompt",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/biometric-prompt",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3144,7 +3145,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3159,19 +3159,20 @@
       "id": "component:breadcrumbs",
       "layer": "component",
       "slug": "breadcrumbs",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3209,7 +3210,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3224,19 +3224,20 @@
       "id": "component:button",
       "layer": "component",
       "slug": "button",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/button",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3329,7 +3330,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3344,19 +3344,20 @@
       "id": "component:card",
       "layer": "component",
       "slug": "card",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/card",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3472,7 +3473,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3487,19 +3487,20 @@
       "id": "component:card-expiry-input",
       "layer": "component",
       "slug": "card-expiry-input",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/card-expiry-input",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3529,7 +3530,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3544,19 +3544,20 @@
       "id": "component:card-number-input",
       "layer": "component",
       "slug": "card-number-input",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/card-number-input",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3586,7 +3587,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3601,19 +3601,20 @@
       "id": "component:card-security-code-input",
       "layer": "component",
       "slug": "card-security-code-input",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/card-security-code-input",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3643,7 +3644,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3658,19 +3658,20 @@
       "id": "component:card-summary",
       "layer": "component",
       "slug": "card-summary",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/card-summary",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3705,7 +3706,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3720,19 +3720,20 @@
       "id": "component:chart-panel",
       "layer": "component",
       "slug": "chart-panel",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/chart-panel",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3764,7 +3765,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3779,19 +3779,20 @@
       "id": "component:chat-composer",
       "layer": "component",
       "slug": "chat-composer",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/chat-composer",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3817,7 +3818,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3832,19 +3832,20 @@
       "id": "component:chat-message",
       "layer": "component",
       "slug": "chat-message",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/chat-message",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3870,7 +3871,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3885,19 +3885,20 @@
       "id": "component:chat-thread",
       "layer": "component",
       "slug": "chat-thread",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/chat-thread",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3923,7 +3924,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -3938,19 +3938,20 @@
       "id": "component:checkbox",
       "layer": "component",
       "slug": "checkbox",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/checkbox",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -3993,7 +3994,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4008,19 +4008,20 @@
       "id": "component:chip",
       "layer": "component",
       "slug": "chip",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/chip",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4063,7 +4064,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4078,19 +4078,20 @@
       "id": "component:code-input",
       "layer": "component",
       "slug": "code-input",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/code-input",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4125,7 +4126,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4140,19 +4140,20 @@
       "id": "component:combobox",
       "layer": "component",
       "slug": "combobox",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/combobox",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4180,7 +4181,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4195,19 +4195,20 @@
       "id": "component:country-selector",
       "layer": "component",
       "slug": "country-selector",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/country-selector",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4234,7 +4235,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4249,19 +4249,20 @@
       "id": "component:date-picker",
       "layer": "component",
       "slug": "date-picker",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/date-picker",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4292,7 +4293,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4307,19 +4307,20 @@
       "id": "component:date-range-picker",
       "layer": "component",
       "slug": "date-range-picker",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/date-range-picker",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4348,7 +4349,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4363,19 +4363,20 @@
       "id": "component:dialog",
       "layer": "component",
       "slug": "dialog",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/dialog",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4420,7 +4421,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4435,19 +4435,20 @@
       "id": "component:drawer",
       "layer": "component",
       "slug": "drawer",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/drawer",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4497,7 +4498,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4512,19 +4512,20 @@
       "id": "component:empty-state",
       "layer": "component",
       "slug": "empty-state",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/empty-state",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4560,7 +4561,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4575,19 +4575,20 @@
       "id": "component:error-panel",
       "layer": "component",
       "slug": "error-panel",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/error-panel",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4620,7 +4621,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4635,19 +4635,20 @@
       "id": "component:floating-action-button",
       "layer": "component",
       "slug": "floating-action-button",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/floating-action-button",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4676,7 +4677,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4691,19 +4691,20 @@
       "id": "component:icon-button",
       "layer": "component",
       "slug": "icon-button",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/icon-button",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4741,7 +4742,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4756,19 +4756,20 @@
       "id": "component:inline-validation",
       "layer": "component",
       "slug": "inline-validation",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/inline-validation",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4803,7 +4804,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4818,19 +4818,20 @@
       "id": "component:input",
       "layer": "component",
       "slug": "input",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/input",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4912,7 +4913,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4927,19 +4927,20 @@
       "id": "component:input-amount",
       "layer": "component",
       "slug": "input-amount",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/input-amount",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -4965,7 +4966,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -4980,19 +4980,20 @@
       "id": "component:kpi-tile",
       "layer": "component",
       "slug": "kpi-tile",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/kpi-tile",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5021,7 +5022,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5036,19 +5036,20 @@
       "id": "component:list",
       "layer": "component",
       "slug": "list",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/list",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5138,7 +5139,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5153,19 +5153,20 @@
       "id": "component:menu",
       "layer": "component",
       "slug": "menu",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/menu",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5218,7 +5219,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5233,19 +5233,20 @@
       "id": "component:motion-boundary",
       "layer": "component",
       "slug": "motion-boundary",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/motion-boundary",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5274,7 +5275,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5289,19 +5289,20 @@
       "id": "component:movement-row",
       "layer": "component",
       "slug": "movement-row",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/movement-row",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5333,7 +5334,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5348,19 +5348,20 @@
       "id": "component:pagination",
       "layer": "component",
       "slug": "pagination",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/pagination",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5396,7 +5397,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5411,19 +5411,20 @@
       "id": "component:phone-input",
       "layer": "component",
       "slug": "phone-input",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/phone-input",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5454,7 +5455,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5469,19 +5469,20 @@
       "id": "component:popover",
       "layer": "component",
       "slug": "popover",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/popover",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5514,7 +5515,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5529,19 +5529,20 @@
       "id": "component:progress-indicator",
       "layer": "component",
       "slug": "progress-indicator",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/progress-indicator",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5571,7 +5572,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5586,19 +5586,20 @@
       "id": "component:quick-action",
       "layer": "component",
       "slug": "quick-action",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/quick-action",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5637,7 +5638,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5652,19 +5652,20 @@
       "id": "component:radio-button",
       "layer": "component",
       "slug": "radio-button",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/radio-button",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5698,7 +5699,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5713,19 +5713,20 @@
       "id": "component:route-summary",
       "layer": "component",
       "slug": "route-summary",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/route-summary",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5756,7 +5757,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5771,19 +5771,20 @@
       "id": "component:segmented-control",
       "layer": "component",
       "slug": "segmented-control",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/segmented-control",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5815,7 +5816,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5830,19 +5830,20 @@
       "id": "component:select",
       "layer": "component",
       "slug": "select",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/select",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -5942,7 +5943,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -5957,19 +5957,20 @@
       "id": "component:skeleton",
       "layer": "component",
       "slug": "skeleton",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/skeleton",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6003,7 +6004,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6018,19 +6018,20 @@
       "id": "component:slider",
       "layer": "component",
       "slug": "slider",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/slider",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6066,7 +6067,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6081,19 +6081,20 @@
       "id": "component:spinner",
       "layer": "component",
       "slug": "spinner",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/spinner",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6121,7 +6122,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6136,19 +6136,20 @@
       "id": "component:station-pin",
       "layer": "component",
       "slug": "station-pin",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/station-pin",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6182,7 +6183,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6197,19 +6197,20 @@
       "id": "component:stepper",
       "layer": "component",
       "slug": "stepper",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/stepper",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6245,7 +6246,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6260,19 +6260,20 @@
       "id": "component:switch",
       "layer": "component",
       "slug": "switch",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/switch",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6327,7 +6328,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6342,19 +6342,20 @@
       "id": "component:table",
       "layer": "component",
       "slug": "table",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/table",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6441,7 +6442,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6456,19 +6456,20 @@
       "id": "component:tabs",
       "layer": "component",
       "slug": "tabs",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/tabs",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6531,7 +6532,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6546,19 +6546,20 @@
       "id": "component:tag",
       "layer": "component",
       "slug": "tag",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/tag",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6612,7 +6613,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6627,19 +6627,20 @@
       "id": "component:text-area",
       "layer": "component",
       "slug": "text-area",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/text-area",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6675,7 +6676,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6690,19 +6690,20 @@
       "id": "component:toast",
       "layer": "component",
       "slug": "toast",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/toast",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6751,7 +6752,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6766,19 +6766,20 @@
       "id": "component:tooltip",
       "layer": "component",
       "slug": "tooltip",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/tooltip",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6819,7 +6820,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6834,19 +6834,20 @@
       "id": "component:tree-view",
       "layer": "component",
       "slug": "tree-view",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/tree-view",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6877,7 +6878,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
       ],
       "acceptanceCriteria": [
@@ -6892,19 +6892,20 @@
       "id": "pattern:account-operations",
       "layer": "pattern",
       "slug": "account-operations",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/account-operations",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6930,7 +6931,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -6946,19 +6946,20 @@
       "id": "pattern:action-sheet",
       "layer": "pattern",
       "slug": "action-sheet",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -6984,7 +6985,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7000,19 +7000,20 @@
       "id": "pattern:advanced-filters",
       "layer": "pattern",
       "slug": "advanced-filters",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7044,7 +7045,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7060,19 +7060,20 @@
       "id": "pattern:agent-conversation",
       "layer": "pattern",
       "slug": "agent-conversation",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7098,7 +7099,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7114,19 +7114,20 @@
       "id": "pattern:authentication-login-biometrics-and-otp",
       "layer": "pattern",
       "slug": "authentication-login-biometrics-and-otp",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7151,7 +7152,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7167,19 +7167,20 @@
       "id": "pattern:autocomplete",
       "layer": "pattern",
       "slug": "autocomplete",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7209,7 +7210,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7225,19 +7225,20 @@
       "id": "pattern:avatar-group",
       "layer": "pattern",
       "slug": "avatar-group",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/avatar-group",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7264,7 +7265,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7280,19 +7280,20 @@
       "id": "pattern:avatar-menu",
       "layer": "pattern",
       "slug": "avatar-menu",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7319,7 +7320,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7335,19 +7335,20 @@
       "id": "pattern:backoffice-approval",
       "layer": "pattern",
       "slug": "backoffice-approval",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7373,7 +7374,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7389,19 +7389,20 @@
       "id": "pattern:bottom-sheet",
       "layer": "pattern",
       "slug": "bottom-sheet",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7427,7 +7428,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7443,19 +7443,20 @@
       "id": "pattern:bulk-actions",
       "layer": "pattern",
       "slug": "bulk-actions",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7484,7 +7485,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7500,19 +7500,20 @@
       "id": "pattern:calendar-view",
       "layer": "pattern",
       "slug": "calendar-view",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/calendar-view",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7537,7 +7538,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7553,19 +7553,20 @@
       "id": "pattern:case-management",
       "layer": "pattern",
       "slug": "case-management",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/case-management",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7591,7 +7592,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7607,19 +7607,20 @@
       "id": "pattern:chart-legend-item",
       "layer": "pattern",
       "slug": "chart-legend-item",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7645,7 +7646,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7661,19 +7661,20 @@
       "id": "pattern:chart-wrapper",
       "layer": "pattern",
       "slug": "chart-wrapper",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7702,7 +7703,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7718,19 +7718,20 @@
       "id": "pattern:checkbox-group",
       "layer": "pattern",
       "slug": "checkbox-group",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7756,7 +7757,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7772,19 +7772,20 @@
       "id": "pattern:column-configurator",
       "layer": "pattern",
       "slug": "column-configurator",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/column-configurator",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7812,7 +7813,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7828,19 +7828,20 @@
       "id": "pattern:command-palette",
       "layer": "pattern",
       "slug": "command-palette",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/command-palette",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7866,7 +7867,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7882,19 +7882,20 @@
       "id": "pattern:confirmation-dialog",
       "layer": "pattern",
       "slug": "confirmation-dialog",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7920,7 +7921,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7936,19 +7936,20 @@
       "id": "pattern:dense-operational-list",
       "layer": "pattern",
       "slug": "dense-operational-list",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -7974,7 +7975,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -7990,19 +7990,20 @@
       "id": "pattern:drag-sortable-list",
       "layer": "pattern",
       "slug": "drag-sortable-list",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8028,7 +8029,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8044,19 +8044,20 @@
       "id": "pattern:drawer-adapter",
       "layer": "pattern",
       "slug": "drawer-adapter",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8086,7 +8087,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8102,19 +8102,20 @@
       "id": "pattern:driver-and-vehicle-administration",
       "layer": "pattern",
       "slug": "driver-and-vehicle-administration",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8141,7 +8142,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8157,19 +8157,20 @@
       "id": "pattern:driver-onboarding-mobile",
       "layer": "pattern",
       "slug": "driver-onboarding-mobile",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8195,7 +8196,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8211,19 +8211,20 @@
       "id": "pattern:email-template-layout",
       "layer": "pattern",
       "slug": "email-template-layout",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8249,7 +8250,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8265,19 +8265,20 @@
       "id": "pattern:expandable-detail-table",
       "layer": "pattern",
       "slug": "expandable-detail-table",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8303,7 +8304,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8319,19 +8319,20 @@
       "id": "pattern:file-upload",
       "layer": "pattern",
       "slug": "file-upload",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/file-upload",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8357,7 +8358,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8373,19 +8373,20 @@
       "id": "pattern:filter-chip-group",
       "layer": "pattern",
       "slug": "filter-chip-group",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8411,7 +8412,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8427,19 +8427,20 @@
       "id": "pattern:filterable-editable-table",
       "layer": "pattern",
       "slug": "filterable-editable-table",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8465,7 +8466,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8481,19 +8481,20 @@
       "id": "pattern:fleet-manager-onboarding-desktop",
       "layer": "pattern",
       "slug": "fleet-manager-onboarding-desktop",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8519,7 +8520,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8535,19 +8535,20 @@
       "id": "pattern:form-section",
       "layer": "pattern",
       "slug": "form-section",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/form-section",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8573,7 +8574,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8589,19 +8589,20 @@
       "id": "pattern:fullscreen-sheet",
       "layer": "pattern",
       "slug": "fullscreen-sheet",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8629,7 +8630,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8645,19 +8645,20 @@
       "id": "pattern:gantt-chart",
       "layer": "pattern",
       "slug": "gantt-chart",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/gantt-chart",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8682,7 +8683,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8698,19 +8698,20 @@
       "id": "pattern:help-center",
       "layer": "pattern",
       "slug": "help-center",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/help-center",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8736,7 +8737,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8752,19 +8752,20 @@
       "id": "pattern:kanban-board",
       "layer": "pattern",
       "slug": "kanban-board",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/kanban-board",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8790,7 +8791,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8806,19 +8806,20 @@
       "id": "pattern:kpi-card",
       "layer": "pattern",
       "slug": "kpi-card",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8845,7 +8846,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8861,19 +8861,20 @@
       "id": "pattern:multi-select",
       "layer": "pattern",
       "slug": "multi-select",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/multi-select",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8898,7 +8899,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8914,19 +8914,20 @@
       "id": "pattern:multi-step-form",
       "layer": "pattern",
       "slug": "multi-step-form",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -8953,7 +8954,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -8969,19 +8969,20 @@
       "id": "pattern:notification-panel",
       "layer": "pattern",
       "slug": "notification-panel",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9010,7 +9011,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9026,19 +9026,20 @@
       "id": "pattern:payment-form",
       "layer": "pattern",
       "slug": "payment-form",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/payment-form",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9064,7 +9065,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9080,19 +9080,20 @@
       "id": "pattern:polar-chart",
       "layer": "pattern",
       "slug": "polar-chart",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/polar-chart",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9117,7 +9118,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9133,19 +9133,20 @@
       "id": "pattern:preference-management",
       "layer": "pattern",
       "slug": "preference-management",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/preference-management",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9171,7 +9172,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9187,19 +9187,20 @@
       "id": "pattern:pricing-operations",
       "layer": "pattern",
       "slug": "pricing-operations",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9225,7 +9226,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9241,19 +9241,20 @@
       "id": "pattern:pull-to-refresh",
       "layer": "pattern",
       "slug": "pull-to-refresh",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9278,7 +9279,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9294,19 +9294,20 @@
       "id": "pattern:quick-actions-grid",
       "layer": "pattern",
       "slug": "quick-actions-grid",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9334,7 +9335,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9350,19 +9350,20 @@
       "id": "pattern:radio-group",
       "layer": "pattern",
       "slug": "radio-group",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/radio-group",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9388,7 +9389,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9404,19 +9404,20 @@
       "id": "pattern:roles-and-permissions",
       "layer": "pattern",
       "slug": "roles-and-permissions",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9447,7 +9448,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9464,18 +9464,19 @@
       "layer": "pattern",
       "slug": "search",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/search",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9546,7 +9547,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9562,19 +9562,20 @@
       "id": "pattern:section-header",
       "layer": "pattern",
       "slug": "section-header",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/section-header",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9602,7 +9603,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9618,19 +9618,20 @@
       "id": "pattern:select-option-layer",
       "layer": "pattern",
       "slug": "select-option-layer",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9655,7 +9656,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9671,19 +9671,20 @@
       "id": "pattern:settings",
       "layer": "pattern",
       "slug": "settings",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/settings",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9730,7 +9731,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9747,18 +9747,19 @@
       "layer": "pattern",
       "slug": "sidebar",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/sidebar",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9798,7 +9799,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9814,19 +9814,20 @@
       "id": "pattern:snackbar-provider",
       "layer": "pattern",
       "slug": "snackbar-provider",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9852,7 +9853,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9868,19 +9868,20 @@
       "id": "pattern:station-discovery",
       "layer": "pattern",
       "slug": "station-discovery",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9907,7 +9908,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9923,19 +9923,20 @@
       "id": "pattern:status-feedback-view",
       "layer": "pattern",
       "slug": "status-feedback-view",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -9961,7 +9962,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -9977,19 +9977,20 @@
       "id": "pattern:swipe-actions",
       "layer": "pattern",
       "slug": "swipe-actions",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/swipe-actions",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10017,7 +10018,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10033,19 +10033,20 @@
       "id": "pattern:ticket-queue",
       "layer": "pattern",
       "slug": "ticket-queue",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10071,7 +10072,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10087,19 +10087,20 @@
       "id": "pattern:timeline",
       "layer": "pattern",
       "slug": "timeline",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/timeline",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10133,7 +10134,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10149,19 +10149,20 @@
       "id": "pattern:toolbar",
       "layer": "pattern",
       "slug": "toolbar",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/toolbar",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10198,7 +10199,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10215,18 +10215,19 @@
       "layer": "pattern",
       "slug": "topbar",
       "priority": "P0",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/topbar",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10269,7 +10270,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10285,19 +10285,20 @@
       "id": "pattern:transfer-list",
       "layer": "pattern",
       "slug": "transfer-list",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/transfer-list",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10324,7 +10325,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10340,19 +10340,20 @@
       "id": "pattern:virtual-data-table",
       "layer": "pattern",
       "slug": "virtual-data-table",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10380,7 +10381,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10396,19 +10396,20 @@
       "id": "pattern:waterfall-chart",
       "layer": "pattern",
       "slug": "waterfall-chart",
-      "priority": "P1",
-      "status": "blocked",
+      "priority": "P2",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10433,7 +10434,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove composition uses Flow primitives/components without parallel DOM behavior"
       ],
@@ -10450,18 +10450,19 @@
       "layer": "template",
       "slug": "agent-workspace",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10487,7 +10488,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10504,18 +10504,19 @@
       "layer": "template",
       "slug": "configuration-console",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/configuration-console",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10543,7 +10544,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10560,18 +10560,19 @@
       "layer": "template",
       "slug": "driver-card-wallet",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10598,7 +10599,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10615,18 +10615,19 @@
       "layer": "template",
       "slug": "driver-mobile-app",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10653,7 +10654,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10670,18 +10670,19 @@
       "layer": "template",
       "slug": "fleet-dashboard-suite",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10708,7 +10709,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10725,18 +10725,19 @@
       "layer": "template",
       "slug": "fleet-manager-desktop",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10764,7 +10765,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10781,18 +10781,19 @@
       "layer": "template",
       "slug": "internal-operations-console",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10818,7 +10819,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10835,18 +10835,19 @@
       "layer": "template",
       "slug": "routes-and-stations",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10873,7 +10874,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],
@@ -10890,18 +10890,19 @@
       "layer": "template",
       "slug": "settings-workspace",
       "priority": "P1",
-      "status": "blocked",
+      "status": "needs_owner_decision",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace",
       "runtime": {
         "flowJs": true,
         "flowDts": true,
         "docsGeneratedJs": true,
         "docsGeneratedDts": true,
-        "tsSource": false
+        "tsSource": true
       },
       "duplicateSurfaces": [
         "flow-react-js",
         "flow-dts",
+        "flow-ts-source",
         "docs-generated-js",
         "docs-generated-dts",
         "docs-hand-authored-surface"
@@ -10927,7 +10928,6 @@
         "block_until_dependency_ready"
       ],
       "requiredWork": [
-        "convert implementation contract to real TypeScript source, not JS plus .d.ts",
         "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete",
         "prove complete cascade foundation -> primitive -> component -> pattern -> template"
       ],

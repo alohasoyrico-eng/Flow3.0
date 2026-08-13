@@ -41,20 +41,6 @@
       ],
       "hotspots": [
         {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-03.css",
-          "ticketCount": 8,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 8
-          }
-        },
-        {
-          "file": "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
-          "ticketCount": 2,
-          "recommendedActions": {
-            "promote_or_map_to_token_source": 2
-          }
-        },
-        {
           "file": "../FlowDocs/apps/docs/styles.css",
           "ticketCount": 1,
           "recommendedActions": {
@@ -70,6 +56,13 @@
         },
         {
           "file": "../FlowDocs/apps/docs/styles/00-foundations-02-01.css",
+          "ticketCount": 1,
+          "recommendedActions": {
+            "promote_or_map_to_token_source": 1
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/00-foundations-02-02.css",
           "ticketCount": 1,
           "recommendedActions": {
             "promote_or_map_to_token_source": 1
@@ -386,14 +379,6 @@
           }
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
-          "ticketCount": 13,
-          "recommendedActions": {
-            "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
-            "replace_with_flow_visual_contract": 2
-          }
-        },
-        {
           "file": "../FlowDocs/apps/docs/pattern-tabs.js",
           "ticketCount": 12,
           "recommendedActions": {
@@ -409,11 +394,11 @@
           }
         },
         {
-          "file": "../FlowDocs/apps/docs/styles/05d-bottom-sheet-docs.css",
+          "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
           "ticketCount": 12,
           "recommendedActions": {
-            "classify_as_tokenized_docs_reference_css_after_source_contract": 11,
-            "replace_with_flow_visual_contract": 1
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 10,
+            "replace_with_flow_visual_contract": 2
           }
         },
         {
@@ -426,9 +411,9 @@
         },
         {
           "file": "../FlowDocs/apps/docs/styles/03a-reference-core-02.css",
-          "ticketCount": 11,
+          "ticketCount": 10,
           "recommendedActions": {
-            "classify_as_tokenized_docs_reference_css_after_source_contract": 10,
+            "classify_as_tokenized_docs_reference_css_after_source_contract": 9,
             "replace_with_flow_visual_contract": 1
           }
         },
@@ -496,6 +481,13 @@
           "recommendedActions": {
             "classify_as_tokenized_docs_reference_css_after_source_contract": 6,
             "replace_with_flow_visual_contract": 3
+          }
+        },
+        {
+          "file": "../FlowDocs/apps/docs/gold-text-area-docs.js",
+          "ticketCount": 8,
+          "recommendedActions": {
+            "move_to_component_detail_template_slot_or_delete_duplicate": 8
           }
         }
       ]

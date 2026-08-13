@@ -76,6 +76,7 @@ const layerPolicies = {
   component: {
     owner: "Flow React component package",
     allowedRuntimeLocations: [
+      "packages/react/src/{Pascal}.tsx",
       "packages/react/src/{Pascal}.ts",
       "packages/react/src/{Pascal}.js",
       "packages/react/src/{Pascal}.d.ts",
@@ -89,6 +90,7 @@ const layerPolicies = {
   pattern: {
     owner: "Flow React pattern package",
     allowedRuntimeLocations: [
+      "packages/react/src/patterns/{Pascal}.tsx",
       "packages/react/src/patterns/{Pascal}.ts",
       "packages/react/src/patterns/{Pascal}.js",
       "packages/react/src/patterns/{Pascal}.d.ts",
@@ -102,6 +104,7 @@ const layerPolicies = {
   template: {
     owner: "Flow React template package",
     allowedRuntimeLocations: [
+      "packages/react/src/templates/{Pascal}.tsx",
       "packages/react/src/templates/{Pascal}.ts",
       "packages/react/src/templates/{Pascal}.js",
       "packages/react/src/templates/{Pascal}.d.ts",
@@ -177,6 +180,14 @@ function sourceFiles(repoRoot) {
   return walk(repoRoot).filter((file) => /\.(ts|tsx)$/.test(file) && !file.endsWith(".d.ts"));
 }
 
+function typedSourceFile(rootDir, name) {
+  const tsxFile = path.join(rootDir, `${name}.tsx`);
+  if (exists(tsxFile)) return tsxFile;
+  const tsFile = path.join(rootDir, `${name}.ts`);
+  if (exists(tsFile)) return tsFile;
+  return "";
+}
+
 function docsHandSurfaceFiles(entity) {
   const docsApp = path.join(docsRoot, "apps/docs");
   if (!exists(docsApp)) return [];
@@ -249,6 +260,7 @@ function makeEntity(layer, slug) {
   if (layer === "component") {
     entity.runtime.flowJs = exists(path.join(componentRoot, `${name}.js`));
     entity.runtime.flowDts = exists(path.join(componentRoot, `${name}.d.ts`));
+    entity.runtime.tsSource = Boolean(typedSourceFile(componentRoot, name));
     entity.runtime.docsGeneratedJs = exists(path.join(generatedRoot, `${name}.js`));
     entity.runtime.docsGeneratedDts = exists(path.join(generatedRoot, `${name}.d.ts`));
     entity.gates.hasRuntime = entity.runtime.flowJs;
@@ -257,6 +269,7 @@ function makeEntity(layer, slug) {
   if (layer === "pattern") {
     entity.runtime.flowJs = exists(path.join(patternRoot, `${name}.js`));
     entity.runtime.flowDts = exists(path.join(patternRoot, `${name}.d.ts`));
+    entity.runtime.tsSource = Boolean(typedSourceFile(patternRoot, name));
     entity.runtime.docsGeneratedJs = exists(path.join(generatedRoot, "patterns", `${name}.js`));
     entity.runtime.docsGeneratedDts = exists(path.join(generatedRoot, "patterns", `${name}.d.ts`));
     entity.gates.hasRuntime = entity.runtime.flowJs;
@@ -265,6 +278,7 @@ function makeEntity(layer, slug) {
   if (layer === "template") {
     entity.runtime.flowJs = exists(path.join(templateRoot, `${name}.js`));
     entity.runtime.flowDts = exists(path.join(templateRoot, `${name}.d.ts`));
+    entity.runtime.tsSource = Boolean(typedSourceFile(templateRoot, name));
     entity.runtime.docsGeneratedJs = exists(path.join(generatedRoot, "templates", `${name}.js`));
     entity.runtime.docsGeneratedDts = exists(path.join(generatedRoot, "templates", `${name}.d.ts`));
     entity.gates.hasRuntime = entity.runtime.flowJs;
@@ -284,7 +298,7 @@ function makeEntity(layer, slug) {
   entity.currentRuntimeLocations = [
     ...(entity.runtime.flowJs ? [entity.allowedRuntimeLocations.find((location) => location.endsWith(".js") && location.includes("packages/"))].filter(Boolean) : []),
     ...(entity.runtime.flowDts ? [entity.allowedRuntimeLocations.find((location) => location.endsWith(".d.ts") && location.includes("packages/"))].filter(Boolean) : []),
-    ...(entity.runtime.tsSource ? [entity.allowedRuntimeLocations.find((location) => location.endsWith(".ts"))].filter(Boolean) : []),
+    ...(entity.runtime.tsSource ? [entity.allowedRuntimeLocations.find((location) => location.endsWith(".ts") || location.endsWith(".tsx"))].filter(Boolean) : []),
     ...(entity.runtime.docsGeneratedJs ? [entity.allowedRuntimeLocations.find((location) => location.endsWith(".js") && location.includes("apps/docs/generated"))].filter(Boolean) : []),
     ...(entity.runtime.docsGeneratedDts ? [entity.allowedRuntimeLocations.find((location) => location.endsWith(".d.ts") && location.includes("apps/docs/generated"))].filter(Boolean) : [])
   ];

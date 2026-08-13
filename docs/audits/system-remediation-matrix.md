@@ -8,8 +8,8 @@ This matrix turns the forensic gates into owner-decision tickets. It is not a re
 
 - Total tickets: 167
 - P0 tickets: 38
-- P1 tickets: 129
-- P2 tickets: 0
+- P1 tickets: 9
+- P2 tickets: 120
 - Undecided owner decisions: 167
 
 ## By layer
@@ -18,9 +18,9 @@ This matrix turns the forensic gates into owner-decision tickets. It is not a re
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | foundation | 11 | 11 | 0 | 0 | 11 | 0 | 500 |
 | primitive | 24 | 24 | 0 | 0 | 0 | 19 | 474 |
-| component | 60 | 0 | 60 | 0 | 60 | 0 | 1184 |
-| pattern | 63 | 3 | 60 | 0 | 63 | 0 | 344 |
-| template | 9 | 0 | 9 | 0 | 9 | 0 | 26 |
+| component | 60 | 0 | 0 | 60 | 0 | 60 | 1184 |
+| pattern | 63 | 3 | 0 | 60 | 0 | 63 | 344 |
+| template | 9 | 0 | 9 | 0 | 0 | 9 | 26 |
 
 ## P0 queue
 
@@ -61,9 +61,9 @@ This matrix turns the forensic gates into owner-decision tickets. It is not a re
 | primitive:spacing | needs_owner_decision | 14 | style-dictionary-real, typescript-source-real, foundation-contracts | classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>map foundation/token dependency before component consumption |
 | primitive:surface | needs_owner_decision | 86 | style-dictionary-real, typescript-source-real, foundation-contracts | classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>map foundation/token dependency before component consumption |
 | primitive:typography | needs_owner_decision | 7 | style-dictionary-real, typescript-source-real, foundation-contracts | classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>map foundation/token dependency before component consumption |
-| pattern:search | blocked | 48 | style-dictionary-real, typescript-source-real, primitive-cascade-runtime, component-runtime-contracts | convert implementation contract to real TypeScript source, not JS plus .d.ts<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>prove composition uses Flow primitives/components without parallel DOM behavior |
-| pattern:sidebar | blocked | 17 | style-dictionary-real, typescript-source-real, primitive-cascade-runtime, component-runtime-contracts | convert implementation contract to real TypeScript source, not JS plus .d.ts<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>prove composition uses Flow primitives/components without parallel DOM behavior |
-| pattern:topbar | blocked | 20 | style-dictionary-real, typescript-source-real, primitive-cascade-runtime, component-runtime-contracts | convert implementation contract to real TypeScript source, not JS plus .d.ts<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>prove composition uses Flow primitives/components without parallel DOM behavior |
+| pattern:search | needs_owner_decision | 48 | style-dictionary-real, typescript-source-real, primitive-cascade-runtime, component-runtime-contracts | classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>prove composition uses Flow primitives/components without parallel DOM behavior |
+| pattern:sidebar | needs_owner_decision | 17 | style-dictionary-real, typescript-source-real, primitive-cascade-runtime, component-runtime-contracts | classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>prove composition uses Flow primitives/components without parallel DOM behavior |
+| pattern:topbar | needs_owner_decision | 20 | style-dictionary-real, typescript-source-real, primitive-cascade-runtime, component-runtime-contracts | classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete<br>prove composition uses Flow primitives/components without parallel DOM behavior |
 
 ## Foundations 1:1
 
