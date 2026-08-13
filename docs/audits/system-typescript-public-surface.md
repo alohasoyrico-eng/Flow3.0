@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 178
-- Source declarations paired with JS but not TS/TSX: 51
-- TypeScript surface debt: 331
-- Unique TypeScript surface debt: 191
+- Public JS runtime exports with TS/TSX source: 180
+- Source declarations paired with JS but not TS/TSX: 50
+- TypeScript surface debt: 330
+- Unique TypeScript surface debt: 190
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":125,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":534,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":126,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":535,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -83,7 +83,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/CaseManagement.js | yes |
 | package.json | packages/react/dist/patterns/ChartWrapper.js | yes |
 | package.json | packages/react/dist/patterns/ChartLegendItem.js | yes |
-| package.json | packages/react/dist/patterns/CheckboxGroup.js | no |
+| package.json | packages/react/dist/patterns/CheckboxGroup.js | yes |
 | package.json | packages/react/dist/patterns/ColumnConfigurator.js | no |
 | package.json | packages/react/dist/patterns/CommandPalette.js | no |
 | package.json | packages/react/dist/patterns/ConfirmationDialog.js | no |
@@ -109,7 +109,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 | Declaration | Paired JS | Paired TS/TSX |
 | --- | --- | --- |
-| packages/react/src/patterns/CheckboxGroup.d.ts | yes | no |
 | packages/react/src/patterns/ColumnConfigurator.d.ts | yes | no |
 | packages/react/src/patterns/CommandPalette.d.ts | yes | no |
 | packages/react/src/patterns/ConfirmationDialog.d.ts | yes | no |

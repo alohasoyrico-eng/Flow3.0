@@ -1291,7 +1291,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4821,7 +4821,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 178,
+  "publicJsRuntimeExportsWithTsSource": 180,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/CheckboxGroup.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/ColumnConfigurator.d.ts",
       "pairedJs": true,
@@ -6070,18 +6065,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 125,
+        ".ts": 126,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 534,
+        "source": 535,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 331,
-  "uniqueTypescriptPublicSurfaceDebt": 191
+  "typescriptPublicSurfaceDebt": 330,
+  "uniqueTypescriptPublicSurfaceDebt": 190
 }

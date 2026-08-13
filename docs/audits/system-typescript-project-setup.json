@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T02:28:35.967Z",
+  "generatedAt": "2026-08-13T02:32:45.965Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -122,6 +122,7 @@
           "packages/react/src/patterns/CaseManagement.ts",
           "packages/react/src/patterns/ChartLegendItem.ts",
           "packages/react/src/patterns/ChartWrapper.ts",
+          "packages/react/src/patterns/CheckboxGroup.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -257,6 +258,7 @@
       "packages/react/src/patterns/CaseManagement.ts",
       "packages/react/src/patterns/ChartLegendItem.ts",
       "packages/react/src/patterns/ChartWrapper.ts",
+      "packages/react/src/patterns/CheckboxGroup.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
