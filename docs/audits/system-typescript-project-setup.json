@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T04:44:26.782Z",
+  "generatedAt": "2026-08-13T04:49:23.493Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -146,6 +146,7 @@
           "packages/react/src/patterns/MultiSelect.ts",
           "packages/react/src/patterns/MultiStepForm.ts",
           "packages/react/src/patterns/NotificationPanel.ts",
+          "packages/react/src/patterns/PaymentForm.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -305,6 +306,7 @@
       "packages/react/src/patterns/MultiSelect.ts",
       "packages/react/src/patterns/MultiStepForm.ts",
       "packages/react/src/patterns/NotificationPanel.ts",
+      "packages/react/src/patterns/PaymentForm.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",

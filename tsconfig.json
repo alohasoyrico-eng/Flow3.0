@@ -131,6 +131,7 @@
     "packages/react/src/patterns/MultiSelect.ts",
     "packages/react/src/patterns/MultiStepForm.ts",
     "packages/react/src/patterns/NotificationPanel.ts",
+    "packages/react/src/patterns/PaymentForm.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
