@@ -180,6 +180,7 @@ function main() {
         && include.includes("packages/react/src/patterns/KanbanBoard.ts")
         && include.includes("packages/react/src/patterns/KpiCard.ts")
         && include.includes("packages/react/src/patterns/MultiSelect.ts")
+        && include.includes("packages/react/src/patterns/MultiStepForm.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
