@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 838,
+    filesScanned: 839,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3637,6 +3637,32 @@ function assertReactGovernanceBaselines() {
     tokenDependencies: 77,
     templateAuditFixesDebt: 0,
   }, "Phase 6 template audit/fixes checkpoint");
+
+  const phase6TemplateQa = readAuditReport("docs/audits/system-phase6-template-qa-checkpoint.json");
+  assertReportStatus(phase6TemplateQa, "Phase 6 template QA checkpoint");
+  assertInventory(phase6TemplateQa, {
+    templates: 9,
+    passingTemplates: 9,
+    runtimeCases: 72,
+    passingRuntimeCases: 72,
+    visualCases: 27,
+    passingVisualCases: 27,
+    screenshotsCaptured: 27,
+    viewportProfiles: 2,
+    densityCases: 3,
+    stateCases: 7,
+    interactionContracts: 9,
+    passingInteractionContracts: 9,
+    requiredReports: 5,
+    passingRequiredReports: 5,
+    reportDebt: 0,
+    reportMismatches: 0,
+    horizontalOverflowFindings: 0,
+    blankOrShallowRenderFindings: 0,
+    zeroSizeFindings: 0,
+    slotOverlapFindings: 0,
+    templateQaDebt: 0,
+  }, "Phase 6 template QA checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4300,12 +4326,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 120,
-    categoryMappings: 110,
+    reports: 121,
+    categoryMappings: 111,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 120,
-    debtMetrics: 142,
+    reportsWithDebtMetrics: 121,
+    debtMetrics: 144,
     categories: 9,
     categoryMinimums: 9,
     categoryPrinciples: 9,

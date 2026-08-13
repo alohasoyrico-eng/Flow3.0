@@ -101,6 +101,7 @@
     "system-phase5-pattern-governance-checkpoint.json": "patterns",
     "system-phase5-shell-patterns-checkpoint.json": "patterns",
     "system-phase6-template-audit-fixes-checkpoint.json": "templates",
+    "system-phase6-template-qa-checkpoint.json": "templates",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",
     "package-css-root-governance-audit.json": "cascade",

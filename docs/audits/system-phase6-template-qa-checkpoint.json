@@ -1,0 +1,304 @@
+{
+  "status": "pass",
+  "audit": "system phase 6 template QA checkpoint",
+  "principle": "Template QA can close Phase 6 only when all 9 templates pass real runtime, visual, responsive, density, state, interaction, composition, and cascade gates with screenshots and zero governed debt.",
+  "scope": "Original plan iteration 31: template QA and Phase 6 closure. FlowDocs remains blocked until this checkpoint is pass.",
+  "inventory": {
+    "templates": 9,
+    "passingTemplates": 9,
+    "runtimeCases": 72,
+    "passingRuntimeCases": 72,
+    "visualCases": 27,
+    "passingVisualCases": 27,
+    "screenshotsCaptured": 27,
+    "viewportProfiles": 2,
+    "densityCases": 3,
+    "stateCases": 7,
+    "interactionContracts": 9,
+    "passingInteractionContracts": 9,
+    "requiredReports": 5,
+    "passingRequiredReports": 5,
+    "reportDebt": 0,
+    "reportMismatches": 0,
+    "horizontalOverflowFindings": 0,
+    "blankOrShallowRenderFindings": 0,
+    "zeroSizeFindings": 0,
+    "slotOverlapFindings": 0,
+    "templateQaDebt": 0
+  },
+  "reports": [
+    {
+      "id": "template-runtime",
+      "file": "docs/audits/react-template-runtime-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-visual",
+      "file": "docs/audits/react-template-visual-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-interaction",
+      "file": "docs/audits/react-template-interaction-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-composition",
+      "file": "docs/audits/react-template-composition-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-cascade",
+      "file": "docs/audits/template-cascade-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    }
+  ],
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "handoff",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "configuration-console",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "mobile"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "mobile"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "internal-operations-console",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "routes-and-stations",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "disabled",
+        "empty",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "mobile"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    },
+    {
+      "id": "settings-workspace",
+      "status": "pass",
+      "runtimeCases": 8,
+      "visualCases": 3,
+      "interactionContract": "pass",
+      "states": [
+        "dirty",
+        "disabled",
+        "error",
+        "loaded",
+        "loading",
+        "offline",
+        "permission"
+      ],
+      "densities": [
+        "lg",
+        "md",
+        "sm"
+      ],
+      "viewports": [
+        "desktop"
+      ],
+      "screenshotsCaptured": 3,
+      "failures": []
+    }
+  ],
+  "issues": []
+}

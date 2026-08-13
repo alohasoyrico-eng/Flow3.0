@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 120
-- Category mappings: 110
+- Reports scanned: 121
+- Category mappings: 111
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 120
-- Debt metrics: 142
+- Reports with debt metrics: 121
+- Debt metrics: 144
 - Categories: 9
 - Category minimums: 9
 - Category principles: 9
@@ -46,7 +46,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | quality | Component coverage must prove production readiness, not just presence. | 6 | 1 | 0 | 6 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 39 | 10 | 0 | 41 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
-| templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 1 | 1 | 0 | 2 | 0 |
+| templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 2 | 1 | 0 | 4 | 0 |
 
 ## Non-Pass Reports
 
@@ -178,6 +178,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-phase5-pattern-governance-checkpoint.json | patterns | pass | checkpointDebt: 0<br>globalDebt: 0<br>patternGovernanceDebt: 0 |
 | system-phase5-shell-patterns-checkpoint.json | patterns | pass | shellPatternDebt: 0 |
 | system-phase6-template-audit-fixes-checkpoint.json | templates | pass | reportDebt: 0<br>templateAuditFixesDebt: 0 |
+| system-phase6-template-qa-checkpoint.json | templates | pass | reportDebt: 0<br>templateQaDebt: 0 |
 | system-react-affordance-typescript-surface.json | react-primary | pass | reactAffordanceTypescriptSurfaceDebt: 0 |
 | system-react-base-components-typescript-surface.json | react-primary | pass | reactBaseComponentTypescriptSurfaceDebt: 0 |
 | system-react-chat-components-typescript-surface.json | react-primary | pass | reactChatComponentsTypescriptSurfaceDebt: 0 |

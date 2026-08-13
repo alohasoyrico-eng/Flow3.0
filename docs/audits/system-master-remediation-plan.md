@@ -44,6 +44,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 5 data/domain/mobile patterns checkpoint | PASS | 31/31 data/domain/mobile patterns, 170/170 callbacks tested, 170 slots, 247 slot uses, 0 debt |
 | Phase 5 pattern governance checkpoint | PASS | 63/63 patterns classified exactly once, 4/4 checkpoints, 8/8 global reports, 0 debt |
 | Phase 6 template audit/fixes checkpoint | PASS | 9/9 templates, 36/36 template files, 25 pattern dependencies, 37 modules, 60 states, 0 debt |
+| Phase 6 template QA checkpoint | PASS | 9/9 templates, 72/72 runtime cases, 27/27 visual cases, 27 screenshots, 9/9 interaction contracts, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -65,8 +66,8 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 | 3. Foundations/Primitives | 16-19 | 23-28 | complete | Make the base cascade exportable and consumable. |
 | 4. Components | 20-24 | 29-40 | complete | Audit and type 60 components. |
 | 5. Patterns | 25-29 | 41-52 | complete | Make 63 patterns real and governed. |
-| 6. Templates | 30-31 | 53-58 | in_progress | Make 9 templates consume real components/patterns. |
-| 7. FlowDocs v2 | 32-34 | 59-66 | blocked | Rebuild docs as a consumer of Flow. |
+| 6. Templates | 30-31 | 53-58 | complete | Make 9 templates consume real components/patterns. |
+| 7. FlowDocs v2 | 32-34 | 59-66 | next | Rebuild docs as a consumer of Flow. |
 
 ## Phase 1 Status
 
@@ -168,7 +169,7 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Phase 6 Status
 
-**Started by template audit/fixes evidence.**
+**Complete as of iteration 31/34.**
 
 - Template audit/fixes checkpoint PASS.
 - Templates covered: 9/9.
@@ -177,6 +178,12 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Template modules covered: 37.
 - Template states covered: 60.
 - Template audit/fixes debt: 0.
+- Template QA checkpoint PASS.
+- Template runtime cases: 72/72.
+- Template visual cases: 27/27.
+- Template screenshots captured: 27.
+- Template interaction contracts: 9/9.
+- Template QA debt: 0.
 
 ## Checkpoints
 
@@ -192,4 +199,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 6 Template QA**. FlowDocs remains blocked until templates close on top of the governed lower layers.
+The next correct step is **Phase 7 FlowDocs v2 shell**. FlowDocs must now consume Flow instead of owning parallel shell, page, demo, or visual-system behavior.

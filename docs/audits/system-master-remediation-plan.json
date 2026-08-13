@@ -395,15 +395,13 @@
       "name": "Templates",
       "initialRange": "30-31",
       "correctedRange": "53-58",
-      "status": "in_progress",
+      "status": "complete",
       "objective": "Make 9 templates consume real components and patterns.",
       "doneWhen": [
         "9 templates audit/fixes complete",
         "States/modules/permissions/density/theme/responsive QA passes"
       ],
-      "remaining": [
-        "Template QA."
-      ],
+      "remaining": [],
       "completed": [
         "Template audit/fixes checkpoint PASS",
         "Templates covered: 9/9",
@@ -411,7 +409,13 @@
         "Template pattern dependencies covered: 25",
         "Template modules covered: 37",
         "Template states covered: 60",
-        "Template audit/fixes debt: 0"
+        "Template audit/fixes debt: 0",
+        "Template QA checkpoint PASS",
+        "Template runtime cases: 72/72",
+        "Template visual cases: 27/27",
+        "Template screenshots captured: 27",
+        "Template interaction contracts: 9/9",
+        "Template QA debt: 0"
       ]
     },
     {
@@ -419,7 +423,7 @@
       "name": "FlowDocs v2",
       "initialRange": "32-34",
       "correctedRange": "59-66",
-      "status": "blocked",
+      "status": "next",
       "objective": "Rebuild docs as a consumer of Flow rather than a parallel source.",
       "doneWhen": [
         "DocsShell consumes Flow real",
@@ -429,7 +433,9 @@
         "Release/handoff complete"
       ],
       "remaining": [
-        "Blocked by components, patterns, templates, and docs ownership gates."
+        "FlowDocs v2 shell.",
+        "FlowDocs v2 pages.",
+        "Legacy removal + release."
       ]
     }
   ],
@@ -464,9 +470,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 31,
-    "status": "phase_in_progress",
-    "phase": "6. Templates",
-    "then": "Continue with Template QA."
+    "iteration": 32,
+    "status": "phase_next",
+    "phase": "7. FlowDocs v2",
+    "then": "Continue with FlowDocs v2 shell consuming Flow real."
   }
 }
