@@ -1551,7 +1551,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5081,7 +5081,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 204,
+  "publicJsRuntimeExportsWithTsSource": 206,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/FilterableEditableTable.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/FleetManagerOnboardingDesktop.d.ts",
       "pairedJs": true,
@@ -6005,18 +6000,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 138,
+        ".ts": 139,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 547,
+        "source": 548,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 318,
-  "uniqueTypescriptPublicSurfaceDebt": 178
+  "typescriptPublicSurfaceDebt": 317,
+  "uniqueTypescriptPublicSurfaceDebt": 177
 }

@@ -120,6 +120,7 @@
     "packages/react/src/patterns/ExpandableDetailTable.ts",
     "packages/react/src/patterns/FileUpload.ts",
     "packages/react/src/patterns/FilterChipGroup.ts",
+    "packages/react/src/patterns/FilterableEditableTable.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
