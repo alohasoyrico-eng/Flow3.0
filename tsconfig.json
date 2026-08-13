@@ -137,6 +137,7 @@
     "packages/react/src/patterns/PricingOperations.ts",
     "packages/react/src/patterns/PullToRefresh.ts",
     "packages/react/src/patterns/RadioGroup.ts",
+    "packages/react/src/patterns/RolesAndPermissions.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",

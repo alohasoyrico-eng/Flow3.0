@@ -1911,7 +1911,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5421,7 +5421,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 238,
+  "publicJsRuntimeExportsWithTsSource": 240,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/RolesAndPermissions.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/SelectOptionLayer.d.ts",
       "pairedJs": true,
@@ -5920,18 +5915,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 155,
+        ".ts": 156,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 564,
+        "source": 565,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 301,
-  "uniqueTypescriptPublicSurfaceDebt": 161
+  "typescriptPublicSurfaceDebt": 300,
+  "uniqueTypescriptPublicSurfaceDebt": 160
 }
