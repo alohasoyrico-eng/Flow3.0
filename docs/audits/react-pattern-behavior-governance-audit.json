@@ -1463,33 +1463,33 @@
       "hasDataFlowPattern": true,
       "hasDensityProp": true,
       "flowChildren": [
-        "Avatar@74",
-        "Menu@82"
+        "Avatar@61",
+        "Menu@68"
       ],
       "densityCascadeIssues": [],
       "statefulFlowChildren": [
-        "Avatar@74",
-        "Menu@82"
+        "Avatar@61",
+        "Menu@68"
       ],
       "directStateCascadeChildren": [
-        "Avatar@74",
-        "Menu@82"
+        "Avatar@61",
+        "Menu@68"
       ],
       "boundaryStateCascadeChildren": [],
       "stateCascadeIssues": [],
       "validatedLiteralProps": [
-        "Menu.variant@82"
+        "Menu.variant@68"
       ],
       "literalContractIssues": [],
       "validatedFlowChildProps": [
-        "Avatar.state@74",
-        "Menu.triggerLabel@82",
-        "Menu.label@82",
-        "Menu.items@82",
-        "Menu.variant@82",
-        "Menu.avatarName@82",
-        "Menu.avatarStatus@82",
-        "Menu.state@82"
+        "Avatar.state@61",
+        "Menu.triggerLabel@68",
+        "Menu.label@68",
+        "Menu.items@68",
+        "Menu.variant@68",
+        "Menu.avatarName@68",
+        "Menu.avatarStatus@68",
+        "Menu.state@68"
       ],
       "propContractIssues": [],
       "callbacks": [

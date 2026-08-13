@@ -1151,7 +1151,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4641,7 +4641,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,7 +5807,7 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 142,
+  "publicJsRuntimeExportsWithTsSource": 144,
   "sourceDeclarationsWithoutTs": [
     {
       "file": "packages/react/src/patterns/AccountOperations.d.ts",
@@ -5841,11 +5841,6 @@
     },
     {
       "file": "packages/react/src/patterns/AvatarGroup.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
-    {
-      "file": "packages/react/src/patterns/AvatarMenu.d.ts",
       "pairedJs": true,
       "pairedTs": false
     },
@@ -6160,18 +6155,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 107,
+        ".ts": 108,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 516,
+        "source": 517,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 349,
-  "uniqueTypescriptPublicSurfaceDebt": 209
+  "typescriptPublicSurfaceDebt": 348,
+  "uniqueTypescriptPublicSurfaceDebt": 208
 }

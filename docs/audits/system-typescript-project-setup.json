@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T00:12:42.459Z",
+  "generatedAt": "2026-08-13T00:28:53.167Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -107,6 +107,7 @@
           "packages/react/src/RouteSummary.tsx",
           "packages/react/src/index.ts",
           "packages/react/src/patterns/index.ts",
+          "packages/react/src/patterns/AvatarMenu.ts",
           "packages/react/src/templates/index.ts"
         ]
       },
@@ -224,6 +225,7 @@
       "packages/react/src/RouteSummary.tsx",
       "packages/react/src/index.ts",
       "packages/react/src/patterns/index.ts",
+      "packages/react/src/patterns/AvatarMenu.ts",
       "packages/react/src/templates/index.ts"
     ],
     "exclude": [

@@ -10,15 +10,15 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 - Unique public export targets: 298
 - Public JS runtime exports: 280
 - Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 142
-- Source declarations paired with JS but not TS/TSX: 69
-- TypeScript surface debt: 349
-- Unique TypeScript surface debt: 209
+- Public JS runtime exports with TS/TSX source: 144
+- Source declarations paired with JS but not TS/TSX: 68
+- TypeScript surface debt: 348
+- Unique TypeScript surface debt: 208
 
 ## File Counts
 
-- By extension: {".js":606,".mjs":20,".ts":107,".d.ts":274,".tsx":61}
-- By area: {"script":269,"source":516,"test":8,"generated-dist":275}
+- By extension: {".js":606,".mjs":20,".ts":108,".d.ts":274,".tsx":61}
+- By area: {"script":269,"source":517,"test":8,"generated-dist":275}
 
 ## Public JS Runtime Exports
 
@@ -76,7 +76,7 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | package.json | packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.js | no |
 | package.json | packages/react/dist/patterns/Autocomplete.js | no |
 | package.json | packages/react/dist/patterns/AvatarGroup.js | no |
-| package.json | packages/react/dist/patterns/AvatarMenu.js | no |
+| package.json | packages/react/dist/patterns/AvatarMenu.js | yes |
 | package.json | packages/react/dist/patterns/BackofficeApproval.js | no |
 | package.json | packages/react/dist/patterns/BulkActions.js | no |
 | package.json | packages/react/dist/patterns/CalendarView.js | no |
@@ -116,7 +116,6 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 | packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.d.ts | yes | no |
 | packages/react/src/patterns/Autocomplete.d.ts | yes | no |
 | packages/react/src/patterns/AvatarGroup.d.ts | yes | no |
-| packages/react/src/patterns/AvatarMenu.d.ts | yes | no |
 | packages/react/src/patterns/BackofficeApproval.d.ts | yes | no |
 | packages/react/src/patterns/BottomSheet.d.ts | yes | no |
 | packages/react/src/patterns/BulkActions.d.ts | yes | no |
