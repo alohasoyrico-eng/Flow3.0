@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T05:50:15.229Z",
+  "generatedAt": "2026-08-13T05:55:13.174Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -160,6 +160,7 @@
           "packages/react/src/patterns/StationDiscovery.ts",
           "packages/react/src/patterns/StatusFeedbackView.ts",
           "packages/react/src/patterns/SwipeActions.ts",
+          "packages/react/src/patterns/TicketQueue.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
           "packages/react/src/templates/index.ts"
         ]
@@ -331,6 +332,7 @@
       "packages/react/src/patterns/StationDiscovery.ts",
       "packages/react/src/patterns/StatusFeedbackView.ts",
       "packages/react/src/patterns/SwipeActions.ts",
+      "packages/react/src/patterns/TicketQueue.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
       "packages/react/src/templates/index.ts"
     ],

@@ -145,6 +145,7 @@
     "packages/react/src/patterns/StationDiscovery.ts",
     "packages/react/src/patterns/StatusFeedbackView.ts",
     "packages/react/src/patterns/SwipeActions.ts",
+    "packages/react/src/patterns/TicketQueue.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
     "packages/react/src/templates/index.ts"
   ],
