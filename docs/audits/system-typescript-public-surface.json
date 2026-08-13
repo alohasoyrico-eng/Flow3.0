@@ -1131,7 +1131,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4621,7 +4621,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 162,
+  "publicJsRuntimeExportsWithTsSource": 164,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/AvatarGroup.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/BackofficeApproval.d.ts",
       "pairedJs": true,
@@ -6110,18 +6105,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 117,
+        ".ts": 118,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 526,
+        "source": 527,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 339,
-  "uniqueTypescriptPublicSurfaceDebt": 199
+  "typescriptPublicSurfaceDebt": 338,
+  "uniqueTypescriptPublicSurfaceDebt": 198
 }

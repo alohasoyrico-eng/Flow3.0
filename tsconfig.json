@@ -98,6 +98,7 @@
     "packages/react/src/patterns/AgentConversation.ts",
     "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.ts",
     "packages/react/src/patterns/Autocomplete.ts",
+    "packages/react/src/patterns/AvatarGroup.ts",
     "packages/react/src/patterns/AvatarMenu.ts",
     "packages/react/src/patterns/SectionHeader.ts",
     "packages/react/src/patterns/SnackbarProvider.ts",

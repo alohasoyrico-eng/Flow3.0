@@ -149,6 +149,7 @@ function main() {
         && include.includes("packages/react/src/patterns/AgentConversation.ts")
         && include.includes("packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.ts")
         && include.includes("packages/react/src/patterns/Autocomplete.ts")
+        && include.includes("packages/react/src/patterns/AvatarGroup.ts")
         && include.includes("packages/react/src/patterns/AvatarMenu.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
