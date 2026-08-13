@@ -148,6 +148,7 @@
     "packages/react/src/patterns/TicketQueue.ts",
     "packages/react/src/patterns/Timeline.ts",
     "packages/react/src/patterns/Toolbar.ts",
+    "packages/react/src/patterns/TransferList.ts",
     "packages/react/src/patterns/QuickActionsGrid.ts",
     "packages/react/src/templates/index.ts"
   ],

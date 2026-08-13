@@ -2191,7 +2191,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5741,7 +5741,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 256,
+  "publicJsRuntimeExportsWithTsSource": 258,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/TransferList.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/VirtualDataTable.d.ts",
       "pairedJs": true,
@@ -5875,18 +5870,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 164,
+        ".ts": 165,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 573,
+        "source": 574,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 292,
-  "uniqueTypescriptPublicSurfaceDebt": 152
+  "typescriptPublicSurfaceDebt": 291,
+  "uniqueTypescriptPublicSurfaceDebt": 151
 }

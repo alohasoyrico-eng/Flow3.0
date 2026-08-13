@@ -199,6 +199,7 @@ function main() {
         && include.includes("packages/react/src/patterns/TicketQueue.ts")
         && include.includes("packages/react/src/patterns/Timeline.ts")
         && include.includes("packages/react/src/patterns/Toolbar.ts")
+        && include.includes("packages/react/src/patterns/TransferList.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
         && include.includes("packages/react/src/templates/index.ts"),
       { include },

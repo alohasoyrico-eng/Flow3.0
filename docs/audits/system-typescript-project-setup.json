@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T06:06:34.822Z",
+  "generatedAt": "2026-08-13T06:11:21.390Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -163,6 +163,7 @@
           "packages/react/src/patterns/TicketQueue.ts",
           "packages/react/src/patterns/Timeline.ts",
           "packages/react/src/patterns/Toolbar.ts",
+          "packages/react/src/patterns/TransferList.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
           "packages/react/src/templates/index.ts"
         ]
@@ -337,6 +338,7 @@
       "packages/react/src/patterns/TicketQueue.ts",
       "packages/react/src/patterns/Timeline.ts",
       "packages/react/src/patterns/Toolbar.ts",
+      "packages/react/src/patterns/TransferList.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",
       "packages/react/src/templates/index.ts"
     ],
