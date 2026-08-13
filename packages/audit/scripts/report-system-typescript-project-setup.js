@@ -145,6 +145,7 @@ function main() {
         && include.includes("packages/react/src/patterns/index.ts")
         && include.includes("packages/react/src/patterns/AccountOperations.ts")
         && include.includes("packages/react/src/patterns/ActionSheet.ts")
+        && include.includes("packages/react/src/patterns/AdvancedFilters.ts")
         && include.includes("packages/react/src/patterns/AvatarMenu.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
