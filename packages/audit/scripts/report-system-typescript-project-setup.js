@@ -154,6 +154,7 @@ function main() {
         && include.includes("packages/react/src/patterns/BackofficeApproval.ts")
         && include.includes("packages/react/src/patterns/BottomSheet.ts")
         && include.includes("packages/react/src/patterns/BulkActions.ts")
+        && include.includes("packages/react/src/patterns/CalendarView.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
