@@ -1,0 +1,361 @@
+{
+  "status": "pass",
+  "audit": "system phase 6 template audit/fixes checkpoint",
+  "principle": "Template audit/fixes can close only when all 9 templates have formal artifacts, React TS/JS/d.ts runtime surfaces, package exports, Surface roots, data-flow-template markers, declared pattern/module/state/token contracts, controlled interaction contracts, and zero composition/runtime/cascade debt.",
+  "scope": "Original plan iteration 30: template audit/fixes. Visual/template QA remains for iteration 31.",
+  "inventory": {
+    "templates": 9,
+    "passingTemplates": 9,
+    "templateFiles": 36,
+    "templateFilesPresent": 36,
+    "requiredReports": 4,
+    "passingRequiredReports": 4,
+    "reportDebt": 0,
+    "reportMismatches": 0,
+    "patternDependencies": 25,
+    "modules": 37,
+    "states": 60,
+    "surfaces": 23,
+    "tokenDependencies": 77,
+    "templateAuditFixesDebt": 0
+  },
+  "reports": [
+    {
+      "id": "template-cascade",
+      "file": "docs/audits/template-cascade-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-composition",
+      "file": "docs/audits/react-template-composition-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-interaction",
+      "file": "docs/audits/react-template-interaction-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    },
+    {
+      "id": "template-runtime",
+      "file": "docs/audits/react-template-runtime-governance-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "mismatches": []
+    }
+  ],
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/AgentWorkspace.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/AgentWorkspace.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/AgentWorkspace.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 5,
+      "primitives": 8,
+      "patterns": 3,
+      "modules": 5,
+      "states": 8,
+      "surfaces": 2,
+      "tokenDependencies": 6,
+      "debts": []
+    },
+    {
+      "id": "configuration-console",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/ConfigurationConsole.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/ConfigurationConsole.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/ConfigurationConsole.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 8,
+      "primitives": 11,
+      "patterns": 5,
+      "modules": 4,
+      "states": 6,
+      "surfaces": 2,
+      "tokenDependencies": 10,
+      "debts": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/DriverCardWallet.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/DriverCardWallet.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/DriverCardWallet.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 8,
+      "primitives": 10,
+      "patterns": 0,
+      "modules": 4,
+      "states": 6,
+      "surfaces": 3,
+      "tokenDependencies": 9,
+      "debts": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/DriverMobileApp.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/DriverMobileApp.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/DriverMobileApp.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 8,
+      "primitives": 11,
+      "patterns": 2,
+      "modules": 4,
+      "states": 6,
+      "surfaces": 3,
+      "tokenDependencies": 10,
+      "debts": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/FleetDashboardSuite.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/FleetDashboardSuite.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/FleetDashboardSuite.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 8,
+      "primitives": 11,
+      "patterns": 2,
+      "modules": 4,
+      "states": 6,
+      "surfaces": 3,
+      "tokenDependencies": 10,
+      "debts": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/FleetManagerDesktop.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/FleetManagerDesktop.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/FleetManagerDesktop.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 8,
+      "primitives": 11,
+      "patterns": 3,
+      "modules": 4,
+      "states": 6,
+      "surfaces": 3,
+      "tokenDependencies": 10,
+      "debts": []
+    },
+    {
+      "id": "internal-operations-console",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/InternalOperationsConsole.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/InternalOperationsConsole.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/InternalOperationsConsole.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 5,
+      "primitives": 9,
+      "patterns": 8,
+      "modules": 6,
+      "states": 7,
+      "surfaces": 2,
+      "tokenDependencies": 6,
+      "debts": []
+    },
+    {
+      "id": "routes-and-stations",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/RoutesAndStations.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/RoutesAndStations.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/RoutesAndStations.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 8,
+      "primitives": 11,
+      "patterns": 1,
+      "modules": 4,
+      "states": 6,
+      "surfaces": 3,
+      "tokenDependencies": 10,
+      "debts": []
+    },
+    {
+      "id": "settings-workspace",
+      "status": "pass",
+      "files": [
+        {
+          "kind": "artifact",
+          "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+          "exists": true
+        },
+        {
+          "kind": "ts",
+          "file": "packages/react/src/templates/SettingsWorkspace.ts",
+          "exists": true
+        },
+        {
+          "kind": "js",
+          "file": "packages/react/src/templates/SettingsWorkspace.js",
+          "exists": true
+        },
+        {
+          "kind": "types",
+          "file": "packages/react/src/templates/SettingsWorkspace.d.ts",
+          "exists": true
+        }
+      ],
+      "foundations": 5,
+      "primitives": 8,
+      "patterns": 1,
+      "modules": 2,
+      "states": 9,
+      "surfaces": 2,
+      "tokenDependencies": 6,
+      "debts": []
+    }
+  ],
+  "issues": []
+}

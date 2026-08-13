@@ -27,7 +27,8 @@
     "patterns",
     "quality",
     "react-primary",
-    "taxonomy"
+    "taxonomy",
+    "templates"
   ],
   "categoryReportMinimums": {
     "anti-duplication": 1,
@@ -37,6 +38,7 @@
     "patterns": 1,
     "quality": 1,
     "react-primary": 10,
+    "templates": 1,
     "taxonomy": 1
   },
   "categoryPrinciples": {
@@ -47,6 +49,7 @@
     "patterns": "Patterns must compose components through governed contracts before template promotion.",
     "quality": "Component coverage must prove production readiness, not just presence.",
     "react-primary": "React must be the primary implementation with real contracts.",
+    "templates": "Templates must compose governed patterns and components instead of owning parallel product UI.",
     "taxonomy": "Components, primitives, patterns, and templates must stay separated."
   },
   "reportCategories": {
@@ -97,6 +100,7 @@
     "system-phase5-pattern-1to1-checkpoint.json": "patterns",
     "system-phase5-pattern-governance-checkpoint.json": "patterns",
     "system-phase5-shell-patterns-checkpoint.json": "patterns",
+    "system-phase6-template-audit-fixes-checkpoint.json": "templates",
     "system-token-ownership-matrix.json": "foundations-primitives",
     "legacy-dom-source-governance-audit.json": "react-primary",
     "package-css-root-governance-audit.json": "cascade",

@@ -395,14 +395,23 @@
       "name": "Templates",
       "initialRange": "30-31",
       "correctedRange": "53-58",
-      "status": "not_started",
+      "status": "in_progress",
       "objective": "Make 9 templates consume real components and patterns.",
       "doneWhen": [
         "9 templates audit/fixes complete",
         "States/modules/permissions/density/theme/responsive QA passes"
       ],
       "remaining": [
-        "Blocked until components and patterns are real."
+        "Template QA."
+      ],
+      "completed": [
+        "Template audit/fixes checkpoint PASS",
+        "Templates covered: 9/9",
+        "Template runtime/type/artifact files present: 36/36",
+        "Template pattern dependencies covered: 25",
+        "Template modules covered: 37",
+        "Template states covered: 60",
+        "Template audit/fixes debt: 0"
       ]
     },
     {
@@ -455,9 +464,9 @@
     }
   ],
   "nextCorrectStep": {
-    "iteration": 30,
-    "status": "phase_ready",
+    "iteration": 31,
+    "status": "phase_in_progress",
     "phase": "6. Templates",
-    "then": "Continue with Template audit/fixes."
+    "then": "Continue with Template QA."
   }
 }

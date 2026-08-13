@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "react template composition governance",
   "principle": "React templates must derive runtime composition from formal template artifacts: pattern imports, module markers, Surface primitive ownership, and approved direct component exceptions must stay explicit.",
-  "generatedAt": "2026-08-13T15:57:05.726Z",
+  "generatedAt": "2026-08-13T16:08:26.666Z",
   "inventory": {
     "templatesAudited": 9,
     "templatesWithPassingComposition": 9,

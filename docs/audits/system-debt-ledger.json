@@ -3,15 +3,15 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 119,
-    "categoryMappings": 109,
+    "reports": 120,
+    "categoryMappings": 110,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 119,
-    "debtMetrics": 140,
-    "categories": 8,
-    "categoryMinimums": 8,
-    "categoryPrinciples": 8,
+    "reportsWithDebtMetrics": 120,
+    "debtMetrics": 142,
+    "categories": 9,
+    "categoryMinimums": 9,
+    "categoryPrinciples": 9,
     "categoryMinimumDebt": 0,
     "statusDebt": 0,
     "nonPassReports": 0,
@@ -116,6 +116,15 @@
       "minimumReports": 1,
       "coverageGap": 0,
       "debtMetrics": 1,
+      "totalDebt": 0
+    },
+    {
+      "category": "templates",
+      "principle": "Templates must compose governed patterns and components instead of owning parallel product UI.",
+      "reports": 1,
+      "minimumReports": 1,
+      "coverageGap": 0,
+      "debtMetrics": 2,
       "totalDebt": 0
     }
   ],
@@ -1487,6 +1496,27 @@
           "report": "system-phase5-shell-patterns-checkpoint.json",
           "scope": "inventory",
           "metric": "shellPatternDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-phase6-template-audit-fixes-checkpoint.json",
+      "category": "templates",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-phase6-template-audit-fixes-checkpoint.json",
+          "scope": "inventory",
+          "metric": "reportDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-phase6-template-audit-fixes-checkpoint.json",
+          "scope": "inventory",
+          "metric": "templateAuditFixesDebt",
           "value": 0,
           "numericValue": 0
         }

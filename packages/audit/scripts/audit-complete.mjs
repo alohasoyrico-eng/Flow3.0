@@ -218,6 +218,7 @@ const expectedAuditFiles = new Set([
   "report-system-phase5-pattern-1to1-checkpoint.js",
   "report-system-phase5-pattern-governance-checkpoint.js",
   "report-system-phase5-shell-patterns-checkpoint.js",
+  "report-system-phase6-template-audit-fixes-checkpoint.js",
   "report-system-raw-token-value-decision-matrix.js",
   "report-system-raw-token-value-governance.js",
   "report-system-react-base-components-typescript-surface.js",
@@ -473,6 +474,7 @@ const checks = [
   ["pattern react migration audit", () => run("node", ["packages/audit/scripts/report-pattern-react-migration-audit.js", "--check"])],
   ...(hasDocsConsumerApp ? [["pattern react migration plan", () => run("node", ["packages/audit/scripts/report-pattern-react-migration-plan.js", "--check"])]] : []),
   ["template cascade governance report", () => run("node", ["packages/audit/scripts/report-template-cascade-governance.js", "--check"])],
+  ["phase 6 template audit/fixes checkpoint", () => run("node", ["packages/audit/scripts/report-system-phase6-template-audit-fixes-checkpoint.js", "--check"])],
   ["system TypeScript public surface baseline", () => run("node", ["packages/audit/scripts/report-system-typescript-public-surface.js", "--check"])],
   ["system debt ledger", () => run("node", ["packages/audit/scripts/report-system-debt-ledger.js", "--check"])],
 ];

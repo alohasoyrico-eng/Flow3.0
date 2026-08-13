@@ -43,6 +43,7 @@ Reason: the original estimate undercounted real TypeScript migration, Style Dict
 | Phase 5 interaction patterns checkpoint | PASS | 27/27 interaction patterns, 80/80 callbacks tested, 113 slots, 193 slot uses, 0 debt |
 | Phase 5 data/domain/mobile patterns checkpoint | PASS | 31/31 data/domain/mobile patterns, 170/170 callbacks tested, 170 slots, 247 slot uses, 0 debt |
 | Phase 5 pattern governance checkpoint | PASS | 63/63 patterns classified exactly once, 4/4 checkpoints, 8/8 global reports, 0 debt |
+| Phase 6 template audit/fixes checkpoint | PASS | 9/9 templates, 36/36 template files, 25 pattern dependencies, 37 modules, 60 states, 0 debt |
 | Forensic gates | FAIL | Docs ownership still fails; FlowDocs v2 remains blocked until higher Flow layers close |
 
 Failing blockers:
@@ -64,7 +65,7 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 | 3. Foundations/Primitives | 16-19 | 23-28 | complete | Make the base cascade exportable and consumable. |
 | 4. Components | 20-24 | 29-40 | complete | Audit and type 60 components. |
 | 5. Patterns | 25-29 | 41-52 | complete | Make 63 patterns real and governed. |
-| 6. Templates | 30-31 | 53-58 | not_started | Make 9 templates consume real components/patterns. |
+| 6. Templates | 30-31 | 53-58 | in_progress | Make 9 templates consume real components/patterns. |
 | 7. FlowDocs v2 | 32-34 | 59-66 | blocked | Rebuild docs as a consumer of Flow. |
 
 ## Phase 1 Status
@@ -165,6 +166,18 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Pattern global reports PASS: 8/8.
 - Pattern governance debt: 0.
 
+## Phase 6 Status
+
+**Started by template audit/fixes evidence.**
+
+- Template audit/fixes checkpoint PASS.
+- Templates covered: 9/9.
+- Template runtime/type/artifact files present: 36/36.
+- Template pattern dependencies covered: 25.
+- Template modules covered: 37.
+- Template states covered: 60.
+- Template audit/fixes debt: 0.
+
 ## Checkpoints
 
 | After iteration | Checkpoint |
@@ -179,4 +192,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 6 Template audit/fixes**. FlowDocs remains blocked until templates close on top of the governed lower layers.
+The next correct step is **Phase 6 Template QA**. FlowDocs remains blocked until templates close on top of the governed lower layers.

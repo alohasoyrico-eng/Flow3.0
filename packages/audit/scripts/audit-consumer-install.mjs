@@ -3254,7 +3254,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 837,
+    filesScanned: 838,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3618,6 +3618,25 @@ function assertReactGovernanceBaselines() {
     unexpectedPatternClassifications: 0,
     patternGovernanceDebt: 0,
   }, "Phase 5 pattern governance checkpoint");
+
+  const phase6TemplateAuditFixes = readAuditReport("docs/audits/system-phase6-template-audit-fixes-checkpoint.json");
+  assertReportStatus(phase6TemplateAuditFixes, "Phase 6 template audit/fixes checkpoint");
+  assertInventory(phase6TemplateAuditFixes, {
+    templates: 9,
+    passingTemplates: 9,
+    templateFiles: 36,
+    templateFilesPresent: 36,
+    requiredReports: 4,
+    passingRequiredReports: 4,
+    reportDebt: 0,
+    reportMismatches: 0,
+    patternDependencies: 25,
+    modules: 37,
+    states: 60,
+    surfaces: 23,
+    tokenDependencies: 77,
+    templateAuditFixesDebt: 0,
+  }, "Phase 6 template audit/fixes checkpoint");
 
   const familyCssMaturity = readAuditReport("docs/audits/family-css-contract-maturity.json");
   assertReportStatus(familyCssMaturity, "Family CSS contract maturity");
@@ -4281,15 +4300,15 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 119,
-    categoryMappings: 109,
+    reports: 120,
+    categoryMappings: 110,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 119,
-    debtMetrics: 140,
-    categories: 8,
-    categoryMinimums: 8,
-    categoryPrinciples: 8,
+    reportsWithDebtMetrics: 120,
+    debtMetrics: 142,
+    categories: 9,
+    categoryMinimums: 9,
+    categoryPrinciples: 9,
     categoryMinimumDebt: 0,
     statusDebt: 0,
     nonPassReports: 0,
