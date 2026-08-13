@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T01:00:13.476Z",
+  "generatedAt": "2026-08-13T01:05:58.011Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -110,6 +110,7 @@
           "packages/react/src/patterns/AccountOperations.ts",
           "packages/react/src/patterns/ActionSheet.ts",
           "packages/react/src/patterns/AdvancedFilters.ts",
+          "packages/react/src/patterns/AgentConversation.ts",
           "packages/react/src/patterns/AvatarMenu.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
@@ -234,6 +235,7 @@
       "packages/react/src/patterns/AccountOperations.ts",
       "packages/react/src/patterns/ActionSheet.ts",
       "packages/react/src/patterns/AdvancedFilters.ts",
+      "packages/react/src/patterns/AgentConversation.ts",
       "packages/react/src/patterns/AvatarMenu.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",

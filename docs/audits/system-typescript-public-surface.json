@@ -1071,7 +1071,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -4561,7 +4561,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 156,
+  "publicJsRuntimeExportsWithTsSource": 158,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/AgentConversation.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
       "pairedJs": true,
@@ -6125,18 +6120,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 114,
+        ".ts": 115,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 523,
+        "source": 524,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 342,
-  "uniqueTypescriptPublicSurfaceDebt": 202
+  "typescriptPublicSurfaceDebt": 341,
+  "uniqueTypescriptPublicSurfaceDebt": 201
 }
