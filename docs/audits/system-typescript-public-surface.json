@@ -1591,7 +1591,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "package.json",
@@ -5101,7 +5101,7 @@
       "exists": true,
       "jsRuntime": true,
       "tsRuntime": false,
-      "tsSourceExists": false
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/react/package.json",
@@ -5807,13 +5807,8 @@
   "uniquePublicExportTargets": 298,
   "publicJsRuntimeExports": 280,
   "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 208,
+  "publicJsRuntimeExportsWithTsSource": 210,
   "sourceDeclarationsWithoutTs": [
-    {
-      "file": "packages/react/src/patterns/FormSection.d.ts",
-      "pairedJs": true,
-      "pairedTs": false
-    },
     {
       "file": "packages/react/src/patterns/FullscreenSheet.d.ts",
       "pairedJs": true,
@@ -5995,18 +5990,18 @@
       "byExtension": {
         ".js": 606,
         ".mjs": 20,
-        ".ts": 140,
+        ".ts": 141,
         ".d.ts": 274,
         ".tsx": 61
       },
       "byArea": {
         "script": 269,
-        "source": 549,
+        "source": 550,
         "test": 8,
         "generated-dist": 275
       }
     }
   },
-  "typescriptPublicSurfaceDebt": 316,
-  "uniqueTypescriptPublicSurfaceDebt": 176
+  "typescriptPublicSurfaceDebt": 315,
+  "uniqueTypescriptPublicSurfaceDebt": 175
 }
