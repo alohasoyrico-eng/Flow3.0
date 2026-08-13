@@ -158,6 +158,7 @@
     "packages/react/src/templates/DriverMobileApp.ts",
     "packages/react/src/templates/FleetDashboardSuite.ts",
     "packages/react/src/templates/FleetManagerDesktop.ts",
+    "packages/react/src/templates/InternalOperationsConsole.ts",
     "packages/react/src/templates/index.ts"
   ],
   "exclude": [
