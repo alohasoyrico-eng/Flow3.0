@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T03:17:19.652Z",
+  "generatedAt": "2026-08-13T03:28:13.339Z",
   "scope": "TypeScript project setup checkpoint",
   "status": "pass",
   "typescriptProjectSetupDebt": 0,
@@ -131,6 +131,7 @@
           "packages/react/src/patterns/DrawerAdapter.ts",
           "packages/react/src/patterns/DriverAndVehicleAdministration.ts",
           "packages/react/src/patterns/DriverOnboardingMobile.ts",
+          "packages/react/src/patterns/EmailTemplateLayout.ts",
           "packages/react/src/patterns/SectionHeader.ts",
           "packages/react/src/patterns/SnackbarProvider.ts",
           "packages/react/src/patterns/QuickActionsGrid.ts",
@@ -275,6 +276,7 @@
       "packages/react/src/patterns/DrawerAdapter.ts",
       "packages/react/src/patterns/DriverAndVehicleAdministration.ts",
       "packages/react/src/patterns/DriverOnboardingMobile.ts",
+      "packages/react/src/patterns/EmailTemplateLayout.ts",
       "packages/react/src/patterns/SectionHeader.ts",
       "packages/react/src/patterns/SnackbarProvider.ts",
       "packages/react/src/patterns/QuickActionsGrid.ts",

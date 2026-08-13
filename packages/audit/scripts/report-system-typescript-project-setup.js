@@ -167,6 +167,7 @@ function main() {
         && include.includes("packages/react/src/patterns/DrawerAdapter.ts")
         && include.includes("packages/react/src/patterns/DriverAndVehicleAdministration.ts")
         && include.includes("packages/react/src/patterns/DriverOnboardingMobile.ts")
+        && include.includes("packages/react/src/patterns/EmailTemplateLayout.ts")
         && include.includes("packages/react/src/patterns/SectionHeader.ts")
         && include.includes("packages/react/src/patterns/SnackbarProvider.ts")
         && include.includes("packages/react/src/patterns/QuickActionsGrid.ts")
