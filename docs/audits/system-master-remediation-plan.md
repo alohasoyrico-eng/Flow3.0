@@ -53,7 +53,7 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 | 1. Style Dictionary real | 3-7 | 4-10 | complete | Create agnostic token source and multiplatform outputs with governance. |
 | 2. TypeScript real | 8-15 | 11-22 | complete | Migrate public Flow packages to TS/TSX real. |
 | 3. Foundations/Primitives | 16-19 | 23-28 | complete | Make the base cascade exportable and consumable. |
-| 4. Components | 20-24 | 29-40 | not_started | Audit and type 60 components. |
+| 4. Components | 20-24 | 29-40 | in_progress | Audit and type 60 components. |
 | 5. Patterns | 25-29 | 41-52 | not_started | Make 63 patterns real and governed. |
 | 6. Templates | 30-31 | 53-58 | not_started | Make 9 templates consume real components/patterns. |
 | 7. FlowDocs v2 | 32-34 | 59-66 | blocked | Rebuild docs as a consumer of Flow. |
@@ -90,6 +90,18 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 - Missing P0 primitive runtime debt: 0.
 - Source boundary violations for doc-panel/local typography/fake surface/gradients outside governed source: 0.
 
+## Phase 4 Status
+
+**Started by audit evidence.**
+
+- Component cascade checkpoint PASS.
+- Current 60-component gates passing: 11/11.
+- React primary components: 60; pass: 60.
+- Legacy component 1:1 matrix remains historical at 56 components.
+- Legacy matrix gaps explicitly listed: chat-composer, chat-message, chat-thread, input-amount.
+- Those 4 gaps are covered by current 60-component gates.
+- Component cascade audit debt: 0.
+
 ## Checkpoints
 
 | After iteration | Checkpoint |
@@ -104,4 +116,4 @@ Primitive TS runtime/policy contracts were originally generated out of order, bu
 
 ## Next Correct Step
 
-The next correct step is **Phase 4: Components**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.
+The next correct step is **Phase 4 Components fixes batch 1: core controls/forms**. FlowDocs remains blocked until components, patterns, and templates close on top of the governed lower layers.

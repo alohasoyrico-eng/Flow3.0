@@ -75,6 +75,18 @@
       "sourceBoundaryViolations": 0,
       "phase3FoundationsPrimitivesDebt": 0
     },
+    "phase4ComponentCascadeCheckpoint": {
+      "status": "PASS",
+      "expectedComponents": 60,
+      "currentComponentGateReports": 11,
+      "passingCurrentComponentGateReports": 11,
+      "reactPrimaryComponents": 60,
+      "reactPrimaryPass": 60,
+      "legacyMatrixComponents": 56,
+      "legacyMatrixMissingComponents": 4,
+      "legacyMatrixMissingCoveredByCurrentGates": 4,
+      "componentCascadeAuditDebt": 0
+    },
     "forensicGates": {
       "status": "fail",
       "passing": [
@@ -225,7 +237,7 @@
       "name": "Components",
       "initialRange": "20-24",
       "correctedRange": "29-40",
-      "status": "not_started",
+      "status": "in_progress",
       "objective": "Audit and type 60 components as consumable Flow components.",
       "doneWhen": [
         "60 component 1:1 audit complete",
@@ -235,8 +247,17 @@
         "Domain/complex components fixed",
         "Visual/dark/density/responsive/keyboard/types QA passes"
       ],
+      "completed": [
+        "Component cascade checkpoint PASS",
+        "Current 60-component gates passing: 11/11",
+        "React primary coverage PASS: 60/60",
+        "Legacy 56-component matrix gaps listed and reconciled by current gates"
+      ],
       "remaining": [
-        "Start only after Style Dictionary and TS foundations are enforceable."
+        "Core controls/forms fixes batch.",
+        "Overlays/navigation/data fixes batch.",
+        "Domain/complex components fixes batch.",
+        "Component QA checkpoint."
       ]
     },
     {
@@ -323,8 +344,8 @@
   ],
   "nextCorrectStep": {
     "iteration": 20,
-    "status": "phase_start",
+    "status": "phase_in_progress",
     "phase": "4. Components",
-    "then": "Begin component cascade audit 1:1 and component fixes on top of the governed lower layers."
+    "then": "Continue with component fixes batch 1: core controls/forms."
   }
 }
