@@ -4396,12 +4396,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 140,
-    categoryMappings: 131,
+    reports: 144,
+    categoryMappings: 135,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 140,
-    debtMetrics: 173,
+    reportsWithDebtMetrics: 144,
+    debtMetrics: 177,
     categories: 9,
     categoryMinimums: 9,
     categoryPrinciples: 9,

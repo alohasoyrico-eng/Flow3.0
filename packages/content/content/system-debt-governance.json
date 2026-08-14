@@ -5,18 +5,14 @@
     "foundation-dependency-matrix.json",
     "system-baseline-master.json",
     "system-forensic-gates.json",
-    "system-generated-token-output-governance.json",
     "system-master-remediation-plan.json",
     "system-p0-forensic-detail.json",
     "system-p0-owner-decision-matrix.json",
     "system-p0-primitive-runtime-matrix.json",
     "system-p0-remediation-sequence.json",
     "system-p0-token-foundation-classification.json",
-    "system-p0-token-source-gates.json",
     "system-raw-token-value-decision-matrix.json",
-    "system-raw-token-value-governance.json",
     "system-remediation-matrix.json",
-    "system-token-output-gates.json",
     "system-typescript-public-surface.json",
     "trustworthy-salvage-matrix.json",
     "docs-documentation-component-contracts-bootstrap.json",
@@ -189,6 +185,10 @@
     "zip-kit-runtime-coverage-audit.json": "patterns",
     "zip-owner-export-matrix-audit.json": "patterns",
     "zip-system-intake-audit.json": "anti-duplication",
-    "zip-template-parity-audit.json": "anti-duplication"
+    "zip-template-parity-audit.json": "anti-duplication",
+    "system-generated-token-output-governance.json": "foundations-primitives",
+    "system-p0-token-source-gates.json": "foundations-primitives",
+    "system-raw-token-value-governance.json": "foundations-primitives",
+    "system-token-output-gates.json": "foundations-primitives"
   }
 }

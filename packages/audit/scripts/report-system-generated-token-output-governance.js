@@ -47,7 +47,7 @@ function mergedSourceSnapshot() {
 function gate(id, passed, evidence, failMessage) {
   return {
     id,
-    status: passed ? "PASS" : "FAIL",
+    status: passed ? "pass" : "fail",
     evidence,
     failMessage: passed ? null : failMessage,
   };
@@ -95,7 +95,8 @@ function main() {
       "One or more generated token outputs differ from the build manifest.",
     ),
   ];
-  const status = gates.every((item) => item.status === "PASS") ? "PASS" : "FAIL";
+  const status = gates.every((item) => item.status === "pass") ? "pass" : "fail";
+  const generatedTokenOutputGovernanceDebt = gates.filter((item) => item.status !== "pass").length;
   const report = {
     generatedAt: new Date().toISOString(),
     scope: "Generated token output edit governance",
@@ -105,6 +106,9 @@ function main() {
       outputs: outputRows.length,
       matchingOutputs: outputRows.filter((row) => row.matchesManifest).length,
       tokenCount: source.tokenCount,
+    },
+    inventory: {
+      generatedTokenOutputGovernanceDebt,
     },
     gates,
     outputs: outputRows,
@@ -117,7 +121,7 @@ function main() {
 
   if (CHECK) {
     console.log(JSON.stringify(consoleSummary, null, 2));
-    if (status !== "PASS") process.exitCode = 1;
+    if (status !== "pass") process.exitCode = 1;
     return;
   }
 
@@ -141,13 +145,13 @@ function main() {
     "",
     "| File | Status |",
     "| --- | --- |",
-    ...outputRows.map((row) => `| \`${row.file}\` | ${row.matchesManifest ? "PASS" : "FAIL"} |`),
+    ...outputRows.map((row) => `| \`${row.file}\` | ${row.matchesManifest ? "pass" : "fail"} |`),
     "",
   ];
   fs.writeFileSync(OUT_MD, `${lines.join("\n")}\n`);
 
   console.log(JSON.stringify(consoleSummary, null, 2));
-  if (status !== "PASS") process.exitCode = 1;
+  if (status !== "pass") process.exitCode = 1;
 }
 
 main();

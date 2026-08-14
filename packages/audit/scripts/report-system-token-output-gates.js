@@ -59,7 +59,7 @@ function read(file) {
 function gate(id, passed, evidence, failMessage) {
   return {
     id,
-    status: passed ? "PASS" : "FAIL",
+    status: passed ? "pass" : "fail",
     evidence,
     failMessage: passed ? null : failMessage,
   };
@@ -93,23 +93,27 @@ function main() {
       `${row.id} output is missing or does not match the JSON contract token count.`,
     )),
   ];
-  const status = gates.every((item) => item.status === "PASS") ? "PASS" : "FAIL";
+  const status = gates.every((item) => item.status === "pass") ? "pass" : "fail";
+  const tokenOutputGateDebt = gates.filter((item) => item.status !== "pass").length;
   const report = {
     generatedAt: new Date().toISOString(),
     scope: "Style Dictionary multiplatform output gates",
     status,
     tokenCount,
+    inventory: {
+      tokenOutputGateDebt,
+    },
     outputs: outputRows,
     gates,
   };
   const consoleSummary = {
     status,
     tokenCount,
-    outputs: outputRows.map((row) => [row.id, row.tokenCount, row.matchesContract ? "PASS" : "FAIL"]),
+    outputs: outputRows.map((row) => [row.id, row.tokenCount, row.matchesContract ? "pass" : "fail"]),
   };
   if (CHECK) {
     console.log(JSON.stringify(consoleSummary, null, 2));
-    if (status !== "PASS") process.exitCode = 1;
+    if (status !== "pass") process.exitCode = 1;
     return;
   }
 
@@ -125,12 +129,12 @@ function main() {
     "",
     "| Output | Status | Tokens | File |",
     "| --- | --- | ---: | --- |",
-    ...outputRows.map((row) => `| ${row.id} | ${row.matchesContract ? "PASS" : "FAIL"} | ${row.tokenCount} | \`${row.file}\` |`),
+    ...outputRows.map((row) => `| ${row.id} | ${row.matchesContract ? "pass" : "fail"} | ${row.tokenCount} | \`${row.file}\` |`),
     "",
   ];
   fs.writeFileSync(OUT_MD, `${lines.join("\n")}\n`);
   console.log(JSON.stringify(consoleSummary, null, 2));
-  if (status !== "PASS") process.exitCode = 1;
+  if (status !== "pass") process.exitCode = 1;
 }
 
 main();

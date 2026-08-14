@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 140,
-    "categoryMappings": 131,
+    "reports": 144,
+    "categoryMappings": 135,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 140,
-    "debtMetrics": 173,
+    "reportsWithDebtMetrics": 144,
+    "debtMetrics": 177,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -76,10 +76,10 @@
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
-      "reports": 31,
+      "reports": 35,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 33,
+      "debtMetrics": 37,
       "totalDebt": 0
     },
     {
@@ -1404,6 +1404,34 @@
       ]
     },
     {
+      "file": "system-generated-token-output-governance.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-generated-token-output-governance.json",
+          "scope": "inventory",
+          "metric": "generatedTokenOutputGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-p0-token-source-gates.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-p0-token-source-gates.json",
+          "scope": "inventory",
+          "metric": "p0TokenSourceGateDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-pattern-artifact-tests.json",
       "category": "patterns",
       "status": "pass",
@@ -1741,6 +1769,20 @@
           "report": "system-public-runtime-boundary.json",
           "scope": "inventory",
           "metric": "publicRuntimeBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-raw-token-value-governance.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-raw-token-value-governance.json",
+          "scope": "inventory",
+          "metric": "rawTokenValueGovernanceDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -2126,6 +2168,20 @@
           "report": "system-test-ownership.json",
           "scope": "inventory",
           "metric": "testOwnershipDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-token-output-gates.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-token-output-gates.json",
+          "scope": "inventory",
+          "metric": "tokenOutputGateDebt",
           "value": 0,
           "numericValue": 0
         }

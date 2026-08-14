@@ -39,7 +39,7 @@ function foundationForTokenName(name, foundations) {
 function gate(id, passed, evidence, failMessage) {
   return {
     id,
-    status: passed ? "PASS" : "FAIL",
+    status: passed ? "pass" : "fail",
     evidence,
     failMessage: passed ? null : failMessage,
   };
@@ -210,7 +210,8 @@ function writeReport() {
       "Token source manifest is stale or missing; run token ownership resolution and rebuild tokens.",
     ),
   ];
-  const status = gates.every((item) => item.status === "PASS") ? "PASS" : "FAIL";
+  const status = gates.every((item) => item.status === "pass") ? "pass" : "fail";
+  const p0TokenSourceGateDebt = gates.filter((item) => item.status !== "pass").length;
   const data = {
     generatedAt: new Date().toISOString(),
     scope: "P0.1 token source gates",
@@ -225,13 +226,16 @@ function writeReport() {
       primitiveSourceFiles: primitiveSourceFiles.length,
       docsSourceFiles: docsSourceFiles.length,
     },
+    inventory: {
+      p0TokenSourceGateDebt,
+    },
     gates,
   };
 
   const consoleSummary = { status, totals: data.totals, gates: gates.map((item) => [item.id, item.status]) };
   if (CHECK) {
     console.log(JSON.stringify(consoleSummary, null, 2));
-    if (status !== "PASS") process.exitCode = 1;
+    if (status !== "pass") process.exitCode = 1;
     return;
   }
 
@@ -265,7 +269,7 @@ function writeReport() {
   ];
   fs.writeFileSync(OUT_MD, `${lines.join("\n")}\n`);
   console.log(JSON.stringify(consoleSummary, null, 2));
-  if (status !== "PASS") process.exitCode = 1;
+  if (status !== "pass") process.exitCode = 1;
 }
 
 writeReport();

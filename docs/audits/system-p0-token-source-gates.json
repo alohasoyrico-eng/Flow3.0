@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T15:42:15.941Z",
+  "generatedAt": "2026-08-14T23:44:47.817Z",
   "scope": "P0.1 token source gates",
-  "status": "PASS",
+  "status": "pass",
   "totals": {
     "sourceFiles": 36,
     "sourceTokens": 1139,
@@ -12,10 +12,13 @@
     "primitiveSourceFiles": 19,
     "docsSourceFiles": 1
   },
+  "inventory": {
+    "p0TokenSourceGateDebt": 0
+  },
   "gates": [
     {
       "id": "style-dictionary-output-count-matches-source",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "sourceTokenCount": 1139,
         "outputTokenCount": 1139
@@ -24,7 +27,7 @@
     },
     {
       "id": "legacy-flat-source-removed",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "file": "packages/tokens/source/flow.tokens.json",
         "present": false
@@ -33,7 +36,7 @@
     },
     {
       "id": "foundation-files-complete",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "missingFoundationFiles": [],
         "emptyFoundationFiles": []
@@ -42,7 +45,7 @@
     },
     {
       "id": "no-duplicate-token-names",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "duplicates": []
       },
@@ -50,7 +53,7 @@
     },
     {
       "id": "foundation-namespaces-contained",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "misplacedFoundationTokens": []
       },
@@ -58,7 +61,7 @@
     },
     {
       "id": "decision-queues-empty",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "decisionQueueFiles": [
           "packages/tokens/source/decision-queues/aliases-to-foundations.tokens.json",
@@ -73,7 +76,7 @@
     },
     {
       "id": "primitive-source-files-present",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "primitiveSourceFiles": [
           "packages/tokens/source/primitives/breakpoints.tokens.json",
@@ -101,7 +104,7 @@
     },
     {
       "id": "source-manifest-current",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "manifestCounts": {
           "sourcePath": "packages/tokens/source/**/*.tokens.json",

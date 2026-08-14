@@ -1,129 +1,132 @@
 {
-  "generatedAt": "2026-08-13T13:30:40.814Z",
+  "generatedAt": "2026-08-14T23:44:47.883Z",
   "scope": "Style Dictionary multiplatform output gates",
-  "status": "PASS",
-  "tokenCount": 1131,
+  "status": "pass",
+  "tokenCount": 1139,
+  "inventory": {
+    "tokenOutputGateDebt": 0
+  },
   "outputs": [
     {
       "id": "css",
       "file": "packages/tokens/styles/tokens.css",
       "exists": true,
-      "tokenCount": 1131,
+      "tokenCount": 1139,
       "matchesContract": true
     },
     {
       "id": "json",
       "file": "packages/tokens/tokens.json",
       "exists": true,
-      "tokenCount": 1131,
+      "tokenCount": 1139,
       "matchesContract": true
     },
     {
       "id": "typescript",
       "file": "packages/tokens/src/generated/tokens.ts",
       "exists": true,
-      "tokenCount": 1131,
+      "tokenCount": 1139,
       "matchesContract": true
     },
     {
       "id": "flutter-dart",
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",
       "exists": true,
-      "tokenCount": 1131,
+      "tokenCount": 1139,
       "matchesContract": true
     },
     {
       "id": "android-xml",
       "file": "packages/tokens/dist/android/flow_tokens.xml",
       "exists": true,
-      "tokenCount": 1131,
+      "tokenCount": 1139,
       "matchesContract": true
     },
     {
       "id": "ios-swift",
       "file": "packages/tokens/dist/ios/FlowTokens.swift",
       "exists": true,
-      "tokenCount": 1131,
+      "tokenCount": 1139,
       "matchesContract": true
     }
   ],
   "gates": [
     {
       "id": "contract-has-tokens",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
-        "tokenCount": 1131
+        "tokenCount": 1139
       },
       "failMessage": null
     },
     {
       "id": "css-output-matches-contract",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "id": "css",
         "file": "packages/tokens/styles/tokens.css",
         "exists": true,
-        "tokenCount": 1131,
+        "tokenCount": 1139,
         "matchesContract": true
       },
       "failMessage": null
     },
     {
       "id": "json-output-matches-contract",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "id": "json",
         "file": "packages/tokens/tokens.json",
         "exists": true,
-        "tokenCount": 1131,
+        "tokenCount": 1139,
         "matchesContract": true
       },
       "failMessage": null
     },
     {
       "id": "typescript-output-matches-contract",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "id": "typescript",
         "file": "packages/tokens/src/generated/tokens.ts",
         "exists": true,
-        "tokenCount": 1131,
+        "tokenCount": 1139,
         "matchesContract": true
       },
       "failMessage": null
     },
     {
       "id": "flutter-dart-output-matches-contract",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "id": "flutter-dart",
         "file": "packages/tokens/dist/flutter/flow_tokens.dart",
         "exists": true,
-        "tokenCount": 1131,
+        "tokenCount": 1139,
         "matchesContract": true
       },
       "failMessage": null
     },
     {
       "id": "android-xml-output-matches-contract",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "id": "android-xml",
         "file": "packages/tokens/dist/android/flow_tokens.xml",
         "exists": true,
-        "tokenCount": 1131,
+        "tokenCount": 1139,
         "matchesContract": true
       },
       "failMessage": null
     },
     {
       "id": "ios-swift-output-matches-contract",
-      "status": "PASS",
+      "status": "pass",
       "evidence": {
         "id": "ios-swift",
         "file": "packages/tokens/dist/ios/FlowTokens.swift",
         "exists": true,
-        "tokenCount": 1131,
+        "tokenCount": 1139,
         "matchesContract": true
       },
       "failMessage": null

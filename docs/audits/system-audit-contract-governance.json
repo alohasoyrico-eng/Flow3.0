@@ -5,8 +5,8 @@
   "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
   "inventory": {
     "trackedJsonReports": 163,
-    "gateReports": 141,
-    "contractArtifacts": 22,
+    "gateReports": 145,
+    "contractArtifacts": 18,
     "markdownReports": 155,
     "orphanMarkdownReports": 0,
     "dirtyDocsAuditEntries": 0,
@@ -1240,11 +1240,11 @@
       "debtMetrics": [
         {
           "key": "reportsWithDebtMetrics",
-          "value": 140
+          "value": 144
         },
         {
           "key": "debtMetrics",
-          "value": 173
+          "value": 177
         },
         {
           "key": "categoryMinimumDebt",
@@ -1291,10 +1291,15 @@
     },
     {
       "file": "docs/audits/system-generated-token-output-governance.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "PASS",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "generatedTokenOutputGovernanceDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -1347,10 +1352,15 @@
     },
     {
       "file": "docs/audits/system-p0-token-source-gates.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "PASS",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "p0TokenSourceGateDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -1654,10 +1664,15 @@
     },
     {
       "file": "docs/audits/system-raw-token-value-governance.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "PASS",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "rawTokenValueGovernanceDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -2015,10 +2030,15 @@
     },
     {
       "file": "docs/audits/system-token-output-gates.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "PASS",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "tokenOutputGateDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {

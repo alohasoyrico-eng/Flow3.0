@@ -152,7 +152,7 @@ function summarize(violations) {
 function main() {
   const { files, violations } = collectViolations();
   const summary = summarize(violations);
-  const status = violations.length === 0 ? "PASS" : "FAIL";
+  const status = violations.length === 0 ? "pass" : "fail";
   const report = {
     generatedAt: new Date().toISOString(),
     scope: "Raw token value governance for public Flow source",
@@ -163,6 +163,9 @@ function main() {
       files: files.length,
       violations: violations.length,
       rules: RULES.length,
+    },
+    inventory: {
+      rawTokenValueGovernanceDebt: violations.length,
     },
     rules: RULES.map(({ id, severity, reason }) => ({ id, severity, reason })),
     summary,
@@ -177,7 +180,7 @@ function main() {
       byRule: summary.byRule,
       topFiles,
     }, null, 2));
-    if (status !== "PASS") process.exitCode = 1;
+    if (status !== "pass") process.exitCode = 1;
     return;
   }
 
@@ -226,7 +229,7 @@ function main() {
     byRule: summary.byRule,
     topFiles,
   }, null, 2));
-  if (status !== "PASS") process.exitCode = 1;
+  if (status !== "pass") process.exitCode = 1;
 }
 
 main();

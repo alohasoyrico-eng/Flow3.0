@@ -1,12 +1,12 @@
 # Raw Token Value Governance
 
-Status: **PASS**
+Status: **pass**
 
 This report detects raw visual values in public Flow source. Token source files and generated token outputs are intentionally excluded.
 
 ## Totals
 
-- Scanned files: 584
+- Scanned files: 645
 - Violations: 0
 - Rules: 8
 
