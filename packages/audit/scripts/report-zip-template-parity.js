@@ -263,8 +263,10 @@ if (checkMode && fs.existsSync(jsonOutput)) {
     throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-zip-template-parity.js.`);
   }
 }
-fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(markdownOutput, markdown(report));
+if (!checkMode) {
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, markdown(report));
+}
 
 if (report.status !== "pass") {
   throw new Error(`ZIP template parity failed with ${report.issues.length} issue(s).`);

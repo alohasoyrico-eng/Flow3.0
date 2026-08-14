@@ -289,8 +289,10 @@ if (checkMode && fs.existsSync(jsonOutput)) {
     throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-zip-flow-gap-audit.js.`);
   }
 }
-fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(markdownOutput, markdown(report));
+if (!checkMode) {
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, markdown(report));
+}
 
 console.log(JSON.stringify({
   status: report.status,

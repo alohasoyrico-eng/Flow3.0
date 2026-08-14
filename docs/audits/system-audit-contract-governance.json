@@ -1,0 +1,3148 @@
+{
+  "schemaVersion": "system-audit-contract-governance@1",
+  "status": "pass",
+  "audit": "system audit contract governance",
+  "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
+  "inventory": {
+    "trackedJsonReports": 163,
+    "gateReports": 141,
+    "contractArtifacts": 22,
+    "markdownReports": 155,
+    "orphanMarkdownReports": 0,
+    "dirtyDocsAuditEntries": 0,
+    "reportsMissingCategory": 0,
+    "reportsMissingStatus": 0,
+    "reportsMissingDebtMetric": 0,
+    "auditContractGovernanceDebt": 0
+  },
+  "jsonReports": [
+    {
+      "file": "docs/audits/anti-duplication-coverage.json",
+      "kind": "gate-report",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "antiDuplicationDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-1to1-quality-matrix.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "qualityDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-css-contract-coverage.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "cssContractDebt",
+          "value": 0
+        },
+        {
+          "key": "cssContractDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-visual-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "visualCascadeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-component-demo-ownership.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsDemoOwnershipDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-documentation-component-contracts-bootstrap.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-documentation-pattern-contracts-bootstrap.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-documentation-section-runtime-bootstrap.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "runtime-preview",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-shell-template-runtime-bootstrap.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-system-boundary-audit.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsSystemBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-template-contract-bootstrap.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/email-channel-governance-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "emailChannelDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/email-channel-renderer-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "emailRendererDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/energy-quality-contract.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/family-css-contract-maturity.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "familyCssMaturityDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-p0-shell-cleanup-evidence.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "flowDocsP0ShellCleanupDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-accessibility-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-dependency-matrix.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-depth-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-energy-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-frame-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "frameCascadeDebt",
+          "value": 0
+        },
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-growth-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-iconography-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-momentum-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-primitive-export-contract-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "foundationPrimitiveExportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-state-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-symbol-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-tone-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-voice-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/legacy-dom-source-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "legacyDomSourceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/package-css-root-governance-audit.json",
+      "kind": "gate-report",
+      "category": "cascade",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "packageCssRootDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-1to1-architecture-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "patternArchitectureDebt",
+          "value": 0
+        },
+        {
+          "key": "patternArchitectureBlockingDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-contract-governance-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "patternContractGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-foundation-primitive-1to1-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "debt",
+          "value": 0
+        },
+        {
+          "key": "patternsWithStructuralSurfaceDebt",
+          "value": 0
+        },
+        {
+          "key": "implementedReactPatternsWithArchitectureDebt",
+          "value": 0
+        },
+        {
+          "key": "foundationPrimitiveBlockingDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-react-migration-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactBehaviorDebt",
+          "value": 0
+        },
+        {
+          "key": "migrationAuditDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-react-migration-plan.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactBehaviorDebt",
+          "value": 0
+        },
+        {
+          "key": "migrationAuditDebt",
+          "value": 0
+        },
+        {
+          "key": "docsReactPatternDemoCoverageDebt",
+          "value": 0
+        },
+        {
+          "key": "migrationPlanValidationDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-readiness-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "patternReadinessDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-animation-assets-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-breakpoints-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-cascade-activation-plan.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "primitiveCascadeActivationPlanDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-cascade-governance-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "primitiveCascadeGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-charts-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-color-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-country-flags-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-density-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-disabled-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-duration-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-elevation-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-field-action-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-focus-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-iconography-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-illustration-assets-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-library-sources-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-loading-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-maps-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-measurement-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-message-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-motion-curves-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-radius-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-research-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-spacing-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-surface-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "surfaceCascadeDebt",
+          "value": 0
+        },
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-typography-cascade-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-accessibility-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "accessibilityDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-class-ownership-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "classOwnershipDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-composition-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "compositionDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-contract-prop-alignment-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "propAlignmentDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-controlled-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "controlledDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-default-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "defaultDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-interaction-coverage-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "interactionDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-pattern-behavior-governance-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "patternsWithBehaviorDebt",
+          "value": 0
+        },
+        {
+          "key": "reactPatternBehaviorDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-pattern-composition-governance-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactPatternCompositionDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-primary-coverage-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "primaryImplementationDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-style-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "styleEscapeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-composition-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactTemplateCompositionGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-interaction-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactTemplateInteractionGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-runtime-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactTemplateRuntimeGovernanceDebt",
+          "value": 0
+        },
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-visual-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactTemplateVisualGovernanceDebt",
+          "value": 0
+        },
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/shell-pattern-contract-governance-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "shellPatternContractDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-audit-contract-governance.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "auditContractGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-baseline-master.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-artifact-tests.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentArtifactTestDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-contract-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentContractTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-index-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentIndexTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-platform-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentPlatformTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-primitive-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentPrimitiveTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-registry-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentRegistryTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-runtime-audit.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentRuntimeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-boundary-checkpoint.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "sourceTruthDebt",
+          "value": 0
+        },
+        {
+          "key": "consumerBoundaryCheckpointDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-css-token-cascade.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "consumerCssTokenCascadeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-runtime-smoke.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "consumerRuntimeSmokeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-type-smoke.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "consumerTypeSmokeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-debt-ledger.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reportsWithDebtMetrics",
+          "value": 140
+        },
+        {
+          "key": "debtMetrics",
+          "value": 173
+        },
+        {
+          "key": "categoryMinimumDebt",
+          "value": 0
+        },
+        {
+          "key": "statusDebt",
+          "value": 0
+        },
+        {
+          "key": "categoriesWithDebt",
+          "value": 0
+        },
+        {
+          "key": "nonNumericDebtMetrics",
+          "value": 0
+        },
+        {
+          "key": "totalDebt",
+          "value": 0
+        },
+        {
+          "key": "categoryDebt",
+          "value": 0
+        },
+        {
+          "key": "categoryCoverageDebt",
+          "value": 0
+        },
+        {
+          "key": "systemDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-forensic-gates.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "fail",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-generated-token-output-governance.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "PASS",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-master-remediation-plan.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-forensic-detail.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "forensic_detail_only",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-owner-decision-matrix.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "owner_decision_required",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-primitive-runtime-matrix.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-remediation-sequence.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "sequence_only",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-token-foundation-classification.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": null,
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-token-source-gates.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "PASS",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-pattern-artifact-tests.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "behaviorDebt",
+          "value": 0
+        },
+        {
+          "key": "compositionDebt",
+          "value": 0
+        },
+        {
+          "key": "patternArtifactTestDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-pattern-runtime-audit.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "patternRuntimeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase1-style-dictionary-checkpoint.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "phase1Debt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase3-foundations-primitives-checkpoint.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "foundationPrimitiveExportDebt",
+          "value": 0
+        },
+        {
+          "key": "phase3FoundationsPrimitivesDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-component-cascade-checkpoint.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentCascadeAuditDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-component-qa-checkpoint.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentQaDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-core-controls-checkpoint.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "coreControlsFormsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-domain-complex-checkpoint.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "domainComplexDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-overlays-navigation-data-checkpoint.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "overlaysNavigationDataDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-data-domain-mobile-patterns-checkpoint.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reportDebt",
+          "value": 0
+        },
+        {
+          "key": "dataDomainMobilePatternDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-interaction-patterns-checkpoint.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reportDebt",
+          "value": 0
+        },
+        {
+          "key": "interactionPatternDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-pattern-1to1-checkpoint.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "patternAuditDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-pattern-governance-checkpoint.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "checkpointDebt",
+          "value": 0
+        },
+        {
+          "key": "globalDebt",
+          "value": 0
+        },
+        {
+          "key": "patternGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-public-runtime-readiness.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "phase5PublicRuntimeReadinessDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-shell-patterns-checkpoint.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "shellPatternDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase6-flowdocs-consumer-checkpoint.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "sourceReportDebt",
+          "value": 0
+        },
+        {
+          "key": "phase6FlowDocsConsumerDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase6-template-audit-fixes-checkpoint.json",
+      "kind": "gate-report",
+      "category": "templates",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reportDebt",
+          "value": 0
+        },
+        {
+          "key": "templateAuditFixesDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase6-template-qa-checkpoint.json",
+      "kind": "gate-report",
+      "category": "templates",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reportDebt",
+          "value": 0
+        },
+        {
+          "key": "templateQaDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-public-runtime-boundary.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "layerRuntimeDebt",
+          "value": 0
+        },
+        {
+          "key": "publicRuntimeBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-raw-token-value-decision-matrix.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "PASS",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-raw-token-value-governance.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "PASS",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-affordance-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactAffordanceTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-base-components-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactBaseComponentTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-build-reproducibility.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactBuildReproducibilityDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-chat-components-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactChatComponentsTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-data-selection-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactDataSelectionTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-date-inputs-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactDateInputsTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-export-parity.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "exportParityDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-feedback-components-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactFeedbackComponentsTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-form-controls-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactFormControlComponentTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-input-localization-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactInputLocalizationTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-internal-props-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactInternalPropsTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-leaf-components-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactLeafComponentTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-motion-event-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactMotionEventTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-navigation-controls-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactNavigationControlTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-navigation-structure-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactNavigationStructureTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-overlay-components-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactOverlayComponentTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-payment-inputs-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactPaymentInputsTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-publication-boundary.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "publicationBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-root-index-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactRootIndexTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-section-indexes-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactSectionIndexTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-source-of-truth.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "sourceTruthDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-summary-action-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactSummaryActionTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-remediation-matrix.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "planning_only",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-template-artifact-tests.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "compositionDebt",
+          "value": 0
+        },
+        {
+          "key": "interactionDebt",
+          "value": 0
+        },
+        {
+          "key": "runtimeDebt",
+          "value": 0
+        },
+        {
+          "key": "visualDebt",
+          "value": 0
+        },
+        {
+          "key": "templateArtifactTestDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-template-runtime-audit.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "templateRuntimeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-test-ownership.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "artifactTestDebt",
+          "value": 0
+        },
+        {
+          "key": "testOwnershipDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-token-output-gates.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "PASS",
+      "debtMetrics": [],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-token-ownership-matrix.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "ownershipDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-token-typescript-surface.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "tokenTypescriptSurfaceDebt",
+          "value": 0
+        },
+        {
+          "key": "tokenTypescriptSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-typescript-project-setup.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "typescriptProjectSetupDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-typescript-public-surface.json",
+      "kind": "contract-artifact",
+      "category": null,
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "typescriptPublicSurfaceDebt",
+          "value": 0
+        },
+        {
+          "key": "uniqueTypescriptPublicSurfaceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/taxonomy-boundaries-audit.json",
+      "kind": "gate-report",
+      "category": "taxonomy",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "taxonomyBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/template-cascade-governance-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "templateCascadeGovernanceDebt",
+          "value": 0
+        },
+        {
+          "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-flow-gap-audit.json",
+      "kind": "gate-report",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "auditDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-foundation-primitive-validation-audit.json",
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "zipFoundationPrimitiveValidationDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-kit-cascade-matrix-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "layerCoverageDebt",
+          "value": 0
+        },
+        {
+          "key": "signalMappingDebt",
+          "value": 0
+        },
+        {
+          "key": "zipKitCascadeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-kit-runtime-coverage-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "runtimeCoverageDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-owner-export-matrix-audit.json",
+      "kind": "gate-report",
+      "category": "patterns",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "zipOwnerExportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-system-intake-audit.json",
+      "kind": "gate-report",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "intakeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-template-parity-audit.json",
+      "kind": "gate-report",
+      "category": "anti-duplication",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "parityGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "markdownReports": [
+    {
+      "file": "docs/audits/anti-duplication-coverage.md",
+      "jsonPair": "docs/audits/anti-duplication-coverage.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-css-contract-coverage.md",
+      "jsonPair": "docs/audits/component-css-contract-coverage.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-visual-cascade-audit.md",
+      "jsonPair": "docs/audits/component-visual-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-component-demo-ownership.md",
+      "jsonPair": "docs/audits/docs-component-demo-ownership.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/docs-system-boundary-audit.md",
+      "jsonPair": "docs/audits/docs-system-boundary-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/email-channel-governance-audit.md",
+      "jsonPair": "docs/audits/email-channel-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/email-channel-renderer-audit.md",
+      "jsonPair": "docs/audits/email-channel-renderer-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/family-css-contract-maturity.md",
+      "jsonPair": "docs/audits/family-css-contract-maturity.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-p0-shell-cleanup-evidence.md",
+      "jsonPair": "docs/audits/flowdocs-p0-shell-cleanup-evidence.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-accessibility-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-accessibility-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-depth-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-depth-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-energy-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-energy-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-frame-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-frame-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-growth-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-growth-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-iconography-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-iconography-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-momentum-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-momentum-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-primitive-export-contract-audit.md",
+      "jsonPair": "docs/audits/foundation-primitive-export-contract-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-state-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-state-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-symbol-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-symbol-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-tone-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-tone-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/foundation-voice-cascade-audit.md",
+      "jsonPair": "docs/audits/foundation-voice-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/legacy-dom-source-governance-audit.md",
+      "jsonPair": "docs/audits/legacy-dom-source-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/package-css-root-governance-audit.md",
+      "jsonPair": "docs/audits/package-css-root-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-1to1-architecture-audit.md",
+      "jsonPair": "docs/audits/pattern-1to1-architecture-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-contract-governance-audit.md",
+      "jsonPair": "docs/audits/pattern-contract-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-foundation-primitive-1to1-audit.md",
+      "jsonPair": "docs/audits/pattern-foundation-primitive-1to1-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-react-migration-audit.md",
+      "jsonPair": "docs/audits/pattern-react-migration-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-react-migration-plan.md",
+      "jsonPair": "docs/audits/pattern-react-migration-plan.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/pattern-readiness-audit.md",
+      "jsonPair": "docs/audits/pattern-readiness-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-animation-assets-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-animation-assets-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-breakpoints-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-breakpoints-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-cascade-activation-plan.md",
+      "jsonPair": "docs/audits/primitive-cascade-activation-plan.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-cascade-governance-audit.md",
+      "jsonPair": "docs/audits/primitive-cascade-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-charts-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-charts-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-color-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-color-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-country-flags-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-country-flags-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-density-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-density-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-disabled-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-disabled-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-duration-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-duration-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-elevation-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-elevation-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-field-action-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-field-action-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-focus-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-focus-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-iconography-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-iconography-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-illustration-assets-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-illustration-assets-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-library-sources-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-library-sources-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-loading-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-loading-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-maps-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-maps-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-measurement-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-measurement-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-message-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-message-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-motion-curves-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-motion-curves-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-radius-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-radius-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-research-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-research-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-spacing-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-spacing-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-surface-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-surface-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/primitive-typography-cascade-audit.md",
+      "jsonPair": "docs/audits/primitive-typography-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-accessibility-governance-audit.md",
+      "jsonPair": "docs/audits/react-accessibility-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-class-ownership-audit.md",
+      "jsonPair": "docs/audits/react-class-ownership-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-composition-governance-audit.md",
+      "jsonPair": "docs/audits/react-composition-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-contract-prop-alignment-audit.md",
+      "jsonPair": "docs/audits/react-contract-prop-alignment-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-controlled-governance-audit.md",
+      "jsonPair": "docs/audits/react-controlled-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-default-governance-audit.md",
+      "jsonPair": "docs/audits/react-default-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-interaction-coverage-audit.md",
+      "jsonPair": "docs/audits/react-interaction-coverage-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-pattern-behavior-governance-audit.md",
+      "jsonPair": "docs/audits/react-pattern-behavior-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-pattern-composition-governance-audit.md",
+      "jsonPair": "docs/audits/react-pattern-composition-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-primary-coverage-audit.md",
+      "jsonPair": "docs/audits/react-primary-coverage-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-style-governance-audit.md",
+      "jsonPair": "docs/audits/react-style-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-composition-governance-audit.md",
+      "jsonPair": "docs/audits/react-template-composition-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-interaction-governance-audit.md",
+      "jsonPair": "docs/audits/react-template-interaction-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-runtime-governance-audit.md",
+      "jsonPair": "docs/audits/react-template-runtime-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-template-visual-governance-audit.md",
+      "jsonPair": "docs/audits/react-template-visual-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/shell-pattern-contract-governance-audit.md",
+      "jsonPair": "docs/audits/shell-pattern-contract-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-audit-contract-governance.md",
+      "jsonPair": "docs/audits/system-audit-contract-governance.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-baseline-master.md",
+      "jsonPair": "docs/audits/system-baseline-master.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-artifact-tests.md",
+      "jsonPair": "docs/audits/system-component-artifact-tests.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-contract-typescript-surface.md",
+      "jsonPair": "docs/audits/system-component-contract-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-index-typescript-surface.md",
+      "jsonPair": "docs/audits/system-component-index-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-platform-typescript-surface.md",
+      "jsonPair": "docs/audits/system-component-platform-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-primitive-typescript-surface.md",
+      "jsonPair": "docs/audits/system-component-primitive-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-registry-typescript-surface.md",
+      "jsonPair": "docs/audits/system-component-registry-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-component-runtime-audit.md",
+      "jsonPair": "docs/audits/system-component-runtime-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-boundary-checkpoint.md",
+      "jsonPair": "docs/audits/system-consumer-boundary-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-css-token-cascade.md",
+      "jsonPair": "docs/audits/system-consumer-css-token-cascade.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-runtime-smoke.md",
+      "jsonPair": "docs/audits/system-consumer-runtime-smoke.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-consumer-type-smoke.md",
+      "jsonPair": "docs/audits/system-consumer-type-smoke.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-debt-ledger.md",
+      "jsonPair": "docs/audits/system-debt-ledger.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-forensic-gates.md",
+      "jsonPair": "docs/audits/system-forensic-gates.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-generated-token-output-governance.md",
+      "jsonPair": "docs/audits/system-generated-token-output-governance.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-master-remediation-plan.md",
+      "jsonPair": "docs/audits/system-master-remediation-plan.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-forensic-detail.md",
+      "jsonPair": "docs/audits/system-p0-forensic-detail.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-owner-decision-matrix.md",
+      "jsonPair": "docs/audits/system-p0-owner-decision-matrix.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-primitive-runtime-matrix.md",
+      "jsonPair": "docs/audits/system-p0-primitive-runtime-matrix.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-remediation-sequence.md",
+      "jsonPair": "docs/audits/system-p0-remediation-sequence.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-token-foundation-classification.md",
+      "jsonPair": "docs/audits/system-p0-token-foundation-classification.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-p0-token-source-gates.md",
+      "jsonPair": "docs/audits/system-p0-token-source-gates.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-pattern-artifact-tests.md",
+      "jsonPair": "docs/audits/system-pattern-artifact-tests.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-pattern-runtime-audit.md",
+      "jsonPair": "docs/audits/system-pattern-runtime-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase1-style-dictionary-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase1-style-dictionary-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase3-foundations-primitives-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase3-foundations-primitives-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-component-cascade-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase4-component-cascade-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-component-qa-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase4-component-qa-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-core-controls-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase4-core-controls-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-domain-complex-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase4-domain-complex-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase4-overlays-navigation-data-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase4-overlays-navigation-data-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-data-domain-mobile-patterns-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase5-data-domain-mobile-patterns-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-interaction-patterns-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase5-interaction-patterns-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-pattern-1to1-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase5-pattern-1to1-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-pattern-governance-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase5-pattern-governance-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-public-runtime-readiness.md",
+      "jsonPair": "docs/audits/system-phase5-public-runtime-readiness.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase5-shell-patterns-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase5-shell-patterns-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase6-flowdocs-consumer-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase6-flowdocs-consumer-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase6-template-audit-fixes-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase6-template-audit-fixes-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-phase6-template-qa-checkpoint.md",
+      "jsonPair": "docs/audits/system-phase6-template-qa-checkpoint.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-public-runtime-boundary.md",
+      "jsonPair": "docs/audits/system-public-runtime-boundary.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-raw-token-value-decision-matrix.md",
+      "jsonPair": "docs/audits/system-raw-token-value-decision-matrix.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-raw-token-value-governance.md",
+      "jsonPair": "docs/audits/system-raw-token-value-governance.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-affordance-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-affordance-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-base-components-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-base-components-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-build-reproducibility.md",
+      "jsonPair": "docs/audits/system-react-build-reproducibility.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-chat-components-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-chat-components-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-data-selection-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-data-selection-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-date-inputs-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-date-inputs-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-export-parity.md",
+      "jsonPair": "docs/audits/system-react-export-parity.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-feedback-components-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-feedback-components-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-form-controls-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-form-controls-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-input-localization-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-input-localization-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-internal-props-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-internal-props-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-leaf-components-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-leaf-components-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-motion-event-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-motion-event-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-navigation-controls-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-navigation-controls-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-navigation-structure-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-navigation-structure-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-overlay-components-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-overlay-components-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-payment-inputs-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-payment-inputs-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-publication-boundary.md",
+      "jsonPair": "docs/audits/system-react-publication-boundary.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-root-index-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-root-index-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-section-indexes-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-section-indexes-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-source-of-truth.md",
+      "jsonPair": "docs/audits/system-react-source-of-truth.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-react-summary-action-typescript-surface.md",
+      "jsonPair": "docs/audits/system-react-summary-action-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-remediation-matrix.md",
+      "jsonPair": "docs/audits/system-remediation-matrix.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-template-artifact-tests.md",
+      "jsonPair": "docs/audits/system-template-artifact-tests.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-template-runtime-audit.md",
+      "jsonPair": "docs/audits/system-template-runtime-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-test-ownership.md",
+      "jsonPair": "docs/audits/system-test-ownership.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-token-output-gates.md",
+      "jsonPair": "docs/audits/system-token-output-gates.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-token-ownership-matrix.md",
+      "jsonPair": "docs/audits/system-token-ownership-matrix.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-token-typescript-surface.md",
+      "jsonPair": "docs/audits/system-token-typescript-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-typescript-project-setup.md",
+      "jsonPair": "docs/audits/system-typescript-project-setup.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-typescript-public-surface.md",
+      "jsonPair": "docs/audits/system-typescript-public-surface.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/taxonomy-boundaries-audit.md",
+      "jsonPair": "docs/audits/taxonomy-boundaries-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/template-cascade-governance-audit.md",
+      "jsonPair": "docs/audits/template-cascade-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-flow-gap-audit.md",
+      "jsonPair": "docs/audits/zip-flow-gap-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-foundation-primitive-validation-audit.md",
+      "jsonPair": "docs/audits/zip-foundation-primitive-validation-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-kit-cascade-matrix-audit.md",
+      "jsonPair": "docs/audits/zip-kit-cascade-matrix-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-kit-runtime-coverage-audit.md",
+      "jsonPair": "docs/audits/zip-kit-runtime-coverage-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-owner-export-matrix-audit.md",
+      "jsonPair": "docs/audits/zip-owner-export-matrix-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-system-intake-audit.md",
+      "jsonPair": "docs/audits/zip-system-intake-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/zip-template-parity-audit.md",
+      "jsonPair": "docs/audits/zip-template-parity-audit.json",
+      "status": "pass",
+      "issues": []
+    }
+  ],
+  "dirtyDocsAuditEntries": [],
+  "issues": []
+}

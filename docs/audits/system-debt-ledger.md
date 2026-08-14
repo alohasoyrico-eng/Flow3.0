@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 139
-- Category mappings: 129
+- Reports scanned: 140
+- Category mappings: 131
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 139
-- Debt metrics: 172
+- Reports with debt metrics: 140
+- Debt metrics: 173
 - Categories: 9
 - Category minimums: 9
 - Category principles: 9
@@ -43,7 +43,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 4 | 2 | 0 | 5 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 31 | 1 | 0 | 33 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 21 | 1 | 0 | 39 | 0 |
-| quality | Component coverage must prove production readiness, not just presence. | 17 | 1 | 0 | 20 | 0 |
+| quality | Component coverage must prove production readiness, not just presence. | 18 | 1 | 0 | 21 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 44 | 10 | 0 | 50 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 | templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 2 | 1 | 0 | 4 | 0 |
@@ -160,6 +160,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | react-template-runtime-governance-audit.json | react-primary | pass | reactTemplateRuntimeGovernanceDebt: 0<br>gapsDebt: 0 |
 | react-template-visual-governance-audit.json | react-primary | pass | reactTemplateVisualGovernanceDebt: 0<br>gapsDebt: 0 |
 | shell-pattern-contract-governance-audit.json | patterns | pass | shellPatternContractDebt: 0 |
+| system-audit-contract-governance.json | quality | pass | auditContractGovernanceDebt: 0 |
 | system-component-artifact-tests.json | quality | pass | componentArtifactTestDebt: 0 |
 | system-component-contract-typescript-surface.json | react-primary | pass | componentContractTypescriptSurfaceDebt: 0 |
 | system-component-index-typescript-surface.json | react-primary | pass | componentIndexTypescriptSurfaceDebt: 0 |

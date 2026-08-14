@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 139,
-    "categoryMappings": 129,
+    "reports": 140,
+    "categoryMappings": 131,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 139,
-    "debtMetrics": 172,
+    "reportsWithDebtMetrics": 140,
+    "debtMetrics": 173,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -94,10 +94,10 @@
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 17,
+      "reports": 18,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 20,
+      "debtMetrics": 21,
       "totalDebt": 0
     },
     {
@@ -1223,6 +1223,20 @@
           "report": "shell-pattern-contract-governance-audit.json",
           "scope": "inventory",
           "metric": "shellPatternContractDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-audit-contract-governance.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-audit-contract-governance.json",
+          "scope": "inventory",
+          "metric": "auditContractGovernanceDebt",
           "value": 0,
           "numericValue": 0
         }

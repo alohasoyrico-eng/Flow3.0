@@ -264,6 +264,7 @@ const expectedAuditFiles = new Set([
   "report-system-token-ownership-matrix.js",
   "report-system-token-output-gates.js",
   "report-system-token-typescript-surface.js",
+  "report-system-audit-contract-governance.js",
   "report-system-typescript-project-setup.js",
   "report-system-typescript-public-surface.js",
   "report-docs-component-demo-ownership.js",
@@ -517,6 +518,7 @@ const checks = [
   ["phase 6 template QA checkpoint", () => run("node", ["packages/audit/scripts/report-system-phase6-template-qa-checkpoint.js", "--check"])],
   ["system TypeScript public surface baseline", () => run("node", ["packages/audit/scripts/report-system-typescript-public-surface.js", "--check"])],
   ["system debt ledger", () => run("node", ["packages/audit/scripts/report-system-debt-ledger.js", "--check"])],
+  ["system audit contract governance", () => run("node", ["packages/audit/scripts/report-system-audit-contract-governance.js", "--check"])],
 ];
 
 const summary = {

@@ -1,6 +1,6 @@
 const { add, fs, path, read, root } = require("./audit-context.js");
 
-const manualQaFile = path.join(root, "docs/audits/manual-accessibility-qa.md");
+const manualQaFile = path.join(root, "docs/manual-qa/manual-accessibility-qa.md");
 
 const interactiveComponents = [
   {

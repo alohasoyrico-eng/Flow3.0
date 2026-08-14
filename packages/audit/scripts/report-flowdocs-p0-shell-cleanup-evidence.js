@@ -190,8 +190,18 @@ function renderMarkdown(report) {
 function main() {
   const report = createReport();
   fs.mkdirSync(outputDir, { recursive: true });
-  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-  fs.writeFileSync(markdownOutput, renderMarkdown(report));
+  const nextJson = `${JSON.stringify(report, null, 2)}\n`;
+  const nextMarkdown = renderMarkdown(report);
+  if (checkMode) {
+    const currentJson = fs.existsSync(jsonOutput) ? fs.readFileSync(jsonOutput, "utf8") : "";
+    const currentMarkdown = fs.existsSync(markdownOutput) ? fs.readFileSync(markdownOutput, "utf8") : "";
+    if (currentJson !== nextJson || currentMarkdown !== nextMarkdown) {
+      throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-flowdocs-p0-shell-cleanup-evidence.js.`);
+    }
+  } else {
+    fs.writeFileSync(jsonOutput, nextJson);
+    fs.writeFileSync(markdownOutput, nextMarkdown);
+  }
   console.log(JSON.stringify({
     status: report.status,
     checks: report.inventory.checks,
@@ -199,7 +209,7 @@ function main() {
     flowDocsHead: report.flowDocs.head,
     outputs: [rel(jsonOutput), rel(markdownOutput)],
   }, null, 2));
-  if (checkMode && report.status !== "pass") process.exit(1);
+  if (report.status !== "pass") process.exit(1);
 }
 
 main();

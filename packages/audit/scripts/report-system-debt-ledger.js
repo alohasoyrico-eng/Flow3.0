@@ -140,7 +140,8 @@ function createReport() {
     };
   });
   const mappedReportFiles = Object.keys(reportCategories).sort();
-  const staleCategoryMappings = mappedReportFiles.filter((file) => !files.includes(file));
+  const selfReport = path.basename(jsonOutput);
+  const staleCategoryMappings = mappedReportFiles.filter((file) => file !== selfReport && !files.includes(file));
   const minimumCategoryNames = Object.keys(categoryReportMinimums).sort();
   const principleCategoryNames = Object.keys(categoryPrinciples).sort();
   const categoriesMissingMinimums = expectedStrategicCategories

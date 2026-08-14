@@ -183,8 +183,10 @@ if (checkMode && fs.existsSync(jsonOutput)) {
     throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-zip-kit-runtime-coverage.js.`);
   }
 }
-fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(markdownOutput, `${markdown(report)}\n`);
+if (!checkMode) {
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, `${markdown(report)}\n`);
+}
 
 if (report.status !== "pass") {
   throw new Error(`ZIP kit runtime coverage failed with ${report.issues.length} issue(s).`);

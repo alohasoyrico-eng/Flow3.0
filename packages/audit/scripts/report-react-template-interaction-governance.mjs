@@ -444,8 +444,10 @@ if (checkMode && fs.existsSync(jsonOutput)) {
   }
 }
 
-fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(markdownOutput, markdown(report));
+if (!checkMode) {
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, markdown(report));
+}
 
 if (report.status !== "pass") {
   throw new Error(report.summary);

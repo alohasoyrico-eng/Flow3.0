@@ -725,6 +725,7 @@
     "audit": "node packages/audit/scripts/audit-complete.mjs",
     "audit:system": "node packages/audit/scripts/audit-system-scope.js",
     "audit:complete": "node packages/audit/scripts/audit-complete.mjs",
+    "audit:audit-contract-governance": "node packages/audit/scripts/report-system-audit-contract-governance.js",
     "audit:p0-token-source-gates": "node packages/audit/scripts/report-system-p0-token-source-gates.js",
     "audit:token-ownership": "node packages/audit/scripts/report-system-token-ownership-matrix.js",
     "audit:token-outputs": "node packages/audit/scripts/report-system-token-output-gates.js",

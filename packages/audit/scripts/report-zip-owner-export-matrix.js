@@ -218,8 +218,10 @@ if (checkMode && fs.existsSync(jsonOutput)) {
     throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-zip-owner-export-matrix.js.`);
   }
 }
-fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(markdownOutput, `${markdown(report)}\n`);
+if (!checkMode) {
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, `${markdown(report)}\n`);
+}
 
 if (report.status !== "pass") {
   throw new Error(`ZIP owner export matrix failed with ${report.issues.length} issue(s).`);

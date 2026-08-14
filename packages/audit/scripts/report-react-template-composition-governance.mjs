@@ -215,8 +215,10 @@ if (checkMode && fs.existsSync(jsonOutput)) {
     throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-react-template-composition-governance.mjs.`);
   }
 }
-fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
-fs.writeFileSync(markdownOutput, markdown(report));
+if (!checkMode) {
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, markdown(report));
+}
 
 if (report.status !== "pass") {
   throw new Error(`React template composition governance failed with ${issues.length} issue(s).`);
