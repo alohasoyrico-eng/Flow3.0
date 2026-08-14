@@ -1,0 +1,105 @@
+{
+  "status": "pass",
+  "audit": "system phase 6 FlowDocs consumer checkpoint",
+  "planIteration": 24,
+  "principle": "FlowDocs must consume Flow through package exports, generated assets, and governed documentation templates before any visual remediation can be trusted.",
+  "inventory": {
+    "reports": 4,
+    "passingReports": 4,
+    "docsAppFiles": 219,
+    "docsGeneratedFiles": 396,
+    "docsGeneratedReactFiles": 313,
+    "docsGeneratedTemplateFiles": 18,
+    "flowDependencyPresent": 1,
+    "flowBoundaryAliases": 21,
+    "validateDocsScriptPresent": 1,
+    "requiredDocsTemplates": 2,
+    "requiredDocsTemplatesPresent": 2,
+    "requiredDocsTemplatesUsed": 2,
+    "sourceReportDebt": 0,
+    "flowDocsConsumerIssues": 0,
+    "phase6FlowDocsConsumerDebt": 0
+  },
+  "rows": [
+    {
+      "id": "docs-system-boundary",
+      "file": "docs/audits/docs-system-boundary-audit.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "docsSystemBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "docs-component-demo-ownership",
+      "file": "docs/audits/docs-component-demo-ownership.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "docsDemoOwnershipDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "flowdocs-p0-shell-cleanup",
+      "file": "docs/audits/flowdocs-p0-shell-cleanup-evidence.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "flowDocsP0ShellCleanupDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "phase5-public-runtime-readiness",
+      "file": "docs/audits/system-phase5-public-runtime-readiness.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "phase5PublicRuntimeReadinessDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    }
+  ],
+  "flowDocs": {
+    "docsRoot": "../FlowDocs",
+    "appFiles": 219,
+    "generatedFiles": 396,
+    "generatedReactFiles": 313,
+    "generatedTemplateFiles": 18,
+    "flowDependency": "file:../Flow3.0",
+    "flowBoundaryAliases": 21,
+    "validateDocsScriptPresent": 1,
+    "templateUsages": [
+      {
+        "template": "DocsShellTemplate",
+        "generatedRuntimePresent": true,
+        "appUsageCount": 3
+      },
+      {
+        "template": "DocsArtifactDetailTemplate",
+        "generatedRuntimePresent": true,
+        "appUsageCount": 4
+      }
+    ],
+    "issues": []
+  },
+  "residualRisk": [
+    "This checkpoint proves FlowDocs has a governed consumer boundary; it does not claim visual parity with older FlowDocs screenshots.",
+    "FlowDocs still contains docs-owned editorial/layout CSS and JS; those are allowed only while they stay outside protected Flow class roots and token ownership.",
+    "Shell UX defects such as sidebar interaction, search keyboard navigation, and topbar alignment remain visual/behavior remediation work after this boundary checkpoint."
+  ]
+}

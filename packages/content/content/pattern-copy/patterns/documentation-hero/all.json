@@ -1,0 +1,116 @@
+{
+  "patterns": {
+    "documentation-hero": {
+      "purpose": "Coordinate documentation page hero content, metadata, actions, visual slot, and governed background treatment.",
+      "useWhen": [
+        "A documentation page needs a first-screen or detail-header introduction.",
+        "The hero includes status, metadata, action, or background treatment.",
+        "The hero must adapt across documentation templates."
+      ],
+      "doNotUseWithoutReview": [
+        "The section is not page-level.",
+        "The page needs an application shell hero owned by a product template.",
+        "The background requires local gradients or textures outside Flow ownership."
+      ],
+      "foundations": [
+        [
+          "Voice",
+          "Kicker, title, description, metadata, and actions keep editorial hierarchy."
+        ],
+        [
+          "Frame",
+          "Hero layout adapts across desktop and mobile without local wrappers."
+        ],
+        [
+          "Depth",
+          "Surface and optional background define page entry depth."
+        ],
+        [
+          "Energy",
+          "Loading, action, and status states are explicit."
+        ],
+        [
+          "Accessibility",
+          "One page h1 and named actions are required."
+        ],
+        [
+          "Growth",
+          "Governs maturity, coverage, and documentation status signals."
+        ],
+        [
+          "Iconography",
+          "Governs functional glyph usage without parallel icon styling."
+        ],
+        [
+          "Momentum",
+          "Governs motion timing and responsive transition behavior."
+        ],
+        [
+          "State",
+          "Governs active, loading, empty, disabled, and responsive states."
+        ],
+        [
+          "Symbol",
+          "Governs symbolic visuals while labels and fallback text remain visible."
+        ],
+        [
+          "Tone",
+          "Governs semantic color/copy tone without local palette decisions."
+        ]
+      ],
+      "slots": [
+        [
+          "title",
+          "Section Header",
+          "yes",
+          "Page title with template-supplied heading level."
+        ],
+        [
+          "metadata",
+          "Artifact Metadata Bar | Badge | Tag",
+          "conditional",
+          "Layer, maturity, status, and counts."
+        ],
+        [
+          "actions",
+          "Button[]",
+          "conditional",
+          "Hero actions."
+        ],
+        [
+          "visual",
+          "ReactNode",
+          "conditional",
+          "Governed visual specimen."
+        ]
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Tag"
+      ],
+      "accessibility": [
+        "Use one visible h1 per documentation page.",
+        "Keep actions keyboard reachable.",
+        "Do not hide status or metadata behind color-only cues."
+      ],
+      "tests": [
+        "Covers title-only, metadata, actions, status, dark, mobile, and loading states.",
+        "Rejects unmanaged gradient/grid CSS in migrated pages.",
+        "Checks heading order and action focus order."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Documentation Hero for governed docs page intros."
+        ],
+        "mustAsk": [
+          "A new public hero variant is requested."
+        ],
+        "rejectIf": [
+          "Hero background is page-local CSS.",
+          "Metadata chips are custom spans."
+        ]
+      }
+    }
+  }
+}

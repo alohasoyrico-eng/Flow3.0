@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "flow-system-react-publication-boundary@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "packedFiles": 1356,
+    "packageFileEntries": 13,
+    "rootReactExportTargets": 310,
+    "reactPackageExportTargets": 310,
+    "reactPrivateImportTargets": 1,
+    "packageFilesIncludeReactSrc": 0,
+    "publishedReactSrcFiles": 0,
+    "rootReactExportTargetsToSrc": 0,
+    "reactPackageExportTargetsToSrc": 0,
+    "reactPrivateImportTargetsToSrc": 1,
+    "distImportLeaks": 0,
+    "publicationBoundaryDebt": 0
+  },
+  "issues": {
+    "packageFilesIncludeReactSrc": [],
+    "publishedReactSrcFiles": [],
+    "rootReactExportTargetsToSrc": [],
+    "reactPackageExportTargetsToSrc": [],
+    "reactPrivateImportTargetsToSrc": [
+      {
+        "key": "#design-system/react",
+        "target": "./packages/react/src/index.js"
+      }
+    ],
+    "distImportLeaks": []
+  },
+  "policy": {
+    "publishedFiles": "The installable package must not include packages/react/src files.",
+    "publicExports": "Root ./react exports and @design-system/react package exports must target dist runtime and declaration files.",
+    "privateImports": "Root private react import aliases may target source for repository tooling, but published dist runtime must not import those aliases.",
+    "distRuntime": "Published dist runtime/declarations must not import packages/react/src or private aliases that resolve to the src mirror."
+  }
+}

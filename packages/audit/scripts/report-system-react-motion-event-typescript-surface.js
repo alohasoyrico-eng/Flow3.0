@@ -11,6 +11,13 @@ const jsonOutput = path.join(outputDir, "system-react-motion-event-typescript-su
 const markdownOutput = path.join(outputDir, "system-react-motion-event-typescript-surface.md");
 const checkMode = process.argv.includes("--check");
 const reactSourceDir = "packages/react/src";
+const sourceRuntimeHeader = [
+  "/* @generated from packages/react/src TypeScript source.",
+  " * Do not edit this compatibility runtime directly.",
+  " * Authored source of truth is the paired .ts/.tsx file.",
+  " */",
+  "",
+].join("\n");
 const components = ["AnimatedMoment", "MotionBoundary", "MovementRow", "AuditEvent"];
 
 function absolute(relativePath) {
@@ -48,7 +55,7 @@ function compileExpectedRuntimes() {
   for (const component of components) {
     const compiledFile = path.join(outDir, `${component}.js`);
     expectedByComponent[component] = result.status === 0 && fs.existsSync(compiledFile)
-      ? fs.readFileSync(compiledFile, "utf8")
+      ? `${sourceRuntimeHeader}${fs.readFileSync(compiledFile, "utf8")}`
       : null;
   }
   fs.rmSync(outDir, { recursive: true, force: true });

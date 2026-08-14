@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useId } from "react";
 import { progressIndicatorPlatformContract } from "@design-system/components/platforms";
 import { flowToneProps, flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";

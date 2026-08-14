@@ -182,7 +182,7 @@
   },
   "cascadeRefs": {
     "components": {
-      "count": 31,
+      "count": 32,
       "ids": [
         "animated-moment",
         "button",
@@ -195,6 +195,7 @@
         "chat-message",
         "chat-thread",
         "combobox",
+        "copy-button",
         "date-range-picker",
         "drawer",
         "empty-state",
@@ -232,12 +233,13 @@
       ]
     },
     "patterns": {
-      "count": 62,
+      "count": 71,
       "ids": [
         "account-operations",
         "action-sheet",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "autocomplete",
         "avatar-group",
@@ -253,7 +255,14 @@
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-page-shell",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-section",
+        "documentation-token-grid",
         "drag-sortable-list",
         "drawer-adapter",
         "driver-and-vehicle-administration",
@@ -272,6 +281,7 @@
         "multi-select",
         "multi-step-form",
         "notification-panel",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -302,39 +312,50 @@
         "packages/content/content/pattern-contracts/patterns/action-sheet.md",
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
         "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
-        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
-        "packages/content/content/pattern-contracts/patterns/calendar-view.md"
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md"
       ]
     },
     "templates": {
-      "count": 9,
+      "count": 17,
       "ids": [
         "agent-workspace",
+        "component-detail-template",
         "configuration-console",
+        "docs-artifact-detail-template",
+        "docs-collection-template",
+        "docs-home-template",
+        "docs-shell-template",
         "driver-card-wallet",
         "driver-mobile-app",
         "fleet-dashboard-suite",
         "fleet-manager-desktop",
         "internal-operations-console",
+        "pattern-detail-template",
+        "reference-detail-template",
         "routes-and-stations",
-        "settings-workspace"
+        "settings-workspace",
+        "template-detail-template"
       ],
       "sampleFiles": [
         "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
-        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
-        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
-        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     }
   },

@@ -4,6 +4,7 @@ import type { FlowDataAttributes } from "../internal/props.js";
 
 export type DocumentationTokenGridDensity = SurfaceDensity;
 export type DocumentationTokenGridVariant = "tokens" | "values" | "compact";
+export type DocumentationTokenGridState = "default" | "tokens" | "values" | "compact" | "empty" | "mobile";
 
 export interface DocumentationTokenGridItem {
   key?: string;
@@ -17,6 +18,7 @@ export interface DocumentationTokenGridProps extends FlowDataAttributes {
   label?: string;
   variant?: DocumentationTokenGridVariant;
   density?: DocumentationTokenGridDensity;
+  state?: DocumentationTokenGridState;
   className?: string;
   surface?: Omit<SurfaceProps, "children" | "density" | "surfaceRole" | "state">;
   "aria-label"?: string;

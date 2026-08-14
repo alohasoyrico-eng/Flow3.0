@@ -6,7 +6,7 @@ import type { TagProps } from "../Tag.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 import type { SectionHeaderHeadingLevel } from "./SectionHeader.js";
 
-export type DocumentationHeroState = "default" | "with-actions" | "with-metadata" | "with-status" | "loading";
+export type DocumentationHeroState = "default" | "with-actions" | "with-metadata" | "with-status" | "loading" | "dark" | "mobile";
 export type DocumentationHeroDensity = SurfaceDensity;
 export type DocumentationHeroTone = SurfaceTone | "brand";
 export type DocumentationHeroBackground = "none" | "tint" | "gradient-grid";

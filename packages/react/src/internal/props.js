@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 const validFlowDensities = new Set(["sm", "md", "lg"]);
 export function flowRestProps(props = {}) {
     const { contentEditable, dangerouslySetInnerHTML, style, suppressContentEditableWarning, suppressHydrationWarning, ...rest } = props;

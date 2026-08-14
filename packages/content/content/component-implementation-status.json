@@ -77,6 +77,11 @@
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components."
     },
+    "copy-button": {
+      "status": "package-component",
+      "patternRisk": false,
+      "notes": "Factory and contract exist in @design-system/components for one explicit clipboard action; bulk export, private values, and workflow policy remain pattern or product concerns."
+    },
     "badge": {
       "status": "package-component",
       "patternRisk": false,
@@ -201,6 +206,11 @@
       "status": "package-component",
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components for visible one-time-code slots; verification, resend, and recovery remain auth pattern work."
+    },
+    "code-block": {
+      "status": "package-component",
+      "patternRisk": false,
+      "notes": "Factory and contract exist in @design-system/components for one governed source snippet surface; documentation page layout, API tables, and tutorial orchestration remain template or pattern work."
     },
     "phone-input": {
       "status": "package-component",

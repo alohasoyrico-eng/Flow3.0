@@ -11,9 +11,9 @@ Research consumes Growth, Tone, Accessibility, Voice, and Measurement so decisio
 - Roles: 5/5
 - Coordinated primitives: 3/3
 - Token aliases: 11/11
-- Component contract refs: 60
-- Pattern refs: 84
-- Template refs: 9
+- Component contract refs: 62
+- Pattern refs: 101
+- Template refs: 14
 - Claims without evidence language: 0
 
 ## Foundation Gate

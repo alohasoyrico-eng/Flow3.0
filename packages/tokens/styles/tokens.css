@@ -190,6 +190,14 @@
   --sys-energy-status-error: var(--ref-energy-red-500);
   --sys-energy-border-default: rgb(10 10 15 / 8%);
   --sys-energy-border-strong: rgb(10 10 15 / 15%);
+  --sys-energy-dark-surface-primary: var(--ref-energy-neutral-900);
+  --sys-energy-dark-surface-secondary: #020617;
+  --sys-energy-dark-surface-tertiary: var(--ref-energy-neutral-800);
+  --sys-energy-dark-text-primary: var(--ref-energy-neutral-50);
+  --sys-energy-dark-text-secondary: var(--ref-energy-neutral-200);
+  --sys-energy-dark-text-tertiary: var(--ref-energy-neutral-300);
+  --sys-energy-dark-border-default: color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent);
+  --sys-energy-dark-border-strong: color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent);
   --ref-frame-border-control: 1.5px;
   --ref-frame-border-indicator: 3px;
   --ref-frame-border-medium: 2px;

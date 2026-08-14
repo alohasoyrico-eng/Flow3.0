@@ -58,7 +58,9 @@ export { DocumentationReferenceGrid } from "./patterns/DocumentationReferenceGri
 export { DocumentationPrimitiveDemo } from "./patterns/DocumentationPrimitiveDemo.js";
 export { DocumentationTokenGrid } from "./patterns/DocumentationTokenGrid.js";
 export { DemoPreviewFrame } from "./patterns/DemoPreviewFrame.js";
+export { DocumentationPageShell } from "./patterns/DocumentationPageShell.js";
 export { DocumentationHero } from "./patterns/DocumentationHero.js";
+export { OnThisPageNav } from "./patterns/OnThisPageNav.js";
 export { SelectOptionLayer } from "./patterns/SelectOptionLayer.js";
 export { Settings } from "./patterns/Settings.js";
 export { Sidebar } from "./patterns/Sidebar.js";
@@ -89,6 +91,7 @@ export { Chip } from "./Chip.js";
 export { CodeBlock } from "./CodeBlock.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
+export { CopyButton } from "./CopyButton.js";
 export { CountrySelector } from "./CountrySelector.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";

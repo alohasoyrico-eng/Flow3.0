@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useMemo, } from "react";
 import { chatThreadPlatformContract } from "@design-system/components/platforms";
 import { EmptyState } from "./EmptyState.js";

@@ -19,10 +19,12 @@ const { checkChatMessageCssContract } = require("./audit-chat-message-css-contra
 const { checkChatThreadCssContract } = require("./audit-chat-thread-css-contract.js");
 const { checkCheckboxCssContract } = require("./audit-checkbox-css-contract.js");
 const { checkChoiceCssContract } = require("./audit-choice-css-contract.js");
+const { checkCodeBlockCssContract } = require("./audit-code-block-css-contract.js");
 const { checkCodeInputCssContract } = require("./audit-code-input-css-contract.js");
 const { checkChipCssContract } = require("./audit-chip-css-contract.js");
 const { checkComboboxCssContract } = require("./audit-combobox-css-contract.js");
 const { checkCountrySelectorCssContract } = require("./audit-country-selector-css-contract.js");
+const { checkCopyButtonCssContract } = require("./audit-copy-button-css-contract.js");
 const { checkDialogCssContract } = require("./audit-dialog-css-contract.js");
 const { checkDrawerCssContract } = require("./audit-drawer-css-contract.js");
 const { checkDateRangePickerCssContract } = require("./audit-date-range-picker-css-contract.js");
@@ -212,6 +214,8 @@ function checkComponentCssContracts(context) {
   checkCheckboxCssContract(context);
   checkChoiceCssContract(context);
   checkChipCssContract(context);
+  checkCopyButtonCssContract(context);
+  checkCodeBlockCssContract(context);
   checkCodeInputCssContract(context);
   checkComboboxCssContract(context);
   checkCountrySelectorCssContract(context);

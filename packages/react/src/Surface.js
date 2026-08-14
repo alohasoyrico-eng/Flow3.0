@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { flowDensityProps, flowRestProps, flowStateProps, normalizeFlowDensity } from "./internal/props.js";
 const validSurfaceRoles = new Set(["canvas", "section", "panel", "overlay", "inline"]);
@@ -25,6 +29,8 @@ function normalizeBreakpoint(breakpoint) {
     return validBreakpoints.has(breakpoint) ? breakpoint : "base";
 }
 export const Surface = forwardRef(function Surface({ children, surfaceRole = "section", state = "default", density, elevation = "none", tone = "default", focusMode = "none", breakpoint = "base", className = "", ...rest }, ref) {
+    const restProps = flowRestProps(rest);
+    const consumerState = restProps["data-state"];
     const resolvedSurfaceRole = normalizeSurfaceRole(surfaceRole);
     const resolvedState = normalizeState(state);
     const resolvedDensity = normalizeFlowDensity(density);
@@ -33,16 +39,18 @@ export const Surface = forwardRef(function Surface({ children, surfaceRole = "se
     const resolvedFocusMode = normalizeFocusMode(focusMode);
     const resolvedBreakpoint = normalizeBreakpoint(breakpoint);
     return React.createElement("div", {
-        ...flowRestProps(rest),
+        ...restProps,
         ref,
         className: ["surface", className].filter(Boolean).join(" "),
         "data-flow-primitive": "surface",
         "data-surface-role": resolvedSurfaceRole,
+        "data-surface-state": resolvedState,
         "data-surface-elevation": resolvedElevation,
         "data-surface-tone": resolvedTone,
         "data-surface-focus-mode": resolvedFocusMode,
         "data-surface-breakpoint": resolvedBreakpoint,
         ...flowStateProps(resolvedState),
+        ...(consumerState !== undefined ? { "data-state": consumerState } : {}),
         ...flowDensityProps(resolvedDensity),
     }, children);
 });

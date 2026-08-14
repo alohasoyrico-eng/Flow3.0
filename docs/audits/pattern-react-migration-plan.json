@@ -8,25 +8,25 @@
     "docs/audits/pattern-foundation-primitive-1to1-audit.json"
   ],
   "inventory": {
-    "patterns": 63,
+    "patterns": 72,
     "patternArchitecturePolicyIssues": 0,
     "runtimePrimitivePatternDependencyPolicy": 5,
     "templateFacingSignalPolicy": 11,
     "migrationWavePolicy": 5,
     "nonNegotiableMigrationRules": 6,
-    "reactSources": 63,
-    "typeSources": 63,
-    "reactContractRows": 63,
-    "forwardRefPatterns": 63,
-    "refAttributePatterns": 63,
-    "densityPropPatterns": 63,
-    "patternsWithSlots": 63,
-    "patternsWithFoundations": 63,
-    "patternsWithPrimitives": 63,
-    "patternsWithComponents": 62,
-    "patternsWithStateModel": 63,
-    "callbackPropsDeclared": 269,
-    "callbackPropsTested": 269,
+    "reactSources": 72,
+    "typeSources": 72,
+    "reactContractRows": 72,
+    "forwardRefPatterns": 72,
+    "refAttributePatterns": 72,
+    "densityPropPatterns": 72,
+    "patternsWithSlots": 72,
+    "patternsWithFoundations": 72,
+    "patternsWithPrimitives": 72,
+    "patternsWithComponents": 69,
+    "patternsWithStateModel": 72,
+    "callbackPropsDeclared": 271,
+    "callbackPropsTested": 271,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -42,14 +42,14 @@
     "rawGlobalDomRefs": 0,
     "reactBehaviorDebt": 0,
     "baseFlowComposition": 8,
-    "statefulFlowComposition": 23,
-    "crossPatternComposition": 9,
+    "statefulFlowComposition": 25,
+    "crossPatternComposition": 6,
     "primitiveRuntimeComposition": 6,
-    "templateFacingOrchestrators": 17,
-    "surfaceRequired": 44,
+    "templateFacingOrchestrators": 27,
+    "surfaceRequired": 53,
     "primitiveRuntimeRequired": 9,
-    "patternDependencyBoundaries": 85,
-    "templateReferences": 25,
+    "patternDependencyBoundaries": 87,
+    "templateReferences": 60,
     "patternsWithDependencySlotCoverageFindings": 0,
     "componentDependencySlotCoverageFindings": 0,
     "runtimePatternDependencySlotCoverageFindings": 0,
@@ -63,11 +63,11 @@
   "globalGates": {
     "architectureDebt": 0,
     "architectureBlockingDebt": 0,
-    "patternsWithDeclaredPrimitives": 63,
+    "patternsWithDeclaredPrimitives": 72,
     "patternsWithOnlyInferredPrimitives": 0,
     "templateDependencyGaps": 0,
-    "surfaceRequiredPatterns": 42,
-    "directSurfaceRuntimeRequired": 27,
+    "surfaceRequiredPatterns": 45,
+    "directSurfaceRuntimeRequired": 28,
     "missingDirectSurfaceRuntime": 0,
     "structuralSurfaceDebt": 0,
     "cardStructuralWrapperViolations": 0,
@@ -93,12 +93,14 @@
       "mode": "stateful Flow composition",
       "label": "Wave 2: stateful Flow compositions",
       "patterns": [
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-token-grid",
         "checkbox-group",
         "radio-group",
         "snackbar-provider",
         "autocomplete",
         "confirmation-dialog",
-        "search",
         "select-option-layer",
         "file-upload",
         "kpi-card",
@@ -122,13 +124,10 @@
       "mode": "cross-pattern composition",
       "label": "Wave 3: cross-pattern compositions",
       "patterns": [
-        "toolbar",
         "expandable-detail-table",
-        "section-header",
         "transfer-list",
         "virtual-data-table",
         "help-center",
-        "command-palette",
         "filterable-editable-table",
         "drawer-adapter"
       ]
@@ -149,22 +148,32 @@
       "mode": "template-facing orchestrator",
       "label": "Wave 5: template-facing orchestrators",
       "patterns": [
+        "documentation-page-shell",
         "agent-conversation",
+        "search",
+        "toolbar",
         "account-operations",
         "fleet-manager-onboarding-desktop",
         "backoffice-approval",
+        "on-this-page-nav",
         "preference-management",
         "roles-and-permissions",
         "driver-and-vehicle-administration",
         "authentication-login-biometrics-and-otp",
         "ticket-queue",
+        "command-palette",
+        "documentation-hero",
         "status-feedback-view",
         "case-management",
         "pricing-operations",
+        "demo-preview-frame",
         "dense-operational-list",
         "driver-onboarding-mobile",
         "station-discovery",
+        "artifact-metadata-bar",
+        "documentation-section",
         "sidebar",
+        "section-header",
         "topbar"
       ]
     }
@@ -231,12 +240,14 @@
       "mode": "stateful Flow composition",
       "label": "Wave 2: stateful Flow compositions",
       "patterns": [
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-token-grid",
         "checkbox-group",
         "radio-group",
         "snackbar-provider",
         "autocomplete",
         "confirmation-dialog",
-        "search",
         "select-option-layer",
         "file-upload",
         "kpi-card",
@@ -256,14 +267,17 @@
         "advanced-filters"
       ],
       "counts": {
-        "patterns": 23,
-        "surfacePatterns": 18,
+        "patterns": 25,
+        "surfacePatterns": 21,
         "runtimePrimitives": 0,
         "patternBoundaries": 9,
         "templateRefs": 0,
-        "componentRefs": 35
+        "componentRefs": 36
       },
       "surfacePatterns": [
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-token-grid",
         "checkbox-group",
         "radio-group",
         "snackbar-provider",
@@ -306,6 +320,7 @@
         "Card Summary",
         "Checkbox",
         "Chip",
+        "Code Block",
         "Combobox",
         "Date Range Picker",
         "Dialog",
@@ -346,28 +361,24 @@
       "mode": "cross-pattern composition",
       "label": "Wave 3: cross-pattern compositions",
       "patterns": [
-        "toolbar",
         "expandable-detail-table",
-        "section-header",
         "transfer-list",
         "virtual-data-table",
         "help-center",
-        "command-palette",
         "filterable-editable-table",
         "drawer-adapter"
       ],
       "counts": {
-        "patterns": 9,
-        "surfacePatterns": 5,
+        "patterns": 6,
+        "surfacePatterns": 4,
         "runtimePrimitives": 0,
-        "patternBoundaries": 12,
+        "patternBoundaries": 10,
         "templateRefs": 0,
-        "componentRefs": 19
+        "componentRefs": 18
       },
       "surfacePatterns": [
         "expandable-detail-table",
         "help-center",
-        "command-palette",
         "filterable-editable-table",
         "drawer-adapter"
       ],
@@ -375,11 +386,9 @@
       "patternBoundaries": [
         "Advanced Filters",
         "Drawer Adapter",
-        "Form Section",
         "Multi Select",
         "Multi Step Form",
         "Search",
-        "Settings",
         "Sidebar",
         "Status Feedback View",
         "Toolbar",
@@ -393,7 +402,6 @@
         "Button",
         "Card",
         "Checkbox",
-        "Chip",
         "Dialog",
         "Drawer",
         "Empty State",
@@ -486,47 +494,64 @@
       "mode": "template-facing orchestrator",
       "label": "Wave 5: template-facing orchestrators",
       "patterns": [
+        "documentation-page-shell",
         "agent-conversation",
+        "search",
+        "toolbar",
         "account-operations",
         "fleet-manager-onboarding-desktop",
         "backoffice-approval",
+        "on-this-page-nav",
         "preference-management",
         "roles-and-permissions",
         "driver-and-vehicle-administration",
         "authentication-login-biometrics-and-otp",
         "ticket-queue",
+        "command-palette",
+        "documentation-hero",
         "status-feedback-view",
         "case-management",
         "pricing-operations",
+        "demo-preview-frame",
         "dense-operational-list",
         "driver-onboarding-mobile",
         "station-discovery",
+        "artifact-metadata-bar",
+        "documentation-section",
         "sidebar",
+        "section-header",
         "topbar"
       ],
       "counts": {
-        "patterns": 17,
-        "surfacePatterns": 15,
+        "patterns": 27,
+        "surfacePatterns": 22,
         "runtimePrimitives": 3,
-        "patternBoundaries": 21,
-        "templateRefs": 8,
-        "componentRefs": 36
+        "patternBoundaries": 22,
+        "templateRefs": 16,
+        "componentRefs": 38
       },
       "surfacePatterns": [
+        "documentation-page-shell",
         "agent-conversation",
         "account-operations",
         "fleet-manager-onboarding-desktop",
         "backoffice-approval",
+        "on-this-page-nav",
         "preference-management",
         "driver-and-vehicle-administration",
         "authentication-login-biometrics-and-otp",
         "ticket-queue",
+        "command-palette",
+        "documentation-hero",
         "status-feedback-view",
         "case-management",
         "pricing-operations",
+        "demo-preview-frame",
         "dense-operational-list",
         "driver-onboarding-mobile",
         "station-discovery",
+        "artifact-metadata-bar",
+        "documentation-section",
         "sidebar"
       ],
       "runtimePrimitives": [
@@ -548,6 +573,7 @@
         "Notification Panel",
         "Roles and Permissions",
         "Search",
+        "Section Header",
         "Settings",
         "Sidebar",
         "Snackbar Provider",
@@ -559,13 +585,21 @@
       ],
       "templateRefs": [
         "Agent Workspace",
+        "Component Detail Template",
         "Configuration Console",
+        "Docs Artifact Detail Template",
+        "Docs Collection Template",
+        "Docs Home Template",
+        "Docs Shell Template",
         "Driver Mobile App",
         "Fleet Dashboard Suite",
         "Fleet Manager Desktop",
         "Internal Operations Console",
+        "Pattern Detail Template",
+        "Reference Detail Template",
         "Routes and Stations",
-        "Settings Workspace"
+        "Settings Workspace",
+        "Template Detail Template"
       ],
       "componentRefs": [
         "Accordion",
@@ -581,6 +615,7 @@
         "Chat Composer",
         "Chat Thread",
         "Checkbox",
+        "Chip",
         "Code Input",
         "Dialog",
         "Drawer",
@@ -602,6 +637,7 @@
         "Stepper",
         "Switch",
         "Table",
+        "Tag",
         "Toast",
         "Tooltip"
       ],
@@ -789,6 +825,318 @@
     },
     {
       "order": 2,
+      "id": "documentation-primitive-demo",
+      "wave": "stateful Flow composition",
+      "score": 9,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Frame",
+        "Voice",
+        "Accessibility",
+        "State",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol",
+        "Tone"
+      ],
+      "primitives": [
+        "Surface",
+        "Density",
+        "Spacing",
+        "Breakpoints",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Typography"
+      ],
+      "components": [
+        "Button",
+        "Card",
+        "Code Block"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "demo",
+          "owner": "component",
+          "uses": [
+            "Card",
+            "Button",
+            "Code Block"
+          ],
+          "required": true
+        }
+      ],
+      "states": [
+        "default",
+        "interactive",
+        "empty",
+        "mobile"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DocumentationPrimitiveDemo.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DocumentationPrimitiveDemo.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Card, Code Block"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+        "react": "packages/react/src/patterns/DocumentationPrimitiveDemo.js",
+        "types": "packages/react/src/patterns/DocumentationPrimitiveDemo.d.ts"
+      }
+    },
+    {
+      "order": 3,
+      "id": "documentation-reference-grid",
+      "wave": "stateful Flow composition",
+      "score": 9,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Frame",
+        "Voice",
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone"
+      ],
+      "primitives": [
+        "Surface",
+        "Density",
+        "Spacing",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Motion Curves",
+        "Radius",
+        "Typography"
+      ],
+      "components": [
+        "Card"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Card"
+          ],
+          "required": true
+        }
+      ],
+      "states": [
+        "default",
+        "summary",
+        "rule",
+        "matrix",
+        "empty",
+        "mobile"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DocumentationReferenceGrid.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DocumentationReferenceGrid.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Card"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+        "react": "packages/react/src/patterns/DocumentationReferenceGrid.js",
+        "types": "packages/react/src/patterns/DocumentationReferenceGrid.d.ts"
+      }
+    },
+    {
+      "order": 4,
+      "id": "documentation-token-grid",
+      "wave": "stateful Flow composition",
+      "score": 9,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Frame",
+        "Voice",
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone"
+      ],
+      "primitives": [
+        "Surface",
+        "Density",
+        "Spacing",
+        "Breakpoints",
+        "Color",
+        "Disabled",
+        "Focus",
+        "Message",
+        "Radius",
+        "Typography"
+      ],
+      "components": [
+        "Code Block"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Code Block"
+          ],
+          "required": true
+        }
+      ],
+      "states": [
+        "default",
+        "tokens",
+        "values",
+        "compact",
+        "empty",
+        "mobile"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DocumentationTokenGrid.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DocumentationTokenGrid.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Code Block"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
+        "react": "packages/react/src/patterns/DocumentationTokenGrid.js",
+        "types": "packages/react/src/patterns/DocumentationTokenGrid.d.ts"
+      }
+    },
+    {
+      "order": 5,
       "id": "filter-chip-group",
       "wave": "base Flow composition",
       "score": 11,
@@ -921,7 +1269,7 @@
       }
     },
     {
-      "order": 3,
+      "order": 6,
       "id": "avatar-menu",
       "wave": "base Flow composition",
       "score": 12,
@@ -1033,7 +1381,7 @@
       }
     },
     {
-      "order": 4,
+      "order": 7,
       "id": "checkbox-group",
       "wave": "stateful Flow composition",
       "score": 12,
@@ -1183,7 +1531,7 @@
       }
     },
     {
-      "order": 5,
+      "order": 8,
       "id": "radio-group",
       "wave": "stateful Flow composition",
       "score": 12,
@@ -1324,7 +1672,7 @@
       }
     },
     {
-      "order": 6,
+      "order": 9,
       "id": "snackbar-provider",
       "wave": "stateful Flow composition",
       "score": 12,
@@ -1454,7 +1802,7 @@
       }
     },
     {
-      "order": 7,
+      "order": 10,
       "id": "swipe-actions",
       "wave": "base Flow composition",
       "score": 12,
@@ -1574,7 +1922,7 @@
       }
     },
     {
-      "order": 8,
+      "order": 11,
       "id": "timeline",
       "wave": "base Flow composition",
       "score": 12,
@@ -1696,7 +2044,7 @@
       }
     },
     {
-      "order": 9,
+      "order": 12,
       "id": "autocomplete",
       "wave": "stateful Flow composition",
       "score": 13,
@@ -1818,7 +2166,7 @@
       }
     },
     {
-      "order": 10,
+      "order": 13,
       "id": "confirmation-dialog",
       "wave": "stateful Flow composition",
       "score": 13,
@@ -1943,7 +2291,7 @@
       }
     },
     {
-      "order": 11,
+      "order": 14,
       "id": "avatar-group",
       "wave": "base Flow composition",
       "score": 14,
@@ -2075,145 +2423,7 @@
       }
     },
     {
-      "order": 12,
-      "id": "search",
-      "wave": "stateful Flow composition",
-      "score": 14,
-      "requiresSurface": false,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Color",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "components": [
-        "Input",
-        "Select",
-        "List",
-        "Empty State",
-        "Inline Validation",
-        "Button"
-      ],
-      "patternDependencies": [],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "input",
-          "owner": "component",
-          "uses": [
-            "Input"
-          ],
-          "required": true
-        },
-        {
-          "name": "scope",
-          "owner": "component",
-          "uses": [
-            "Select"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "results",
-          "owner": "component",
-          "uses": [
-            "List",
-            "Button"
-          ],
-          "required": true
-        },
-        {
-          "name": "emptyState",
-          "owner": "component",
-          "uses": [
-            "Empty State"
-          ],
-          "required": true
-        },
-        {
-          "name": "feedback",
-          "owner": "component",
-          "uses": [
-            "Inline Validation"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "states": [
-        "idle",
-        "typing",
-        "results",
-        "empty",
-        "invalid",
-        "loading",
-        "disabled",
-        "selected"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/search.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/Search.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/Search.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Input, Select, List, Empty State, Inline Validation, Button"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
-        "react": "packages/react/src/patterns/Search.js",
-        "types": "packages/react/src/patterns/Search.d.ts"
-      }
-    },
-    {
-      "order": 13,
+      "order": 15,
       "id": "select-option-layer",
       "wave": "stateful Flow composition",
       "score": 14,
@@ -2352,7 +2562,7 @@
       }
     },
     {
-      "order": 14,
+      "order": 16,
       "id": "file-upload",
       "wave": "stateful Flow composition",
       "score": 16,
@@ -2489,7 +2699,7 @@
       }
     },
     {
-      "order": 15,
+      "order": 17,
       "id": "quick-actions-grid",
       "wave": "base Flow composition",
       "score": 16,
@@ -2624,7 +2834,132 @@
       }
     },
     {
-      "order": 16,
+      "order": 18,
+      "id": "documentation-page-shell",
+      "wave": "template-facing orchestrator",
+      "score": 17,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Frame",
+        "State",
+        "Voice",
+        "Energy",
+        "Tone"
+      ],
+      "primitives": [
+        "Surface",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Color",
+        "Typography"
+      ],
+      "components": [],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Docs Shell Template"
+      ],
+      "slots": [
+        {
+          "name": "topbar",
+          "owner": "channel",
+          "uses": [
+            "Topbar"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "sidebar",
+          "owner": "channel",
+          "uses": [
+            "Sidebar"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "localNav",
+          "owner": "channel",
+          "uses": [
+            "On This Page Nav"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "content",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        }
+      ],
+      "states": [
+        "desktop",
+        "mobile",
+        "sidebar-open",
+        "sidebar-closed",
+        "search-open",
+        "dark",
+        "light",
+        "grid-overlay-visible",
+        "loading"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DocumentationPageShell.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DocumentationPageShell.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "-"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Shell Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+        "react": "packages/react/src/patterns/DocumentationPageShell.js",
+        "types": "packages/react/src/patterns/DocumentationPageShell.d.ts"
+      }
+    },
+    {
+      "order": 19,
       "id": "kpi-card",
       "wave": "stateful Flow composition",
       "score": 17,
@@ -2762,7 +3097,7 @@
       }
     },
     {
-      "order": 17,
+      "order": 20,
       "id": "action-sheet",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -2903,7 +3238,7 @@
       }
     },
     {
-      "order": 18,
+      "order": 21,
       "id": "bottom-sheet",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -3063,7 +3398,7 @@
       }
     },
     {
-      "order": 19,
+      "order": 22,
       "id": "drag-sortable-list",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -3200,7 +3535,7 @@
       }
     },
     {
-      "order": 20,
+      "order": 23,
       "id": "kanban-board",
       "wave": "stateful Flow composition",
       "score": 18,
@@ -3348,7 +3683,7 @@
       }
     },
     {
-      "order": 21,
+      "order": 24,
       "id": "multi-select",
       "wave": "base Flow composition",
       "score": 18,
@@ -3479,7 +3814,7 @@
       }
     },
     {
-      "order": 22,
+      "order": 25,
       "id": "calendar-view",
       "wave": "stateful Flow composition",
       "score": 19,
@@ -3614,7 +3949,7 @@
       }
     },
     {
-      "order": 23,
+      "order": 26,
       "id": "column-configurator",
       "wave": "stateful Flow composition",
       "score": 19,
@@ -3749,7 +4084,7 @@
       }
     },
     {
-      "order": 24,
+      "order": 27,
       "id": "bulk-actions",
       "wave": "stateful Flow composition",
       "score": 20,
@@ -3891,7 +4226,7 @@
       }
     },
     {
-      "order": 25,
+      "order": 28,
       "id": "settings",
       "wave": "stateful Flow composition",
       "score": 20,
@@ -4037,7 +4372,7 @@
       }
     },
     {
-      "order": 26,
+      "order": 29,
       "id": "gantt-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4198,7 +4533,7 @@
       }
     },
     {
-      "order": 27,
+      "order": 30,
       "id": "notification-panel",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -4336,7 +4671,7 @@
       }
     },
     {
-      "order": 28,
+      "order": 31,
       "id": "payment-form",
       "wave": "stateful Flow composition",
       "score": 21,
@@ -4494,7 +4829,7 @@
       }
     },
     {
-      "order": 29,
+      "order": 32,
       "id": "polar-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4655,161 +4990,7 @@
       }
     },
     {
-      "order": 30,
-      "id": "toolbar",
-      "wave": "cross-pattern composition",
-      "score": 21,
-      "requiresSurface": false,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Field Action",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "components": [
-        "Badge",
-        "Button",
-        "Chip",
-        "Input",
-        "Menu",
-        "Toast"
-      ],
-      "patternDependencies": [
-        "Search",
-        "Topbar"
-      ],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "primaryActions",
-          "owner": "component",
-          "uses": [
-            "Button"
-          ]
-        },
-        {
-          "name": "status",
-          "owner": "component",
-          "uses": [
-            "Badge",
-            "Chip"
-          ]
-        },
-        {
-          "name": "searchField",
-          "owner": "component",
-          "uses": [
-            "Input"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "overflow",
-          "owner": "component",
-          "uses": [
-            "Menu",
-            "Toast"
-          ]
-        },
-        {
-          "name": "searchBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Search"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "topbarBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Topbar"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "states": [
-        "default",
-        "dense",
-        "overflow",
-        "filter-active",
-        "loading",
-        "disabled",
-        "permission-blocked"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/Toolbar.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/Toolbar.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Badge, Button, Chip, Input, Menu, Toast"
-        },
-        {
-          "id": "pattern-boundaries",
-          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
-          "evidence": "Search, Topbar"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
-        "react": "packages/react/src/patterns/Toolbar.js",
-        "types": "packages/react/src/patterns/Toolbar.d.ts"
-      }
-    },
-    {
-      "order": 31,
+      "order": 33,
       "id": "waterfall-chart",
       "wave": "primitive-runtime composition",
       "score": 21,
@@ -4970,7 +5151,7 @@
       }
     },
     {
-      "order": 32,
+      "order": 34,
       "id": "expandable-detail-table",
       "wave": "cross-pattern composition",
       "score": 22,
@@ -5126,7 +5307,7 @@
       }
     },
     {
-      "order": 33,
+      "order": 35,
       "id": "chart-legend-item",
       "wave": "primitive-runtime composition",
       "score": 23,
@@ -5274,153 +5455,7 @@
       }
     },
     {
-      "order": 34,
-      "id": "section-header",
-      "wave": "cross-pattern composition",
-      "score": 23,
-      "requiresSurface": false,
-      "runtimePrimitives": [],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "components": [
-        "Badge",
-        "Button",
-        "Menu",
-        "Skeleton",
-        "Tag"
-      ],
-      "patternDependencies": [
-        "Form Section",
-        "Settings",
-        "Toolbar"
-      ],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "status",
-          "owner": "component",
-          "uses": [
-            "Badge",
-            "Tag",
-            "Skeleton"
-          ]
-        },
-        {
-          "name": "actions",
-          "owner": "component",
-          "uses": [
-            "Button",
-            "Menu"
-          ]
-        },
-        {
-          "name": "formBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Form Section"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "settingsBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Settings"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "toolbarBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Toolbar"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "states": [
-        "default",
-        "loading",
-        "actionable",
-        "disabled",
-        "permission-blocked",
-        "dirty"
-      ],
-      "reactStatus": "ready",
-      "reactDebts": [],
-      "executionChecklist": [
-        {
-          "id": "formal-artifact",
-          "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json"
-        },
-        {
-          "id": "react-primary",
-          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/SectionHeader.js"
-        },
-        {
-          "id": "types-contract",
-          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/SectionHeader.d.ts"
-        },
-        {
-          "id": "flow-composition",
-          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Badge, Button, Menu, Skeleton, Tag"
-        },
-        {
-          "id": "pattern-boundaries",
-          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
-          "evidence": "Form Section, Settings, Toolbar"
-        },
-        {
-          "id": "docs-system-boundary",
-          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
-          "evidence": "docs-system-boundary-audit.json"
-        },
-        {
-          "id": "verification",
-          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
-          "evidence": "node packages/audit/scripts/audit-complete.mjs"
-        }
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
-        "react": "packages/react/src/patterns/SectionHeader.js",
-        "types": "packages/react/src/patterns/SectionHeader.d.ts"
-      }
-    },
-    {
-      "order": 35,
+      "order": 36,
       "id": "transfer-list",
       "wave": "cross-pattern composition",
       "score": 23,
@@ -5573,7 +5608,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 37,
       "id": "fullscreen-sheet",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5720,7 +5755,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 38,
       "id": "multi-step-form",
       "wave": "stateful Flow composition",
       "score": 24,
@@ -5881,7 +5916,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 39,
       "id": "virtual-data-table",
       "wave": "cross-pattern composition",
       "score": 24,
@@ -6016,7 +6051,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 40,
       "id": "agent-conversation",
       "wave": "template-facing orchestrator",
       "score": 25,
@@ -6164,7 +6199,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 41,
       "id": "pull-to-refresh",
       "wave": "primitive-runtime composition",
       "score": 25,
@@ -6310,7 +6345,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 42,
       "id": "form-section",
       "wave": "stateful Flow composition",
       "score": 26,
@@ -6455,7 +6490,7 @@
       }
     },
     {
-      "order": 42,
+      "order": 43,
       "id": "help-center",
       "wave": "cross-pattern composition",
       "score": 26,
@@ -6608,7 +6643,153 @@
       }
     },
     {
-      "order": 43,
+      "order": 44,
+      "id": "search",
+      "wave": "template-facing orchestrator",
+      "score": 26,
+      "requiresSurface": false,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Typography"
+      ],
+      "components": [
+        "Input",
+        "Select",
+        "List",
+        "Empty State",
+        "Inline Validation",
+        "Button"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Docs Shell Template",
+        "Docs Collection Template"
+      ],
+      "slots": [
+        {
+          "name": "input",
+          "owner": "component",
+          "uses": [
+            "Input"
+          ],
+          "required": true
+        },
+        {
+          "name": "scope",
+          "owner": "component",
+          "uses": [
+            "Select"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "results",
+          "owner": "component",
+          "uses": [
+            "List",
+            "Button"
+          ],
+          "required": true
+        },
+        {
+          "name": "emptyState",
+          "owner": "component",
+          "uses": [
+            "Empty State"
+          ],
+          "required": true
+        },
+        {
+          "name": "feedback",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "idle",
+        "typing",
+        "results",
+        "empty",
+        "invalid",
+        "loading",
+        "disabled",
+        "selected"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/search.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/Search.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/Search.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Input, Select, List, Empty State, Inline Validation, Button"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Shell Template, Docs Collection Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+        "react": "packages/react/src/patterns/Search.js",
+        "types": "packages/react/src/patterns/Search.d.ts"
+      }
+    },
+    {
+      "order": 45,
       "id": "advanced-filters",
       "wave": "stateful Flow composition",
       "score": 27,
@@ -6761,11 +6942,11 @@
       }
     },
     {
-      "order": 44,
-      "id": "command-palette",
-      "wave": "cross-pattern composition",
+      "order": 46,
+      "id": "toolbar",
+      "wave": "template-facing orchestrator",
       "score": 27,
-      "requiresSurface": true,
+      "requiresSurface": false,
       "runtimePrimitives": [],
       "foundations": [
         "Accessibility",
@@ -6796,13 +6977,12 @@
         "Motion Curves",
         "Radius",
         "Spacing",
-        "Surface",
         "Typography"
       ],
       "components": [
+        "Badge",
         "Button",
-        "Dialog",
-        "Empty State",
+        "Chip",
         "Input",
         "Menu",
         "Toast"
@@ -6811,42 +6991,66 @@
         "Search",
         "Topbar"
       ],
-      "templateRefs": [],
+      "templateRefs": [
+        "Docs Collection Template"
+      ],
       "slots": [
         {
-          "name": "surface",
+          "name": "primaryActions",
           "owner": "component",
           "uses": [
-            "Dialog"
+            "Button"
           ]
         },
         {
-          "name": "query",
+          "name": "status",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Chip"
+          ]
+        },
+        {
+          "name": "searchField",
           "owner": "component",
           "uses": [
             "Input"
-          ]
+          ],
+          "required": "conditional"
         },
         {
-          "name": "commands",
+          "name": "overflow",
           "owner": "component",
           "uses": [
             "Menu",
-            "Button",
-            "Empty State",
             "Toast"
           ]
+        },
+        {
+          "name": "searchBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Search"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "topbarBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Topbar"
+          ],
+          "required": "conditional"
         }
       ],
       "states": [
-        "closed",
-        "open",
-        "querying",
-        "results",
-        "empty",
+        "default",
+        "dense",
+        "overflow",
+        "filter-active",
         "loading",
-        "disabled-command",
-        "executing"
+        "disabled",
+        "permission-blocked"
       ],
       "reactStatus": "ready",
       "reactDebts": [],
@@ -6854,32 +7058,32 @@
         {
           "id": "formal-artifact",
           "gate": "Use the formal Pattern artifact as source of truth.",
-          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json"
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json"
         },
         {
           "id": "react-primary",
           "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
-          "evidence": "packages/react/src/patterns/CommandPalette.js"
+          "evidence": "packages/react/src/patterns/Toolbar.js"
         },
         {
           "id": "types-contract",
           "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
-          "evidence": "packages/react/src/patterns/CommandPalette.d.ts"
+          "evidence": "packages/react/src/patterns/Toolbar.d.ts"
         },
         {
           "id": "flow-composition",
           "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Button, Dialog, Empty State, Input, Menu, Toast"
-        },
-        {
-          "id": "surface-primitive",
-          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
-          "evidence": "Surface required by formal Pattern primitive dependencies."
+          "evidence": "Badge, Button, Chip, Input, Menu, Toast"
         },
         {
           "id": "pattern-boundaries",
           "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
           "evidence": "Search, Topbar"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Collection Template"
         },
         {
           "id": "docs-system-boundary",
@@ -6893,13 +7097,13 @@
         }
       ],
       "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
-        "react": "packages/react/src/patterns/CommandPalette.js",
-        "types": "packages/react/src/patterns/CommandPalette.d.ts"
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+        "react": "packages/react/src/patterns/Toolbar.js",
+        "types": "packages/react/src/patterns/Toolbar.d.ts"
       }
     },
     {
-      "order": 45,
+      "order": 47,
       "id": "account-operations",
       "wave": "template-facing orchestrator",
       "score": 28,
@@ -7062,7 +7266,7 @@
       }
     },
     {
-      "order": 46,
+      "order": 48,
       "id": "chart-wrapper",
       "wave": "primitive-runtime composition",
       "score": 28,
@@ -7207,7 +7411,7 @@
       }
     },
     {
-      "order": 47,
+      "order": 49,
       "id": "filterable-editable-table",
       "wave": "cross-pattern composition",
       "score": 28,
@@ -7374,7 +7578,7 @@
       }
     },
     {
-      "order": 48,
+      "order": 50,
       "id": "fleet-manager-onboarding-desktop",
       "wave": "template-facing orchestrator",
       "score": 28,
@@ -7529,7 +7733,7 @@
       }
     },
     {
-      "order": 49,
+      "order": 51,
       "id": "backoffice-approval",
       "wave": "template-facing orchestrator",
       "score": 29,
@@ -7693,7 +7897,7 @@
       }
     },
     {
-      "order": 50,
+      "order": 52,
       "id": "drawer-adapter",
       "wave": "cross-pattern composition",
       "score": 29,
@@ -7871,7 +8075,137 @@
       }
     },
     {
-      "order": 51,
+      "order": 53,
+      "id": "on-this-page-nav",
+      "wave": "template-facing orchestrator",
+      "score": 29,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Frame",
+        "Depth",
+        "State",
+        "Voice",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol",
+        "Tone"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Iconography",
+        "Loading",
+        "Motion Curves",
+        "Radius"
+      ],
+      "components": [
+        "Badge",
+        "Button"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": true
+        },
+        {
+          "name": "badge",
+          "owner": "component",
+          "uses": [
+            "Badge"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "body",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "sticky",
+        "collapsed",
+        "active-section",
+        "overflow",
+        "mobile",
+        "dark"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/OnThisPageNav.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/OnThisPageNav.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Badge, Button"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Component Detail Template, Pattern Detail Template, Reference Detail Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
+        "react": "packages/react/src/patterns/OnThisPageNav.js",
+        "types": "packages/react/src/patterns/OnThisPageNav.d.ts"
+      }
+    },
+    {
+      "order": 54,
       "id": "preference-management",
       "wave": "template-facing orchestrator",
       "score": 29,
@@ -8027,7 +8361,7 @@
       }
     },
     {
-      "order": 52,
+      "order": 55,
       "id": "roles-and-permissions",
       "wave": "template-facing orchestrator",
       "score": 30,
@@ -8166,7 +8500,7 @@
       }
     },
     {
-      "order": 53,
+      "order": 56,
       "id": "driver-and-vehicle-administration",
       "wave": "template-facing orchestrator",
       "score": 31,
@@ -8327,7 +8661,7 @@
       }
     },
     {
-      "order": 54,
+      "order": 57,
       "id": "authentication-login-biometrics-and-otp",
       "wave": "template-facing orchestrator",
       "score": 32,
@@ -8483,7 +8817,7 @@
       }
     },
     {
-      "order": 55,
+      "order": 58,
       "id": "ticket-queue",
       "wave": "template-facing orchestrator",
       "score": 32,
@@ -8655,7 +8989,299 @@
       }
     },
     {
-      "order": 56,
+      "order": 59,
+      "id": "command-palette",
+      "wave": "template-facing orchestrator",
+      "score": 33,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "components": [
+        "Button",
+        "Dialog",
+        "Empty State",
+        "Input",
+        "Menu",
+        "Toast"
+      ],
+      "patternDependencies": [
+        "Search",
+        "Topbar"
+      ],
+      "templateRefs": [
+        "Docs Shell Template"
+      ],
+      "slots": [
+        {
+          "name": "surface",
+          "owner": "component",
+          "uses": [
+            "Dialog"
+          ]
+        },
+        {
+          "name": "query",
+          "owner": "component",
+          "uses": [
+            "Input"
+          ]
+        },
+        {
+          "name": "commands",
+          "owner": "component",
+          "uses": [
+            "Menu",
+            "Button",
+            "Empty State",
+            "Toast"
+          ]
+        }
+      ],
+      "states": [
+        "closed",
+        "open",
+        "querying",
+        "results",
+        "empty",
+        "loading",
+        "disabled-command",
+        "executing"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/CommandPalette.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/CommandPalette.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Dialog, Empty State, Input, Menu, Toast"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Search, Topbar"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Shell Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+        "react": "packages/react/src/patterns/CommandPalette.js",
+        "types": "packages/react/src/patterns/CommandPalette.d.ts"
+      }
+    },
+    {
+      "order": 60,
+      "id": "documentation-hero",
+      "wave": "template-facing orchestrator",
+      "score": 34,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "Energy",
+        "Accessibility",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Motion Curves",
+        "Radius"
+      ],
+      "components": [
+        "Button",
+        "Badge",
+        "Tag"
+      ],
+      "patternDependencies": [
+        "Section Header"
+      ],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Artifact Detail Template",
+        "Reference Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "title",
+          "owner": "pattern",
+          "uses": [
+            "Section Header"
+          ],
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "visual",
+          "owner": "channel",
+          "uses": [
+            "host visual"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "with-actions",
+        "with-metadata",
+        "with-status",
+        "dark",
+        "mobile",
+        "loading"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DocumentationHero.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DocumentationHero.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Button, Badge, Tag"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Section Header"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Home Template, Docs Artifact Detail Template, Reference Detail Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+        "react": "packages/react/src/patterns/DocumentationHero.js",
+        "types": "packages/react/src/patterns/DocumentationHero.d.ts"
+      }
+    },
+    {
+      "order": 61,
       "id": "status-feedback-view",
       "wave": "template-facing orchestrator",
       "score": 34,
@@ -8823,7 +9449,7 @@
       }
     },
     {
-      "order": 57,
+      "order": 62,
       "id": "case-management",
       "wave": "template-facing orchestrator",
       "score": 37,
@@ -9005,7 +9631,7 @@
       }
     },
     {
-      "order": 58,
+      "order": 63,
       "id": "pricing-operations",
       "wave": "template-facing orchestrator",
       "score": 37,
@@ -9187,7 +9813,152 @@
       }
     },
     {
-      "order": 59,
+      "order": 64,
+      "id": "demo-preview-frame",
+      "wave": "template-facing orchestrator",
+      "score": 38,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol",
+        "Voice"
+      ],
+      "primitives": [
+        "Surface",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Typography",
+        "Color",
+        "Duration",
+        "Iconography",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius"
+      ],
+      "components": [
+        "Skeleton",
+        "Error Panel"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "preview",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": true
+        },
+        {
+          "name": "controls",
+          "owner": "channel",
+          "uses": [
+            "host controls"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "source",
+          "owner": "channel",
+          "uses": [
+            "host source"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "fallback",
+          "owner": "component",
+          "uses": [
+            "Skeleton",
+            "Error Panel"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "interactive",
+        "static",
+        "viewport-mobile",
+        "viewport-desktop",
+        "loading",
+        "error",
+        "unsupported",
+        "dark",
+        "density-compact"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DemoPreviewFrame.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DemoPreviewFrame.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Skeleton, Error Panel"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Component Detail Template, Pattern Detail Template, Reference Detail Template, Template Detail Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+        "react": "packages/react/src/patterns/DemoPreviewFrame.js",
+        "types": "packages/react/src/patterns/DemoPreviewFrame.d.ts"
+      }
+    },
+    {
+      "order": 65,
       "id": "dense-operational-list",
       "wave": "template-facing orchestrator",
       "score": 40,
@@ -9369,7 +10140,7 @@
       }
     },
     {
-      "order": 60,
+      "order": 66,
       "id": "driver-onboarding-mobile",
       "wave": "template-facing orchestrator",
       "score": 44,
@@ -9548,7 +10319,7 @@
       }
     },
     {
-      "order": 61,
+      "order": 67,
       "id": "station-discovery",
       "wave": "template-facing orchestrator",
       "score": 45,
@@ -9748,10 +10519,279 @@
       }
     },
     {
-      "order": 62,
+      "order": 68,
+      "id": "artifact-metadata-bar",
+      "wave": "template-facing orchestrator",
+      "score": 51,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Voice",
+        "Frame",
+        "State",
+        "Tone",
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Density",
+        "Focus",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius"
+      ],
+      "components": [
+        "Badge",
+        "Tag",
+        "Chip",
+        "Tooltip",
+        "Button"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Collection Template",
+        "Docs Artifact Detail Template",
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag",
+            "Chip"
+          ],
+          "required": true
+        },
+        {
+          "name": "explanations",
+          "owner": "component",
+          "uses": [
+            "Tooltip"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "compact",
+        "overflow",
+        "interactive",
+        "loading",
+        "empty",
+        "dark",
+        "mobile"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/ArtifactMetadataBar.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/ArtifactMetadataBar.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Badge, Tag, Chip, Tooltip, Button"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Home Template, Docs Collection Template, Docs Artifact Detail Template, Component Detail Template, Pattern Detail Template, Template Detail Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+        "react": "packages/react/src/patterns/ArtifactMetadataBar.js",
+        "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts"
+      }
+    },
+    {
+      "order": 69,
+      "id": "documentation-section",
+      "wave": "template-facing orchestrator",
+      "score": 51,
+      "requiresSurface": true,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Accessibility",
+        "Energy"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Message"
+      ],
+      "components": [],
+      "patternDependencies": [
+        "Section Header"
+      ],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Collection Template",
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "header",
+          "owner": "pattern",
+          "uses": [
+            "Section Header"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "body",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": true
+        },
+        {
+          "name": "footer",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "dense",
+        "callout",
+        "matrix",
+        "empty",
+        "loading",
+        "error",
+        "dark",
+        "mobile"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/DocumentationSection.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/DocumentationSection.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "-"
+        },
+        {
+          "id": "surface-primitive",
+          "gate": "Use Surface as the structural grouping primitive; do not substitute Card as a generic wrapper.",
+          "evidence": "Surface required by formal Pattern primitive dependencies."
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Section Header"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Home Template, Docs Collection Template, Component Detail Template, Pattern Detail Template, Reference Detail Template, Template Detail Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+        "react": "packages/react/src/patterns/DocumentationSection.js",
+        "types": "packages/react/src/patterns/DocumentationSection.d.ts"
+      }
+    },
+    {
+      "order": 70,
       "id": "sidebar",
       "wave": "template-facing orchestrator",
-      "score": 46,
+      "score": 52,
       "requiresSurface": true,
       "runtimePrimitives": [],
       "foundations": [
@@ -9801,7 +10841,8 @@
         "Fleet Manager Desktop",
         "Fleet Dashboard Suite",
         "Configuration Console",
-        "Internal Operations Console"
+        "Internal Operations Console",
+        "Docs Shell Template"
       ],
       "slots": [
         {
@@ -9881,7 +10922,7 @@
         {
           "id": "template-boundaries",
           "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
-          "evidence": "Fleet Manager Desktop, Fleet Dashboard Suite, Configuration Console, Internal Operations Console"
+          "evidence": "Fleet Manager Desktop, Fleet Dashboard Suite, Configuration Console, Internal Operations Console, Docs Shell Template"
         },
         {
           "id": "docs-system-boundary",
@@ -9901,10 +10942,168 @@
       }
     },
     {
-      "order": 63,
+      "order": 71,
+      "id": "section-header",
+      "wave": "template-facing orchestrator",
+      "score": 59,
+      "requiresSurface": false,
+      "runtimePrimitives": [],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Typography"
+      ],
+      "components": [
+        "Badge",
+        "Button",
+        "Menu",
+        "Skeleton",
+        "Tag"
+      ],
+      "patternDependencies": [
+        "Form Section",
+        "Settings",
+        "Toolbar"
+      ],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Collection Template",
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "status",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag",
+            "Skeleton"
+          ]
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button",
+            "Menu"
+          ]
+        },
+        {
+          "name": "formBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Form Section"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "settingsBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Settings"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "toolbarBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Toolbar"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "states": [
+        "default",
+        "loading",
+        "actionable",
+        "disabled",
+        "permission-blocked",
+        "dirty"
+      ],
+      "reactStatus": "ready",
+      "reactDebts": [],
+      "executionChecklist": [
+        {
+          "id": "formal-artifact",
+          "gate": "Use the formal Pattern artifact as source of truth.",
+          "evidence": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json"
+        },
+        {
+          "id": "react-primary",
+          "gate": "Keep React as the primary runtime with forwardRef, typed props, callbacks, states, and density cascade.",
+          "evidence": "packages/react/src/patterns/SectionHeader.js"
+        },
+        {
+          "id": "types-contract",
+          "gate": "Keep the .d.ts contract aligned with formal states, callback props, controlled pairs, and inherited DOM props.",
+          "evidence": "packages/react/src/patterns/SectionHeader.d.ts"
+        },
+        {
+          "id": "flow-composition",
+          "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
+          "evidence": "Badge, Button, Menu, Skeleton, Tag"
+        },
+        {
+          "id": "pattern-boundaries",
+          "gate": "Keep Pattern dependencies as documented boundaries unless the artifact declares runtime composition.",
+          "evidence": "Form Section, Settings, Toolbar"
+        },
+        {
+          "id": "template-boundaries",
+          "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
+          "evidence": "Docs Home Template, Docs Collection Template, Component Detail Template, Pattern Detail Template, Reference Detail Template, Template Detail Template"
+        },
+        {
+          "id": "docs-system-boundary",
+          "gate": "Docs may demonstrate the Pattern but must not define core behavior, class roots, or component tokens.",
+          "evidence": "docs-system-boundary-audit.json"
+        },
+        {
+          "id": "verification",
+          "gate": "Regenerate Pattern audits and run audit-complete before considering the Pattern migrated.",
+          "evidence": "node packages/audit/scripts/audit-complete.mjs"
+        }
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+        "react": "packages/react/src/patterns/SectionHeader.js",
+        "types": "packages/react/src/patterns/SectionHeader.d.ts"
+      }
+    },
+    {
+      "order": 72,
       "id": "topbar",
       "wave": "template-facing orchestrator",
-      "score": 75,
+      "score": 83,
       "requiresSurface": false,
       "runtimePrimitives": [],
       "foundations": [
@@ -9945,7 +11144,9 @@
         "Drawer",
         "Icon Button",
         "Input",
-        "Menu"
+        "Menu",
+        "Empty State",
+        "List"
       ],
       "patternDependencies": [
         "Autocomplete",
@@ -9961,7 +11162,8 @@
         "Fleet Dashboard Suite",
         "Configuration Console",
         "Agent Workspace",
-        "Internal Operations Console"
+        "Internal Operations Console",
+        "Docs Shell Template"
       ],
       "slots": [
         {
@@ -9988,6 +11190,15 @@
             "Drawer",
             "Icon Button"
           ]
+        },
+        {
+          "name": "searchResults",
+          "owner": "component",
+          "uses": [
+            "List",
+            "Empty State"
+          ],
+          "required": "conditional"
         },
         {
           "name": "autocompleteBoundary",
@@ -10077,7 +11288,7 @@
         {
           "id": "flow-composition",
           "gate": "Compose Flow components and declared primitives instead of local visual DOM or docs-owned styles.",
-          "evidence": "Avatar, Badge, Drawer, Icon Button, Input, Menu"
+          "evidence": "Avatar, Badge, Drawer, Icon Button, Input, Menu, Empty State, List"
         },
         {
           "id": "pattern-boundaries",
@@ -10087,7 +11298,7 @@
         {
           "id": "template-boundaries",
           "gate": "Do not move Pattern behavior into templates; templates may only orchestrate formal Pattern contracts.",
-          "evidence": "Fleet Manager Desktop, Fleet Dashboard Suite, Configuration Console, Agent Workspace, Internal Operations Console"
+          "evidence": "Fleet Manager Desktop, Fleet Dashboard Suite, Configuration Console, Agent Workspace, Internal Operations Console, Docs Shell Template"
         },
         {
           "id": "docs-system-boundary",
@@ -10236,6 +11447,96 @@
     },
     {
       "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
       "template": "Configuration Console",
       "dependency": "Authentication, Login, Biometrics and OTP",
       "dependencyId": "authentication-login-biometrics-and-otp",
@@ -10318,6 +11619,294 @@
     {
       "source": "template-artifact:configuration-console.json",
       "template": "configuration-console",
+      "dependency": "Topbar",
+      "dependencyId": "topbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Artifact Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Artifact Detail Template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Toolbar",
+      "dependencyId": "toolbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Command Palette",
+      "dependencyId": "command-palette",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Documentation Page Shell",
+      "dependencyId": "documentation-page-shell",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Sidebar",
+      "dependencyId": "sidebar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Topbar",
+      "dependencyId": "topbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-artifact-detail-template.json",
+      "template": "docs-artifact-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-artifact-detail-template.json",
+      "template": "docs-artifact-detail-template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Toolbar",
+      "dependencyId": "toolbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Command Palette",
+      "dependencyId": "command-palette",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Documentation Page Shell",
+      "dependencyId": "documentation-page-shell",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Sidebar",
+      "dependencyId": "sidebar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
       "dependency": "Topbar",
       "dependencyId": "topbar",
       "formalPatternPresent": true,
@@ -10590,6 +12179,186 @@
       "template": "internal-operations-console",
       "dependency": "Topbar",
       "dependencyId": "topbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
       "formalPatternPresent": true,
       "knownTemplateModule": false,
       "classification": "formal-pattern"
@@ -10628,6 +12397,78 @@
       "dependencyId": "preference-management",
       "formalPatternPresent": true,
       "knownTemplateModule": true,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
       "classification": "formal-pattern"
     }
   ],

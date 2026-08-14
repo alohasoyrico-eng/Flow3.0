@@ -227,7 +227,7 @@ function writeReport(report) {
     const currentJson = readIfExists(jsonOutput);
     const currentMarkdown = readIfExists(markdownOutput);
     if (currentJson !== json || currentMarkdown !== `${markdown}\n`) {
-      console.error("Primitive Loading cascade audit is stale. Run npm run audit:primitive:loading.");
+      console.error("Primitive Loading cascade audit is stale. Run: node packages/audit/scripts/report-primitive-loading-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

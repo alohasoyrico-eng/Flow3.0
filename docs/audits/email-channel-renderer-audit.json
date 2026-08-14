@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "email channel renderer",
   "principle": "Email React authoring must emit static, table-safe HTML output per channel variant without depending on the web runtime cascade.",
-  "generatedAt": "2026-08-13T16:14:26.304Z",
+  "generatedAt": "2026-08-14T23:14:27.569Z",
   "inventory": {
     "renderCases": 6,
     "passingRenderCases": 6,

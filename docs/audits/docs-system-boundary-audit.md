@@ -7,19 +7,19 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 ## Inventory
 
 - Docs root: ../FlowDocs
-- Source files scanned: 209
-- Generated files: 356
+- Source files scanned: 214
+- Generated files: 396
 - Flow dependency present: 1
 - Flow boundary aliases: 21
 - Missing Flow aliases: 0
 - Local Flow import violations: 0
 - Docs component token definitions: 0
 - Docs component token definition files: 0
-- Docs protected Flow class roots: 69
+- Docs protected Flow class roots: 73
 - Docs component class definitions: 0
 - Docs component class definition files: 0
-- Docs pattern class definitions: 290
-- Docs pattern class roots: 113
+- Docs pattern class definitions: 286
+- Docs pattern class roots: 112
 - Docs unapproved pattern class roots: 0
 - Docs pattern class policy issues: 0
 - Docs contractual pattern class definitions: 0
@@ -31,19 +31,19 @@ FlowDocs must consume Flow through package exports and generated assets; any doc
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| sourceFilesScanned | 209 | 209 |
-| generatedFiles | 356 | 356 |
+| sourceFilesScanned | 214 | 214 |
+| generatedFiles | 396 | 396 |
 | flowDependencyPresent | 1 | 1 |
 | flowBoundaryAliases | 21 | 21 |
 | missingFlowAliases | 0 | 0 |
 | localFlowImportViolations | 0 | 0 |
 | docsComponentTokenDefinitions | 0 | 0 |
 | docsComponentTokenDefinitionFiles | 0 | 0 |
-| docsProtectedFlowClassRoots | 69 | 69 |
+| docsProtectedFlowClassRoots | 73 | 73 |
 | docsComponentClassDefinitions | 0 | 0 |
 | docsComponentClassDefinitionFiles | 0 | 0 |
-| docsPatternClassDefinitions | 290 | 290 |
-| docsPatternClassRoots | 113 | 113 |
+| docsPatternClassDefinitions | 286 | 286 |
+| docsPatternClassRoots | 112 | 112 |
 | docsUnapprovedPatternClassRoots | 0 | 0 |
 | docsPatternClassPolicyIssues | 0 | 0 |
 | docsContractualPatternClassDefinitions | 0 | 0 |

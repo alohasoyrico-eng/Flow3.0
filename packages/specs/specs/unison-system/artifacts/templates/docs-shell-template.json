@@ -107,6 +107,38 @@
           "Topbar and Sidebar both own the same drawer trigger.",
           "The shell uses raw colors, spacing, or local card wrappers instead of Flow primitives.",
           "The grid overlay or background treatment is injected as unmanaged page CSS."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "mobile docs shell"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "responsive documentation shell"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "persistent docs workspace shell"
+          }
+        ],
+        "tokenDependencies": [
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.accessibility.*",
+          "sys.voice.*",
+          "surface.*"
+        ],
+        "surfaces": [
+          "page",
+          "section"
         ]
       }
     }

@@ -8,11 +8,11 @@ Component, primitive, pattern, and template boundaries must stay explicit so orc
 
 - Taxonomy file: packages/content/content/taxonomy-boundaries.json
 - Rules: 5
-- Decisions: 20
+- Decisions: 28
 - Pattern decisions: 10
-- Template decisions: 9
+- Template decisions: 17
 - Non-component decisions: 1
-- Artifacts scanned: 167
+- Artifacts scanned: 186
 - Cross-layer artifact ids: 1
 - Unapproved cross-layer artifact ids: 0
 - Artifact layer mismatches: 0
@@ -22,13 +22,13 @@ Component, primitive, pattern, and template boundaries must stay explicit so orc
 - Template artifact/blueprint mismatches: 0
 - Template dependency reference errors: 0
 - Template catalog sync errors: 0
-- Required boundary cases: 59
+- Required boundary cases: 60
 - Required boundary case violations: 0
 - Foundation boundary cases: 7
 - Primitive boundary cases: 14
 - Component boundary cases: 10
 - Pattern boundary cases: 21
-- Template boundary cases: 6
+- Template boundary cases: 7
 - Non-component boundary cases: 1
 - Duplicate ids: 0
 - Audit errors: 0
@@ -44,11 +44,11 @@ Changing these numbers is a contract decision. Additions or removals must be rev
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | rules | 5 | 5 |
-| decisions | 20 | 20 |
+| decisions | 28 | 28 |
 | patternDecisions | 10 | 10 |
-| templateDecisions | 9 | 9 |
+| templateDecisions | 17 | 17 |
 | nonComponentDecisions | 1 | 1 |
-| artifactsScanned | 167 | 167 |
+| artifactsScanned | 186 | 186 |
 | crossLayerArtifactIds | 1 | 1 |
 | unapprovedCrossLayerArtifactIds | 0 | 0 |
 | artifactLayerMismatches | 0 | 0 |
@@ -58,13 +58,13 @@ Changing these numbers is a contract decision. Additions or removals must be rev
 | templateArtifactBlueprintMismatches | 0 | 0 |
 | templateDependencyReferenceErrors | 0 | 0 |
 | templateCatalogSyncErrors | 0 | 0 |
-| requiredBoundaryCases | 59 | 59 |
+| requiredBoundaryCases | 60 | 60 |
 | requiredBoundaryCaseViolations | 0 | 0 |
 | foundationBoundaryCases | 7 | 7 |
 | primitiveBoundaryCases | 14 | 14 |
 | componentBoundaryCases | 10 | 10 |
 | patternBoundaryCases | 21 | 21 |
-| templateBoundaryCases | 6 | 6 |
+| templateBoundaryCases | 7 | 7 |
 | nonComponentBoundaryCases | 1 | 1 |
 | duplicateIds | 0 | 0 |
 | auditErrors | 0 | 0 |
@@ -107,6 +107,14 @@ Changing these numbers is a contract decision. Additions or removals must be rev
 | agent-workspace | template | agent-workspace | Agent Workspace is a complete service workspace template that coordinates queue, thread, composer, context evidence, handoff, and recovery through governed chat components and feedback patterns. |
 | internal-operations-console | template | internal-operations-console | Internal Operations Console is a desktop operations shell that proves case, ticket, account, pricing, approval, and growth workflows across governed patterns. |
 | settings-workspace | template | settings-workspace | Settings Workspace is a complete product settings surface that coordinates sections, preferences, validation, theme, and danger-zone confirmation through governed patterns. |
+| docs-shell-template | template | docs-shell-template | Docs Shell Template is the documentation product shell and must compose Topbar, Sidebar, Search, Command Palette, and Documentation Page Shell through Flow instead of owning shell behavior locally. |
+| docs-home-template | template | docs-home-template | Docs Home Template is the documentation landing surface and must compose documentation patterns, primitives, and foundations instead of recreating editorial layout locally. |
+| docs-collection-template | template | docs-collection-template | Docs Collection Template is the collection index surface for foundations, primitives, components, patterns, and templates; filtering, metadata, and section structure must stay governed. |
+| component-detail-template | template | component-detail-template | Component Detail Template is the repeated component documentation surface and must compose Documentation Section, Demo Preview Frame, metadata, and navigation patterns through Flow. |
+| pattern-detail-template | template | pattern-detail-template | Pattern Detail Template is the repeated pattern documentation surface and must keep demos, sections, metadata, and navigation inside governed Flow documentation patterns. |
+| reference-detail-template | template | reference-detail-template | Reference Detail Template is the shared foundation and primitive reference surface and must keep research, measurement, sections, hero, and navigation governed by Flow. |
+| template-detail-template | template | template-detail-template | Template Detail Template is the repeated product-template documentation surface and must compose Flow documentation patterns instead of defining bespoke page shells. |
+| docs-artifact-detail-template | template | docs-artifact-detail-template | Docs Artifact Detail Template is the generic documentation artifact detail fallback and must stay a governed template boundary rather than becoming local page chrome in FlowDocs. |
 
 ## Artifact Layer Scan
 
@@ -127,14 +135,22 @@ Approved cross-layer artifact ids: iconography. Policy issues: 0.
 | Template | Decision | Blueprint | Pattern Dependencies | Template Modules | Primitive Dependencies | Foundations | Reference Errors | Catalog Sync Errors |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | agent-workspace | yes | yes | Agent Conversation, Topbar, Status Feedback View | Conversation queue, Agent Conversation, Agent state, Handoff recovery, Workspace context | Color, Density, Focus, Iconography, Message, Spacing, Surface, Typography | Accessibility, Frame, State, Tone, Voice | - | - |
+| component-detail-template | yes | yes | Section Header, Documentation Section, Demo Preview Frame, On This Page Nav, Artifact Metadata Bar | - | Surface, Typography, Spacing, Breakpoints, Density, Focus, Loading, Disabled | Voice, Frame, Depth, State, Tone, Accessibility | - | - |
 | configuration-console | yes | yes | Topbar, Sidebar, Roles and Permissions, Driver and Vehicle Administration, Authentication, Login, Biometrics and OTP | - | Color, Typography, Spacing, Surface, Density, Iconography, Focus, Loading, Disabled, Breakpoints, Charts | Energy, Voice, Frame, Depth, Momentum, State, Tone, Accessibility | - | - |
+| docs-artifact-detail-template | yes | yes | Documentation Hero, Artifact Metadata Bar | - | Surface, Typography, Spacing, Breakpoints, Density, Focus, Loading, Disabled | Voice, Frame, Depth, State, Tone, Accessibility | - | - |
+| docs-collection-template | yes | yes | Section Header, Search, Toolbar, Artifact Metadata Bar, Documentation Section | - | Surface, Spacing, Breakpoints, Density, Focus | Voice, Frame, Depth, State, Accessibility | - | - |
+| docs-home-template | yes | yes | Section Header, Documentation Hero, Documentation Section, Artifact Metadata Bar | - | Surface, Typography, Spacing, Breakpoints, Density, Iconography | Voice, Frame, Depth, Growth, Accessibility | - | - |
+| docs-shell-template | yes | yes | Topbar, Sidebar, Search, Command Palette, Documentation Page Shell | - | Surface, Spacing, Breakpoints, Density, Focus, Color, Typography | Frame, Depth, State, Accessibility, Voice | - | - |
 | driver-card-wallet | yes | yes | - | Mobile Card Overview, Mobile Card Detail and Quick Actions, Mobile Movement Detail | Color, Typography, Spacing, Surface, Density, Iconography, Focus, Loading, Disabled, Breakpoints | Energy, Voice, Frame, Depth, Momentum, State, Tone, Accessibility | - | - |
 | driver-mobile-app | yes | yes | Driver Onboarding Mobile, Station Discovery | Mobile Card Overview, Routes and Nearby Stations Mobile | Color, Typography, Spacing, Surface, Density, Iconography, Focus, Loading, Disabled, Breakpoints, Maps | Energy, Voice, Frame, Depth, Momentum, State, Tone, Accessibility | - | - |
 | fleet-dashboard-suite | yes | yes | Topbar, Sidebar | Fleet Dashboard Overview, Fuel Dashboard, Maintenance Dashboard, Electromobility Dashboard, Toll Dashboard, Fleet Dashboard, Finance Dashboard | Color, Typography, Spacing, Surface, Density, Iconography, Focus, Loading, Disabled, Breakpoints, Charts | Energy, Voice, Frame, Depth, Momentum, State, Tone, Accessibility | - | - |
 | fleet-manager-desktop | yes | yes | Topbar, Sidebar, Roles and Permissions | Fleet Dashboard Overview, Fuel Dashboard | Color, Typography, Spacing, Surface, Density, Iconography, Focus, Loading, Disabled, Breakpoints, Charts | Energy, Voice, Frame, Depth, Momentum, State, Tone, Accessibility | - | - |
 | internal-operations-console | yes | yes | Topbar, Sidebar, Case Management, Ticket Queue, Account Operations, Pricing Operations, Backoffice Approval, Dense Operational List | Case operations, Ticket operations, Account operations, Pricing operations, Backoffice approvals, Growth operations | Color, Density, Focus, Iconography, Measurement, Message, Spacing, Surface, Typography | Accessibility, Frame, State, Tone, Voice | - | - |
+| pattern-detail-template | yes | yes | Section Header, Documentation Section, Demo Preview Frame, On This Page Nav, Artifact Metadata Bar | - | Surface, Typography, Spacing, Breakpoints, Density, Focus, Message | Voice, Frame, Depth, State, Growth, Accessibility | - | - |
+| reference-detail-template | yes | yes | Section Header, Documentation Hero, Documentation Section, On This Page Nav, Demo Preview Frame | - | Surface, Typography, Spacing, Breakpoints, Density, Message, Research, Measurement | Voice, Frame, Depth, State, Symbol, Accessibility | - | - |
 | routes-and-stations | yes | yes | Station Discovery | Routes and Nearby Stations Mobile, Station Detail and Route Guidance | Color, Typography, Spacing, Surface, Density, Iconography, Focus, Loading, Disabled, Breakpoints, Maps | Energy, Voice, Frame, Depth, Momentum, State, Tone, Accessibility | - | - |
 | settings-workspace | yes | yes | Preference Management | Section navigation, Preference management | Color, Density, Field Action, Focus, Iconography, Spacing, Surface, Typography | Accessibility, Frame, State, Tone, Voice | - | - |
+| template-detail-template | yes | yes | Section Header, Documentation Section, Demo Preview Frame, Artifact Metadata Bar | - | Surface, Typography, Spacing, Breakpoints, Density, Focus, Loading | Voice, Frame, Depth, State, Tone, Accessibility | - | - |
 
 ## Template Blueprints Without Artifacts
 
@@ -202,6 +218,7 @@ These are explicit guardrails for names that commonly drift between foundations,
 | surface | primitive | artifact | primitive | - | packages/specs/specs/unison-system/artifacts/primitives/surface.json | - | Surface is the grouping primitive; Card must not become the default wrapper for pattern groups. |
 | typography | primitive | artifact | primitive | - | packages/specs/specs/unison-system/artifacts/primitives/typography.json | - | Typography is a primitive contract for text rendering. |
 | configuration-console | template | artifact | template | - | packages/specs/specs/unison-system/artifacts/templates/configuration-console.json | - | Configuration Console is a product surface template. |
+| docs-artifact-detail-template | template | artifact | template | - | packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json | - | Docs Artifact Detail Template is a documentation artifact detail fallback template, not reusable local docs markup. |
 | driver-card-wallet | template | artifact | template | - | packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json | - | Driver Card Wallet is a product surface template. |
 | driver-mobile-app | template | artifact | template | - | packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json | - | Driver Mobile App is a product surface template. |
 | fleet-dashboard-suite | template | artifact | template | - | packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json | - | Fleet Dashboard Suite is a product surface template. |

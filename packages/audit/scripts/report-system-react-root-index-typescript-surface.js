@@ -10,6 +10,13 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-react-root-index-typescript-surface.json");
 const markdownOutput = path.join(outputDir, "system-react-root-index-typescript-surface.md");
 const checkMode = process.argv.includes("--check");
+const sourceRuntimeHeader = [
+  "/* @generated from packages/react/src TypeScript source.",
+  " * Do not edit this compatibility runtime directly.",
+  " * Authored source of truth is the paired .ts/.tsx file.",
+  " */",
+  "",
+].join("\n");
 const sourceFile = "packages/react/src/index.ts";
 const runtimeFile = "packages/react/src/index.js";
 const declarationFile = "packages/react/src/index.d.ts";
@@ -46,7 +53,7 @@ function compileExpectedRuntime() {
   });
   const compiledFile = path.join(outDir, "index.js");
   const expectedRuntime = result.status === 0 && fs.existsSync(compiledFile)
-    ? fs.readFileSync(compiledFile, "utf8")
+    ? `${sourceRuntimeHeader}${fs.readFileSync(compiledFile, "utf8")}`
     : null;
   fs.rmSync(outDir, { recursive: true, force: true });
   return {

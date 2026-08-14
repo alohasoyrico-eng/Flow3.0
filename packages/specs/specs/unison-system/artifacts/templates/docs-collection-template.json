@@ -82,6 +82,9 @@
           "error",
           "mobile"
         ],
+        "stateGuidance": {
+          "error": "If collection data fails, show a recovery action to retry loading or review the source catalog."
+        },
         "qualityGates": [
           "Artifact cards are Card compositions inside a template slot.",
           "Filtering and empty states reuse Search, Toolbar, Empty State, and Skeleton.",
@@ -91,6 +94,38 @@
           "FlowDocs reintroduces docs-link-card or artifact-card as unmanaged local wrappers.",
           "Collection cards create new Card variants for docs-only visual roles.",
           "Filter or search controls bypass Flow Search and Toolbar contracts."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "stacked collection cards"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "responsive collection grid"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense collection index"
+          }
+        ],
+        "tokenDependencies": [
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.accessibility.*",
+          "surface.*"
+        ],
+        "surfaces": [
+          "page",
+          "section"
         ]
       }
     }

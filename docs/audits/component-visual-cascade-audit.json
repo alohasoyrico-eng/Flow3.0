@@ -3,8 +3,8 @@
   "audit": "component visual cascade",
   "principle": "Every component must render through the React package, consume Flow visual roles through CSS/tokens, and use docs demos that expose layout/density problems instead of hiding them behind local styling. The actionable debt metric is visualCascadeDebt.",
   "inventory": {
-    "components": 60,
-    "pass": 60,
+    "components": 62,
+    "pass": 62,
     "review": 0,
     "fail": 0,
     "visualCascadeDebt": 0
@@ -30,7 +30,7 @@
         "aliases": [
           "accordion"
         ],
-        "matchedRules": 20,
+        "matchedRules": 21,
         "tokenAliases": [
           "accordion"
         ],
@@ -111,6 +111,7 @@
           "--component-space-md",
           "--component-space-sm",
           "--component-space-xs",
+          "--component-surface-transparent",
           "--component-transform-rotate-expanded"
         ],
         "compTokenUses": [
@@ -905,7 +906,7 @@
         "aliases": [
           "badge"
         ],
-        "matchedRules": 23,
+        "matchedRules": 28,
         "tokenAliases": [
           "badge"
         ],
@@ -960,6 +961,7 @@
           "--component-border-width",
           "--component-color-action",
           "--component-color-border",
+          "--component-color-border-strong",
           "--component-color-danger",
           "--component-color-focus",
           "--component-color-success",
@@ -1528,7 +1530,7 @@
         "aliases": [
           "button"
         ],
-        "matchedRules": 40,
+        "matchedRules": 41,
         "tokenAliases": [
           "button"
         ],
@@ -1836,7 +1838,7 @@
         "aliases": [
           "card"
         ],
-        "matchedRules": 49,
+        "matchedRules": 50,
         "tokenAliases": [
           "card"
         ],
@@ -1983,7 +1985,14 @@
           "--comp-card-value-weight",
           "--component-border-width",
           "--component-card-media-block-size",
+          "--component-color-action",
+          "--component-color-border",
+          "--component-color-surface",
+          "--component-color-surface-raised",
+          "--component-color-text",
+          "--component-color-text-muted",
           "--component-control-min-size",
+          "--component-depth-card-hover",
           "--component-font-family-body",
           "--component-font-family-mono",
           "--component-font-size-body",
@@ -3714,6 +3723,106 @@
       "reviews": []
     },
     {
+      "id": "code-block",
+      "react": {
+        "file": "packages/react/src/CodeBlock.js",
+        "exists": true,
+        "dts": true,
+        "forwardRef": true,
+        "platformContract": true
+      },
+      "docs": {
+        "audited": true,
+        "reactIsland": true,
+        "legacyDemoSelectors": [],
+        "narrowDemoGrids": []
+      },
+      "css": {
+        "aliases": [
+          "code-block"
+        ],
+        "matchedRules": 9,
+        "tokenAliases": [
+          "code-block"
+        ],
+        "componentTokenUses": [
+          "--comp-code-block-bg",
+          "--comp-code-block-border",
+          "--comp-code-block-disabled-opacity",
+          "--comp-code-block-fg",
+          "--comp-code-block-font-family",
+          "--comp-code-block-font-size",
+          "--comp-code-block-gap",
+          "--comp-code-block-header-gap",
+          "--comp-code-block-line-height",
+          "--comp-code-block-muted-fg",
+          "--comp-code-block-overflow",
+          "--comp-code-block-padding",
+          "--comp-code-block-radius",
+          "--comp-code-block-shadow",
+          "--component-align-center",
+          "--component-border-width",
+          "--component-color-danger",
+          "--component-disabled-border",
+          "--component-disabled-cursor",
+          "--component-disabled-text",
+          "--component-display-flex",
+          "--component-display-grid",
+          "--component-flex-wrap-wrap",
+          "--component-font-size-caption",
+          "--component-font-weight-medium",
+          "--component-frame-space-none",
+          "--component-justify-space-between",
+          "--component-line-height-snug-state",
+          "--component-overflow-wrap-anywhere",
+          "--component-space-md",
+          "--component-space-sm",
+          "--component-space-xl",
+          "--component-white-space-pre-wrap"
+        ],
+        "compTokenUses": [
+          "--comp-code-block-bg",
+          "--comp-code-block-border",
+          "--comp-code-block-disabled-opacity",
+          "--comp-code-block-fg",
+          "--comp-code-block-font-family",
+          "--comp-code-block-font-size",
+          "--comp-code-block-gap",
+          "--comp-code-block-header-gap",
+          "--comp-code-block-line-height",
+          "--comp-code-block-muted-fg",
+          "--comp-code-block-overflow",
+          "--comp-code-block-padding",
+          "--comp-code-block-radius",
+          "--comp-code-block-shadow"
+        ],
+        "componentTokenFamilyUses": [
+          "--comp-code-block-bg",
+          "--comp-code-block-border",
+          "--comp-code-block-disabled-opacity",
+          "--comp-code-block-fg",
+          "--comp-code-block-font-family",
+          "--comp-code-block-font-size",
+          "--comp-code-block-gap",
+          "--comp-code-block-header-gap",
+          "--comp-code-block-line-height",
+          "--comp-code-block-muted-fg",
+          "--comp-code-block-overflow",
+          "--comp-code-block-padding",
+          "--comp-code-block-radius",
+          "--comp-code-block-shadow"
+        ],
+        "foundationTokenUses": [],
+        "hardcodedColors": [],
+        "rawGeometry": [],
+        "rawTypography": [],
+        "localRadiusComposition": []
+      },
+      "status": "pass",
+      "blockers": [],
+      "reviews": []
+    },
+    {
       "id": "code-input",
       "react": {
         "file": "packages/react/src/CodeInput.js",
@@ -4014,6 +4123,54 @@
           "--comp-combobox-overlay-motion-ease",
           "--comp-combobox-overlay-visibility-duration",
           "--comp-combobox-overlay-visibility-ease"
+        ],
+        "foundationTokenUses": [],
+        "hardcodedColors": [],
+        "rawGeometry": [],
+        "rawTypography": [],
+        "localRadiusComposition": []
+      },
+      "status": "pass",
+      "blockers": [],
+      "reviews": []
+    },
+    {
+      "id": "copy-button",
+      "react": {
+        "file": "packages/react/src/CopyButton.js",
+        "exists": true,
+        "dts": true,
+        "forwardRef": true,
+        "platformContract": true
+      },
+      "docs": {
+        "audited": true,
+        "reactIsland": true,
+        "legacyDemoSelectors": [],
+        "narrowDemoGrids": []
+      },
+      "css": {
+        "aliases": [
+          "copy-button"
+        ],
+        "matchedRules": 3,
+        "tokenAliases": [
+          "copy-button"
+        ],
+        "componentTokenUses": [
+          "--comp-copy-button-copied-color",
+          "--comp-copy-button-error-color",
+          "--comp-copy-button-feedback-gap"
+        ],
+        "compTokenUses": [
+          "--comp-copy-button-copied-color",
+          "--comp-copy-button-error-color",
+          "--comp-copy-button-feedback-gap"
+        ],
+        "componentTokenFamilyUses": [
+          "--comp-copy-button-copied-color",
+          "--comp-copy-button-error-color",
+          "--comp-copy-button-feedback-gap"
         ],
         "foundationTokenUses": [],
         "hardcodedColors": [],
@@ -5967,7 +6124,7 @@
           "field-control",
           "field-input"
         ],
-        "matchedRules": 31,
+        "matchedRules": 32,
         "tokenAliases": [
           "input"
         ],
@@ -6028,6 +6185,11 @@
           "--comp-text-area-focus-offset",
           "--comp-text-area-focus-width",
           "--component-border-width",
+          "--component-color-border",
+          "--component-color-surface",
+          "--component-color-surface-raised",
+          "--component-color-text",
+          "--component-color-text-muted",
           "--component-disabled-cursor",
           "--component-disabled-text",
           "--component-duration-state",

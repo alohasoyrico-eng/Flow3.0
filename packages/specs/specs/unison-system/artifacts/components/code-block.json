@@ -76,6 +76,18 @@
         ],
         "statePrecedence": "disabled > error > copied > with-copy > with-header > scrollable > wrapped > default",
         "foundations": {
+          "Energy": {
+            "status": "covered",
+            "decision": "Use Energy for readable source surfaces and feedback contrast.",
+            "tokens": [
+              "comp.code-block.*",
+              "sys.energy.*"
+            ],
+            "behavior": "Code content remains legible in light and dark surfaces.",
+            "example": "Token output snippet.",
+            "test": "Verify surface and text contrast.",
+            "rejectIf": "Raw colors define source presentation."
+          },
           "Voice": {
             "status": "covered",
             "decision": "Use clear labels for language, filename, and copy feedback.",
@@ -111,6 +123,17 @@
             "test": "Verify surface contrast in light and dark modes.",
             "rejectIf": "Depth is used as decoration."
           },
+          "Momentum": {
+            "status": "covered",
+            "decision": "Use Momentum only through composed copy feedback and focus transitions.",
+            "tokens": [
+              "sys.momentum.*"
+            ],
+            "behavior": "Snippet presentation stays stable while feedback remains responsive.",
+            "example": "Copied feedback on snippet header.",
+            "test": "Verify reduced-motion friendly feedback.",
+            "rejectIf": "Code content animates as decoration."
+          },
           "State": {
             "status": "covered",
             "decision": "Expose copied, error, disabled, wrapped, and scrollable states explicitly.",
@@ -121,6 +144,50 @@
             "example": "Copied source feedback.",
             "test": "Verify copied and error messages are announced.",
             "rejectIf": "Copy feedback is visual-only."
+          },
+          "Tone": {
+            "status": "covered",
+            "decision": "Use calm source labels and explicit recovery copy for errors.",
+            "tokens": [
+              "sys.tone.*"
+            ],
+            "behavior": "Source context and validation failures are understandable.",
+            "example": "Review source and retry generation.",
+            "test": "Verify error language includes a recovery action.",
+            "rejectIf": "Error copy blames the user or lacks next action."
+          },
+          "Growth": {
+            "status": "covered",
+            "decision": "Keep Code Block a source presentation component and escalate multi-step examples to docs templates.",
+            "tokens": [
+              "sys.growth.*"
+            ],
+            "behavior": "The component does not own tutorials, API tables, or demo orchestration.",
+            "example": "Pattern detail source example.",
+            "test": "Verify orchestration stays in template slots.",
+            "rejectIf": "Code Block becomes a documentation layout system."
+          },
+          "Symbol": {
+            "status": "covered",
+            "decision": "Use symbols only through composed copy action or metadata; labels remain required and symbols never replace text fallback.",
+            "tokens": [
+              "sys.symbol.*"
+            ],
+            "behavior": "Icons support copy affordance while visible labels, accessible names, or fallback text remain the source of meaning.",
+            "example": "Copy source icon.",
+            "test": "Verify visible or accessible copy label.",
+            "rejectIf": "An icon is the only source context."
+          },
+          "Iconography": {
+            "status": "covered",
+            "decision": "Use Iconography through Copy Button composition.",
+            "tokens": [
+              "sys.iconography.*"
+            ],
+            "behavior": "Copy icon size follows Button/Icon Button density.",
+            "example": "Inline copy action in header.",
+            "test": "Verify icon alignment across densities.",
+            "rejectIf": "Local SVG or mismatched icon sizing appears."
           },
           "Accessibility": {
             "status": "covered",
@@ -160,6 +227,26 @@
           "sys.typography.*",
           "sys.state.*",
           "sys.accessibility.*"
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "wrapped full-width source block"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "source block with optional header action"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense reference or API snippet"
+          }
         ],
         "props": [
           {

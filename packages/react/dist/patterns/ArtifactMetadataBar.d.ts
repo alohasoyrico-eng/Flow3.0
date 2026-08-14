@@ -6,7 +6,7 @@ import type { SurfaceDensity, SurfaceProps } from "../Surface.js";
 import type { TagProps } from "../Tag.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 
-export type ArtifactMetadataBarState = "default" | "compact" | "overflow" | "interactive" | "loading" | "empty";
+export type ArtifactMetadataBarState = "default" | "compact" | "overflow" | "interactive" | "loading" | "empty" | "dark" | "mobile";
 export type ArtifactMetadataBarDensity = SurfaceDensity;
 export type ArtifactMetadataBarItemKind = "tag" | "badge" | "chip";
 

@@ -103,7 +103,7 @@ export interface StationDiscoveryProps extends FlowDataAttributes {
   className?: string;
   onStationSelect?: (key: string, station: StationDiscoveryStation | Record<string, unknown>, event: MouseEvent<HTMLElement>) => void;
   onRouteAction?: (key: string, action: RouteSummaryAction, event: MouseEvent<HTMLButtonElement>) => void;
-  onQueryChange?: (value: string, event?: unknown) => void;
+  onQueryChange?: SearchProps["onQueryChange"];
   onSubmit?: (value: string, event: MouseEvent<HTMLButtonElement>) => void;
   onAction?: (key: string, event: MouseEvent<HTMLElement>) => void;
 }
@@ -425,8 +425,8 @@ export const StationDiscovery = forwardRef<HTMLDivElement, StationDiscoveryProps
         state: loading ? "loading" : query ? "results" : "idle",
         density,
         disabled: isDisabled || search?.disabled,
-        onQueryChange: (value, _meta, event) => {
-          onQueryChange?.(value, event);
+        onQueryChange: (value, meta, event) => {
+          onQueryChange?.(value, meta, event);
         },
         onResultSelect: (key, event) => {
           search?.onResultSelect?.(key, event);

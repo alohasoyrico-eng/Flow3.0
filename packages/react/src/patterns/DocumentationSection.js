@@ -1,7 +1,11 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { Surface } from "../Surface.js";
 import { SectionHeader } from "./SectionHeader.js";
-const validStates = new Set(["default", "dense", "callout", "matrix", "empty", "loading", "error"]);
+const validStates = new Set(["default", "dense", "callout", "matrix", "empty", "loading", "error", "dark", "mobile"]);
 const validLayouts = new Set(["stack", "split", "matrix", "cards", "callout"]);
 const validTones = new Set(["default", "muted", "selected", "danger", "warning", "success", "info"]);
 function sanitizeRestProps(rest) {
@@ -56,6 +60,7 @@ export const DocumentationSection = forwardRef(function DocumentationSection({ t
         elevation,
         tone: resolvedTone,
         state: resolvedState === "loading" ? "disabled" : "default",
+        "aria-label": rest["aria-label"] ?? sectionTitle ?? "Documentation section",
         "data-flow-pattern": "documentation-section",
         "data-documentation-section-layout": resolvedLayout,
         "data-documentation-section-state": resolvedState,

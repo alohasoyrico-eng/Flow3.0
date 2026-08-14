@@ -6,11 +6,11 @@
   "baseline": {
     "inventory": {
       "rules": 5,
-      "decisions": 20,
+      "decisions": 28,
       "patternDecisions": 10,
-      "templateDecisions": 9,
+      "templateDecisions": 17,
       "nonComponentDecisions": 1,
-      "artifactsScanned": 167,
+      "artifactsScanned": 186,
       "crossLayerArtifactIds": 1,
       "unapprovedCrossLayerArtifactIds": 0,
       "artifactLayerMismatches": 0,
@@ -20,13 +20,13 @@
       "templateArtifactBlueprintMismatches": 0,
       "templateDependencyReferenceErrors": 0,
       "templateCatalogSyncErrors": 0,
-      "requiredBoundaryCases": 59,
+      "requiredBoundaryCases": 60,
       "requiredBoundaryCaseViolations": 0,
       "foundationBoundaryCases": 7,
       "primitiveBoundaryCases": 14,
       "componentBoundaryCases": 10,
       "patternBoundaryCases": 21,
-      "templateBoundaryCases": 6,
+      "templateBoundaryCases": 7,
       "nonComponentBoundaryCases": 1,
       "duplicateIds": 0,
       "auditErrors": 0,
@@ -38,11 +38,11 @@
   },
   "inventory": {
     "rules": 5,
-    "decisions": 20,
+    "decisions": 28,
     "patternDecisions": 10,
-    "templateDecisions": 9,
+    "templateDecisions": 17,
     "nonComponentDecisions": 1,
-    "artifactsScanned": 167,
+    "artifactsScanned": 186,
     "crossLayerArtifactIds": 1,
     "unapprovedCrossLayerArtifactIds": 0,
     "artifactLayerMismatches": 0,
@@ -52,13 +52,13 @@
     "templateArtifactBlueprintMismatches": 0,
     "templateDependencyReferenceErrors": 0,
     "templateCatalogSyncErrors": 0,
-    "requiredBoundaryCases": 59,
+    "requiredBoundaryCases": 60,
     "requiredBoundaryCaseViolations": 0,
     "foundationBoundaryCases": 7,
     "primitiveBoundaryCases": 14,
     "componentBoundaryCases": 10,
     "patternBoundaryCases": 21,
-    "templateBoundaryCases": 6,
+    "templateBoundaryCases": 7,
     "nonComponentBoundaryCases": 1,
     "duplicateIds": 0,
     "auditErrors": 0,
@@ -192,6 +192,54 @@
       "layer": "template",
       "replacement": "settings-workspace",
       "reason": "Settings Workspace is a complete product settings surface that coordinates sections, preferences, validation, theme, and danger-zone confirmation through governed patterns."
+    },
+    {
+      "id": "docs-shell-template",
+      "layer": "template",
+      "replacement": "docs-shell-template",
+      "reason": "Docs Shell Template is the documentation product shell and must compose Topbar, Sidebar, Search, Command Palette, and Documentation Page Shell through Flow instead of owning shell behavior locally."
+    },
+    {
+      "id": "docs-home-template",
+      "layer": "template",
+      "replacement": "docs-home-template",
+      "reason": "Docs Home Template is the documentation landing surface and must compose documentation patterns, primitives, and foundations instead of recreating editorial layout locally."
+    },
+    {
+      "id": "docs-collection-template",
+      "layer": "template",
+      "replacement": "docs-collection-template",
+      "reason": "Docs Collection Template is the collection index surface for foundations, primitives, components, patterns, and templates; filtering, metadata, and section structure must stay governed."
+    },
+    {
+      "id": "component-detail-template",
+      "layer": "template",
+      "replacement": "component-detail-template",
+      "reason": "Component Detail Template is the repeated component documentation surface and must compose Documentation Section, Demo Preview Frame, metadata, and navigation patterns through Flow."
+    },
+    {
+      "id": "pattern-detail-template",
+      "layer": "template",
+      "replacement": "pattern-detail-template",
+      "reason": "Pattern Detail Template is the repeated pattern documentation surface and must keep demos, sections, metadata, and navigation inside governed Flow documentation patterns."
+    },
+    {
+      "id": "reference-detail-template",
+      "layer": "template",
+      "replacement": "reference-detail-template",
+      "reason": "Reference Detail Template is the shared foundation and primitive reference surface and must keep research, measurement, sections, hero, and navigation governed by Flow."
+    },
+    {
+      "id": "template-detail-template",
+      "layer": "template",
+      "replacement": "template-detail-template",
+      "reason": "Template Detail Template is the repeated product-template documentation surface and must compose Flow documentation patterns instead of defining bespoke page shells."
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "layer": "template",
+      "replacement": "docs-artifact-detail-template",
+      "reason": "Docs Artifact Detail Template is the generic documentation artifact detail fallback and must stay a governed template boundary rather than becoming local page chrome in FlowDocs."
     }
   ],
   "approvedCrossLayerArtifactIds": [
@@ -277,6 +325,15 @@
       "expectedLayer": "Primitive",
       "declaredLayer": "Primitive",
       "file": "packages/specs/specs/unison-system/artifacts/primitives/animation-assets.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "artifact-metadata-bar",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -560,6 +617,15 @@
       "errors": []
     },
     {
+      "id": "code-block",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/code-block.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
       "id": "code-input",
       "artifactLayer": "components",
       "expectedLayer": "Component",
@@ -605,6 +671,15 @@
       "errors": []
     },
     {
+      "id": "component-detail-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
       "id": "configuration-console",
       "artifactLayer": "templates",
       "expectedLayer": "Template",
@@ -619,6 +694,15 @@
       "expectedLayer": "Pattern",
       "declaredLayer": "Pattern",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "copy-button",
+      "artifactLayer": "components",
+      "expectedLayer": "Component",
+      "declaredLayer": "Component",
+      "file": "packages/specs/specs/unison-system/artifacts/components/copy-button.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -655,6 +739,15 @@
       "expectedLayer": "Component",
       "declaredLayer": "Component",
       "file": "packages/specs/specs/unison-system/artifacts/components/date-range-picker.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "demo-preview-frame",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -700,6 +793,96 @@
       "expectedLayer": "Primitive",
       "declaredLayer": "Primitive",
       "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "docs-collection-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "docs-home-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "docs-shell-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-hero",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-page-shell",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-primitive-demo",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-reference-grid",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-section",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-token-grid",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -1190,11 +1373,29 @@
       "errors": []
     },
     {
+      "id": "on-this-page-nav",
+      "artifactLayer": "patterns",
+      "expectedLayer": "Pattern",
+      "declaredLayer": "Pattern",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
       "id": "pagination",
       "artifactLayer": "components",
       "expectedLayer": "Component",
       "declaredLayer": "Component",
       "file": "packages/specs/specs/unison-system/artifacts/components/pagination.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "pattern-detail-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -1312,6 +1513,15 @@
       "expectedLayer": "Primitive",
       "declaredLayer": "Primitive",
       "file": "packages/specs/specs/unison-system/artifacts/primitives/radius.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
+      "id": "reference-detail-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
       "hasNestedRecord": true,
       "errors": []
     },
@@ -1577,6 +1787,15 @@
       "errors": []
     },
     {
+      "id": "template-detail-template",
+      "artifactLayer": "templates",
+      "expectedLayer": "Template",
+      "declaredLayer": "Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+      "hasNestedRecord": true,
+      "errors": []
+    },
+    {
       "id": "text-area",
       "artifactLayer": "components",
       "expectedLayer": "Component",
@@ -1769,6 +1988,55 @@
       "catalogSyncErrors": []
     },
     {
+      "id": "component-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "On This Page Nav",
+        "Artifact Metadata Bar"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Loading",
+        "Disabled"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "On This Page Nav",
+        "Artifact Metadata Bar"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "On This Page Nav",
+        "Artifact Metadata Bar"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
       "id": "configuration-console",
       "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
       "hasDecision": true,
@@ -1818,6 +2086,181 @@
         "Roles and Permissions",
         "Driver and Vehicle Administration",
         "Authentication, Login, Biometrics and OTP"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Documentation Hero",
+        "Artifact Metadata Bar"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Loading",
+        "Disabled"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Documentation Hero",
+        "Artifact Metadata Bar"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Documentation Hero",
+        "Artifact Metadata Bar"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "docs-collection-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Section Header",
+        "Search",
+        "Toolbar",
+        "Artifact Metadata Bar",
+        "Documentation Section"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Section Header",
+        "Search",
+        "Toolbar",
+        "Artifact Metadata Bar",
+        "Documentation Section"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Section Header",
+        "Search",
+        "Toolbar",
+        "Artifact Metadata Bar",
+        "Documentation Section"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "docs-home-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Section Header",
+        "Documentation Hero",
+        "Documentation Section",
+        "Artifact Metadata Bar"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Iconography"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "Growth",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Section Header",
+        "Documentation Hero",
+        "Documentation Section",
+        "Artifact Metadata Bar"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Section Header",
+        "Documentation Hero",
+        "Documentation Section",
+        "Artifact Metadata Bar"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "docs-shell-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Topbar",
+        "Sidebar",
+        "Search",
+        "Command Palette",
+        "Documentation Page Shell"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Color",
+        "Typography"
+      ],
+      "foundationDependencies": [
+        "Frame",
+        "Depth",
+        "State",
+        "Accessibility",
+        "Voice"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Search",
+        "Command Palette",
+        "Documentation Page Shell"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Topbar",
+        "Sidebar",
+        "Search",
+        "Command Palette",
+        "Documentation Page Shell"
       ],
       "dependencyErrors": [],
       "catalogSyncErrors": []
@@ -2104,6 +2547,103 @@
       "catalogSyncErrors": []
     },
     {
+      "id": "pattern-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "On This Page Nav",
+        "Artifact Metadata Bar"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Message"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Growth",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "On This Page Nav",
+        "Artifact Metadata Bar"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "On This Page Nav",
+        "Artifact Metadata Bar"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "reference-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Section Header",
+        "Documentation Hero",
+        "Documentation Section",
+        "On This Page Nav",
+        "Demo Preview Frame"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Message",
+        "Research",
+        "Measurement"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Symbol",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Section Header",
+        "Documentation Hero",
+        "Documentation Section",
+        "On This Page Nav",
+        "Demo Preview Frame"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Section Header",
+        "Documentation Hero",
+        "Documentation Section",
+        "On This Page Nav",
+        "Demo Preview Frame"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
       "id": "routes-and-stations",
       "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
       "hasDecision": true,
@@ -2189,6 +2729,51 @@
       ],
       "blueprintPatterns": [
         "Preference Management"
+      ],
+      "dependencyErrors": [],
+      "catalogSyncErrors": []
+    },
+    {
+      "id": "template-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+      "hasDecision": true,
+      "hasBlueprint": true,
+      "patternDependencies": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "Artifact Metadata Bar"
+      ],
+      "primitiveDependencies": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Loading"
+      ],
+      "foundationDependencies": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Accessibility"
+      ],
+      "templateModuleDependencies": [],
+      "catalogPatterns": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "Artifact Metadata Bar"
+      ],
+      "catalogTemplateModules": [],
+      "blueprintPatterns": [
+        "Section Header",
+        "Documentation Section",
+        "Demo Preview Frame",
+        "Artifact Metadata Bar"
       ],
       "dependencyErrors": [],
       "catalogSyncErrors": []
@@ -2795,6 +3380,17 @@
       "actualSource": "artifact",
       "actualReplacement": null,
       "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "errors": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "layer": "template",
+      "source": "artifact",
+      "reason": "Docs Artifact Detail Template is a documentation artifact detail fallback template, not reusable local docs markup.",
+      "actualLayer": "template",
+      "actualSource": "artifact",
+      "actualReplacement": null,
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
       "errors": []
     },
     {

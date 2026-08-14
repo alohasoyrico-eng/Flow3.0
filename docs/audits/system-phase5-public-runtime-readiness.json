@@ -1,0 +1,138 @@
+{
+  "status": "pass",
+  "audit": "system phase 5 public runtime readiness",
+  "planIteration": 23,
+  "principle": "Phase 5 is closed only when the public runtime boundary is installable, importable, typed, tokenized, reproducible, and publication-safe for consumers.",
+  "inventory": {
+    "reports": 8,
+    "passingReports": 8,
+    "runtimeArtifacts": 151,
+    "passingRuntimeArtifacts": 151,
+    "resolvedExports": 16,
+    "renderedArtifacts": 20,
+    "packedFiles": 1356,
+    "typedComponents": 7,
+    "typedPatterns": 8,
+    "typedTemplates": 5,
+    "negativeTypeAssertions": 4,
+    "tokenMarkers": 4,
+    "componentAliasMarkers": 6,
+    "reactExportEntries": 155,
+    "exportedReactDistRuntimeFiles": 155,
+    "publishedReactSrcFiles": 0,
+    "distImportLeaks": 0,
+    "buildCheckStatus": 0,
+    "phase5PublicRuntimeReadinessDebt": 0
+  },
+  "rows": [
+    {
+      "id": "public-runtime-boundary",
+      "file": "docs/audits/system-public-runtime-boundary.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "publicRuntimeBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-boundary-checkpoint",
+      "file": "docs/audits/system-consumer-boundary-checkpoint.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerBoundaryCheckpointDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-runtime-smoke",
+      "file": "docs/audits/system-consumer-runtime-smoke.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerRuntimeSmokeDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-css-token-cascade",
+      "file": "docs/audits/system-consumer-css-token-cascade.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerCssTokenCascadeDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-type-smoke",
+      "file": "docs/audits/system-consumer-type-smoke.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerTypeSmokeDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "react-publication-boundary",
+      "file": "docs/audits/system-react-publication-boundary.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "publicationBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "react-export-parity",
+      "file": "docs/audits/system-react-export-parity.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "exportParityDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "react-build-reproducibility",
+      "file": "docs/audits/system-react-build-reproducibility.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "reactBuildReproducibilityDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    }
+  ],
+  "residualRisk": [
+    "This checkpoint proves consumer readiness for the public runtime package boundary, not FlowDocs UX quality.",
+    "Runtime smoke and type smoke are representative gates; exhaustive prop and interaction coverage remains owned by artifact-level tests.",
+    "Visual parity against previous FlowDocs or ZIP references remains a separate remediation track."
+  ]
+}

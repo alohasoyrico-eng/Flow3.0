@@ -44,6 +44,7 @@ const allowedSupportModules = {
 
 const allowedDirectComponents = {
   "agent-workspace": ["Badge", "Button", "ChatComposer", "ChatThread"],
+  "docs-artifact-detail-template": ["Breadcrumbs", "Tabs"],
   "driver-card-wallet": ["CardSummary", "MovementRow", "QuickAction"],
   "settings-workspace": ["Tabs"],
 };

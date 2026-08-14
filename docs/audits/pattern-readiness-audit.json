@@ -6,12 +6,12 @@
     "metaPatterns": 58,
     "catalogPatterns": 63,
     "uniqueCatalogPatterns": 63,
-    "copyPatterns": 63,
-    "markdownContracts": 63,
+    "copyPatterns": 72,
+    "markdownContracts": 72,
     "requiredPatternContracts": 23,
     "requiredContractsPresent": 23,
     "requiredCopyPresent": 23,
-    "formalArtifacts": 63,
+    "formalArtifacts": 72,
     "duplicateCatalogIds": 0,
     "requiredContractGaps": 0,
     "requiredCopyGaps": 0,
@@ -21,7 +21,7 @@
     "approvedCatalogOnlyPatterns": 0,
     "unapprovedCatalogOnlyPatterns": 0,
     "catalogOnlyGovernanceIssues": 0,
-    "formalArtifactsMissingCatalog": 0,
+    "formalArtifactsMissingCatalog": 9,
     "catalogComponentReferenceErrors": 0,
     "catalogArtifactDependencyMismatches": 0,
     "patternContractGovernanceIssues": 0,
@@ -33,12 +33,12 @@
       "metaPatterns": 58,
       "catalogPatterns": 63,
       "uniqueCatalogPatterns": 63,
-      "copyPatterns": 63,
-      "markdownContracts": 63,
+      "copyPatterns": 72,
+      "markdownContracts": 72,
       "requiredPatternContracts": 23,
       "requiredContractsPresent": 23,
       "requiredCopyPresent": 23,
-      "formalArtifacts": 63,
+      "formalArtifacts": 72,
       "duplicateCatalogIds": 0,
       "requiredContractGaps": 0,
       "requiredCopyGaps": 0,
@@ -48,7 +48,7 @@
       "approvedCatalogOnlyPatterns": 0,
       "unapprovedCatalogOnlyPatterns": 0,
       "catalogOnlyGovernanceIssues": 0,
-      "formalArtifactsMissingCatalog": 0,
+      "formalArtifactsMissingCatalog": 9,
       "catalogComponentReferenceErrors": 0,
       "catalogArtifactDependencyMismatches": 0,
       "patternContractGovernanceIssues": 0,
@@ -74,8 +74,67 @@
   "approvedCatalogOnlyPatterns": [],
   "unapprovedCatalogOnlyPatterns": [],
   "catalogOnlyGovernanceIssues": [],
-  "copyOnlyIds": [],
-  "formalArtifactsMissingCatalog": [],
+  "copyOnlyIds": [
+    "artifact-metadata-bar",
+    "demo-preview-frame",
+    "documentation-hero",
+    "documentation-page-shell",
+    "documentation-primitive-demo",
+    "documentation-reference-grid",
+    "documentation-section",
+    "documentation-token-grid",
+    "on-this-page-nav"
+  ],
+  "formalArtifactsMissingCatalog": [
+    "artifact-metadata-bar",
+    "demo-preview-frame",
+    "documentation-hero",
+    "documentation-page-shell",
+    "documentation-primitive-demo",
+    "documentation-reference-grid",
+    "documentation-section",
+    "documentation-token-grid",
+    "on-this-page-nav"
+  ],
+  "approvedFormalArtifactsMissingCatalog": [
+    {
+      "id": "artifact-metadata-bar",
+      "reason": "Documentation infrastructure pattern: governed as Flow artifact for FlowDocs metadata composition, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "demo-preview-frame",
+      "reason": "Documentation infrastructure pattern: governs FlowDocs demo framing and visual evidence, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "documentation-hero",
+      "reason": "Documentation infrastructure pattern: governs FlowDocs page and detail heroes, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "documentation-page-shell",
+      "reason": "Documentation infrastructure pattern: governs FlowDocs page shell layout, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "documentation-primitive-demo",
+      "reason": "Documentation infrastructure pattern: governs primitive demos in FlowDocs, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "documentation-reference-grid",
+      "reason": "Documentation infrastructure pattern: governs documentation reference-card grids, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "documentation-section",
+      "reason": "Documentation infrastructure pattern: governs documentation section boundaries, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "documentation-token-grid",
+      "reason": "Documentation infrastructure pattern: governs token reference grids in FlowDocs, but intentionally excluded from the 63 product pattern catalog."
+    },
+    {
+      "id": "on-this-page-nav",
+      "reason": "Documentation infrastructure pattern: governs local page navigation in FlowDocs, but intentionally excluded from the 63 product pattern catalog."
+    }
+  ],
+  "unapprovedFormalArtifactsMissingCatalog": [],
   "catalogComponentReferenceErrors": [],
   "catalogArtifactDependencyMismatches": [],
   "formalArtifactIds": [
@@ -83,6 +142,7 @@
     "action-sheet",
     "advanced-filters",
     "agent-conversation",
+    "artifact-metadata-bar",
     "authentication-login-biometrics-and-otp",
     "autocomplete",
     "avatar-group",
@@ -98,7 +158,14 @@
     "column-configurator",
     "command-palette",
     "confirmation-dialog",
+    "demo-preview-frame",
     "dense-operational-list",
+    "documentation-hero",
+    "documentation-page-shell",
+    "documentation-primitive-demo",
+    "documentation-reference-grid",
+    "documentation-section",
+    "documentation-token-grid",
     "drag-sortable-list",
     "drawer-adapter",
     "driver-and-vehicle-administration",
@@ -118,6 +185,7 @@
     "multi-select",
     "multi-step-form",
     "notification-panel",
+    "on-this-page-nav",
     "payment-form",
     "polar-chart",
     "preference-management",

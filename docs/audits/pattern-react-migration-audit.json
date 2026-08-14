@@ -3,25 +3,25 @@
   "audit": "pattern react migration audit",
   "principle": "Pattern React migration must start from formal Flow artifacts, preserve foundation and primitive ownership, and classify composition complexity before implementation work begins.",
   "inventory": {
-    "patterns": 63,
+    "patterns": 72,
     "patternArchitecturePolicyIssues": 0,
     "runtimePrimitivePatternDependencyPolicy": 5,
     "templateFacingSignalPolicy": 11,
     "migrationWavePolicy": 5,
     "nonNegotiableMigrationRules": 6,
-    "reactSources": 63,
-    "typeSources": 63,
-    "reactContractRows": 63,
-    "forwardRefPatterns": 63,
-    "refAttributePatterns": 63,
-    "densityPropPatterns": 63,
-    "patternsWithSlots": 63,
-    "patternsWithFoundations": 63,
-    "patternsWithPrimitives": 63,
-    "patternsWithComponents": 62,
-    "patternsWithStateModel": 63,
-    "callbackPropsDeclared": 269,
-    "callbackPropsTested": 269,
+    "reactSources": 72,
+    "typeSources": 72,
+    "reactContractRows": 72,
+    "forwardRefPatterns": 72,
+    "refAttributePatterns": 72,
+    "densityPropPatterns": 72,
+    "patternsWithSlots": 72,
+    "patternsWithFoundations": 72,
+    "patternsWithPrimitives": 72,
+    "patternsWithComponents": 69,
+    "patternsWithStateModel": 72,
+    "callbackPropsDeclared": 271,
+    "callbackPropsTested": 271,
     "missingCallbackTests": 0,
     "controlledPairIssues": 0,
     "statesMissingFromTypes": 0,
@@ -37,14 +37,14 @@
     "rawGlobalDomRefs": 0,
     "reactBehaviorDebt": 0,
     "baseFlowComposition": 8,
-    "statefulFlowComposition": 23,
-    "crossPatternComposition": 9,
+    "statefulFlowComposition": 25,
+    "crossPatternComposition": 6,
     "primitiveRuntimeComposition": 6,
-    "templateFacingOrchestrators": 17,
-    "surfaceRequired": 44,
+    "templateFacingOrchestrators": 27,
+    "surfaceRequired": 53,
     "primitiveRuntimeRequired": 9,
-    "patternDependencyBoundaries": 85,
-    "templateReferences": 25,
+    "patternDependencyBoundaries": 87,
+    "templateReferences": 60,
     "patternsWithDependencySlotCoverageFindings": 0,
     "componentDependencySlotCoverageFindings": 0,
     "runtimePatternDependencySlotCoverageFindings": 0,
@@ -54,25 +54,25 @@
   },
   "baseline": {
     "inventory": {
-      "patterns": 63,
+      "patterns": 72,
       "patternArchitecturePolicyIssues": 0,
       "runtimePrimitivePatternDependencyPolicy": 5,
       "templateFacingSignalPolicy": 11,
       "migrationWavePolicy": 5,
       "nonNegotiableMigrationRules": 6,
-      "reactSources": 63,
-      "typeSources": 63,
-      "reactContractRows": 63,
-      "forwardRefPatterns": 63,
-      "refAttributePatterns": 63,
-      "densityPropPatterns": 63,
-      "patternsWithSlots": 63,
-      "patternsWithFoundations": 63,
-      "patternsWithPrimitives": 63,
-      "patternsWithComponents": 62,
-      "patternsWithStateModel": 63,
-      "callbackPropsDeclared": 269,
-      "callbackPropsTested": 269,
+      "reactSources": 72,
+      "typeSources": 72,
+      "reactContractRows": 72,
+      "forwardRefPatterns": 72,
+      "refAttributePatterns": 72,
+      "densityPropPatterns": 72,
+      "patternsWithSlots": 72,
+      "patternsWithFoundations": 72,
+      "patternsWithPrimitives": 72,
+      "patternsWithComponents": 69,
+      "patternsWithStateModel": 72,
+      "callbackPropsDeclared": 271,
+      "callbackPropsTested": 271,
       "missingCallbackTests": 0,
       "controlledPairIssues": 0,
       "statesMissingFromTypes": 0,
@@ -88,14 +88,14 @@
       "rawGlobalDomRefs": 0,
       "reactBehaviorDebt": 0,
       "baseFlowComposition": 8,
-      "statefulFlowComposition": 23,
-      "crossPatternComposition": 9,
+      "statefulFlowComposition": 25,
+      "crossPatternComposition": 6,
       "primitiveRuntimeComposition": 6,
-      "templateFacingOrchestrators": 17,
-      "surfaceRequired": 44,
+      "templateFacingOrchestrators": 27,
+      "surfaceRequired": 53,
       "primitiveRuntimeRequired": 9,
-      "patternDependencyBoundaries": 85,
-      "templateReferences": 25,
+      "patternDependencyBoundaries": 87,
+      "templateReferences": 60,
       "patternsWithDependencySlotCoverageFindings": 0,
       "componentDependencySlotCoverageFindings": 0,
       "runtimePatternDependencySlotCoverageFindings": 0,
@@ -365,6 +365,326 @@
     },
     {
       "order": 2,
+      "pattern": "documentation-primitive-demo",
+      "mode": "stateful Flow composition",
+      "score": 9,
+      "components": [
+        "Button",
+        "Card",
+        "Code Block"
+      ],
+      "primitives": [
+        "Surface",
+        "Density",
+        "Spacing",
+        "Breakpoints",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Typography"
+      ],
+      "foundations": [
+        "Frame",
+        "Voice",
+        "Accessibility",
+        "State",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol",
+        "Tone"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "demo",
+          "owner": "component",
+          "uses": [
+            "Card",
+            "Button",
+            "Code Block"
+          ],
+          "required": true
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "default",
+          "empty",
+          "interactive",
+          "mobile"
+        ],
+        "typedStates": [
+          "default",
+          "empty",
+          "interactive",
+          "mobile"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "interactive",
+        "empty",
+        "mobile"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+        "react": "packages/react/src/patterns/DocumentationPrimitiveDemo.js",
+        "types": "packages/react/src/patterns/DocumentationPrimitiveDemo.d.ts"
+      }
+    },
+    {
+      "order": 3,
+      "pattern": "documentation-reference-grid",
+      "mode": "stateful Flow composition",
+      "score": 9,
+      "components": [
+        "Card"
+      ],
+      "primitives": [
+        "Surface",
+        "Density",
+        "Spacing",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Motion Curves",
+        "Radius",
+        "Typography"
+      ],
+      "foundations": [
+        "Frame",
+        "Voice",
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Card"
+          ],
+          "required": true
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "default",
+          "empty",
+          "matrix",
+          "mobile",
+          "rule",
+          "summary"
+        ],
+        "typedStates": [
+          "default",
+          "empty",
+          "matrix",
+          "mobile",
+          "rule",
+          "summary"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "summary",
+        "rule",
+        "matrix",
+        "empty",
+        "mobile"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+        "react": "packages/react/src/patterns/DocumentationReferenceGrid.js",
+        "types": "packages/react/src/patterns/DocumentationReferenceGrid.d.ts"
+      }
+    },
+    {
+      "order": 4,
+      "pattern": "documentation-token-grid",
+      "mode": "stateful Flow composition",
+      "score": 9,
+      "components": [
+        "Code Block"
+      ],
+      "primitives": [
+        "Surface",
+        "Density",
+        "Spacing",
+        "Breakpoints",
+        "Color",
+        "Disabled",
+        "Focus",
+        "Message",
+        "Radius",
+        "Typography"
+      ],
+      "foundations": [
+        "Frame",
+        "Voice",
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Code Block"
+          ],
+          "required": true
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "compact",
+          "default",
+          "empty",
+          "mobile",
+          "tokens",
+          "values"
+        ],
+        "typedStates": [
+          "compact",
+          "default",
+          "empty",
+          "mobile",
+          "tokens",
+          "values"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "tokens",
+        "values",
+        "compact",
+        "empty",
+        "mobile"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
+        "react": "packages/react/src/patterns/DocumentationTokenGrid.js",
+        "types": "packages/react/src/patterns/DocumentationTokenGrid.d.ts"
+      }
+    },
+    {
+      "order": 5,
       "pattern": "filter-chip-group",
       "mode": "base Flow composition",
       "score": 11,
@@ -518,7 +838,7 @@
       }
     },
     {
-      "order": 3,
+      "order": 6,
       "pattern": "avatar-menu",
       "mode": "base Flow composition",
       "score": 12,
@@ -642,7 +962,7 @@
       }
     },
     {
-      "order": 4,
+      "order": 7,
       "pattern": "checkbox-group",
       "mode": "stateful Flow composition",
       "score": 12,
@@ -808,7 +1128,7 @@
       }
     },
     {
-      "order": 5,
+      "order": 8,
       "pattern": "radio-group",
       "mode": "stateful Flow composition",
       "score": 12,
@@ -965,7 +1285,7 @@
       }
     },
     {
-      "order": 6,
+      "order": 9,
       "pattern": "snackbar-provider",
       "mode": "stateful Flow composition",
       "score": 12,
@@ -1111,7 +1431,7 @@
       }
     },
     {
-      "order": 7,
+      "order": 10,
       "pattern": "swipe-actions",
       "mode": "base Flow composition",
       "score": 12,
@@ -1248,7 +1568,7 @@
       }
     },
     {
-      "order": 8,
+      "order": 11,
       "pattern": "timeline",
       "mode": "base Flow composition",
       "score": 12,
@@ -1387,7 +1707,7 @@
       }
     },
     {
-      "order": 9,
+      "order": 12,
       "pattern": "autocomplete",
       "mode": "stateful Flow composition",
       "score": 13,
@@ -1532,7 +1852,7 @@
       }
     },
     {
-      "order": 10,
+      "order": 13,
       "pattern": "confirmation-dialog",
       "mode": "stateful Flow composition",
       "score": 13,
@@ -1671,7 +1991,7 @@
       }
     },
     {
-      "order": 11,
+      "order": 14,
       "pattern": "avatar-group",
       "mode": "base Flow composition",
       "score": 14,
@@ -1822,172 +2142,7 @@
       }
     },
     {
-      "order": 12,
-      "pattern": "search",
-      "mode": "stateful Flow composition",
-      "score": 14,
-      "components": [
-        "Input",
-        "Select",
-        "List",
-        "Empty State",
-        "Inline Validation",
-        "Button"
-      ],
-      "primitives": [
-        "Color",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "input",
-          "owner": "component",
-          "uses": [
-            "Input"
-          ],
-          "required": true
-        },
-        {
-          "name": "scope",
-          "owner": "component",
-          "uses": [
-            "Select"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "results",
-          "owner": "component",
-          "uses": [
-            "List",
-            "Button"
-          ],
-          "required": true
-        },
-        {
-          "name": "emptyState",
-          "owner": "component",
-          "uses": [
-            "Empty State"
-          ],
-          "required": true
-        },
-        {
-          "name": "feedback",
-          "owner": "component",
-          "uses": [
-            "Inline Validation"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": []
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [
-          "onAction",
-          "onClear",
-          "onQueryChange",
-          "onResultSelect",
-          "onScopeChange",
-          "onSubmit"
-        ],
-        "testedCallbacks": [
-          "onAction",
-          "onClear",
-          "onQueryChange",
-          "onResultSelect",
-          "onScopeChange",
-          "onSubmit"
-        ],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "disabled",
-          "empty",
-          "idle",
-          "invalid",
-          "loading",
-          "results",
-          "selected",
-          "typing"
-        ],
-        "typedStates": [
-          "disabled",
-          "empty",
-          "idle",
-          "invalid",
-          "loading",
-          "results",
-          "selected",
-          "typing"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": false,
-      "states": [
-        "idle",
-        "typing",
-        "results",
-        "empty",
-        "invalid",
-        "loading",
-        "disabled",
-        "selected"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
-        "react": "packages/react/src/patterns/Search.js",
-        "types": "packages/react/src/patterns/Search.d.ts"
-      }
-    },
-    {
-      "order": 13,
+      "order": 15,
       "pattern": "select-option-layer",
       "mode": "stateful Flow composition",
       "score": 14,
@@ -2147,7 +2302,7 @@
       }
     },
     {
-      "order": 14,
+      "order": 16,
       "pattern": "file-upload",
       "mode": "stateful Flow composition",
       "score": 16,
@@ -2302,7 +2457,7 @@
       }
     },
     {
-      "order": 15,
+      "order": 17,
       "pattern": "quick-actions-grid",
       "mode": "base Flow composition",
       "score": 16,
@@ -2447,7 +2602,139 @@
       }
     },
     {
-      "order": 16,
+      "order": 18,
+      "pattern": "documentation-page-shell",
+      "mode": "template-facing orchestrator",
+      "score": 17,
+      "components": [],
+      "primitives": [
+        "Surface",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Color",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Frame",
+        "State",
+        "Voice",
+        "Energy",
+        "Tone"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Docs Shell Template"
+      ],
+      "slots": [
+        {
+          "name": "topbar",
+          "owner": "channel",
+          "uses": [
+            "Topbar"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "sidebar",
+          "owner": "channel",
+          "uses": [
+            "Sidebar"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "localNav",
+          "owner": "channel",
+          "uses": [
+            "On This Page Nav"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "content",
+          "owner": "primitive",
+          "uses": [
+            "Surface"
+          ],
+          "required": true
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "dark",
+          "desktop",
+          "grid-overlay-visible",
+          "light",
+          "loading",
+          "mobile",
+          "search-open",
+          "sidebar-closed",
+          "sidebar-open"
+        ],
+        "typedStates": [
+          "dark",
+          "desktop",
+          "grid-overlay-visible",
+          "light",
+          "loading",
+          "mobile",
+          "search-open",
+          "sidebar-closed",
+          "sidebar-open"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [
+          "content"
+        ],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "desktop",
+        "mobile",
+        "sidebar-open",
+        "sidebar-closed",
+        "search-open",
+        "dark",
+        "light",
+        "grid-overlay-visible",
+        "loading"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+        "react": "packages/react/src/patterns/DocumentationPageShell.js",
+        "types": "packages/react/src/patterns/DocumentationPageShell.d.ts"
+      }
+    },
+    {
+      "order": 19,
       "pattern": "kpi-card",
       "mode": "stateful Flow composition",
       "score": 17,
@@ -2599,7 +2886,7 @@
       }
     },
     {
-      "order": 17,
+      "order": 20,
       "pattern": "action-sheet",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -2749,7 +3036,7 @@
       }
     },
     {
-      "order": 18,
+      "order": 21,
       "pattern": "bottom-sheet",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -2920,7 +3207,7 @@
       }
     },
     {
-      "order": 19,
+      "order": 22,
       "pattern": "drag-sortable-list",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -3079,7 +3366,7 @@
       }
     },
     {
-      "order": 20,
+      "order": 23,
       "pattern": "kanban-board",
       "mode": "stateful Flow composition",
       "score": 18,
@@ -3238,7 +3525,7 @@
       }
     },
     {
-      "order": 21,
+      "order": 24,
       "pattern": "multi-select",
       "mode": "base Flow composition",
       "score": 18,
@@ -3387,7 +3674,7 @@
       }
     },
     {
-      "order": 22,
+      "order": 25,
       "pattern": "calendar-view",
       "mode": "stateful Flow composition",
       "score": 19,
@@ -3538,7 +3825,7 @@
       }
     },
     {
-      "order": 23,
+      "order": 26,
       "pattern": "column-configurator",
       "mode": "stateful Flow composition",
       "score": 19,
@@ -3691,7 +3978,7 @@
       }
     },
     {
-      "order": 24,
+      "order": 27,
       "pattern": "bulk-actions",
       "mode": "stateful Flow composition",
       "score": 20,
@@ -3841,7 +4128,7 @@
       }
     },
     {
-      "order": 25,
+      "order": 28,
       "pattern": "settings",
       "mode": "stateful Flow composition",
       "score": 20,
@@ -4009,7 +4296,7 @@
       }
     },
     {
-      "order": 26,
+      "order": 29,
       "pattern": "gantt-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4172,7 +4459,7 @@
       }
     },
     {
-      "order": 27,
+      "order": 30,
       "pattern": "notification-panel",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -4327,7 +4614,7 @@
       }
     },
     {
-      "order": 28,
+      "order": 31,
       "pattern": "payment-form",
       "mode": "stateful Flow composition",
       "score": 21,
@@ -4502,7 +4789,7 @@
       }
     },
     {
-      "order": 29,
+      "order": 32,
       "pattern": "polar-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4665,167 +4952,7 @@
       }
     },
     {
-      "order": 30,
-      "pattern": "toolbar",
-      "mode": "cross-pattern composition",
-      "score": 21,
-      "components": [
-        "Badge",
-        "Button",
-        "Chip",
-        "Input",
-        "Menu",
-        "Toast"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Field Action",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [
-        "Search",
-        "Topbar"
-      ],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "primaryActions",
-          "owner": "component",
-          "uses": [
-            "Button"
-          ]
-        },
-        {
-          "name": "status",
-          "owner": "component",
-          "uses": [
-            "Badge",
-            "Chip"
-          ]
-        },
-        {
-          "name": "searchField",
-          "owner": "component",
-          "uses": [
-            "Input"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "overflow",
-          "owner": "component",
-          "uses": [
-            "Menu",
-            "Toast"
-          ]
-        },
-        {
-          "name": "searchBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Search"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "topbarBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Topbar"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": []
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [],
-        "testedCallbacks": [],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "default",
-          "dense",
-          "disabled",
-          "filter-active",
-          "loading",
-          "overflow",
-          "permission-blocked"
-        ],
-        "typedStates": [
-          "default",
-          "dense",
-          "disabled",
-          "filter-active",
-          "loading",
-          "overflow",
-          "permission-blocked"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": false,
-      "states": [
-        "default",
-        "dense",
-        "overflow",
-        "filter-active",
-        "loading",
-        "disabled",
-        "permission-blocked"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
-        "react": "packages/react/src/patterns/Toolbar.js",
-        "types": "packages/react/src/patterns/Toolbar.d.ts"
-      }
-    },
-    {
-      "order": 31,
+      "order": 33,
       "pattern": "waterfall-chart",
       "mode": "primitive-runtime composition",
       "score": 21,
@@ -4988,7 +5115,7 @@
       }
     },
     {
-      "order": 32,
+      "order": 34,
       "pattern": "expandable-detail-table",
       "mode": "cross-pattern composition",
       "score": 22,
@@ -5163,7 +5290,7 @@
       }
     },
     {
-      "order": 33,
+      "order": 35,
       "pattern": "chart-legend-item",
       "mode": "primitive-runtime composition",
       "score": 23,
@@ -5315,157 +5442,7 @@
       }
     },
     {
-      "order": 34,
-      "pattern": "section-header",
-      "mode": "cross-pattern composition",
-      "score": 23,
-      "components": [
-        "Badge",
-        "Button",
-        "Menu",
-        "Skeleton",
-        "Tag"
-      ],
-      "primitives": [
-        "Breakpoints",
-        "Color",
-        "Density",
-        "Disabled",
-        "Duration",
-        "Elevation",
-        "Focus",
-        "Iconography",
-        "Loading",
-        "Measurement",
-        "Message",
-        "Motion Curves",
-        "Radius",
-        "Spacing",
-        "Typography"
-      ],
-      "foundations": [
-        "Accessibility",
-        "Depth",
-        "Energy",
-        "Frame",
-        "Growth",
-        "Iconography",
-        "Momentum",
-        "State",
-        "Symbol",
-        "Tone",
-        "Voice"
-      ],
-      "patternDependencies": [
-        "Form Section",
-        "Settings",
-        "Toolbar"
-      ],
-      "templateRefs": [],
-      "slots": [
-        {
-          "name": "status",
-          "owner": "component",
-          "uses": [
-            "Badge",
-            "Tag",
-            "Skeleton"
-          ]
-        },
-        {
-          "name": "actions",
-          "owner": "component",
-          "uses": [
-            "Button",
-            "Menu"
-          ]
-        },
-        {
-          "name": "formBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Form Section"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "settingsBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Settings"
-          ],
-          "required": "conditional"
-        },
-        {
-          "name": "toolbarBoundary",
-          "owner": "pattern",
-          "uses": [
-            "Toolbar"
-          ],
-          "required": "conditional"
-        }
-      ],
-      "slotCoverageFindings": {
-        "missingComponentSlots": [],
-        "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": []
-      },
-      "reactContract": {
-        "hasForwardRef": true,
-        "hasRefAttributes": true,
-        "hasDensityProp": true,
-        "callbacks": [],
-        "testedCallbacks": [],
-        "missingCallbackTests": [],
-        "controlledIssues": [],
-        "formalStates": [
-          "actionable",
-          "default",
-          "dirty",
-          "disabled",
-          "loading",
-          "permission-blocked"
-        ],
-        "typedStates": [
-          "actionable",
-          "default",
-          "dirty",
-          "disabled",
-          "loading",
-          "permission-blocked"
-        ],
-        "statesMissingFromTypes": [],
-        "statesMissingFromArtifact": [],
-        "densityCascadeIssues": [],
-        "stateCascadeIssues": [],
-        "propContractIssues": [],
-        "literalContractIssues": [],
-        "missingAccessibilityImplementation": false,
-        "structuralSurfaceSlots": [],
-        "missingSurfaceSlotMarkers": [],
-        "missingStructuralSurfaceUsage": false,
-        "unsafeRestSpread": false,
-        "rawGlobalDomRefs": [],
-        "debts": []
-      },
-      "runtimePrimitives": [],
-      "requiresSurface": false,
-      "states": [
-        "default",
-        "loading",
-        "actionable",
-        "disabled",
-        "permission-blocked",
-        "dirty"
-      ],
-      "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
-        "react": "packages/react/src/patterns/SectionHeader.js",
-        "types": "packages/react/src/patterns/SectionHeader.d.ts"
-      }
-    },
-    {
-      "order": 35,
+      "order": 36,
       "pattern": "transfer-list",
       "mode": "cross-pattern composition",
       "score": 23,
@@ -5634,7 +5611,7 @@
       }
     },
     {
-      "order": 36,
+      "order": 37,
       "pattern": "fullscreen-sheet",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5788,7 +5765,7 @@
       }
     },
     {
-      "order": 37,
+      "order": 38,
       "pattern": "multi-step-form",
       "mode": "stateful Flow composition",
       "score": 24,
@@ -5954,7 +5931,7 @@
       }
     },
     {
-      "order": 38,
+      "order": 39,
       "pattern": "virtual-data-table",
       "mode": "cross-pattern composition",
       "score": 24,
@@ -6114,7 +6091,7 @@
       }
     },
     {
-      "order": 39,
+      "order": 40,
       "pattern": "agent-conversation",
       "mode": "template-facing orchestrator",
       "score": 25,
@@ -6276,7 +6253,7 @@
       }
     },
     {
-      "order": 40,
+      "order": 41,
       "pattern": "pull-to-refresh",
       "mode": "primitive-runtime composition",
       "score": 25,
@@ -6431,7 +6408,7 @@
       }
     },
     {
-      "order": 41,
+      "order": 42,
       "pattern": "form-section",
       "mode": "stateful Flow composition",
       "score": 26,
@@ -6595,7 +6572,7 @@
       }
     },
     {
-      "order": 42,
+      "order": 43,
       "pattern": "help-center",
       "mode": "cross-pattern composition",
       "score": 26,
@@ -6763,7 +6740,175 @@
       }
     },
     {
-      "order": 43,
+      "order": 44,
+      "pattern": "search",
+      "mode": "template-facing orchestrator",
+      "score": 26,
+      "components": [
+        "Input",
+        "Select",
+        "List",
+        "Empty State",
+        "Inline Validation",
+        "Button"
+      ],
+      "primitives": [
+        "Color",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Docs Shell Template",
+        "Docs Collection Template"
+      ],
+      "slots": [
+        {
+          "name": "input",
+          "owner": "component",
+          "uses": [
+            "Input"
+          ],
+          "required": true
+        },
+        {
+          "name": "scope",
+          "owner": "component",
+          "uses": [
+            "Select"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "results",
+          "owner": "component",
+          "uses": [
+            "List",
+            "Button"
+          ],
+          "required": true
+        },
+        {
+          "name": "emptyState",
+          "owner": "component",
+          "uses": [
+            "Empty State"
+          ],
+          "required": true
+        },
+        {
+          "name": "feedback",
+          "owner": "component",
+          "uses": [
+            "Inline Validation"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onAction",
+          "onClear",
+          "onQueryChange",
+          "onResultSelect",
+          "onScopeChange",
+          "onSubmit"
+        ],
+        "testedCallbacks": [
+          "onAction",
+          "onClear",
+          "onQueryChange",
+          "onResultSelect",
+          "onScopeChange",
+          "onSubmit"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "disabled",
+          "empty",
+          "idle",
+          "invalid",
+          "loading",
+          "results",
+          "selected",
+          "typing"
+        ],
+        "typedStates": [
+          "disabled",
+          "empty",
+          "idle",
+          "invalid",
+          "loading",
+          "results",
+          "selected",
+          "typing"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": false,
+      "states": [
+        "idle",
+        "typing",
+        "results",
+        "empty",
+        "invalid",
+        "loading",
+        "disabled",
+        "selected"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+        "react": "packages/react/src/patterns/Search.js",
+        "types": "packages/react/src/patterns/Search.d.ts"
+      }
+    },
+    {
+      "order": 45,
       "pattern": "advanced-filters",
       "mode": "stateful Flow composition",
       "score": 27,
@@ -6919,14 +7064,14 @@
       }
     },
     {
-      "order": 44,
-      "pattern": "command-palette",
-      "mode": "cross-pattern composition",
+      "order": 46,
+      "pattern": "toolbar",
+      "mode": "template-facing orchestrator",
       "score": 27,
       "components": [
+        "Badge",
         "Button",
-        "Dialog",
-        "Empty State",
+        "Chip",
         "Input",
         "Menu",
         "Toast"
@@ -6947,7 +7092,6 @@
         "Motion Curves",
         "Radius",
         "Spacing",
-        "Surface",
         "Typography"
       ],
       "foundations": [
@@ -6967,80 +7111,88 @@
         "Search",
         "Topbar"
       ],
-      "templateRefs": [],
+      "templateRefs": [
+        "Docs Collection Template"
+      ],
       "slots": [
         {
-          "name": "surface",
+          "name": "primaryActions",
           "owner": "component",
           "uses": [
-            "Dialog"
+            "Button"
           ]
         },
         {
-          "name": "query",
+          "name": "status",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Chip"
+          ]
+        },
+        {
+          "name": "searchField",
           "owner": "component",
           "uses": [
             "Input"
-          ]
+          ],
+          "required": "conditional"
         },
         {
-          "name": "commands",
+          "name": "overflow",
           "owner": "component",
           "uses": [
             "Menu",
-            "Button",
-            "Empty State",
             "Toast"
           ]
+        },
+        {
+          "name": "searchBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Search"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "topbarBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Topbar"
+          ],
+          "required": "conditional"
         }
       ],
       "slotCoverageFindings": {
         "missingComponentSlots": [],
         "missingRuntimePatternSlots": [],
-        "boundaryOnlyPatternDependencies": [
-          "Search",
-          "Topbar"
-        ]
+        "boundaryOnlyPatternDependencies": []
       },
       "reactContract": {
         "hasForwardRef": true,
         "hasRefAttributes": true,
         "hasDensityProp": true,
-        "callbacks": [
-          "onAction",
-          "onCommandSelect",
-          "onOpenChange",
-          "onPrimaryAction",
-          "onQueryChange"
-        ],
-        "testedCallbacks": [
-          "onAction",
-          "onCommandSelect",
-          "onOpenChange",
-          "onPrimaryAction",
-          "onQueryChange"
-        ],
+        "callbacks": [],
+        "testedCallbacks": [],
         "missingCallbackTests": [],
         "controlledIssues": [],
         "formalStates": [
-          "closed",
-          "disabled-command",
-          "empty",
-          "executing",
+          "default",
+          "dense",
+          "disabled",
+          "filter-active",
           "loading",
-          "open",
-          "querying",
-          "results"
+          "overflow",
+          "permission-blocked"
         ],
         "typedStates": [
-          "closed",
-          "disabled-command",
-          "empty",
-          "executing",
+          "default",
+          "dense",
+          "disabled",
+          "filter-active",
           "loading",
-          "open",
-          "querying",
-          "results"
+          "overflow",
+          "permission-blocked"
         ],
         "statesMissingFromTypes": [],
         "statesMissingFromArtifact": [],
@@ -7057,25 +7209,24 @@
         "debts": []
       },
       "runtimePrimitives": [],
-      "requiresSurface": true,
+      "requiresSurface": false,
       "states": [
-        "closed",
-        "open",
-        "querying",
-        "results",
-        "empty",
+        "default",
+        "dense",
+        "overflow",
+        "filter-active",
         "loading",
-        "disabled-command",
-        "executing"
+        "disabled",
+        "permission-blocked"
       ],
       "files": {
-        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
-        "react": "packages/react/src/patterns/CommandPalette.js",
-        "types": "packages/react/src/patterns/CommandPalette.d.ts"
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+        "react": "packages/react/src/patterns/Toolbar.js",
+        "types": "packages/react/src/patterns/Toolbar.d.ts"
       }
     },
     {
-      "order": 45,
+      "order": 47,
       "pattern": "account-operations",
       "mode": "template-facing orchestrator",
       "score": 28,
@@ -7264,7 +7415,7 @@
       }
     },
     {
-      "order": 46,
+      "order": 48,
       "pattern": "chart-wrapper",
       "mode": "primitive-runtime composition",
       "score": 28,
@@ -7416,7 +7567,7 @@
       }
     },
     {
-      "order": 47,
+      "order": 49,
       "pattern": "filterable-editable-table",
       "mode": "cross-pattern composition",
       "score": 28,
@@ -7614,7 +7765,7 @@
       }
     },
     {
-      "order": 48,
+      "order": 50,
       "pattern": "fleet-manager-onboarding-desktop",
       "mode": "template-facing orchestrator",
       "score": 28,
@@ -7778,7 +7929,7 @@
       }
     },
     {
-      "order": 49,
+      "order": 51,
       "pattern": "backoffice-approval",
       "mode": "template-facing orchestrator",
       "score": 29,
@@ -7968,7 +8119,7 @@
       }
     },
     {
-      "order": 50,
+      "order": 52,
       "pattern": "drawer-adapter",
       "mode": "cross-pattern composition",
       "score": 29,
@@ -8157,7 +8308,142 @@
       }
     },
     {
-      "order": 51,
+      "order": 53,
+      "pattern": "on-this-page-nav",
+      "mode": "template-facing orchestrator",
+      "score": 29,
+      "components": [
+        "Badge",
+        "Button"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Iconography",
+        "Loading",
+        "Motion Curves",
+        "Radius"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Frame",
+        "Depth",
+        "State",
+        "Voice",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol",
+        "Tone"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": true
+        },
+        {
+          "name": "badge",
+          "owner": "component",
+          "uses": [
+            "Badge"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "body",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onClick"
+        ],
+        "testedCallbacks": [
+          "onClick"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "active-section",
+          "collapsed",
+          "dark",
+          "default",
+          "mobile",
+          "overflow",
+          "sticky"
+        ],
+        "typedStates": [
+          "active-section",
+          "collapsed",
+          "dark",
+          "default",
+          "mobile",
+          "overflow",
+          "sticky"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "sticky",
+        "collapsed",
+        "active-section",
+        "overflow",
+        "mobile",
+        "dark"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
+        "react": "packages/react/src/patterns/OnThisPageNav.js",
+        "types": "packages/react/src/patterns/OnThisPageNav.d.ts"
+      }
+    },
+    {
+      "order": 54,
       "pattern": "preference-management",
       "mode": "template-facing orchestrator",
       "score": 29,
@@ -8333,7 +8619,7 @@
       }
     },
     {
-      "order": 52,
+      "order": 55,
       "pattern": "roles-and-permissions",
       "mode": "template-facing orchestrator",
       "score": 30,
@@ -8486,7 +8772,7 @@
       }
     },
     {
-      "order": 53,
+      "order": 56,
       "pattern": "driver-and-vehicle-administration",
       "mode": "template-facing orchestrator",
       "score": 31,
@@ -8653,7 +8939,7 @@
       }
     },
     {
-      "order": 54,
+      "order": 57,
       "pattern": "authentication-login-biometrics-and-otp",
       "mode": "template-facing orchestrator",
       "score": 32,
@@ -8815,7 +9101,7 @@
       }
     },
     {
-      "order": 55,
+      "order": 58,
       "pattern": "ticket-queue",
       "mode": "template-facing orchestrator",
       "score": 32,
@@ -9017,7 +9303,308 @@
       }
     },
     {
-      "order": 56,
+      "order": 59,
+      "pattern": "command-palette",
+      "mode": "template-facing orchestrator",
+      "score": 33,
+      "components": [
+        "Button",
+        "Dialog",
+        "Empty State",
+        "Input",
+        "Menu",
+        "Toast"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Field Action",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Surface",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Search",
+        "Topbar"
+      ],
+      "templateRefs": [
+        "Docs Shell Template"
+      ],
+      "slots": [
+        {
+          "name": "surface",
+          "owner": "component",
+          "uses": [
+            "Dialog"
+          ]
+        },
+        {
+          "name": "query",
+          "owner": "component",
+          "uses": [
+            "Input"
+          ]
+        },
+        {
+          "name": "commands",
+          "owner": "component",
+          "uses": [
+            "Menu",
+            "Button",
+            "Empty State",
+            "Toast"
+          ]
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": [
+          "Search",
+          "Topbar"
+        ]
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [
+          "onAction",
+          "onCommandSelect",
+          "onOpenChange",
+          "onPrimaryAction",
+          "onQueryChange"
+        ],
+        "testedCallbacks": [
+          "onAction",
+          "onCommandSelect",
+          "onOpenChange",
+          "onPrimaryAction",
+          "onQueryChange"
+        ],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "closed",
+          "disabled-command",
+          "empty",
+          "executing",
+          "loading",
+          "open",
+          "querying",
+          "results"
+        ],
+        "typedStates": [
+          "closed",
+          "disabled-command",
+          "empty",
+          "executing",
+          "loading",
+          "open",
+          "querying",
+          "results"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "closed",
+        "open",
+        "querying",
+        "results",
+        "empty",
+        "loading",
+        "disabled-command",
+        "executing"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+        "react": "packages/react/src/patterns/CommandPalette.js",
+        "types": "packages/react/src/patterns/CommandPalette.d.ts"
+      }
+    },
+    {
+      "order": 60,
+      "pattern": "documentation-hero",
+      "mode": "template-facing orchestrator",
+      "score": 34,
+      "components": [
+        "Button",
+        "Badge",
+        "Tag"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Motion Curves",
+        "Radius"
+      ],
+      "foundations": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "Energy",
+        "Accessibility",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone"
+      ],
+      "patternDependencies": [
+        "Section Header"
+      ],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Artifact Detail Template",
+        "Reference Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "title",
+          "owner": "pattern",
+          "uses": [
+            "Section Header"
+          ],
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "visual",
+          "owner": "channel",
+          "uses": [
+            "host visual"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "dark",
+          "default",
+          "loading",
+          "mobile",
+          "with-actions",
+          "with-metadata",
+          "with-status"
+        ],
+        "typedStates": [
+          "dark",
+          "default",
+          "loading",
+          "mobile",
+          "with-actions",
+          "with-metadata",
+          "with-status"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "with-actions",
+        "with-metadata",
+        "with-status",
+        "dark",
+        "mobile",
+        "loading"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+        "react": "packages/react/src/patterns/DocumentationHero.js",
+        "types": "packages/react/src/patterns/DocumentationHero.d.ts"
+      }
+    },
+    {
+      "order": 61,
       "pattern": "status-feedback-view",
       "mode": "template-facing orchestrator",
       "score": 34,
@@ -9213,7 +9800,7 @@
       }
     },
     {
-      "order": 57,
+      "order": 62,
       "pattern": "case-management",
       "mode": "template-facing orchestrator",
       "score": 37,
@@ -9433,7 +10020,7 @@
       }
     },
     {
-      "order": 58,
+      "order": 63,
       "pattern": "pricing-operations",
       "mode": "template-facing orchestrator",
       "score": 37,
@@ -9639,7 +10226,159 @@
       }
     },
     {
-      "order": 59,
+      "order": 64,
+      "pattern": "demo-preview-frame",
+      "mode": "template-facing orchestrator",
+      "score": 38,
+      "components": [
+        "Skeleton",
+        "Error Panel"
+      ],
+      "primitives": [
+        "Surface",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Loading",
+        "Disabled",
+        "Typography",
+        "Color",
+        "Duration",
+        "Iconography",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol",
+        "Voice"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "preview",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": true
+        },
+        {
+          "name": "controls",
+          "owner": "channel",
+          "uses": [
+            "host controls"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "source",
+          "owner": "channel",
+          "uses": [
+            "host source"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "fallback",
+          "owner": "component",
+          "uses": [
+            "Skeleton",
+            "Error Panel"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "dark",
+          "default",
+          "density-compact",
+          "error",
+          "interactive",
+          "loading",
+          "static",
+          "unsupported",
+          "viewport-desktop",
+          "viewport-mobile"
+        ],
+        "typedStates": [
+          "dark",
+          "default",
+          "density-compact",
+          "error",
+          "interactive",
+          "loading",
+          "static",
+          "unsupported",
+          "viewport-desktop",
+          "viewport-mobile"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "interactive",
+        "static",
+        "viewport-mobile",
+        "viewport-desktop",
+        "loading",
+        "error",
+        "unsupported",
+        "dark",
+        "density-compact"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+        "react": "packages/react/src/patterns/DemoPreviewFrame.js",
+        "types": "packages/react/src/patterns/DemoPreviewFrame.d.ts"
+      }
+    },
+    {
+      "order": 65,
       "pattern": "dense-operational-list",
       "mode": "template-facing orchestrator",
       "score": 40,
@@ -9839,7 +10578,7 @@
       }
     },
     {
-      "order": 60,
+      "order": 66,
       "pattern": "driver-onboarding-mobile",
       "mode": "template-facing orchestrator",
       "score": 44,
@@ -10015,7 +10754,7 @@
       }
     },
     {
-      "order": 61,
+      "order": 67,
       "pattern": "station-discovery",
       "mode": "template-facing orchestrator",
       "score": 45,
@@ -10228,10 +10967,282 @@
       }
     },
     {
-      "order": 62,
+      "order": 68,
+      "pattern": "artifact-metadata-bar",
+      "mode": "template-facing orchestrator",
+      "score": 51,
+      "components": [
+        "Badge",
+        "Tag",
+        "Chip",
+        "Tooltip",
+        "Button"
+      ],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Density",
+        "Focus",
+        "Color",
+        "Disabled",
+        "Duration",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius"
+      ],
+      "foundations": [
+        "Voice",
+        "Frame",
+        "State",
+        "Tone",
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "Symbol"
+      ],
+      "patternDependencies": [],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Collection Template",
+        "Docs Artifact Detail Template",
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "items",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag",
+            "Chip"
+          ],
+          "required": true
+        },
+        {
+          "name": "explanations",
+          "owner": "component",
+          "uses": [
+            "Tooltip"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "compact",
+          "dark",
+          "default",
+          "empty",
+          "interactive",
+          "loading",
+          "mobile",
+          "overflow"
+        ],
+        "typedStates": [
+          "compact",
+          "dark",
+          "default",
+          "empty",
+          "interactive",
+          "loading",
+          "mobile",
+          "overflow"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "compact",
+        "overflow",
+        "interactive",
+        "loading",
+        "empty",
+        "dark",
+        "mobile"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+        "react": "packages/react/src/patterns/ArtifactMetadataBar.js",
+        "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts"
+      }
+    },
+    {
+      "order": 69,
+      "pattern": "documentation-section",
+      "mode": "template-facing orchestrator",
+      "score": 51,
+      "components": [],
+      "primitives": [
+        "Surface",
+        "Typography",
+        "Spacing",
+        "Breakpoints",
+        "Density",
+        "Focus",
+        "Message"
+      ],
+      "foundations": [
+        "Voice",
+        "Frame",
+        "Depth",
+        "State",
+        "Tone",
+        "Accessibility",
+        "Energy"
+      ],
+      "patternDependencies": [
+        "Section Header"
+      ],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Collection Template",
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "header",
+          "owner": "pattern",
+          "uses": [
+            "Section Header"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "body",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": true
+        },
+        {
+          "name": "footer",
+          "owner": "channel",
+          "uses": [
+            "host content"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "callout",
+          "dark",
+          "default",
+          "dense",
+          "empty",
+          "error",
+          "loading",
+          "matrix",
+          "mobile"
+        ],
+        "typedStates": [
+          "callout",
+          "dark",
+          "default",
+          "dense",
+          "empty",
+          "error",
+          "loading",
+          "matrix",
+          "mobile"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": true,
+      "states": [
+        "default",
+        "dense",
+        "callout",
+        "matrix",
+        "empty",
+        "loading",
+        "error",
+        "dark",
+        "mobile"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+        "react": "packages/react/src/patterns/DocumentationSection.js",
+        "types": "packages/react/src/patterns/DocumentationSection.d.ts"
+      }
+    },
+    {
+      "order": 70,
       "pattern": "sidebar",
       "mode": "template-facing orchestrator",
-      "score": 46,
+      "score": 52,
       "components": [
         "Accordion",
         "Badge",
@@ -10279,7 +11290,8 @@
         "Fleet Manager Desktop",
         "Fleet Dashboard Suite",
         "Configuration Console",
-        "Internal Operations Console"
+        "Internal Operations Console",
+        "Docs Shell Template"
       ],
       "slots": [
         {
@@ -10391,17 +11403,176 @@
       }
     },
     {
-      "order": 63,
+      "order": 71,
+      "pattern": "section-header",
+      "mode": "template-facing orchestrator",
+      "score": 59,
+      "components": [
+        "Badge",
+        "Button",
+        "Menu",
+        "Skeleton",
+        "Tag"
+      ],
+      "primitives": [
+        "Breakpoints",
+        "Color",
+        "Density",
+        "Disabled",
+        "Duration",
+        "Elevation",
+        "Focus",
+        "Iconography",
+        "Loading",
+        "Measurement",
+        "Message",
+        "Motion Curves",
+        "Radius",
+        "Spacing",
+        "Typography"
+      ],
+      "foundations": [
+        "Accessibility",
+        "Depth",
+        "Energy",
+        "Frame",
+        "Growth",
+        "Iconography",
+        "Momentum",
+        "State",
+        "Symbol",
+        "Tone",
+        "Voice"
+      ],
+      "patternDependencies": [
+        "Form Section",
+        "Settings",
+        "Toolbar"
+      ],
+      "templateRefs": [
+        "Docs Home Template",
+        "Docs Collection Template",
+        "Component Detail Template",
+        "Pattern Detail Template",
+        "Reference Detail Template",
+        "Template Detail Template"
+      ],
+      "slots": [
+        {
+          "name": "status",
+          "owner": "component",
+          "uses": [
+            "Badge",
+            "Tag",
+            "Skeleton"
+          ]
+        },
+        {
+          "name": "actions",
+          "owner": "component",
+          "uses": [
+            "Button",
+            "Menu"
+          ]
+        },
+        {
+          "name": "formBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Form Section"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "settingsBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Settings"
+          ],
+          "required": "conditional"
+        },
+        {
+          "name": "toolbarBoundary",
+          "owner": "pattern",
+          "uses": [
+            "Toolbar"
+          ],
+          "required": "conditional"
+        }
+      ],
+      "slotCoverageFindings": {
+        "missingComponentSlots": [],
+        "missingRuntimePatternSlots": [],
+        "boundaryOnlyPatternDependencies": []
+      },
+      "reactContract": {
+        "hasForwardRef": true,
+        "hasRefAttributes": true,
+        "hasDensityProp": true,
+        "callbacks": [],
+        "testedCallbacks": [],
+        "missingCallbackTests": [],
+        "controlledIssues": [],
+        "formalStates": [
+          "actionable",
+          "default",
+          "dirty",
+          "disabled",
+          "loading",
+          "permission-blocked"
+        ],
+        "typedStates": [
+          "actionable",
+          "default",
+          "dirty",
+          "disabled",
+          "loading",
+          "permission-blocked"
+        ],
+        "statesMissingFromTypes": [],
+        "statesMissingFromArtifact": [],
+        "densityCascadeIssues": [],
+        "stateCascadeIssues": [],
+        "propContractIssues": [],
+        "literalContractIssues": [],
+        "missingAccessibilityImplementation": false,
+        "structuralSurfaceSlots": [],
+        "missingSurfaceSlotMarkers": [],
+        "missingStructuralSurfaceUsage": false,
+        "unsafeRestSpread": false,
+        "rawGlobalDomRefs": [],
+        "debts": []
+      },
+      "runtimePrimitives": [],
+      "requiresSurface": false,
+      "states": [
+        "default",
+        "loading",
+        "actionable",
+        "disabled",
+        "permission-blocked",
+        "dirty"
+      ],
+      "files": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+        "react": "packages/react/src/patterns/SectionHeader.js",
+        "types": "packages/react/src/patterns/SectionHeader.d.ts"
+      }
+    },
+    {
+      "order": 72,
       "pattern": "topbar",
       "mode": "template-facing orchestrator",
-      "score": 75,
+      "score": 83,
       "components": [
         "Avatar",
         "Badge",
         "Drawer",
         "Icon Button",
         "Input",
-        "Menu"
+        "Menu",
+        "Empty State",
+        "List"
       ],
       "primitives": [
         "Breakpoints",
@@ -10449,7 +11620,8 @@
         "Fleet Dashboard Suite",
         "Configuration Console",
         "Agent Workspace",
-        "Internal Operations Console"
+        "Internal Operations Console",
+        "Docs Shell Template"
       ],
       "slots": [
         {
@@ -10476,6 +11648,15 @@
             "Drawer",
             "Icon Button"
           ]
+        },
+        {
+          "name": "searchResults",
+          "owner": "component",
+          "uses": [
+            "List",
+            "Empty State"
+          ],
+          "required": "conditional"
         },
         {
           "name": "autocompleteBoundary",
@@ -10547,12 +11728,14 @@
           "onDrawerOpenChange",
           "onOpenChange",
           "onQueryChange",
+          "onResultSelect",
           "onSelect"
         ],
         "testedCallbacks": [
           "onDrawerOpenChange",
           "onOpenChange",
           "onQueryChange",
+          "onResultSelect",
           "onSelect"
         ],
         "missingCallbackTests": [],

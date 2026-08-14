@@ -6,12 +6,12 @@ React components with accessibility-critical interaction must keep explicit role
 
 ## Inventory
 
-- React components scanned: 60
+- React components scanned: 62
 - Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
 - Role declarations: 71
-- ARIA declarations: 323
+- ARIA declarations: 326
 - Keyboard handlers: 40
 - Focus calls: 15
 - Failures: 0
@@ -24,12 +24,12 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 60 | 60 |
+| components | 62 | 62 |
 | accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
 | totalRoles | 71 | 71 |
-| totalAria | 323 | 323 |
+| totalAria | 326 | 326 |
 | keyboardHandlers | 40 | 40 |
 | focusCalls | 15 | 15 |
 | failures | 0 | 0 |
@@ -80,8 +80,10 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | ChatThread | 1 | 3 | 0 | 0 | 0 | no |
 | Checkbox | 0 | 3 | 0 | 0 | 0 | no |
 | Chip | 0 | 6 | 0 | 0 | 0 | no |
+| CodeBlock | 0 | 1 | 0 | 0 | 0 | no |
 | CodeInput | 1 | 4 | 0 | 0 | 0 | yes |
 | Combobox | 4 | 15 | 2 | 1 | 0 | yes |
+| CopyButton | 0 | 2 | 0 | 0 | 0 | no |
 | CountrySelector | 4 | 14 | 3 | 2 | 0 | yes |
 | DatePicker | 5 | 20 | 4 | 1 | 1 | yes |
 | DateRangePicker | 5 | 21 | 4 | 2 | 1 | yes |

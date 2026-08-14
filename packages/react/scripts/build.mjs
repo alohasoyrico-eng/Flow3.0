@@ -8,6 +8,13 @@ const src = path.join(root, "src");
 const dist = path.join(root, "dist");
 const checkMode = process.argv.includes("--check");
 const repoRoot = path.resolve(root, "../..");
+const sourceRuntimeHeader = [
+  "/* @generated from packages/react/src TypeScript source.",
+  " * Do not edit this compatibility runtime directly.",
+  " * Authored source of truth is the paired .ts/.tsx file.",
+  " */",
+  "",
+].join("\n");
 
 function rewritePublishedImports(source) {
   return source
@@ -103,7 +110,7 @@ function writeSourceRuntimeFromTypescript(compiledTypescriptDir) {
     const relative = path.relative(compiledTypescriptDir, file);
     const to = path.join(src, relative);
     fs.mkdirSync(path.dirname(to), { recursive: true });
-    fs.writeFileSync(to, fs.readFileSync(file, "utf8"));
+    fs.writeFileSync(to, `${sourceRuntimeHeader}${fs.readFileSync(file, "utf8")}`);
   }
 }
 
@@ -115,7 +122,7 @@ function checkSourceRuntimeFromTypescript(compiledTypescriptDir) {
     const relative = path.relative(compiledTypescriptDir, file);
     const to = path.join(src, relative);
     const current = fs.existsSync(to) ? fs.readFileSync(to, "utf8") : null;
-    const expected = fs.readFileSync(file, "utf8");
+    const expected = `${sourceRuntimeHeader}${fs.readFileSync(file, "utf8")}`;
     if (current !== expected) stale.push(relative);
   }
   if (stale.length) {

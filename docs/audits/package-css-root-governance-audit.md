@@ -7,15 +7,15 @@ Every root class and --comp-* alias in the package stylesheet must map to a know
 ## Inventory
 
 - Package CSS: packages/components/styles/components.css
-- Selectors scanned: 1224
-- Component aliases scanned: 3250
-- Component alias roots: 66
+- Selectors scanned: 1274
+- Component aliases scanned: 3319
+- Component alias roots: 68
 - Unknown component aliases: 0
-- CSS roots: 71
-- Component roots: 62
-- Component roots observed by React: 62
+- CSS roots: 75
+- Component roots: 64
+- Component roots observed by React: 64
 - Component roots not observed by React: 0
-- Classified non-component roots: 9
+- Classified non-component roots: 11
 - Unclassified roots: 0
 - Package CSS root debt: 0
 - Inventory baseline mismatches: 0
@@ -26,15 +26,15 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| selectors | 1224 | 1224 |
-| componentAliases | 3250 | 3250 |
-| componentAliasRoots | 66 | 66 |
+| selectors | 1274 | 1274 |
+| componentAliases | 3319 | 3319 |
+| componentAliasRoots | 68 | 68 |
 | unknownComponentAliases | 0 | 0 |
-| cssRoots | 71 | 71 |
-| componentRoots | 62 | 62 |
-| observedComponentRoots | 62 | 62 |
+| cssRoots | 75 | 75 |
+| componentRoots | 64 | 64 |
+| observedComponentRoots | 64 | 64 |
 | unobservedComponentRoots | 0 | 0 |
-| classifiedNonComponentRoots | 9 | 9 |
+| classifiedNonComponentRoots | 11 | 11 |
 | unclassifiedRoots | 0 | 0 |
 | packageCssRootGovernanceIssues | 0 | 0 |
 | packageCssRootDebt | 0 | 0 |
@@ -51,6 +51,8 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | --- | --- | --- | --- | --- |
 | animation-asset | primitive-asset | packages/components/src/primitives/animation-assets.js | yes | Reusable animation asset primitive consumed by AnimatedMoment. |
 | docs-package-demo | docs-layout-bridge | ../FlowDocs/apps/docs | no | Temporary docs layout hook for package-backed demos; tracked so it cannot multiply silently. |
+| documentation-hero | docs-pattern-boundary | packages/react/src/patterns/DocumentationHero.ts | yes | Documentation hero pattern root for FlowDocs home and artifact detail pages. |
+| documentation-section | docs-pattern-boundary | packages/react/src/patterns/DocumentationSection.ts | yes | Documentation section pattern root replacing local docs section wrappers. |
 | field-action | shared-control-primitive | field | yes | Shared field action affordance consumed by Input, Combobox, and card field inputs. |
 | field-control | legacy-field-shell | field | no | Legacy-compatible field shell selector covered by the Field CSS contract. |
 | field-input | legacy-field-input | field | no | Legacy-compatible field input selector covered by the Field CSS contract. |
@@ -84,8 +86,10 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | checkbox |
 | chip |
 | choice |
+| code-block |
 | code-input |
 | combobox |
+| copy-button |
 | country-selector |
 | date-picker |
 | date-range-picker |

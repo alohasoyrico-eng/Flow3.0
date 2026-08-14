@@ -5,10 +5,13 @@ import type { AvatarProps } from "../Avatar.js";
 import { Badge } from "../Badge.js";
 import { Drawer } from "../Drawer.js";
 import type { DrawerOpenChangeEvent, DrawerProps } from "../Drawer.js";
+import { EmptyState } from "../EmptyState.js";
 import { IconButton } from "../IconButton.js";
 import type { IconButtonProps } from "../IconButton.js";
 import { Input } from "../Input.js";
 import type { InputDensity } from "../Input.js";
+import { List } from "../List.js";
+import type { ListItem, ListProps } from "../List.js";
 import { Menu } from "../Menu.js";
 import type { MenuAlign, MenuItem, MenuOpenChangeEvent } from "../Menu.js";
 import { Autocomplete } from "./Autocomplete.js";
@@ -42,6 +45,12 @@ export interface TopbarSearch {
   disabled?: boolean;
   loading?: boolean;
   onQueryChange?: SearchProps["onQueryChange"];
+  results?: ListItem[];
+  selectedResultKey?: string;
+  onResultSelect?: ListProps["onSelect"];
+  resultsLabel?: string;
+  resultsClassName?: string;
+  empty?: SearchProps["empty"];
   delegate?: SearchProps;
 }
 
@@ -247,19 +256,25 @@ export const Topbar: TopbarComponent = forwardRef<HTMLDivElement, TopbarProps>(f
         "data-flow-slot": "unread-count",
       }))
       : null,
-    normalizedActions.map((action) => React.createElement(IconButton, flowDefinedProps({
-      ...action,
-      key: action.key ?? action.label,
-      label: action.label,
-      ariaLabel: action.ariaLabel ?? action.label,
-      icon: action.icon,
-      density: action.density ?? density,
-      variant: action.variant ?? "ghost",
-      selected: action.selected,
-      badge: action.badge,
-      disabled: isDisabled || action.disabled,
-      "data-flow-slot": action["data-flow-slot"] ?? "topbar-action",
-    }))),
+    normalizedActions.length
+      ? React.createElement(
+        "div",
+        { "data-flow-slot": "topbar-actions" },
+        normalizedActions.map((action) => React.createElement(IconButton, flowDefinedProps({
+          ...action,
+          key: action.key ?? action.label,
+          label: action.label,
+          ariaLabel: action.ariaLabel ?? action.label,
+          icon: action.icon,
+          density: action.density ?? density,
+          variant: action.variant ?? "ghost",
+          selected: action.selected,
+          badge: action.badge,
+          disabled: isDisabled || action.disabled,
+          "data-flow-slot": action["data-flow-slot"] ?? "topbar-action",
+        }))),
+      )
+      : null,
     account?.name
       ? React.createElement(Avatar, flowDefinedProps({
         name: account.name,
@@ -288,6 +303,42 @@ export const Topbar: TopbarComponent = forwardRef<HTMLDivElement, TopbarProps>(f
         onSelect: account.onSelect,
         "data-flow-slot": "account-menu",
       }))
+      : null,
+    search?.results?.length
+      ? React.createElement(
+        "div",
+        {
+          "data-flow-slot": "search-results",
+        },
+        React.createElement(List, flowDefinedProps({
+          label: search.resultsLabel ?? search.label ?? "Search results",
+          items: search.results,
+          variant: "action",
+          density,
+          interactive: true,
+          state: "default",
+          selectedKey: search.selectedResultKey,
+          onSelect: search.onResultSelect,
+          "data-flow-slot": "search-result-list",
+        })),
+      )
+      : (search?.active || search?.open) && (search?.query || search?.value) && search?.empty
+        ? React.createElement(
+          "div",
+          {
+            "data-flow-slot": "search-results",
+          },
+          React.createElement(EmptyState, flowDefinedProps({
+            title: search.empty.title ?? "No results",
+            description: search.empty.description,
+            icon: search.empty.icon,
+            action: search.empty.action,
+            variant: search.empty.variant ?? "search-empty",
+            state: "search-empty",
+            density,
+            onAction: search.empty.onAction,
+          })),
+        )
       : null,
     search?.delegate
       ? React.createElement(Search, flowDefinedProps({

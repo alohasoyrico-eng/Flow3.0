@@ -4,19 +4,19 @@
   "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.",
   "baseline": {
     "inventory": {
-      "components": 60,
+      "components": 62,
       "propAlignmentDebt": 0,
-      "pass": 60,
+      "pass": 62,
       "fail": 0,
-      "contractProps": 723,
-      "publicReactProps": 604,
+      "contractProps": 750,
+      "publicReactProps": 627,
       "semanticInheritedProps": 1,
       "inheritedContractProps": 28,
       "extraReactProps": 0,
       "missingReactProps": 0,
       "requiredMismatches": 0,
       "typeValueMismatches": 0,
-      "publicPropsExpectedInSource": 605,
+      "publicPropsExpectedInSource": 628,
       "unreferencedPublicProps": 0,
       "reactGovernancePolicyIssues": 0
     },
@@ -28,18 +28,18 @@
     "issues": []
   },
   "inventory": {
-    "components": 60,
-    "pass": 60,
+    "components": 62,
+    "pass": 62,
     "fail": 0,
-    "contractProps": 723,
-    "publicReactProps": 604,
+    "contractProps": 750,
+    "publicReactProps": 627,
     "semanticInheritedProps": 1,
     "inheritedContractProps": 28,
     "extraReactProps": 0,
     "missingReactProps": 0,
     "requiredMismatches": 0,
     "typeValueMismatches": 0,
-    "publicPropsExpectedInSource": 605,
+    "publicPropsExpectedInSource": 628,
     "unreferencedPublicProps": 0,
     "reactGovernancePolicyIssues": 0,
     "propAlignmentDebt": 0
@@ -2539,6 +2539,143 @@
       "status": "pass"
     },
     {
+      "component": "CodeBlock",
+      "contractKey": "codeBlock",
+      "source": "packages/react/src/CodeBlock.js",
+      "types": "packages/react/src/CodeBlock.d.ts",
+      "contractProps": [
+        {
+          "name": "code",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "language",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"block\\\" | \\\"inline-group\\\" | \\\"specimen\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"wrapped\\\" | \\\"scrollable\\\" | \\\"with-header\\\" | \\\"with-copy\\\" | \\\"copied\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "copyAction",
+          "type": "CodeBlockAction",
+          "required": false
+        },
+        {
+          "name": "copyable",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "code",
+          "required": true
+        },
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "filename",
+          "required": false
+        },
+        {
+          "name": "language",
+          "required": false
+        },
+        {
+          "name": "helper",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "copyAction",
+          "required": false
+        },
+        {
+          "name": "copyable",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "typeValueMismatches": [],
+      "publicPropsExpectedInSource": [
+        "code",
+        "copyAction",
+        "copyable",
+        "density",
+        "filename",
+        "helper",
+        "label",
+        "language",
+        "state",
+        "variant",
+        "wrap"
+      ],
+      "unreferencedPublicProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
       "component": "CodeInput",
       "contractKey": "codeInput",
       "source": "packages/react/src/CodeInput.js",
@@ -2827,6 +2964,163 @@
         "options",
         "optionsLabel",
         "state"
+      ],
+      "unreferencedPublicProps": [],
+      "failures": [],
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "contractKey": "copyButton",
+      "source": "packages/react/src/CopyButton.js",
+      "types": "packages/react/src/CopyButton.d.ts",
+      "contractProps": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\\\"text\\\" | \\\"icon\\\" | \\\"inline\\\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"copied\\\" | \\\"error\\\" | \\\"disabled\\\" | \\\"loading\\\"",
+          "required": false
+        },
+        {
+          "name": "feedbackDuration",
+          "type": "number",
+          "required": false
+        },
+        {
+          "name": "copiedLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "errorLabel",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
+          "required": false
+        },
+        {
+          "name": "onCopied",
+          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void",
+          "required": false
+        },
+        {
+          "name": "onCopyError",
+          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void",
+          "required": false
+        }
+      ],
+      "publicReactProps": [
+        {
+          "name": "label",
+          "required": false
+        },
+        {
+          "name": "ariaLabel",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "required": false
+        },
+        {
+          "name": "density",
+          "required": false
+        },
+        {
+          "name": "feedbackDuration",
+          "required": false
+        },
+        {
+          "name": "copiedLabel",
+          "required": false
+        },
+        {
+          "name": "errorLabel",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "required": false
+        },
+        {
+          "name": "onCopied",
+          "required": false
+        },
+        {
+          "name": "onCopyError",
+          "required": false
+        }
+      ],
+      "semanticInheritedProps": [],
+      "inheritedContractProps": [],
+      "extraReactProps": [],
+      "missingReactProps": [],
+      "semanticInheritedMissingFromContract": [],
+      "requiredMismatches": [],
+      "typeValueMismatches": [],
+      "publicPropsExpectedInSource": [
+        "ariaLabel",
+        "copiedLabel",
+        "density",
+        "errorLabel",
+        "feedbackDuration",
+        "icon",
+        "label",
+        "loading",
+        "onCopied",
+        "onCopyError",
+        "state",
+        "variant"
       ],
       "unreferencedPublicProps": [],
       "failures": [],

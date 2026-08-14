@@ -1078,5 +1078,85 @@
         "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
       }
     }
+  },
+  "sys-energy-dark-surface-primary": {
+    "$value": "{ref-energy-neutral-900}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-surface-primary",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-surface-secondary": {
+    "$value": "#020617",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-surface-secondary",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-surface-tertiary": {
+    "$value": "{ref-energy-neutral-800}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-surface-tertiary",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-text-primary": {
+    "$value": "{ref-energy-neutral-50}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-text-primary",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-text-secondary": {
+    "$value": "{ref-energy-neutral-200}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-text-secondary",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-text-tertiary": {
+    "$value": "{ref-energy-neutral-300}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-text-tertiary",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-border-default": {
+    "$value": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-border-default",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-border-strong": {
+    "$value": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-border-strong",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
   }
 }

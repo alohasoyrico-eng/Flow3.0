@@ -6,13 +6,13 @@ React components may only author their own visual class roots or explicit family
 
 ## Inventory
 
-- React components scanned: 60
-- Component class roots known: 63
+- React components scanned: 62
+- Component class roots known: 65
 - Protected class roots: button, card, dialog, drawer, field, menu, popover
-- Support class roots: animation-asset, field-action, illustration-asset, input, material-symbol, surface
-- Package CSS roots visible to React governance: 71
+- Support class roots: animation-asset, docs-artifact-detail-template, documentation-hero, documentation-section, field-action, illustration-asset, input, material-symbol, surface
+- Package CSS roots visible to React governance: 75
 - Components with family roots: 14
-- Observed root assignments: 77
+- Observed root assignments: 79
 - Observed support root assignments: 21
 - Violations: 0
 - Class ownership debt: 0
@@ -40,8 +40,10 @@ React components may only author their own visual class roots or explicit family
 | ChatThread | pass | chat-thread | chat-thread | chat-thread | None | 0 |
 | Checkbox | pass | checkbox | checkbox, choice | checkbox, choice | material-symbol | 0 |
 | Chip | pass | chip | chip | chip | None | 0 |
+| CodeBlock | pass | code-block | code-block | code-block | None | 0 |
 | CodeInput | pass | code-input | code-input, field | code-input, field | None | 0 |
 | Combobox | pass | combobox | combobox, field, select-control | combobox, field, select-control | field-action, input | 0 |
+| CopyButton | pass | copy-button | copy-button | copy-button | None | 0 |
 | CountrySelector | pass | country-selector | country-flag, country-selector, select-control | country-flag, country-selector, select-control | None | 0 |
 | DatePicker | pass | date-picker | date-picker, field | date-picker, field | None | 0 |
 | DateRangePicker | pass | date-range-picker | date-picker, date-range-picker, field | date-picker, date-range-picker, field | None | 0 |

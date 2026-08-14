@@ -108,7 +108,7 @@
       ]
     },
     "components": {
-      "count": 60,
+      "count": 62,
       "ids": [
         "accordion",
         "animated-moment",
@@ -129,8 +129,10 @@
         "chat-thread",
         "checkbox",
         "chip",
+        "code-block",
         "code-input",
         "combobox",
+        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -187,12 +189,13 @@
       ]
     },
     "patterns": {
-      "count": 63,
+      "count": 72,
       "ids": [
         "account-operations",
         "action-sheet",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "autocomplete",
         "avatar-group",
@@ -208,7 +211,14 @@
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-page-shell",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-section",
+        "documentation-token-grid",
         "drag-sortable-list",
         "drawer-adapter",
         "driver-and-vehicle-administration",
@@ -228,6 +238,7 @@
         "multi-select",
         "multi-step-form",
         "notification-panel",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -258,39 +269,50 @@
         "packages/content/content/pattern-contracts/patterns/action-sheet.md",
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
         "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
-        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
-        "packages/content/content/pattern-contracts/patterns/calendar-view.md"
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md"
       ]
     },
     "templates": {
-      "count": 9,
+      "count": 17,
       "ids": [
         "agent-workspace",
+        "component-detail-template",
         "configuration-console",
+        "docs-artifact-detail-template",
+        "docs-collection-template",
+        "docs-home-template",
+        "docs-shell-template",
         "driver-card-wallet",
         "driver-mobile-app",
         "fleet-dashboard-suite",
         "fleet-manager-desktop",
         "internal-operations-console",
+        "pattern-detail-template",
+        "reference-detail-template",
         "routes-and-stations",
-        "settings-workspace"
+        "settings-workspace",
+        "template-detail-template"
       ],
       "sampleFiles": [
         "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
-        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
-        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
-        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     },
     "packageCssDirectUses": 867,
@@ -309,142 +331,142 @@
     "keyframes": [
       {
         "file": "packages/components/styles/components.css",
-        "line": 2486,
+        "line": 2581,
         "name": "choice-indicator-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 2502,
+        "line": 2597,
         "name": "choice-dot-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 2827,
+        "line": 2922,
         "name": "badge-live-dot"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 3695,
+        "line": 3790,
         "name": "toast-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 3974,
+        "line": 4069,
         "name": "spinner-spin"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 3979,
+        "line": 4074,
         "name": "spinner-arc-breathe"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 5592,
+        "line": 5687,
         "name": "pagination-current-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7529,
+        "line": 7624,
         "name": "tree-view-item-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7941,
+        "line": 8036,
         "name": "animated-moment-icon-breathe"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7979,
+        "line": 8074,
         "name": "component-pulse"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7986,
+        "line": 8081,
         "name": "progress-indeterminate"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8000,
+        "line": 8095,
         "name": "skeleton-shimmer"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8010,
+        "line": 8105,
         "name": "dialog-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8022,
+        "line": 8117,
         "name": "dialog-exit"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8034,
+        "line": 8129,
         "name": "menu-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8046,
+        "line": 8141,
         "name": "drawer-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8058,
+        "line": 8153,
         "name": "drawer-enter-left"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8070,
+        "line": 8165,
         "name": "drawer-exit"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8082,
+        "line": 8177,
         "name": "drawer-exit-left"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8094,
+        "line": 8189,
         "name": "chart-bar-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8106,
+        "line": 8201,
         "name": "chart-line-draw"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8118,
+        "line": 8213,
         "name": "chart-dot-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8130,
+        "line": 8225,
         "name": "popover-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8519,
+        "line": 8614,
         "name": "stepper-current-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8531,
+        "line": 8626,
         "name": "stepper-connector-fill"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8540,
+        "line": 8635,
         "name": "stepper-check-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 9841,
+        "line": 9936,
         "name": "code-digit-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 9853,
+        "line": 9948,
         "name": "code-invalid"
       }
     ],

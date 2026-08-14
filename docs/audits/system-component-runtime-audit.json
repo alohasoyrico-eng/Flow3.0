@@ -1,0 +1,1080 @@
+{
+  "status": "pass",
+  "audit": "system component runtime audit",
+  "planIteration": 19,
+  "principle": "Every public component must pass runtime rendering, CSS contract, visual cascade, style governance, and primary React coverage as one auditable boundary.",
+  "sourceReports": {
+    "artifactTests": "docs/audits/system-component-artifact-tests.json",
+    "cssContract": "docs/audits/component-css-contract-coverage.json",
+    "visualCascade": "docs/audits/component-visual-cascade-audit.json",
+    "styleGovernance": "docs/audits/react-style-governance-audit.json",
+    "primaryCoverage": "docs/audits/react-primary-coverage-audit.json"
+  },
+  "inventory": {
+    "components": 62,
+    "runtimeAuditedComponents": 62,
+    "passingRuntimeComponents": 62,
+    "failingRuntimeComponents": 0,
+    "sourceReports": 5,
+    "passingSourceReports": 5,
+    "sourceReportIssues": 0,
+    "componentRuntimeDebt": 0
+  },
+  "sourceReportIssues": [],
+  "components": [
+    {
+      "id": "button",
+      "component": "Button",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "button",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Button.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "copy-button",
+      "component": "CopyButton",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "copy-button",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CopyButton.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "code-block",
+      "component": "CodeBlock",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "code-block",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CodeBlock.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "icon-button",
+      "component": "IconButton",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "icon-button",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/IconButton.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "input",
+      "component": "Input",
+      "artifactStatus": "pass",
+      "cssContract": "family",
+      "cssRoot": "field",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Input.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "input-amount",
+      "component": "InputAmount",
+      "artifactStatus": "pass",
+      "cssContract": "family",
+      "cssRoot": "field",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/InputAmount.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "card-number-input",
+      "component": "CardNumberInput",
+      "artifactStatus": "pass",
+      "cssContract": "family",
+      "cssRoot": "field",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardNumberInput.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "card-expiry-input",
+      "component": "CardExpiryInput",
+      "artifactStatus": "pass",
+      "cssContract": "family",
+      "cssRoot": "field",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardExpiryInput.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "card-security-code-input",
+      "component": "CardSecurityCodeInput",
+      "artifactStatus": "pass",
+      "cssContract": "family",
+      "cssRoot": "field",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardSecurityCodeInput.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "select",
+      "component": "Select",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "select-control",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Select.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "combobox",
+      "component": "Combobox",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "combobox",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Combobox.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "card",
+      "component": "Card",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "card",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Card.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "checkbox",
+      "component": "Checkbox",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "checkbox",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Checkbox.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "switch",
+      "component": "Switch",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "switch",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Switch.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "radio-button",
+      "component": "RadioButton",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "radio",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/RadioButton.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "text-area",
+      "component": "TextArea",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "text-area",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/TextArea.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "badge",
+      "component": "Badge",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "badge",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Badge.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chip",
+      "component": "Chip",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "chip",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Chip.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tag",
+      "component": "Tag",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "tag",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Tag.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tabs",
+      "component": "Tabs",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "tabs",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Tabs.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tooltip",
+      "component": "Tooltip",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "tooltip",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Tooltip.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "toast",
+      "component": "Toast",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "toast",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Toast.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "progress-indicator",
+      "component": "ProgressIndicator",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "progress",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ProgressIndicator.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "spinner",
+      "component": "Spinner",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "spinner",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Spinner.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "accordion",
+      "component": "Accordion",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "accordion",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Accordion.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "slider",
+      "component": "Slider",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "slider",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Slider.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "avatar",
+      "component": "Avatar",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "avatar",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Avatar.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "skeleton",
+      "component": "Skeleton",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "skeleton",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Skeleton.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "dialog",
+      "component": "Dialog",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "dialog",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Dialog.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "menu",
+      "component": "Menu",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "menu",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Menu.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "drawer",
+      "component": "Drawer",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "drawer",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Drawer.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "table",
+      "component": "Table",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "table",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Table.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "biometric-prompt",
+      "component": "BiometricPrompt",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "biometric-prompt",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/BiometricPrompt.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tree-view",
+      "component": "TreeView",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "tree-view",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/TreeView.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "motion-boundary",
+      "component": "MotionBoundary",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "motion-boundary",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/MotionBoundary.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "animated-moment",
+      "component": "AnimatedMoment",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "animated-moment",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/AnimatedMoment.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "empty-state",
+      "component": "EmptyState",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "empty-state",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/EmptyState.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "list",
+      "component": "List",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "list",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/List.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "kpi-tile",
+      "component": "KpiTile",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "kpi-tile",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/KpiTile.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "floating-action-button",
+      "component": "FloatingActionButton",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "fab",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/FloatingActionButton.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "breadcrumbs",
+      "component": "Breadcrumbs",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "breadcrumbs",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Breadcrumbs.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "pagination",
+      "component": "Pagination",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "pagination",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Pagination.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "audit-event",
+      "component": "AuditEvent",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "audit-event",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/AuditEvent.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "error-panel",
+      "component": "ErrorPanel",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "error-panel",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ErrorPanel.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "inline-validation",
+      "component": "InlineValidation",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "inline-validation",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/InlineValidation.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "stepper",
+      "component": "Stepper",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "stepper",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Stepper.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chart-panel",
+      "component": "ChartPanel",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "chart-panel",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChartPanel.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "station-pin",
+      "component": "StationPin",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "station-pin",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/StationPin.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "route-summary",
+      "component": "RouteSummary",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "route-summary",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/RouteSummary.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "code-input",
+      "component": "CodeInput",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "code-input",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CodeInput.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "phone-input",
+      "component": "PhoneInput",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "phone-input",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/PhoneInput.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "country-selector",
+      "component": "CountrySelector",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "country-selector",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CountrySelector.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "date-picker",
+      "component": "DatePicker",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "date-picker",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/DatePicker.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "date-range-picker",
+      "component": "DateRangePicker",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "date-range-picker",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/DateRangePicker.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "segmented-control",
+      "component": "SegmentedControl",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "segmented-control",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/SegmentedControl.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "popover",
+      "component": "Popover",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "popover",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Popover.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "card-summary",
+      "component": "CardSummary",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "card-summary",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardSummary.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "movement-row",
+      "component": "MovementRow",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "movement-row",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/MovementRow.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chat-message",
+      "component": "ChatMessage",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "chat-message",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChatMessage.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chat-thread",
+      "component": "ChatThread",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "chat-thread",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChatThread.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chat-composer",
+      "component": "ChatComposer",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "chat-composer",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChatComposer.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "quick-action",
+      "component": "QuickAction",
+      "artifactStatus": "pass",
+      "cssContract": "direct",
+      "cssRoot": "quick-action",
+      "visualCascade": "pass",
+      "styleGovernance": "pass",
+      "primaryCoverage": "pass",
+      "runtimeEvidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/QuickAction.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    }
+  ]
+}

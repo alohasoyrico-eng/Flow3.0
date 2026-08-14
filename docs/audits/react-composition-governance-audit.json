@@ -3,11 +3,11 @@
   "audit": "react composition governance",
   "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.",
   "inventory": {
-    "components": 60,
+    "components": 62,
     "compositionDebt": 0,
-    "compositionalComponents": 27,
-    "compositionEdges": 50,
-    "allowedEntries": 27,
+    "compositionalComponents": 29,
+    "compositionEdges": 53,
+    "allowedEntries": 29,
     "unexpectedImports": 0,
     "missingImports": 0,
     "missingReasons": 0,
@@ -35,8 +35,10 @@
     "ChatThread",
     "Checkbox",
     "Chip",
+    "CodeBlock",
     "CodeInput",
     "Combobox",
+    "CopyButton",
     "CountrySelector",
     "DatePicker",
     "DateRangePicker",
@@ -173,6 +175,21 @@
       "from": "ChatThread",
       "to": "Surface",
       "reason": "thread log structural primitive boundary"
+    },
+    {
+      "from": "CodeBlock",
+      "to": "CopyButton",
+      "reason": "governed copy action slot"
+    },
+    {
+      "from": "CopyButton",
+      "to": "Button",
+      "reason": "visible text copy action"
+    },
+    {
+      "from": "CopyButton",
+      "to": "IconButton",
+      "reason": "compact icon copy action"
     },
     {
       "from": "Dialog",
@@ -666,6 +683,25 @@
       "status": "pass"
     },
     {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.js",
+      "actual": [
+        "CopyButton"
+      ],
+      "allowed": [
+        "CopyButton"
+      ],
+      "reasons": {
+        "CopyButton": "governed copy action slot"
+      },
+      "unexpected": [],
+      "missing": [],
+      "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
+      "status": "pass"
+    },
+    {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.js",
       "actual": [],
@@ -684,6 +720,28 @@
       "actual": [],
       "allowed": [],
       "reasons": {},
+      "unexpected": [],
+      "missing": [],
+      "missingReasons": [],
+      "duplicateAllowed": [],
+      "unknownAllowed": [],
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.js",
+      "actual": [
+        "Button",
+        "IconButton"
+      ],
+      "allowed": [
+        "Button",
+        "IconButton"
+      ],
+      "reasons": {
+        "Button": "visible text copy action",
+        "IconButton": "compact icon copy action"
+      },
       "unexpected": [],
       "missing": [],
       "missingReasons": [],

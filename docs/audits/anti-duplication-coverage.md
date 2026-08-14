@@ -4,8 +4,8 @@ Status: pass
 
 Flow must have one visual owner per component concept; owner roots, protected roots, duplicate concept rules, and docs scans cannot drift silently. The actionable debt metric is antiDuplicationDebt.
 
-- Component class roots protected: 63
-- Accepted components with owner roots: 60/60
+- Component class roots protected: 65
+- Accepted components with owner roots: 62/62
 - Missing owner roots: 0
 - Extension class roots: 3
 - Protected high-risk roots: button, card, dialog, drawer, field, menu, popover
@@ -29,9 +29,9 @@ Changing these numbers is a contract decision. Owner roots, extension roots, pro
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
 | checks | 18 | 18 |
-| componentClassRoots | 63 | 63 |
-| acceptedComponents | 60 | 60 |
-| ownerRoots | 60 | 60 |
+| componentClassRoots | 65 | 65 |
+| acceptedComponents | 62 | 62 |
+| ownerRoots | 62 | 62 |
 | missingOwnerRoots | 0 | 0 |
 | extensionRoots | 3 | 3 |
 | protectedComponentRoots | 7 | 7 |

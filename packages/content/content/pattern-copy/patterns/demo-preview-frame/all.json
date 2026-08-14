@@ -1,0 +1,116 @@
+{
+  "patterns": {
+    "demo-preview-frame": {
+      "purpose": "Frame documentation examples, playgrounds, source, controls, and fallback states with reusable Flow-owned behavior.",
+      "useWhen": [
+        "A documentation page needs to show a live component, pattern, template, specimen, or viewport example.",
+        "The example requires controls, source, loading, error, or QA frame boundaries.",
+        "The frame repeats across component, pattern, reference, or template details."
+      ],
+      "doNotUseWithoutReview": [
+        "The content is ordinary prose or reference data.",
+        "The demo needs modal, drawer, or menu behavior owned by another pattern.",
+        "The frame would duplicate Card or Surface behavior."
+      ],
+      "foundations": [
+        [
+          "Accessibility",
+          "Preview and controls have labels and predictable focus order."
+        ],
+        [
+          "Frame",
+          "Demo, controls, source, and fallback slots keep stable layout."
+        ],
+        [
+          "Depth",
+          "Preview chrome does not create nested card stacks."
+        ],
+        [
+          "State",
+          "Loading, error, unsupported, dark, compact, and viewport states are explicit."
+        ],
+        [
+          "Tone",
+          "Error and unsupported tones are delegated to feedback components."
+        ],
+        [
+          "Energy",
+          "Governs accent, status, and interactive emphasis through Flow tokens."
+        ],
+        [
+          "Growth",
+          "Governs maturity, coverage, and documentation status signals."
+        ],
+        [
+          "Iconography",
+          "Governs functional glyph usage without parallel icon styling."
+        ],
+        [
+          "Momentum",
+          "Governs motion timing and responsive transition behavior."
+        ],
+        [
+          "Symbol",
+          "Governs symbolic visuals while labels and fallback text remain visible."
+        ],
+        [
+          "Voice",
+          "Governs editorial hierarchy, labels, descriptions, and helper copy."
+        ]
+      ],
+      "slots": [
+        [
+          "preview",
+          "ReactNode",
+          "yes",
+          "Rendered artifact preview."
+        ],
+        [
+          "controls",
+          "ReactNode",
+          "conditional",
+          "Interactive demo controls."
+        ],
+        [
+          "source",
+          "Code Block",
+          "conditional",
+          "Governed source snippet."
+        ],
+        [
+          "fallback",
+          "Error Panel | Skeleton",
+          "conditional",
+          "Loading, error, or unsupported state."
+        ]
+      ],
+      "componentsUsed": [
+        "Error Panel",
+        "Skeleton"
+      ],
+      "accessibility": [
+        "Label interactive demos and controls.",
+        "Keep focus inside demo controls predictable.",
+        "Provide text fallback for unsupported or failed demos.",
+        "Do not trap keyboard focus in preview content unless the demo requires modal behavior."
+      ],
+      "tests": [
+        "Covers static, interactive, mobile viewport, desktop viewport, loading, error, dark, and density states.",
+        "Fails when migrated pages use local docs-demo-layout wrappers.",
+        "Checks source slot uses Code Block and Copy Button when source is shown."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Demo Preview Frame for reusable documentation examples."
+        ],
+        "mustAsk": [
+          "A visual-only frame variant is requested without state, viewport, or source behavior."
+        ],
+        "rejectIf": [
+          "A docs page creates a local demo frame wrapper.",
+          "Demo source is copied with local buttons or raw pre/code."
+        ]
+      }
+    }
+  }
+}

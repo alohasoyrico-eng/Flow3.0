@@ -6,11 +6,11 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 ## Summary
 
-- Public export targets: 582
-- Unique public export targets: 299
-- Public JS runtime exports: 280
-- Unique public JS runtime export targets: 140
-- Public JS runtime exports with TS/TSX source: 280
+- Public export targets: 658
+- Unique public export targets: 337
+- Public JS runtime exports: 318
+- Unique public JS runtime export targets: 159
+- Public JS runtime exports with TS/TSX source: 318
 - Public JS runtime exports without TS/TSX source: 0
 - Source declarations paired with JS but not TS/TSX: 0
 - TypeScript surface debt: 0
@@ -18,8 +18,8 @@ This is a baseline report for P0.2 TypeScript remediation. It does not migrate f
 
 ## File Counts
 
-- By extension: {".js":622,".mjs":20,".ts":176,".d.ts":274,".tsx":61}
-- By area: {"script":285,"source":585,"test":8,"generated-dist":275}
+- By extension: {".js":682,".mjs":20,".ts":195,".d.ts":312,".tsx":63}
+- By area: {"script":305,"source":646,"test":8,"generated-dist":313}
 
 ## Public JS Runtime Exports
 

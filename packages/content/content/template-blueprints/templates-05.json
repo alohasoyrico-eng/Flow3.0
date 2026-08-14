@@ -75,6 +75,209 @@
       "patternDetails": {
         "Preference Management": "Owns settings groups, Form Section blocks, Settings controls, Confirmation Dialog, save/reset, validation, permission, and danger-zone state."
       }
+    },
+    "Docs Shell Template": {
+      "nav": ["Topbar", "Sidebar", "Search", "Command Palette"],
+      "metrics": [["0", "Local shell clones"], ["5", "Governed shell dependencies"]],
+      "modules": ["Topbar", "Sidebar", "Search", "Command Palette", "Documentation Page Shell"],
+      "standard": "This template is the documentation shell: navigation, search, responsive sidebar, theme, and page chrome must be composed through governed Flow patterns.",
+      "screenSystem": "The shell keeps global navigation, local navigation, search disclosure, and page content as one governed product surface.",
+      "informationArchitecture": "Navigation separates global actions in Topbar from content taxonomy in Sidebar.",
+      "primary": "User moves through FlowDocs while preserving search, section navigation, theme, density, and responsive sidebar behavior.",
+      "permissions": ["public docs"],
+      "data": ["catalog routes", "search index", "theme", "density"],
+      "states": ["loaded", "searching", "empty", "mobile", "dark", "dense"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["route selected", "search opened", "theme toggled"],
+      "qualityGates": [
+        "Topbar and Sidebar are consumed from Flow, not reimplemented by docs CSS or DOM mutation.",
+        "Search results remain keyboard navigable and do not create nested local surfaces.",
+        "Mobile sidebar opens and closes through the same hamburger control."
+      ],
+      "patternDetails": {
+        "Topbar": "Owns global shell actions, search entry, theme/density controls, and responsive layout.",
+        "Sidebar": "Owns taxonomy navigation, disclosure, active item, and mobile drawer behavior.",
+        "Search": "Owns search input, results, empty state, and keyboard navigation.",
+        "Command Palette": "Owns command discovery and shortcut-style navigation.",
+        "Documentation Page Shell": "Owns docs page chrome and content mounting boundaries."
+      }
+    },
+    "Docs Home Template": {
+      "nav": ["Overview", "Foundations", "Primitives", "Components", "Patterns", "Templates"],
+      "metrics": [["0", "Local homepage systems"], ["4", "Documentation patterns"]],
+      "modules": ["Documentation Hero", "Documentation Section", "Artifact Metadata Bar", "Section Header"],
+      "standard": "This template is the FlowDocs landing page and must use Flow documentation patterns for hero, editorial sections, metadata, and navigation into the system.",
+      "screenSystem": "The home page introduces system coverage, status, migration, and architecture without inventing local card, hero, or background systems.",
+      "informationArchitecture": "Content moves from system status to layer navigation to migration and architecture evidence.",
+      "primary": "User lands on FlowDocs and understands what is governed, what is still risky, and where to continue.",
+      "permissions": ["public docs"],
+      "data": ["system status", "layer counts", "migration state", "audit status"],
+      "states": ["loaded", "dark", "mobile", "wide"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["home viewed", "layer opened", "audit link opened"],
+      "qualityGates": [
+        "Hero and sections are Flow documentation patterns.",
+        "Editorial backgrounds are tokenized or pattern-owned.",
+        "Cards and metadata use Flow surfaces and components."
+      ],
+      "patternDetails": {
+        "Section Header": "Owns section heading rhythm and hierarchy.",
+        "Documentation Hero": "Owns docs hero composition and visual slot boundaries.",
+        "Documentation Section": "Owns docs section spacing, tone, and body layout.",
+        "Artifact Metadata Bar": "Owns compact metadata rows for system status and route facts."
+      }
+    },
+    "Docs Collection Template": {
+      "nav": ["Search", "Filter", "Browse", "Open"],
+      "metrics": [["0", "Local collection wrappers"], ["5", "Governed dependencies"]],
+      "modules": ["Section Header", "Search", "Toolbar", "Artifact Metadata Bar", "Documentation Section"],
+      "standard": "This template is the collection index surface for FlowDocs and must govern search, filters, metadata, and collection sections through Flow.",
+      "screenSystem": "Collections expose artifact groups with consistent search, metadata, and section layout across system layers.",
+      "informationArchitecture": "Content groups by artifact layer and lets users scan, filter, and open details.",
+      "primary": "User browses a layer of Flow artifacts and needs consistent search, filtering, and metadata.",
+      "permissions": ["public docs"],
+      "data": ["artifact catalog", "counts", "status", "taxonomy"],
+      "states": ["loaded", "empty", "filtered", "mobile"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["collection searched", "artifact opened", "filter changed"],
+      "qualityGates": [
+        "Collection layout uses Flow documentation sections.",
+        "Search and Toolbar own filter behavior.",
+        "Artifact metadata is rendered through Artifact Metadata Bar."
+      ],
+      "patternDetails": {
+        "Section Header": "Owns collection section headers.",
+        "Search": "Owns query entry and results behavior.",
+        "Toolbar": "Owns filter and view controls.",
+        "Artifact Metadata Bar": "Owns compact artifact metadata.",
+        "Documentation Section": "Owns collection section structure."
+      }
+    },
+    "Docs Artifact Detail Template": {
+      "nav": ["Overview", "Metadata", "Content", "Related"],
+      "metrics": [["0", "Local artifact detail shells"], ["2", "Governed documentation patterns"]],
+      "modules": ["Documentation Hero", "Artifact Metadata Bar"],
+      "standard": "This template is the generic FlowDocs artifact detail surface and only applies when a more specific detail template is not available.",
+      "screenSystem": "The artifact detail surface keeps hero, breadcrumbs, metadata, tabs, body, aside, and footer slots inside one governed Flow boundary.",
+      "informationArchitecture": "Content starts with artifact identity and metadata, then moves through tabbed body content, aside support, and footer context.",
+      "primary": "User opens a Flow artifact detail page that needs a governed fallback surface without local hero, metadata, tab, or panel wrappers.",
+      "permissions": ["public docs"],
+      "data": ["artifact metadata", "breadcrumbs", "tabs", "body content", "aside content", "footer content"],
+      "states": ["loaded", "empty", "loading", "error", "mobile", "dark"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["artifact detail viewed", "artifact tab opened"],
+      "qualityGates": [
+        "Use this template only when no layer-specific foundation, primitive, component, pattern, or template detail template exists.",
+        "Hero and metadata are Flow patterns, not local wrappers.",
+        "Tabs are composed through Flow Tabs and controlled by consumer state."
+      ],
+      "patternDetails": {
+        "Documentation Hero": "Owns artifact title, summary, status, actions, and visual treatment boundaries.",
+        "Artifact Metadata Bar": "Owns compact metadata rows for layer, platform, maturity, status, counts, dependencies, and ownership."
+      }
+    },
+    "Component Detail Template": {
+      "nav": ["Overview", "Usage", "Examples", "API", "Accessibility"],
+      "metrics": [["0", "Local component wrappers"], ["5", "Documentation patterns"]],
+      "modules": ["Section Header", "Documentation Section", "Demo Preview Frame", "On This Page Nav", "Artifact Metadata Bar"],
+      "standard": "This template is the repeated component documentation surface and must keep demos, API, states, variants, and metadata inside governed Flow documentation patterns.",
+      "screenSystem": "Component detail separates overview, demos, state matrices, API, and guidance while preserving shared navigation and metadata.",
+      "informationArchitecture": "Content follows component adoption: understand, inspect variants, test states, consume API, and verify accessibility.",
+      "primary": "Developer or designer inspects a Flow component and needs trustworthy usage, examples, API, and governance status.",
+      "permissions": ["public docs"],
+      "data": ["component catalog", "spec", "copy", "status", "examples"],
+      "states": ["loaded", "tabbed", "demo", "dark", "mobile"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["component tab opened", "demo inspected", "api copied"],
+      "qualityGates": [
+        "Demos use Demo Preview Frame.",
+        "Sections use Documentation Section.",
+        "Metadata and on-page navigation are Flow patterns."
+      ],
+      "patternDetails": {
+        "Section Header": "Owns detail headings.",
+        "Documentation Section": "Owns detail body sections.",
+        "Demo Preview Frame": "Owns demo preview framing and density boundaries.",
+        "On This Page Nav": "Owns local section navigation.",
+        "Artifact Metadata Bar": "Owns component metadata rows."
+      }
+    },
+    "Pattern Detail Template": {
+      "nav": ["Overview", "Anatomy", "Examples", "States", "Governance"],
+      "metrics": [["0", "Local pattern wrappers"], ["5", "Documentation patterns"]],
+      "modules": ["Section Header", "Documentation Section", "Demo Preview Frame", "On This Page Nav", "Artifact Metadata Bar"],
+      "standard": "This template is the repeated pattern documentation surface and must demonstrate orchestration without recreating component behavior locally.",
+      "screenSystem": "Pattern detail separates orchestration intent, dependencies, demos, states, and governance.",
+      "informationArchitecture": "Content follows adoption: understand workflow, inspect dependencies, run examples, verify states, and check governance.",
+      "primary": "Designer or engineer evaluates a Flow pattern and needs dependency, state, and governance clarity.",
+      "permissions": ["public docs"],
+      "data": ["pattern catalog", "dependencies", "states", "examples"],
+      "states": ["loaded", "demo", "dark", "mobile"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["pattern demo inspected", "dependency opened", "governance opened"],
+      "qualityGates": [
+        "Pattern demos use Demo Preview Frame.",
+        "Pattern sections use Documentation Section.",
+        "Metadata and navigation are Flow patterns."
+      ],
+      "patternDetails": {
+        "Section Header": "Owns detail headings.",
+        "Documentation Section": "Owns detail body sections.",
+        "Demo Preview Frame": "Owns pattern demo framing.",
+        "On This Page Nav": "Owns local section navigation.",
+        "Artifact Metadata Bar": "Owns pattern metadata rows."
+      }
+    },
+    "Reference Detail Template": {
+      "nav": ["Overview", "Tokens", "Usage", "Evidence"],
+      "metrics": [["0", "Local reference shells"], ["5", "Governed dependencies"]],
+      "modules": ["Section Header", "Documentation Hero", "Documentation Section", "On This Page Nav", "Demo Preview Frame"],
+      "standard": "This template is the shared foundation and primitive reference surface and must keep evidence, examples, and token details governed by Flow.",
+      "screenSystem": "Reference detail explains foundational intent, primitive contracts, token evidence, and examples without local visual systems.",
+      "informationArchitecture": "Content moves from intent to token contract to usage evidence.",
+      "primary": "User inspects a foundation or primitive and needs to know what governs downstream Flow behavior.",
+      "permissions": ["public docs"],
+      "data": ["foundation copy", "primitive copy", "tokens", "audit evidence"],
+      "states": ["loaded", "dark", "mobile"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["reference viewed", "token inspected", "evidence opened"],
+      "qualityGates": [
+        "Hero and sections are Flow documentation patterns.",
+        "Examples use Demo Preview Frame where visual evidence is needed.",
+        "Navigation uses On This Page Nav."
+      ],
+      "patternDetails": {
+        "Section Header": "Owns reference headings.",
+        "Documentation Hero": "Owns reference hero composition.",
+        "Documentation Section": "Owns reference body sections.",
+        "On This Page Nav": "Owns local section navigation.",
+        "Demo Preview Frame": "Owns visual example framing."
+      }
+    },
+    "Template Detail Template": {
+      "nav": ["Overview", "Modules", "Patterns", "QA"],
+      "metrics": [["0", "Local template detail shells"], ["4", "Documentation patterns"]],
+      "modules": ["Section Header", "Documentation Section", "Demo Preview Frame", "Artifact Metadata Bar"],
+      "standard": "This template is the repeated product-template documentation surface and must show product modules, dependencies, demos, and governance through Flow.",
+      "screenSystem": "Template detail connects product context, module structure, pattern dependencies, and QA evidence.",
+      "informationArchitecture": "Content moves from template purpose to modules, dependencies, examples, and handoff criteria.",
+      "primary": "User evaluates a product template and needs module, dependency, state, and QA clarity.",
+      "permissions": ["public docs"],
+      "data": ["template catalog", "blueprint", "modules", "patterns"],
+      "states": ["loaded", "demo", "dark", "mobile"],
+      "surfaces": ["Mobile", "Tablet", "Desktop"],
+      "telemetry": ["template viewed", "module inspected", "demo opened"],
+      "qualityGates": [
+        "Sections use Documentation Section.",
+        "Demos use Demo Preview Frame.",
+        "Metadata uses Artifact Metadata Bar."
+      ],
+      "patternDetails": {
+        "Section Header": "Owns detail headings.",
+        "Documentation Section": "Owns template detail sections.",
+        "Demo Preview Frame": "Owns template demo framing.",
+        "Artifact Metadata Bar": "Owns template metadata rows."
+      }
     }
   }
 }

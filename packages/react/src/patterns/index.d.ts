@@ -578,6 +578,14 @@ export type {
   DemoPreviewFrameState,
   DemoPreviewFrameTone,
 } from "./DemoPreviewFrame.js";
+export { DocumentationPageShell } from "./DocumentationPageShell.js";
+export type {
+  DocumentationPageShellBackground,
+  DocumentationPageShellComponent,
+  DocumentationPageShellDensity,
+  DocumentationPageShellProps,
+  DocumentationPageShellState,
+} from "./DocumentationPageShell.js";
 export { DocumentationHero } from "./DocumentationHero.js";
 export type {
   DocumentationHeroAction,
@@ -590,6 +598,14 @@ export type {
   DocumentationHeroState,
   DocumentationHeroTone,
 } from "./DocumentationHero.js";
+export { OnThisPageNav } from "./OnThisPageNav.js";
+export type {
+  OnThisPageNavComponent,
+  OnThisPageNavDensity,
+  OnThisPageNavItem,
+  OnThisPageNavProps,
+  OnThisPageNavState,
+} from "./OnThisPageNav.js";
 export { SelectOptionLayer } from "./SelectOptionLayer.js";
 export type {
   SelectOptionLayerComponent,

@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 121,
-    "categoryMappings": 111,
+    "reports": 139,
+    "categoryMappings": 129,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 121,
-    "debtMetrics": 144,
+    "reportsWithDebtMetrics": 139,
+    "debtMetrics": 172,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -67,10 +67,10 @@
     {
       "category": "docs-system-boundary",
       "principle": "FlowDocs must consume Flow instead of owning system behavior.",
-      "reports": 3,
+      "reports": 4,
       "minimumReports": 2,
       "coverageGap": 0,
-      "debtMetrics": 3,
+      "debtMetrics": 5,
       "totalDebt": 0
     },
     {
@@ -85,28 +85,28 @@
     {
       "category": "patterns",
       "principle": "Patterns must compose components through governed contracts before template promotion.",
-      "reports": 20,
+      "reports": 21,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 36,
+      "debtMetrics": 39,
       "totalDebt": 0
     },
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 6,
+      "reports": 17,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 6,
+      "debtMetrics": 20,
       "totalDebt": 0
     },
     {
       "category": "react-primary",
       "principle": "React must be the primary implementation with real contracts.",
-      "reports": 39,
+      "reports": 44,
       "minimumReports": 10,
       "coverageGap": 0,
-      "debtMetrics": 41,
+      "debtMetrics": 50,
       "totalDebt": 0
     },
     {
@@ -1229,6 +1229,20 @@
       ]
     },
     {
+      "file": "system-component-artifact-tests.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-component-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "componentArtifactTestDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-component-contract-typescript-surface.json",
       "category": "react-primary",
       "status": "pass",
@@ -1293,6 +1307,125 @@
           "report": "system-component-registry-typescript-surface.json",
           "scope": "inventory",
           "metric": "componentRegistryTypescriptSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-component-runtime-audit.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-component-runtime-audit.json",
+          "scope": "inventory",
+          "metric": "componentRuntimeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-consumer-boundary-checkpoint.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-consumer-boundary-checkpoint.json",
+          "scope": "inventory",
+          "metric": "sourceTruthDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-consumer-boundary-checkpoint.json",
+          "scope": "inventory",
+          "metric": "consumerBoundaryCheckpointDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-consumer-css-token-cascade.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-consumer-css-token-cascade.json",
+          "scope": "inventory",
+          "metric": "consumerCssTokenCascadeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-consumer-runtime-smoke.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-consumer-runtime-smoke.json",
+          "scope": "inventory",
+          "metric": "consumerRuntimeSmokeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-consumer-type-smoke.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-consumer-type-smoke.json",
+          "scope": "inventory",
+          "metric": "consumerTypeSmokeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-pattern-artifact-tests.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-pattern-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "behaviorDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-pattern-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "compositionDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-pattern-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "patternArtifactTestDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-pattern-runtime-audit.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-pattern-runtime-audit.json",
+          "scope": "inventory",
+          "metric": "patternRuntimeDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1488,6 +1621,20 @@
       ]
     },
     {
+      "file": "system-phase5-public-runtime-readiness.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-phase5-public-runtime-readiness.json",
+          "scope": "inventory",
+          "metric": "phase5PublicRuntimeReadinessDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-phase5-shell-patterns-checkpoint.json",
       "category": "patterns",
       "status": "pass",
@@ -1496,6 +1643,27 @@
           "report": "system-phase5-shell-patterns-checkpoint.json",
           "scope": "inventory",
           "metric": "shellPatternDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-phase6-flowdocs-consumer-checkpoint.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-phase6-flowdocs-consumer-checkpoint.json",
+          "scope": "inventory",
+          "metric": "sourceReportDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-phase6-flowdocs-consumer-checkpoint.json",
+          "scope": "inventory",
+          "metric": "phase6FlowDocsConsumerDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1544,6 +1712,27 @@
       ]
     },
     {
+      "file": "system-public-runtime-boundary.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-public-runtime-boundary.json",
+          "scope": "inventory",
+          "metric": "layerRuntimeDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-public-runtime-boundary.json",
+          "scope": "inventory",
+          "metric": "publicRuntimeBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-react-affordance-typescript-surface.json",
       "category": "react-primary",
       "status": "pass",
@@ -1566,6 +1755,20 @@
           "report": "system-react-base-components-typescript-surface.json",
           "scope": "inventory",
           "metric": "reactBaseComponentTypescriptSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-react-build-reproducibility.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-react-build-reproducibility.json",
+          "scope": "inventory",
+          "metric": "reactBuildReproducibilityDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1608,6 +1811,20 @@
           "report": "system-react-date-inputs-typescript-surface.json",
           "scope": "inventory",
           "metric": "reactDateInputsTypescriptSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-react-export-parity.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-react-export-parity.json",
+          "scope": "inventory",
+          "metric": "exportParityDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1754,6 +1971,20 @@
       ]
     },
     {
+      "file": "system-react-publication-boundary.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-react-publication-boundary.json",
+          "scope": "inventory",
+          "metric": "publicationBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-react-root-index-typescript-surface.json",
       "category": "react-primary",
       "status": "pass",
@@ -1782,6 +2013,20 @@
       ]
     },
     {
+      "file": "system-react-source-of-truth.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-react-source-of-truth.json",
+          "scope": "topLevel",
+          "metric": "sourceTruthDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-react-summary-action-typescript-surface.json",
       "category": "react-primary",
       "status": "pass",
@@ -1790,6 +2035,83 @@
           "report": "system-react-summary-action-typescript-surface.json",
           "scope": "inventory",
           "metric": "reactSummaryActionTypescriptSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-template-artifact-tests.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-template-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "compositionDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-template-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "interactionDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-template-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "runtimeDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-template-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "visualDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-template-artifact-tests.json",
+          "scope": "inventory",
+          "metric": "templateArtifactTestDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-template-runtime-audit.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-template-runtime-audit.json",
+          "scope": "inventory",
+          "metric": "templateRuntimeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-test-ownership.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-test-ownership.json",
+          "scope": "inventory",
+          "metric": "artifactTestDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-test-ownership.json",
+          "scope": "inventory",
+          "metric": "testOwnershipDebt",
           "value": 0,
           "numericValue": 0
         }

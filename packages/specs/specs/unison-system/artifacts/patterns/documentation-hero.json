@@ -18,7 +18,13 @@
           "Frame",
           "Depth",
           "Energy",
-          "Accessibility"
+          "Accessibility",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone"
         ],
         "primitiveDependencies": [
           "Surface",
@@ -26,22 +32,27 @@
           "Spacing",
           "Breakpoints",
           "Color",
-          "Density"
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius"
         ],
         "componentDependencies": [
           "Button",
           "Badge",
-          "Tag",
-          "Card",
-          "Progress Indicator"
+          "Tag"
         ],
         "patternDependencies": [
-          "Artifact Metadata Bar",
-          "Documentation Section"
+          "Section Header"
         ],
         "templateDependencies": [
           "Docs Home Template",
           "Reference Detail Template",
+          "Docs Artifact Detail Template",
           "Component Detail Template",
           "Pattern Detail Template",
           "Template Detail Template"
@@ -58,23 +69,22 @@
         "slots": [
           {
             "name": "title",
-            "owner": "primitive",
+            "owner": "pattern",
             "uses": [
-              "Typography"
+              "Section Header"
             ],
             "required": true,
-            "purpose": "Owns the page title with correct heading level supplied by the template."
+            "purpose": "Owns page heading semantics."
           },
           {
             "name": "metadata",
-            "owner": "pattern",
+            "owner": "component",
             "uses": [
-              "Artifact Metadata Bar",
               "Badge",
               "Tag"
             ],
             "required": "conditional",
-            "purpose": "Renders maturity, layer, platform, status, and counts without local pill systems."
+            "purpose": "Renders maturity, layer, platform, status, and counts."
           },
           {
             "name": "actions",
@@ -83,18 +93,16 @@
               "Button"
             ],
             "required": "conditional",
-            "purpose": "Renders primary and secondary hero actions through Flow buttons."
+            "purpose": "Renders hero actions."
           },
           {
-            "name": "backgroundTreatment",
-            "owner": "pattern",
+            "name": "visual",
+            "owner": "channel",
             "uses": [
-              "Surface",
-              "Color",
-              "Frame"
+              "host visual"
             ],
             "required": "conditional",
-            "purpose": "Owns hero tint, depth, and documentation texture using existing tokens."
+            "purpose": "Hosts an externally supplied visual."
           }
         ],
         "entryConditions": [
@@ -122,7 +130,8 @@
         "accessibility": [
           "Use one visible h1 per documentation page.",
           "Keep actions keyboard reachable.",
-          "Do not hide status or metadata behind color-only cues."
+          "Do not hide status or metadata behind color-only cues.",
+          "Symbolic visuals are supplemental; title, metadata, and status labels remain visible text with fallback meaning."
         ],
         "tests": [
           "Covers title-only, metadata, actions, status, dark, mobile, and loading states.",
@@ -139,6 +148,42 @@
           "Background treatment is a local CSS implementation detail.",
           "Metadata chips are custom spans.",
           "The hero creates a new public variant without satisfying variant criteria."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "stacked hero with readable actions"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "metadata and actions beside content"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "compact detail header"
+          }
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.badge.*",
+          "comp.tag.*",
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.accessibility.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*"
         ]
       }
     }

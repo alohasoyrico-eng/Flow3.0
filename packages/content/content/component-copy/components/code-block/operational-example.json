@@ -1,0 +1,18 @@
+{
+  "components": {
+    "code-block": {
+      "operational-example": {
+        "copy": "Render documentation source snippets with readable context, governed overflow, optional copy action, and recovery guidance when source validation fails.",
+        "scenario": {
+          "type": "documentation-source",
+          "rationaleTitle": "Why Code Block",
+          "rationale": [
+            "The snippet needs source semantics rather than a decorative card.",
+            "Overflow and wrapping must be owned by Flow, not page CSS.",
+            "Copy behavior is delegated to Copy Button so clipboard feedback is reusable."
+          ]
+        }
+      }
+    }
+  }
+}

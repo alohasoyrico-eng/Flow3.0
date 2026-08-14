@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { Breadcrumbs } from "../Breadcrumbs.js";
 import { Surface } from "../Surface.js";
@@ -18,7 +22,11 @@ function resolveState({ loading, state, body, }) {
     return state ?? "default";
 }
 export const DocsArtifactDetailTemplate = forwardRef(function DocsArtifactDetailTemplate({ label, artifactType, title, description, breadcrumbs = [], metadata = [], tabs = [], selectedTabKey, onSelectedTabChange, body, aside, footer, density, state, loading = false, surface, className = "", contentClassName = "", ...rest }, ref) {
-    const resolvedState = resolveState({ loading, state, body });
+    const resolvedState = resolveState({
+        loading,
+        ...(state !== undefined ? { state } : {}),
+        body,
+    });
     const resolvedLabel = label ?? title;
     const hasBreadcrumbs = breadcrumbs.length > 0;
     const hasMetadata = metadata.length > 0;
@@ -75,13 +83,13 @@ export const DocsArtifactDetailTemplate = forwardRef(function DocsArtifactDetail
             variant: "default",
             density: "md",
             onValueChange: onSelectedTabChange,
-            className: "detail-tabs docs-detail-tabs-nav",
+            className: "docs-artifact-detail-template__tabs",
             "data-doc-template": "artifact-detail",
             "data-doc-control-bridge": "artifact-detail-tabs",
             "data-flow-slot": "artifact-detail.tabs",
         })
         : null, React.createElement(Surface, {
-        surfaceRole: "section",
+        surfaceRole: "inline",
         density,
         tone: "default",
         elevation: "none",

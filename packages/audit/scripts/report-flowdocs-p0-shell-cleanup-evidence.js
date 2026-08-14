@@ -77,22 +77,30 @@ function createReport() {
     ]),
     ...checkText("apps/docs/docs-shell-react.js", [
       {
-        id: "docs-shell-cachebust-sidebar",
+        id: "docs-shell-cachebust-template",
         type: "required",
-        token: 'from "./generated/react/patterns/Sidebar.js?v=3"',
-        description: "FlowDocs shell imports the regenerated Sidebar bridge with a fresh cache key.",
-      },
-      {
-        id: "docs-shell-cachebust-topbar",
-        type: "required",
-        token: 'from "./generated/react/patterns/Topbar.js?v=2"',
-        description: "FlowDocs shell imports the regenerated Topbar bridge with a fresh cache key.",
+        token: 'from "./generated/react/templates/DocsShellTemplate.js?v=2"',
+        description: "FlowDocs shell imports the regenerated Docs Shell Template with a fresh cache key.",
       },
       {
         id: "docs-shell-mobile-action-attributes",
         type: "required",
         token: '"data-doc-shell-action": "contrast"',
         description: "FlowDocs shell exposes governed action attributes for responsive CSS decisions.",
+      },
+    ]),
+    ...checkText("apps/docs/generated/react/templates/DocsShellTemplate.js", [
+      {
+        id: "docs-shell-template-imports-sidebar",
+        type: "required",
+        token: 'import { Sidebar } from "../patterns/Sidebar.js";',
+        description: "Generated Docs Shell Template owns the Sidebar bridge import instead of docs-shell-react duplicating it.",
+      },
+      {
+        id: "docs-shell-template-imports-topbar",
+        type: "required",
+        token: 'import { Topbar } from "../patterns/Topbar.js";',
+        description: "Generated Docs Shell Template owns the Topbar bridge import instead of docs-shell-react duplicating it.",
       },
     ]),
     ...checkText("apps/docs/styles/01-shell-react.css", [

@@ -55,7 +55,7 @@ Coordinate app navigation rails, responsive drawer navigation, route grouping, b
 | Platform | Cross-platform |
 | Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
 | Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
-| Template Dependencies | `Fleet Manager Desktop`, `Fleet Dashboard Suite`, `Configuration Console`, `Internal Operations Console` |
+| Template Dependencies | `Fleet Manager Desktop`, `Fleet Dashboard Suite`, `Configuration Console`, `Internal Operations Console`, `Docs Shell Template` |
 
 ## Formal States
 

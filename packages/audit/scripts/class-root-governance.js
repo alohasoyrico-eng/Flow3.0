@@ -14,6 +14,24 @@ const classifiedNonComponentRoots = {
     note: "Temporary docs layout hook for package-backed demos; tracked so it cannot multiply silently.",
     reactSupport: false,
   },
+  "docs-artifact-detail-template": {
+    type: "docs-template-boundary",
+    owner: "packages/react/src/templates/DocsArtifactDetailTemplate.ts",
+    note: "Documentation artifact detail template root for FlowDocs, governed as a package template boundary.",
+    reactSupport: true,
+  },
+  "documentation-hero": {
+    type: "docs-pattern-boundary",
+    owner: "packages/react/src/patterns/DocumentationHero.ts",
+    note: "Documentation hero pattern root for FlowDocs home and artifact detail pages.",
+    reactSupport: true,
+  },
+  "documentation-section": {
+    type: "docs-pattern-boundary",
+    owner: "packages/react/src/patterns/DocumentationSection.ts",
+    note: "Documentation section pattern root replacing local docs section wrappers.",
+    reactSupport: true,
+  },
   "field-action": {
     type: "shared-control-primitive",
     owner: "field",

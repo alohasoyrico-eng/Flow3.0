@@ -6,26 +6,26 @@ Every accepted component must have a real React implementation contract: source,
 
 ## Inventory
 
-- Expected components: 60
-- React components: 60
+- Expected components: 62
+- React components: 62
 - Primary implementation debt: 0
-- Pass: 60
+- Pass: 62
 - Fail: 0
-- Forward ref: 60/60
-- Real types: 60/60
-- Platform contract: 60/60
-- Normalized density: 60/60
-- Sanitized rest props: 60/60
-- No docs dependency: 60/60
-- No DOM factory dependency: 60/60
-- Published imports stay package-safe: 60/60
-- CSS contract coverage: 60/60
-- Direct CSS contracts: 55
+- Forward ref: 62/62
+- Real types: 62/62
+- Platform contract: 62/62
+- Normalized density: 62/62
+- Sanitized rest props: 62/62
+- No docs dependency: 62/62
+- No DOM factory dependency: 62/62
+- Published imports stay package-safe: 62/62
+- CSS contract coverage: 62/62
+- Direct CSS contracts: 57
 - Family CSS contracts: 5
-- Source index exports: 60/60
-- Source type index exports: 60/60
-- Dist index exports: 60/60
-- Dist type index exports: 60/60
+- Source index exports: 62/62
+- Source type index exports: 62/62
+- Dist index exports: 62/62
+- Dist type index exports: 62/62
 - React primary governance issues: 0
 - Inventory baseline mismatches: 0
 
@@ -35,28 +35,28 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| expectedComponents | 60 | 60 |
-| components | 60 | 60 |
+| expectedComponents | 62 | 62 |
+| components | 62 | 62 |
 | primaryImplementationDebt | 0 | 0 |
-| pass | 60 | 60 |
+| pass | 62 | 62 |
 | fail | 0 | 0 |
 | missingSources | 0 | 0 |
 | extraSources | 0 | 0 |
-| forwardRef | 60 | 60 |
-| realTypes | 60 | 60 |
-| platformContract | 60 | 60 |
-| densityResolved | 60 | 60 |
-| restSanitized | 60 | 60 |
-| noDocsDependency | 60 | 60 |
-| noDomFactory | 60 | 60 |
-| publishedImports | 60 | 60 |
-| cssContractCoverage | 60 | 60 |
-| directCssContracts | 55 | 55 |
+| forwardRef | 62 | 62 |
+| realTypes | 62 | 62 |
+| platformContract | 62 | 62 |
+| densityResolved | 62 | 62 |
+| restSanitized | 62 | 62 |
+| noDocsDependency | 62 | 62 |
+| noDomFactory | 62 | 62 |
+| publishedImports | 62 | 62 |
+| cssContractCoverage | 62 | 62 |
+| directCssContracts | 57 | 57 |
 | familyCssContracts | 5 | 5 |
-| sourceIndexExport | 60 | 60 |
-| sourceTypesIndexExport | 60 | 60 |
-| distIndexExport | 60 | 60 |
-| distTypesIndexExport | 60 | 60 |
+| sourceIndexExport | 62 | 62 |
+| sourceTypesIndexExport | 62 | 62 |
+| distIndexExport | 62 | 62 |
+| distTypesIndexExport | 62 | 62 |
 | reactPrimaryGovernanceIssues | 0 | 0 |
 
 ## Baseline Mismatches
@@ -88,8 +88,10 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 | ChatThread | pass | direct:chat-thread | None |
 | Checkbox | pass | direct:checkbox | None |
 | Chip | pass | direct:chip | None |
+| CodeBlock | pass | direct:code-block | None |
 | CodeInput | pass | direct:code-input | None |
 | Combobox | pass | direct:combobox | None |
+| CopyButton | pass | direct:copy-button | None |
 | CountrySelector | pass | direct:country-selector | None |
 | DatePicker | pass | direct:date-picker | None |
 | DateRangePicker | pass | direct:date-range-picker | None |

@@ -7,9 +7,9 @@ This report governs the root React entrypoint. TypeScript is the maintained expo
 ## Summary
 
 - Status: pass
-- Runtime exports: 124
-- Source exports: 124
-- Declaration type export groups: 124
+- Runtime exports: 136
+- Source exports: 136
+- Declaration type export groups: 136
 - Stale runtime files: 0
 - React root index TypeScript surface debt: 0
 

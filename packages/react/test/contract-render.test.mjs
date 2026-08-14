@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import * as reactComponents from "../src/index.js";
+import * as reactComponents from "../dist/index.js";
 import { componentContracts } from "@design-system/components/contracts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

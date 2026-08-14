@@ -79,7 +79,7 @@
   },
   "references": {
     "componentContracts": {
-      "count": 60,
+      "count": 62,
       "ids": [
         "accordion",
         "animated-moment",
@@ -100,8 +100,10 @@
         "chat-thread",
         "checkbox",
         "chip",
+        "code-block",
         "code-input",
         "combobox",
+        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -162,7 +164,7 @@
       ]
     },
     "componentCopy": {
-      "count": 27,
+      "count": 28,
       "ids": [
         "accordion",
         "avatar",
@@ -172,6 +174,7 @@
         "card-number-input",
         "chart-panel",
         "chip",
+        "code-block",
         "date-picker",
         "dialog",
         "drawer",
@@ -206,18 +209,19 @@
         "packages/content/content/component-copy/components/card/reference-compositions.json",
         "packages/content/content/component-copy/components/chart-panel/all.json",
         "packages/content/content/component-copy/components/chip/all.json",
+        "packages/content/content/component-copy/components/code-block/miel.json",
         "packages/content/content/component-copy/components/date-picker/all.json",
-        "packages/content/content/component-copy/components/dialog/all.json",
-        "packages/content/content/component-copy/components/drawer/all.json"
+        "packages/content/content/component-copy/components/dialog/all.json"
       ]
     },
     "patterns": {
-      "count": 63,
+      "count": 72,
       "ids": [
         "account-operations",
         "action-sheet",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "autocomplete",
         "avatar-group",
@@ -233,7 +237,14 @@
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-page-shell",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-section",
+        "documentation-token-grid",
         "drag-sortable-list",
         "drawer-adapter",
         "driver-and-vehicle-administration",
@@ -253,6 +264,7 @@
         "multi-select",
         "multi-step-form",
         "notification-panel",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -283,6 +295,7 @@
         "packages/content/content/pattern-contracts/patterns/action-sheet.md",
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
@@ -293,17 +306,23 @@
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
         "packages/content/content/pattern-contracts/patterns/case-management.md",
         "packages/content/content/pattern-contracts/patterns/chart-legend-item.md",
-        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md",
-        "packages/content/content/pattern-contracts/patterns/checkbox-group.md"
+        "packages/content/content/pattern-contracts/patterns/chart-wrapper.md"
       ]
     },
     "patternCopy": {
-      "count": 21,
+      "count": 29,
       "ids": [
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "backoffice-approval",
         "bottom-sheet",
         "checkbox-group",
+        "documentation-hero",
+        "documentation-page-shell",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-section",
+        "documentation-token-grid",
         "drawer-adapter",
         "driver-and-vehicle-administration",
         "driver-onboarding-mobile",
@@ -313,6 +332,7 @@
         "kanban-board",
         "kpi-card",
         "multi-step-form",
+        "on-this-page-nav",
         "polar-chart",
         "pricing-operations",
         "radio-group",
@@ -323,47 +343,57 @@
         "waterfall-chart"
       ],
       "sampleFiles": [
+        "packages/content/content/pattern-copy/patterns/artifact-metadata-bar/all.json",
         "packages/content/content/pattern-copy/patterns/authentication-login-biometrics-and-otp/all.json",
         "packages/content/content/pattern-copy/patterns/backoffice-approval/all.json",
         "packages/content/content/pattern-copy/patterns/bottom-sheet/all.json",
         "packages/content/content/pattern-copy/patterns/checkbox-group/all.json",
+        "packages/content/content/pattern-copy/patterns/documentation-hero/all.json",
+        "packages/content/content/pattern-copy/patterns/documentation-page-shell/all.json",
+        "packages/content/content/pattern-copy/patterns/documentation-primitive-demo/all.json",
+        "packages/content/content/pattern-copy/patterns/documentation-reference-grid/all.json",
+        "packages/content/content/pattern-copy/patterns/documentation-section/all.json",
+        "packages/content/content/pattern-copy/patterns/documentation-token-grid/all.json",
         "packages/content/content/pattern-copy/patterns/drawer-adapter/all.json",
         "packages/content/content/pattern-copy/patterns/driver-and-vehicle-administration/all.json",
         "packages/content/content/pattern-copy/patterns/driver-onboarding-mobile/all.json",
         "packages/content/content/pattern-copy/patterns/file-upload/all.json",
-        "packages/content/content/pattern-copy/patterns/form-section/all.json",
-        "packages/content/content/pattern-copy/patterns/fullscreen-sheet/all.json",
-        "packages/content/content/pattern-copy/patterns/kanban-board/all.json",
-        "packages/content/content/pattern-copy/patterns/kpi-card/all.json",
-        "packages/content/content/pattern-copy/patterns/multi-step-form/all.json",
-        "packages/content/content/pattern-copy/patterns/polar-chart/all.json",
-        "packages/content/content/pattern-copy/patterns/pricing-operations/all.json",
-        "packages/content/content/pattern-copy/patterns/radio-group/all.json"
+        "packages/content/content/pattern-copy/patterns/form-section/all.json"
       ]
     },
     "templates": {
-      "count": 9,
+      "count": 14,
       "ids": [
         "agent-workspace",
+        "component-detail-template",
         "configuration-console",
+        "docs-shell-template",
         "driver-card-wallet",
         "driver-mobile-app",
         "fleet-dashboard-suite",
         "fleet-manager-desktop",
         "internal-operations-console",
+        "pattern-detail-template",
+        "reference-detail-template",
         "routes-and-stations",
-        "settings-workspace"
+        "settings-workspace",
+        "template-detail-template"
       ],
       "sampleFiles": [
         "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
         "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
-        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json"
       ]
     }
   },

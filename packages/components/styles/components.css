@@ -98,9 +98,11 @@
   --component-cursor-progress: progress;
   --component-isolation-isolate: isolate;
   --component-overflow-hidden: hidden;
+  --component-overflow-auto: auto;
   --component-position-absolute: absolute;
   --component-position-relative: relative;
   --component-white-space-nowrap: nowrap;
+  --component-white-space-pre-wrap: pre-wrap;
   --component-align-center: center;
   --component-align-end: end;
   --component-align-start: start;
@@ -916,16 +918,16 @@
   --comp-card-radius: var(--component-radius-surface);
   --comp-card-bg: var(--component-color-surface);
   --comp-card-bg-muted: color-mix(in srgb, var(--component-color-surface) 72%, var(--component-color-bg));
-  --comp-card-bg-selected: color-mix(in srgb, var(--component-color-action) 7%, var(--component-color-surface));
+  --comp-card-bg-selected: color-mix(in srgb, var(--component-color-action) 3%, var(--component-color-surface));
   --comp-card-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
-  --comp-card-border-hover: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-border));
-  --comp-card-border-selected: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
+  --comp-card-border-hover: color-mix(in srgb, var(--component-color-action) 14%, var(--component-color-border));
+  --comp-card-border-selected: color-mix(in srgb, var(--component-color-action) 68%, var(--component-color-border));
   --comp-card-border-error: color-mix(in srgb, var(--component-color-danger) 58%, var(--component-color-border));
   --comp-card-fg: var(--component-color-text);
   --comp-card-muted-fg: var(--component-color-text-muted);
   --comp-card-shadow-rest: var(--component-depth-card-rest);
-  --comp-card-shadow-hover: var(--component-depth-card-hover);
-  --comp-card-shadow-selected: var(--component-depth-action-hover);
+  --comp-card-shadow-hover: var(--component-depth-card-rest);
+  --comp-card-shadow-selected: var(--component-depth-card-rest);
   --comp-card-shadow-error: var(--component-depth-danger);
   --comp-card-hover-transform: var(--component-transform-lift-hover);
   --comp-card-icon-size-sm: var(--component-card-icon-size-sm);
@@ -939,8 +941,8 @@
   --comp-card-title-size-md: var(--component-font-size-body);
   --comp-card-title-size-lg: var(--component-font-size-title-sm);
   --comp-card-value-size-sm: var(--component-font-size-title-sm);
-  --comp-card-value-size-md: var(--component-font-size-title-md);
-  --comp-card-value-size-lg: var(--component-font-size-title-lg);
+  --comp-card-value-size-md: var(--component-font-size-title-sm);
+  --comp-card-value-size-lg: var(--component-font-size-title-md);
   --comp-card-status-bg: color-mix(in srgb, var(--component-color-action) 9%, var(--component-color-surface));
   --comp-card-status-border: color-mix(in srgb, var(--component-color-action) 20%, var(--component-color-border));
   --comp-card-status-fg: var(--component-color-text);
@@ -956,11 +958,11 @@
   --comp-card-icon-variation: var(--component-icon-variation-filled-strong);
   --comp-card-icon-line-height: var(--component-line-height-none);
   --comp-card-title-family: var(--component-font-family-title);
-  --comp-card-title-weight: var(--component-font-weight-black);
+  --comp-card-title-weight: var(--component-font-weight-bold);
   --comp-card-title-letter-spacing: var(--component-letter-spacing-normal);
   --comp-card-title-line-height: var(--component-line-height-tight);
-  --comp-card-value-family: var(--component-font-family-title);
-  --comp-card-value-weight: var(--component-font-weight-black);
+  --comp-card-value-family: var(--component-font-family-mono);
+  --comp-card-value-weight: var(--component-font-weight-bold);
   --comp-card-value-line-height: var(--component-line-height-compact);
   --comp-card-header-gap: var(--component-space-md);
   --comp-card-heading-gap: var(--component-space-sm);
@@ -1210,6 +1212,24 @@
   --comp-button-icon-size-lg: var(--component-icon-size-md-plus);
   --comp-button-icon-size: var(--component-icon-size-md);
   --comp-button-font-size: var(--component-font-size-label);
+  --comp-copy-button-feedback-gap: var(--component-space-xs);
+  --comp-copy-button-feedback-opacity: var(--component-opacity-visible);
+  --comp-copy-button-error-color: var(--component-color-danger);
+  --comp-copy-button-copied-color: var(--component-color-success);
+  --comp-code-block-bg: var(--component-color-surface-raised);
+  --comp-code-block-border: var(--component-color-border);
+  --comp-code-block-fg: var(--component-color-text);
+  --comp-code-block-muted-fg: var(--component-color-text-muted);
+  --comp-code-block-radius: var(--component-radius-surface);
+  --comp-code-block-shadow: var(--component-depth-none);
+  --comp-code-block-padding: var(--component-density-surface-padding);
+  --comp-code-block-gap: var(--component-frame-gap-element);
+  --comp-code-block-header-gap: var(--component-frame-gap-component);
+  --comp-code-block-font-family: var(--component-font-family-mono);
+  --comp-code-block-font-size: var(--component-font-size-small);
+  --comp-code-block-line-height: var(--component-line-height-relaxed);
+  --comp-code-block-overflow: var(--component-overflow-auto);
+  --comp-code-block-disabled-opacity: var(--component-disabled-readable-opacity);
 }
 
 .button,
@@ -1520,6 +1540,81 @@
 .button:disabled {
   cursor: var(--comp-button-disabled-cursor);
   opacity: var(--comp-button-disabled-opacity);
+}
+
+.copy-button {
+  gap: var(--comp-copy-button-feedback-gap);
+}
+
+.copy-button[data-copy-feedback="copied"] {
+  color: var(--comp-copy-button-copied-color);
+}
+
+.copy-button[data-copy-feedback="error"] {
+  color: var(--comp-copy-button-error-color);
+}
+
+.code-block {
+  background: var(--comp-code-block-bg);
+  border: var(--component-border-width) solid var(--comp-code-block-border);
+  border-radius: var(--comp-code-block-radius);
+  box-shadow: var(--comp-code-block-shadow);
+  color: var(--comp-code-block-fg);
+  display: var(--component-display-grid);
+  gap: var(--comp-code-block-gap);
+  margin: var(--component-frame-space-none);
+  padding: var(--comp-code-block-padding);
+}
+
+.code-block[data-density="sm"] {
+  --comp-code-block-padding: var(--component-space-md);
+}
+
+.code-block[data-density="lg"] {
+  --comp-code-block-padding: var(--component-space-xl);
+}
+
+.code-block[data-state="disabled"] {
+  --comp-code-block-border: var(--component-disabled-border);
+  --comp-code-block-fg: var(--component-disabled-text);
+  --comp-code-block-muted-fg: var(--component-disabled-text);
+  cursor: var(--component-disabled-cursor);
+  opacity: var(--comp-code-block-disabled-opacity);
+}
+
+.code-block[data-state="error"] {
+  --comp-code-block-border: var(--component-color-danger);
+}
+
+.code-block__header {
+  align-items: var(--component-align-center);
+  display: var(--component-display-flex);
+  gap: var(--comp-code-block-header-gap);
+  justify-content: var(--component-justify-space-between);
+}
+
+.code-block__meta {
+  color: var(--comp-code-block-muted-fg);
+  display: var(--component-display-flex);
+  flex-wrap: var(--component-flex-wrap-wrap);
+  font-size: var(--component-font-size-caption);
+  font-weight: var(--component-font-weight-medium);
+  gap: var(--component-space-sm);
+  line-height: var(--component-line-height-snug-state);
+}
+
+.code-block__pre {
+  color: var(--comp-code-block-fg);
+  font-family: var(--comp-code-block-font-family);
+  font-size: var(--comp-code-block-font-size);
+  line-height: var(--comp-code-block-line-height);
+  margin: var(--component-frame-space-none);
+  overflow: var(--comp-code-block-overflow);
+}
+
+.code-block[data-wrap="true"] .code-block__pre code {
+  overflow-wrap: var(--component-overflow-wrap-anywhere);
+  white-space: var(--component-white-space-pre-wrap);
 }
 
 .button__icon,
@@ -6143,9 +6238,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-variant="elevated"] {
   --comp-card-current-gap: var(--comp-card-elevated-gap);
-  border-color: var(--comp-card-icon-fg);
-  border-width: calc(var(--component-border-width) * 2);
-  box-shadow: var(--comp-card-shadow-hover);
+  border-color: var(--comp-card-border-hover);
+  box-shadow: var(--component-depth-card-hover);
 }
 
 .card[data-variant="elevated"] .card__title {
@@ -6201,6 +6295,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-state="selected"] {
   background: var(--comp-card-bg-selected);
   border-color: var(--comp-card-border-selected);
+  border-width: calc(var(--component-border-width) * 1.5);
   box-shadow: var(--comp-card-shadow-selected);
 }
 
@@ -11963,4 +12058,312 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   inline-size: var(--comp-quick-action-label-width);
   line-height: var(--comp-quick-action-label-line-height);
   overflow-wrap: var(--comp-quick-action-label-overflow-wrap);
+}
+
+[data-flow-pattern="topbar"] {
+  align-items: center;
+  display: flex;
+  gap: var(--sys-space-sm);
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+[data-flow-pattern="topbar"] > [data-flow-slot="search-field"] {
+  flex: 1 1 min(var(--sys-frame-content-search-min), 100%);
+  min-inline-size: min(var(--sys-frame-content-search-min), 100%);
+}
+
+[data-flow-pattern="topbar"] > [data-flow-slot="navigation-action"],
+[data-flow-pattern="topbar"] > [data-flow-slot="unread-count"] {
+  flex: 0 0 auto;
+}
+
+[data-flow-pattern="topbar"] > [data-flow-slot="topbar-actions"] {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--sys-space-xs);
+}
+
+[data-flow-pattern="topbar"] > [data-flow-slot="topbar-actions"] > [data-flow-slot="topbar-action"] {
+  flex: 0 0 auto;
+}
+
+[data-flow-pattern="topbar"][data-mobile="true"] {
+  gap: var(--sys-space-xs);
+}
+
+[data-flow-pattern="topbar"][data-mobile="true"] > [data-flow-slot="search-field"] {
+  min-inline-size: 0;
+}
+
+[data-flow-pattern="sidebar"] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-space-3);
+  min-block-size: 0;
+  min-inline-size: 0;
+}
+
+[data-flow-pattern="sidebar"] > [data-flow-slot="groups"] {
+  --component-surface-bg: var(--component-surface-transparent);
+  --component-surface-border-color: var(--component-border-transparent);
+  --component-surface-border-width: 0;
+  --component-surface-padding: var(--sys-space-lg) var(--sys-space-md);
+  --component-surface-shadow: none;
+  min-block-size: 0;
+  overflow: auto;
+}
+
+[data-flow-pattern="sidebar"] [data-flow-slot="group-accordion"],
+[data-flow-pattern="sidebar"] .accordion {
+  background: var(--component-surface-transparent);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+[data-flow-pattern="sidebar"] [data-accordion-item],
+[data-flow-pattern="sidebar"] [data-accordion-trigger],
+[data-flow-pattern="sidebar"] [data-accordion-panel] {
+  border-color: var(--component-border-transparent);
+}
+
+[data-flow-pattern="sidebar"] [data-accordion-trigger] {
+  background: var(--component-surface-transparent);
+  min-block-size: var(--sys-frame-height-control-sm);
+  padding-inline: 0;
+}
+
+[data-flow-pattern="sidebar"] [data-accordion-panel] > :first-child > :first-child {
+  display: grid;
+  gap: var(--sys-space-1);
+  padding-block: var(--sys-space-xs) var(--sys-space-sm);
+}
+
+[data-flow-pattern="sidebar"] [data-sidebar-route] {
+  align-items: center;
+  display: grid;
+  gap: var(--sys-space-1);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+[data-flow-pattern="sidebar"] [data-sidebar-route] > span {
+  justify-self: end;
+}
+
+[data-flow-pattern="sidebar"] [data-sidebar-route] > button {
+  justify-content: flex-start;
+  min-block-size: var(--sys-frame-height-control-sm);
+  padding-inline: var(--sys-space-md);
+}
+
+[data-flow-template="docs-shell-template"] {
+  background:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, color-mix(in srgb, var(--sys-energy-status-error) 12%, var(--sys-energy-surface-primary)) 72%, transparent), transparent 32rem),
+    radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--sys-energy-surface-accent) 74%, transparent), transparent 34rem),
+    var(--sys-energy-surface-secondary);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  isolation: isolate;
+  position: relative;
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] {
+  --sys-energy-surface-primary: var(--sys-energy-dark-surface-primary);
+  --sys-energy-surface-secondary: var(--sys-energy-dark-surface-secondary);
+  --sys-energy-surface-tertiary: var(--sys-energy-dark-surface-tertiary);
+  --sys-energy-surface-sunken: var(--sys-energy-dark-surface-secondary);
+  --sys-energy-text-primary: var(--sys-energy-dark-text-primary);
+  --sys-energy-text-secondary: var(--sys-energy-dark-text-secondary);
+  --sys-energy-text-tertiary: var(--sys-energy-dark-text-tertiary);
+  --sys-energy-border-default: var(--sys-energy-dark-border-default);
+  --sys-energy-border-strong: var(--sys-energy-dark-border-strong);
+  --sys-color-border: var(--sys-energy-border-default);
+  --sys-color-border-strong: var(--sys-energy-border-strong);
+  --sys-color-surface: var(--sys-energy-surface-primary);
+  --sys-color-surface-muted: var(--sys-energy-surface-sunken);
+  --sys-color-surface-raised: var(--sys-energy-surface-tertiary);
+  --sys-color-text: var(--sys-energy-text-primary);
+  --sys-color-text-muted: var(--sys-energy-text-secondary);
+  --sys-color-text-subtle: var(--sys-energy-text-tertiary);
+  --component-color-bg: var(--sys-energy-surface-primary);
+  --component-color-border: var(--sys-color-border);
+  --component-color-border-strong: var(--sys-color-border-strong);
+  --component-color-surface: var(--sys-color-surface);
+  --component-color-surface-muted: var(--sys-color-surface-muted);
+  --component-color-surface-raised: var(--sys-color-surface-raised);
+  --component-color-surface-sunken: var(--sys-energy-surface-sunken);
+  --component-color-text: var(--sys-color-text);
+  --component-color-text-muted: var(--sys-color-text-muted);
+  --component-color-text-subtle: var(--sys-color-text-subtle);
+  color-scheme: dark;
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .badge {
+  --comp-badge-bg: color-mix(in srgb, var(--component-color-surface-raised) 74%, transparent);
+  --comp-badge-border: color-mix(in srgb, var(--component-color-border-strong) 76%, transparent);
+  --comp-badge-fg: var(--component-color-text-muted);
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="info"],
+[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="accent"] {
+  --comp-badge-bg: color-mix(in srgb, var(--component-color-action) 26%, var(--component-color-surface));
+  --comp-badge-border: color-mix(in srgb, var(--component-color-action) 48%, var(--component-color-border));
+  --comp-badge-fg: var(--component-color-text);
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="danger"] {
+  --comp-badge-bg: color-mix(in srgb, var(--component-color-danger) 20%, var(--component-color-surface));
+  --comp-badge-border: color-mix(in srgb, var(--component-color-danger) 48%, var(--component-color-border));
+  --comp-badge-fg: var(--component-color-text);
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="success"] {
+  --comp-badge-bg: color-mix(in srgb, var(--component-color-success) 20%, var(--component-color-surface));
+  --comp-badge-border: color-mix(in srgb, var(--component-color-success) 48%, var(--component-color-border));
+  --comp-badge-fg: var(--component-color-text);
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="warning"] {
+  --comp-badge-bg: color-mix(in srgb, var(--component-color-warning) 22%, var(--component-color-surface));
+  --comp-badge-border: color-mix(in srgb, var(--component-color-warning) 50%, var(--component-color-border));
+  --comp-badge-fg: var(--component-color-text);
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .button {
+  --comp-button-bg-secondary: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
+  --comp-button-border-secondary: color-mix(in srgb, var(--component-color-text) 54%, var(--component-color-border));
+  --comp-button-fg-secondary: var(--component-color-text);
+  --comp-button-bg-secondary-hover: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-surface-raised));
+  --comp-button-bg-tertiary: color-mix(in srgb, var(--component-color-surface-raised) 78%, transparent);
+  --comp-button-fg-tertiary: var(--component-color-text);
+  --comp-button-bg-tertiary-hover: color-mix(in srgb, var(--component-color-action) 16%, var(--component-color-surface-raised));
+  --comp-button-bg-outlined: var(--component-surface-transparent);
+  --comp-button-border-outlined: color-mix(in srgb, var(--component-color-text) 36%, var(--component-color-border));
+  --comp-button-fg-outlined: var(--component-color-text);
+  --comp-button-bg-ghost-hover: color-mix(in srgb, var(--component-color-text) 10%, transparent);
+  --comp-button-bg-danger-secondary: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface));
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .field,
+[data-flow-template="docs-shell-template"][data-theme="dark"] .field-control {
+  --comp-input-surface-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
+  --comp-input-surface-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
+  --comp-input-surface-fg: var(--component-color-text);
+  --comp-input-field-fg: var(--component-color-text);
+  --comp-input-helper-fg: var(--component-color-text-muted);
+  --comp-input-affix-fg: var(--component-color-text-muted);
+  --comp-input-action-fg: var(--component-color-text-muted);
+  --comp-input-icon-fg: var(--component-color-text-muted);
+  --comp-input-disabled-bg: color-mix(in srgb, var(--component-color-surface-raised) 62%, transparent);
+}
+
+[data-flow-template="docs-shell-template"][data-theme="dark"] .card {
+  --comp-card-status-bg: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-surface));
+  --comp-card-status-border: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
+  --comp-card-status-fg: var(--component-color-text);
+  --comp-card-compact-status-bg: color-mix(in srgb, var(--component-color-surface-raised) 82%, var(--component-color-surface));
+  --comp-card-compact-status-border: color-mix(in srgb, var(--component-color-text) 24%, var(--component-color-border));
+  --comp-card-compact-status-fg: var(--component-color-text-muted);
+  --comp-card-stats-status-neutral-bg: color-mix(in srgb, var(--component-color-surface-raised) 82%, var(--component-color-surface));
+  --comp-card-stats-status-neutral-border: color-mix(in srgb, var(--component-color-text) 24%, var(--component-color-border));
+  --comp-card-stats-status-neutral-fg: var(--component-color-text-muted);
+}
+
+[data-flow-template="docs-shell-template"]::before {
+  background-image:
+    linear-gradient(var(--sys-energy-border-default) var(--sys-frame-border-thin), transparent var(--sys-frame-border-thin)),
+    linear-gradient(90deg, var(--sys-energy-border-default) var(--sys-frame-border-thin), transparent var(--sys-frame-border-thin));
+  background-position: center top;
+  background-size: var(--sys-frame-doc-grid-lg) var(--sys-frame-doc-grid-lg);
+  content: "";
+  inset: 0;
+  mask-image: radial-gradient(ellipse at 50% 20%, black, transparent 76%);
+  opacity: calc(var(--sys-state-muted-opacity) * 0.7);
+  pointer-events: none;
+  position: fixed;
+  z-index: var(--component-z-base);
+}
+
+[data-flow-template="docs-shell-template"] > [data-flow-slot="shell-header"],
+[data-flow-template="docs-shell-template"] > [data-flow-slot="shell-body"] {
+  position: relative;
+  z-index: var(--component-z-raised);
+}
+
+[data-flow-template="docs-shell-template"] [data-flow-slot="page"].surface[data-surface-role="canvas"],
+[data-flow-template="docs-artifact-detail-template"] [class~="docs-artifact-detail-template__intro"] {
+  --component-surface-bg: var(--component-surface-transparent);
+}
+
+[data-flow-template="docs-artifact-detail-template"] [class~="docs-artifact-detail-template__intro"] {
+  --component-surface-padding: var(--sys-space-8);
+  background: var(--component-surface-transparent);
+  border-color: var(--component-border-transparent);
+  box-shadow: none;
+}
+
+[data-flow-template="docs-artifact-detail-template"] [class~="docs-artifact-detail-template__hero"] {
+  padding: var(--sys-space-8);
+}
+
+[data-flow-template="docs-artifact-detail-template"] [class~="docs-artifact-detail-template__tabs"] {
+  justify-self: start;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+[data-flow-template="docs-artifact-detail-template"] [class~="docs-artifact-detail-template__tabs"]::-webkit-scrollbar {
+  display: none;
+}
+
+.documentation-hero[data-doc-template="docs-home-template"] {
+  display: grid;
+  grid-template-columns: minmax(0, min(100%, var(--sys-frame-content-hero-copy))) minmax(0, min(100%, var(--sys-frame-content-hero-visual)));
+  gap: clamp(var(--sys-frame-gap-component-lg), 10vw, calc(var(--sys-frame-gap-component-lg) + var(--sys-frame-gap-section)));
+  align-items: stretch;
+  justify-content: space-between;
+  inline-size: min(100%, calc(var(--frame-page-shell) + var(--sys-frame-gap-page) + var(--sys-frame-gap-section)));
+  min-block-size: calc(100svh - var(--sys-frame-height-shell-topbar));
+  margin-inline: auto;
+  overflow: visible;
+  padding-block: clamp(var(--sys-frame-gap-section), 10vw, var(--sys-frame-gap-page)) var(--sys-frame-gap-section);
+  padding-inline: clamp(var(--frame-page-x), 4vw, var(--sys-frame-gap-section));
+  position: relative;
+}
+
+.documentation-hero[data-documentation-hero-background="gradient-grid"] {
+  background: var(--component-surface-transparent);
+  border-color: var(--component-border-transparent);
+  box-shadow: none;
+}
+
+[data-flow-template="docs-artifact-detail-template"] [class~="docs-artifact-detail-template__hero"][data-documentation-hero-background="none"],
+.documentation-section[data-doc-template="component-detail"] {
+  --component-surface-bg: var(--component-surface-transparent);
+  background: var(--component-surface-transparent);
+  border-color: var(--component-border-transparent);
+  box-shadow: none;
+}
+
+.documentation-hero[data-doc-template="docs-home-template"] > [data-flow-slot="documentation-hero-copy"] {
+  align-self: end;
+  max-inline-size: min(100%, var(--sys-frame-content-hero-copy));
+  padding-block-end: var(--sys-frame-gap-component-lg);
+}
+
+.documentation-hero[data-doc-template="docs-home-template"] > [data-flow-slot="documentation-hero-visual"] {
+  align-self: start;
+  display: grid;
+  isolation: isolate;
+  justify-self: end;
+  min-inline-size: 0;
+  padding-block-start: var(--sys-frame-gap-component-lg);
+  place-items: start center;
+  position: relative;
 }

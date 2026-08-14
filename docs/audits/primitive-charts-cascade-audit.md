@@ -13,8 +13,8 @@ Charts consumes Energy, Accessibility, Momentum, Voice, State, Library Sources, 
 - Token aliases: 19/19
 - Component sys-chart CSS uses: 9
 - Component contract refs: 1
-- Pattern refs: 21
-- Template refs: 7
+- Pattern refs: 22
+- Template refs: 10
 
 ## Foundation Gate
 - energy: pass

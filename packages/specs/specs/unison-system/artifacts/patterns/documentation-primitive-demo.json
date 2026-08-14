@@ -1,0 +1,131 @@
+{
+  "artifacts": {
+    "patterns": {
+      "documentation-primitive-demo": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "runtime",
+        "platform": "Web documentation",
+        "audiences": [
+          "Developers",
+          "Designers",
+          "Agents"
+        ],
+        "purpose": "Render primitive-specific documentation demos through Flow components while preserving local demo data as content.",
+        "governingFoundations": [
+          "Frame",
+          "Voice",
+          "Accessibility",
+          "State",
+          "Depth",
+          "Energy",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "Symbol",
+          "Tone"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Density",
+          "Spacing",
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Button",
+          "Card",
+          "Code Block"
+        ],
+        "patternDependencies": [],
+        "states": [
+          "default",
+          "interactive",
+          "empty",
+          "mobile"
+        ],
+        "slots": [
+          {
+            "name": "demo",
+            "owner": "component",
+            "uses": [
+              "Card",
+              "Button",
+              "Code Block"
+            ],
+            "required": true,
+            "purpose": "Primitive demo UI."
+          }
+        ],
+        "entryConditions": [
+          "A documentation primitive page needs an interactive or static demo.",
+          "The demo can be expressed with existing Flow components and primitive data.",
+          "The page template must not own bespoke primitive demo wrappers."
+        ],
+        "decisionTree": [
+          "Use Documentation Primitive Demo for primitive examples that need Flow-owned controls, cards, or code.",
+          "Use Documentation Token Grid when the content is a token reference table.",
+          "Use Documentation Reference Grid when the content is a reference-card group."
+        ],
+        "failureModes": [
+          "Primitive demos render custom controls instead of Button, Card, or Code Block.",
+          "Demo styling depends on local class wrappers instead of data-flow/data-doc markers.",
+          "A docs page creates a one-off primitive demo component."
+        ],
+        "successMetrics": [
+          "Primitive demos render through Flow components.",
+          "Demo type, density, and state are visible in runtime markers.",
+          "No migrated primitive detail page owns local demo structure."
+        ],
+        "accessibility": [
+          "Interactive choices use Button and remain keyboard reachable.",
+          "Demo code uses Code Block semantics.",
+          "Decorative primitive samples do not replace text labels.",
+          "Symbol or illustration samples require visible labels or fallback text before they can carry meaning."
+        ],
+        "tests": [
+          "Covers default, interactive, empty, and mobile states.",
+          "Rejects local visual classes for primitive demo wrappers.",
+          "Checks that demo controls use Flow Button."
+        ],
+        "agentInstructions": [
+          "Do not add docs-only demo controls.",
+          "Keep primitive-specific visuals as data-driven content.",
+          "Escalate only when an existing Flow component cannot represent the demo."
+        ],
+        "rejectIf": [
+          "A primitive page creates local HTML wrappers for demo controls.",
+          "A new primitive is proposed only to style a documentation demo.",
+          "Code samples bypass Code Block."
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.card.*",
+          "comp.code-block.*",
+          "sys.frame.*",
+          "sys.voice.*",
+          "sys.accessibility.*",
+          "sys.state.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.symbol.*",
+          "sys.tone.*"
+        ]
+      }
+    }
+  }
+}

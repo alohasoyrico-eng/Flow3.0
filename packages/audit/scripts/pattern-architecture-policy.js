@@ -277,6 +277,7 @@ function readPatternArchitecturePolicy() {
     foundationPrimitiveExpectedInventory: numberMapPolicy(raw, "foundationPrimitiveExpectedInventory", issues),
     runtimePrimitivePatternDependencies: new Set(stringArrayPolicy(raw, "runtimePrimitivePatternDependencies", issues)),
     templateFacingSignals: stringArrayPolicy(raw, "templateFacingSignals", issues),
+    componentDependencyOptionalPatternIds: new Set(stringArrayPolicy(raw, "componentDependencyOptionalPatternIds", issues, { required: false })),
     migrationWaveLabels: stringMapPolicy(raw, "migrationWaveLabels", issues),
     architectureWavePolicy: architectureWavePolicy(raw, issues),
     migrationClassificationPolicy: migrationClassificationPolicy(raw, issues),

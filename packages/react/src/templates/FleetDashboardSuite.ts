@@ -251,6 +251,11 @@ export const FleetDashboardSuite = forwardRef<HTMLDivElement, FleetDashboardSuit
         ...(sidebar ?? {}),
         label: sidebar?.label ?? "Dashboard suite navigation",
         density: sidebar?.density ?? density,
+        drawer: sidebar?.drawer === false ? false : {
+          ...(sidebar?.drawer ?? {}),
+          closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation panel",
+          showCloseButton: sidebar?.drawer?.showCloseButton ?? true,
+        },
         groups: routes,
         activeKey: resolvedSelectedDashboard,
         drawerOpen: resolvedDrawerOpen,

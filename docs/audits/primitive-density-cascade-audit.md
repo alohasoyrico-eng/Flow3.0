@@ -10,7 +10,7 @@ Density maps Frame, Accessibility, and Voice into surface-level sm/md/lg scale d
 ## Signals
 - System density aliases: 22/22
 - Legacy aliases mapped to system density: 22/22
-- Component density selectors: 92
+- Component density selectors: 94
 - Component density token uses: 7
 - Docs density token uses: 0
 - Illegal legacy declarations outside token/reference layers: 0

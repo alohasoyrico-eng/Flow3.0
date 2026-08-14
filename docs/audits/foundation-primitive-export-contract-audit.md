@@ -8,14 +8,14 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 
 - Foundations: 11
 - Primitives: 24
-- Patterns: 63
-- Templates: 9
-- Tokens: 1131
+- Patterns: 72
+- Templates: 17
+- Tokens: 1139
 - Token types: 15
 - Token scopes: 3
-- Tokens with scope: 1131
-- Tokens with CSS variable: 1131
-- Tokens with CSS reference: 620
+- Tokens with scope: 1139
+- Tokens with CSS variable: 1139
+- Tokens with CSS reference: 625
 - Unknown token types: 0
 - Invalid token transform fields: 0
 - Invalid token type values: 0
@@ -45,14 +45,14 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 | --- | ---: | ---: |
 | foundations | 11 | 11 |
 | primitives | 24 | 24 |
-| patterns | 63 | 63 |
-| templates | 9 | 9 |
-| tokenCount | 1131 | 1131 |
+| patterns | 72 | 72 |
+| templates | 17 | 17 |
+| tokenCount | 1139 | 1139 |
 | tokenTypes | 15 | 15 |
 | tokenScopes | 3 | 3 |
-| tokensWithScope | 1131 | 1131 |
-| tokensWithCssVariable | 1131 | 1131 |
-| tokensWithCssReference | 620 | 620 |
+| tokensWithScope | 1139 | 1139 |
+| tokensWithCssVariable | 1139 | 1139 |
+| tokensWithCssReference | 625 | 625 |
 | unknownTokenTypes | 0 | 0 |
 | invalidTokenTransformFields | 0 | 0 |
 | invalidTokenTypeValues | 0 | 0 |
@@ -170,6 +170,7 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | ./specs/patterns/action-sheet | ./packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json | pass |
 | ./specs/patterns/advanced-filters | ./packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json | pass |
 | ./specs/patterns/agent-conversation | ./packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json | pass |
+| ./specs/patterns/artifact-metadata-bar | ./packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json | pass |
 | ./specs/patterns/authentication-login-biometrics-and-otp | ./packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json | pass |
 | ./specs/patterns/autocomplete | ./packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json | pass |
 | ./specs/patterns/avatar-group | ./packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json | pass |
@@ -185,7 +186,14 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | ./specs/patterns/column-configurator | ./packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json | pass |
 | ./specs/patterns/command-palette | ./packages/specs/specs/unison-system/artifacts/patterns/command-palette.json | pass |
 | ./specs/patterns/confirmation-dialog | ./packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json | pass |
+| ./specs/patterns/demo-preview-frame | ./packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json | pass |
 | ./specs/patterns/dense-operational-list | ./packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json | pass |
+| ./specs/patterns/documentation-hero | ./packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json | pass |
+| ./specs/patterns/documentation-page-shell | ./packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json | pass |
+| ./specs/patterns/documentation-primitive-demo | ./packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json | pass |
+| ./specs/patterns/documentation-reference-grid | ./packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json | pass |
+| ./specs/patterns/documentation-section | ./packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json | pass |
+| ./specs/patterns/documentation-token-grid | ./packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json | pass |
 | ./specs/patterns/drag-sortable-list | ./packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json | pass |
 | ./specs/patterns/drawer-adapter | ./packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json | pass |
 | ./specs/patterns/driver-and-vehicle-administration | ./packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json | pass |
@@ -205,6 +213,7 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | ./specs/patterns/multi-select | ./packages/specs/specs/unison-system/artifacts/patterns/multi-select.json | pass |
 | ./specs/patterns/multi-step-form | ./packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json | pass |
 | ./specs/patterns/notification-panel | ./packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json | pass |
+| ./specs/patterns/on-this-page-nav | ./packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json | pass |
 | ./specs/patterns/payment-form | ./packages/specs/specs/unison-system/artifacts/patterns/payment-form.json | pass |
 | ./specs/patterns/polar-chart | ./packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json | pass |
 | ./specs/patterns/preference-management | ./packages/specs/specs/unison-system/artifacts/patterns/preference-management.json | pass |
@@ -230,14 +239,22 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | ./specs/patterns/virtual-data-table | ./packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json | pass |
 | ./specs/patterns/waterfall-chart | ./packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json | pass |
 | ./specs/templates/agent-workspace | ./packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json | pass |
+| ./specs/templates/component-detail-template | ./packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json | pass |
 | ./specs/templates/configuration-console | ./packages/specs/specs/unison-system/artifacts/templates/configuration-console.json | pass |
+| ./specs/templates/docs-artifact-detail-template | ./packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json | pass |
+| ./specs/templates/docs-collection-template | ./packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json | pass |
+| ./specs/templates/docs-home-template | ./packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json | pass |
+| ./specs/templates/docs-shell-template | ./packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json | pass |
 | ./specs/templates/driver-card-wallet | ./packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json | pass |
 | ./specs/templates/driver-mobile-app | ./packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json | pass |
 | ./specs/templates/fleet-dashboard-suite | ./packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json | pass |
 | ./specs/templates/fleet-manager-desktop | ./packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json | pass |
 | ./specs/templates/internal-operations-console | ./packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json | pass |
+| ./specs/templates/pattern-detail-template | ./packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json | pass |
+| ./specs/templates/reference-detail-template | ./packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json | pass |
 | ./specs/templates/routes-and-stations | ./packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json | pass |
 | ./specs/templates/settings-workspace | ./packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json | pass |
+| ./specs/templates/template-detail-template | ./packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json | pass |
 
 ## Artifacts
 
@@ -282,6 +299,7 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | action-sheet | action-sheet | yes | None |
 | advanced-filters | advanced-filters | yes | None |
 | agent-conversation | agent-conversation | yes | None |
+| artifact-metadata-bar | artifact-metadata-bar | yes | None |
 | authentication-login-biometrics-and-otp | authentication-login-biometrics-and-otp | yes | None |
 | autocomplete | autocomplete | yes | None |
 | avatar-group | avatar-group | yes | None |
@@ -297,7 +315,14 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | column-configurator | column-configurator | yes | None |
 | command-palette | command-palette | yes | None |
 | confirmation-dialog | confirmation-dialog | yes | None |
+| demo-preview-frame | demo-preview-frame | yes | None |
 | dense-operational-list | dense-operational-list | yes | None |
+| documentation-hero | documentation-hero | yes | None |
+| documentation-page-shell | documentation-page-shell | yes | None |
+| documentation-primitive-demo | documentation-primitive-demo | yes | None |
+| documentation-reference-grid | documentation-reference-grid | yes | None |
+| documentation-section | documentation-section | yes | None |
+| documentation-token-grid | documentation-token-grid | yes | None |
 | drag-sortable-list | drag-sortable-list | yes | None |
 | drawer-adapter | drawer-adapter | yes | None |
 | driver-and-vehicle-administration | driver-and-vehicle-administration | yes | None |
@@ -317,6 +342,7 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | multi-select | multi-select | yes | None |
 | multi-step-form | multi-step-form | yes | None |
 | notification-panel | notification-panel | yes | None |
+| on-this-page-nav | on-this-page-nav | yes | None |
 | payment-form | payment-form | yes | None |
 | polar-chart | polar-chart | yes | None |
 | preference-management | preference-management | yes | None |
@@ -342,12 +368,20 @@ Governance file: packages/content/content/foundation-primitive-export-governance
 | virtual-data-table | virtual-data-table | yes | None |
 | waterfall-chart | waterfall-chart | yes | None |
 | agent-workspace | agent-workspace | yes | None |
+| component-detail-template | component-detail-template | yes | None |
 | configuration-console | configuration-console | yes | None |
+| docs-artifact-detail-template | docs-artifact-detail-template | yes | None |
+| docs-collection-template | docs-collection-template | yes | None |
+| docs-home-template | docs-home-template | yes | None |
+| docs-shell-template | docs-shell-template | yes | None |
 | driver-card-wallet | driver-card-wallet | yes | None |
 | driver-mobile-app | driver-mobile-app | yes | None |
 | fleet-dashboard-suite | fleet-dashboard-suite | yes | None |
 | fleet-manager-desktop | fleet-manager-desktop | yes | None |
 | internal-operations-console | internal-operations-console | yes | None |
+| pattern-detail-template | pattern-detail-template | yes | None |
+| reference-detail-template | reference-detail-template | yes | None |
 | routes-and-stations | routes-and-stations | yes | None |
 | settings-workspace | settings-workspace | yes | None |
+| template-detail-template | template-detail-template | yes | None |
 

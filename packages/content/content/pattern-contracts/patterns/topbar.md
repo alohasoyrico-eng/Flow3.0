@@ -55,7 +55,7 @@ Coordinate global shell actions, search/command/account/notification triggers, r
 | Platform | Cross-platform |
 | Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
 | Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
-| Template Dependencies | `Fleet Manager Desktop`, `Fleet Dashboard Suite`, `Configuration Console`, `Agent Workspace`, `Internal Operations Console` |
+| Template Dependencies | `Fleet Manager Desktop`, `Fleet Dashboard Suite`, `Configuration Console`, `Agent Workspace`, `Internal Operations Console`, `Docs Shell Template` |
 
 ## Formal States
 
@@ -126,6 +126,8 @@ Coordinate global shell actions, search/command/account/notification triggers, r
 - `Icon Button`
 - `Input`
 - `Menu`
+- `Empty State`
+- `List`
 
 ### Patterns
 
@@ -145,6 +147,8 @@ Coordinate global shell actions, search/command/account/notification triggers, r
 - `comp.icon-button.*`
 - `comp.input.*`
 - `comp.menu.*`
+- `comp.empty-state.*`
+- `comp.list.*`
 - `sys.accessibility.*`
 - `sys.depth.*`
 - `sys.energy.*`
@@ -164,6 +168,7 @@ Coordinate global shell actions, search/command/account/notification triggers, r
 | `globalTriggers` | `component` | `Icon Button`, `Badge`, `Input` |
 | `account` | `component` | `Avatar`, `Menu` |
 | `responsiveNavigation` | `component` | `Drawer`, `Icon Button` |
+| `searchResults` | `component` | `List`, `Empty State` |
 | `autocompleteBoundary` | `pattern` | `Autocomplete` |
 | `avatar-menuBoundary` | `pattern` | `Avatar Menu` |
 | `command-paletteBoundary` | `pattern` | `Command Palette` |
@@ -245,6 +250,8 @@ Coordinate global shell actions, search/command/account/notification triggers, r
 - Avatar
 - Menu
 - Drawer
+- Empty State
+- List
 
 ## Variants
 

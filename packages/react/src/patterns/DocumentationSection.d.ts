@@ -3,7 +3,7 @@ import type { SurfaceDensity, SurfaceElevation, SurfaceProps, SurfaceTone } from
 import type { FlowDataAttributes } from "../internal/props.js";
 import type { SectionHeaderProps } from "./SectionHeader.js";
 
-export type DocumentationSectionState = "default" | "dense" | "callout" | "matrix" | "empty" | "loading" | "error";
+export type DocumentationSectionState = "default" | "dense" | "callout" | "matrix" | "empty" | "loading" | "error" | "dark" | "mobile";
 export type DocumentationSectionLayout = "stack" | "split" | "matrix" | "cards" | "callout";
 export type DocumentationSectionDensity = SurfaceDensity;
 export type DocumentationSectionTone = SurfaceTone | "info";

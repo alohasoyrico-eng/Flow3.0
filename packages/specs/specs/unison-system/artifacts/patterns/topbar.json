@@ -50,7 +50,9 @@
           "Drawer",
           "Icon Button",
           "Input",
-          "Menu"
+          "Menu",
+          "Empty State",
+          "List"
         ],
         "patternDependencies": [
           "Autocomplete",
@@ -66,7 +68,8 @@
           "Fleet Dashboard Suite",
           "Configuration Console",
           "Agent Workspace",
-          "Internal Operations Console"
+          "Internal Operations Console",
+          "Docs Shell Template"
         ],
         "tokenDependencies": [
           "comp.avatar.*",
@@ -75,6 +78,8 @@
           "comp.icon-button.*",
           "comp.input.*",
           "comp.menu.*",
+          "comp.empty-state.*",
+          "comp.list.*",
           "sys.accessibility.*",
           "sys.depth.*",
           "sys.energy.*",
@@ -148,6 +153,16 @@
               "Drawer",
               "Icon Button"
             ]
+          },
+          {
+            "name": "searchResults",
+            "owner": "component",
+            "uses": [
+              "List",
+              "Empty State"
+            ],
+            "required": "conditional",
+            "purpose": "Owns visible topbar search result and empty-result presentation while Search keeps query behavior."
           },
           {
             "name": "autocompleteBoundary",

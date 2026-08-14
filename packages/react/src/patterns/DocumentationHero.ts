@@ -13,7 +13,7 @@ import { flowDefinedProps, flowRestProps } from "../internal/props.js";
 import { SectionHeader } from "./SectionHeader.js";
 import type { SectionHeaderHeadingLevel } from "./SectionHeader.js";
 
-export type DocumentationHeroState = "default" | "with-actions" | "with-metadata" | "with-status" | "loading";
+export type DocumentationHeroState = "default" | "with-actions" | "with-metadata" | "with-status" | "loading" | "dark" | "mobile";
 export type DocumentationHeroDensity = SurfaceDensity;
 export type DocumentationHeroTone = SurfaceTone | "brand";
 export type DocumentationHeroBackground = "none" | "tint" | "gradient-grid";
@@ -60,7 +60,7 @@ export interface DocumentationHeroComponent extends ForwardRefExoticComponent<Do
   displayName: "DocumentationHero";
 }
 
-const validStates = new Set<DocumentationHeroState>(["default", "with-actions", "with-metadata", "with-status", "loading"]);
+const validStates = new Set<DocumentationHeroState>(["default", "with-actions", "with-metadata", "with-status", "loading", "dark", "mobile"]);
 const validBackgrounds = new Set<DocumentationHeroBackground>(["none", "tint", "gradient-grid"]);
 
 function sanitizeRestProps(rest: object): FlowDataAttributes & Record<`aria-${string}`, unknown> {
@@ -161,7 +161,12 @@ export const DocumentationHero = forwardRef<HTMLDivElement, DocumentationHeroPro
 }, ref) {
   const normalizedMetadata = Array.isArray(metadata) ? metadata.filter((item) => Boolean(item?.label)) : [];
   const normalizedActions = Array.isArray(actions) ? actions.filter((action) => Boolean(action?.label)) : [];
-  const resolvedState = resolveState({ state, loading, actions: normalizedActions, metadata: normalizedMetadata });
+  const resolvedState = resolveState({
+    ...(state !== undefined ? { state } : {}),
+    loading,
+    actions: normalizedActions,
+    metadata: normalizedMetadata,
+  });
   const resolvedBackground = resolveBackground(background);
   const disabled = resolvedState === "loading";
 
@@ -184,7 +189,7 @@ export const DocumentationHero = forwardRef<HTMLDivElement, DocumentationHeroPro
     } as ComponentProps<typeof Surface>,
     React.createElement(
       "div",
-      { "data-flow-slot": "documentation-hero.copy" },
+      { "data-flow-slot": "documentation-hero-copy" },
       kicker ? React.createElement("p", { "data-flow-slot": "documentation-hero.kicker" }, kicker) : null,
       React.createElement(SectionHeader, flowDefinedProps({
         title,
@@ -210,7 +215,7 @@ export const DocumentationHero = forwardRef<HTMLDivElement, DocumentationHeroPro
         )
         : null,
     ),
-    visual ? React.createElement("div", { "data-flow-slot": "documentation-hero.visual" }, visual) : null,
+    visual ? React.createElement("div", { "data-flow-slot": "documentation-hero-visual" }, visual) : null,
   );
 }) as DocumentationHeroComponent;
 

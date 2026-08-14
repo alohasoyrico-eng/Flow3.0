@@ -1,4 +1,8 @@
-import React, { forwardRef } from "react";
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
+import React, { forwardRef, useEffect, useMemo, useState } from "react";
 import { Accordion } from "../Accordion.js";
 import { Badge } from "../Badge.js";
 import { Breadcrumbs } from "../Breadcrumbs.js";
@@ -71,8 +75,27 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
     const resolvedState = resolveState(flowDefinedProps({ disabled, loading, permissionFiltered, mobileDrawer, collapsed, activeKey, state }));
     const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "loading";
     const routeCount = normalizedGroups.reduce((total, group) => total + group.routes.length, 0);
-    const openIds = expandedIds ?? normalizedGroups.filter((group) => group.open || group.routes.some((route) => route.active || String(route.key ?? route.id ?? route.label) === activeKey)).map((group) => group.key);
+    const derivedOpenIds = useMemo(() => normalizedGroups
+        .filter((group) => group.open || group.routes.some((route) => route.active || String(route.key ?? route.id ?? route.label) === activeKey))
+        .map((group) => group.key), [activeKey, normalizedGroups]);
+    const derivedOpenIdsKey = derivedOpenIds.join("|");
+    const isExpandedIdsControlled = expandedIds !== undefined;
+    const [internalOpenIds, setInternalOpenIds] = useState(derivedOpenIds);
+    useEffect(() => {
+        if (isExpandedIdsControlled)
+            return;
+        setInternalOpenIds((current) => [...new Set([...current, ...derivedOpenIds])]);
+    }, [derivedOpenIdsKey, isExpandedIdsControlled]);
+    const openIds = isExpandedIdsControlled ? expandedIds.map(String) : internalOpenIds;
+    const handleExpandedChange = (nextExpandedIds, event) => {
+        const fallbackGroupKey = normalizedGroups[0]?.key;
+        const resolvedExpandedIds = nextExpandedIds.length || !fallbackGroupKey ? nextExpandedIds : [fallbackGroupKey];
+        if (!isExpandedIdsControlled)
+            setInternalOpenIds(resolvedExpandedIds);
+        onExpandedChange?.(resolvedExpandedIds, event);
+    };
     const shouldRenderDrawer = drawer !== false && (Boolean(drawer) || drawerOpen || mobileDrawer);
+    const shouldRenderCollapseAction = Boolean(collapseAction || onCollapse);
     return React.createElement("div", {
         ref,
         className: className || undefined,
@@ -111,22 +134,24 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
             state: isDisabled ? "disabled" : "default",
             "data-flow-slot": "breadcrumbs",
         }))
-        : null, React.createElement(IconButton, flowDefinedProps({
-        ...sanitizeRestProps(collapseAction ?? {}),
-        icon: collapsed ? "keyboard_double_arrow_right" : "keyboard_double_arrow_left",
-        label: collapseAction?.label ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
-        ariaLabel: collapseAction?.ariaLabel ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
-        density,
-        variant: "ghost",
-        disabled: isDisabled || collapseAction?.disabled,
-        onClick: (event) => {
-            collapseAction?.onClick?.(event);
-            if (event.defaultPrevented)
-                return;
-            onCollapse?.(!collapsed, event);
-        },
-        "data-flow-slot": "collapse-action",
-    })), React.createElement(Surface, flowDefinedProps({
+        : null, shouldRenderCollapseAction
+        ? React.createElement(IconButton, flowDefinedProps({
+            ...sanitizeRestProps(collapseAction ?? {}),
+            icon: collapsed ? "keyboard_double_arrow_right" : "keyboard_double_arrow_left",
+            label: collapseAction?.label ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
+            ariaLabel: collapseAction?.ariaLabel ?? (collapsed ? "Expand navigation" : "Collapse navigation"),
+            density,
+            variant: "ghost",
+            disabled: isDisabled || collapseAction?.disabled,
+            onClick: (event) => {
+                collapseAction?.onClick?.(event);
+                if (event.defaultPrevented)
+                    return;
+                onCollapse?.(!collapsed, event);
+            },
+            "data-flow-slot": "collapse-action",
+        }))
+        : null, React.createElement(Surface, flowDefinedProps({
         surfaceRole: "section",
         density,
         state: isDisabled ? "disabled" : collapsed ? "sunken" : "default",
@@ -147,7 +172,7 @@ export const Sidebar = forwardRef(function Sidebar({ label = "App navigation", d
         multiple: true,
         expandedIds: openIds,
         density,
-        onExpandedChange,
+        onExpandedChange: handleExpandedChange,
         "data-flow-slot": "group-accordion",
     }))), permissionFiltered
         ? React.createElement(Badge, flowDefinedProps({

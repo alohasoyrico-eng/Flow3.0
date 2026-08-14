@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { Badge } from "../Badge.js";
 import { Button } from "../Button.js";
@@ -5,7 +9,7 @@ import { Surface } from "../Surface.js";
 import { Tag } from "../Tag.js";
 import { flowDefinedProps, flowRestProps } from "../internal/props.js";
 import { SectionHeader } from "./SectionHeader.js";
-const validStates = new Set(["default", "with-actions", "with-metadata", "with-status", "loading"]);
+const validStates = new Set(["default", "with-actions", "with-metadata", "with-status", "loading", "dark", "mobile"]);
 const validBackgrounds = new Set(["none", "tint", "gradient-grid"]);
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(flowRestProps(rest)).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
@@ -73,7 +77,12 @@ function renderAction(action, density, disabled, index) {
 export const DocumentationHero = forwardRef(function DocumentationHero({ kicker, title, description, headingLevel = 1, metadata = [], actions = [], visual, children, density, tone, elevation = "none", state, loading = false, background = "none", surface, className = "", ...rest }, ref) {
     const normalizedMetadata = Array.isArray(metadata) ? metadata.filter((item) => Boolean(item?.label)) : [];
     const normalizedActions = Array.isArray(actions) ? actions.filter((action) => Boolean(action?.label)) : [];
-    const resolvedState = resolveState({ state, loading, actions: normalizedActions, metadata: normalizedMetadata });
+    const resolvedState = resolveState({
+        ...(state !== undefined ? { state } : {}),
+        loading,
+        actions: normalizedActions,
+        metadata: normalizedMetadata,
+    });
     const resolvedBackground = resolveBackground(background);
     const disabled = resolvedState === "loading";
     return React.createElement(Surface, {
@@ -90,7 +99,7 @@ export const DocumentationHero = forwardRef(function DocumentationHero({ kicker,
         "data-flow-pattern": "documentation-hero",
         "data-documentation-hero-state": resolvedState,
         "data-documentation-hero-background": resolvedBackground,
-    }, React.createElement("div", { "data-flow-slot": "documentation-hero.copy" }, kicker ? React.createElement("p", { "data-flow-slot": "documentation-hero.kicker" }, kicker) : null, React.createElement(SectionHeader, flowDefinedProps({
+    }, React.createElement("div", { "data-flow-slot": "documentation-hero-copy" }, kicker ? React.createElement("p", { "data-flow-slot": "documentation-hero.kicker" }, kicker) : null, React.createElement(SectionHeader, flowDefinedProps({
         title,
         description,
         headingLevel,
@@ -101,6 +110,6 @@ export const DocumentationHero = forwardRef(function DocumentationHero({ kicker,
         ? React.createElement("div", { "data-flow-slot": "documentation-hero.metadata" }, normalizedMetadata.map((item, index) => renderMetadata(item, density, disabled, index)))
         : null, children ? React.createElement("div", { "data-flow-slot": "documentation-hero.body" }, children) : null, normalizedActions.length
         ? React.createElement("div", { "data-flow-slot": "documentation-hero.actions" }, normalizedActions.map((action, index) => renderAction(action, density, disabled, index)))
-        : null), visual ? React.createElement("div", { "data-flow-slot": "documentation-hero.visual" }, visual) : null);
+        : null), visual ? React.createElement("div", { "data-flow-slot": "documentation-hero-visual" }, visual) : null);
 });
 DocumentationHero.displayName = "DocumentationHero";

@@ -1,0 +1,2439 @@
+{
+  "status": "pass",
+  "audit": "system component artifact tests",
+  "planIteration": 15,
+  "principle": "Every public React component artifact must be tested one by one from the built package boundary before pattern work continues.",
+  "inventory": {
+    "catalogComponents": 62,
+    "contractComponents": 62,
+    "testedComponents": 62,
+    "passingComponents": 62,
+    "failingComponents": 0,
+    "missingFromGoldInventory": 0,
+    "componentsWithRequiredProps": 57,
+    "densityChecks": 62,
+    "stateChecks": 56,
+    "themeChecks": 0,
+    "componentArtifactTestDebt": 0
+  },
+  "baselineMismatches": [],
+  "components": [
+    {
+      "id": "button",
+      "component": "Button",
+      "factory": "@design-system/react/button",
+      "contractProps": 11,
+      "requiredProps": [],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Button.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Button",
+          "markupLength": 221,
+          "rootTag": "<button data-artifact-test=\"button\" type=\"button\" class=\"button button--primary flow-artifact-test-hook\" data-density=\"lg\" data-state=\"default\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "copyButton",
+      "component": "CopyButton",
+      "factory": "@design-system/react/copy-button",
+      "contractProps": 15,
+      "requiredProps": [
+        "value"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CopyButton.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CopyButton",
+          "markupLength": 292,
+          "rootTag": "<button data-artifact-test=\"copyButton\" aria-label=\"Copy Reference\" data-variant=\"text\" data-state=\"default\" data-density=\"lg\" type=\"button\" class=\"button button--secondary copy-button flow-artifact-test-hook\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "codeBlock",
+      "component": "CodeBlock",
+      "factory": "@design-system/react/code-block",
+      "contractProps": 12,
+      "requiredProps": [
+        "code"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CodeBlock.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CodeBlock",
+          "markupLength": 242,
+          "rootTag": "<figure data-artifact-test=\"codeBlock\" class=\"code-block flow-artifact-test-hook\" data-variant=\"block\" data-state=\"default\" data-density=\"lg\" data-wrap=\"true\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=wrapped"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "iconButton",
+      "component": "IconButton",
+      "factory": "@design-system/react/icon-button",
+      "contractProps": 9,
+      "requiredProps": [
+        "ariaLabel",
+        "icon"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/IconButton.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "IconButton",
+          "markupLength": 237,
+          "rootTag": "<button data-artifact-test=\"iconButton\" type=\"button\" class=\"icon-button icon-button--ghost flow-artifact-test-hook\" aria-label=\"Reference action\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "not-applicable"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "input",
+      "component": "Input",
+      "factory": "@design-system/react/input",
+      "contractProps": 28,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Input.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Input",
+          "markupLength": 404,
+          "rootTag": "<label class=\"field flow-artifact-test-hook\" data-artifact-test=\"input\" data-state=\"default\" data-density=\"lg\" data-variant=\"text\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=focus"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "inputAmount",
+      "component": "InputAmount",
+      "factory": "@design-system/react/input-amount",
+      "contractProps": 18,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/InputAmount.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "InputAmount",
+          "markupLength": 645,
+          "rootTag": "<label class=\"field input-amount flow-artifact-test-hook\" data-artifact-test=\"inputAmount\" data-state=\"default\" data-density=\"lg\" data-mono=\"true\" data-align=\"end\" data-currency=\"MXN\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=filled"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "cardNumberInput",
+      "component": "CardNumberInput",
+      "factory": "@design-system/react/card-number-input",
+      "contractProps": 13,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardNumberInput.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CardNumberInput",
+          "markupLength": 898,
+          "rootTag": "<label class=\"field card-number-input flow-artifact-test-hook\" data-artifact-test=\"cardNumberInput\" data-state=\"default\" data-density=\"lg\" data-mono=\"true\" data-validity=\"empty\" data-brand=\"\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=filled"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "cardExpiryInput",
+      "component": "CardExpiryInput",
+      "factory": "@design-system/react/card-expiry-input",
+      "contractProps": 14,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardExpiryInput.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CardExpiryInput",
+          "markupLength": 811,
+          "rootTag": "<label class=\"field card-expiry-input flow-artifact-test-hook\" data-artifact-test=\"cardExpiryInput\" data-state=\"default\" data-density=\"lg\" data-mono=\"true\" data-validity=\"empty\" data-month=\"\" data-year=\"\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=filled"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "cardSecurityCodeInput",
+      "component": "CardSecurityCodeInput",
+      "factory": "@design-system/react/card-security-code-input",
+      "contractProps": 18,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardSecurityCodeInput.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CardSecurityCodeInput",
+          "markupLength": 891,
+          "rootTag": "<label class=\"field card-security-code-input flow-artifact-test-hook\" data-artifact-test=\"cardSecurityCodeInput\" data-state=\"default\" data-density=\"lg\" data-mono=\"true\" data-validity=\"empty\" data-length=\"0\" data-expected-length=\"3\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=filled"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "select",
+      "component": "Select",
+      "factory": "@design-system/react/select",
+      "contractProps": 14,
+      "requiredProps": [
+        "label",
+        "options"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Select.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Select",
+          "markupLength": 1155,
+          "rootTag": "<span class=\"field flow-artifact-test-hook\" data-artifact-test=\"select\" data-state=\"default\" data-density=\"lg\" role=\"group\" aria-labelledby=\"select-:R0:-label\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=open"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "combobox",
+      "component": "Combobox",
+      "factory": "@design-system/react/combobox",
+      "contractProps": 16,
+      "requiredProps": [
+        "label",
+        "options"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Combobox.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Combobox",
+          "markupLength": 1373,
+          "rootTag": "<label class=\"field flow-artifact-test-hook\" data-artifact-test=\"combobox\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=open"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "card",
+      "component": "Card",
+      "factory": "@design-system/react/card",
+      "contractProps": 21,
+      "requiredProps": [
+        "title"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Card.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Card",
+          "markupLength": 324,
+          "rootTag": "<article data-artifact-test=\"card\" class=\"card flow-artifact-test-hook\" data-variant=\"default\" data-composition=\"standard\" data-state=\"default\" data-density=\"lg\" data-full-width=\"false\" data-interactive=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "checkbox",
+      "component": "Checkbox",
+      "factory": "@design-system/react/checkbox",
+      "contractProps": 13,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Checkbox.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Checkbox",
+          "markupLength": 512,
+          "rootTag": "<label class=\"choice checkbox flow-artifact-test-hook\" data-artifact-test=\"checkbox\" data-checked=\"false\" data-indeterminate=\"false\" data-variant=\"default\" data-state=\"unchecked\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=unchecked"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "switch",
+      "component": "Switch",
+      "factory": "@design-system/react/switch",
+      "contractProps": 10,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Switch.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Switch",
+          "markupLength": 422,
+          "rootTag": "<label class=\"switch flow-artifact-test-hook\" data-artifact-test=\"switch\" data-state=\"off\" data-density=\"lg\" data-checked=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=off"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "radioButton",
+      "component": "RadioButton",
+      "factory": "@design-system/react/radio-button",
+      "contractProps": 12,
+      "requiredProps": [
+        "label",
+        "name"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/RadioButton.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "RadioButton",
+          "markupLength": 412,
+          "rootTag": "<label class=\"choice radio flow-artifact-test-hook\" data-artifact-test=\"radioButton\" data-checked=\"false\" data-variant=\"default\" data-state=\"unselected\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=unselected"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "textArea",
+      "component": "TextArea",
+      "factory": "@design-system/react/text-area",
+      "contractProps": 15,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/TextArea.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "TextArea",
+          "markupLength": 391,
+          "rootTag": "<label class=\"field flow-artifact-test-hook\" data-artifact-test=\"textArea\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=focus"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "badge",
+      "component": "Badge",
+      "factory": "@design-system/react/badge",
+      "contractProps": 9,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Badge.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Badge",
+          "markupLength": 202,
+          "rootTag": "<span data-artifact-test=\"badge\" class=\"badge flow-artifact-test-hook\" data-tone=\"neutral\" data-variant=\"status\" data-density=\"lg\" data-state=\"default\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chip",
+      "component": "Chip",
+      "factory": "@design-system/react/chip",
+      "contractProps": 13,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Chip.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Chip",
+          "markupLength": 221,
+          "rootTag": "<span data-artifact-test=\"chip\" class=\"chip flow-artifact-test-hook\" data-variant=\"filter\" data-tone=\"default\" data-density=\"lg\" data-state=\"default\" data-selected=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=default"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tag",
+      "component": "Tag",
+      "factory": "@design-system/react/tag",
+      "contractProps": 8,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Tag.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Tag",
+          "markupLength": 198,
+          "rootTag": "<span data-artifact-test=\"tag\" class=\"tag flow-artifact-test-hook\" data-variant=\"metadata\" data-tone=\"neutral\" data-density=\"lg\" data-state=\"default\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=default"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tabs",
+      "component": "Tabs",
+      "factory": "@design-system/react/tabs",
+      "contractProps": 6,
+      "requiredProps": [
+        "items"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Tabs.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Tabs",
+          "markupLength": 544,
+          "rootTag": "<div data-artifact-test=\"tabs\" class=\"tabs flow-artifact-test-hook\" role=\"tablist\" data-variant=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "not-applicable"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "tooltip",
+      "component": "Tooltip",
+      "factory": "@design-system/react/tooltip",
+      "contractProps": 10,
+      "requiredProps": [
+        "triggerLabel",
+        "content"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Tooltip.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Tooltip",
+          "markupLength": 426,
+          "rootTag": "<span data-artifact-test=\"tooltip\" class=\"tooltip flow-artifact-test-hook\" data-placement=\"top\" data-variant=\"default\" data-density=\"lg\" data-state=\"default\" data-open=\"true\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "toast",
+      "component": "Toast",
+      "factory": "@design-system/react/toast",
+      "contractProps": 14,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Toast.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Toast",
+          "markupLength": 314,
+          "rootTag": "<article data-artifact-test=\"toast\" class=\"toast flow-artifact-test-hook\" role=\"status\" aria-live=\"polite\" data-tone=\"neutral\" data-variant=\"status\" data-state=\"visible\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=visible"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "progressIndicator",
+      "component": "ProgressIndicator",
+      "factory": "@design-system/react/progress-indicator",
+      "contractProps": 10,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ProgressIndicator.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "ProgressIndicator",
+          "markupLength": 571,
+          "rootTag": "<div data-artifact-test=\"progressIndicator\" class=\"progress flow-artifact-test-hook\" role=\"progressbar\" aria-labelledby=\"progress-label-:R0:\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\" aria-busy=\"true\" data-tone=\"accent\" data-state=\"active\" data-density=\"lg\" data-full-width=\"false\" data-indeterminate=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=active"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "spinner",
+      "component": "Spinner",
+      "factory": "@design-system/react/spinner",
+      "contractProps": 5,
+      "requiredProps": [],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Spinner.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Spinner",
+          "markupLength": 406,
+          "rootTag": "<span data-artifact-test=\"spinner\" class=\"spinner flow-artifact-test-hook\" aria-hidden=\"true\" data-density=\"lg\" data-tone=\"accent\" data-state=\"loading\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=loading"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "accordion",
+      "component": "Accordion",
+      "factory": "@design-system/react/accordion",
+      "contractProps": 6,
+      "requiredProps": [
+        "items"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Accordion.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Accordion",
+          "markupLength": 1342,
+          "rootTag": "<div data-artifact-test=\"accordion\" class=\"accordion flow-artifact-test-hook\" data-variant=\"single\" data-multiple=\"false\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "not-applicable"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "slider",
+      "component": "Slider",
+      "factory": "@design-system/react/slider",
+      "contractProps": 14,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Slider.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Slider",
+          "markupLength": 712,
+          "rootTag": "<label class=\"slider flow-artifact-test-hook\" data-artifact-test=\"slider\" data-variant=\"continuous\" data-state=\"default\" data-density=\"lg\" style=\"--comp-slider-percent:0%\" data-value=\"0\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=focus"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "avatar",
+      "component": "Avatar",
+      "factory": "@design-system/react/avatar",
+      "contractProps": 5,
+      "requiredProps": [
+        "name"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Avatar.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Avatar",
+          "markupLength": 354,
+          "rootTag": "<span data-artifact-test=\"avatar\" class=\"avatar flow-artifact-test-hook\" aria-label=\"reference\" data-density=\"lg\" data-status=\"none\" data-state=\"default\" style=\"--comp-avatar-identity-bg:var(--comp-avatar-identity-teal-bg);--comp-avatar-identity-fg:var(--comp-avatar-identity-default-fg)\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=default"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "skeleton",
+      "component": "Skeleton",
+      "factory": "@design-system/react/skeleton",
+      "contractProps": 11,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Skeleton.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Skeleton",
+          "markupLength": 577,
+          "rootTag": "<div data-artifact-test=\"skeleton\" class=\"skeleton skeleton--text flow-artifact-test-hook\" role=\"status\" aria-busy=\"true\" aria-label=\"Reference\" data-variant=\"text\" data-density=\"lg\" data-state=\"loading\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=loading"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "dialog",
+      "component": "Dialog",
+      "factory": "@design-system/react/dialog",
+      "contractProps": 15,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Dialog.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Dialog",
+          "markupLength": 520,
+          "rootTag": "<div data-artifact-test=\"dialog\" class=\"dialog dialog--neutral flow-artifact-test-hook\" data-open=\"true\" data-variant=\"confirmation\" data-state=\"open\" data-tone=\"neutral\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=open"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "menu",
+      "component": "Menu",
+      "factory": "@design-system/react/menu",
+      "contractProps": 13,
+      "requiredProps": [
+        "triggerLabel",
+        "items"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Menu.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Menu",
+          "markupLength": 1065,
+          "rootTag": "<span data-artifact-test=\"menu\" class=\"menu flow-artifact-test-hook\" data-variant=\"actions\" data-density=\"lg\" data-state=\"default\" data-align=\"start\" data-open=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=closed"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "drawer",
+      "component": "Drawer",
+      "factory": "@design-system/react/drawer",
+      "contractProps": 17,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Drawer.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Drawer",
+          "markupLength": 514,
+          "rootTag": "<div data-artifact-test=\"drawer\" class=\"drawer drawer--neutral flow-artifact-test-hook\" data-variant=\"side-sheet\" data-state=\"open\" data-tone=\"neutral\" data-density=\"lg\" data-open=\"true\" data-side=\"right\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=closed"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "table",
+      "component": "Table",
+      "factory": "@design-system/react/table",
+      "contractProps": 16,
+      "requiredProps": [
+        "label",
+        "columns",
+        "rows"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Table.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Table",
+          "markupLength": 324,
+          "rootTag": "<div data-artifact-test=\"table\" class=\"table flow-artifact-test-hook\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "biometricPrompt",
+      "component": "BiometricPrompt",
+      "factory": "@design-system/react/biometric-prompt",
+      "contractProps": 11,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/BiometricPrompt.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "BiometricPrompt",
+          "markupLength": 392,
+          "rootTag": "<section data-artifact-test=\"biometricPrompt\" class=\"biometric-prompt flow-artifact-test-hook\" data-variant=\"fingerprint\" data-state=\"default\" data-density=\"lg\" data-full-width=\"false\" role=\"group\" aria-label=\"Reference\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=default"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "treeView",
+      "component": "TreeView",
+      "factory": "@design-system/react/tree-view",
+      "contractProps": 8,
+      "requiredProps": [
+        "nodes"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/TreeView.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "TreeView",
+          "markupLength": 554,
+          "rootTag": "<ul data-artifact-test=\"treeView\" class=\"tree-view flow-artifact-test-hook\" role=\"tree\" data-state=\"expanded\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "motionBoundary",
+      "component": "MotionBoundary",
+      "factory": "@design-system/react/motion-boundary",
+      "contractProps": 8,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/MotionBoundary.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "MotionBoundary",
+          "markupLength": 511,
+          "rootTag": "<div data-artifact-test=\"motionBoundary\" class=\"motion-boundary flow-artifact-test-hook\" data-variant=\"fade\" data-density=\"lg\" data-state=\"active\" data-reduced-motion=\"false\" role=\"group\" aria-labelledby=\"motion-boundary-R0-label\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=default"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "animatedMoment",
+      "component": "AnimatedMoment",
+      "factory": "@design-system/react/animated-moment",
+      "contractProps": 11,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/AnimatedMoment.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "AnimatedMoment",
+          "markupLength": 948,
+          "rootTag": "<div data-artifact-test=\"animatedMoment\" class=\"animated-moment flow-artifact-test-hook\" data-variant=\"success\" data-state=\"playing\" data-density=\"lg\" data-full-width=\"false\" role=\"img\" aria-label=\"Reference\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=default"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "emptyState",
+      "component": "EmptyState",
+      "factory": "@design-system/react/empty-state",
+      "contractProps": 9,
+      "requiredProps": [
+        "title"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/EmptyState.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "EmptyState",
+          "markupLength": 293,
+          "rootTag": "<section data-artifact-test=\"emptyState\" class=\"empty-state flow-artifact-test-hook\" aria-labelledby=\"empty-state-title-R0\" data-variant=\"first-use\" data-state=\"default\" data-density=\"lg\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=action"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "list",
+      "component": "List",
+      "factory": "@design-system/react/list",
+      "contractProps": 8,
+      "requiredProps": [
+        "items"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/List.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "List",
+          "markupLength": 514,
+          "rootTag": "<ul data-artifact-test=\"list\" class=\"list flow-artifact-test-hook\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\" data-interactive=\"false\" role=\"list\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "kpiTile",
+      "component": "KpiTile",
+      "factory": "@design-system/react/kpi-tile",
+      "contractProps": 15,
+      "requiredProps": [
+        "value"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/KpiTile.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "KpiTile",
+          "markupLength": 237,
+          "rootTag": "<article data-artifact-test=\"kpiTile\" class=\"kpi-tile kpi-tile--neutral flow-artifact-test-hook\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "floatingActionButton",
+      "component": "FloatingActionButton",
+      "factory": "@design-system/react/floating-action-button",
+      "contractProps": 9,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/FloatingActionButton.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "FloatingActionButton",
+          "markupLength": 281,
+          "rootTag": "<button data-artifact-test=\"floatingActionButton\" type=\"button\" class=\"fab flow-artifact-test-hook\" disabled=\"\" aria-label=\"Reference\" data-variant=\"primary\" data-state=\"default\" data-density=\"lg\" data-extended=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "breadcrumbs",
+      "component": "Breadcrumbs",
+      "factory": "@design-system/react/breadcrumbs",
+      "contractProps": 10,
+      "requiredProps": [
+        "items"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Breadcrumbs.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Breadcrumbs",
+          "markupLength": 414,
+          "rootTag": "<nav data-artifact-test=\"breadcrumbs\" class=\"breadcrumbs flow-artifact-test-hook\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "pagination",
+      "component": "Pagination",
+      "factory": "@design-system/react/pagination",
+      "contractProps": 12,
+      "requiredProps": [
+        "pageCount",
+        "label",
+        "previousLabel",
+        "nextLabel",
+        "getPageLabel"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Pagination.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Pagination",
+          "markupLength": 1063,
+          "rootTag": "<nav data-artifact-test=\"pagination\" class=\"pagination flow-artifact-test-hook\" aria-label=\"Reference\" data-variant=\"numbered\" data-state=\"default\" data-density=\"lg\" data-page=\"1\" data-page-count=\"3\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "auditEvent",
+      "component": "AuditEvent",
+      "factory": "@design-system/react/audit-event",
+      "contractProps": 9,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/AuditEvent.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "AuditEvent",
+          "markupLength": 220,
+          "rootTag": "<article data-artifact-test=\"auditEvent\" class=\"audit-event flow-artifact-test-hook\" data-tone=\"neutral\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "errorPanel",
+      "component": "ErrorPanel",
+      "factory": "@design-system/react/error-panel",
+      "contractProps": 11,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ErrorPanel.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "ErrorPanel",
+          "markupLength": 338,
+          "rootTag": "<section data-artifact-test=\"errorPanel\" class=\"error-panel error-panel--error flow-artifact-test-hook\" role=\"alert\" data-variant=\"panel\" data-state=\"error\" data-density=\"lg\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=warning"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "inlineValidation",
+      "component": "InlineValidation",
+      "factory": "@design-system/react/inline-validation",
+      "contractProps": 9,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/InlineValidation.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "InlineValidation",
+          "markupLength": 204,
+          "rootTag": "<div data-artifact-test=\"inlineValidation\" class=\"inline-validation flow-artifact-test-hook\" aria-label=\"Reference\" data-state=\"default\" data-density=\"lg\" data-full-width=\"false\" data-field=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=info"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "stepper",
+      "component": "Stepper",
+      "factory": "@design-system/react/stepper",
+      "contractProps": 5,
+      "requiredProps": [
+        "steps",
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Stepper.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Stepper",
+          "markupLength": 593,
+          "rootTag": "<ol data-artifact-test=\"stepper\" class=\"stepper flow-artifact-test-hook\" aria-label=\"Reference\" data-orientation=\"horizontal\" data-density=\"lg\" data-current=\"0\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "not-applicable"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chartPanel",
+      "component": "ChartPanel",
+      "factory": "@design-system/react/chart-panel",
+      "contractProps": 14,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChartPanel.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "ChartPanel",
+          "markupLength": 2963,
+          "rootTag": "<article data-artifact-test=\"chartPanel\" class=\"chart-panel flow-artifact-test-hook\" data-chart-primitive=\"charts\" data-chart-engine=\"echarts-option\" data-variant=\"sparkline\" data-state=\"default\" data-tone=\"neutral\" data-density=\"lg\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=focus"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "stationPin",
+      "component": "StationPin",
+      "factory": "@design-system/react/station-pin",
+      "contractProps": 12,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/StationPin.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "StationPin",
+          "markupLength": 374,
+          "rootTag": "<button data-artifact-test=\"stationPin\" type=\"button\" class=\"station-pin flow-artifact-test-hook\" data-variant=\"fuel\" data-state=\"default\" data-density=\"lg\" data-map-primitive=\"maps\" aria-label=\"Reference\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "routeSummary",
+      "component": "RouteSummary",
+      "factory": "@design-system/react/route-summary",
+      "contractProps": 12,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/RouteSummary.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "RouteSummary",
+          "markupLength": 375,
+          "rootTag": "<article data-artifact-test=\"routeSummary\" class=\"route-summary flow-artifact-test-hook\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\" data-tone=\"neutral\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "codeInput",
+      "component": "CodeInput",
+      "factory": "@design-system/react/code-input",
+      "contractProps": 12,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CodeInput.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CodeInput",
+          "markupLength": 1181,
+          "rootTag": "<label class=\"field code-input flow-artifact-test-hook\" data-artifact-test=\"codeInput\" data-state=\"default\" data-density=\"lg\" data-variant=\"sms\" data-focused=\"false\" data-length=\"6\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "phoneInput",
+      "component": "PhoneInput",
+      "factory": "@design-system/react/phone-input",
+      "contractProps": 13,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/PhoneInput.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "PhoneInput",
+          "markupLength": 11735,
+          "rootTag": "<label class=\"field phone-input flow-artifact-test-hook\" data-artifact-test=\"phoneInput\" data-state=\"default\" data-density=\"lg\" data-variant=\"country-code\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "countrySelector",
+      "component": "CountrySelector",
+      "factory": "@design-system/react/country-selector",
+      "contractProps": 14,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CountrySelector.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CountrySelector",
+          "markupLength": 11395,
+          "rootTag": "<span data-artifact-test=\"countrySelector\" class=\"select-control country-selector flow-artifact-test-hook\" data-country-selector=\"\" data-country=\"AR\" data-value=\"AR\" data-open=\"false\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "not-applicable"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "datePicker",
+      "component": "DatePicker",
+      "factory": "@design-system/react/date-picker",
+      "contractProps": 19,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/DatePicker.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "DatePicker",
+          "markupLength": 7172,
+          "rootTag": "<div class=\"field date-picker flow-artifact-test-hook\" data-artifact-test=\"datePicker\" data-state=\"default\" data-density=\"lg\" data-open=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "dateRangePicker",
+      "component": "DateRangePicker",
+      "factory": "@design-system/react/date-range-picker",
+      "contractProps": 21,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/DateRangePicker.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "DateRangePicker",
+          "markupLength": 8501,
+          "rootTag": "<div class=\"field date-picker date-range-picker flow-artifact-test-hook\" data-artifact-test=\"dateRangePicker\" data-state=\"default\" data-density=\"lg\" data-open=\"false\" data-from=\"\" data-to=\"\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "segmentedControl",
+      "component": "SegmentedControl",
+      "factory": "@design-system/react/segmented-control",
+      "contractProps": 6,
+      "requiredProps": [
+        "label",
+        "items"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/SegmentedControl.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "SegmentedControl",
+          "markupLength": 770,
+          "rootTag": "<div data-artifact-test=\"segmentedControl\" id=\"segmented-control-:R0:\" class=\"segmented-control flow-artifact-test-hook\" role=\"tablist\" aria-label=\"Reference\" data-variant=\"outlined\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "not-applicable"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "popover",
+      "component": "Popover",
+      "factory": "@design-system/react/popover",
+      "contractProps": 15,
+      "requiredProps": [
+        "triggerLabel",
+        "title"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/Popover.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "Popover",
+          "markupLength": 800,
+          "rootTag": "<span data-artifact-test=\"popover\" class=\"popover flow-artifact-test-hook\" data-open=\"true\" data-variant=\"information\" data-state=\"open\" data-placement=\"bottom\" data-density=\"lg\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=closed"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "cardSummary",
+      "component": "CardSummary",
+      "factory": "@design-system/react/card-summary",
+      "contractProps": 12,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/CardSummary.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "CardSummary",
+          "markupLength": 438,
+          "rootTag": "<article data-artifact-test=\"cardSummary\" class=\"card-summary flow-artifact-test-hook\" data-variant=\"physical\" data-state=\"default\" data-density=\"lg\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "movementRow",
+      "component": "MovementRow",
+      "factory": "@design-system/react/movement-row",
+      "contractProps": 11,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/MovementRow.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "MovementRow",
+          "markupLength": 402,
+          "rootTag": "<article data-artifact-test=\"movementRow\" class=\"movement-row flow-artifact-test-hook\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\" data-category=\"transfer\" data-full-width=\"false\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chatMessage",
+      "component": "ChatMessage",
+      "factory": "@design-system/react/chat-message",
+      "contractProps": 10,
+      "requiredProps": [],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChatMessage.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "ChatMessage",
+          "markupLength": 587,
+          "rootTag": "<article data-artifact-test=\"chatMessage\" class=\"chat-message flow-artifact-test-hook\" data-flow-component=\"chat-message\" data-author=\"agent\" data-state=\"default\" data-tone=\"neutral\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=sending"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chatThread",
+      "component": "ChatThread",
+      "factory": "@design-system/react/chat-thread",
+      "contractProps": 9,
+      "requiredProps": [],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChatThread.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "ChatThread",
+          "markupLength": 802,
+          "rootTag": "<div data-artifact-test=\"chatThread\" role=\"log\" aria-label=\"Conversation\" aria-live=\"polite\" data-flow-component=\"chat-thread\" data-state=\"default\" data-density=\"lg\" class=\"surface chat-thread flow-artifact-test-hook\" data-flow-primitive=\"surface\" data-surface-role=\"section\" data-surface-state=\"default\" data-surface-elevation=\"none\" data-surface-tone=\"default\" data-surface-focus-mode=\"none\" data-surface-breakpoint=\"base\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=loading"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chatComposer",
+      "component": "ChatComposer",
+      "factory": "@design-system/react/chat-composer",
+      "contractProps": 13,
+      "requiredProps": [],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/ChatComposer.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "ChatComposer",
+          "markupLength": 949,
+          "rootTag": "<div data-artifact-test=\"chatComposer\" role=\"form\" aria-label=\"Message\" data-flow-component=\"chat-composer\" data-state=\"default\" data-density=\"lg\" class=\"surface chat-composer flow-artifact-test-hook\" data-flow-primitive=\"surface\" data-surface-role=\"section\" data-surface-state=\"default\" data-surface-elevation=\"none\" data-surface-tone=\"default\" data-surface-focus-mode=\"none\" data-surface-breakpoint=\"base\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=focus"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "quickAction",
+      "component": "QuickAction",
+      "factory": "@design-system/react/quick-action",
+      "contractProps": 11,
+      "requiredProps": [
+        "label"
+      ],
+      "evidence": {
+        "contract": "packages/components/src/contracts.js",
+        "runtime": "packages/react/dist/index.js",
+        "types": "packages/react/dist/QuickAction.d.ts"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "component": "QuickAction",
+          "markupLength": 390,
+          "rootTag": "<div class=\"quick-action flow-artifact-test-hook\" data-artifact-test=\"quickAction\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\">",
+          "issues": []
+        },
+        {
+          "id": "density",
+          "status": "pass",
+          "expected": "root data-density=sm"
+        },
+        {
+          "id": "state",
+          "status": "pass",
+          "expected": "render state=hover"
+        },
+        {
+          "id": "theme",
+          "status": "not-applicable"
+        }
+      ],
+      "issues": [],
+      "status": "pass"
+    }
+  ]
+}

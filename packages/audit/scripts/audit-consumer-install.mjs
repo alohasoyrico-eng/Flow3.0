@@ -380,6 +380,7 @@ function fixtureForContract(componentId, contract) {
     props[prop.name] = valueForRequiredProp(prop.name);
   }
   if (componentId === "button") props.label = "Reference";
+  if (componentId === "copy-button") props.label = "Copy reference";
   if (componentId === "chart-panel") {
     props.values = [1, 2, 3];
     props.labels = ["One", "Two", "Three"];
@@ -1542,6 +1543,7 @@ function fixtureForContract(componentId, contract) {
     props[prop.name] = valueForRequiredProp(prop.name);
   }
   if (componentId === "button") props.label = "Reference";
+  if (componentId === "copy-button") props.label = "Copy reference";
   if (componentId === "chart-panel") {
     props.values = [1, 2, 3];
     props.labels = ["One", "Two", "Three"];
@@ -2675,15 +2677,15 @@ function auditInstalledPackage(consumerDir) {
   assertInstalledContentContracts({ consumerRequire, packageRoot, realPackageRoot });
   const installedCssInventory = packageCssRootInventory(packageRoot);
   const installedCssRoots = installedCssInventory.roots;
-  if (installedCssRoots.size !== 71) {
-    throw new Error(`Installed component CSS must preserve the governed root baseline: expected 71 roots, got ${installedCssRoots.size}.`);
+  if (installedCssRoots.size !== 75) {
+    throw new Error(`Installed component CSS must preserve the governed root baseline: expected 75 roots, got ${installedCssRoots.size}.`);
   }
   if (installedCssInventory.selectors < 1100) {
     throw new Error(`Installed component CSS selector inventory is unexpectedly small: expected at least 1100 selectors, got ${installedCssInventory.selectors}.`);
   }
   const cssCoverage = componentCssContractCoverage();
-  if (cssCoverage.direct !== 55 || cssCoverage.family !== 5 || cssCoverage.missing.length) {
-    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 55 direct, 5 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
+  if (cssCoverage.direct !== 57 || cssCoverage.family !== 5 || cssCoverage.missing.length) {
+    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 57 direct, 5 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
   }
   assertReactGovernanceBaselines();
   const missingInstalledCssCoverage = goldComponents
@@ -2856,6 +2858,10 @@ function assertInstalledExportInventory(installedPackage) {
       types: "./packages/react/dist/patterns/AvatarMenu.d.ts",
       default: "./packages/react/dist/patterns/AvatarMenu.js",
     },
+    "./react/patterns/artifact-metadata-bar": {
+      types: "./packages/react/dist/patterns/ArtifactMetadataBar.d.ts",
+      default: "./packages/react/dist/patterns/ArtifactMetadataBar.js",
+    },
     "./react/patterns/backoffice-approval": {
       types: "./packages/react/dist/patterns/BackofficeApproval.d.ts",
       default: "./packages/react/dist/patterns/BackofficeApproval.js",
@@ -2907,6 +2913,34 @@ function assertInstalledExportInventory(installedPackage) {
     "./react/patterns/drag-sortable-list": {
       types: "./packages/react/dist/patterns/DragSortableList.d.ts",
       default: "./packages/react/dist/patterns/DragSortableList.js",
+    },
+    "./react/patterns/demo-preview-frame": {
+      types: "./packages/react/dist/patterns/DemoPreviewFrame.d.ts",
+      default: "./packages/react/dist/patterns/DemoPreviewFrame.js",
+    },
+    "./react/patterns/documentation-hero": {
+      types: "./packages/react/dist/patterns/DocumentationHero.d.ts",
+      default: "./packages/react/dist/patterns/DocumentationHero.js",
+    },
+    "./react/patterns/documentation-page-shell": {
+      types: "./packages/react/dist/patterns/DocumentationPageShell.d.ts",
+      default: "./packages/react/dist/patterns/DocumentationPageShell.js",
+    },
+    "./react/patterns/documentation-section": {
+      types: "./packages/react/dist/patterns/DocumentationSection.d.ts",
+      default: "./packages/react/dist/patterns/DocumentationSection.js",
+    },
+    "./react/patterns/documentation-primitive-demo": {
+      types: "./packages/react/dist/patterns/DocumentationPrimitiveDemo.d.ts",
+      default: "./packages/react/dist/patterns/DocumentationPrimitiveDemo.js",
+    },
+    "./react/patterns/documentation-reference-grid": {
+      types: "./packages/react/dist/patterns/DocumentationReferenceGrid.d.ts",
+      default: "./packages/react/dist/patterns/DocumentationReferenceGrid.js",
+    },
+    "./react/patterns/documentation-token-grid": {
+      types: "./packages/react/dist/patterns/DocumentationTokenGrid.d.ts",
+      default: "./packages/react/dist/patterns/DocumentationTokenGrid.js",
     },
     "./react/patterns/driver-and-vehicle-administration": {
       types: "./packages/react/dist/patterns/DriverAndVehicleAdministration.d.ts",
@@ -2979,6 +3013,10 @@ function assertInstalledExportInventory(installedPackage) {
     "./react/patterns/notification-panel": {
       types: "./packages/react/dist/patterns/NotificationPanel.d.ts",
       default: "./packages/react/dist/patterns/NotificationPanel.js",
+    },
+    "./react/patterns/on-this-page-nav": {
+      types: "./packages/react/dist/patterns/OnThisPageNav.d.ts",
+      default: "./packages/react/dist/patterns/OnThisPageNav.js",
     },
     "./react/patterns/payment-form": {
       types: "./packages/react/dist/patterns/PaymentForm.d.ts",
@@ -3084,9 +3122,29 @@ function assertInstalledExportInventory(installedPackage) {
       types: "./packages/react/dist/templates/AgentWorkspace.d.ts",
       default: "./packages/react/dist/templates/AgentWorkspace.js",
     },
+    "./react/templates/component-detail-template": {
+      types: "./packages/react/dist/templates/ComponentDetailTemplate.d.ts",
+      default: "./packages/react/dist/templates/ComponentDetailTemplate.js",
+    },
     "./react/templates/configuration-console": {
       types: "./packages/react/dist/templates/ConfigurationConsole.d.ts",
       default: "./packages/react/dist/templates/ConfigurationConsole.js",
+    },
+    "./react/templates/docs-collection-template": {
+      types: "./packages/react/dist/templates/DocsCollectionTemplate.d.ts",
+      default: "./packages/react/dist/templates/DocsCollectionTemplate.js",
+    },
+    "./react/templates/docs-artifact-detail-template": {
+      types: "./packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts",
+      default: "./packages/react/dist/templates/DocsArtifactDetailTemplate.js",
+    },
+    "./react/templates/docs-home-template": {
+      types: "./packages/react/dist/templates/DocsHomeTemplate.d.ts",
+      default: "./packages/react/dist/templates/DocsHomeTemplate.js",
+    },
+    "./react/templates/docs-shell-template": {
+      types: "./packages/react/dist/templates/DocsShellTemplate.d.ts",
+      default: "./packages/react/dist/templates/DocsShellTemplate.js",
     },
     "./react/templates/driver-card-wallet": {
       types: "./packages/react/dist/templates/DriverCardWallet.d.ts",
@@ -3108,6 +3166,14 @@ function assertInstalledExportInventory(installedPackage) {
       types: "./packages/react/dist/templates/InternalOperationsConsole.d.ts",
       default: "./packages/react/dist/templates/InternalOperationsConsole.js",
     },
+    "./react/templates/pattern-detail-template": {
+      types: "./packages/react/dist/templates/PatternDetailTemplate.d.ts",
+      default: "./packages/react/dist/templates/PatternDetailTemplate.js",
+    },
+    "./react/templates/reference-detail-template": {
+      types: "./packages/react/dist/templates/ReferenceDetailTemplate.d.ts",
+      default: "./packages/react/dist/templates/ReferenceDetailTemplate.js",
+    },
     "./react/templates/routes-and-stations": {
       types: "./packages/react/dist/templates/RoutesAndStations.d.ts",
       default: "./packages/react/dist/templates/RoutesAndStations.js",
@@ -3115,6 +3181,10 @@ function assertInstalledExportInventory(installedPackage) {
     "./react/templates/settings-workspace": {
       types: "./packages/react/dist/templates/SettingsWorkspace.d.ts",
       default: "./packages/react/dist/templates/SettingsWorkspace.js",
+    },
+    "./react/templates/template-detail-template": {
+      types: "./packages/react/dist/templates/TemplateDetailTemplate.d.ts",
+      default: "./packages/react/dist/templates/TemplateDetailTemplate.js",
     },
     ...Object.fromEntries(goldComponents.map((component) => {
       const componentName = pascalCase(component);
@@ -3225,8 +3295,8 @@ function assertInstalledContentContracts({ consumerRequire, packageRoot, realPac
   const implementationStatus = JSON.parse(fs.readFileSync(consumerRequire.resolve("@alohasoyrico-eng/flow/content/component-implementation-status"), "utf8"));
   const statusComponents = Object.values(implementationStatus.components ?? {});
   const packageComponents = statusComponents.filter((component) => component.status === "package-component");
-  if (statusComponents.length !== 60 || packageComponents.length !== 60) {
-    throw new Error(`Installed implementation status must preserve 60/60 package components; got ${packageComponents.length}/${statusComponents.length}.`);
+  if (statusComponents.length !== 62 || packageComponents.length !== 62) {
+    throw new Error(`Installed implementation status must preserve 62/62 package components; got ${packageComponents.length}/${statusComponents.length}.`);
   }
 }
 
@@ -3234,27 +3304,27 @@ function assertReactGovernanceBaselines() {
   const primary = readAuditReport("docs/audits/react-primary-coverage-audit.json");
   assertReportStatus(primary, "React primary coverage");
   assertInventory(primary, {
-    components: 60,
+    components: 62,
     primaryImplementationDebt: 0,
-    pass: 60,
+    pass: 62,
     fail: 0,
-    forwardRef: 60,
-    realTypes: 60,
-    platformContract: 60,
-    densityResolved: 60,
-    restSanitized: 60,
-    noDocsDependency: 60,
-    noDomFactory: 60,
-    publishedImports: 60,
-    cssContractCoverage: 60,
-    directCssContracts: 55,
+    forwardRef: 62,
+    realTypes: 62,
+    platformContract: 62,
+    densityResolved: 62,
+    restSanitized: 62,
+    noDocsDependency: 62,
+    noDomFactory: 62,
+    publishedImports: 62,
+    cssContractCoverage: 62,
+    directCssContracts: 57,
     familyCssContracts: 5,
   }, "React primary coverage");
 
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 839,
+    filesScanned: 920,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3264,9 +3334,9 @@ function assertReactGovernanceBaselines() {
   assertInventory(foundationPrimitiveExport, {
     foundations: 11,
     primitives: 24,
-    patterns: 63,
-    templates: 9,
-    tokenCount: 1131,
+    patterns: 72,
+    templates: 17,
+    tokenCount: 1139,
     missingFoundationArtifacts: 0,
     missingPrimitiveArtifacts: 0,
     missingPatternArtifacts: 0,
@@ -3290,11 +3360,11 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(taxonomyBoundaries, "Taxonomy boundaries");
   assertInventory(taxonomyBoundaries, {
     rules: 5,
-    decisions: 20,
+    decisions: 28,
     patternDecisions: 10,
-    templateDecisions: 9,
+    templateDecisions: 17,
     nonComponentDecisions: 1,
-    artifactsScanned: 167,
+    artifactsScanned: 186,
     crossLayerArtifactIds: 1,
     unapprovedCrossLayerArtifactIds: 0,
     artifactLayerMismatches: 0,
@@ -3312,19 +3382,19 @@ function assertReactGovernanceBaselines() {
   const docsSystemBoundary = readAuditReport("docs/audits/docs-system-boundary-audit.json");
   assertReportStatus(docsSystemBoundary, "Docs system boundary");
   assertInventory(docsSystemBoundary, {
-    sourceFilesScanned: 209,
-    generatedFiles: 356,
+    sourceFilesScanned: 214,
+    generatedFiles: 396,
     flowDependencyPresent: 1,
     flowBoundaryAliases: 21,
     missingFlowAliases: 0,
     localFlowImportViolations: 0,
     docsComponentTokenDefinitions: 0,
     docsComponentTokenDefinitionFiles: 0,
-    docsProtectedFlowClassRoots: 69,
+    docsProtectedFlowClassRoots: 73,
     docsComponentClassDefinitions: 0,
     docsComponentClassDefinitionFiles: 0,
-    docsPatternClassDefinitions: 290,
-    docsPatternClassRoots: 113,
+    docsPatternClassDefinitions: 286,
+    docsPatternClassRoots: 112,
     docsContractualPatternClassDefinitions: 0,
     docsContractualPatternClassDefinitionFiles: 0,
     generatedComponentCssPresent: 1,
@@ -3335,11 +3405,11 @@ function assertReactGovernanceBaselines() {
   const defaults = readAuditReport("docs/audits/react-default-governance-audit.json");
   assertReportStatus(defaults, "React default governance");
   assertInventory(defaults, {
-    components: 60,
+    components: 62,
     defaultDebt: 0,
     prohibitedDefaults: 0,
-    semanticDefaultDecisions: 115,
-    contractBackedSemanticDefaultDecisions: 115,
+    semanticDefaultDecisions: 119,
+    contractBackedSemanticDefaultDecisions: 119,
     unbackedSemanticDefaultDecisions: 0,
     semanticDefaultDecisionContractGaps: 0,
   }, "React default governance");
@@ -3347,7 +3417,7 @@ function assertReactGovernanceBaselines() {
   const styles = readAuditReport("docs/audits/react-style-governance-audit.json");
   assertReportStatus(styles, "React style governance");
   assertInventory(styles, {
-    components: 60,
+    components: 62,
     styleEscapeDebt: 0,
     approvedInlineVars: 12,
     styleProps: 10,
@@ -3358,10 +3428,10 @@ function assertReactGovernanceBaselines() {
   const composition = readAuditReport("docs/audits/react-composition-governance-audit.json");
   assertReportStatus(composition, "React composition governance");
   assertInventory(composition, {
-    components: 60,
+    components: 62,
     compositionDebt: 0,
-    compositionalComponents: 27,
-    compositionEdges: 50,
+    compositionalComponents: 29,
+    compositionEdges: 53,
     unexpectedImports: 0,
     missingImports: 0,
     missingReasons: 0,
@@ -3373,13 +3443,13 @@ function assertReactGovernanceBaselines() {
   const classOwnership = readAuditReport("docs/audits/react-class-ownership-audit.json");
   assertReportStatus(classOwnership, "React class ownership");
   assertInventory(classOwnership, {
-    components: 60,
-    componentClassRoots: 63,
+    components: 62,
+    componentClassRoots: 65,
     protectedComponentRoots: 7,
-    supportClassRoots: 6,
-    packageCssRoots: 71,
+    supportClassRoots: 9,
+    packageCssRoots: 75,
     componentsWithFamilyRoots: 14,
-    observedRootAssignments: 77,
+    observedRootAssignments: 79,
     observedSupportRootAssignments: 21,
     violations: 0,
     classOwnershipDebt: 0,
@@ -3389,9 +3459,9 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(antiDuplication, "Anti-duplication coverage");
   assertInventory(antiDuplication, {
     checks: 18,
-    componentClassRoots: 63,
-    acceptedComponents: 60,
-    ownerRoots: 60,
+    componentClassRoots: 65,
+    acceptedComponents: 62,
+    ownerRoots: 62,
     missingOwnerRoots: 0,
     extensionRoots: 3,
     protectedComponentRoots: 7,
@@ -3407,15 +3477,15 @@ function assertReactGovernanceBaselines() {
   const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
   assertReportStatus(packageCssRoots, "Package CSS root governance");
   assertInventory(packageCssRoots, {
-    selectors: 1224,
-    componentAliases: 3250,
-    componentAliasRoots: 66,
+    selectors: 1274,
+    componentAliases: 3319,
+    componentAliasRoots: 68,
     unknownComponentAliases: 0,
-    cssRoots: 71,
-    componentRoots: 62,
-    observedComponentRoots: 62,
+    cssRoots: 75,
+    componentRoots: 64,
+    observedComponentRoots: 64,
     unobservedComponentRoots: 0,
-    classifiedNonComponentRoots: 9,
+    classifiedNonComponentRoots: 11,
     unclassifiedRoots: 0,
     packageCssRootDebt: 0,
   }, "Package CSS root governance");
@@ -3423,9 +3493,9 @@ function assertReactGovernanceBaselines() {
   const componentCssContracts = readAuditReport("docs/audits/component-css-contract-coverage.json");
   assertReportStatus(componentCssContracts, "Component CSS contract coverage");
   assertInventory(componentCssContracts, {
-    total: 60,
+    total: 62,
     cssContractDebt: 0,
-    direct: 55,
+    direct: 57,
     family: 5,
     missing: 0,
     directRootGaps: 0,
@@ -3436,8 +3506,8 @@ function assertReactGovernanceBaselines() {
   const visualCascade = readAuditReport("docs/audits/component-visual-cascade-audit.json");
   assertReportStatus(visualCascade, "Component visual cascade");
   assertInventory(visualCascade, {
-    components: 60,
-    pass: 60,
+    components: 62,
+    pass: 62,
     review: 0,
     fail: 0,
     visualCascadeDebt: 0,
@@ -3446,46 +3516,46 @@ function assertReactGovernanceBaselines() {
   const phase4ComponentCascade = readAuditReport("docs/audits/system-phase4-component-cascade-checkpoint.json");
   assertReportStatus(phase4ComponentCascade, "Phase 4 component cascade checkpoint");
   assertInventory(phase4ComponentCascade, {
-    expectedComponents: 60,
+    expectedComponents: 62,
     currentComponentGateReports: 11,
     passingCurrentComponentGateReports: 11,
     currentGateInventoryMismatches: 0,
-    reactPrimaryComponents: 60,
-    reactPrimaryPass: 60,
+    reactPrimaryComponents: 62,
+    reactPrimaryPass: 62,
     legacyMatrixComponents: 56,
     legacyMatrixPass: 56,
-    legacyMatrixMissingComponents: 4,
-    legacyMatrixMissingCoveredByCurrentGates: 4,
+    legacyMatrixMissingComponents: 6,
+    legacyMatrixMissingCoveredByCurrentGates: 6,
     componentCascadeAuditDebt: 0,
   }, "Phase 4 component cascade checkpoint");
 
   const phase4CoreControls = readAuditReport("docs/audits/system-phase4-core-controls-checkpoint.json");
   assertReportStatus(phase4CoreControls, "Phase 4 core controls/forms checkpoint");
   assertInventory(phase4CoreControls, {
-    coreControlComponents: 21,
-    passingCoreControlComponents: 21,
+    coreControlComponents: 22,
+    passingCoreControlComponents: 22,
     gateReports: 8,
     passingGateReports: 8,
-    tsxSources: 21,
-    runtimeFiles: 21,
-    declarationFiles: 21,
-    componentGateEdges: 168,
-    passingComponentGateEdges: 168,
+    tsxSources: 22,
+    runtimeFiles: 22,
+    declarationFiles: 22,
+    componentGateEdges: 176,
+    passingComponentGateEdges: 176,
     coreControlsFormsDebt: 0,
   }, "Phase 4 core controls/forms checkpoint");
 
   const phase4OverlaysNavigationData = readAuditReport("docs/audits/system-phase4-overlays-navigation-data-checkpoint.json");
   assertReportStatus(phase4OverlaysNavigationData, "Phase 4 overlays/navigation/data checkpoint");
   assertInventory(phase4OverlaysNavigationData, {
-    overlaysNavigationDataComponents: 14,
-    passingOverlaysNavigationDataComponents: 14,
+    overlaysNavigationDataComponents: 15,
+    passingOverlaysNavigationDataComponents: 15,
     gateReports: 8,
     passingGateReports: 8,
-    tsxSources: 14,
-    runtimeFiles: 14,
-    declarationFiles: 14,
-    componentGateEdges: 112,
-    passingComponentGateEdges: 112,
+    tsxSources: 15,
+    runtimeFiles: 15,
+    declarationFiles: 15,
+    componentGateEdges: 120,
+    passingComponentGateEdges: 120,
     overlaysNavigationDataDebt: 0,
   }, "Phase 4 overlays/navigation/data checkpoint");
 
@@ -3507,17 +3577,17 @@ function assertReactGovernanceBaselines() {
   const phase4ComponentQa = readAuditReport("docs/audits/system-phase4-component-qa-checkpoint.json");
   assertReportStatus(phase4ComponentQa, "Phase 4 component QA checkpoint");
   assertInventory(phase4ComponentQa, {
-    expectedComponents: 60,
+    expectedComponents: 62,
     phase4BatchReports: 3,
     passingPhase4BatchReports: 3,
-    phase4BatchComponents: 60,
-    passingPhase4BatchComponents: 60,
-    uniquePhase4BatchComponents: 60,
+    phase4BatchComponents: 62,
+    passingPhase4BatchComponents: 62,
+    uniquePhase4BatchComponents: 62,
     duplicatePhase4BatchComponents: 0,
     missingPhase4BatchComponents: 0,
     unexpectedPhase4BatchComponents: 0,
-    phase4ComponentGateEdges: 480,
-    passingPhase4ComponentGateEdges: 480,
+    phase4ComponentGateEdges: 496,
+    passingPhase4ComponentGateEdges: 496,
     componentQaReports: 12,
     passingComponentQaReports: 12,
     componentQaInventoryMismatches: 0,
@@ -3527,11 +3597,11 @@ function assertReactGovernanceBaselines() {
   const phase5Pattern1to1 = readAuditReport("docs/audits/system-phase5-pattern-1to1-checkpoint.json");
   assertReportStatus(phase5Pattern1to1, "Phase 5 pattern 1:1 checkpoint");
   assertInventory(phase5Pattern1to1, {
-    patterns: 63,
+    patterns: 72,
     patternAuditReports: 7,
     passingPatternAuditReports: 7,
     patternReportsWithRows: 2,
-    patternReportsWith63Rows: 2,
+    patternReportsWithExpectedRows: 2,
     patternInventoryMismatches: 0,
     patternSetIssues: 0,
     patternAuditDebt: 0,
@@ -3679,12 +3749,12 @@ function assertReactGovernanceBaselines() {
     metaPatterns: 58,
     catalogPatterns: 63,
     uniqueCatalogPatterns: 63,
-    copyPatterns: 63,
-    markdownContracts: 63,
+    copyPatterns: 72,
+    markdownContracts: 72,
     requiredPatternContracts: 23,
     requiredContractsPresent: 23,
     requiredCopyPresent: 23,
-    formalArtifacts: 63,
+    formalArtifacts: 72,
     duplicateCatalogIds: 0,
     requiredContractGaps: 0,
     requiredCopyGaps: 0,
@@ -3693,7 +3763,7 @@ function assertReactGovernanceBaselines() {
     catalogOnlyPatterns: 0,
     approvedCatalogOnlyPatterns: 0,
     unapprovedCatalogOnlyPatterns: 0,
-    formalArtifactsMissingCatalog: 0,
+    formalArtifactsMissingCatalog: 9,
     catalogComponentReferenceErrors: 0,
     catalogArtifactDependencyMismatches: 0,
     patternReadinessDebt: 0,
@@ -3702,17 +3772,17 @@ function assertReactGovernanceBaselines() {
   const patternArchitecture = readAuditReport("docs/audits/pattern-1to1-architecture-audit.json");
   assertReportStatus(patternArchitecture, "Pattern 1:1 architecture");
   assertInventory(patternArchitecture, {
-    patterns: 63,
-    formalArtifacts: 63,
-    markdownContracts: 63,
+    patterns: 72,
+    formalArtifacts: 72,
+    markdownContracts: 72,
     catalogEntries: 63,
-    patternsWithDeclaredPrimitives: 63,
+    patternsWithDeclaredPrimitives: 72,
     patternsWithOnlyInferredPrimitives: 0,
     patternsWithUnknownComponents: 0,
     patternsWithComponentArtifactGaps: 0,
-    patternsWithPatternCrossings: 45,
-    patternsReferencedByTemplates: 16,
-    templatePatternDependencies: 50,
+    patternsWithPatternCrossings: 49,
+    patternsReferencedByTemplates: 26,
+    templatePatternDependencies: 120,
     templatePatternDependencyGaps: 0,
     templateModuleDependencyMismatches: 0,
     missingFormalTemplatePatternDependencies: 0,
@@ -3729,20 +3799,20 @@ function assertReactGovernanceBaselines() {
   const reactPatternBehavior = readAuditReport("docs/audits/react-pattern-behavior-governance-audit.json");
   assertReportStatus(reactPatternBehavior, "React pattern behavior governance");
   assertInventory(reactPatternBehavior, {
-    formalPatternArtifacts: 63,
-    implementedReactPatterns: 63,
-    typedPatternDeclarations: 63,
-    forwardRefPatterns: 63,
-    patternsWithRefAttributes: 63,
-    patternsWithDensityProp: 63,
-    callbackPropsDeclared: 269,
-    callbackPropsTested: 269,
+    formalPatternArtifacts: 72,
+    implementedReactPatterns: 72,
+    typedPatternDeclarations: 72,
+    forwardRefPatterns: 72,
+    patternsWithRefAttributes: 72,
+    patternsWithDensityProp: 72,
+    callbackPropsDeclared: 271,
+    callbackPropsTested: 271,
     missingCallbackTests: 0,
     declaredProps: 211,
     unusedDeclaredProps: 0,
     unusedCallbackProps: 0,
-    formalStates: 476,
-    typedStates: 476,
+    formalStates: 542,
+    typedStates: 542,
     statesMissingFromTypes: 0,
     statesMissingFromArtifact: 0,
     controlledPropPairs: 10,
@@ -3750,12 +3820,12 @@ function assertReactGovernanceBaselines() {
     rawGlobalDomRefs: 0,
     forbiddenPropsDeclared: 0,
     unsafeRestSpreads: 0,
-    structuralSurfaceSlotPatterns: 28,
-    structuralSurfaceSlots: 28,
+    structuralSurfaceSlotPatterns: 29,
+    structuralSurfaceSlots: 29,
     missingStructuralSurfaceUsage: 0,
-    patternsWithAccessibilityContracts: 60,
-    patternsWithDirectAccessibilitySignals: 62,
-    patternsWithDelegatedAccessibility: 49,
+    patternsWithAccessibilityContracts: 69,
+    patternsWithDirectAccessibilitySignals: 71,
+    patternsWithDelegatedAccessibility: 54,
     missingAccessibilityImplementation: 0,
     missingDataFlowPattern: 0,
     patternsWithBehaviorDebt: 0,
@@ -3765,11 +3835,11 @@ function assertReactGovernanceBaselines() {
   const reactPatternComposition = readAuditReport("docs/audits/react-pattern-composition-governance-audit.json");
   assertReportStatus(reactPatternComposition, "React pattern composition governance");
   assertInventory(reactPatternComposition, {
-    formalPatternArtifacts: 63,
-    implementedReactPatterns: 63,
+    formalPatternArtifacts: 72,
+    implementedReactPatterns: 72,
     missingFormalArtifacts: 0,
-    patternsWithDeclaredFoundations: 63,
-    patternsWithDeclaredPrimitives: 63,
+    patternsWithDeclaredFoundations: 72,
+    patternsWithDeclaredPrimitives: 72,
     missingRequiredComponentImports: 0,
     undeclaredComponentImports: 0,
     unknownComponentImports: 0,
@@ -3777,20 +3847,20 @@ function assertReactGovernanceBaselines() {
     docsDependencies: 0,
     workspaceDependencies: 0,
     visualClassLiterals: 0,
-    declaredPatternDependencies: 85,
-    runtimePatternImports: 75,
+    declaredPatternDependencies: 87,
+    runtimePatternImports: 77,
     boundaryOnlyPatternDependencies: 10,
     undocumentedPatternBoundaries: 0,
     undeclaredPatternImports: 0,
-    slotCount: 311,
-    slotUseCount: 481,
+    slotCount: 336,
+    slotUseCount: 513,
     slotIssues: 0,
     slotRenderEvidenceIssues: 0,
-    primitiveSlotUses: 34,
-    primitiveSurfaceSlotUses: 28,
+    primitiveSlotUses: 35,
+    primitiveSurfaceSlotUses: 29,
     primitiveMapsSlotUses: 1,
-    primitiveSlotRuntimeEvidence: 29,
-    tokenDependencies: 829,
+    primitiveSlotRuntimeEvidence: 30,
+    tokenDependencies: 939,
     tokenIssues: 0,
     missingDataFlowPattern: 0,
     reactPatternCompositionDebt: 0,
@@ -3799,19 +3869,19 @@ function assertReactGovernanceBaselines() {
   const patternFoundationPrimitive = readAuditReport("docs/audits/pattern-foundation-primitive-1to1-audit.json");
   assertReportStatus(patternFoundationPrimitive, "Pattern foundation primitive 1:1");
   assertInventory(patternFoundationPrimitive, {
-    formalPatternArtifacts: 63,
+    formalPatternArtifacts: 72,
     primitiveArtifacts: 24,
     foundationArtifacts: 11,
-    componentArtifacts: 60,
-    implementedReactPatterns: 63,
-    patternsWithExplicitFoundations: 63,
+    componentArtifacts: 62,
+    implementedReactPatterns: 72,
+    patternsWithExplicitFoundations: 72,
     patternsMissingExplicitFoundations: 0,
     patternsWithMissingPrimitiveRefs: 0,
     patternsWithMissingInferredPrimitiveArtifacts: 0,
     formalDependencyLayerErrors: 0,
     patternsWithUndeclaredComponentPrimitives: 0,
-    patternsRequiringSurfacePrimitive: 42,
-    patternsRequiringDirectSurfaceRuntime: 27,
+    patternsRequiringSurfacePrimitive: 45,
+    patternsRequiringDirectSurfaceRuntime: 28,
     patternsMissingDirectSurfaceRuntime: 0,
     patternsWithStructuralSurfaceDebt: 0,
     cardStructuralWrapperViolations: 0,
@@ -3821,21 +3891,21 @@ function assertReactGovernanceBaselines() {
     primitiveArtifactsUnreferencedBySystem: 0,
     unusedPrimitiveArtifactsRequiringPattern: 0,
     foundationArtifactsUnusedByPatterns: 0,
-    readyPatterns: 63,
+    readyPatterns: 72,
     blockedPatterns: 0,
   }, "Pattern foundation primitive 1:1");
 
   const patternMigrationPlan = readAuditReport("docs/audits/pattern-react-migration-plan.json");
   assertReportStatus(patternMigrationPlan, "Pattern React migration plan");
   assertInventory(patternMigrationPlan, {
-    patterns: 63,
-    reactSources: 63,
-    typeSources: 63,
-    forwardRefPatterns: 63,
-    densityPropPatterns: 63,
-    callbackPropsDeclared: 269,
-    callbackPropsTested: 269,
-    surfaceRequired: 44,
+    patterns: 72,
+    reactSources: 72,
+    typeSources: 72,
+    forwardRefPatterns: 72,
+    densityPropPatterns: 72,
+    callbackPropsDeclared: 271,
+    callbackPropsTested: 271,
+    surfaceRequired: 53,
     primitiveRuntimeRequired: 9,
     boundaryOnlyPatternDependencies: 10,
     migrationAuditDebt: 0,
@@ -3848,21 +3918,21 @@ function assertReactGovernanceBaselines() {
   const templateCascadeGovernance = readAuditReport("docs/audits/template-cascade-governance-audit.json");
   assertReportStatus(templateCascadeGovernance, "Template cascade governance");
   assertInventory(templateCascadeGovernance, {
-    templates: 9,
-    templateArtifacts: 9,
-    catalogTemplates: 9,
-    templateBlueprints: 9,
-    templatesWithSurfacePrimitive: 9,
-    templatesWithDensityPrimitive: 9,
-    templatePatternDependencies: 25,
-    uniqueTemplatePatternDependencies: 16,
-    reactPatternSources: 25,
-    reactPatternTypes: 25,
-    reactPatternExports: 25,
-    patternSurfaceContracts: 18,
-    patternSurfaceImports: 18,
+    templates: 17,
+    templateArtifacts: 17,
+    catalogTemplates: 17,
+    templateBlueprints: 17,
+    templatesWithSurfacePrimitive: 17,
+    templatesWithDensityPrimitive: 17,
+    templatePatternDependencies: 60,
+    uniqueTemplatePatternDependencies: 26,
+    reactPatternSources: 60,
+    reactPatternTypes: 60,
+    reactPatternExports: 60,
+    patternSurfaceContracts: 43,
+    patternSurfaceImports: 43,
     requiredReactTemplateRuntimes: 9,
-    templatesWithReactRuntime: 9,
+    templatesWithReactRuntime: 17,
     templateReactRuntimeBacklog: 0,
     missingRequiredReactTemplateRuntimes: 0,
     missingRequiredTemplateSurfaceRoots: 0,
@@ -3909,10 +3979,10 @@ function assertReactGovernanceBaselines() {
   const reactTemplateCompositionGovernance = readAuditReport("docs/audits/react-template-composition-governance-audit.json");
   assertReportStatus(reactTemplateCompositionGovernance, "React template composition governance");
   assertInventory(reactTemplateCompositionGovernance, {
-    templatesAudited: 9,
-    templatesWithPassingComposition: 9,
-    formalPatternDependencies: 25,
-    runtimePatternImports: 25,
+    templatesAudited: 17,
+    templatesWithPassingComposition: 17,
+    formalPatternDependencies: 60,
+    runtimePatternImports: 60,
     missingDeclaredPatternImports: 0,
     undeclaredPatternImports: 0,
     formalModuleMarkers: 37,
@@ -3920,9 +3990,9 @@ function assertReactGovernanceBaselines() {
     runtimeModuleMarkers: 43,
     missingFormalModuleMarkers: 0,
     undeclaredRuntimeModuleMarkers: 0,
-    directComponentImports: 6,
+    directComponentImports: 8,
     unapprovedDirectComponentImports: 0,
-    surfacePrimitiveImports: 9,
+    surfacePrimitiveImports: 17,
     compositionContractGaps: 0,
     reactTemplateCompositionGovernanceDebt: 0,
   }, "React template composition governance");
@@ -4003,7 +4073,7 @@ function assertReactGovernanceBaselines() {
     missingTypeSnippets: 0,
     missingCssSelectors: 0,
     rawVisualCss: 0,
-    patternSurfaceImports: 38,
+    patternSurfaceImports: 48,
     structuralSurfacePolicyIssues: 0,
     distGaps: 0,
     surfaceCascadeDebt: 0,
@@ -4072,8 +4142,8 @@ function assertReactGovernanceBaselines() {
   const componentPlatformTypescriptSurface = readAuditReport("docs/audits/system-component-platform-typescript-surface.json");
   assertReportStatus(componentPlatformTypescriptSurface, "System component platform TypeScript surface");
   assertInventory(componentPlatformTypescriptSurface, {
-    platformRuntimeFiles: 61,
-    platformTypeScriptSourceFiles: 61,
+    platformRuntimeFiles: 63,
+    platformTypeScriptSourceFiles: 63,
     missingTypeScriptSources: 0,
     staleRuntimeFiles: 0,
     componentPlatformTypescriptSurfaceDebt: 0,
@@ -4276,11 +4346,11 @@ function assertReactGovernanceBaselines() {
   const reactRootIndexTypescriptSurface = readAuditReport("docs/audits/system-react-root-index-typescript-surface.json");
   assertReportStatus(reactRootIndexTypescriptSurface, "React root index TypeScript surface");
   assertInventory(reactRootIndexTypescriptSurface, {
-    sourceExports: 124,
-    runtimeExports: 124,
-    declarationExports: 124,
-    sourceTypeExportGroups: 124,
-    declarationTypeExportGroups: 124,
+    sourceExports: 136,
+    runtimeExports: 136,
+    declarationExports: 136,
+    sourceTypeExportGroups: 136,
+    declarationTypeExportGroups: 136,
     staleRuntimeFiles: 0,
     reactRootIndexTypescriptSurfaceDebt: 0,
   }, "React root index TypeScript surface");
@@ -4289,11 +4359,11 @@ function assertReactGovernanceBaselines() {
   assertReportStatus(reactSectionIndexesTypescriptSurface, "React section indexes TypeScript surface");
   assertInventory(reactSectionIndexesTypescriptSurface, {
     sectionIndexesAudited: 2,
-    sourceExports: 72,
-    runtimeExports: 72,
-    declarationExports: 72,
-    sourceTypeExportGroups: 72,
-    declarationTypeExportGroups: 72,
+    sourceExports: 89,
+    runtimeExports: 89,
+    declarationExports: 89,
+    sourceTypeExportGroups: 89,
+    declarationTypeExportGroups: 89,
     staleRuntimeFiles: 0,
     reactSectionIndexTypescriptSurfaceDebt: 0,
   }, "React section indexes TypeScript surface");
@@ -4318,7 +4388,7 @@ function assertReactGovernanceBaselines() {
     generatedTokenOutputs: 9,
     matchingGeneratedTokenOutputs: 9,
     rawTokenValueViolations: 0,
-    sourceBoundaryFilesScanned: 617,
+    sourceBoundaryFilesScanned: 678,
     sourceBoundaryViolations: 0,
     phase3FoundationsPrimitivesDebt: 0,
   }, "Phase 3 foundations/primitives checkpoint");
@@ -4326,12 +4396,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 121,
-    categoryMappings: 111,
+    reports: 139,
+    categoryMappings: 129,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 121,
-    debtMetrics: 144,
+    reportsWithDebtMetrics: 139,
+    debtMetrics: 172,
     categories: 9,
     categoryMinimums: 9,
     categoryPrinciples: 9,
@@ -4359,9 +4429,9 @@ function assertReactGovernanceBaselines() {
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
   assertInventory(propAlignment, {
-    components: 60,
+    components: 62,
     propAlignmentDebt: 0,
-    pass: 60,
+    pass: 62,
     fail: 0,
     extraReactProps: 0,
     missingReactProps: 0,
@@ -4373,7 +4443,7 @@ function assertReactGovernanceBaselines() {
   const controlled = readAuditReport("docs/audits/react-controlled-governance-audit.json");
   assertReportStatus(controlled, "React controlled governance");
   assertInventory(controlled, {
-    components: 60,
+    components: 62,
     controlledDebt: 0,
     controlledComponents: 31,
     openControlledComponents: 10,
@@ -4385,10 +4455,10 @@ function assertReactGovernanceBaselines() {
   const interactions = readAuditReport("docs/audits/react-interaction-coverage-audit.json");
   assertReportStatus(interactions, "React interaction coverage");
   assertInventory(interactions, {
-    components: 60,
+    components: 62,
     interactionDebt: 0,
-    withCallbacks: 44,
-    pass: 60,
+    withCallbacks: 45,
+    pass: 62,
     review: 0,
     fail: 0,
     missingTestCallbacks: 0,
@@ -4400,7 +4470,7 @@ function assertReactGovernanceBaselines() {
   const accessibility = readAuditReport("docs/audits/react-accessibility-governance-audit.json");
   assertReportStatus(accessibility, "React accessibility governance");
   assertInventory(accessibility, {
-    components: 60,
+    components: 62,
     accessibilityDebt: 0,
     criticalComponents: 10,
     criticalPassing: 10,
@@ -4461,11 +4531,11 @@ function assertPatternMigrationPlanContract(report) {
   const expectedGlobalGates = {
     architectureDebt: 0,
     architectureBlockingDebt: 0,
-    patternsWithDeclaredPrimitives: 63,
+    patternsWithDeclaredPrimitives: 72,
     patternsWithOnlyInferredPrimitives: 0,
     templateDependencyGaps: 0,
-    surfaceRequiredPatterns: 42,
-    directSurfaceRuntimeRequired: 27,
+    surfaceRequiredPatterns: 45,
+    directSurfaceRuntimeRequired: 28,
     missingDirectSurfaceRuntime: 0,
     structuralSurfaceDebt: 0,
     cardStructuralWrapperViolations: 0,
@@ -4474,10 +4544,10 @@ function assertPatternMigrationPlanContract(report) {
   };
   const expectedWaves = [
     ["base Flow composition", { patterns: 8, surfacePatterns: 0, runtimePrimitives: 0, patternBoundaries: 2, templateRefs: 0, componentRefs: 17 }],
-    ["stateful Flow composition", { patterns: 23, surfacePatterns: 18, runtimePrimitives: 0, patternBoundaries: 9, templateRefs: 0, componentRefs: 35 }],
-    ["cross-pattern composition", { patterns: 9, surfacePatterns: 5, runtimePrimitives: 0, patternBoundaries: 12, templateRefs: 0, componentRefs: 19 }],
+    ["stateful Flow composition", { patterns: 25, surfacePatterns: 21, runtimePrimitives: 0, patternBoundaries: 9, templateRefs: 0, componentRefs: 36 }],
+    ["cross-pattern composition", { patterns: 6, surfacePatterns: 4, runtimePrimitives: 0, patternBoundaries: 10, templateRefs: 0, componentRefs: 18 }],
     ["primitive-runtime composition", { patterns: 6, surfacePatterns: 6, runtimePrimitives: 2, patternBoundaries: 1, templateRefs: 0, componentRefs: 19 }],
-    ["template-facing orchestrator", { patterns: 17, surfacePatterns: 15, runtimePrimitives: 3, patternBoundaries: 21, templateRefs: 8, componentRefs: 36 }],
+    ["template-facing orchestrator", { patterns: 27, surfacePatterns: 22, runtimePrimitives: 3, patternBoundaries: 22, templateRefs: 16, componentRefs: 38 }],
   ];
   const issues = [];
   for (const [key, expected] of Object.entries(expectedGlobalGates)) {
@@ -4508,11 +4578,11 @@ function assertPatternMigrationPlanContract(report) {
   const patternBoundaryChecklist = patterns.filter((pattern) => pattern.executionChecklist?.some((gate) => gate.id === "pattern-boundaries"));
   const templateBoundaryChecklist = patterns.filter((pattern) => pattern.executionChecklist?.some((gate) => gate.id === "template-boundaries"));
   const baseGateIds = ["formal-artifact", "react-primary", "types-contract", "flow-composition", "docs-system-boundary", "verification"];
-  if (patterns.length !== 63) issues.push(`patterns: expected 63, got ${patterns.length}`);
-  if (surfaceChecklist.length !== 44) issues.push(`surface checklist count: expected 44, got ${surfaceChecklist.length}`);
+  if (patterns.length !== 72) issues.push(`patterns: expected 72, got ${patterns.length}`);
+  if (surfaceChecklist.length !== 53) issues.push(`surface checklist count: expected 53, got ${surfaceChecklist.length}`);
   if (runtimeChecklist.length !== 9) issues.push(`runtime checklist count: expected 9, got ${runtimeChecklist.length}`);
-  if (patternBoundaryChecklist.length !== 42) issues.push(`pattern boundary checklist count: expected 42, got ${patternBoundaryChecklist.length}`);
-  if (templateBoundaryChecklist.length !== 16) issues.push(`template boundary checklist count: expected 16, got ${templateBoundaryChecklist.length}`);
+  if (patternBoundaryChecklist.length !== 44) issues.push(`pattern boundary checklist count: expected 44, got ${patternBoundaryChecklist.length}`);
+  if (templateBoundaryChecklist.length !== 26) issues.push(`template boundary checklist count: expected 26, got ${templateBoundaryChecklist.length}`);
   for (const pattern of patterns) {
     const checklistIds = (pattern.executionChecklist ?? []).map((gate) => gate.id);
     for (const gate of baseGateIds) {
@@ -4527,7 +4597,7 @@ function assertPatternMigrationPlanContract(report) {
   }
   if ((report.validationIssues ?? []).length !== 0) issues.push(`validationIssues: expected 0, got ${report.validationIssues.length}`);
   if ((report.boundaryOnlyPatternDependencies ?? []).length !== 10) issues.push("boundary-only dependency count changed");
-  if ((report.templatePatternDependencies ?? []).length !== 50) issues.push("template dependency count changed");
+  if ((report.templatePatternDependencies ?? []).length !== 120) issues.push("template dependency count changed");
   if ((report.governedUnusedPrimitives ?? []).length !== 2) issues.push("governed unused primitive count changed");
   const docsCoverage = report.docsReactPatternDemoCoverage ?? [];
   const docsCoveragePatterns = docsCoverage.map((row) => row.pattern).sort();

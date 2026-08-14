@@ -4,6 +4,7 @@ import { Dialog } from "../Dialog.js";
 import { EmptyState } from "../EmptyState.js";
 import { Input } from "../Input.js";
 import { Menu } from "../Menu.js";
+import { Surface } from "../Surface.js";
 import { Toast } from "../Toast.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
@@ -48,9 +49,12 @@ export const CommandPalette = forwardRef(function CommandPalette({ label = "Comm
         ...(command.tone !== undefined ? { tone: command.tone } : {}),
         ...(command.onClick !== undefined ? { onClick: command.onClick } : {}),
     }));
-    return React.createElement("div", {
+    return React.createElement(Surface, {
         ref,
         className,
+        surfaceRole: "overlay",
+        elevation: "overlay",
+        focusMode: open ? "within" : "none",
         role: "region",
         "aria-label": label,
         "aria-busy": isBusy ? "true" : undefined,

@@ -1,39 +1,54 @@
 import React, { forwardRef } from "react";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
-import { Button, type ButtonProps } from "./Button.js";
+import { codeBlockPlatformContract } from "@design-system/components/platforms";
+import { CopyButton } from "./CopyButton.js";
 import { flowDensityProps, flowRestProps, flowStateProps, flowVariantProps, normalizeFlowDensity } from "./internal/props.js";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
-export type CodeBlockVariant = "standard" | "source" | "inline";
-export type CodeBlockState = "default" | "focus" | "copied" | "error" | "disabled";
+export type CodeBlockVariant = "block" | "inline-group" | "specimen";
+export type CodeBlockState = "default" | "wrapped" | "scrollable" | "with-header" | "with-copy" | "copied" | "error" | "disabled";
 export type CodeBlockDensity = FlowDensity;
 
-export interface CodeBlockAction extends ButtonProps {
-  key?: string;
+export interface CodeBlockAction {
+  value?: string;
+  label?: string;
+  ariaLabel?: string;
+  copiedLabel?: string;
+  errorLabel?: string;
+  disabled?: boolean;
+  feedbackDuration?: number;
 }
 
 export interface CodeBlockProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   code: string;
   label?: string;
+  filename?: string;
   language?: string;
   helper?: string;
   variant?: CodeBlockVariant;
   state?: CodeBlockState;
   density?: CodeBlockDensity;
   copyAction?: CodeBlockAction;
+  copyable?: boolean;
   disabled?: boolean;
   wrap?: boolean;
 }
 
+type ResolvedCodeBlockAction = CodeBlockAction & {
+  value: string;
+  ariaLabel: string;
+};
+
 export interface CodeBlockComponent extends ForwardRefExoticComponent<CodeBlockProps & RefAttributes<HTMLElement>> {
   displayName: "CodeBlock";
+  platformContract: typeof codeBlockPlatformContract;
 }
 
-const validVariants = new Set<CodeBlockVariant>(["standard", "source", "inline"]);
-const validStates = new Set<CodeBlockState>(["default", "focus", "copied", "error", "disabled"]);
+const validVariants = new Set<CodeBlockVariant>(["block", "inline-group", "specimen"]);
+const validStates = new Set<CodeBlockState>(["default", "wrapped", "scrollable", "with-header", "with-copy", "copied", "error", "disabled"]);
 
 function resolveVariant(variant: CodeBlockVariant | undefined): CodeBlockVariant {
-  return variant && validVariants.has(variant) ? variant : "standard";
+  return variant && validVariants.has(variant) ? variant : "block";
 }
 
 function resolveState({ disabled, state }: { disabled?: boolean; state?: CodeBlockState }): CodeBlockState {
@@ -41,23 +56,63 @@ function resolveState({ disabled, state }: { disabled?: boolean; state?: CodeBlo
   return state && validStates.has(state) ? state : "default";
 }
 
+function resolveCopyAction({
+  code,
+  label,
+  filename,
+  language,
+  copyAction,
+  copyable,
+  disabled,
+}: {
+  code: string;
+  label?: string;
+  filename?: string;
+  language?: string;
+  copyAction?: CodeBlockAction;
+  copyable?: boolean;
+  disabled?: boolean;
+}): ResolvedCodeBlockAction | null {
+  if (!copyAction && !copyable) return null;
+  return {
+    value: copyAction?.value ?? code,
+    ariaLabel: copyAction?.ariaLabel ?? (label || filename || language ? `Copy ${label ?? filename ?? language}` : "Copy snippet"),
+    ...(copyAction?.label !== undefined ? { label: copyAction.label } : {}),
+    ...(copyAction?.copiedLabel !== undefined ? { copiedLabel: copyAction.copiedLabel } : {}),
+    ...(copyAction?.errorLabel !== undefined ? { errorLabel: copyAction.errorLabel } : {}),
+    ...(disabled || copyAction?.disabled ? { disabled: true } : {}),
+    ...(copyAction?.feedbackDuration !== undefined ? { feedbackDuration: copyAction.feedbackDuration } : {}),
+  };
+}
+
 export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBlock({
   code,
   label,
+  filename,
   language,
   helper,
-  variant = "standard",
+  variant = "block",
   state = "default",
   density,
   copyAction,
+  copyable = false,
   disabled = false,
   wrap = true,
   className = "",
   ...rest
 }, ref) {
   const resolvedVariant = resolveVariant(variant);
-  const resolvedState = resolveState({ disabled, state });
+  const resolvedState = resolveState({ disabled, state: copyAction || copyable ? state === "default" ? "with-copy" : state : state });
   const resolvedDensity = normalizeFlowDensity(density);
+  const resolvedCopyAction = resolveCopyAction({
+    code,
+    ...(label !== undefined ? { label } : {}),
+    ...(filename !== undefined ? { filename } : {}),
+    ...(language !== undefined ? { language } : {}),
+    ...(copyAction !== undefined ? { copyAction } : {}),
+    copyable,
+    disabled,
+  });
   if (!code) return null;
 
   return React.createElement(
@@ -73,7 +128,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBl
       "data-wrap": wrap ? "true" : "false",
       "data-language": language || undefined,
     },
-    label || helper || copyAction
+    label || filename || helper || language || resolvedCopyAction
       ? React.createElement(
         "figcaption",
         { className: "code-block__header" },
@@ -81,18 +136,17 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBl
           "span",
           { className: "code-block__meta" },
           label ? React.createElement("strong", null, label) : null,
+          filename ? React.createElement("span", { className: "code-block__filename" }, filename) : null,
           helper ? React.createElement("span", null, helper) : null,
-          language ? React.createElement("span", { "data-flow-slot": "code-block.language" }, language) : null,
+          language ? React.createElement("span", { className: "code-block__language" }, language) : null,
         ),
-        copyAction
-          ? React.createElement(Button, {
-            ...copyAction,
-            label: copyAction.label ?? "Copy",
-            density: copyAction.density ?? resolvedDensity,
-            variant: copyAction.variant ?? "secondary",
-            disabled: disabled || copyAction.disabled,
-            "data-flow-slot": "code-block.copy-action",
-          } as ButtonProps)
+        resolvedCopyAction
+          ? React.createElement(CopyButton, {
+            ...resolvedCopyAction,
+            variant: "inline",
+            className: "code-block__copy-action",
+            ...(resolvedDensity !== undefined ? { density: resolvedDensity } : {}),
+          })
           : null,
       )
       : null,
@@ -105,3 +159,4 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBl
 }) as CodeBlockComponent;
 
 CodeBlock.displayName = "CodeBlock";
+CodeBlock.platformContract = codeBlockPlatformContract;

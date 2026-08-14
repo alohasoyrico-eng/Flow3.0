@@ -26,6 +26,7 @@ const {
   nonNegotiableMigrationRules,
   migrationExpectedInventory: expectedInventory,
   emailChannelPatternIds,
+  componentDependencyOptionalPatternIds,
 } = patternArchitecturePolicy;
 
 function readJson(file) {
@@ -186,6 +187,10 @@ function slotCoverageFindings(artifact, sourceFile) {
   };
 }
 
+function requiresComponentDependencies(patternId) {
+  return !emailChannelPatternIds.has(patternId) && !componentDependencyOptionalPatternIds.has(patternId);
+}
+
 function createReport() {
   const templateRefsByPattern = templateReferenceMap();
   const behaviorAudit = behaviorAuditByPattern();
@@ -254,7 +259,7 @@ function createReport() {
       ...(!row.hasTypeSource ? ["missing React pattern types"] : []),
       ...(!row.foundationDependencies.length ? ["missing foundation dependencies"] : []),
       ...(!row.primitiveDependencies.length ? ["missing primitive dependencies"] : []),
-      ...(!row.componentDependencies.length && !emailChannelPatternIds.has(row.id) ? ["missing component dependencies"] : []),
+      ...(!row.componentDependencies.length && requiresComponentDependencies(row.id) ? ["missing component dependencies"] : []),
       ...(!row.states.length ? ["missing formal state model"] : []),
       ...(!row.slots.length ? ["missing formal slots"] : []),
       ...(behaviorAudit.missing ? ["missing react pattern behavior audit"] : []),

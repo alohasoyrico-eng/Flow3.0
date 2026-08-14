@@ -3,9 +3,9 @@
   "errors": [],
   "inventory": {
     "checks": 18,
-    "componentClassRoots": 63,
-    "acceptedComponents": 60,
-    "ownerRoots": 60,
+    "componentClassRoots": 65,
+    "acceptedComponents": 62,
+    "ownerRoots": 62,
     "missingOwnerRoots": 0,
     "extensionRoots": 3,
     "protectedComponentRoots": 7,
@@ -29,9 +29,9 @@
   "baseline": {
     "inventory": {
       "checks": 18,
-      "componentClassRoots": 63,
-      "acceptedComponents": 60,
-      "ownerRoots": 60,
+      "componentClassRoots": 65,
+      "acceptedComponents": 62,
+      "ownerRoots": 62,
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
       "protectedComponentRoots": 7,
@@ -49,9 +49,9 @@
     },
     "actual": {
       "checks": 18,
-      "componentClassRoots": 63,
-      "acceptedComponents": 60,
-      "ownerRoots": 60,
+      "componentClassRoots": 65,
+      "acceptedComponents": 62,
+      "ownerRoots": 62,
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
       "protectedComponentRoots": 7,
@@ -94,8 +94,10 @@
     "checkbox",
     "chip",
     "choice",
+    "code-block",
     "code-input",
     "combobox",
+    "copy-button",
     "country-flag",
     "country-selector",
     "date-picker",
@@ -139,8 +141,8 @@
     "tree-view"
   ],
   "rootRegistry": {
-    "acceptedComponents": 60,
-    "ownerRoots": 60,
+    "acceptedComponents": 62,
+    "ownerRoots": 62,
     "missingOwnerRoots": [],
     "extensionRoots": [
       "choice",
@@ -472,6 +474,9 @@
   },
   "reactSupportClassRoots": [
     "animation-asset",
+    "docs-artifact-detail-template",
+    "documentation-hero",
+    "documentation-section",
     "field-action",
     "illustration-asset",
     "input",

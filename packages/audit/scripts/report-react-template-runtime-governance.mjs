@@ -4,15 +4,15 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createRequire } from "node:module";
 
-import { AgentWorkspace } from "../../react/src/templates/AgentWorkspace.js";
-import { ConfigurationConsole } from "../../react/src/templates/ConfigurationConsole.js";
-import { DriverCardWallet } from "../../react/src/templates/DriverCardWallet.js";
-import { DriverMobileApp } from "../../react/src/templates/DriverMobileApp.js";
-import { FleetDashboardSuite } from "../../react/src/templates/FleetDashboardSuite.js";
-import { FleetManagerDesktop } from "../../react/src/templates/FleetManagerDesktop.js";
-import { InternalOperationsConsole } from "../../react/src/templates/InternalOperationsConsole.js";
-import { RoutesAndStations } from "../../react/src/templates/RoutesAndStations.js";
-import { SettingsWorkspace } from "../../react/src/templates/SettingsWorkspace.js";
+import { AgentWorkspace } from "../../react/dist/templates/AgentWorkspace.js";
+import { ConfigurationConsole } from "../../react/dist/templates/ConfigurationConsole.js";
+import { DriverCardWallet } from "../../react/dist/templates/DriverCardWallet.js";
+import { DriverMobileApp } from "../../react/dist/templates/DriverMobileApp.js";
+import { FleetDashboardSuite } from "../../react/dist/templates/FleetDashboardSuite.js";
+import { FleetManagerDesktop } from "../../react/dist/templates/FleetManagerDesktop.js";
+import { InternalOperationsConsole } from "../../react/dist/templates/InternalOperationsConsole.js";
+import { RoutesAndStations } from "../../react/dist/templates/RoutesAndStations.js";
+import { SettingsWorkspace } from "../../react/dist/templates/SettingsWorkspace.js";
 
 const require = createRequire(import.meta.url);
 const {

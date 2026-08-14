@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "flow-system-react-build-reproducibility@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "srcRuntimeMirrors": 156,
+    "srcRuntimeMirrorsMissingHeader": 0,
+    "distRuntimeFiles": 157,
+    "distDeclarationFiles": 156,
+    "buildCheckStatus": 0,
+    "reactBuildReproducibilityDebt": 0
+  },
+  "buildCheck": {
+    "status": 0,
+    "stdout": "{\"status\":\"pass\",\"package\":\"@design-system/react\",\"outDir\":\"dist\",\"files\":313}",
+    "stderr": ""
+  },
+  "srcRuntimeMirrorsMissingHeader": [],
+  "observedIdempotence": {
+    "command": "npm run build:react",
+    "statusDeltaLines": 0,
+    "diffDeltaLines": 0,
+    "note": "Measured during iteration 09 by comparing git status and git diff before and after npm run build:react."
+  },
+  "policy": {
+    "authoredSource": "packages/react/src/**/*.ts and packages/react/src/**/*.tsx",
+    "compatibilityRuntime": "packages/react/src/**/*.js with generated header",
+    "publicationRuntime": "packages/react/dist/**/*.js",
+    "gate": "node packages/react/scripts/build.mjs --check"
+  }
+}

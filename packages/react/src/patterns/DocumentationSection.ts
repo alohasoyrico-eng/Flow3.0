@@ -6,7 +6,7 @@ import type { FlowDataAttributes } from "../internal/props.js";
 import { SectionHeader } from "./SectionHeader.js";
 import type { SectionHeaderProps } from "./SectionHeader.js";
 
-export type DocumentationSectionState = "default" | "dense" | "callout" | "matrix" | "empty" | "loading" | "error";
+export type DocumentationSectionState = "default" | "dense" | "callout" | "matrix" | "empty" | "loading" | "error" | "dark" | "mobile";
 export type DocumentationSectionLayout = "stack" | "split" | "matrix" | "cards" | "callout";
 export type DocumentationSectionDensity = SurfaceDensity;
 export type DocumentationSectionTone = SurfaceTone | "info";
@@ -40,7 +40,7 @@ export interface DocumentationSectionComponent extends ForwardRefExoticComponent
 
 type DocumentationSectionRestProps = Record<string, unknown>;
 
-const validStates = new Set<DocumentationSectionState>(["default", "dense", "callout", "matrix", "empty", "loading", "error"]);
+const validStates = new Set<DocumentationSectionState>(["default", "dense", "callout", "matrix", "empty", "loading", "error", "dark", "mobile"]);
 const validLayouts = new Set<DocumentationSectionLayout>(["stack", "split", "matrix", "cards", "callout"]);
 const validTones = new Set<DocumentationSectionTone>(["default", "muted", "selected", "danger", "warning", "success", "info"]);
 
@@ -112,6 +112,7 @@ export const DocumentationSection = forwardRef<HTMLDivElement, DocumentationSect
       elevation,
       tone: resolvedTone,
       state: resolvedState === "loading" ? "disabled" : "default",
+      "aria-label": rest["aria-label"] ?? sectionTitle ?? "Documentation section",
       "data-flow-pattern": "documentation-section",
       "data-documentation-section-layout": resolvedLayout,
       "data-documentation-section-state": resolvedState,

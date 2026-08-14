@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "flow-system-consumer-css-token-cascade@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "packedFiles": 1356,
+    "tokenCssBytes": 64552,
+    "componentCssBytes": 543622,
+    "tokenMarkers": 4,
+    "componentAliasMarkers": 6,
+    "componentRootMarkers": 6,
+    "densityMarkers": 4,
+    "forbiddenCssMarkers": 6,
+    "consumerCssTokenCascadeDebt": 0
+  },
+  "markers": {
+    "tokenMarkers": [
+      "--sys-color-surface:",
+      "--sys-color-text:",
+      "--sys-density-control-height:",
+      "--sys-focus-ring:"
+    ],
+    "componentAliasMarkers": [
+      "--comp-button-bg-primary:",
+      "--comp-card-bg:",
+      "--comp-field-control-size:",
+      "--comp-table-bg:",
+      "--comp-code-block-bg:",
+      "--comp-copy-button-feedback-gap:"
+    ],
+    "componentRootMarkers": [
+      ".button",
+      ".card",
+      ".field",
+      ".table",
+      ".code-block",
+      ".copy-button"
+    ],
+    "densityMarkers": [
+      ".button[data-density=\"sm\"]",
+      ".card[data-density=\"lg\"]",
+      ".field[data-density=\"sm\"]",
+      ".table[data-density=\"sm\"]"
+    ],
+    "forbiddenCssMarkers": [
+      "apps/docs",
+      "docs-demo",
+      "gold-",
+      "@design-system/components",
+      "@design-system/react",
+      "sourceMappingURL"
+    ]
+  },
+  "policy": {
+    "packageBoundary": "CSS smoke must resolve CSS through public package exports only.",
+    "cascadeOrder": "Consumers must load token CSS before component CSS aliases.",
+    "leakBoundary": "Installed CSS must not leak FlowDocs, gold-* demo, sourcemap, or workspace import markers."
+  }
+}

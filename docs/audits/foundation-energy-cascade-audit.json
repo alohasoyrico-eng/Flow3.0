@@ -6,7 +6,7 @@
   "principle": "Energy must govern semantic color for actions, status, risk, text, surfaces, borders, charts, and maps without changing Flow tokens to copy reference visuals.",
   "tokenOwnership": {
     "tokenCss": "packages/tokens/styles/tokens.css",
-    "declarations": 108,
+    "declarations": 116,
     "requiredTokens": [
       "--sys-energy-surface-primary",
       "--sys-energy-surface-secondary",
@@ -167,7 +167,7 @@
       ]
     },
     "components": {
-      "count": 60,
+      "count": 62,
       "ids": [
         "accordion",
         "animated-moment",
@@ -188,8 +188,10 @@
         "chat-thread",
         "checkbox",
         "chip",
+        "code-block",
         "code-input",
         "combobox",
+        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -246,12 +248,13 @@
       ]
     },
     "patterns": {
-      "count": 63,
+      "count": 72,
       "ids": [
         "account-operations",
         "action-sheet",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "autocomplete",
         "avatar-group",
@@ -267,7 +270,14 @@
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-page-shell",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-section",
+        "documentation-token-grid",
         "drag-sortable-list",
         "drawer-adapter",
         "driver-and-vehicle-administration",
@@ -287,6 +297,7 @@
         "multi-select",
         "multi-step-form",
         "notification-panel",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -317,14 +328,14 @@
         "packages/content/content/pattern-contracts/patterns/action-sheet.md",
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
         "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
-        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
-        "packages/content/content/pattern-contracts/patterns/calendar-view.md"
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md"
       ]
     },
     "templates": {
@@ -346,7 +357,7 @@
         "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json"
       ]
     },
-    "packageCssDirectUses": 853,
+    "packageCssDirectUses": 883,
     "docsCssDirectUses": 0
   },
   "semanticLocks": {

@@ -264,6 +264,18 @@
       "types": "./dist/templates/ConfigurationConsole.d.ts",
       "default": "./dist/templates/ConfigurationConsole.js"
     },
+    "./templates/component-detail-template": {
+      "types": "./dist/templates/ComponentDetailTemplate.d.ts",
+      "default": "./dist/templates/ComponentDetailTemplate.js"
+    },
+    "./templates/docs-collection-template": {
+      "types": "./dist/templates/DocsCollectionTemplate.d.ts",
+      "default": "./dist/templates/DocsCollectionTemplate.js"
+    },
+    "./templates/docs-home-template": {
+      "types": "./dist/templates/DocsHomeTemplate.d.ts",
+      "default": "./dist/templates/DocsHomeTemplate.js"
+    },
     "./templates/driver-card-wallet": {
       "types": "./dist/templates/DriverCardWallet.d.ts",
       "default": "./dist/templates/DriverCardWallet.js"
@@ -272,10 +284,6 @@
       "types": "./dist/templates/DriverMobileApp.d.ts",
       "default": "./dist/templates/DriverMobileApp.js"
     },
-    "./templates/docs-shell": {
-      "types": "./dist/templates/DocsShellTemplate.d.ts",
-      "default": "./dist/templates/DocsShellTemplate.js"
-    },
     "./templates/fleet-dashboard-suite": {
       "types": "./dist/templates/FleetDashboardSuite.d.ts",
       "default": "./dist/templates/FleetDashboardSuite.js"
@@ -283,6 +291,14 @@
     "./templates/fleet-manager-desktop": {
       "types": "./dist/templates/FleetManagerDesktop.d.ts",
       "default": "./dist/templates/FleetManagerDesktop.js"
+    },
+    "./templates/pattern-detail-template": {
+      "types": "./dist/templates/PatternDetailTemplate.d.ts",
+      "default": "./dist/templates/PatternDetailTemplate.js"
+    },
+    "./templates/reference-detail-template": {
+      "types": "./dist/templates/ReferenceDetailTemplate.d.ts",
+      "default": "./dist/templates/ReferenceDetailTemplate.js"
     },
     "./templates/routes-and-stations": {
       "types": "./dist/templates/RoutesAndStations.d.ts",
@@ -488,6 +504,18 @@
       "types": "./dist/patterns/DocumentationSection.d.ts",
       "default": "./dist/patterns/DocumentationSection.js"
     },
+    "./patterns/documentation-primitive-demo": {
+      "types": "./dist/patterns/DocumentationPrimitiveDemo.d.ts",
+      "default": "./dist/patterns/DocumentationPrimitiveDemo.js"
+    },
+    "./patterns/documentation-reference-grid": {
+      "types": "./dist/patterns/DocumentationReferenceGrid.d.ts",
+      "default": "./dist/patterns/DocumentationReferenceGrid.js"
+    },
+    "./patterns/documentation-token-grid": {
+      "types": "./dist/patterns/DocumentationTokenGrid.d.ts",
+      "default": "./dist/patterns/DocumentationTokenGrid.js"
+    },
     "./patterns/virtual-data-table": {
       "types": "./dist/patterns/VirtualDataTable.d.ts",
       "default": "./dist/patterns/VirtualDataTable.js"
@@ -555,6 +583,46 @@
     "./templates/settings-workspace": {
       "types": "./dist/templates/SettingsWorkspace.d.ts",
       "default": "./dist/templates/SettingsWorkspace.js"
+    },
+    "./templates/template-detail-template": {
+      "types": "./dist/templates/TemplateDetailTemplate.d.ts",
+      "default": "./dist/templates/TemplateDetailTemplate.js"
+    },
+    "./code-block": {
+      "types": "./dist/CodeBlock.d.ts",
+      "default": "./dist/CodeBlock.js"
+    },
+    "./copy-button": {
+      "types": "./dist/CopyButton.d.ts",
+      "default": "./dist/CopyButton.js"
+    },
+    "./templates/docs-artifact-detail-template": {
+      "types": "./dist/templates/DocsArtifactDetailTemplate.d.ts",
+      "default": "./dist/templates/DocsArtifactDetailTemplate.js"
+    },
+    "./templates/docs-shell-template": {
+      "types": "./dist/templates/DocsShellTemplate.d.ts",
+      "default": "./dist/templates/DocsShellTemplate.js"
+    },
+    "./patterns/artifact-metadata-bar": {
+      "types": "./dist/patterns/ArtifactMetadataBar.d.ts",
+      "default": "./dist/patterns/ArtifactMetadataBar.js"
+    },
+    "./patterns/demo-preview-frame": {
+      "types": "./dist/patterns/DemoPreviewFrame.d.ts",
+      "default": "./dist/patterns/DemoPreviewFrame.js"
+    },
+    "./patterns/documentation-hero": {
+      "types": "./dist/patterns/DocumentationHero.d.ts",
+      "default": "./dist/patterns/DocumentationHero.js"
+    },
+    "./patterns/documentation-page-shell": {
+      "types": "./dist/patterns/DocumentationPageShell.d.ts",
+      "default": "./dist/patterns/DocumentationPageShell.js"
+    },
+    "./patterns/on-this-page-nav": {
+      "types": "./dist/patterns/OnThisPageNav.d.ts",
+      "default": "./dist/patterns/OnThisPageNav.js"
     }
   },
   "imports": {

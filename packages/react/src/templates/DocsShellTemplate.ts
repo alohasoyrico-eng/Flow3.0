@@ -1,5 +1,8 @@
 import React, { forwardRef } from "react";
 import { Surface, type SurfaceDensity } from "../Surface.js";
+import { CommandPalette, type CommandPaletteProps } from "../patterns/CommandPalette.js";
+import { DocumentationPageShell } from "../patterns/DocumentationPageShell.js";
+import { Search, type SearchProps } from "../patterns/Search.js";
 import { Sidebar, type SidebarProps } from "../patterns/Sidebar.js";
 import { Topbar, type TopbarProps } from "../patterns/Topbar.js";
 import { flowDefinedProps, flowRestProps } from "../internal/props.js";
@@ -29,6 +32,8 @@ export interface DocsShellTemplateProps extends FlowDataAttributes {
   sidebarOpen?: boolean;
   sidebar?: SidebarProps;
   topbar?: TopbarProps;
+  search?: SearchProps;
+  commandPalette?: CommandPaletteProps;
   brand?: ReactNode;
   pageLabel?: string;
   pageDescription?: string;
@@ -83,7 +88,7 @@ function resolveState({
 
 export const DocsShellTemplate = forwardRef<HTMLDivElement, DocsShellTemplateProps>(function DocsShellTemplate({
   label = "Flow documentation",
-  density,
+  density = "md",
   state,
   theme = "system",
   mobile = false,
@@ -91,6 +96,8 @@ export const DocsShellTemplate = forwardRef<HTMLDivElement, DocsShellTemplatePro
   sidebarOpen = false,
   sidebar,
   topbar,
+  search,
+  commandPalette,
   brand,
   pageLabel,
   pageDescription,
@@ -151,9 +158,21 @@ export const DocsShellTemplate = forwardRef<HTMLDivElement, DocsShellTemplatePro
       React.createElement(Topbar, topbarProps),
     ),
     React.createElement(
-      "div",
-      { "data-flow-slot": "shell-body" },
+      DocumentationPageShell,
+      {
+        topbar: null,
+        density,
+        state: resolvedState,
+        background: theme === "dark" ? "none" : "gradient-grid",
+        sidebarOpen,
+        searchOpen: Boolean(search?.query),
+        loading,
+        className: contentClassName,
+        "data-flow-slot": "shell-body",
+      },
       React.createElement(Sidebar, sidebarProps),
+      search ? React.createElement(Search, { ...search, density: search.density ?? density, "data-flow-slot": "shell-search" }) : null,
+      commandPalette ? React.createElement(CommandPalette, { ...commandPalette, density: commandPalette.density ?? density, "data-flow-slot": "shell-command-palette" }) : null,
       React.createElement(
         Surface,
         flowDefinedProps({
@@ -162,8 +181,6 @@ export const DocsShellTemplate = forwardRef<HTMLDivElement, DocsShellTemplatePro
           density,
           tone: theme === "dark" ? "muted" : "default",
           state: resolvedState === "loading" ? "sunken" : "default",
-          focusMode: "within",
-          className: contentClassName,
           "aria-label": pageLabel,
           "aria-describedby": pageDescription ? "docs-shell-page-description" : undefined,
           "data-flow-slot": "page",

@@ -612,6 +612,14 @@ export type {
   DemoPreviewFrameState,
   DemoPreviewFrameTone,
 } from "./patterns/DemoPreviewFrame.js";
+export { DocumentationPageShell } from "./patterns/DocumentationPageShell.js";
+export type {
+  DocumentationPageShellBackground,
+  DocumentationPageShellComponent,
+  DocumentationPageShellDensity,
+  DocumentationPageShellProps,
+  DocumentationPageShellState,
+} from "./patterns/DocumentationPageShell.js";
 export { DocumentationHero } from "./patterns/DocumentationHero.js";
 export type {
   DocumentationHeroAction,
@@ -624,6 +632,14 @@ export type {
   DocumentationHeroState,
   DocumentationHeroTone,
 } from "./patterns/DocumentationHero.js";
+export { OnThisPageNav } from "./patterns/OnThisPageNav.js";
+export type {
+  OnThisPageNavComponent,
+  OnThisPageNavDensity,
+  OnThisPageNavItem,
+  OnThisPageNavProps,
+  OnThisPageNavState,
+} from "./patterns/OnThisPageNav.js";
 export { SelectOptionLayer } from "./patterns/SelectOptionLayer.js";
 export type {
   SelectOptionLayerComponent,
@@ -832,6 +848,7 @@ export { Chip } from "./Chip.js";
 export { CodeBlock } from "./CodeBlock.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
+export { CopyButton } from "./CopyButton.js";
 export { CountrySelector } from "./CountrySelector.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
@@ -847,6 +864,16 @@ export type {
   CodeBlockState,
   CodeBlockVariant,
 } from "./CodeBlock.js";
+export type {
+  CopyButtonComponent,
+  CopyButtonDensity,
+  CopyButtonEvent,
+  CopyButtonMeta,
+  CopyButtonProps,
+  CopyButtonState,
+  CopyButtonType,
+  CopyButtonVariant,
+} from "./CopyButton.js";
 export type {
   FloatingActionButtonComponent,
   FloatingActionButtonDensity,

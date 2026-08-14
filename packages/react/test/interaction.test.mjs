@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, ChatComposer, ChatMessage, ChatThread, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, InputAmount, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../src/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, ChatComposer, ChatMessage, ChatThread, Checkbox, Chip, CodeInput, Combobox, CopyButton, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, InputAmount, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../dist/index.js");
 
 try {
   const expandedChanges = [];
@@ -2712,6 +2712,51 @@ try {
 
   fireEvent.click(getChatThreadRole("button", { name: /retry message/i }));
   assert.deepEqual(chatThreadActions, [["onAction", "click"], ["onMessageAction", "failed-message", "click"]]);
+
+  cleanup();
+
+  const copiedEvents = [];
+  Object.defineProperty(globalThis.navigator, "clipboard", {
+    configurable: true,
+    value: {
+      writeText: async (value) => copiedEvents.push(["writeText", value]),
+    },
+  });
+  const { getByRole: getCopyButtonRole } = render(React.createElement(CopyButton, {
+    value: "npm install @alohasoyrico-eng/flow",
+    label: "Copy install command",
+    onCopied: (meta, event) => copiedEvents.push(["onCopied", meta.value, meta.state, event.type]),
+    onCopyError: (meta, event) => copiedEvents.push(["onCopyError", meta.value, meta.state, event.type]),
+  }));
+
+  fireEvent.click(getCopyButtonRole("button", { name: /copy install command/i }));
+  await waitFor(() => assert.deepEqual(copiedEvents, [
+    ["writeText", "npm install @alohasoyrico-eng/flow"],
+    ["onCopied", "npm install @alohasoyrico-eng/flow", "copied", "click"],
+  ]));
+
+  cleanup();
+
+  const copyErrorEvents = [];
+  Object.defineProperty(globalThis.navigator, "clipboard", {
+    configurable: true,
+    value: {
+      writeText: async () => {
+        throw new Error("blocked");
+      },
+    },
+  });
+  const { getByRole: getCopyErrorButtonRole } = render(React.createElement(CopyButton, {
+    value: "--sys-energy-surface-primary",
+    label: "Copy token path",
+    onCopied: (meta, event) => copyErrorEvents.push(["onCopied", meta.value, meta.state, event.type]),
+    onCopyError: (meta, event) => copyErrorEvents.push(["onCopyError", meta.value, meta.state, event.type]),
+  }));
+
+  fireEvent.click(getCopyErrorButtonRole("button", { name: /copy token path/i }));
+  await waitFor(() => assert.deepEqual(copyErrorEvents, [
+    ["onCopyError", "--sys-energy-surface-primary", "error", "click"],
+  ]));
 } finally {
   cleanup();
   dom.window.close();

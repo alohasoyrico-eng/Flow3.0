@@ -2,14 +2,14 @@
 
 Status: **pass**
 
-Pattern audit 1:1 can close only when the 63 pattern architecture, readiness, contract, foundation/primitive, React migration, behavior, and composition reports agree on ownership, dependencies, state, slots, foundations, primitives, components, callbacks, and zero debt.
+Pattern audit 1:1 can close only when the 63 catalog pattern reports and 72 React pattern artifacts agree on ownership, dependencies, state, slots, foundations, primitives, components, callbacks, and zero debt.
 
 ## Inventory
 
-- Patterns: 63
+- Patterns: 72
 - Pattern audit reports: 7/7
 - Reports with pattern rows: 2
-- Reports with 63 rows: 2/2
+- Reports with expected rows: 2/2
 - Inventory mismatches: 0
 - Pattern set issues: 0
 - Pattern audit debt: 0
@@ -18,8 +18,8 @@ Pattern audit 1:1 can close only when the 63 pattern architecture, readiness, co
 
 | Report | Status | Patterns | Debt | Mismatches |
 | --- | --- | ---: | ---: | ---: |
-| pattern-architecture | pass | 63 | 0 | 0 |
-| foundation-primitive-1to1 | pass | 63 | 0 | 0 |
+| pattern-architecture | pass | 72 | 0 | 0 |
+| foundation-primitive-1to1 | pass | 72 | 0 | 0 |
 | pattern-readiness | pass | - | 0 | 0 |
 | pattern-contracts | pass | - | 0 | 0 |
 | react-migration | pass | - | 0 | 0 |

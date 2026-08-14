@@ -50,6 +50,8 @@
     "packages/react/src/Skeleton.tsx",
     "packages/react/src/Tag.tsx",
     "packages/react/src/Chip.tsx",
+    "packages/react/src/CopyButton.tsx",
+    "packages/react/src/CodeBlock.tsx",
     "packages/react/src/Breadcrumbs.tsx",
     "packages/react/src/Pagination.tsx",
     "packages/react/src/SegmentedControl.tsx",

@@ -244,7 +244,7 @@ function writeReport(report) {
     const currentJson = readIfExists(jsonOutput);
     const currentMarkdown = readIfExists(markdownOutput);
     if (currentJson !== json || currentMarkdown !== `${markdown}\n`) {
-      console.error("Primitive Density cascade audit is stale. Run npm run audit:primitive:density.");
+      console.error("Primitive Density cascade audit is stale. Run: node packages/audit/scripts/report-primitive-density-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

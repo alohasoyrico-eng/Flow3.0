@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "audit": "system public runtime boundary",
+  "planIteration": 22,
+  "principle": "The public Flow runtime is only trustworthy when components, patterns, and templates are all verified together as one installable boundary.",
+  "inventory": {
+    "publicRuntimeLayers": 3,
+    "passingRuntimeLayers": 3,
+    "runtimeArtifacts": 151,
+    "runtimeAuditedArtifacts": 151,
+    "passingRuntimeArtifacts": 151,
+    "failingRuntimeArtifacts": 0,
+    "componentRuntimeArtifacts": 62,
+    "patternRuntimeArtifacts": 72,
+    "templateRuntimeArtifacts": 17,
+    "layerRuntimeDebt": 0,
+    "runtimeBoundaryIssues": 0,
+    "publicRuntimeBoundaryDebt": 0
+  },
+  "layers": [
+    {
+      "layer": "components",
+      "planIteration": 19,
+      "report": "docs/audits/system-component-runtime-audit.json",
+      "status": "pass",
+      "artifacts": 62,
+      "runtimeAudited": 62,
+      "passing": 62,
+      "failing": 0,
+      "debt": 0,
+      "issues": []
+    },
+    {
+      "layer": "patterns",
+      "planIteration": 20,
+      "report": "docs/audits/system-pattern-runtime-audit.json",
+      "status": "pass",
+      "artifacts": 72,
+      "runtimeAudited": 72,
+      "passing": 72,
+      "failing": 0,
+      "debt": 0,
+      "issues": []
+    },
+    {
+      "layer": "templates",
+      "planIteration": 21,
+      "report": "docs/audits/system-template-runtime-audit.json",
+      "status": "pass",
+      "artifacts": 17,
+      "runtimeAudited": 17,
+      "passing": 17,
+      "failing": 0,
+      "debt": 0,
+      "issues": []
+    }
+  ]
+}

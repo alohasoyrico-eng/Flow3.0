@@ -325,7 +325,7 @@ function writeReport() {
 
   if (checkMode) {
     if (readIfExists(jsonOutput) !== json || readIfExists(markdownOutput) !== `${markdown}\n`) {
-      console.error("Primitive Maps cascade audit is stale. Run npm run audit:primitive:maps.");
+      console.error("Primitive Maps cascade audit is stale. Run: node packages/audit/scripts/report-primitive-maps-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

@@ -18,7 +18,13 @@
           "Frame",
           "Depth",
           "State",
-          "Tone"
+          "Tone",
+          "Energy",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "Symbol",
+          "Voice"
         ],
         "primitiveDependencies": [
           "Surface",
@@ -28,23 +34,20 @@
           "Focus",
           "Loading",
           "Disabled",
-          "Typography"
+          "Typography",
+          "Color",
+          "Duration",
+          "Iconography",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius"
         ],
         "componentDependencies": [
-          "Card",
-          "Button",
-          "Icon Button",
-          "Badge",
-          "Tag",
-          "Code Block",
-          "Copy Button",
           "Skeleton",
           "Error Panel"
         ],
-        "patternDependencies": [
-          "Documentation Section",
-          "Toolbar"
-        ],
+        "patternDependencies": [],
         "templateDependencies": [
           "Reference Detail Template",
           "Component Detail Template",
@@ -66,34 +69,30 @@
         "slots": [
           {
             "name": "preview",
-            "owner": "template",
+            "owner": "channel",
             "uses": [
-              "Surface",
-              "Card"
+              "host content"
             ],
             "required": true,
-            "purpose": "Hosts the actual demo artifact without local structural wrappers."
+            "purpose": "Hosts the actual demo artifact."
           },
           {
             "name": "controls",
-            "owner": "component",
+            "owner": "channel",
             "uses": [
-              "Button",
-              "Icon Button",
-              "Toolbar"
+              "host controls"
             ],
             "required": "conditional",
-            "purpose": "Provides density, theme, viewport, or state controls for demos."
+            "purpose": "Hosts externally supplied demo controls."
           },
           {
             "name": "source",
-            "owner": "component",
+            "owner": "channel",
             "uses": [
-              "Code Block",
-              "Copy Button"
+              "host source"
             ],
             "required": "conditional",
-            "purpose": "Renders code and copy actions through governed components."
+            "purpose": "Hosts externally supplied source snippet."
           },
           {
             "name": "fallback",
@@ -149,6 +148,21 @@
           "Demo source is copied with local buttons or raw pre/code.",
           "The frame owns the component or pattern being demonstrated.",
           "Viewport examples cannot be tested at mobile and desktop sizes."
+        ],
+        "tokenDependencies": [
+          "comp.skeleton.*",
+          "comp.error-panel.*",
+          "sys.accessibility.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.energy.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.symbol.*",
+          "sys.voice.*"
         ]
       }
     }

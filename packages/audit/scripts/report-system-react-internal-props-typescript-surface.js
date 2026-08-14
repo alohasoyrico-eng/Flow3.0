@@ -14,6 +14,13 @@ const reactSourceDir = "packages/react/src";
 const sourceFile = "packages/react/src/internal/props.ts";
 const runtimeFile = "packages/react/src/internal/props.js";
 const declarationFile = "packages/react/src/internal/props.d.ts";
+const sourceRuntimeHeader = [
+  "/* @generated from packages/react/src TypeScript source.",
+  " * Do not edit this compatibility runtime directly.",
+  " * Authored source of truth is the paired .ts/.tsx file.",
+  " */",
+  "",
+].join("\n");
 
 function absolute(relativePath) {
   return path.join(root, relativePath);
@@ -46,7 +53,7 @@ function compileExpectedRuntime() {
 
   const compiledFile = path.join(outDir, "internal/props.js");
   const expected = result.status === 0 && fs.existsSync(compiledFile)
-    ? fs.readFileSync(compiledFile, "utf8")
+    ? `${sourceRuntimeHeader}${fs.readFileSync(compiledFile, "utf8")}`
     : null;
   fs.rmSync(outDir, { recursive: true, force: true });
   return {

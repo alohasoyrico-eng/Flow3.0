@@ -47,6 +47,7 @@ Coordinate local page or table actions with search handoff, topbar boundary, sta
 | Platform | Cross-platform |
 | Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
 | Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Docs Collection Template` |
 
 ## Formal States
 

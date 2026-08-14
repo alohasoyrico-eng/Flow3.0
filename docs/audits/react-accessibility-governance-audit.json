@@ -4,12 +4,12 @@
   "principle": "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation. The actionable debt metric is accessibilityDebt.",
   "baseline": {
     "inventory": {
-      "components": 60,
+      "components": 62,
       "accessibilityDebt": 0,
       "criticalComponents": 10,
       "criticalPassing": 10,
       "totalRoles": 71,
-      "totalAria": 323,
+      "totalAria": 326,
       "keyboardHandlers": 40,
       "focusCalls": 15,
       "failures": 0,
@@ -333,11 +333,11 @@
     }
   },
   "inventory": {
-    "components": 60,
+    "components": 62,
     "criticalComponents": 10,
     "criticalPassing": 10,
     "totalRoles": 71,
-    "totalAria": 323,
+    "totalAria": 326,
     "keyboardHandlers": 40,
     "focusCalls": 15,
     "failures": 0,
@@ -651,6 +651,22 @@
       "status": "pass"
     },
     {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 1,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.js",
       "critical": false,
@@ -720,6 +736,22 @@
         "tabIndex": 1,
         "keyboardHandlers": 2,
         "usesId": true,
+        "focusCalls": 0
+      },
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.js",
+      "critical": false,
+      "requirements": [],
+      "missing": [],
+      "signals": {
+        "roles": 0,
+        "aria": 2,
+        "tabIndex": 0,
+        "keyboardHandlers": 0,
+        "usesId": false,
         "focusCalls": 0
       },
       "status": "pass"

@@ -5,7 +5,7 @@ import { createRequire } from "node:module";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import { EmailTemplateLayout } from "../../react/src/patterns/EmailTemplateLayout.js";
+import { EmailTemplateLayout } from "../../react/dist/patterns/EmailTemplateLayout.js";
 
 const require = createRequire(import.meta.url);
 const {

@@ -182,6 +182,9 @@
           "Symbol",
           "Tone",
           "Voice"
+        ],
+        "templateDependencies": [
+          "Docs Collection Template"
         ]
       }
     }

@@ -1955,6 +1955,86 @@
     },
     {
       "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationSection.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationSection.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationPrimitiveDemo.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationPrimitiveDemo.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationReferenceGrid.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationReferenceGrid.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationTokenGrid.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationTokenGrid.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
       "target": "packages/react/dist/patterns/SelectOptionLayer.d.ts",
       "extension": ".ts",
       "kind": "types",
@@ -2635,6 +2715,26 @@
     },
     {
       "packageFile": "package.json",
+      "target": "packages/react/dist/templates/ComponentDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/ComponentDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
       "target": "packages/react/dist/templates/ConfigurationConsole.d.ts",
       "extension": ".ts",
       "kind": "types",
@@ -2646,6 +2746,46 @@
     {
       "packageFile": "package.json",
       "target": "packages/react/dist/templates/ConfigurationConsole.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsCollectionTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsCollectionTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsHomeTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsHomeTemplate.js",
       "extension": ".js",
       "kind": "runtime",
       "exists": true,
@@ -2755,6 +2895,46 @@
     },
     {
       "packageFile": "package.json",
+      "target": "packages/react/dist/templates/PatternDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/PatternDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/ReferenceDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/ReferenceDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
       "target": "packages/react/dist/templates/RoutesAndStations.d.ts",
       "extension": ".ts",
       "kind": "types",
@@ -2786,6 +2966,26 @@
     {
       "packageFile": "package.json",
       "target": "packages/react/dist/templates/SettingsWorkspace.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/TemplateDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/TemplateDetailTemplate.js",
       "extension": ".js",
       "kind": "runtime",
       "exists": true,
@@ -2992,6 +3192,186 @@
       "jsRuntime": false,
       "tsRuntime": false,
       "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CodeBlock.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CodeBlock.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CopyButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/CopyButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsArtifactDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsShellTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/templates/DocsShellTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ArtifactMetadataBar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/ArtifactMetadataBar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DemoPreviewFrame.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DemoPreviewFrame.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationHero.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationHero.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationPageShell.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/DocumentationPageShell.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/OnThisPageNav.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "package.json",
+      "target": "packages/react/dist/patterns/OnThisPageNav.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
     },
     {
       "packageFile": "packages/tokens/package.json",
@@ -4405,6 +4785,66 @@
     },
     {
       "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/ComponentDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/ComponentDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsCollectionTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsCollectionTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsHomeTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsHomeTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
       "target": "packages/react/dist/templates/DriverCardWallet.d.ts",
       "extension": ".ts",
       "kind": "types",
@@ -4476,6 +4916,46 @@
     {
       "packageFile": "packages/react/package.json",
       "target": "packages/react/dist/templates/FleetManagerDesktop.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/PatternDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/PatternDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/ReferenceDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/ReferenceDetailTemplate.js",
       "extension": ".js",
       "kind": "runtime",
       "exists": true,
@@ -5485,6 +5965,86 @@
     },
     {
       "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationSection.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationSection.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationPrimitiveDemo.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationPrimitiveDemo.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationReferenceGrid.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationReferenceGrid.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationTokenGrid.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationTokenGrid.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
       "target": "packages/react/dist/patterns/VirtualDataTable.d.ts",
       "extension": ".ts",
       "kind": "types",
@@ -5822,28 +6382,228 @@
       "jsRuntime": true,
       "tsRuntime": false,
       "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/TemplateDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/TemplateDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CodeBlock.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CodeBlock.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CopyButton.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/CopyButton.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsArtifactDetailTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsShellTemplate.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/templates/DocsShellTemplate.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ArtifactMetadataBar.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/ArtifactMetadataBar.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DemoPreviewFrame.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DemoPreviewFrame.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationHero.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationHero.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationPageShell.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/DocumentationPageShell.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/OnThisPageNav.d.ts",
+      "extension": ".ts",
+      "kind": "types",
+      "exists": true,
+      "jsRuntime": false,
+      "tsRuntime": false,
+      "tsSourceExists": false
+    },
+    {
+      "packageFile": "packages/react/package.json",
+      "target": "packages/react/dist/patterns/OnThisPageNav.js",
+      "extension": ".js",
+      "kind": "runtime",
+      "exists": true,
+      "jsRuntime": true,
+      "tsRuntime": false,
+      "tsSourceExists": true
     }
   ],
-  "uniquePublicExportTargets": 299,
-  "publicJsRuntimeExports": 280,
-  "uniquePublicJsRuntimeTargets": 140,
-  "publicJsRuntimeExportsWithTsSource": 280,
+  "uniquePublicExportTargets": 337,
+  "publicJsRuntimeExports": 318,
+  "uniquePublicJsRuntimeTargets": 159,
+  "publicJsRuntimeExportsWithTsSource": 318,
   "publicJsRuntimeExportsWithoutTsSource": [],
   "sourceDeclarationsWithoutTs": [],
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 622,
+        ".js": 682,
         ".mjs": 20,
-        ".ts": 176,
-        ".d.ts": 274,
-        ".tsx": 61
+        ".ts": 195,
+        ".d.ts": 312,
+        ".tsx": 63
       },
       "byArea": {
-        "script": 285,
-        "source": 585,
+        "script": 305,
+        "source": 646,
         "test": 8,
-        "generated-dist": 275
+        "generated-dist": 313
       }
     }
   },

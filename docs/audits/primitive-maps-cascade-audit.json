@@ -157,7 +157,8 @@
     "routeSummaryContract": true,
     "templates": [
       "driver-mobile-app",
-      "routes-and-stations"
+      "routes-and-stations",
+      "template-detail-template"
     ]
   },
   "foundationGate": {

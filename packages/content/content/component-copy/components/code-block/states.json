@@ -1,0 +1,73 @@
+{
+  "components": {
+    "code-block": {
+      "states": {
+        "copy": "Code Block states describe snippet presentation, copy affordance, feedback, and blocked/error conditions without local source wrappers owning behavior.",
+        "demos": [
+          {
+            "label": "Default",
+            "state": "default",
+            "language": "tsx",
+            "code": "<Button label=\"Save\" />"
+          },
+          {
+            "label": "Wrapped",
+            "state": "wrapped",
+            "language": "css",
+            "code": ".example { inline-size: min(100%, var(--sys-frame-content-md)); }"
+          },
+          {
+            "label": "Scrollable",
+            "state": "scrollable",
+            "language": "json",
+            "code": "{\"component\":\"table\",\"rows\":[{\"id\":\"fleet-01\"}]}"
+          },
+          {
+            "label": "With header",
+            "state": "with-header",
+            "language": "tsx",
+            "filename": "ButtonExample.tsx",
+            "code": "export const Example = () => <Button label=\"Save\" />;"
+          },
+          {
+            "label": "With copy",
+            "state": "with-copy",
+            "language": "bash",
+            "copyLabel": "Copy install command",
+            "code": "npm install @alohasoyrico-eng/flow"
+          },
+          {
+            "label": "Copied",
+            "state": "copied",
+            "language": "bash",
+            "copyLabel": "Copied install command",
+            "code": "npm install @alohasoyrico-eng/flow"
+          },
+          {
+            "label": "Error",
+            "state": "error",
+            "language": "tsx",
+            "error": "Snippet source failed validation. Review the source and retry generation.",
+            "code": "<BrokenExample />"
+          },
+          {
+            "label": "Disabled",
+            "state": "disabled",
+            "language": "tsx",
+            "copyLabel": "Copy disabled",
+            "code": "<Button disabled label=\"Save\" />"
+          }
+        ]
+      },
+      "accessibility": {
+        "items": [
+          "Expose the language, filename, or source label before the snippet when it helps users identify what they are reading.",
+          "Keep code text selectable and readable by assistive technology; do not replace source text with an image.",
+          "When copy is available, pair it with a specific accessible name such as Copy install command.",
+          "Announce copied and error feedback with a recovery action without moving keyboard focus away from the snippet controls.",
+          "Preserve keyboard access to copy controls and keep scrollable code reachable without trapping focus."
+        ]
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { flowRestProps } from "../internal/props.js";
 
 export type DocumentationTokenGridDensity = SurfaceDensity;
 export type DocumentationTokenGridVariant = "tokens" | "values" | "compact";
+export type DocumentationTokenGridState = "default" | "tokens" | "values" | "compact" | "empty" | "mobile";
 
 export interface DocumentationTokenGridItem {
   key?: string;
@@ -21,6 +22,7 @@ export interface DocumentationTokenGridProps extends FlowDataAttributes {
   label?: string;
   variant?: DocumentationTokenGridVariant;
   density?: DocumentationTokenGridDensity;
+  state?: DocumentationTokenGridState;
   className?: string;
   surface?: Omit<SurfaceProps, "children" | "density" | "surfaceRole" | "state">;
   "aria-label"?: string;
@@ -51,6 +53,7 @@ export const DocumentationTokenGrid = forwardRef<HTMLDivElement, DocumentationTo
   label = "Token reference",
   variant = "tokens",
   density,
+  state,
   className = "",
   surface,
   ...rest
@@ -71,7 +74,7 @@ export const DocumentationTokenGrid = forwardRef<HTMLDivElement, DocumentationTo
       density,
       elevation: surface?.elevation ?? "none",
       tone: surface?.tone ?? "default",
-      state: "default",
+      state: state ?? resolvedVariant,
       "aria-label": rest["aria-label"] ?? label,
       "data-flow-pattern": "documentation-token-grid",
       "data-documentation-token-grid-variant": resolvedVariant,
@@ -82,11 +85,11 @@ export const DocumentationTokenGrid = forwardRef<HTMLDivElement, DocumentationTo
       code: item.token,
       label: item.label,
       helper: item.helper,
-      variant: "inline",
+      variant: "inline-group",
+      state: "default",
       density,
-      className: "documentation-token-grid__item",
-      wrap: false,
       "data-flow-slot": "documentation-token-grid.item",
+      wrap: false,
     } as ComponentProps<typeof CodeBlock>)),
   );
 }) as DocumentationTokenGridComponent;

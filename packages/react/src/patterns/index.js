@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 export { ActionSheet } from "./ActionSheet.js";
 export { AccountOperations } from "./AccountOperations.js";
 export { AgentConversation } from "./AgentConversation.js";
@@ -53,7 +57,9 @@ export { DocumentationReferenceGrid } from "./DocumentationReferenceGrid.js";
 export { DocumentationPrimitiveDemo } from "./DocumentationPrimitiveDemo.js";
 export { DocumentationTokenGrid } from "./DocumentationTokenGrid.js";
 export { DemoPreviewFrame } from "./DemoPreviewFrame.js";
+export { DocumentationPageShell } from "./DocumentationPageShell.js";
 export { DocumentationHero } from "./DocumentationHero.js";
+export { OnThisPageNav } from "./OnThisPageNav.js";
 export { SelectOptionLayer } from "./SelectOptionLayer.js";
 export { RadioGroup } from "./RadioGroup.js";
 export { Settings } from "./Settings.js";

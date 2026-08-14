@@ -1,5 +1,12 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { Surface } from "../Surface.js";
+import { CommandPalette } from "../patterns/CommandPalette.js";
+import { DocumentationPageShell } from "../patterns/DocumentationPageShell.js";
+import { Search } from "../patterns/Search.js";
 import { Sidebar } from "../patterns/Sidebar.js";
 import { Topbar } from "../patterns/Topbar.js";
 import { flowDefinedProps, flowRestProps } from "../internal/props.js";
@@ -23,7 +30,7 @@ function resolveState({ loading, mobile, sidebarOpen, theme, state, }) {
         return "mobile";
     return state ?? "desktop";
 }
-export const DocsShellTemplate = forwardRef(function DocsShellTemplate({ label = "Flow documentation", density, state, theme = "system", mobile = false, loading = false, sidebarOpen = false, sidebar, topbar, brand, pageLabel, pageDescription, children, skipLinkLabel = "Skip to content", skipLinkHref = "#docs-shell-content", className = "", contentClassName = "", ...rest }, ref) {
+export const DocsShellTemplate = forwardRef(function DocsShellTemplate({ label = "Flow documentation", density = "md", state, theme = "system", mobile = false, loading = false, sidebarOpen = false, sidebar, topbar, search, commandPalette, brand, pageLabel, pageDescription, children, skipLinkLabel = "Skip to content", skipLinkHref = "#docs-shell-content", className = "", contentClassName = "", ...rest }, ref) {
     const resolvedState = resolveState(flowDefinedProps({ loading, mobile, sidebarOpen, theme, state }));
     const sidebarProps = flowDefinedProps({
         ...sidebar,
@@ -62,14 +69,22 @@ export const DocsShellTemplate = forwardRef(function DocsShellTemplate({ label =
         "data-mobile": String(Boolean(mobile)),
         "data-sidebar-open": String(Boolean(sidebarOpen)),
         ...sanitizeRestProps(rest),
-    }, React.createElement("a", { href: skipLinkHref, "data-flow-slot": "skip-link" }, skipLinkLabel), React.createElement("header", { "data-flow-slot": "shell-header" }, brand ? React.createElement("div", { "data-flow-slot": "brand" }, brand) : null, React.createElement(Topbar, topbarProps)), React.createElement("div", { "data-flow-slot": "shell-body" }, React.createElement(Sidebar, sidebarProps), React.createElement(Surface, flowDefinedProps({
+    }, React.createElement("a", { href: skipLinkHref, "data-flow-slot": "skip-link" }, skipLinkLabel), React.createElement("header", { "data-flow-slot": "shell-header" }, brand ? React.createElement("div", { "data-flow-slot": "brand" }, brand) : null, React.createElement(Topbar, topbarProps)), React.createElement(DocumentationPageShell, {
+        topbar: null,
+        density,
+        state: resolvedState,
+        background: theme === "dark" ? "none" : "gradient-grid",
+        sidebarOpen,
+        searchOpen: Boolean(search?.query),
+        loading,
+        className: contentClassName,
+        "data-flow-slot": "shell-body",
+    }, React.createElement(Sidebar, sidebarProps), search ? React.createElement(Search, { ...search, density: search.density ?? density, "data-flow-slot": "shell-search" }) : null, commandPalette ? React.createElement(CommandPalette, { ...commandPalette, density: commandPalette.density ?? density, "data-flow-slot": "shell-command-palette" }) : null, React.createElement(Surface, flowDefinedProps({
         id: "docs-shell-content",
         surfaceRole: "canvas",
         density,
         tone: theme === "dark" ? "muted" : "default",
         state: resolvedState === "loading" ? "sunken" : "default",
-        focusMode: "within",
-        className: contentClassName,
         "aria-label": pageLabel,
         "aria-describedby": pageDescription ? "docs-shell-page-description" : undefined,
         "data-flow-slot": "page",

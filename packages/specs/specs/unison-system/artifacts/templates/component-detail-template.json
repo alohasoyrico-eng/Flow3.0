@@ -119,6 +119,19 @@
           "A docs-only card or matrix style becomes a public component variant without satisfying variant criteria.",
           "A custom renderer bypasses the template boundary.",
           "Examples use local raw HTML wrappers after a slot owner exists."
+        ],
+        "tokenDependencies": [
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.accessibility.*",
+          "surface.*"
+        ],
+        "surfaces": [
+          "page",
+          "section"
         ]
       }
     }

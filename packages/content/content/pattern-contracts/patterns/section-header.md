@@ -48,6 +48,7 @@ Coordinate a local section title, status, actions, loading state, and host bound
 | Platform | Cross-platform |
 | Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
 | Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Component Detail Template`, `Docs Collection Template`, `Docs Home Template`, `Pattern Detail Template`, `Reference Detail Template`, `Template Detail Template` |
 
 ## Formal States
 

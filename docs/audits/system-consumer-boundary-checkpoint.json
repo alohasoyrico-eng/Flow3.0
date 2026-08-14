@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "flow-system-consumer-boundary-checkpoint@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "reports": 7,
+    "passingReports": 7,
+    "packedFiles": 1356,
+    "resolvedExports": 16,
+    "renderedArtifacts": 20,
+    "typedComponents": 7,
+    "typedPatterns": 8,
+    "typedTemplates": 5,
+    "negativeTypeAssertions": 4,
+    "tokenMarkers": 4,
+    "componentAliasMarkers": 6,
+    "reactExportEntries": 155,
+    "exportedReactDistRuntimeFiles": 155,
+    "publishedReactSrcFiles": 0,
+    "reactPrivateImportTargetsToSrc": 1,
+    "distImportLeaks": 0,
+    "buildCheckStatus": 0,
+    "sourceTruthDebt": 0,
+    "srcRuntimeMirrorCount": 156,
+    "consumerBoundaryCheckpointDebt": 0
+  },
+  "rows": [
+    {
+      "id": "react-source-of-truth",
+      "file": "docs/audits/system-react-source-of-truth.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "sourceTruthDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "react-build-reproducibility",
+      "file": "docs/audits/system-react-build-reproducibility.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "reactBuildReproducibilityDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "react-export-parity",
+      "file": "docs/audits/system-react-export-parity.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "exportParityDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "react-publication-boundary",
+      "file": "docs/audits/system-react-publication-boundary.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "publicationBoundaryDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-runtime-smoke",
+      "file": "docs/audits/system-consumer-runtime-smoke.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerRuntimeSmokeDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-css-token-cascade",
+      "file": "docs/audits/system-consumer-css-token-cascade.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerCssTokenCascadeDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    },
+    {
+      "id": "consumer-type-smoke",
+      "file": "docs/audits/system-consumer-type-smoke.json",
+      "status": "pass",
+      "debt": 0,
+      "debts": [
+        {
+          "key": "consumerTypeSmokeDebt",
+          "value": 0
+        }
+      ],
+      "mismatches": []
+    }
+  ],
+  "policy": {
+    "publicBoundary": "Consumers must import runtime, types, tokens CSS, and component CSS through public package exports.",
+    "packageBoundary": "Published React dist runtime files must be exported or explicitly internal.",
+    "buildBoundary": "Generated runtime and declarations must be reproducible from authored TS/TSX source.",
+    "evidenceBoundary": "This checkpoint aggregates existing audited evidence; it does not replace visual QA or exhaustive interaction QA."
+  },
+  "residualRisk": [
+    "The source runtime mirror still exists as generated compatibility output and is tracked as srcRuntimeMirrorCount.",
+    "This checkpoint is representative for consumer runtime/type behavior, not exhaustive across every prop and interaction.",
+    "This checkpoint does not claim FlowDocs visual parity, shell quality, search keyboard quality, or sidebar/topbar UX closure."
+  ]
+}

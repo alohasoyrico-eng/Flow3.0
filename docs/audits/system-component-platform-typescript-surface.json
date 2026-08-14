@@ -7,7 +7,7 @@
       "id": "all-platform-runtimes-have-typescript-source",
       "status": "PASS",
       "evidence": {
-        "runtimeFiles": 61,
+        "runtimeFiles": 63,
         "missingTypeScriptSources": []
       },
       "failMessage": null
@@ -16,8 +16,8 @@
       "id": "typescript-source-count-matches-runtime-count",
       "status": "PASS",
       "evidence": {
-        "runtimeFiles": 61,
-        "sourceFiles": 61
+        "runtimeFiles": 63,
+        "sourceFiles": 63
       },
       "failMessage": null
     },
@@ -44,8 +44,8 @@
   "staleRuntimeFiles": [],
   "missingTypeScriptSources": [],
   "inventory": {
-    "platformRuntimeFiles": 61,
-    "platformTypeScriptSourceFiles": 61,
+    "platformRuntimeFiles": 63,
+    "platformTypeScriptSourceFiles": 63,
     "missingTypeScriptSources": 0,
     "staleRuntimeFiles": 0,
     "componentPlatformTypescriptSurfaceDebt": 0

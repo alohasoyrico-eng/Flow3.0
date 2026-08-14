@@ -49,6 +49,7 @@ Coordinate keyboard-first command discovery and execution with dialog behavior, 
 | Platform | Cross-platform |
 | Audiences | `Product Designers`, `Developers`, `Content Designers`, `Researchers`, `Agents` |
 | Density Context | `smartphones + phablets`, `tablets + laptops`, `desktops + TV` |
+| Template Dependencies | `Docs Shell Template` |
 
 ## Formal States
 

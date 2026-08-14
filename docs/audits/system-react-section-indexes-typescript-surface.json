@@ -33,8 +33,8 @@
           "id": "patterns-index-runtime-export-parity",
           "status": "PASS",
           "evidence": {
-            "sourceExports": 63,
-            "runtimeExports": 63
+            "sourceExports": 72,
+            "runtimeExports": 72
           },
           "failMessage": null
         },
@@ -42,8 +42,8 @@
           "id": "patterns-index-declaration-export-parity",
           "status": "PASS",
           "evidence": {
-            "sourceExports": 63,
-            "declarationExports": 63
+            "sourceExports": 72,
+            "declarationExports": 72
           },
           "failMessage": null
         },
@@ -51,18 +51,18 @@
           "id": "patterns-index-owns-type-exports-in-ts-source",
           "status": "PASS",
           "evidence": {
-            "sourceTypeExportGroups": 63,
-            "declarationTypeExportGroups": 63
+            "sourceTypeExportGroups": 72,
+            "declarationTypeExportGroups": 72
           },
           "failMessage": null
         }
       ],
       "inventory": {
-        "sourceExports": 63,
-        "runtimeExports": 63,
-        "declarationExports": 63,
-        "sourceTypeExportGroups": 63,
-        "declarationTypeExportGroups": 63,
+        "sourceExports": 72,
+        "runtimeExports": 72,
+        "declarationExports": 72,
+        "sourceTypeExportGroups": 72,
+        "declarationTypeExportGroups": 72,
         "staleRuntimeFiles": 0,
         "debt": 0
       }
@@ -97,8 +97,8 @@
           "id": "templates-index-runtime-export-parity",
           "status": "PASS",
           "evidence": {
-            "sourceExports": 9,
-            "runtimeExports": 9
+            "sourceExports": 17,
+            "runtimeExports": 17
           },
           "failMessage": null
         },
@@ -106,8 +106,8 @@
           "id": "templates-index-declaration-export-parity",
           "status": "PASS",
           "evidence": {
-            "sourceExports": 9,
-            "declarationExports": 9
+            "sourceExports": 17,
+            "declarationExports": 17
           },
           "failMessage": null
         },
@@ -115,18 +115,18 @@
           "id": "templates-index-owns-type-exports-in-ts-source",
           "status": "PASS",
           "evidence": {
-            "sourceTypeExportGroups": 9,
-            "declarationTypeExportGroups": 9
+            "sourceTypeExportGroups": 17,
+            "declarationTypeExportGroups": 17
           },
           "failMessage": null
         }
       ],
       "inventory": {
-        "sourceExports": 9,
-        "runtimeExports": 9,
-        "declarationExports": 9,
-        "sourceTypeExportGroups": 9,
-        "declarationTypeExportGroups": 9,
+        "sourceExports": 17,
+        "runtimeExports": 17,
+        "declarationExports": 17,
+        "sourceTypeExportGroups": 17,
+        "declarationTypeExportGroups": 17,
         "staleRuntimeFiles": 0,
         "debt": 0
       }
@@ -134,11 +134,11 @@
   ],
   "inventory": {
     "sectionIndexesAudited": 2,
-    "sourceExports": 72,
-    "runtimeExports": 72,
-    "declarationExports": 72,
-    "sourceTypeExportGroups": 72,
-    "declarationTypeExportGroups": 72,
+    "sourceExports": 89,
+    "runtimeExports": 89,
+    "declarationExports": 89,
+    "sourceTypeExportGroups": 89,
+    "declarationTypeExportGroups": 89,
     "staleRuntimeFiles": 0,
     "reactSectionIndexTypescriptSurfaceDebt": 0
   }

@@ -1,0 +1,121 @@
+{
+  "artifacts": {
+    "patterns": {
+      "documentation-token-grid": {
+        "layer": "Pattern",
+        "patternKind": "Documentation",
+        "implementationStatus": "runtime",
+        "platform": "Web documentation",
+        "audiences": [
+          "Developers",
+          "Designers",
+          "Agents"
+        ],
+        "purpose": "Render token references through governed code blocks.",
+        "governingFoundations": [
+          "Frame",
+          "Voice",
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Density",
+          "Spacing",
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Focus",
+          "Message",
+          "Radius",
+          "Typography"
+        ],
+        "componentDependencies": [
+          "Code Block"
+        ],
+        "patternDependencies": [],
+        "states": [
+          "default",
+          "tokens",
+          "values",
+          "compact",
+          "empty",
+          "mobile"
+        ],
+        "slots": [
+          {
+            "name": "items",
+            "owner": "component",
+            "uses": [
+              "Code Block"
+            ],
+            "required": true,
+            "purpose": "Token reference rows."
+          }
+        ],
+        "entryConditions": [
+          "A documentation page needs to list token names, values, or generated references.",
+          "The content is code-like and should be rendered through Code Block.",
+          "The page must not create local token table wrappers."
+        ],
+        "decisionTree": [
+          "Use Documentation Token Grid for token/value reference groups.",
+          "Use Code Block directly for a single snippet.",
+          "Use Table when values need semantic row and column comparison."
+        ],
+        "failureModes": [
+          "Token values render through local pre/code wrappers.",
+          "Copy buttons or snippets bypass Flow Code Block.",
+          "Compact/mobile token states are not declared."
+        ],
+        "successMetrics": [
+          "Token references are rendered through Code Block.",
+          "Token grids support compact and mobile states.",
+          "No migrated docs page owns token-grid wrapper CSS."
+        ],
+        "accessibility": [
+          "Token names and values remain copyable text.",
+          "Code Block labels identify snippet purpose.",
+          "Compact layout preserves readable token names.",
+          "Symbolic token indicators cannot replace visible labels, code text, or fallback meaning."
+        ],
+        "tests": [
+          "Covers default, tokens, values, compact, empty, and mobile states.",
+          "Rejects local code or token grid wrappers.",
+          "Checks Code Block ownership for token references."
+        ],
+        "agentInstructions": [
+          "Do not create local token grids in FlowDocs.",
+          "Use Code Block for code-like token content.",
+          "Escalate only when token content needs table semantics."
+        ],
+        "rejectIf": [
+          "Token references are rendered through local pre/code HTML.",
+          "Copy behavior bypasses Flow components.",
+          "A docs page duplicates token grid layout."
+        ],
+        "tokenDependencies": [
+          "comp.code-block.*",
+          "sys.frame.*",
+          "sys.voice.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*"
+        ]
+      }
+    }
+  }
+}

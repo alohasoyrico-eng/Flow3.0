@@ -1,0 +1,153 @@
+{
+  "artifacts": {
+    "templates": {
+      "docs-artifact-detail-template": {
+        "layer": "Template",
+        "templateKind": "Documentation",
+        "implementationStatus": "contract-only",
+        "platform": "Web documentation",
+        "audiences": [
+          "Product Designers",
+          "Developers",
+          "Content Designers",
+          "QA",
+          "Agents"
+        ],
+        "purpose": "Render a generic documentation artifact detail page with governed hero, breadcrumbs, metadata, tabs, body, aside, and footer slots without local page shells or tab panel wrappers.",
+        "maturityTarget": "governed",
+        "governingFoundations": [
+          "Voice",
+          "Frame",
+          "Depth",
+          "State",
+          "Tone",
+          "Accessibility"
+        ],
+        "primitiveDependencies": [
+          "Surface",
+          "Typography",
+          "Spacing",
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Loading",
+          "Disabled"
+        ],
+        "componentDependencies": [
+          "Breadcrumbs",
+          "Tabs"
+        ],
+        "patternDependencies": [
+          "Documentation Hero",
+          "Artifact Metadata Bar"
+        ],
+        "documentationSlots": [
+          {
+            "name": "intro",
+            "owner": "Docs Artifact Detail Template",
+            "uses": [
+              "Surface",
+              "Breadcrumbs",
+              "Documentation Hero",
+              "Artifact Metadata Bar"
+            ]
+          },
+          {
+            "name": "tabs",
+            "owner": "Tabs",
+            "uses": [
+              "Tabs"
+            ]
+          },
+          {
+            "name": "body",
+            "owner": "Docs Artifact Detail Template",
+            "uses": [
+              "Surface"
+            ]
+          },
+          {
+            "name": "aside",
+            "owner": "consumer-slot",
+            "uses": [
+              "On This Page Nav",
+              "Artifact Metadata Bar"
+            ]
+          },
+          {
+            "name": "footer",
+            "owner": "consumer-slot",
+            "uses": [
+              "Documentation Section"
+            ]
+          }
+        ],
+        "preservedContentSources": [
+          "artifact specs",
+          "artifact copy",
+          "breadcrumbs",
+          "metadata",
+          "tabs",
+          "body content",
+          "aside content",
+          "footer content"
+        ],
+        "states": [
+          "default",
+          "empty",
+          "loading",
+          "error",
+          "mobile",
+          "dark"
+        ],
+        "qualityGates": [
+          "Generic artifact detail pages use this template only when a layer-specific detail template is not available.",
+          "Tabs are composed through Flow Tabs and remain controlled by the consumer.",
+          "Hero, metadata, and body surfaces stay inside the template boundary.",
+          "Body, aside, and footer are slots, not parallel page renderers.",
+          "Empty, loading, and error states must provide recovery copy and a retry, fallback, close, or continue action when the consumer can recover."
+        ],
+        "rejectIf": [
+          "A generic artifact page recreates local breadcrumbs, tabs, metadata pills, hero, or body surface wrappers.",
+          "A consumer injects docs-only panel, tab, or hero styles outside the template boundary.",
+          "This template replaces a more specific foundation, primitive, component, pattern, or template detail template when that template exists.",
+          "Tabs mutate DOM outside React state or bypass Flow Tabs."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "single-column artifact detail with reachable tabs and metadata"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "artifact detail with governed content and optional aside slots"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense artifact detail with anchored reading and reference surfaces"
+          }
+        ],
+        "tokenDependencies": [
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.accessibility.*",
+          "surface.*"
+        ],
+        "surfaces": [
+          "page",
+          "intro",
+          "body"
+        ]
+      }
+    }
+  }
+}

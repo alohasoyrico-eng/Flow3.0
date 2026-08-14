@@ -1,0 +1,112 @@
+{
+  "patterns": {
+    "artifact-metadata-bar": {
+      "purpose": "Expose repeated documentation metadata as compact, accessible Flow-owned items instead of local pill systems.",
+      "useWhen": [
+        "A documentation template needs status, layer, platform, maturity, ownership, dependency, count, or QA metadata.",
+        "Metadata needs to wrap consistently across cards, heroes, and detail headers.",
+        "Metadata values may include explanations or actions."
+      ],
+      "doNotUseWithoutReview": [
+        "The metadata is the primary page heading.",
+        "The content is structured comparison data.",
+        "The pattern would become a general product status bar without product evidence."
+      ],
+      "foundations": [
+        [
+          "Voice",
+          "Metadata labels remain explicit and readable."
+        ],
+        [
+          "Frame",
+          "Items wrap without changing document hierarchy."
+        ],
+        [
+          "State",
+          "Empty, loading, compact, interactive, overflow, dark, and mobile states are explicit."
+        ],
+        [
+          "Tone",
+          "Status tone stays delegated to Badge, Tag, or Chip."
+        ],
+        [
+          "Accessibility",
+          "Explanations and actions must have accessible names."
+        ],
+        [
+          "Depth",
+          "Governs layering, elevation, and surface hierarchy without local wrappers."
+        ],
+        [
+          "Energy",
+          "Governs accent, status, and interactive emphasis through Flow tokens."
+        ],
+        [
+          "Growth",
+          "Governs maturity, coverage, and documentation status signals."
+        ],
+        [
+          "Iconography",
+          "Governs functional glyph usage without parallel icon styling."
+        ],
+        [
+          "Momentum",
+          "Governs motion timing and responsive transition behavior."
+        ],
+        [
+          "Symbol",
+          "Governs symbolic visuals while labels and fallback text remain visible."
+        ]
+      ],
+      "slots": [
+        [
+          "items",
+          "Badge | Tag | Chip",
+          "yes",
+          "Metadata values with explicit labels."
+        ],
+        [
+          "explanation",
+          "Tooltip",
+          "conditional",
+          "Compact metadata explanation."
+        ],
+        [
+          "actions",
+          "Button[]",
+          "conditional",
+          "Metadata-related actions."
+        ]
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button",
+        "Chip",
+        "Tag",
+        "Tooltip"
+      ],
+      "accessibility": [
+        "Expose abbreviated metadata with accessible labels.",
+        "Do not rely on color alone for status.",
+        "Preserve readable order when metadata wraps."
+      ],
+      "tests": [
+        "Covers default, compact, overflow, interactive, loading, empty, dark, and mobile states.",
+        "Fails when migrated pages use local card-meta-row or custom pill wrappers.",
+        "Checks accessible names for compact metadata items."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use this pattern for repeated artifact metadata."
+        ],
+        "mustAsk": [
+          "Metadata implies maturity, compliance, or release readiness."
+        ],
+        "rejectIf": [
+          "Metadata is rendered with local pill classes.",
+          "Status, maturity, or readiness is color-only."
+        ]
+      }
+    }
+  }
+}

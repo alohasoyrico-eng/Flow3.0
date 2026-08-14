@@ -104,7 +104,7 @@
       ]
     },
     "components": {
-      "count": 60,
+      "count": 62,
       "ids": [
         "accordion",
         "animated-moment",
@@ -125,8 +125,10 @@
         "chat-thread",
         "checkbox",
         "chip",
+        "code-block",
         "code-input",
         "combobox",
+        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -183,12 +185,13 @@
       ]
     },
     "patterns": {
-      "count": 42,
+      "count": 49,
       "ids": [
         "account-operations",
         "action-sheet",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "autocomplete",
         "avatar-group",
@@ -201,7 +204,12 @@
         "checkbox-group",
         "column-configurator",
         "command-palette",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-token-grid",
         "drawer-adapter",
         "driver-onboarding-mobile",
         "email-template-layout",
@@ -211,6 +219,7 @@
         "gantt-chart",
         "kanban-board",
         "notification-panel",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -233,38 +242,42 @@
         "packages/content/content/pattern-contracts/patterns/action-sheet.md",
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
         "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
-        "packages/content/content/pattern-contracts/patterns/case-management.md",
-        "packages/content/content/pattern-contracts/patterns/chart-legend-item.md"
+        "packages/content/content/pattern-contracts/patterns/case-management.md"
       ]
     },
     "templates": {
-      "count": 2,
+      "count": 4,
       "ids": [
+        "docs-artifact-detail-template",
         "driver-mobile-app",
+        "reference-detail-template",
         "routes-and-stations"
       ],
       "sampleFiles": [
+        "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json"
       ]
     },
-    "packageCssDirectUses": 491,
+    "packageCssDirectUses": 490,
     "docsCssDirectUses": 0
   },
   "symbolCssDeclarations": {
     "scannedFiles": [
       "packages/components/styles/components.css"
     ],
-    "total": 359,
+    "total": 360,
     "failures": [],
     "reviews": [],
-    "passCount": 359
+    "passCount": 360
   },
   "symbolFallbackReviews": [],
   "gaps": [],

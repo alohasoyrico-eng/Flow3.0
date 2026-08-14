@@ -132,7 +132,7 @@
       ]
     },
     "components": {
-      "count": 60,
+      "count": 62,
       "ids": [
         "accordion",
         "animated-moment",
@@ -153,8 +153,10 @@
         "chat-thread",
         "checkbox",
         "chip",
+        "code-block",
         "code-input",
         "combobox",
+        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -211,12 +213,13 @@
       ]
     },
     "patterns": {
-      "count": 63,
+      "count": 70,
       "ids": [
         "account-operations",
         "action-sheet",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "authentication-login-biometrics-and-otp",
         "autocomplete",
         "avatar-group",
@@ -232,7 +235,12 @@
         "column-configurator",
         "command-palette",
         "confirmation-dialog",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-token-grid",
         "drag-sortable-list",
         "drawer-adapter",
         "driver-and-vehicle-administration",
@@ -252,6 +260,7 @@
         "multi-select",
         "multi-step-form",
         "notification-panel",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -282,22 +291,23 @@
         "packages/content/content/pattern-contracts/patterns/action-sheet.md",
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
         "packages/content/content/pattern-contracts/patterns/agent-conversation.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/authentication-login-biometrics-and-otp.md",
         "packages/content/content/pattern-contracts/patterns/autocomplete.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/avatar-menu.md",
         "packages/content/content/pattern-contracts/patterns/backoffice-approval.md",
         "packages/content/content/pattern-contracts/patterns/bottom-sheet.md",
-        "packages/content/content/pattern-contracts/patterns/bulk-actions.md",
-        "packages/content/content/pattern-contracts/patterns/calendar-view.md"
+        "packages/content/content/pattern-contracts/patterns/bulk-actions.md"
       ]
     },
     "patternCopy": {
-      "count": 30,
+      "count": 37,
       "ids": [
         "account-operations",
         "advanced-filters",
         "agent-conversation",
+        "artifact-metadata-bar",
         "backoffice-approval",
         "bottom-sheet",
         "case-management",
@@ -305,7 +315,12 @@
         "chart-wrapper",
         "checkbox-group",
         "command-palette",
+        "demo-preview-frame",
         "dense-operational-list",
+        "documentation-hero",
+        "documentation-primitive-demo",
+        "documentation-reference-grid",
+        "documentation-token-grid",
         "email-template-layout",
         "expandable-detail-table",
         "filterable-editable-table",
@@ -313,6 +328,7 @@
         "help-center",
         "kanban-board",
         "multi-step-form",
+        "on-this-page-nav",
         "payment-form",
         "polar-chart",
         "preference-management",
@@ -330,6 +346,7 @@
         "packages/content/content/pattern-copy/patterns/account-operations/all.json",
         "packages/content/content/pattern-copy/patterns/advanced-filters/all.json",
         "packages/content/content/pattern-copy/patterns/agent-conversation/all.json",
+        "packages/content/content/pattern-copy/patterns/artifact-metadata-bar/all.json",
         "packages/content/content/pattern-copy/patterns/backoffice-approval/all.json",
         "packages/content/content/pattern-copy/patterns/bottom-sheet/all.json",
         "packages/content/content/pattern-copy/patterns/case-management/all.json",
@@ -337,33 +354,43 @@
         "packages/content/content/pattern-copy/patterns/chart-wrapper/all.json",
         "packages/content/content/pattern-copy/patterns/checkbox-group/all.json",
         "packages/content/content/pattern-copy/patterns/command-palette/all.json",
-        "packages/content/content/pattern-copy/patterns/dense-operational-list/all.json",
-        "packages/content/content/pattern-copy/patterns/email-template-layout/all.json"
+        "packages/content/content/pattern-copy/patterns/demo-preview-frame/all.json"
       ]
     },
     "templates": {
-      "count": 9,
+      "count": 17,
       "ids": [
         "agent-workspace",
+        "component-detail-template",
         "configuration-console",
+        "docs-artifact-detail-template",
+        "docs-collection-template",
+        "docs-home-template",
+        "docs-shell-template",
         "driver-card-wallet",
         "driver-mobile-app",
         "fleet-dashboard-suite",
         "fleet-manager-desktop",
         "internal-operations-console",
+        "pattern-detail-template",
+        "reference-detail-template",
         "routes-and-stations",
-        "settings-workspace"
+        "settings-workspace",
+        "template-detail-template"
       ],
       "sampleFiles": [
         "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
-        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
-        "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
-        "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     },
     "packageCssDirectUses": 75,
@@ -384,7 +411,7 @@
   "telemetryCoverage": {
     "missingAnalyticsForGrowthStage": [],
     "decisionPurposeReviews": [],
-    "decisionPurposePassCount": 77,
+    "decisionPurposePassCount": 85,
     "templateTelemetry": [
       {
         "id": "Driver Mobile App",
@@ -430,6 +457,46 @@
         "id": "Settings Workspace",
         "status": "pass",
         "telemetryCount": 4
+      },
+      {
+        "id": "Docs Shell Template",
+        "status": "pass",
+        "telemetryCount": 3
+      },
+      {
+        "id": "Docs Home Template",
+        "status": "pass",
+        "telemetryCount": 3
+      },
+      {
+        "id": "Docs Collection Template",
+        "status": "pass",
+        "telemetryCount": 3
+      },
+      {
+        "id": "Docs Artifact Detail Template",
+        "status": "pass",
+        "telemetryCount": 2
+      },
+      {
+        "id": "Component Detail Template",
+        "status": "pass",
+        "telemetryCount": 3
+      },
+      {
+        "id": "Pattern Detail Template",
+        "status": "pass",
+        "telemetryCount": 3
+      },
+      {
+        "id": "Reference Detail Template",
+        "status": "pass",
+        "telemetryCount": 3
+      },
+      {
+        "id": "Template Detail Template",
+        "status": "pass",
+        "telemetryCount": 3
       }
     ]
   },

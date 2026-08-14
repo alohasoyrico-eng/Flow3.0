@@ -27,8 +27,8 @@
       "id": "root-index-runtime-export-parity",
       "status": "PASS",
       "evidence": {
-        "sourceExports": 124,
-        "runtimeExports": 124
+        "sourceExports": 136,
+        "runtimeExports": 136
       },
       "failMessage": null
     },
@@ -36,8 +36,8 @@
       "id": "root-index-declaration-export-parity",
       "status": "PASS",
       "evidence": {
-        "sourceExports": 124,
-        "declarationExports": 124
+        "sourceExports": 136,
+        "declarationExports": 136
       },
       "failMessage": null
     },
@@ -45,18 +45,18 @@
       "id": "root-index-owns-type-exports-in-ts-source",
       "status": "PASS",
       "evidence": {
-        "sourceTypeExportGroups": 124,
-        "declarationTypeExportGroups": 124
+        "sourceTypeExportGroups": 136,
+        "declarationTypeExportGroups": 136
       },
       "failMessage": null
     }
   ],
   "inventory": {
-    "sourceExports": 124,
-    "runtimeExports": 124,
-    "declarationExports": 124,
-    "sourceTypeExportGroups": 124,
-    "declarationTypeExportGroups": 124,
+    "sourceExports": 136,
+    "runtimeExports": 136,
+    "declarationExports": 136,
+    "sourceTypeExportGroups": 136,
+    "declarationTypeExportGroups": 136,
     "staleRuntimeFiles": 0,
     "reactRootIndexTypescriptSurfaceDebt": 0
   }

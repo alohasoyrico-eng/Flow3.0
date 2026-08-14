@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { Badge } from "../Badge.js";
 import { Surface } from "../Surface.js";
@@ -168,7 +172,7 @@ export const PricingOperations = forwardRef(function PricingOperations({ label =
                         queue.filters?.resetAction?.onClick?.(event);
                         if (event.defaultPrevented)
                             return;
-                        onRuleFiltersReset?.();
+                        onRuleFiltersReset?.(event);
                     },
                 }
                 : queue.filters.resetAction,
@@ -240,7 +244,7 @@ export const PricingOperations = forwardRef(function PricingOperations({ label =
                 resolvedEditor.onOpenChange?.(open, event);
                 if (event?.defaultPrevented)
                     return;
-                onEditorOpenChange?.(open);
+                onEditorOpenChange?.(open, event);
             },
             onAction: (key, event) => {
                 resolvedEditor.onAction?.(key, event);

@@ -1,0 +1,55 @@
+{
+  "status": "pass",
+  "audit": "system test ownership",
+  "planIteration": 18,
+  "principle": "Every public artifact layer must have a one-to-one test ownership report before runtime-public verification continues.",
+  "inventory": {
+    "ownershipReports": 3,
+    "passingOwnershipReports": 3,
+    "coveredPlanIterations": "15,16,17",
+    "testedArtifacts": 151,
+    "passingArtifacts": 151,
+    "failingArtifacts": 0,
+    "componentArtifacts": 62,
+    "patternArtifacts": 72,
+    "templateArtifacts": 17,
+    "artifactTestDebt": 0,
+    "ownershipIssues": 0,
+    "testOwnershipDebt": 0
+  },
+  "rows": [
+    {
+      "layer": "components",
+      "planIteration": 15,
+      "report": "docs/audits/system-component-artifact-tests.json",
+      "status": "pass",
+      "tested": 62,
+      "passing": 62,
+      "failing": 0,
+      "debt": 0,
+      "issues": []
+    },
+    {
+      "layer": "patterns",
+      "planIteration": 16,
+      "report": "docs/audits/system-pattern-artifact-tests.json",
+      "status": "pass",
+      "tested": 72,
+      "passing": 72,
+      "failing": 0,
+      "debt": 0,
+      "issues": []
+    },
+    {
+      "layer": "templates",
+      "planIteration": 17,
+      "report": "docs/audits/system-template-artifact-tests.json",
+      "status": "pass",
+      "tested": 17,
+      "passing": 17,
+      "failing": 0,
+      "debt": 0,
+      "issues": []
+    }
+  ]
+}

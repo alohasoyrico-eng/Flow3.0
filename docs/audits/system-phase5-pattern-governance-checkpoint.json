@@ -26,8 +26,8 @@
       "id": "pattern-1to1",
       "file": "docs/audits/system-phase5-pattern-1to1-checkpoint.json",
       "status": "pass",
-      "count": 63,
-      "passing": 63,
+      "count": 72,
+      "passing": 72,
       "debt": 0,
       "patterns": []
     },

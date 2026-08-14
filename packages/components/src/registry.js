@@ -65,12 +65,23 @@ export function componentDemoProps(component, demo = {}) {
             inline: Boolean(demo.inline),
             countries: demo.countries,
         };
-    if (component === "card")
+    if (component === "card") {
+        const hasExplicitContent = [
+            demo.title,
+            demo.label,
+            demo.value,
+            demo.detail,
+            demo.description,
+            demo.status,
+            demo.icon,
+            demo.media,
+            demo.mediaAlt,
+        ].some((value) => value !== undefined && value !== null && value !== "");
         return {
             title: demo.title ?? demo.label ?? "Wallet balance",
-            value: demo.value ?? "$8,412.50",
+            value: demo.value ?? (hasExplicitContent ? "" : "$8,412.50"),
             unit: demo.unit ?? "",
-            detail: demo.detail ?? demo.description ?? "Available for assigned drivers.",
+            detail: demo.detail ?? demo.description ?? (hasExplicitContent ? "" : "Available for assigned drivers."),
             status: demo.status ?? (state === "selected" ? "Selected" : state === "error" ? "Needs review" : ""),
             trend: demo.trend ?? "neutral",
             icon: demo.icon ?? "",
@@ -87,6 +98,7 @@ export function componentDemoProps(component, demo = {}) {
             loading: state === "loading",
             actions: demo.actions ?? [],
         };
+    }
     if (component === "input") {
         const captureVariants = ["text", "email", "password", "number", "currency", "unit", "search"];
         const variant = captureVariants.includes(demo.variant) ? demo.variant : demo.inputVariant ?? "text";

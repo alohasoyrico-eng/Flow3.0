@@ -3,6 +3,7 @@ import type { AvatarProps } from "../Avatar.js";
 import type { DrawerOpenChangeEvent } from "../Drawer.js";
 import type { IconButtonProps } from "../IconButton.js";
 import type { InputDensity } from "../Input.js";
+import type { ListItem, ListProps } from "../List.js";
 import type { MenuAlign, MenuItem, MenuOpenChangeEvent } from "../Menu.js";
 import type { AutocompleteProps } from "./Autocomplete.js";
 import type { AvatarMenuProps } from "./AvatarMenu.js";
@@ -27,6 +28,12 @@ export interface TopbarSearch {
   disabled?: boolean;
   loading?: boolean;
   onQueryChange?: SearchProps["onQueryChange"];
+  results?: ListItem[];
+  selectedResultKey?: string;
+  onResultSelect?: ListProps["onSelect"];
+  resultsLabel?: string;
+  resultsClassName?: string;
+  empty?: SearchProps["empty"];
   delegate?: SearchProps;
 }
 

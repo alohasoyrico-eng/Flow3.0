@@ -70,6 +70,8 @@ export const Surface = forwardRef<HTMLDivElement, SurfaceProps>(function Surface
   className = "",
   ...rest
 }, ref) {
+  const restProps = flowRestProps(rest);
+  const consumerState = restProps["data-state"];
   const resolvedSurfaceRole = normalizeSurfaceRole(surfaceRole);
   const resolvedState = normalizeState(state);
   const resolvedDensity = normalizeFlowDensity(density);
@@ -81,16 +83,18 @@ export const Surface = forwardRef<HTMLDivElement, SurfaceProps>(function Surface
   return React.createElement(
     "div",
     {
-      ...flowRestProps(rest),
+      ...restProps,
       ref,
       className: ["surface", className].filter(Boolean).join(" "),
       "data-flow-primitive": "surface",
       "data-surface-role": resolvedSurfaceRole,
+      "data-surface-state": resolvedState,
       "data-surface-elevation": resolvedElevation,
       "data-surface-tone": resolvedTone,
       "data-surface-focus-mode": resolvedFocusMode,
       "data-surface-breakpoint": resolvedBreakpoint,
       ...flowStateProps(resolvedState),
+      ...(consumerState !== undefined ? { "data-state": consumerState } : {}),
       ...flowDensityProps(resolvedDensity),
     },
     children,

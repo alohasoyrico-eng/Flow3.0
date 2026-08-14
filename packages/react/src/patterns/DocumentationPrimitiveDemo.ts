@@ -27,6 +27,7 @@ export type DocumentationPrimitiveDemoType =
   | "statGrid"
   | "surface";
 export type DocumentationPrimitiveDemoDensity = SurfaceDensity;
+export type DocumentationPrimitiveDemoState = "default" | "interactive" | "empty" | "mobile";
 export type DocumentationPrimitiveDemoChoice = [string, string];
 export type DocumentationPrimitiveDemoCardAction = [string, string?, string?, string?, string?];
 export interface DocumentationPrimitiveDemoCard {
@@ -58,6 +59,7 @@ export interface DocumentationPrimitiveDemoProps extends FlowDataAttributes {
   rows?: Array<[string, string]>;
   className?: string;
   density?: DocumentationPrimitiveDemoDensity;
+  state?: DocumentationPrimitiveDemoState;
   surface?: Omit<SurfaceProps, "children" | "density" | "surfaceRole" | "state">;
   "aria-label"?: string;
   "aria-describedby"?: string;
@@ -137,20 +139,20 @@ function choiceButtons(choices: DocumentationPrimitiveDemoChoice[] | undefined, 
   if (!Array.isArray(choices) || !choices.length) return null;
   return React.createElement(
     "div",
-    { className: "density-switch" },
+    { "data-flow-slot": "documentation-primitive-demo.controls" },
     choices.map(([value, label]) => React.createElement(Button, {
       key: value,
       label,
       variant: value === active ? "primary" : "secondary",
       state: value === active ? "pressed" : "default",
-      density,
+      ...(density !== undefined ? { density } : {}),
       onClick: () => setActive(value),
     })),
   );
 }
 
 function iconNode(name: string) {
-  return React.createElement("span", { className: "material-symbol", "aria-hidden": "true" }, name);
+  return React.createElement("div", { "data-doc-primitive": "material-symbol", "aria-hidden": "true" }, name);
 }
 
 function stateString(states: DocumentationPrimitiveDemoProps["states"], active: string): string {
@@ -163,9 +165,9 @@ function cardActions(actions: DocumentationPrimitiveDemoCardAction[] | undefined
   return actions.map(([label, variant, intent, , icon], index) => ({
     key: label || `action-${index}`,
     label,
-    icon,
-    variant: variant as CardAction["variant"],
-    intent: intent as CardAction["intent"],
+    ...(icon !== undefined ? { icon } : {}),
+    ...(variant !== undefined ? { variant: variant as NonNullable<CardAction["variant"]> } : {}),
+    ...(intent !== undefined ? { intent: intent as NonNullable<CardAction["intent"]> } : {}),
   }));
 }
 
@@ -191,6 +193,7 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
   rows,
   className = "",
   density,
+  state = "default",
   surface,
   ...rest
 }, ref) {
@@ -205,37 +208,37 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
     if (resolvedType === "typography") {
       return [
         controls,
-        React.createElement("p", { className: "voice-display", "data-type-sample": "", key: "sample" }, sample),
-        ...(staticSamples ?? []).map(([sampleClassName, value]) => React.createElement("p", { className: sampleClassName, key: sampleClassName }, value)),
-        sampleCode ? React.createElement(CodeBlock, { key: "code", code: sampleCode, variant: "inline", density, className: "documentation-primitive-demo__code", wrap: false }) : null,
+        React.createElement("p", { "data-doc-primitive": "voice-display", "data-type-sample": "", key: "sample" }, sample),
+        ...(staticSamples ?? []).map(([sampleClassName, value]) => React.createElement("p", { "data-doc-primitive": sampleClassName, key: sampleClassName }, value)),
+        sampleCode ? React.createElement(CodeBlock, { key: "code", code: sampleCode, variant: "inline-group", state: "default", ...(density !== undefined ? { density } : {}), wrap: false }) : null,
       ];
     }
     if (resolvedType === "stack") {
-      return [controls, ...(items ?? []).map((item, index) => React.createElement("div", { key: `${item}-${index}` }, item))];
+      return [controls, ...(items ?? []).map((item, index) => React.createElement("div", { key: `${item}-${index}`, "data-doc-primitive": "stack-item" }, item))];
     }
     if (resolvedType === "icon") {
-      return [controls, ...(icons ?? []).map((name) => React.createElement("article", { key: name, "data-doc-primitive": "primitive-icon-demo-item" }, iconNode(name), React.createElement("span", null, name)))];
+      return [controls, ...(icons ?? []).map((name) => React.createElement("div", { key: name, "data-doc-primitive": "primitive-icon-demo-item" }, iconNode(name), React.createElement("div", { "data-doc-primitive": "primitive-icon-demo-label" }, name)))];
     }
     if (resolvedType === "swatch") {
-      return [controls, ...(roles ?? []).map((role) => React.createElement("article", { key: role, "data-doc-primitive": "primitive-color-swatch-demo" }, React.createElement("i", null), React.createElement("span", null, role)))];
+      return [controls, ...(roles ?? []).map((role) => React.createElement("div", { key: role, "data-doc-primitive": "primitive-color-swatch-demo" }, React.createElement("i", null), React.createElement("div", { "data-doc-primitive": "primitive-color-swatch-label" }, role)))];
     }
     if (resolvedType === "radius") {
-      return [controls, React.createElement("article", { key: "radius", "data-doc-primitive": "primitive-radius-demo" }, React.createElement("span", null, targetLabel), React.createElement("strong", { "data-radius-label": "" }, active))];
+      return [controls, React.createElement("div", { key: "radius", "data-doc-primitive": "primitive-radius-demo" }, React.createElement("div", { "data-doc-primitive": "primitive-radius-target" }, targetLabel), React.createElement("strong", { "data-radius-label": "" }, active))];
     }
     if (resolvedType === "elevation") {
-      return [controls, React.createElement("div", { className: "depth-stage", key: "depth" }, React.createElement("article", { className: "depth-surface", "data-doc-primitive": "primitive-depth-demo" }, React.createElement("span", { "data-depth-label": "" }, labels?.[active] ?? ""), React.createElement("strong", null, title), React.createElement("p", null, copy)))];
+      return [controls, React.createElement("div", { "data-doc-primitive": "depth-stage", key: "depth" }, React.createElement("div", { "data-doc-primitive": "primitive-depth-demo" }, React.createElement("div", { "data-doc-primitive": "primitive-depth-label", "data-depth-label": "" }, labels?.[active] ?? ""), React.createElement("strong", null, title), React.createElement("p", null, copy)))];
     }
     if (resolvedType === "motionToken") {
-      return [controls, React.createElement("div", { className: "motion-token-track", key: "track" }, React.createElement("i", null)), React.createElement(CodeBlock, { key: "label", code: labels?.[active] ?? initialLabel ?? "", variant: "inline", density, className: "documentation-primitive-demo__code", wrap: false, "data-motion-token-label": "" } as ComponentProps<typeof CodeBlock>)];
+      return [controls, React.createElement("div", { "data-doc-primitive": "motion-token-track", key: "track" }, React.createElement("i", null)), React.createElement(CodeBlock, { key: "label", code: labels?.[active] ?? initialLabel ?? "", variant: "inline-group", state: "default", density, wrap: false, "data-motion-token-label": "" } as ComponentProps<typeof CodeBlock>)];
     }
     if (resolvedType === "breakpoint") {
-      return [controls, React.createElement("div", { className: "breakpoint-stage", key: "breakpoint" }, React.createElement("article", { "data-doc-primitive": "primitive-breakpoint-demo" }, React.createElement("b", { "data-breakpoint-label": "" }, labels?.[active] ?? active), React.createElement("i", null), React.createElement("i", null), React.createElement("i", null)))];
+      return [controls, React.createElement("div", { "data-doc-primitive": "breakpoint-stage", key: "breakpoint" }, React.createElement("div", { "data-doc-primitive": "primitive-breakpoint-demo" }, React.createElement("b", { "data-breakpoint-label": "" }, labels?.[active] ?? active), React.createElement("i", null), React.createElement("i", null), React.createElement("i", null)))];
     }
     if (resolvedType === "focus") {
-      return [controls, React.createElement(Button, { key: "focus", label: action ?? "", variant: "primary", density, "data-focus-target": "" } as ComponentProps<typeof Button>), React.createElement("p", { key: "copy", "data-focus-copy": "" }, stateString(states, active))];
+      return [controls, React.createElement(Button, { key: "focus", label: action ?? "", variant: "primary", state: "default", density, "data-focus-target": "" } as ComponentProps<typeof Button>), React.createElement("p", { key: "copy", "data-focus-copy": "" }, stateString(states, active))];
     }
     if (resolvedType === "loading") {
-      return [controls, React.createElement("article", { key: "loading", "data-doc-primitive": "primitive-loading-demo" }, React.createElement("b", { "data-loading-title": "" }, stateString(states, active)), React.createElement("i", null), React.createElement("i", null), React.createElement("i", null))];
+      return [controls, React.createElement("div", { key: "loading", "data-doc-primitive": "primitive-loading-demo" }, React.createElement("b", { "data-loading-title": "" }, stateString(states, active)), React.createElement("i", null), React.createElement("i", null), React.createElement("i", null))];
     }
     if (resolvedType === "disabled") {
       const value = states?.[active];
@@ -243,10 +246,10 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
       return [controls, React.createElement(Button, { key: "disabled", label: buttonLabel ?? "", disabled: true, density, "data-disabled-action": "" } as ComponentProps<typeof Button>), React.createElement("p", { key: "copy", "data-disabled-copy": "" }, disabledCopy)];
     }
     if (resolvedType === "chart") {
-      return [controls, React.createElement("div", { className: "chart-bars", key: "bars" }, React.createElement("i", null), React.createElement("i", null), React.createElement("i", null), React.createElement("i", null)), React.createElement("p", { key: "copy", "data-chart-copy": "" }, stateString(states, active))];
+      return [controls, React.createElement("div", { "data-doc-primitive": "chart-bars", key: "bars" }, React.createElement("i", null), React.createElement("i", null), React.createElement("i", null), React.createElement("i", null)), React.createElement("p", { key: "copy", "data-chart-copy": "" }, stateString(states, active))];
     }
     if (resolvedType === "map") {
-      return [controls, React.createElement("div", { className: "map-stage", key: "map" }, React.createElement("span", { className: "map-pin" }, iconNode("local_gas_station")), React.createElement("span", { className: "route-line" }), React.createElement("article", { "data-doc-primitive": "primitive-map-label", "data-map-label": "" }, stateString(states, active)))];
+      return [controls, React.createElement("div", { "data-doc-primitive": "map-stage", key: "map" }, React.createElement("div", { "data-doc-primitive": "map-pin" }, iconNode("local_gas_station")), React.createElement("div", { "data-doc-primitive": "route-line" }), React.createElement("div", { "data-doc-primitive": "primitive-map-label", "data-map-label": "" }, stateString(states, active)))];
     }
     if (resolvedType === "message") {
       return (cards ?? []).map((card, index) => React.createElement(Card, {
@@ -256,6 +259,7 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
         status: card.eyebrow,
         actions: cardActions(card.actions),
         variant: "minimal",
+        state: "default",
         fullWidth: true,
         density,
       } as CardProps));
@@ -266,12 +270,13 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
         title: label,
         value,
         variant: "minimal",
+        state: "default",
         composition: "stats",
         fullWidth: true,
         density,
       } as CardProps));
     }
-    return (roles ?? []).map((role) => React.createElement("article", { key: role, "data-doc-primitive": "primitive-surface-role-demo", className: role === "inverse" ? "inverse" : "" }, React.createElement("span", null, role)));
+    return (roles ?? []).map((role) => React.createElement("div", { key: role, "data-doc-primitive": "primitive-surface-role-demo", "data-inverse": role === "inverse" ? "true" : undefined }, React.createElement("div", { "data-doc-primitive": "primitive-surface-role-label" }, role)));
   }, [action, active, cards, choices, code, controls, copy, density, icons, initialLabel, items, labels, roles, rows, resolvedType, sample, sampleCode, samples, states, staticSamples, targetLabel, title]);
 
   return React.createElement(
@@ -281,16 +286,16 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
       ...flowRestProps(rest as DocumentationPrimitiveDemoRestProps),
       ...rootData,
       ref,
-      className: ["primitive-demo", demoClassByType[resolvedType], className].filter(Boolean).join(" "),
       surfaceRole: "section",
       density,
       elevation: surface?.elevation ?? "none",
       tone: surface?.tone ?? "default",
-      state: "default",
+      state,
       "aria-label": rest["aria-label"] ?? ariaLabel,
       "data-flow-pattern": "documentation-primitive-demo",
       "data-documentation-primitive-demo-type": resolvedType,
       "data-doc-primitive": "primitive-demo",
+      "data-doc-class": className || undefined,
     } as ComponentProps<typeof Surface>,
     body,
   );

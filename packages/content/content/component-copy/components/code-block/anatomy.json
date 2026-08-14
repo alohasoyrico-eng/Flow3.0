@@ -1,0 +1,30 @@
+{
+  "components": {
+    "code-block": {
+      "anatomy": {
+        "items": [
+          {
+            "part": "container",
+            "rule": "Owns snippet surface, border, radius, density, and overflow.",
+            "tokens": ["comp.code-block.*", "sys.energy.*", "sys.frame.*"]
+          },
+          {
+            "part": "header",
+            "rule": "Optional metadata row for label, filename, language, helper, and copy action.",
+            "tokens": ["sys.voice.*", "sys.frame.*"]
+          },
+          {
+            "part": "code content",
+            "rule": "Selectable monospace source text with governed wrapping or scroll.",
+            "tokens": ["sys.voice.*", "sys.accessibility.*"]
+          },
+          {
+            "part": "copy action",
+            "rule": "Uses Copy Button rather than a local clipboard control.",
+            "tokens": ["comp.copy-button.*", "sys.state.*"]
+          }
+        ]
+      }
+    }
+  }
+}

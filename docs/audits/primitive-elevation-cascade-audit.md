@@ -10,7 +10,7 @@ Elevation converts Depth into named surface levels, overlay roles, and stacking 
 ## Signals
 - Token aliases: 13/13
 - Component bridge aliases: 8/8
-- Component elevation/depth uses: 200
+- Component elevation/depth uses: 202
 - Docs elevation/depth uses: 0
 - Raw shadow failures: 0
 

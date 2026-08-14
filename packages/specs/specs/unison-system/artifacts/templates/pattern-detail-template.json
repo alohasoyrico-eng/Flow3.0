@@ -100,6 +100,10 @@
           "mobile",
           "dark"
         ],
+        "stateGuidance": {
+          "demo-error": "If a pattern demo fails, show recovery guidance with a retry action and a path to review dependency evidence.",
+          "missing-dependency": "When dependencies are missing, identify the blocking item and provide the next action to resolve it."
+        },
         "qualityGates": [
           "Pattern demos use template slots and Flow artifacts instead of local wrapper systems.",
           "Dependencies are declared and visible before implementation examples.",
@@ -109,6 +113,39 @@
           "A pattern page creates its own shell, section cards, or demo frame.",
           "A pattern demo implements fake components or local variants instead of consuming Flow artifacts.",
           "Pattern dependencies are implied by markup instead of declared in the template content model."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "single-column pattern detail"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "pattern detail with demo frame"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense pattern evidence view"
+          }
+        ],
+        "tokenDependencies": [
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.growth.*",
+          "sys.accessibility.*",
+          "surface.*"
+        ],
+        "surfaces": [
+          "page",
+          "section"
         ]
       }
     }

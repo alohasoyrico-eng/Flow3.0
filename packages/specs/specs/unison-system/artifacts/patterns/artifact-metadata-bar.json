@@ -19,7 +19,13 @@
           "Frame",
           "State",
           "Tone",
-          "Accessibility"
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "Symbol"
         ],
         "primitiveDependencies": [
           "Surface",
@@ -27,7 +33,15 @@
           "Spacing",
           "Density",
           "Focus",
-          "Color"
+          "Color",
+          "Disabled",
+          "Duration",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius"
         ],
         "componentDependencies": [
           "Badge",
@@ -36,14 +50,13 @@
           "Tooltip",
           "Button"
         ],
-        "patternDependencies": [
-          "Documentation Section"
-        ],
+        "patternDependencies": [],
         "templateDependencies": [
           "Docs Home Template",
           "Docs Collection Template",
           "Documentation Hero",
           "Reference Detail Template",
+          "Docs Artifact Detail Template",
           "Component Detail Template",
           "Pattern Detail Template",
           "Template Detail Template"
@@ -86,7 +99,7 @@
               "Button"
             ],
             "required": "conditional",
-            "purpose": "Supports metadata-driven actions such as filter, inspect, or copy link."
+            "purpose": "Supports metadata-driven actions."
           }
         ],
         "entryConditions": [
@@ -131,6 +144,44 @@
           "Status, maturity, or readiness is color-only.",
           "A docs card duplicates metadata layout internally after this pattern exists.",
           "The pattern becomes a general product status bar without product use evidence."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "wrapped metadata row"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "compact metadata row"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense metadata strip"
+          }
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.tag.*",
+          "comp.chip.*",
+          "comp.tooltip.*",
+          "comp.button.*",
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.symbol.*"
         ]
       }
     }

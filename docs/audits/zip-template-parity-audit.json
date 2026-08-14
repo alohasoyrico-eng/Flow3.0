@@ -2,11 +2,11 @@
   "status": "pass",
   "audit": "zip template parity",
   "principle": "ZIP ui_kits are product-level references. Each kit must be classified before migration so Flow React templates compose existing foundations, primitives, components, and patterns instead of copying standalone HTML/CSS shells.",
-  "generatedAt": "2026-08-13T16:14:32.478Z",
+  "generatedAt": "2026-08-14T23:14:33.848Z",
   "inventory": {
     "zipKits": 16,
     "zipScreens": 34,
-    "flowTemplates": 9,
+    "flowTemplates": 17,
     "coveredByTemplate": 10,
     "coveredByPattern": 4,
     "coveredSeparateChannel": 1,

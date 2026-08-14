@@ -6,12 +6,12 @@ Overlay, navigation, and data/display components must pass TypeScript source/run
 
 ## Inventory
 
-- Overlay/navigation/data components: 14/14
+- Overlay/navigation/data components: 15/15
 - Gate reports: 8/8
-- TSX sources: 14/14
-- Runtime files: 14/14
-- Declaration files: 14/14
-- Component gate edges: 112/112
+- TSX sources: 15/15
+- Runtime files: 15/15
+- Declaration files: 15/15
+- Component gate edges: 120/120
 - Overlay/navigation/data debt: 0
 
 ## Components
@@ -30,6 +30,7 @@ Overlay, navigation, and data/display components must pass TypeScript source/run
 | tree-view | pass | yes | yes | yes | 8/8 | None |
 | list | pass | yes | yes | yes | 8/8 | None |
 | table | pass | yes | yes | yes | 8/8 | None |
+| code-block | pass | yes | yes | yes | 8/8 | None |
 | chart-panel | pass | yes | yes | yes | 8/8 | None |
 | kpi-tile | pass | yes | yes | yes | 8/8 | None |
 

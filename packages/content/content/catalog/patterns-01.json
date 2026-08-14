@@ -16,8 +16,10 @@
         "Avatar",
         "Badge",
         "Drawer",
+        "Empty State",
         "Icon Button",
         "Input",
+        "List",
         "Menu"
       ],
       "patternDependencies": [

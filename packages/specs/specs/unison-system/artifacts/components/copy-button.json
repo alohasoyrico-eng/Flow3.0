@@ -93,6 +93,30 @@
             "test": "Verify layout stability after copied feedback.",
             "rejectIf": "Feedback changes control size unpredictably."
           },
+          "Depth": {
+            "status": "covered",
+            "decision": "Use inherited Button/Icon Button depth rather than a new floating treatment.",
+            "tokens": [
+              "sys.depth.*",
+              "comp.button.*",
+              "comp.icon-button.*"
+            ],
+            "behavior": "Copy action sits inside its owning row or code header.",
+            "example": "Inline copy in metadata.",
+            "test": "Verify no standalone elevated copy surface.",
+            "rejectIf": "Copy Button creates a new card or overlay."
+          },
+          "Momentum": {
+            "status": "covered",
+            "decision": "Use tokenized Button/Icon Button interaction and feedback timing.",
+            "tokens": [
+              "sys.momentum.*"
+            ],
+            "behavior": "Copied/error feedback feels responsive and respects reduced motion.",
+            "example": "Copied state resolves after feedback duration.",
+            "test": "Verify feedback timing and reduced motion.",
+            "rejectIf": "Clipboard feedback uses raw timing or distracting motion."
+          },
           "State": {
             "status": "covered",
             "decision": "Resolve disabled, loading, error, copied, pressed, focus, and hover states.",
@@ -104,6 +128,63 @@
             "example": "Copy fails because clipboard API is unavailable.",
             "test": "Verify copied/error state timing and announcement.",
             "rejectIf": "Failures are silent."
+          },
+          "Tone": {
+            "status": "covered",
+            "decision": "Use concise target labels and recovery copy for clipboard errors.",
+            "tokens": [
+              "sys.tone.*"
+            ],
+            "behavior": "Users know what was copied and what to do if copying fails.",
+            "example": "Copy failed, review permissions and retry.",
+            "test": "Verify error feedback includes recovery language.",
+            "rejectIf": "The control only says Copy when multiple targets exist."
+          },
+          "Energy": {
+            "status": "covered",
+            "decision": "Keep copy feedback immediate, bounded, and calm so clipboard confirmation does not compete with the surrounding task.",
+            "tokens": [
+              "sys.energy.*",
+              "sys.momentum.*"
+            ],
+            "behavior": "Copied and error states confirm the action without adding a new visual surface or persistent interruption.",
+            "example": "Copied state resolves after the feedback duration.",
+            "test": "Verify feedback timing is bounded and does not shift layout.",
+            "rejectIf": "Copy feedback becomes a blocking toast, modal, or animated distraction."
+          },
+          "Growth": {
+            "status": "covered",
+            "decision": "Keep Copy Button as one clipboard action and escalate bulk copy or workflow logic to patterns.",
+            "tokens": [
+              "sys.growth.*"
+            ],
+            "behavior": "The component does not own multi-item selection or export flows.",
+            "example": "Copy one token path.",
+            "test": "Verify one explicit value per control.",
+            "rejectIf": "Copy Button becomes a bulk export pattern."
+          },
+          "Symbol": {
+            "status": "covered",
+            "decision": "Use approved symbol names for icon variant.",
+            "tokens": [
+              "sys.symbol.*"
+            ],
+            "behavior": "The copy icon supports but never replaces the accessible name.",
+            "example": "content_copy icon.",
+            "test": "Verify icon-only accessible name.",
+            "rejectIf": "Custom glyph or unlabeled icon-only copy is used."
+          },
+          "Iconography": {
+            "status": "covered",
+            "decision": "Use Icon Button icon sizing for compact copy actions.",
+            "tokens": [
+              "sys.iconography.*",
+              "comp.icon-button.*"
+            ],
+            "behavior": "Icon copy action aligns with surrounding controls.",
+            "example": "Copy import path.",
+            "test": "Verify density and optical alignment.",
+            "rejectIf": "Icon sizing is local or mismatched."
           },
           "Accessibility": {
             "status": "covered",
@@ -144,6 +225,26 @@
           "sys.state.*",
           "sys.message.*",
           "sys.accessibility.*"
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "explicit text copy action"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "inline or header copy action"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "compact metadata or code header action"
+          }
         ],
         "props": [
           {

@@ -12,9 +12,9 @@ Message consumes Tone, Voice, State, and Accessibility, then coordinates Focus, 
 - Coordinated primitives: 5/5
 - Token aliases: 16/16
 - Message component coverage: 5/5
-- Component copy refs: 50
-- Pattern refs: 63
-- Template refs: 9
+- Component copy refs: 52
+- Pattern refs: 72
+- Template refs: 14
 - Docs scope: external-not-audited
 - Announcement signals: 0
 - Danger/error without recovery: 0

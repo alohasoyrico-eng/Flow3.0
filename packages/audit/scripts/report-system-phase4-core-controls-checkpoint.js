@@ -24,6 +24,7 @@ const coreControlIds = [
   "combobox",
   "country-selector",
   "code-input",
+  "copy-button",
   "phone-input",
   "input-amount",
   "card-number-input",

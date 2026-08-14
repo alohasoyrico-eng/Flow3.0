@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useState } from "react";
 import { CardSummary } from "../CardSummary.js";
 import { MovementRow } from "../MovementRow.js";

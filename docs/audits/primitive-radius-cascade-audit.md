@@ -10,7 +10,7 @@ Radius converts Frame shape roles into implementation-ready control, container, 
 ## Signals
 - Token aliases: 15/15
 - Component bridge aliases: 3/3
-- Component radius alias uses: 233
+- Component radius alias uses: 235
 - Docs radius alias uses: 0
 - Direct ref-frame-radius consumer uses: 0
 - Raw radius failures: 0

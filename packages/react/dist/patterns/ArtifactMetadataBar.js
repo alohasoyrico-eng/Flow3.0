@@ -6,7 +6,7 @@ import { Surface } from "../Surface.js";
 import { Tag } from "../Tag.js";
 import { Tooltip } from "../Tooltip.js";
 import { flowRestProps } from "../internal/props.js";
-const validStates = new Set(["default", "compact", "overflow", "interactive", "loading", "empty"]);
+const validStates = new Set(["default", "compact", "overflow", "interactive", "loading", "empty", "dark", "mobile"]);
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(flowRestProps(rest)).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
@@ -70,8 +70,8 @@ function renderCoreItem(item, density, disabled, index) {
 function renderItem(item, density, disabled, index) {
     const core = renderCoreItem(item, density, disabled, index);
     if (!item.explanation)
-        return React.createElement("span", { key: itemKey(item, index), "data-flow-slot": "artifact-metadata-bar.item-wrapper" }, core);
-    return React.createElement("span", { key: itemKey(item, index), "data-flow-slot": "artifact-metadata-bar.item-wrapper" }, core, React.createElement(Tooltip, {
+        return React.createElement(React.Fragment, { key: itemKey(item, index) }, core);
+    return React.createElement(React.Fragment, { key: itemKey(item, index) }, core, React.createElement(Tooltip, {
         triggerLabel: `${itemLabel(item)} details`,
         content: item.explanation,
         density,
@@ -93,7 +93,13 @@ function renderAction(action, density, disabled, index) {
 export const ArtifactMetadataBar = forwardRef(function ArtifactMetadataBar({ label = "Artifact metadata", items = [], actions = [], density, state, compact = false, loading = false, emptyLabel = "No metadata", children, surface, className = "", ...rest }, ref) {
     const normalizedItems = (Array.isArray(items) ? items : []).filter((item) => Boolean(item?.label));
     const normalizedActions = (Array.isArray(actions) ? actions : []).filter((action) => Boolean(action?.label));
-    const resolvedState = resolveState({ state, loading, compact, items: normalizedItems, actions: normalizedActions });
+    const resolvedState = resolveState({
+        ...(state !== undefined ? { state } : {}),
+        loading,
+        compact,
+        items: normalizedItems,
+        actions: normalizedActions,
+    });
     const disabled = resolvedState === "loading";
     return React.createElement(Surface, {
         ...surface,
@@ -109,9 +115,9 @@ export const ArtifactMetadataBar = forwardRef(function ArtifactMetadataBar({ lab
         "data-artifact-metadata-bar-state": resolvedState,
         "data-artifact-metadata-bar-count": String(normalizedItems.length),
     }, normalizedItems.length
-        ? React.createElement("span", { "data-flow-slot": "artifact-metadata-bar.items" }, normalizedItems.map((item, index) => renderItem(item, density, disabled, index)))
-        : React.createElement("span", { "data-flow-slot": "artifact-metadata-bar.empty" }, emptyLabel), children ? React.createElement("span", { "data-flow-slot": "artifact-metadata-bar.body" }, children) : null, normalizedActions.length
-        ? React.createElement("span", { "data-flow-slot": "artifact-metadata-bar.actions" }, normalizedActions.map((action, index) => renderAction(action, density, disabled, index)))
+        ? React.createElement("div", { "data-flow-slot": "artifact-metadata-bar.items" }, normalizedItems.map((item, index) => renderItem(item, density, disabled, index)))
+        : React.createElement("div", { "data-flow-slot": "artifact-metadata-bar.empty" }, emptyLabel), children ? React.createElement("div", { "data-flow-slot": "artifact-metadata-bar.body" }, children) : null, normalizedActions.length
+        ? React.createElement("div", { "data-flow-slot": "artifact-metadata-bar.actions" }, normalizedActions.map((action, index) => renderAction(action, density, disabled, index)))
         : null);
 });
 ArtifactMetadataBar.displayName = "ArtifactMetadataBar";

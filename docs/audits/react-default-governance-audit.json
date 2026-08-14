@@ -4,18 +4,18 @@
   "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
   "baseline": {
     "inventory": {
-      "components": 60,
+      "components": 62,
       "defaultDebt": 0,
       "prohibitedDefaults": 0,
-      "semanticDefaultDecisions": 115,
-      "contractBackedSemanticDefaultDecisions": 115,
+      "semanticDefaultDecisions": 119,
+      "contractBackedSemanticDefaultDecisions": 119,
       "unbackedSemanticDefaultDecisions": 0,
       "semanticDefaultDecisionContractGaps": 0,
       "reactGovernancePolicyIssues": 0
     },
     "semanticByRule": {
-      "state-default": 45,
-      "variant-default": 40,
+      "state-default": 47,
+      "variant-default": 42,
       "tone-default": 15,
       "intent-default": 2,
       "status-default": 1,
@@ -38,8 +38,8 @@
     "issues": [],
     "semanticByRulePolicy": {
       "expectedSemanticByRule": {
-        "state-default": 45,
-        "variant-default": 40,
+        "state-default": 47,
+        "variant-default": 42,
         "tone-default": 15,
         "intent-default": 2,
         "status-default": 1,
@@ -186,11 +186,11 @@
     }
   },
   "inventory": {
-    "components": 60,
+    "components": 62,
     "defaultDebt": 0,
     "prohibitedDefaults": 0,
-    "semanticDefaultDecisions": 115,
-    "contractBackedSemanticDefaultDecisions": 115,
+    "semanticDefaultDecisions": 119,
+    "contractBackedSemanticDefaultDecisions": 119,
     "unbackedSemanticDefaultDecisions": 0,
     "semanticDefaultDecisionContractGaps": 0,
     "reactGovernancePolicyIssues": 0,
@@ -198,15 +198,15 @@
       {
         "rule": "state-default",
         "description": "Component behavior default; allowed when normalized through component state.",
-        "count": 45,
-        "contractBacked": 45,
+        "count": 47,
+        "contractBacked": 47,
         "unbacked": 0
       },
       {
         "rule": "variant-default",
         "description": "Component composition default; allowed when constrained by the component contract.",
-        "count": 40,
-        "contractBacked": 40,
+        "count": 42,
+        "contractBacked": 42,
         "unbacked": 0
       },
       {
@@ -668,6 +668,26 @@
       "text": "state = \"default\","
     },
     {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.tsx",
+      "line": 94,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "block",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"block\","
+    },
+    {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.tsx",
+      "line": 95,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
+    },
+    {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.tsx",
       "line": 77,
@@ -676,6 +696,26 @@
       "value": "sms",
       "description": "Component composition default; allowed when constrained by the component contract.",
       "text": "variant = \"sms\","
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.tsx",
+      "line": 66,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "text",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"text\","
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.tsx",
+      "line": 67,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
     },
     {
       "component": "Dialog",
@@ -2504,6 +2544,64 @@
       "status": "pass"
     },
     {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.tsx",
+      "line": 94,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "block",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"block\",",
+      "publicAllowedValues": [
+        "block",
+        "inline-group",
+        "specimen"
+      ],
+      "contractAllowedValues": [
+        "block",
+        "inline-group",
+        "specimen"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.tsx",
+      "line": 95,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "wrapped",
+        "scrollable",
+        "with-header",
+        "with-copy",
+        "copied",
+        "error",
+        "disabled"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "wrapped",
+        "scrollable",
+        "with-header",
+        "with-copy",
+        "copied",
+        "error",
+        "disabled"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.tsx",
       "line": 77,
@@ -2525,6 +2623,64 @@
         "approval",
         "masked",
         "compact"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.tsx",
+      "line": 66,
+      "rule": "variant-default",
+      "prop": "variant",
+      "value": "text",
+      "description": "Component composition default; allowed when constrained by the component contract.",
+      "text": "variant = \"text\",",
+      "publicAllowedValues": [
+        "text",
+        "icon",
+        "inline"
+      ],
+      "contractAllowedValues": [
+        "text",
+        "icon",
+        "inline"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.tsx",
+      "line": 67,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "copied",
+        "error",
+        "disabled",
+        "loading"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "copied",
+        "error",
+        "disabled",
+        "loading"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",

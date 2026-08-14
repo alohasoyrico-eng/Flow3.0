@@ -3,21 +3,21 @@
   "audit": "template cascade governance",
   "principle": "Templates must prove the full cascade from formal Flow artifacts through foundations, primitives, Surface ownership, pattern dependencies, and React pattern contracts without relying on Docs renderers.",
   "inventory": {
-    "templates": 9,
-    "templateArtifacts": 9,
-    "catalogTemplates": 9,
-    "templateBlueprints": 9,
-    "templatesWithSurfacePrimitive": 9,
-    "templatesWithDensityPrimitive": 9,
-    "templatePatternDependencies": 25,
-    "uniqueTemplatePatternDependencies": 16,
-    "reactPatternSources": 25,
-    "reactPatternTypes": 25,
-    "reactPatternExports": 25,
-    "patternSurfaceContracts": 18,
-    "patternSurfaceImports": 18,
+    "templates": 17,
+    "templateArtifacts": 17,
+    "catalogTemplates": 17,
+    "templateBlueprints": 17,
+    "templatesWithSurfacePrimitive": 17,
+    "templatesWithDensityPrimitive": 17,
+    "templatePatternDependencies": 60,
+    "uniqueTemplatePatternDependencies": 26,
+    "reactPatternSources": 60,
+    "reactPatternTypes": 60,
+    "reactPatternExports": 60,
+    "patternSurfaceContracts": 43,
+    "patternSurfaceImports": 43,
     "requiredReactTemplateRuntimes": 9,
-    "templatesWithReactRuntime": 9,
+    "templatesWithReactRuntime": 17,
     "templateReactRuntimeBacklog": 0,
     "missingRequiredReactTemplateRuntimes": 0,
     "missingRequiredTemplateSurfaceRoots": 0,
@@ -206,6 +206,218 @@
         "dataFlowTemplate": true,
         "surfaceRoot": true,
         "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "component-detail-template",
+      "name": "Component Detail Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "section-header",
+          "name": "Section Header",
+          "source": "packages/react/src/patterns/SectionHeader.js",
+          "types": "packages/react/src/patterns/SectionHeader.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-section",
+          "name": "Documentation Section",
+          "source": "packages/react/src/patterns/DocumentationSection.js",
+          "types": "packages/react/src/patterns/DocumentationSection.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "demo-preview-frame",
+          "name": "Demo Preview Frame",
+          "source": "packages/react/src/patterns/DemoPreviewFrame.js",
+          "types": "packages/react/src/patterns/DemoPreviewFrame.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "on-this-page-nav",
+          "name": "On This Page Nav",
+          "source": "packages/react/src/patterns/OnThisPageNav.js",
+          "types": "packages/react/src/patterns/OnThisPageNav.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "artifact-metadata-bar",
+          "name": "Artifact Metadata Bar",
+          "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+          "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "demo-loading",
+        "demo-error",
+        "missing-contract",
+        "deprecated",
+        "mobile",
+        "dark"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/ComponentDetailTemplate.js",
+        "types": "packages/react/src/templates/ComponentDetailTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
         "controlledDrawer": true,
         "docsRuntimeReferences": 0,
         "vanillaDomReferences": 0
@@ -455,6 +667,740 @@
         "dataFlowTemplate": true,
         "surfaceRoot": true,
         "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "name": "Docs Artifact Detail Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        },
+        {
+          "name": "Disabled",
+          "id": "disabled",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/disabled.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "documentation-hero",
+          "name": "Documentation Hero",
+          "source": "packages/react/src/patterns/DocumentationHero.js",
+          "types": "packages/react/src/patterns/DocumentationHero.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "artifact-metadata-bar",
+          "name": "Artifact Metadata Bar",
+          "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+          "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "empty",
+        "loading",
+        "error",
+        "mobile",
+        "dark"
+      ],
+      "surfaces": [
+        "page",
+        "intro",
+        "body"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/DocsArtifactDetailTemplate.js",
+        "types": "packages/react/src/templates/DocsArtifactDetailTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": true,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "docs-collection-template",
+      "name": "Docs Collection Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "section-header",
+          "name": "Section Header",
+          "source": "packages/react/src/patterns/SectionHeader.js",
+          "types": "packages/react/src/patterns/SectionHeader.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "search",
+          "name": "Search",
+          "source": "packages/react/src/patterns/Search.js",
+          "types": "packages/react/src/patterns/Search.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "toolbar",
+          "name": "Toolbar",
+          "source": "packages/react/src/patterns/Toolbar.js",
+          "types": "packages/react/src/patterns/Toolbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "artifact-metadata-bar",
+          "name": "Artifact Metadata Bar",
+          "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+          "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-section",
+          "name": "Documentation Section",
+          "source": "packages/react/src/patterns/DocumentationSection.js",
+          "types": "packages/react/src/patterns/DocumentationSection.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "filtered",
+        "loading",
+        "empty",
+        "error",
+        "mobile"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/DocsCollectionTemplate.js",
+        "types": "packages/react/src/templates/DocsCollectionTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "docs-home-template",
+      "name": "Docs Home Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "Growth",
+          "id": "growth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/growth.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Iconography",
+          "id": "iconography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/iconography.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "section-header",
+          "name": "Section Header",
+          "source": "packages/react/src/patterns/SectionHeader.js",
+          "types": "packages/react/src/patterns/SectionHeader.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-hero",
+          "name": "Documentation Hero",
+          "source": "packages/react/src/patterns/DocumentationHero.js",
+          "types": "packages/react/src/patterns/DocumentationHero.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-section",
+          "name": "Documentation Section",
+          "source": "packages/react/src/patterns/DocumentationSection.js",
+          "types": "packages/react/src/patterns/DocumentationSection.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "artifact-metadata-bar",
+          "name": "Artifact Metadata Bar",
+          "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+          "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "loading",
+        "empty",
+        "degraded-content",
+        "dark",
+        "mobile"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.growth.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/DocsHomeTemplate.js",
+        "types": "packages/react/src/templates/DocsHomeTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "docs-shell-template",
+      "name": "Docs Shell Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        },
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Color",
+          "id": "color",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/color.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "topbar",
+          "name": "Topbar",
+          "source": "packages/react/src/patterns/Topbar.js",
+          "types": "packages/react/src/patterns/Topbar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "sidebar",
+          "name": "Sidebar",
+          "source": "packages/react/src/patterns/Sidebar.js",
+          "types": "packages/react/src/patterns/Sidebar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "search",
+          "name": "Search",
+          "source": "packages/react/src/patterns/Search.js",
+          "types": "packages/react/src/patterns/Search.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "command-palette",
+          "name": "Command Palette",
+          "source": "packages/react/src/patterns/CommandPalette.js",
+          "types": "packages/react/src/patterns/CommandPalette.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-page-shell",
+          "name": "Documentation Page Shell",
+          "source": "packages/react/src/patterns/DocumentationPageShell.js",
+          "types": "packages/react/src/patterns/DocumentationPageShell.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "desktop",
+        "mobile",
+        "sidebar-open",
+        "sidebar-closed",
+        "search-open",
+        "dark",
+        "light",
+        "loading"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.accessibility.*",
+        "sys.voice.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/DocsShellTemplate.js",
+        "types": "packages/react/src/templates/DocsShellTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
         "controlledDrawer": true,
         "docsRuntimeReferences": 0,
         "vanillaDomReferences": 0
@@ -1535,6 +2481,423 @@
       "gaps": []
     },
     {
+      "id": "pattern-detail-template",
+      "name": "Pattern Detail Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Growth",
+          "id": "growth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/growth.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Message",
+          "id": "message",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/message.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "section-header",
+          "name": "Section Header",
+          "source": "packages/react/src/patterns/SectionHeader.js",
+          "types": "packages/react/src/patterns/SectionHeader.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-section",
+          "name": "Documentation Section",
+          "source": "packages/react/src/patterns/DocumentationSection.js",
+          "types": "packages/react/src/patterns/DocumentationSection.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "demo-preview-frame",
+          "name": "Demo Preview Frame",
+          "source": "packages/react/src/patterns/DemoPreviewFrame.js",
+          "types": "packages/react/src/patterns/DemoPreviewFrame.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "on-this-page-nav",
+          "name": "On This Page Nav",
+          "source": "packages/react/src/patterns/OnThisPageNav.js",
+          "types": "packages/react/src/patterns/OnThisPageNav.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "artifact-metadata-bar",
+          "name": "Artifact Metadata Bar",
+          "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+          "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "demo-loading",
+        "demo-error",
+        "missing-dependency",
+        "deprecated",
+        "mobile",
+        "dark"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.growth.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/PatternDetailTemplate.js",
+        "types": "packages/react/src/templates/PatternDetailTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "reference-detail-template",
+      "name": "Reference Detail Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Symbol",
+          "id": "symbol",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/symbol.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Message",
+          "id": "message",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/message.json"
+        },
+        {
+          "name": "Research",
+          "id": "research",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/research.json"
+        },
+        {
+          "name": "Measurement",
+          "id": "measurement",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/measurement.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "section-header",
+          "name": "Section Header",
+          "source": "packages/react/src/patterns/SectionHeader.js",
+          "types": "packages/react/src/patterns/SectionHeader.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-hero",
+          "name": "Documentation Hero",
+          "source": "packages/react/src/patterns/DocumentationHero.js",
+          "types": "packages/react/src/patterns/DocumentationHero.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-section",
+          "name": "Documentation Section",
+          "source": "packages/react/src/patterns/DocumentationSection.js",
+          "types": "packages/react/src/patterns/DocumentationSection.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "on-this-page-nav",
+          "name": "On This Page Nav",
+          "source": "packages/react/src/patterns/OnThisPageNav.js",
+          "types": "packages/react/src/patterns/OnThisPageNav.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "demo-preview-frame",
+          "name": "Demo Preview Frame",
+          "source": "packages/react/src/patterns/DemoPreviewFrame.js",
+          "types": "packages/react/src/patterns/DemoPreviewFrame.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "tabbed",
+        "loading",
+        "missing-specimen",
+        "dark",
+        "mobile"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.symbol.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/ReferenceDetailTemplate.js",
+        "types": "packages/react/src/templates/ReferenceDetailTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
       "id": "routes-and-stations",
       "name": "Routes And Stations",
       "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
@@ -1873,6 +3236,198 @@
         "dataFlowTemplate": true,
         "surfaceRoot": true,
         "controlledSelectedModule": true,
+        "controlledDrawer": true,
+        "docsRuntimeReferences": 0,
+        "vanillaDomReferences": 0
+      },
+      "missingRequiredSections": [],
+      "missingFoundationTokens": [],
+      "missingPrimitiveTokens": [],
+      "gaps": []
+    },
+    {
+      "id": "template-detail-template",
+      "name": "Template Detail Template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+      "platform": "Web documentation",
+      "foundations": [
+        {
+          "name": "Voice",
+          "id": "voice",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/voice.json"
+        },
+        {
+          "name": "Frame",
+          "id": "frame",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/frame.json"
+        },
+        {
+          "name": "Depth",
+          "id": "depth",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/depth.json"
+        },
+        {
+          "name": "State",
+          "id": "state",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/state.json"
+        },
+        {
+          "name": "Tone",
+          "id": "tone",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/tone.json"
+        },
+        {
+          "name": "Accessibility",
+          "id": "accessibility",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/foundations/accessibility.json"
+        }
+      ],
+      "primitives": [
+        {
+          "name": "Surface",
+          "id": "surface",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/surface.json"
+        },
+        {
+          "name": "Typography",
+          "id": "typography",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/typography.json"
+        },
+        {
+          "name": "Spacing",
+          "id": "spacing",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/spacing.json"
+        },
+        {
+          "name": "Breakpoints",
+          "id": "breakpoints",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/breakpoints.json"
+        },
+        {
+          "name": "Density",
+          "id": "density",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/density.json"
+        },
+        {
+          "name": "Focus",
+          "id": "focus",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/focus.json"
+        },
+        {
+          "name": "Loading",
+          "id": "loading",
+          "found": true,
+          "file": "packages/specs/specs/unison-system/artifacts/primitives/loading.json"
+        }
+      ],
+      "patterns": [
+        {
+          "id": "section-header",
+          "name": "Section Header",
+          "source": "packages/react/src/patterns/SectionHeader.js",
+          "types": "packages/react/src/patterns/SectionHeader.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": false,
+          "importsSurface": false,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "documentation-section",
+          "name": "Documentation Section",
+          "source": "packages/react/src/patterns/DocumentationSection.js",
+          "types": "packages/react/src/patterns/DocumentationSection.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "demo-preview-frame",
+          "name": "Demo Preview Frame",
+          "source": "packages/react/src/patterns/DemoPreviewFrame.js",
+          "types": "packages/react/src/patterns/DemoPreviewFrame.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        },
+        {
+          "id": "artifact-metadata-bar",
+          "name": "Artifact Metadata Bar",
+          "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+          "types": "packages/react/src/patterns/ArtifactMetadataBar.d.ts",
+          "sourceExists": true,
+          "typesExist": true,
+          "exported": true,
+          "dataFlowPattern": true,
+          "requiresSurface": true,
+          "importsSurface": true,
+          "surfaceDebt": false,
+          "templateBacklink": true
+        }
+      ],
+      "modules": [],
+      "states": [
+        "default",
+        "module-loading",
+        "missing-template",
+        "permission-filtered",
+        "deprecated",
+        "mobile",
+        "dark"
+      ],
+      "surfaces": [
+        "page",
+        "section"
+      ],
+      "tokenDependencies": [
+        "sys.voice.*",
+        "sys.frame.*",
+        "sys.depth.*",
+        "sys.state.*",
+        "sys.tone.*",
+        "sys.accessibility.*",
+        "surface.*"
+      ],
+      "runtime": {
+        "required": false,
+        "source": "packages/react/src/templates/TemplateDetailTemplate.js",
+        "types": "packages/react/src/templates/TemplateDetailTemplate.d.ts",
+        "sourceExists": true,
+        "typesExist": true,
+        "templateIndexExport": true,
+        "packageIndexExport": false,
+        "rootPackageExport": true,
+        "reactPackageExport": true,
+        "forwardRef": true,
+        "importsSurface": true,
+        "dataFlowTemplate": true,
+        "surfaceRoot": true,
+        "controlledSelectedModule": false,
         "controlledDrawer": true,
         "docsRuntimeReferences": 0,
         "vanillaDomReferences": 0

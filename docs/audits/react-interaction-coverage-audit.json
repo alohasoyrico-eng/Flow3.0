@@ -4,10 +4,10 @@
   "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.",
   "baseline": {
     "inventory": {
-      "components": 60,
+      "components": 62,
       "interactionDebt": 0,
-      "withCallbacks": 44,
-      "pass": 60,
+      "withCallbacks": 45,
+      "pass": 62,
       "review": 0,
       "fail": 0,
       "missingTestCallbacks": 0,
@@ -333,9 +333,9 @@
     }
   },
   "inventory": {
-    "components": 60,
-    "withCallbacks": 44,
-    "pass": 60,
+    "components": 62,
+    "withCallbacks": 45,
+    "pass": 62,
     "review": 0,
     "fail": 0,
     "missingTestCallbacks": 0,
@@ -886,6 +886,19 @@
       "status": "pass"
     },
     {
+      "component": "CodeBlock",
+      "source": "packages/react/src/CodeBlock.js",
+      "types": "packages/react/src/CodeBlock.d.ts",
+      "callbacks": [],
+      "callbackContracts": [],
+      "sourceCovered": [],
+      "testCovered": [],
+      "missingInSource": [],
+      "missingInTests": [],
+      "missingEventParam": [],
+      "status": "pass"
+    },
+    {
       "component": "CodeInput",
       "source": "packages/react/src/CodeInput.js",
       "types": "packages/react/src/CodeInput.d.ts",
@@ -941,6 +954,37 @@
       "testCovered": [
         "onOpenChange",
         "onValueChange"
+      ],
+      "missingInSource": [],
+      "missingInTests": [],
+      "missingEventParam": [],
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "source": "packages/react/src/CopyButton.js",
+      "types": "packages/react/src/CopyButton.d.ts",
+      "callbacks": [
+        "onCopied",
+        "onCopyError"
+      ],
+      "callbackContracts": [
+        {
+          "name": "onCopied",
+          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void"
+        },
+        {
+          "name": "onCopyError",
+          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void"
+        }
+      ],
+      "sourceCovered": [
+        "onCopied",
+        "onCopyError"
+      ],
+      "testCovered": [
+        "onCopied",
+        "onCopyError"
       ],
       "missingInSource": [],
       "missingInTests": [],

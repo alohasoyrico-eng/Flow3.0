@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useState } from "react";
 import { Surface } from "../Surface.js";
 import { AuthenticationLoginBiometricsAndOtp } from "../patterns/AuthenticationLoginBiometricsAndOtp.js";
@@ -154,6 +158,11 @@ export const ConfigurationConsole = forwardRef(function ConfigurationConsole({ l
         ...(sidebar ?? {}),
         label: sidebar?.label ?? "Configuration navigation",
         density: sidebar?.density ?? density,
+        drawer: sidebar?.drawer === false ? false : {
+            ...(sidebar?.drawer ?? {}),
+            closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation panel",
+            showCloseButton: sidebar?.drawer?.showCloseButton ?? true,
+        },
         groups: routes,
         activeKey: resolvedSelectedModule,
         drawerOpen: resolvedDrawerOpen,

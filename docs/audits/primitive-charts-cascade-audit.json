@@ -141,9 +141,10 @@
       ]
     },
     "patterns": {
-      "count": 21,
+      "count": 22,
       "ids": [
         "advanced-filters",
+        "artifact-metadata-bar",
         "avatar-group",
         "calendar-view",
         "chart-legend-item",
@@ -167,6 +168,7 @@
       ],
       "sampleFiles": [
         "packages/content/content/pattern-contracts/patterns/advanced-filters.md",
+        "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
         "packages/content/content/pattern-contracts/patterns/avatar-group.md",
         "packages/content/content/pattern-contracts/patterns/calendar-view.md",
         "packages/content/content/pattern-contracts/patterns/chart-legend-item.md",
@@ -176,29 +178,34 @@
         "packages/content/content/pattern-contracts/patterns/driver-onboarding-mobile.md",
         "packages/content/content/pattern-contracts/patterns/email-template-layout.md",
         "packages/content/content/pattern-contracts/patterns/fleet-manager-onboarding-desktop.md",
-        "packages/content/content/pattern-contracts/patterns/gantt-chart.md",
-        "packages/content/content/pattern-contracts/patterns/kpi-card.md"
+        "packages/content/content/pattern-contracts/patterns/gantt-chart.md"
       ]
     },
     "templates": {
-      "count": 7,
+      "count": 10,
       "ids": [
         "agent-workspace",
+        "component-detail-template",
         "configuration-console",
         "driver-card-wallet",
         "driver-mobile-app",
         "fleet-dashboard-suite",
         "fleet-manager-desktop",
-        "internal-operations-console"
+        "internal-operations-console",
+        "pattern-detail-template",
+        "template-detail-template"
       ],
       "sampleFiles": [
         "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
         "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
         "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
         "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
-        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
+        "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+        "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json"
       ]
     }
   },

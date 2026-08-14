@@ -4,7 +4,7 @@
   "counts": {
     "sourcePath": "packages/tokens/source/**/*.tokens.json",
     "foundations": {
-      "Energy": 108,
+      "Energy": 116,
       "Voice": 160,
       "Frame": 262,
       "Depth": 37,
@@ -25,7 +25,7 @@
       "unclassified": 0,
       "unresolved": 0
     },
-    "total": 1131
+    "total": 1139
   },
   "lastOwnershipResolution": {
     "generatedAt": "2026-08-12T15:38:36.933Z",

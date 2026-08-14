@@ -19,7 +19,13 @@
           "Frame",
           "Depth",
           "State",
-          "Voice"
+          "Voice",
+          "Energy",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "Symbol",
+          "Tone"
         ],
         "primitiveDependencies": [
           "Surface",
@@ -28,18 +34,19 @@
           "Breakpoints",
           "Density",
           "Focus",
-          "Color"
+          "Color",
+          "Disabled",
+          "Duration",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius"
         ],
         "componentDependencies": [
-          "Tabs",
-          "Button",
-          "Icon Button",
-          "Badge"
+          "Badge",
+          "Button"
         ],
-        "patternDependencies": [
-          "Sidebar",
-          "Documentation Page Shell"
-        ],
+        "patternDependencies": [],
         "templateDependencies": [
           "Reference Detail Template",
           "Component Detail Template",
@@ -57,32 +64,30 @@
         "slots": [
           {
             "name": "items",
-            "owner": "template",
+            "owner": "component",
             "uses": [
-              "Tabs",
               "Button"
             ],
             "required": true,
-            "purpose": "Maps page sections or tab groups to navigable items."
+            "purpose": "Local page anchors."
           },
           {
-            "name": "activeIndicator",
+            "name": "badge",
             "owner": "component",
             "uses": [
-              "Tabs",
               "Badge"
             ],
             "required": "conditional",
-            "purpose": "Shows active section or status without color-only state."
+            "purpose": "Section count or state."
           },
           {
-            "name": "mobileToggle",
-            "owner": "component",
+            "name": "body",
+            "owner": "channel",
             "uses": [
-              "Icon Button"
+              "host content"
             ],
             "required": "conditional",
-            "purpose": "Collapses local page navigation when viewport cannot support a rail."
+            "purpose": "Supplemental local nav content."
           }
         ],
         "entryConditions": [
@@ -110,7 +115,8 @@
         "accessibility": [
           "Use nav landmarks only when the host page can distinguish local nav from primary nav.",
           "Keep anchor targets focusable or announceable.",
-          "Preserve keyboard traversal and visible focus."
+          "Preserve keyboard traversal and visible focus.",
+          "Optional icons never replace anchor text; labels remain visible with fallback meaning."
         ],
         "tests": [
           "Covers default, sticky, collapsed, active-section, overflow, mobile, and dark states.",
@@ -127,6 +133,41 @@
           "A docs page implements custom tablist or anchor wrappers.",
           "Active section state depends only on color.",
           "Mobile local nav cannot be opened, closed, and refocused predictably."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "collapsed local navigation"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "sticky local navigation rail"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "compact section rail"
+          }
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "sys.accessibility.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.voice.*",
+          "sys.energy.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.symbol.*",
+          "sys.tone.*"
         ]
       }
     }

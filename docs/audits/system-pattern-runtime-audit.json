@@ -1,0 +1,1974 @@
+{
+  "status": "pass",
+  "audit": "system pattern runtime audit",
+  "planIteration": 20,
+  "principle": "Every public pattern must pass runtime artifact tests, behavior governance, composition governance, readiness, React migration, and architecture coverage as one auditable boundary.",
+  "sourceReports": {
+    "artifactTests": "docs/audits/system-pattern-artifact-tests.json",
+    "behaviorGovernance": "docs/audits/react-pattern-behavior-governance-audit.json",
+    "compositionGovernance": "docs/audits/react-pattern-composition-governance-audit.json",
+    "contractGovernance": "docs/audits/pattern-contract-governance-audit.json",
+    "readiness": "docs/audits/pattern-readiness-audit.json",
+    "reactMigration": "docs/audits/pattern-react-migration-audit.json",
+    "architecture": "docs/audits/pattern-1to1-architecture-audit.json"
+  },
+  "inventory": {
+    "patterns": 72,
+    "runtimeAuditedPatterns": 72,
+    "passingRuntimePatterns": 72,
+    "failingRuntimePatterns": 0,
+    "productCatalogPatterns": 63,
+    "documentationInfrastructurePatterns": 9,
+    "sourceReports": 7,
+    "passingSourceReports": 7,
+    "sourceReportIssues": 0,
+    "patternRuntimeDebt": 0
+  },
+  "sourceReportIssues": [],
+  "patterns": [
+    {
+      "id": "account-operations",
+      "pattern": "AccountOperations",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 13,
+        "testedCallbacks": 13,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+        "source": "packages/react/src/patterns/AccountOperations.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/AccountOperations.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "action-sheet",
+      "pattern": "ActionSheet",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+        "source": "packages/react/src/patterns/ActionSheet.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ActionSheet.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "advanced-filters",
+      "pattern": "AdvancedFilters",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+        "source": "packages/react/src/patterns/AdvancedFilters.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/AdvancedFilters.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "agent-conversation",
+      "pattern": "AgentConversation",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+        "source": "packages/react/src/patterns/AgentConversation.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/AgentConversation.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "artifact-metadata-bar",
+      "pattern": "ArtifactMetadataBar",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+        "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ArtifactMetadataBar.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "authentication-login-biometrics-and-otp",
+      "pattern": "AuthenticationLoginBiometricsAndOtp",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+        "source": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "autocomplete",
+      "pattern": "Autocomplete",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+        "source": "packages/react/src/patterns/Autocomplete.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Autocomplete.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "avatar-group",
+      "pattern": "AvatarGroup",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json",
+        "source": "packages/react/src/patterns/AvatarGroup.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/AvatarGroup.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "avatar-menu",
+      "pattern": "AvatarMenu",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+        "source": "packages/react/src/patterns/AvatarMenu.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/AvatarMenu.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "backoffice-approval",
+      "pattern": "BackofficeApproval",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 12,
+        "testedCallbacks": 12,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+        "source": "packages/react/src/patterns/BackofficeApproval.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/BackofficeApproval.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "bottom-sheet",
+      "pattern": "BottomSheet",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+        "source": "packages/react/src/patterns/BottomSheet.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/BottomSheet.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "bulk-actions",
+      "pattern": "BulkActions",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
+        "source": "packages/react/src/patterns/BulkActions.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/BulkActions.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "calendar-view",
+      "pattern": "CalendarView",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json",
+        "source": "packages/react/src/patterns/CalendarView.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/CalendarView.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "case-management",
+      "pattern": "CaseManagement",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 18,
+        "testedCallbacks": 18,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+        "source": "packages/react/src/patterns/CaseManagement.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/CaseManagement.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chart-legend-item",
+      "pattern": "ChartLegendItem",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+        "source": "packages/react/src/patterns/ChartLegendItem.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ChartLegendItem.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "chart-wrapper",
+      "pattern": "ChartWrapper",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+        "source": "packages/react/src/patterns/ChartWrapper.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ChartWrapper.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "checkbox-group",
+      "pattern": "CheckboxGroup",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
+        "source": "packages/react/src/patterns/CheckboxGroup.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/CheckboxGroup.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "column-configurator",
+      "pattern": "ColumnConfigurator",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json",
+        "source": "packages/react/src/patterns/ColumnConfigurator.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ColumnConfigurator.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "command-palette",
+      "pattern": "CommandPalette",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+        "source": "packages/react/src/patterns/CommandPalette.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/CommandPalette.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "confirmation-dialog",
+      "pattern": "ConfirmationDialog",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+        "source": "packages/react/src/patterns/ConfirmationDialog.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ConfirmationDialog.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "demo-preview-frame",
+      "pattern": "DemoPreviewFrame",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+        "source": "packages/react/src/patterns/DemoPreviewFrame.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DemoPreviewFrame.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "dense-operational-list",
+      "pattern": "DenseOperationalList",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 9,
+        "testedCallbacks": 9,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+        "source": "packages/react/src/patterns/DenseOperationalList.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DenseOperationalList.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "documentation-hero",
+      "pattern": "DocumentationHero",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+        "source": "packages/react/src/patterns/DocumentationHero.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DocumentationHero.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "documentation-page-shell",
+      "pattern": "DocumentationPageShell",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+        "source": "packages/react/src/patterns/DocumentationPageShell.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DocumentationPageShell.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "documentation-primitive-demo",
+      "pattern": "DocumentationPrimitiveDemo",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+        "source": "packages/react/src/patterns/DocumentationPrimitiveDemo.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DocumentationPrimitiveDemo.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "documentation-reference-grid",
+      "pattern": "DocumentationReferenceGrid",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+        "source": "packages/react/src/patterns/DocumentationReferenceGrid.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DocumentationReferenceGrid.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "documentation-section",
+      "pattern": "DocumentationSection",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+        "source": "packages/react/src/patterns/DocumentationSection.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DocumentationSection.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "documentation-token-grid",
+      "pattern": "DocumentationTokenGrid",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
+        "source": "packages/react/src/patterns/DocumentationTokenGrid.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DocumentationTokenGrid.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "drag-sortable-list",
+      "pattern": "DragSortableList",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json",
+        "source": "packages/react/src/patterns/DragSortableList.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DragSortableList.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "drawer-adapter",
+      "pattern": "DrawerAdapter",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+        "source": "packages/react/src/patterns/DrawerAdapter.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DrawerAdapter.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "driver-and-vehicle-administration",
+      "pattern": "DriverAndVehicleAdministration",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+        "source": "packages/react/src/patterns/DriverAndVehicleAdministration.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DriverAndVehicleAdministration.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "driver-onboarding-mobile",
+      "pattern": "DriverOnboardingMobile",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+        "source": "packages/react/src/patterns/DriverOnboardingMobile.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/DriverOnboardingMobile.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "email-template-layout",
+      "pattern": "EmailTemplateLayout",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+        "source": "packages/react/src/patterns/EmailTemplateLayout.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/EmailTemplateLayout.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "expandable-detail-table",
+      "pattern": "ExpandableDetailTable",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 7,
+        "testedCallbacks": 7,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table.json",
+        "source": "packages/react/src/patterns/ExpandableDetailTable.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/ExpandableDetailTable.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "file-upload",
+      "pattern": "FileUpload",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+        "source": "packages/react/src/patterns/FileUpload.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/FileUpload.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "filter-chip-group",
+      "pattern": "FilterChipGroup",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+        "source": "packages/react/src/patterns/FilterChipGroup.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/FilterChipGroup.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "filterable-editable-table",
+      "pattern": "FilterableEditableTable",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 11,
+        "testedCallbacks": 11,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table.json",
+        "source": "packages/react/src/patterns/FilterableEditableTable.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/FilterableEditableTable.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "fleet-manager-onboarding-desktop",
+      "pattern": "FleetManagerOnboardingDesktop",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+        "source": "packages/react/src/patterns/FleetManagerOnboardingDesktop.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/FleetManagerOnboardingDesktop.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "form-section",
+      "pattern": "FormSection",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+        "source": "packages/react/src/patterns/FormSection.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/FormSection.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "fullscreen-sheet",
+      "pattern": "FullscreenSheet",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+        "source": "packages/react/src/patterns/FullscreenSheet.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/FullscreenSheet.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "gantt-chart",
+      "pattern": "GanttChart",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/gantt-chart.json",
+        "source": "packages/react/src/patterns/GanttChart.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/GanttChart.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "help-center",
+      "pattern": "HelpCenter",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+        "source": "packages/react/src/patterns/HelpCenter.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/HelpCenter.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "kanban-board",
+      "pattern": "KanbanBoard",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/kanban-board.json",
+        "source": "packages/react/src/patterns/KanbanBoard.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/KanbanBoard.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "kpi-card",
+      "pattern": "KpiCard",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+        "source": "packages/react/src/patterns/KpiCard.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/KpiCard.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "multi-select",
+      "pattern": "MultiSelect",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+        "source": "packages/react/src/patterns/MultiSelect.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/MultiSelect.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "multi-step-form",
+      "pattern": "MultiStepForm",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+        "source": "packages/react/src/patterns/MultiStepForm.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/MultiStepForm.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "notification-panel",
+      "pattern": "NotificationPanel",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+        "source": "packages/react/src/patterns/NotificationPanel.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/NotificationPanel.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "on-this-page-nav",
+      "pattern": "OnThisPageNav",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "approved-docs-infrastructure",
+      "metrics": {
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
+        "source": "packages/react/src/patterns/OnThisPageNav.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/OnThisPageNav.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "payment-form",
+      "pattern": "PaymentForm",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 7,
+        "testedCallbacks": 7,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/payment-form.json",
+        "source": "packages/react/src/patterns/PaymentForm.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/PaymentForm.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "polar-chart",
+      "pattern": "PolarChart",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json",
+        "source": "packages/react/src/patterns/PolarChart.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/PolarChart.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "preference-management",
+      "pattern": "PreferenceManagement",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 9,
+        "testedCallbacks": 9,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+        "source": "packages/react/src/patterns/PreferenceManagement.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/PreferenceManagement.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "pricing-operations",
+      "pattern": "PricingOperations",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 11,
+        "testedCallbacks": 11,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+        "source": "packages/react/src/patterns/PricingOperations.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/PricingOperations.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "pull-to-refresh",
+      "pattern": "PullToRefresh",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
+        "source": "packages/react/src/patterns/PullToRefresh.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/PullToRefresh.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "quick-actions-grid",
+      "pattern": "QuickActionsGrid",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+        "source": "packages/react/src/patterns/QuickActionsGrid.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/QuickActionsGrid.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "radio-group",
+      "pattern": "RadioGroup",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
+        "source": "packages/react/src/patterns/RadioGroup.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/RadioGroup.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "roles-and-permissions",
+      "pattern": "RolesAndPermissions",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+        "source": "packages/react/src/patterns/RolesAndPermissions.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/RolesAndPermissions.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "search",
+      "pattern": "Search",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+        "source": "packages/react/src/patterns/Search.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Search.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "section-header",
+      "pattern": "SectionHeader",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+        "source": "packages/react/src/patterns/SectionHeader.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/SectionHeader.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "select-option-layer",
+      "pattern": "SelectOptionLayer",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+        "source": "packages/react/src/patterns/SelectOptionLayer.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/SelectOptionLayer.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "settings",
+      "pattern": "Settings",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+        "source": "packages/react/src/patterns/Settings.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Settings.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "sidebar",
+      "pattern": "Sidebar",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+        "source": "packages/react/src/patterns/Sidebar.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Sidebar.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "snackbar-provider",
+      "pattern": "SnackbarProvider",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+        "source": "packages/react/src/patterns/SnackbarProvider.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/SnackbarProvider.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "station-discovery",
+      "pattern": "StationDiscovery",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+        "source": "packages/react/src/patterns/StationDiscovery.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/StationDiscovery.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "status-feedback-view",
+      "pattern": "StatusFeedbackView",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 8,
+        "testedCallbacks": 8,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+        "source": "packages/react/src/patterns/StatusFeedbackView.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/StatusFeedbackView.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "swipe-actions",
+      "pattern": "SwipeActions",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json",
+        "source": "packages/react/src/patterns/SwipeActions.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/SwipeActions.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "ticket-queue",
+      "pattern": "TicketQueue",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 15,
+        "testedCallbacks": 15,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+        "source": "packages/react/src/patterns/TicketQueue.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/TicketQueue.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "timeline",
+      "pattern": "Timeline",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+        "source": "packages/react/src/patterns/Timeline.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Timeline.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "toolbar",
+      "pattern": "Toolbar",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+        "source": "packages/react/src/patterns/Toolbar.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Toolbar.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "topbar",
+      "pattern": "Topbar",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+        "source": "packages/react/src/patterns/Topbar.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/Topbar.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "transfer-list",
+      "pattern": "TransferList",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json",
+        "source": "packages/react/src/patterns/TransferList.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/TransferList.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "virtual-data-table",
+      "pattern": "VirtualDataTable",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+        "source": "packages/react/src/patterns/VirtualDataTable.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/VirtualDataTable.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "waterfall-chart",
+      "pattern": "WaterfallChart",
+      "artifactTests": "pass",
+      "behaviorGovernance": "pass",
+      "compositionGovernance": "pass",
+      "readiness": "pass",
+      "reactMigration": "pass",
+      "architecture": "pass",
+      "catalogStatus": "cataloged",
+      "metrics": {
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "slots": 0,
+        "slotUses": 0,
+        "dependencies": 0,
+        "runtimeImports": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json",
+        "source": "packages/react/src/patterns/WaterfallChart.js",
+        "runtime": "packages/react/dist/patterns/index.js",
+        "types": "packages/react/dist/patterns/WaterfallChart.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    }
+  ]
+}

@@ -19,7 +19,9 @@
           "Depth",
           "Frame",
           "State",
-          "Voice"
+          "Voice",
+          "Energy",
+          "Tone"
         ],
         "primitiveDependencies": [
           "Surface",
@@ -30,18 +32,8 @@
           "Color",
           "Typography"
         ],
-        "componentDependencies": [
-          "Button",
-          "Icon Button",
-          "Badge",
-          "Breadcrumbs"
-        ],
-        "patternDependencies": [
-          "Topbar",
-          "Sidebar",
-          "Search",
-          "Command Palette"
-        ],
+        "componentDependencies": [],
+        "patternDependencies": [],
         "templateDependencies": [
           "Docs Shell Template",
           "Docs Home Template",
@@ -64,36 +56,40 @@
         ],
         "slots": [
           {
-            "name": "shellContent",
-            "owner": "template",
+            "name": "topbar",
+            "owner": "channel",
             "uses": [
-              "Surface",
-              "Breakpoints"
-            ],
-            "required": true,
-            "purpose": "Hosts the active documentation template content without adding local page wrappers."
-          },
-          {
-            "name": "backgroundTreatment",
-            "owner": "pattern",
-            "uses": [
-              "Surface",
-              "Color",
-              "Frame"
+              "Topbar"
             ],
             "required": "conditional",
-            "purpose": "Owns documentation background color, grid texture, and overlay behavior from existing tokens."
+            "purpose": "Externally supplied global docs actions and search entry."
           },
           {
-            "name": "navigationBoundary",
-            "owner": "pattern",
+            "name": "sidebar",
+            "owner": "channel",
             "uses": [
-              "Topbar",
-              "Sidebar",
-              "Search"
+              "Sidebar"
+            ],
+            "required": "conditional",
+            "purpose": "Externally supplied primary docs navigation."
+          },
+          {
+            "name": "localNav",
+            "owner": "channel",
+            "uses": [
+              "On This Page Nav"
+            ],
+            "required": "conditional",
+            "purpose": "Externally supplied local page anchors."
+          },
+          {
+            "name": "content",
+            "owner": "primitive",
+            "uses": [
+              "Surface"
             ],
             "required": true,
-            "purpose": "Defines the boundary between shell navigation and page content."
+            "purpose": "Documentation page body."
           }
         ],
         "entryConditions": [
@@ -139,6 +135,35 @@
           "The grid texture or red/blue background treatment is an unmanaged CSS effect.",
           "Navigation counts, active state, or shell labels are static strings disconnected from the content model.",
           "Topbar, Sidebar, or Search behavior is reimplemented inside a docs template."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "mobile shell with open/closed navigation"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "two-rail documentation shell"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense persistent navigation shell"
+          }
+        ],
+        "tokenDependencies": [
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.voice.*",
+          "sys.energy.*",
+          "sys.tone.*"
         ]
       }
     }

@@ -8,9 +8,9 @@ This report governs React section barrels. TypeScript is the maintained export s
 
 - Status: pass
 - Section indexes audited: 2
-- Source exports: 72
-- Runtime exports: 72
-- Declaration type export groups: 72
+- Source exports: 89
+- Runtime exports: 89
+- Declaration type export groups: 89
 - Stale runtime files: 0
 - React section index TypeScript surface debt: 0
 

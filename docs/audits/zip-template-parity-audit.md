@@ -8,7 +8,7 @@ ZIP ui_kits are product-level references. Each kit must be classified before mig
 
 - zipKits: 16
 - zipScreens: 34
-- flowTemplates: 9
+- flowTemplates: 17
 - coveredByTemplate: 10
 - coveredByPattern: 4
 - coveredSeparateChannel: 1

@@ -1,0 +1,623 @@
+{
+  "status": "pass",
+  "audit": "system template artifact tests",
+  "planIteration": 17,
+  "principle": "Every public React template export must have a formal template artifact, render from the built package boundary, and link to applicable composition, interaction, runtime, and visual governance.",
+  "inventory": {
+    "templateArtifacts": 17,
+    "runtimeTemplateExports": 17,
+    "testedTemplates": 17,
+    "passingTemplates": 17,
+    "failingTemplates": 0,
+    "renderedTemplates": 17,
+    "templatesWithFormalArtifact": 17,
+    "unexportedTemplateArtifacts": 0,
+    "compositionTemplates": 17,
+    "interactionTemplates": 9,
+    "runtimeTemplates": 9,
+    "visualTemplates": 9,
+    "compositionDebt": 0,
+    "interactionDebt": 0,
+    "runtimeDebt": 0,
+    "visualDebt": 0,
+    "templateArtifactTestDebt": 0
+  },
+  "unexportedArtifacts": [],
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "componentName": "AgentWorkspace",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "source": "packages/react/src/templates/AgentWorkspace.js",
+        "types": "packages/react/dist/templates/AgentWorkspace.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 9387,
+        "formalPatterns": 3,
+        "runtimePatternImports": 3,
+        "formalModules": 5,
+        "runtimeModules": 5,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "component-detail-template",
+      "componentName": "ComponentDetailTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+        "source": "packages/react/src/templates/ComponentDetailTemplate.js",
+        "types": "packages/react/dist/templates/ComponentDetailTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 3456,
+        "formalPatterns": 5,
+        "runtimePatternImports": 5,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "configuration-console",
+      "componentName": "ConfigurationConsole",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "source": "packages/react/src/templates/ConfigurationConsole.js",
+        "types": "packages/react/dist/templates/ConfigurationConsole.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 20854,
+        "formalPatterns": 5,
+        "runtimePatternImports": 5,
+        "formalModules": 4,
+        "runtimeModules": 5,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "componentName": "DocsArtifactDetailTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+        "source": "packages/react/src/templates/DocsArtifactDetailTemplate.js",
+        "types": "packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 3264,
+        "formalPatterns": 2,
+        "runtimePatternImports": 2,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "docs-collection-template",
+      "componentName": "DocsCollectionTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+        "source": "packages/react/src/templates/DocsCollectionTemplate.js",
+        "types": "packages/react/dist/templates/DocsCollectionTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 3687,
+        "formalPatterns": 5,
+        "runtimePatternImports": 5,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "docs-home-template",
+      "componentName": "DocsHomeTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+        "source": "packages/react/src/templates/DocsHomeTemplate.js",
+        "types": "packages/react/dist/templates/DocsHomeTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 3759,
+        "formalPatterns": 4,
+        "runtimePatternImports": 4,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "docs-shell-template",
+      "componentName": "DocsShellTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
+        "source": "packages/react/src/templates/DocsShellTemplate.js",
+        "types": "packages/react/dist/templates/DocsShellTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 5391,
+        "formalPatterns": 5,
+        "runtimePatternImports": 5,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "driver-card-wallet",
+      "componentName": "DriverCardWallet",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "source": "packages/react/src/templates/DriverCardWallet.js",
+        "types": "packages/react/dist/templates/DriverCardWallet.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 6084,
+        "formalPatterns": 0,
+        "runtimePatternImports": 0,
+        "formalModules": 4,
+        "runtimeModules": 5,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "driver-mobile-app",
+      "componentName": "DriverMobileApp",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "source": "packages/react/src/templates/DriverMobileApp.js",
+        "types": "packages/react/dist/templates/DriverMobileApp.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 22984,
+        "formalPatterns": 2,
+        "runtimePatternImports": 2,
+        "formalModules": 4,
+        "runtimeModules": 6,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "componentName": "FleetDashboardSuite",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "source": "packages/react/src/templates/FleetDashboardSuite.js",
+        "types": "packages/react/dist/templates/FleetDashboardSuite.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 13694,
+        "formalPatterns": 2,
+        "runtimePatternImports": 2,
+        "formalModules": 4,
+        "runtimeModules": 4,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "componentName": "FleetManagerDesktop",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "source": "packages/react/src/templates/FleetManagerDesktop.js",
+        "types": "packages/react/dist/templates/FleetManagerDesktop.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 16850,
+        "formalPatterns": 3,
+        "runtimePatternImports": 3,
+        "formalModules": 4,
+        "runtimeModules": 5,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "internal-operations-console",
+      "componentName": "InternalOperationsConsole",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "source": "packages/react/src/templates/InternalOperationsConsole.js",
+        "types": "packages/react/dist/templates/InternalOperationsConsole.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 23983,
+        "formalPatterns": 8,
+        "runtimePatternImports": 8,
+        "formalModules": 6,
+        "runtimeModules": 6,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "pattern-detail-template",
+      "componentName": "PatternDetailTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+        "source": "packages/react/src/templates/PatternDetailTemplate.js",
+        "types": "packages/react/dist/templates/PatternDetailTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 4155,
+        "formalPatterns": 5,
+        "runtimePatternImports": 5,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "reference-detail-template",
+      "componentName": "ReferenceDetailTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+        "source": "packages/react/src/templates/ReferenceDetailTemplate.js",
+        "types": "packages/react/dist/templates/ReferenceDetailTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 2744,
+        "formalPatterns": 5,
+        "runtimePatternImports": 5,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    },
+    {
+      "id": "routes-and-stations",
+      "componentName": "RoutesAndStations",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "source": "packages/react/src/templates/RoutesAndStations.js",
+        "types": "packages/react/dist/templates/RoutesAndStations.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 9229,
+        "formalPatterns": 1,
+        "runtimePatternImports": 1,
+        "formalModules": 4,
+        "runtimeModules": 5,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "settings-workspace",
+      "componentName": "SettingsWorkspace",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+        "source": "packages/react/src/templates/SettingsWorkspace.js",
+        "types": "packages/react/dist/templates/SettingsWorkspace.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": "docs/audits/react-template-interaction-governance-audit.json",
+        "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+        "visualGovernance": "docs/audits/react-template-visual-governance-audit.json"
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "pass",
+        "runtime": "pass",
+        "visual": "pass"
+      },
+      "metrics": {
+        "markupLength": 13337,
+        "formalPatterns": 1,
+        "runtimePatternImports": 1,
+        "formalModules": 2,
+        "runtimeModules": 2,
+        "renderCases": 8,
+        "visualCases": 3,
+        "interactionCovered": true
+      },
+      "issues": []
+    },
+    {
+      "id": "template-detail-template",
+      "componentName": "TemplateDetailTemplate",
+      "status": "pass",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+        "source": "packages/react/src/templates/TemplateDetailTemplate.js",
+        "types": "packages/react/dist/templates/TemplateDetailTemplate.d.ts",
+        "runtime": "packages/react/dist/templates/index.js",
+        "composition": "docs/audits/react-template-composition-governance-audit.json",
+        "interaction": null,
+        "runtimeGovernance": null,
+        "visualGovernance": null
+      },
+      "checks": {
+        "export": true,
+        "formalArtifact": true,
+        "render": "pass",
+        "composition": "pass",
+        "interaction": "not-applicable",
+        "runtime": "not-applicable",
+        "visual": "not-applicable"
+      },
+      "metrics": {
+        "markupLength": 2133,
+        "formalPatterns": 4,
+        "runtimePatternImports": 4,
+        "formalModules": 0,
+        "runtimeModules": 0,
+        "renderCases": 0,
+        "visualCases": 0,
+        "interactionCovered": false
+      },
+      "issues": []
+    }
+  ]
+}

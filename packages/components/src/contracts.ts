@@ -44,6 +44,65 @@ export const componentContracts = {
       "Expose loading with aria-busy and block duplicate activation."
     ]
   },
+  copyButton: {
+    factory: "@design-system/react/copy-button",
+    element: "button",
+    purpose: "Copy one explicit value with accessible naming, success/error feedback, and disabled/loading state.",
+    variants: ["text", "icon", "inline"],
+    intents: ["copy"],
+    states: ["default", "hover", "focus", "pressed", "copied", "error", "disabled", "loading"],
+    props: [
+      { name: "value", type: "string", required: true },
+      { name: "label", type: "string", required: false },
+      { name: "ariaLabel", type: "string", required: false },
+      { name: "variant", type: "\"text\" | \"icon\" | \"inline\"", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"copied\" | \"error\" | \"disabled\" | \"loading\"", required: false },
+      { name: "feedbackDuration", type: "number", required: false },
+      { name: "copiedLabel", type: "string", required: false },
+      { name: "errorLabel", type: "string", required: false },
+      { name: "disabled", type: "boolean", required: false },
+      { name: "loading", type: "boolean", required: false },
+      { name: "icon", type: "string", required: false },
+      { name: "type", type: "\"button\" | \"submit\" | \"reset\"", required: false },
+      { name: "onCopied", type: "(meta: CopyButtonMeta, event: CopyButtonEvent) => void", required: false },
+      { name: "onCopyError", type: "(meta: CopyButtonMeta, event: CopyButtonEvent) => void", required: false }
+    ],
+    accessibility: [
+      "Use native button semantics through Button or Icon Button.",
+      "Require an accessible name for icon or ambiguous copy actions.",
+      "Expose copied and error feedback.",
+      "Keep disabled and loading states non-interactive."
+    ]
+  },
+  codeBlock: {
+    factory: "@design-system/react/code-block",
+    element: "figure",
+    purpose: "Render labelled code, token paths, command snippets, or generated output with governed overflow and optional copy action.",
+    variants: ["block", "inline-group", "specimen"],
+    intents: ["reference"],
+    states: ["default", "wrapped", "scrollable", "with-header", "with-copy", "copied", "error", "disabled"],
+    props: [
+      { name: "code", type: "string", required: true },
+      { name: "label", type: "string", required: false },
+      { name: "filename", type: "string", required: false },
+      { name: "language", type: "string", required: false },
+      { name: "helper", type: "string", required: false },
+      { name: "variant", type: "\"block\" | \"inline-group\" | \"specimen\"", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "state", type: "\"default\" | \"wrapped\" | \"scrollable\" | \"with-header\" | \"with-copy\" | \"copied\" | \"error\" | \"disabled\"", required: false },
+      { name: "copyAction", type: "CodeBlockAction", required: false },
+      { name: "copyable", type: "boolean", required: false },
+      { name: "disabled", type: "boolean", required: false },
+      { name: "wrap", type: "boolean", required: false }
+    ],
+    accessibility: [
+      "Use figure and optional figcaption to label source context.",
+      "Keep code text selectable and readable by assistive technology.",
+      "Compose Copy Button for copy affordances.",
+      "Keep overflow reachable without trapping focus."
+    ]
+  },
   iconButton: {
     factory: "@design-system/react/icon-button",
     element: "button",

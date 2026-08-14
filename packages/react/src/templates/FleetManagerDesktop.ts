@@ -259,6 +259,11 @@ export const FleetManagerDesktop = forwardRef<HTMLDivElement, FleetManagerDeskto
         ...(sidebar ?? {}),
         label: sidebar?.label ?? "Fleet manager navigation",
         density: sidebar?.density ?? density,
+        drawer: sidebar?.drawer === false ? false : {
+          ...(sidebar?.drawer ?? {}),
+          closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation panel",
+          showCloseButton: sidebar?.drawer?.showCloseButton ?? true,
+        },
         groups: routes,
         activeKey: resolvedSelectedDashboard,
         drawerOpen: resolvedDrawerOpen,

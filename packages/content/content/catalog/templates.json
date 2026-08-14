@@ -268,6 +268,94 @@
         "Section navigation",
         "Preference management"
       ]
+    },
+    {
+      "type": "template",
+      "id": "docs-shell-template",
+      "title": "Docs Shell Template",
+      "platform": "Responsive docs",
+      "summary": "Documentation shell for global navigation, sidebar taxonomy, search, command entry, and page mounting boundaries.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Topbar", "Sidebar", "Search", "Command Palette", "Documentation Page Shell"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "docs-home-template",
+      "title": "Docs Home Template",
+      "platform": "Responsive docs",
+      "summary": "FlowDocs landing page for system status, layer navigation, migration context, and architecture evidence.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Section Header", "Documentation Hero", "Documentation Section", "Artifact Metadata Bar"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "docs-collection-template",
+      "title": "Docs Collection Template",
+      "platform": "Responsive docs",
+      "summary": "Collection index page for browsing, searching, filtering, and opening Flow artifacts by layer.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Section Header", "Search", "Toolbar", "Artifact Metadata Bar", "Documentation Section"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "component-detail-template",
+      "title": "Component Detail Template",
+      "platform": "Responsive docs",
+      "summary": "Repeated component documentation surface for overview, demos, variants, states, API, accessibility, and governance.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Section Header", "Documentation Section", "Demo Preview Frame", "On This Page Nav", "Artifact Metadata Bar"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "docs-artifact-detail-template",
+      "title": "Docs Artifact Detail Template",
+      "platform": "Responsive docs",
+      "summary": "Generic documentation artifact detail surface for governed hero, breadcrumbs, metadata, tabs, body, aside, and footer slots.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Documentation Hero", "Artifact Metadata Bar"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "pattern-detail-template",
+      "title": "Pattern Detail Template",
+      "platform": "Responsive docs",
+      "summary": "Repeated pattern documentation surface for orchestration intent, dependencies, examples, states, and governance.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Section Header", "Documentation Section", "Demo Preview Frame", "On This Page Nav", "Artifact Metadata Bar"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "reference-detail-template",
+      "title": "Reference Detail Template",
+      "platform": "Responsive docs",
+      "summary": "Shared foundation and primitive reference detail surface for intent, tokens, evidence, and examples.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Section Header", "Documentation Hero", "Documentation Section", "On This Page Nav", "Demo Preview Frame"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
+    },
+    {
+      "type": "template",
+      "id": "template-detail-template",
+      "title": "Template Detail Template",
+      "platform": "Responsive docs",
+      "summary": "Repeated product-template documentation surface for modules, dependencies, examples, states, and QA evidence.",
+      "audiences": ["Design System Team", "Developers", "Designers"],
+      "patternsUsed": ["Section Header", "Documentation Section", "Demo Preview Frame", "Artifact Metadata Bar"],
+      "tokens": ["typography.edenred-title", "typography.ubuntu-body", "density.md", "surface.semantic"],
+      "templateModulesUsed": []
     }
   ]
 }

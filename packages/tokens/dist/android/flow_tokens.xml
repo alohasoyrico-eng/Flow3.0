@@ -539,6 +539,14 @@
   <string name="sys_energy_action_primary">var(--ref-energy-blue-500)</string>
   <string name="sys_energy_border_default">rgb(10 10 15 / 8%)</string>
   <string name="sys_energy_border_strong">rgb(10 10 15 / 15%)</string>
+  <string name="sys_energy_dark_border_default">color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)</string>
+  <string name="sys_energy_dark_border_strong">color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)</string>
+  <string name="sys_energy_dark_surface_primary">var(--ref-energy-neutral-900)</string>
+  <string name="sys_energy_dark_surface_secondary">#020617</string>
+  <string name="sys_energy_dark_surface_tertiary">var(--ref-energy-neutral-800)</string>
+  <string name="sys_energy_dark_text_primary">var(--ref-energy-neutral-50)</string>
+  <string name="sys_energy_dark_text_secondary">var(--ref-energy-neutral-200)</string>
+  <string name="sys_energy_dark_text_tertiary">var(--ref-energy-neutral-300)</string>
   <string name="sys_energy_status_error">var(--ref-energy-red-500)</string>
   <string name="sys_energy_status_info">var(--ref-energy-teal-500)</string>
   <string name="sys_energy_status_success">var(--ref-energy-green-500)</string>

@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useId, } from "react";
 import { motionBoundaryPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowVariantProps, flowDensityProps, normalizeFlowValue, flowRestProps, normalizeFlowDensity } from "./internal/props.js";

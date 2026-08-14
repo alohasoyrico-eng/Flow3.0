@@ -2,12 +2,12 @@
   "status": "pass",
   "audit": "react template composition governance",
   "principle": "React templates must derive runtime composition from formal template artifacts: pattern imports, module markers, Surface primitive ownership, and approved direct component exceptions must stay explicit.",
-  "generatedAt": "2026-08-13T16:14:27.849Z",
+  "generatedAt": "2026-08-14T23:14:29.226Z",
   "inventory": {
-    "templatesAudited": 9,
-    "templatesWithPassingComposition": 9,
-    "formalPatternDependencies": 25,
-    "runtimePatternImports": 25,
+    "templatesAudited": 17,
+    "templatesWithPassingComposition": 17,
+    "formalPatternDependencies": 60,
+    "runtimePatternImports": 60,
     "missingDeclaredPatternImports": 0,
     "undeclaredPatternImports": 0,
     "formalModuleMarkers": 37,
@@ -15,9 +15,9 @@
     "runtimeModuleMarkers": 43,
     "missingFormalModuleMarkers": 0,
     "undeclaredRuntimeModuleMarkers": 0,
-    "directComponentImports": 6,
+    "directComponentImports": 8,
     "unapprovedDirectComponentImports": 0,
-    "surfacePrimitiveImports": 9,
+    "surfacePrimitiveImports": 17,
     "compositionContractGaps": 0,
     "reactTemplateCompositionGovernanceDebt": 0
   },
@@ -64,6 +64,31 @@
       "issues": []
     },
     {
+      "id": "component-detail-template",
+      "componentName": "ComponentDetailTemplate",
+      "source": "packages/react/src/templates/ComponentDetailTemplate.js",
+      "formalPatterns": [
+        "ArtifactMetadataBar",
+        "DemoPreviewFrame",
+        "DocumentationSection",
+        "OnThisPageNav",
+        "SectionHeader"
+      ],
+      "runtimePatternImports": [
+        "ArtifactMetadataBar",
+        "DemoPreviewFrame",
+        "DocumentationSection",
+        "OnThisPageNav",
+        "SectionHeader"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
       "id": "configuration-console",
       "componentName": "ConfigurationConsole",
       "source": "packages/react/src/templates/ConfigurationConsole.js",
@@ -100,6 +125,104 @@
         "permission-matrix",
         "vehicle-lifecycle-table"
       ],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "componentName": "DocsArtifactDetailTemplate",
+      "source": "packages/react/src/templates/DocsArtifactDetailTemplate.js",
+      "formalPatterns": [
+        "ArtifactMetadataBar",
+        "DocumentationHero"
+      ],
+      "runtimePatternImports": [
+        "ArtifactMetadataBar",
+        "DocumentationHero"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [
+        "Breadcrumbs",
+        "Tabs"
+      ],
+      "approvedDirectComponentImports": [
+        "Breadcrumbs",
+        "Tabs"
+      ],
+      "issues": []
+    },
+    {
+      "id": "docs-collection-template",
+      "componentName": "DocsCollectionTemplate",
+      "source": "packages/react/src/templates/DocsCollectionTemplate.js",
+      "formalPatterns": [
+        "ArtifactMetadataBar",
+        "DocumentationSection",
+        "Search",
+        "SectionHeader",
+        "Toolbar"
+      ],
+      "runtimePatternImports": [
+        "ArtifactMetadataBar",
+        "DocumentationSection",
+        "Search",
+        "SectionHeader",
+        "Toolbar"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "docs-home-template",
+      "componentName": "DocsHomeTemplate",
+      "source": "packages/react/src/templates/DocsHomeTemplate.js",
+      "formalPatterns": [
+        "ArtifactMetadataBar",
+        "DocumentationHero",
+        "DocumentationSection",
+        "SectionHeader"
+      ],
+      "runtimePatternImports": [
+        "ArtifactMetadataBar",
+        "DocumentationHero",
+        "DocumentationSection",
+        "SectionHeader"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "docs-shell-template",
+      "componentName": "DocsShellTemplate",
+      "source": "packages/react/src/templates/DocsShellTemplate.js",
+      "formalPatterns": [
+        "CommandPalette",
+        "DocumentationPageShell",
+        "Search",
+        "Sidebar",
+        "Topbar"
+      ],
+      "runtimePatternImports": [
+        "CommandPalette",
+        "DocumentationPageShell",
+        "Search",
+        "Sidebar",
+        "Topbar"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
       "directComponentImports": [],
       "approvedDirectComponentImports": [],
       "issues": []
@@ -293,6 +416,56 @@
       "issues": []
     },
     {
+      "id": "pattern-detail-template",
+      "componentName": "PatternDetailTemplate",
+      "source": "packages/react/src/templates/PatternDetailTemplate.js",
+      "formalPatterns": [
+        "ArtifactMetadataBar",
+        "DemoPreviewFrame",
+        "DocumentationSection",
+        "OnThisPageNav",
+        "SectionHeader"
+      ],
+      "runtimePatternImports": [
+        "ArtifactMetadataBar",
+        "DemoPreviewFrame",
+        "DocumentationSection",
+        "OnThisPageNav",
+        "SectionHeader"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
+      "id": "reference-detail-template",
+      "componentName": "ReferenceDetailTemplate",
+      "source": "packages/react/src/templates/ReferenceDetailTemplate.js",
+      "formalPatterns": [
+        "DemoPreviewFrame",
+        "DocumentationHero",
+        "DocumentationSection",
+        "OnThisPageNav",
+        "SectionHeader"
+      ],
+      "runtimePatternImports": [
+        "DemoPreviewFrame",
+        "DocumentationHero",
+        "DocumentationSection",
+        "OnThisPageNav",
+        "SectionHeader"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
+      "issues": []
+    },
+    {
       "id": "routes-and-stations",
       "componentName": "RoutesAndStations",
       "source": "packages/react/src/templates/RoutesAndStations.js",
@@ -350,6 +523,29 @@
       "approvedDirectComponentImports": [
         "Tabs"
       ],
+      "issues": []
+    },
+    {
+      "id": "template-detail-template",
+      "componentName": "TemplateDetailTemplate",
+      "source": "packages/react/src/templates/TemplateDetailTemplate.js",
+      "formalPatterns": [
+        "ArtifactMetadataBar",
+        "DemoPreviewFrame",
+        "DocumentationSection",
+        "SectionHeader"
+      ],
+      "runtimePatternImports": [
+        "ArtifactMetadataBar",
+        "DemoPreviewFrame",
+        "DocumentationSection",
+        "SectionHeader"
+      ],
+      "formalModules": [],
+      "approvedSupportModules": [],
+      "runtimeModules": [],
+      "directComponentImports": [],
+      "approvedDirectComponentImports": [],
       "issues": []
     }
   ],

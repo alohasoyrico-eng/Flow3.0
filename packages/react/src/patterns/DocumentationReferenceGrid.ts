@@ -9,6 +9,7 @@ import { flowRestProps } from "../internal/props.js";
 
 export type DocumentationReferenceGridKind = "summary" | "rule" | "matrix";
 export type DocumentationReferenceGridDensity = SurfaceDensity;
+export type DocumentationReferenceGridState = "default" | "summary" | "rule" | "matrix" | "empty" | "mobile";
 
 export interface DocumentationReferenceGridItem {
   key?: string;
@@ -23,7 +24,9 @@ export interface DocumentationReferenceGridItem {
 export interface DocumentationReferenceGridProps extends FlowDataAttributes {
   items?: DocumentationReferenceGridItem[];
   kind?: DocumentationReferenceGridKind;
+  label?: string;
   density?: DocumentationReferenceGridDensity;
+  state?: DocumentationReferenceGridState;
   className?: string;
   cardClassName?: string;
   surface?: Omit<SurfaceProps, "children" | "density" | "surfaceRole" | "state">;
@@ -56,7 +59,9 @@ function cardCompositionFor(kind: DocumentationReferenceGridKind, item: Document
 export const DocumentationReferenceGrid = forwardRef<HTMLDivElement, DocumentationReferenceGridProps>(function DocumentationReferenceGrid({
   items,
   kind,
+  label = "Reference grid",
   density,
+  state,
   className = "",
   cardClassName = "",
   surface,
@@ -76,7 +81,8 @@ export const DocumentationReferenceGrid = forwardRef<HTMLDivElement, Documentati
       density,
       elevation: surface?.elevation ?? "none",
       tone: surface?.tone ?? "default",
-      state: "default",
+      state: state ?? (normalizedItems.length ? resolvedKind : "empty"),
+      "aria-label": rest["aria-label"] ?? label,
       "data-flow-pattern": "documentation-reference-grid",
       "data-documentation-reference-grid-kind": resolvedKind,
       "data-doc-primitive": `reference-${resolvedKind}-grid`,
@@ -90,6 +96,7 @@ export const DocumentationReferenceGrid = forwardRef<HTMLDivElement, Documentati
       status: item.status,
       variant: item.variant ?? "minimal",
       composition: cardCompositionFor(resolvedKind, item),
+      state: "default",
       density,
       fullWidth: true,
       "data-flow-slot": "documentation-reference-grid.item",

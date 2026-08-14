@@ -23,9 +23,9 @@ Every ZIP component, guideline, token output, kit, template screen, email, and i
 - iosPreviewFamilies: 1
 - flowFoundations: 11
 - flowPrimitives: 24
-- flowComponents: 60
-- flowPatterns: 63
-- flowTemplates: 9
+- flowComponents: 62
+- flowPatterns: 72
+- flowTemplates: 17
 - zipGuidelineFiles: 15
 - zipTokenFiles: 7
 - zipPlatformFiles: 6

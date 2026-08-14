@@ -15,6 +15,7 @@ import { Input } from "../Input.js";
 import type { InputProps, InputValueMeta } from "../Input.js";
 import { Menu } from "../Menu.js";
 import type { MenuItem, MenuProps } from "../Menu.js";
+import { Surface } from "../Surface.js";
 import { Toast } from "../Toast.js";
 import type { ToastProps } from "../Toast.js";
 import type { FlowDataAttributes } from "../internal/props.js";
@@ -162,10 +163,13 @@ export const CommandPalette = forwardRef<HTMLDivElement, CommandPaletteProps>(fu
   }));
 
   return React.createElement(
-    "div",
+    Surface,
     {
       ref,
       className,
+      surfaceRole: "overlay",
+      elevation: "overlay",
+      focusMode: open ? "within" : "none",
       role: "region",
       "aria-label": label,
       "aria-busy": isBusy ? "true" : undefined,

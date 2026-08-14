@@ -343,7 +343,7 @@ function patternArtifacts() {
         artifactFile: rel(path.join(patternDir, file)),
         components: pattern.componentDependencies ?? [],
         primitives: pattern.primitiveDependencies ?? [],
-        foundations: pattern.foundationDependencies ?? [],
+        foundations: pattern.foundationDependencies ?? pattern.governingFoundations ?? [],
         patternDependencies: pattern.patternDependencies ?? [],
         slots: pattern.slots ?? [],
         states: pattern.states ?? [],

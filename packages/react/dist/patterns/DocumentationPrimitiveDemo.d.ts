@@ -4,6 +4,7 @@ import type { FlowDataAttributes } from "../internal/props.js";
 
 export type DocumentationPrimitiveDemoType = "typography" | "stack" | "icon" | "swatch" | "radius" | "elevation" | "motionToken" | "breakpoint" | "focus" | "loading" | "disabled" | "chart" | "map" | "message" | "statGrid" | "surface";
 export type DocumentationPrimitiveDemoDensity = SurfaceDensity;
+export type DocumentationPrimitiveDemoState = "default" | "interactive" | "empty" | "mobile";
 export type DocumentationPrimitiveDemoChoice = [string, string];
 export type DocumentationPrimitiveDemoCardAction = [string, string?, string?, string?, string?];
 
@@ -36,6 +37,7 @@ export interface DocumentationPrimitiveDemoProps extends FlowDataAttributes {
   rows?: Array<[string, string]>;
   className?: string;
   density?: DocumentationPrimitiveDemoDensity;
+  state?: DocumentationPrimitiveDemoState;
   surface?: Omit<SurfaceProps, "children" | "density" | "surfaceRole" | "state">;
   "aria-label"?: string;
   "aria-describedby"?: string;

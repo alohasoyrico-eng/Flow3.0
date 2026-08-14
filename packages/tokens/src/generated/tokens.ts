@@ -537,6 +537,14 @@ export type FlowTokenName =
   | "sys-energy-action-primary"
   | "sys-energy-border-default"
   | "sys-energy-border-strong"
+  | "sys-energy-dark-border-default"
+  | "sys-energy-dark-border-strong"
+  | "sys-energy-dark-surface-primary"
+  | "sys-energy-dark-surface-secondary"
+  | "sys-energy-dark-surface-tertiary"
+  | "sys-energy-dark-text-primary"
+  | "sys-energy-dark-text-secondary"
+  | "sys-energy-dark-text-tertiary"
   | "sys-energy-status-error"
   | "sys-energy-status-info"
   | "sys-energy-status-success"
@@ -2416,6 +2424,64 @@ export const flowTokens = {
     "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-energy-border-strong"
+  },
+  "sys-energy-dark-surface-primary": {
+    "value": "var(--ref-energy-neutral-900)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-surface-primary",
+    "reference": "ref-energy-neutral-900",
+    "cssReference": "--ref-energy-neutral-900"
+  },
+  "sys-energy-dark-surface-secondary": {
+    "value": "#020617",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-surface-secondary"
+  },
+  "sys-energy-dark-surface-tertiary": {
+    "value": "var(--ref-energy-neutral-800)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-surface-tertiary",
+    "reference": "ref-energy-neutral-800",
+    "cssReference": "--ref-energy-neutral-800"
+  },
+  "sys-energy-dark-text-primary": {
+    "value": "var(--ref-energy-neutral-50)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-text-primary",
+    "reference": "ref-energy-neutral-50",
+    "cssReference": "--ref-energy-neutral-50"
+  },
+  "sys-energy-dark-text-secondary": {
+    "value": "var(--ref-energy-neutral-200)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-text-secondary",
+    "reference": "ref-energy-neutral-200",
+    "cssReference": "--ref-energy-neutral-200"
+  },
+  "sys-energy-dark-text-tertiary": {
+    "value": "var(--ref-energy-neutral-300)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-text-tertiary",
+    "reference": "ref-energy-neutral-300",
+    "cssReference": "--ref-energy-neutral-300"
+  },
+  "sys-energy-dark-border-default": {
+    "value": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-border-default"
+  },
+  "sys-energy-dark-border-strong": {
+    "value": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-border-strong"
   },
   "ref-frame-border-control": {
     "value": "1.5px",
@@ -9708,6 +9774,14 @@ export const flowTokenNames = [
   "sys-energy-action-primary",
   "sys-energy-border-default",
   "sys-energy-border-strong",
+  "sys-energy-dark-border-default",
+  "sys-energy-dark-border-strong",
+  "sys-energy-dark-surface-primary",
+  "sys-energy-dark-surface-secondary",
+  "sys-energy-dark-surface-tertiary",
+  "sys-energy-dark-text-primary",
+  "sys-energy-dark-text-secondary",
+  "sys-energy-dark-text-tertiary",
   "sys-energy-status-error",
   "sys-energy-status-info",
   "sys-energy-status-success",

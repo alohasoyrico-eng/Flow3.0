@@ -116,7 +116,9 @@
         "Badge",
         "Avatar",
         "Menu",
-        "Drawer"
+        "Drawer",
+        "Empty State",
+        "List"
       ],
       "variants": [
         [

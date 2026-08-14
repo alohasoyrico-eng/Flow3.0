@@ -272,7 +272,7 @@ function writeReport() {
 
   if (checkMode) {
     if (readIfExists(jsonOutput) !== json || readIfExists(markdownOutput) !== `${markdown}\n`) {
-      console.error("Primitive Charts cascade audit is stale. Run npm run audit:primitive:charts.");
+      console.error("Primitive Charts cascade audit is stale. Run: node packages/audit/scripts/report-primitive-charts-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

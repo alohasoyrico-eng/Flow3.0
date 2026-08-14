@@ -1,0 +1,25 @@
+{
+  "components": {
+    "copy-button": {
+      "miel": {
+        "copy": "Copy Button owns clipboard affordance, naming, and feedback across Flow.",
+        "canDecide": [
+          "Use Copy Button when a single known value should be copied.",
+          "Use icon variant only with a clear accessible name.",
+          "Use inline variant inside metadata rows or code block headers."
+        ],
+        "mustAsk": [
+          "The copied value is dynamic, private, destructive, or unclear.",
+          "The failure state has no recovery action.",
+          "The copy target competes with another primary action."
+        ],
+        "rejectIf": [
+          "The control is a local span, div, or fake button.",
+          "The label does not identify the copied target when several copy controls are visible.",
+          "Clipboard failure is silent."
+        ],
+        "handoff": "Name the copy target and preserve error recovery before adding a copy action."
+      }
+    }
+  }
+}

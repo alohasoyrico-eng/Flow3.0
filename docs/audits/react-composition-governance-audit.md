@@ -6,11 +6,11 @@ React components may compose other Flow React components only through an explici
 
 ## Inventory
 
-- React components scanned: 60
+- React components scanned: 62
 - Composition debt: 0
-- Components with declared composition: 27
-- Composition edges: 50
-- Allowlist entries: 27
+- Components with declared composition: 29
+- Composition edges: 53
+- Allowlist entries: 29
 - Unexpected imports: 0
 - Missing expected imports: 0
 - Missing composition reasons: 0
@@ -32,6 +32,8 @@ React components may compose other Flow React components only through an explici
 | ChatComposer | pass | Button, IconButton, Surface, TextArea | Button, IconButton, Surface, TextArea | None | None | None | None | None |
 | ChatMessage | pass | Avatar, Button, Surface | Avatar, Button, Surface | None | None | None | None | None |
 | ChatThread | pass | ChatMessage, EmptyState, Surface | ChatMessage, EmptyState, Surface | None | None | None | None | None |
+| CodeBlock | pass | CopyButton | CopyButton | None | None | None | None | None |
+| CopyButton | pass | Button, IconButton | Button, IconButton | None | None | None | None | None |
 | Dialog | pass | Button, IconButton, Input | Button, IconButton, Input | None | None | None | None | None |
 | Drawer | pass | Badge, Button, IconButton, Input, ProgressIndicator | Badge, Button, IconButton, Input, ProgressIndicator | None | None | None | None | None |
 | EmptyState | pass | Button, Spinner | Button, Spinner | None | None | None | None | None |
@@ -77,6 +79,9 @@ React components may compose other Flow React components only through an explici
 | ChatThread | ChatMessage | governed message row slot |
 | ChatThread | EmptyState | unavailable conversation state slot |
 | ChatThread | Surface | thread log structural primitive boundary |
+| CodeBlock | CopyButton | governed copy action slot |
+| CopyButton | Button | visible text copy action |
+| CopyButton | IconButton | compact icon copy action |
 | Dialog | Button | dialog action slot |
 | Dialog | IconButton | dismiss control |
 | Dialog | Input | form field slot |

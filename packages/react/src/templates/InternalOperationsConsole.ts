@@ -233,6 +233,11 @@ export const InternalOperationsConsole = forwardRef<HTMLDivElement, InternalOper
         ...(sidebar ?? {}),
         label: sidebar?.label ?? "Internal operations navigation",
         density: sidebar?.density ?? density,
+        drawer: sidebar?.drawer === false ? false : {
+          ...(sidebar?.drawer ?? {}),
+          closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation panel",
+          showCloseButton: sidebar?.drawer?.showCloseButton ?? true,
+        },
         groups: routes,
         activeKey: resolvedSelectedModule,
         drawerOpen: resolvedDrawerOpen,

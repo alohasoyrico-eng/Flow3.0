@@ -12,6 +12,7 @@ const checkMode = process.argv.includes("--check");
 const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "system-phase4-component-cascade-checkpoint.json");
 const markdownOutput = path.join(outputDir, "system-phase4-component-cascade-checkpoint.md");
+const componentCount = goldComponents.length;
 
 function readJson(file, fallback = {}) {
   try {
@@ -44,23 +45,23 @@ const requiredReports = [
     file: "docs/audits/react-primary-coverage-audit.json",
     debtKey: "primaryImplementationDebt",
     expected: {
-      expectedComponents: 60,
-      components: 60,
-      pass: 60,
+      expectedComponents: componentCount,
+      components: componentCount,
+      pass: componentCount,
       fail: 0,
-      forwardRef: 60,
-      realTypes: 60,
-      platformContract: 60,
-      densityResolved: 60,
-      restSanitized: 60,
-      noDocsDependency: 60,
-      noDomFactory: 60,
-      publishedImports: 60,
-      cssContractCoverage: 60,
-      sourceIndexExport: 60,
-      sourceTypesIndexExport: 60,
-      distIndexExport: 60,
-      distTypesIndexExport: 60,
+      forwardRef: componentCount,
+      realTypes: componentCount,
+      platformContract: componentCount,
+      densityResolved: componentCount,
+      restSanitized: componentCount,
+      noDocsDependency: componentCount,
+      noDomFactory: componentCount,
+      publishedImports: componentCount,
+      cssContractCoverage: componentCount,
+      sourceIndexExport: componentCount,
+      sourceTypesIndexExport: componentCount,
+      distIndexExport: componentCount,
+      distTypesIndexExport: componentCount,
       reactPrimaryGovernanceIssues: 0,
       primaryImplementationDebt: 0,
     },
@@ -70,8 +71,8 @@ const requiredReports = [
     file: "docs/audits/react-contract-prop-alignment-audit.json",
     debtKey: "propAlignmentDebt",
     expected: {
-      components: 60,
-      pass: 60,
+      components: componentCount,
+      pass: componentCount,
       fail: 0,
       extraReactProps: 0,
       missingReactProps: 0,
@@ -87,7 +88,7 @@ const requiredReports = [
     file: "docs/audits/react-controlled-governance-audit.json",
     debtKey: "controlledDebt",
     expected: {
-      components: 60,
+      components: componentCount,
       failures: 0,
       reactGovernancePolicyIssues: 0,
       controlledDebt: 0,
@@ -98,7 +99,7 @@ const requiredReports = [
     file: "docs/audits/react-accessibility-governance-audit.json",
     debtKey: "accessibilityDebt",
     expected: {
-      components: 60,
+      components: componentCount,
       criticalComponents: 10,
       criticalPassing: 10,
       failures: 0,
@@ -112,7 +113,7 @@ const requiredReports = [
     file: "docs/audits/react-style-governance-audit.json",
     debtKey: "styleEscapeDebt",
     expected: {
-      components: 60,
+      components: componentCount,
       styleEscapeDebt: 0,
       violations: 0,
       reactGovernancePolicyIssues: 0,
@@ -123,8 +124,8 @@ const requiredReports = [
     file: "docs/audits/react-interaction-coverage-audit.json",
     debtKey: "interactionDebt",
     expected: {
-      components: 60,
-      pass: 60,
+      components: componentCount,
+      pass: componentCount,
       review: 0,
       fail: 0,
       missingTestCallbacks: 0,
@@ -138,8 +139,8 @@ const requiredReports = [
     file: "docs/audits/component-visual-cascade-audit.json",
     debtKey: "visualCascadeDebt",
     expected: {
-      components: 60,
-      pass: 60,
+      components: componentCount,
+      pass: componentCount,
       review: 0,
       fail: 0,
       visualCascadeDebt: 0,
@@ -150,7 +151,7 @@ const requiredReports = [
     file: "docs/audits/component-css-contract-coverage.json",
     debtKey: "cssContractDebt",
     expected: {
-      total: 60,
+      total: componentCount,
       cssContractDebt: 0,
       missing: 0,
       directRootGaps: 0,
@@ -164,7 +165,7 @@ const requiredReports = [
     file: "docs/audits/react-default-governance-audit.json",
     debtKey: "defaultDebt",
     expected: {
-      components: 60,
+      components: componentCount,
       defaultDebt: 0,
       prohibitedDefaults: 0,
       unbackedSemanticDefaultDecisions: 0,
@@ -177,7 +178,7 @@ const requiredReports = [
     file: "docs/audits/react-composition-governance-audit.json",
     debtKey: "compositionDebt",
     expected: {
-      components: 60,
+      components: componentCount,
       compositionDebt: 0,
       unexpectedImports: 0,
       missingImports: 0,
@@ -192,7 +193,7 @@ const requiredReports = [
     file: "docs/audits/react-class-ownership-audit.json",
     debtKey: "classOwnershipDebt",
     expected: {
-      components: 60,
+      components: componentCount,
       violations: 0,
       classOwnershipDebt: 0,
     },
@@ -236,7 +237,7 @@ function createReport() {
   ));
 
   const issues = [
-    ...(expectedComponentIds.length === 60 ? [] : [`Expected component catalog to expose 60 components, got ${expectedComponentIds.length}.`]),
+    ...(expectedComponentIds.length === componentCount ? [] : [`Expected component catalog to expose ${componentCount} components, got ${expectedComponentIds.length}.`]),
     ...reportRows.filter((row) => row.status !== "pass").map((row) => `${row.file} is not pass.`),
     ...reportRows.flatMap((row) => row.mismatches.map((item) => `${item.report}.${item.key}: expected ${item.expected}, got ${item.actual}`)),
     ...missingFrom(expectedComponentIds, primaryComponentIds).map((id) => `React primary coverage is missing component: ${id}`),
@@ -265,7 +266,7 @@ function createReport() {
   return {
     status: issues.length ? "fail" : "pass",
     audit: "system phase 4 component cascade checkpoint",
-    principle: "Component cascade work can proceed only when the current 60-component React, contract, state, accessibility, style, interaction, visual, and CSS gates agree. Legacy 1:1 matrices may remain as historical evidence only when their gaps are explicitly covered by current gates.",
+    principle: `Component cascade work can proceed only when the current ${componentCount}-component React, contract, state, accessibility, style, interaction, visual, and CSS gates agree. Legacy 1:1 matrices may remain as historical evidence only when their gaps are explicitly covered by current gates.`,
     scope: "Original plan iteration 20: component cascade audit 1:1.",
     inventory,
     expectedComponentIds,

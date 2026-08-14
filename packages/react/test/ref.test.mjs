@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, render } = await import("@testing-library/react");
-const reactComponents = await import("../src/index.js");
+const reactComponents = await import("../dist/index.js");
 const { componentContracts } = await import("@design-system/components/contracts");
 const platformContracts = await import("@design-system/components/platforms");
 

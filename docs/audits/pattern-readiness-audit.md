@@ -9,18 +9,18 @@ Patterns must have a governed source, portable contract, formal artifact promoti
 - Meta patterns: 58
 - Catalog patterns: 63
 - Unique catalog patterns: 63
-- Pattern copy sources: 63
-- Markdown contracts: 63
+- Pattern copy sources: 72
+- Markdown contracts: 72
 - Required pattern contracts: 23
 - Required contracts present: 23
 - Required copy present: 23
-- Formal artifacts: 63
+- Formal artifacts: 72
 - Formal artifact backlog: 0
 - Catalog-only patterns: 0
 - Approved catalog-only patterns: 0
 - Unapproved catalog-only patterns: 0
 - Catalog-only governance issues: 0
-- Formal artifacts missing catalog: 0
+- Formal artifacts missing catalog: 9
 - Catalog component reference errors: 0
 - Catalog/artifact dependency mismatches: 0
 - Pattern contract governance issues: 0
@@ -47,12 +47,12 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | metaPatterns | 58 | 58 |
 | catalogPatterns | 63 | 63 |
 | uniqueCatalogPatterns | 63 | 63 |
-| copyPatterns | 63 | 63 |
-| markdownContracts | 63 | 63 |
+| copyPatterns | 72 | 72 |
+| markdownContracts | 72 | 72 |
 | requiredPatternContracts | 23 | 23 |
 | requiredContractsPresent | 23 | 23 |
 | requiredCopyPresent | 23 | 23 |
-| formalArtifacts | 63 | 63 |
+| formalArtifacts | 72 | 72 |
 | duplicateCatalogIds | 0 | 0 |
 | requiredContractGaps | 0 | 0 |
 | requiredCopyGaps | 0 | 0 |
@@ -62,7 +62,7 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | approvedCatalogOnlyPatterns | 0 | 0 |
 | unapprovedCatalogOnlyPatterns | 0 | 0 |
 | catalogOnlyGovernanceIssues | 0 | 0 |
-| formalArtifactsMissingCatalog | 0 | 0 |
+| formalArtifactsMissingCatalog | 9 | 9 |
 | catalogComponentReferenceErrors | 0 | 0 |
 | catalogArtifactDependencyMismatches | 0 | 0 |
 | patternContractGovernanceIssues | 0 | 0 |
@@ -95,6 +95,7 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | action-sheet |
 | advanced-filters |
 | agent-conversation |
+| artifact-metadata-bar |
 | authentication-login-biometrics-and-otp |
 | autocomplete |
 | avatar-group |
@@ -110,7 +111,14 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | column-configurator |
 | command-palette |
 | confirmation-dialog |
+| demo-preview-frame |
 | dense-operational-list |
+| documentation-hero |
+| documentation-page-shell |
+| documentation-primitive-demo |
+| documentation-reference-grid |
+| documentation-section |
+| documentation-token-grid |
 | drag-sortable-list |
 | drawer-adapter |
 | driver-and-vehicle-administration |
@@ -130,6 +138,7 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 | multi-select |
 | multi-step-form |
 | notification-panel |
+| on-this-page-nav |
 | payment-form |
 | polar-chart |
 | preference-management |
@@ -211,6 +220,34 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 
 | Pattern |
 | --- |
+| artifact-metadata-bar |
+| demo-preview-frame |
+| documentation-hero |
+| documentation-page-shell |
+| documentation-primitive-demo |
+| documentation-reference-grid |
+| documentation-section |
+| documentation-token-grid |
+| on-this-page-nav |
+
+## Approved Formal Artifacts Missing Catalog
+
+| Pattern | Reason |
+| --- | --- |
+| artifact-metadata-bar | Documentation infrastructure pattern: governed as Flow artifact for FlowDocs metadata composition, but intentionally excluded from the 63 product pattern catalog. |
+| demo-preview-frame | Documentation infrastructure pattern: governs FlowDocs demo framing and visual evidence, but intentionally excluded from the 63 product pattern catalog. |
+| documentation-hero | Documentation infrastructure pattern: governs FlowDocs page and detail heroes, but intentionally excluded from the 63 product pattern catalog. |
+| documentation-page-shell | Documentation infrastructure pattern: governs FlowDocs page shell layout, but intentionally excluded from the 63 product pattern catalog. |
+| documentation-primitive-demo | Documentation infrastructure pattern: governs primitive demos in FlowDocs, but intentionally excluded from the 63 product pattern catalog. |
+| documentation-reference-grid | Documentation infrastructure pattern: governs documentation reference-card grids, but intentionally excluded from the 63 product pattern catalog. |
+| documentation-section | Documentation infrastructure pattern: governs documentation section boundaries, but intentionally excluded from the 63 product pattern catalog. |
+| documentation-token-grid | Documentation infrastructure pattern: governs token reference grids in FlowDocs, but intentionally excluded from the 63 product pattern catalog. |
+| on-this-page-nav | Documentation infrastructure pattern: governs local page navigation in FlowDocs, but intentionally excluded from the 63 product pattern catalog. |
+
+## Unapproved Formal Artifacts Missing Catalog
+
+| Pattern |
+| --- |
 | None |
 
 ## Catalog Component Reference Errors
@@ -229,5 +266,13 @@ Changing these numbers is a pattern governance decision. Promotion backlog is vi
 
 | Pattern |
 | --- |
-| None |
+| artifact-metadata-bar |
+| demo-preview-frame |
+| documentation-hero |
+| documentation-page-shell |
+| documentation-primitive-demo |
+| documentation-reference-grid |
+| documentation-section |
+| documentation-token-grid |
+| on-this-page-nav |
 

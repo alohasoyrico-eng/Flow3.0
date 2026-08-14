@@ -4,7 +4,7 @@
   "expectedInventory": {
     "zipKits": 16,
     "zipScreens": 34,
-    "flowTemplates": 9,
+    "flowTemplates": 17,
     "coveredByTemplate": 10,
     "coveredByPattern": 4,
     "coveredSeparateChannel": 1,

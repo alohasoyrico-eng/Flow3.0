@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { countryCallingCodeOptions, normalizeCountryCallingCodeOptions, resolveCountryCallingCodeOption, } from "@design-system/components";
 import { phoneInputPlatformContract } from "@design-system/components/platforms";

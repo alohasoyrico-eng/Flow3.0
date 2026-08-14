@@ -3,7 +3,7 @@ import type { ErrorPanelProps } from "../ErrorPanel.js";
 import type { SurfaceDensity, SurfaceElevation, SurfaceProps, SurfaceTone } from "../Surface.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 
-export type DemoPreviewFrameState = "default" | "interactive" | "static" | "viewport-mobile" | "viewport-desktop" | "loading" | "error" | "unsupported";
+export type DemoPreviewFrameState = "default" | "interactive" | "static" | "viewport-mobile" | "viewport-desktop" | "loading" | "error" | "unsupported" | "dark" | "density-compact";
 export type DemoPreviewFrameKind = "demo" | "viewport" | "playground" | "template" | "specimen";
 export type DemoPreviewFrameDensity = SurfaceDensity;
 export type DemoPreviewFrameTone = SurfaceTone | "info";

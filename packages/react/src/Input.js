@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useId, useState } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";

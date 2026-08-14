@@ -175,6 +175,14 @@
           "Symbol",
           "Tone",
           "Voice"
+        ],
+        "templateDependencies": [
+          "Component Detail Template",
+          "Docs Collection Template",
+          "Docs Home Template",
+          "Pattern Detail Template",
+          "Reference Detail Template",
+          "Template Detail Template"
         ]
       }
     }

@@ -26,7 +26,7 @@ export const KpiTile = forwardRef(function KpiTile({ label, value, delta = "", t
     const sparklineValues = Array.isArray(values) ? values : [];
     const requestedInteraction = Boolean(href || onSelect || rest.onClick || resolvedVariant === "drill-in");
     const canActivateTile = Boolean(href || onSelect || rest.onClick);
-    const selectMeta = { ...(label ? { label } : {}), value, ...(delta ? { delta } : {}), tone: resolvedTone, variant: resolvedVariant };
+    const selectMeta = { ...(label ? { label } : {}), value, delta, tone: resolvedTone, variant: resolvedVariant };
     const accessibleLabel = requestedInteraction && label ? `${label} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
     const interactive = requestedInteraction && canActivateTile && Boolean(label);
     const Element = href && interactive ? "a" : "article";

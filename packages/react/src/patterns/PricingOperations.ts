@@ -70,13 +70,13 @@ export interface PricingOperationsProps extends FlowDataAttributes {
   rolePolicy?: PricingOperationsRolePolicy;
   feedback?: PricingOperationsFeedback;
   className?: string;
-  onRuleFiltersReset?: () => void;
+  onRuleFiltersReset?: (event: MouseEvent<HTMLButtonElement>) => void;
   onRuleSortChange?: VirtualDataTableProps["onSortChange"];
   onRuleSelect?: VirtualDataTableProps["onRowSelect"];
   onRulePageChange?: VirtualDataTableProps["onPageChange"];
   onRuleBulkAction?: VirtualDataTableProps["onBulkAction"];
   onRuleSubmitForApproval?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
-  onEditorOpenChange?: (open: boolean) => void;
+  onEditorOpenChange?: DrawerAdapterProps["onOpenChange"];
   onEditorAction?: (key: string, event: MouseEvent<HTMLButtonElement>) => void;
   onPermissionChange?: RolesAndPermissionsProps["onPermissionChange"];
   onPermissionAction?: RolesAndPermissionsProps["onAction"];
@@ -307,7 +307,7 @@ export const PricingOperations = forwardRef<HTMLDivElement, PricingOperationsPro
             onClick: (event) => {
               queue.filters?.resetAction?.onClick?.(event);
               if (event.defaultPrevented) return;
-              onRuleFiltersReset?.();
+                        onRuleFiltersReset?.(event);
             },
           }
           : queue.filters.resetAction,
@@ -375,7 +375,7 @@ export const PricingOperations = forwardRef<HTMLDivElement, PricingOperationsPro
         onOpenChange: (open, event) => {
           resolvedEditor.onOpenChange?.(open, event);
           if (event?.defaultPrevented) return;
-          onEditorOpenChange?.(open);
+          onEditorOpenChange?.(open, event);
         },
         onAction: (key, event) => {
           resolvedEditor.onAction?.(key, event);

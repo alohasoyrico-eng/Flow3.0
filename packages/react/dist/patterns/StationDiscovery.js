@@ -245,8 +245,8 @@ export const StationDiscovery = forwardRef(function StationDiscovery({ label = "
         state: loading ? "loading" : query ? "results" : "idle",
         density,
         disabled: isDisabled || search?.disabled,
-        onQueryChange: (value, _meta, event) => {
-            onQueryChange?.(value, event);
+        onQueryChange: (value, meta, event) => {
+            onQueryChange?.(value, meta, event);
         },
         onResultSelect: (key, event) => {
             search?.onResultSelect?.(key, event);

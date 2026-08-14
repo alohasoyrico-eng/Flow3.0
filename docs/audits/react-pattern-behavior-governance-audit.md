@@ -8,7 +8,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 
 | Metric | Value |
 | --- | ---: |
-| formalPatternArtifacts | 63 |
+| formalPatternArtifacts | 72 |
 | patternArchitecturePolicyIssues | 0 |
 | forbiddenTypePropPolicy | 5 |
 | controlledPropPairPolicy | 10 |
@@ -21,29 +21,29 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | stateCascadeCarrierPropPolicy | 8 |
 | patternRuntimeMarkerPolicy | 3 |
 | patternContractRequiredHeadingPolicy | 4 |
-| implementedReactPatterns | 63 |
-| typedPatternDeclarations | 63 |
-| forwardRefPatterns | 63 |
-| patternsWithRefAttributes | 63 |
-| patternsWithDensityProp | 63 |
-| flowChildElements | 523 |
+| implementedReactPatterns | 72 |
+| typedPatternDeclarations | 72 |
+| forwardRefPatterns | 72 |
+| patternsWithRefAttributes | 72 |
+| patternsWithDensityProp | 72 |
+| flowChildElements | 558 |
 | flowChildDensityCascadeIssues | 0 |
-| statefulFlowChildElements | 519 |
-| directStateCascadeChildren | 492 |
+| statefulFlowChildElements | 554 |
+| directStateCascadeChildren | 527 |
 | boundaryStateCascadeChildren | 27 |
 | stateCascadeIssues | 0 |
-| validatedFlowLiteralProps | 151 |
+| validatedFlowLiteralProps | 172 |
 | flowLiteralContractIssues | 0 |
-| validatedFlowChildProps | 2287 |
+| validatedFlowChildProps | 2414 |
 | flowChildPropContractIssues | 0 |
-| callbackPropsDeclared | 269 |
-| callbackPropsTested | 269 |
+| callbackPropsDeclared | 271 |
+| callbackPropsTested | 271 |
 | missingCallbackTests | 0 |
 | declaredProps | 211 |
 | unusedDeclaredProps | 0 |
 | unusedCallbackProps | 0 |
-| formalStates | 476 |
-| typedStates | 476 |
+| formalStates | 542 |
+| typedStates | 542 |
 | statesMissingFromTypes | 0 |
 | statesMissingFromArtifact | 0 |
 | patternContractStateIssues | 0 |
@@ -53,13 +53,13 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | rawGlobalDomRefs | 0 |
 | forbiddenPropsDeclared | 0 |
 | unsafeRestSpreads | 0 |
-| structuralSurfaceSlotPatterns | 28 |
-| structuralSurfaceSlots | 28 |
+| structuralSurfaceSlotPatterns | 29 |
+| structuralSurfaceSlots | 29 |
 | missingSurfaceSlotMarkers | 0 |
 | missingStructuralSurfaceUsage | 0 |
-| patternsWithAccessibilityContracts | 60 |
-| patternsWithDirectAccessibilitySignals | 62 |
-| patternsWithDelegatedAccessibility | 49 |
+| patternsWithAccessibilityContracts | 69 |
+| patternsWithDirectAccessibilitySignals | 71 |
+| patternsWithDelegatedAccessibility | 54 |
 | missingAccessibilityImplementation | 0 |
 | missingDataFlowPattern | 0 |
 | patternsWithBehaviorDebt | 0 |
@@ -85,6 +85,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | action-sheet | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 4 | None | onAction, onOpenChange, onSelect | 3/3 | None | None | None | 7/7 | None | None | None | None | 3 | 3 | Button, Dialog, List, Menu, Toast | None | None | no | None |
 | advanced-filters | yes | yes | yes | yes | 13 | None | 13 | 12 | 1 | None | 3 | None | None | 0/0 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Drawer, InlineValidation, Input, Menu, Select, Toast | None | None | no | None |
 | agent-conversation | yes | yes | yes | yes | 4 | None | 4 | 3 | 1 | None | 0 | None | onAttach, onComposerChange, onFeedbackAction, onHandoffAction, onMessageAction, onSend | 6/6 | None | None | None | 8/8 | None | None | None | None | 4 | 4 | None | conversationSurface | None | no | None |
+| artifact-metadata-bar | yes | yes | yes | yes | 6 | None | 6 | 6 | 0 | None | 0 | None | None | 0/0 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Tooltip | None | None | no | None |
 | authentication-login-biometrics-and-otp | yes | yes | yes | yes | 10 | None | 10 | 10 | 0 | None | 0 | None | onRecover, onSubmit | 2/2 | None | None | None | 8/8 | None | None | None | None | 3 | 4 | Button, ErrorPanel, InlineValidation, Input, Toast | surface | None | no | None |
 | autocomplete | yes | yes | yes | yes | 5 | None | 5 | 5 | 0 | None | 5 | None | onAction, onOpenChange, onSuggestionSelect, onValueChange | 4/4 | None | None | None | 8/8 | None | None | None | None | 3 | 2 | EmptyState, InlineValidation, List, Skeleton | None | None | no | None |
 | avatar-group | yes | yes | yes | yes | 7 | None | 7 | 7 | 0 | None | 3 | None | onAction, onIdentitySelect, onOverflowOpenChange | 3/3 | None | None | None | 7/7 | None | None | None | None | 3 | 2 | Avatar, Button, InlineValidation, List, Popover, Tooltip | None | None | no | None |
@@ -98,9 +99,16 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | chart-wrapper | yes | yes | yes | yes | 11 | None | 11 | 10 | 1 | None | 1 | None | onAction | 1/1 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, EmptyState, ErrorPanel, List, Menu, Skeleton, Table | None | None | no | None |
 | checkbox-group | yes | yes | yes | yes | 6 | None | 6 | 6 | 0 | None | 2 | None | onApply, onClear, onValueChange | 3/3 | None | None | None | 7/7 | None | None | None | None | 4 | 3 | Button, Checkbox, InlineValidation | groupSurface | None | no | None |
 | column-configurator | yes | yes | yes | yes | 10 | None | 10 | 10 | 0 | None | 4 | None | onAction, onClick, onColumnVisibilityChange, onOpenChange | 4/4 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, Dialog, Drawer, InlineValidation, Menu, Table, Toast | None | None | no | None |
-| command-palette | yes | yes | yes | yes | 6 | None | 6 | 6 | 0 | None | 4 | None | onAction, onCommandSelect, onOpenChange, onPrimaryAction, onQueryChange | 5/5 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Dialog, EmptyState, Input, Menu, Toast | None | None | no | None |
+| command-palette | yes | yes | yes | yes | 7 | None | 7 | 7 | 0 | None | 4 | None | onAction, onCommandSelect, onOpenChange, onPrimaryAction, onQueryChange | 5/5 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Dialog, EmptyState, Input, Menu, Toast | None | None | no | None |
 | confirmation-dialog | yes | yes | yes | yes | 5 | None | 5 | 4 | 1 | None | 0 | None | onCancel, onConfirm, onOpenChange, onRecoveryAction | 4/4 | None | None | None | 6/6 | None | None | None | None | 3 | 0 | Button, Dialog, ErrorPanel, InlineValidation, Toast | None | None | no | None |
+| demo-preview-frame | yes | yes | yes | yes | 3 | None | 3 | 3 | 0 | None | 3 | None | None | 0/0 | None | None | None | 10/10 | None | None | None | None | 4 | 3 | ErrorPanel, Skeleton | None | None | no | None |
 | dense-operational-list | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 1 | None | onBulkAction, onFeedbackAction, onFilterRemove, onFiltersReset, onPageChange, onRowSelect, onSearchChange, onSortChange, onToolbarOverflowSelect | 9/9 | None | None | None | 7/7 | None | None | None | None | 4 | 4 | None | listSurface | None | no | None |
+| documentation-hero | yes | yes | yes | yes | 5 | None | 5 | 5 | 0 | None | 0 | None | None | 0/0 | None | None | None | 7/7 | None | None | None | None | 4 | 1 | Button | None | None | no | None |
+| documentation-page-shell | yes | yes | yes | yes | 1 | None | 1 | 1 | 0 | None | 0 | None | None | 0/0 | None | None | None | 9/9 | None | None | None | None | 4 | 3 | None | content | None | no | None |
+| documentation-primitive-demo | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 10 | None | None | 0/0 | None | None | None | 4/4 | None | None | None | None | 4 | 3 | Button | None | None | no | None |
+| documentation-reference-grid | yes | yes | yes | yes | 2 | None | 2 | 2 | 0 | None | 1 | None | None | 0/0 | None | None | None | 6/6 | None | None | None | None | 4 | 2 | None | None | None | no | None |
+| documentation-section | yes | yes | yes | yes | 2 | None | 2 | 2 | 0 | None | 0 | None | None | 0/0 | None | None | None | 9/9 | None | None | None | None | 3 | 2 | None | None | None | no | None |
+| documentation-token-grid | yes | yes | yes | yes | 2 | None | 2 | 2 | 0 | None | 2 | None | None | 0/0 | None | None | None | 6/6 | None | None | None | None | 4 | 2 | None | None | None | no | None |
 | drag-sortable-list | yes | yes | yes | yes | 11 | None | 11 | 11 | 0 | None | 4 | None | onMoveItem, onReset, onSave, onSelect, onUndo | 5/5 | None | None | None | 9/9 | None | None | None | None | 3 | 3 | Button, List, Toast | None | None | no | None |
 | drawer-adapter | yes | yes | yes | yes | 12 | None | 12 | 10 | 2 | None | 3 | None | onAction, onOpenChange | 2/2 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Dialog, Drawer, List, Menu, Toast | content | None | no | None |
 | driver-and-vehicle-administration | yes | yes | yes | yes | 14 | None | 14 | 14 | 0 | None | 1 | None | onAction, onDialogAction, onRowSelect | 3/3 | None | None | None | 8/8 | None | None | None | None | 3 | 4 | Avatar, Button, Dialog, EmptyState, Pagination, Table, Toast | None | None | no | None |
@@ -120,6 +128,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | multi-select | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 6 | None | onClear, onOpenChange, onRemove, onValueChange | 4/4 | None | None | None | 7/7 | None | None | None | None | 3 | 4 | Button, Checkbox, EmptyState, InlineValidation, Select | None | None | no | None |
 | multi-step-form | yes | yes | yes | yes | 12 | None | 11 | 11 | 0 | None | 0 | None | None | 0/0 | None | None | None | 8/8 | None | None | None | None | 3 | 4 | Button, InlineValidation, Input, Select, Toast | content | None | no | None |
 | notification-panel | yes | yes | yes | yes | 9 | None | 9 | 9 | 0 | None | 6 | None | onAction, onDismiss, onMarkAll, onOpenChange, onSelect | 5/5 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Drawer, EmptyState, IconButton, List, Toast | None | None | no | None |
+| on-this-page-nav | yes | yes | yes | yes | 3 | None | 3 | 3 | 0 | None | 2 | None | onClick | 1/1 | None | None | None | 7/7 | None | None | None | None | 4 | 4 | Button | None | None | no | None |
 | payment-form | yes | yes | yes | yes | 12 | None | 12 | 12 | 0 | None | 0 | None | onAmountChange, onCardNumberChange, onExpiryChange, onFeedbackAction, onSecondaryAction, onSecurityCodeChange, onSubmit | 7/7 | None | None | None | 6/6 | None | None | None | None | 4 | 4 | Button, InlineValidation | paymentSurface | None | no | None |
 | polar-chart | yes | yes | yes | yes | 5 | None | 5 | 5 | 0 | None | 1 | None | onAction, onSegmentSelect | 2/2 | None | None | None | 6/6 | None | None | None | None | 4 | 4 | None | polarChartSurface | None | no | None |
 | preference-management | yes | yes | yes | yes | 5 | None | 5 | 5 | 0 | None | 0 | None | onDangerCancel, onDangerConfirm, onDangerOpenChange, onDangerRecoveryAction, onSectionAction, onSectionFieldValueChange, onSettingsControlChange, onSettingsReset, onSettingsSave | 9/9 | None | None | None | 8/8 | None | None | None | None | 5 | 4 | None | preferenceSurface | None | no | None |
@@ -140,7 +149,7 @@ React patterns must be primary Flow implementations with typed refs, wired event
 | ticket-queue | yes | yes | yes | yes | 7 | None | 7 | 7 | 0 | None | 1 | None | onAlertDismiss, onAlertMarkAll, onAlertOpenChange, onAlertSelect, onDetailAction, onDetailOpenChange, onFeedbackAction, onTicketBulkAction, onTicketFilterRemove, onTicketFiltersReset, onTicketPageChange, onTicketSearchChange, onTicketSelect, onTicketSortChange, onTicketToolbarOverflowSelect | 15/15 | None | None | None | 7/7 | None | None | None | None | 5 | 4 | None | ticketQueueSurface | None | no | None |
 | timeline | yes | yes | yes | yes | 8 | None | 8 | 8 | 0 | None | 5 | None | onClear, onEventSelect, onFilterRemove | 3/3 | None | None | None | 6/6 | None | None | None | None | 3 | 3 | Button, EmptyState, List | None | None | no | None |
 | toolbar | yes | yes | yes | yes | 9 | None | 9 | 7 | 2 | None | 3 | None | None | 0/0 | None | None | None | 7/7 | None | None | None | None | 3 | 4 | Button, Input, Menu, Toast | None | None | no | None |
-| topbar | yes | yes | yes | yes | 15 | None | 15 | 8 | 7 | None | 8 | None | onDrawerOpenChange, onOpenChange, onQueryChange, onSelect | 4/4 | None | None | None | 8/8 | None | None | None | None | 3 | 8 | Avatar, Drawer, IconButton, Input, Menu | None | None | no | None |
+| topbar | yes | yes | yes | yes | 17 | None | 17 | 10 | 7 | None | 11 | None | onDrawerOpenChange, onOpenChange, onQueryChange, onResultSelect, onSelect | 5/5 | None | None | None | 8/8 | None | None | None | None | 3 | 8 | Avatar, Drawer, EmptyState, IconButton, Input, List, Menu | None | None | no | None |
 | transfer-list | yes | yes | yes | yes | 12 | None | 12 | 12 | 0 | None | 5 | None | onItemCheckedChange, onSourceSelect, onTargetSelect | 3/3 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, InlineValidation, Input, List, Toast | None | None | no | None |
 | virtual-data-table | yes | yes | yes | yes | 9 | None | 9 | 9 | 0 | None | 7 | None | onAction, onBulkAction, onPageChange, onRowSelect, onSelectionChange, onSortChange | 6/6 | None | None | None | 8/8 | None | None | None | None | 3 | 3 | Button, Checkbox, EmptyState, ErrorPanel, Pagination, Skeleton, Table | None | None | no | None |
 | waterfall-chart | yes | yes | yes | yes | 5 | None | 5 | 5 | 0 | None | 1 | None | onAction, onStepSelect | 2/2 | None | None | None | 6/6 | None | None | None | None | 4 | 4 | None | waterfallChartSurface | None | no | None |

@@ -5,11 +5,11 @@
   "flowDocs": {
     "exists": true,
     "root": "../FlowDocs",
-    "head": "f9c0ba6",
+    "head": "fe5a6f4",
     "branch": "main"
   },
   "inventory": {
-    "checks": 13,
+    "checks": 14,
     "failures": 0,
     "flowDocsP0ShellCleanupDebt": 0
   },
@@ -51,22 +51,13 @@
       "description": "FlowDocs generated Topbar bridge must not preserve the stale close-button default."
     },
     {
-      "id": "docs-shell-cachebust-sidebar",
+      "id": "docs-shell-cachebust-template",
       "file": "../FlowDocs/apps/docs/docs-shell-react.js",
       "line": 1,
       "status": "pass",
       "type": "required",
-      "token": "from \"./generated/react/patterns/Sidebar.js?v=3\"",
-      "description": "FlowDocs shell imports the regenerated Sidebar bridge with a fresh cache key."
-    },
-    {
-      "id": "docs-shell-cachebust-topbar",
-      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
-      "line": 1,
-      "status": "pass",
-      "type": "required",
-      "token": "from \"./generated/react/patterns/Topbar.js?v=2\"",
-      "description": "FlowDocs shell imports the regenerated Topbar bridge with a fresh cache key."
+      "token": "from \"./generated/react/templates/DocsShellTemplate.js?v=2\"",
+      "description": "FlowDocs shell imports the regenerated Docs Shell Template with a fresh cache key."
     },
     {
       "id": "docs-shell-mobile-action-attributes",
@@ -76,6 +67,24 @@
       "type": "required",
       "token": "\"data-doc-shell-action\": \"contrast\"",
       "description": "FlowDocs shell exposes governed action attributes for responsive CSS decisions."
+    },
+    {
+      "id": "docs-shell-template-imports-sidebar",
+      "file": "../FlowDocs/apps/docs/generated/react/templates/DocsShellTemplate.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "import { Sidebar } from \"../patterns/Sidebar.js\";",
+      "description": "Generated Docs Shell Template owns the Sidebar bridge import instead of docs-shell-react duplicating it."
+    },
+    {
+      "id": "docs-shell-template-imports-topbar",
+      "file": "../FlowDocs/apps/docs/generated/react/templates/DocsShellTemplate.js",
+      "line": 1,
+      "status": "pass",
+      "type": "required",
+      "token": "import { Topbar } from \"../patterns/Topbar.js\";",
+      "description": "Generated Docs Shell Template owns the Topbar bridge import instead of docs-shell-react duplicating it."
     },
     {
       "id": "docs-shell-mobile-sidebar-state",

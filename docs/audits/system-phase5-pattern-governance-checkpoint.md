@@ -25,7 +25,7 @@ Phase 5 can close only when all 63 patterns are covered exactly once by shell, i
 
 | Checkpoint | Status | Count | Passing | Debt |
 | --- | --- | ---: | ---: | ---: |
-| pattern-1to1 | pass | 63 | 63 | 0 |
+| pattern-1to1 | pass | 72 | 72 | 0 |
 | shell-patterns | pass | 5 | 5 | 0 |
 | interaction-patterns | pass | 27 | 27 | 0 |
 | data-domain-mobile-patterns | pass | 31 | 31 | 0 |

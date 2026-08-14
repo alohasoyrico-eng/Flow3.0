@@ -11,6 +11,13 @@ const sourceFile = path.join(root, "packages/react/src/internal/props.ts");
 const targetFile = path.join(root, "packages/react/src/internal/props.js");
 const outDir = fs.mkdtempSync(path.join(os.tmpdir(), "flow-react-internal-props-"));
 const tscBin = path.join(root, "node_modules/.bin/tsc");
+const sourceRuntimeHeader = [
+  "/* @generated from packages/react/src TypeScript source.",
+  " * Do not edit this compatibility runtime directly.",
+  " * Authored source of truth is the paired .ts/.tsx file.",
+  " */",
+  "",
+].join("\n");
 
 const result = spawnSync(tscBin, [
   "--ignoreConfig",
@@ -34,5 +41,5 @@ if (result.status !== 0) {
 }
 
 const compiledFile = path.join(outDir, "internal/props.js");
-fs.writeFileSync(targetFile, fs.readFileSync(compiledFile, "utf8"));
+fs.writeFileSync(targetFile, `${sourceRuntimeHeader}${fs.readFileSync(compiledFile, "utf8")}`);
 fs.rmSync(outDir, { recursive: true, force: true });

@@ -2,18 +2,18 @@
 
 Status: **pass**
 
-Phase 4 can close only when all 60 components are covered exactly once by the three Phase 4 batches and the QA gates for TypeScript, visual/dark/density/responsive cascade, accessibility/keyboard, interaction, props, controlled state, CSS contracts, style, defaults, composition, and class ownership have zero debt.
+Phase 4 can close only when all 62 components are covered exactly once by the three Phase 4 batches and the QA gates for TypeScript, visual/dark/density/responsive cascade, accessibility/keyboard, interaction, props, controlled state, CSS contracts, style, defaults, composition, and class ownership have zero debt.
 
 ## Inventory
 
-- Expected components: 60
+- Expected components: 62
 - Phase 4 batch reports: 3/3
-- Phase 4 batch components: 60/60
-- Unique Phase 4 batch components: 60/60
+- Phase 4 batch components: 62/62
+- Unique Phase 4 batch components: 62/62
 - Duplicate Phase 4 batch components: 0
 - Missing Phase 4 batch components: 0
 - Unexpected Phase 4 batch components: 0
-- Phase 4 component gate edges: 480/480
+- Phase 4 component gate edges: 496/496
 - Component QA reports: 12/12
 - Component QA inventory mismatches: 0
 - Component QA debt: 0
@@ -22,8 +22,8 @@ Phase 4 can close only when all 60 components are covered exactly once by the th
 
 | Batch | Status | Components | Edges | Debt |
 | --- | --- | ---: | ---: | ---: |
-| core-controls-forms | pass | 21/21 | 168/168 | 0 |
-| overlays-navigation-data | pass | 14/14 | 112/112 | 0 |
+| core-controls-forms | pass | 22/22 | 176/176 | 0 |
+| overlays-navigation-data | pass | 15/15 | 120/120 | 0 |
 | domain-complex | pass | 25/25 | 200/200 | 0 |
 
 ## QA Gates

@@ -538,6 +538,14 @@ public enum FlowTokens {
   public static let sysEnergyActionPrimary = "var(--ref-energy-blue-500)"
   public static let sysEnergyBorderDefault = "rgb(10 10 15 / 8%)"
   public static let sysEnergyBorderStrong = "rgb(10 10 15 / 15%)"
+  public static let sysEnergyDarkBorderDefault = "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)"
+  public static let sysEnergyDarkBorderStrong = "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)"
+  public static let sysEnergyDarkSurfacePrimary = "var(--ref-energy-neutral-900)"
+  public static let sysEnergyDarkSurfaceSecondary = "#020617"
+  public static let sysEnergyDarkSurfaceTertiary = "var(--ref-energy-neutral-800)"
+  public static let sysEnergyDarkTextPrimary = "var(--ref-energy-neutral-50)"
+  public static let sysEnergyDarkTextSecondary = "var(--ref-energy-neutral-200)"
+  public static let sysEnergyDarkTextTertiary = "var(--ref-energy-neutral-300)"
   public static let sysEnergyStatusError = "var(--ref-energy-red-500)"
   public static let sysEnergyStatusInfo = "var(--ref-energy-teal-500)"
   public static let sysEnergyStatusSuccess = "var(--ref-energy-green-500)"
@@ -1671,6 +1679,14 @@ public enum FlowTokens {
     "sys-energy-action-primary": "var(--ref-energy-blue-500)",
     "sys-energy-border-default": "rgb(10 10 15 / 8%)",
     "sys-energy-border-strong": "rgb(10 10 15 / 15%)",
+    "sys-energy-dark-border-default": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
+    "sys-energy-dark-border-strong": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "sys-energy-dark-surface-primary": "var(--ref-energy-neutral-900)",
+    "sys-energy-dark-surface-secondary": "#020617",
+    "sys-energy-dark-surface-tertiary": "var(--ref-energy-neutral-800)",
+    "sys-energy-dark-text-primary": "var(--ref-energy-neutral-50)",
+    "sys-energy-dark-text-secondary": "var(--ref-energy-neutral-200)",
+    "sys-energy-dark-text-tertiary": "var(--ref-energy-neutral-300)",
     "sys-energy-status-error": "var(--ref-energy-red-500)",
     "sys-energy-status-info": "var(--ref-energy-teal-500)",
     "sys-energy-status-success": "var(--ref-energy-green-500)",

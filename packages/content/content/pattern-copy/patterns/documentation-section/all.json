@@ -1,0 +1,90 @@
+{
+  "patterns": {
+    "documentation-section": {
+      "purpose": "Group documentation content with governed headings, callouts, matrix layouts, and section states.",
+      "useWhen": [
+        "A docs page needs a reusable section boundary.",
+        "Content needs a heading, matrix, card group, callout, or evidence block.",
+        "The section appears across more than one documentation template."
+      ],
+      "doNotUseWithoutReview": [
+        "The section is only a visual card.",
+        "The content should be owned by Code Block, Demo Preview Frame, Table, or another component.",
+        "A page template needs bespoke layout outside Flow boundaries."
+      ],
+      "foundations": [
+        [
+          "Voice",
+          "Titles, descriptions, callouts, and empty/error copy stay explicit."
+        ],
+        [
+          "Frame",
+          "Stack, split, matrix, cards, and callout layouts stay governed."
+        ],
+        [
+          "Depth",
+          "Surface owns the boundary without nested local panels."
+        ],
+        [
+          "State",
+          "Callout, dark, dense, empty, error, loading, matrix, and mobile states are explicit."
+        ],
+        [
+          "Tone",
+          "Callout and status tone are explicit without creating local visual language."
+        ],
+        [
+          "Accessibility",
+          "Heading order is inherited from the host template."
+        ],
+        [
+          "Energy",
+          "Governs accent, status, and interactive emphasis through Flow tokens."
+        ]
+      ],
+      "slots": [
+        [
+          "header",
+          "Section Header",
+          "conditional",
+          "Section heading and description."
+        ],
+        [
+          "body",
+          "ReactNode",
+          "yes",
+          "Section content."
+        ],
+        [
+          "footer",
+          "ReactNode",
+          "conditional",
+          "Supplemental section content."
+        ]
+      ],
+      "componentsUsed": [],
+      "accessibility": [
+        "Maintain heading order from the host template.",
+        "Use semantic tables/lists for structured data.",
+        "Expose callout tone and status in text."
+      ],
+      "tests": [
+        "Covers default, dense, callout, matrix, empty, loading, dark, and mobile states.",
+        "Fails when migrated pages use docs-section-surface or local matrix wrappers.",
+        "Checks Table/List semantics for structured content."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Documentation Section to replace repeated docs section wrappers."
+        ],
+        "mustAsk": [
+          "A new Card variant is proposed only for documentation section styling."
+        ],
+        "rejectIf": [
+          "FlowDocs creates local section wrapper classes for a migrated page.",
+          "Matrix content is rendered through local div grids when Table/List is appropriate."
+        ]
+      }
+    }
+  }
+}

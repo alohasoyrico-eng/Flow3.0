@@ -5,14 +5,14 @@
   "inventory": {
     "foundations": 11,
     "primitives": 24,
-    "patterns": 63,
-    "templates": 9,
-    "tokenCount": 1131,
+    "patterns": 72,
+    "templates": 17,
+    "tokenCount": 1139,
     "tokenTypes": 15,
     "tokenScopes": 3,
-    "tokensWithScope": 1131,
-    "tokensWithCssVariable": 1131,
-    "tokensWithCssReference": 620,
+    "tokensWithScope": 1139,
+    "tokensWithCssVariable": 1139,
+    "tokensWithCssReference": 625,
     "unknownTokenTypes": 0,
     "invalidTokenTransformFields": 0,
     "invalidTokenTypeValues": 0,
@@ -40,14 +40,14 @@
     "inventory": {
       "foundations": 11,
       "primitives": 24,
-      "patterns": 63,
-      "templates": 9,
-      "tokenCount": 1131,
+      "patterns": 72,
+      "templates": 17,
+      "tokenCount": 1139,
       "tokenTypes": 15,
       "tokenScopes": 3,
-      "tokensWithScope": 1131,
-      "tokensWithCssVariable": 1131,
-      "tokensWithCssReference": 620,
+      "tokensWithScope": 1139,
+      "tokensWithCssVariable": 1139,
+      "tokensWithCssReference": 625,
       "unknownTokenTypes": 0,
       "invalidTokenTransformFields": 0,
       "invalidTokenTypeValues": 0,
@@ -418,6 +418,14 @@
       "errors": []
     },
     {
+      "id": "artifact-metadata-bar",
+      "name": "artifact-metadata-bar",
+      "subpath": "./specs/patterns/artifact-metadata-bar",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+      "valid": true,
+      "errors": []
+    },
+    {
       "id": "authentication-login-biometrics-and-otp",
       "name": "authentication-login-biometrics-and-otp",
       "subpath": "./specs/patterns/authentication-login-biometrics-and-otp",
@@ -538,10 +546,66 @@
       "errors": []
     },
     {
+      "id": "demo-preview-frame",
+      "name": "demo-preview-frame",
+      "subpath": "./specs/patterns/demo-preview-frame",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+      "valid": true,
+      "errors": []
+    },
+    {
       "id": "dense-operational-list",
       "name": "dense-operational-list",
       "subpath": "./specs/patterns/dense-operational-list",
       "target": "./packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-hero",
+      "name": "documentation-hero",
+      "subpath": "./specs/patterns/documentation-hero",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-page-shell",
+      "name": "documentation-page-shell",
+      "subpath": "./specs/patterns/documentation-page-shell",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-primitive-demo",
+      "name": "documentation-primitive-demo",
+      "subpath": "./specs/patterns/documentation-primitive-demo",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-reference-grid",
+      "name": "documentation-reference-grid",
+      "subpath": "./specs/patterns/documentation-reference-grid",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-section",
+      "name": "documentation-section",
+      "subpath": "./specs/patterns/documentation-section",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "documentation-token-grid",
+      "name": "documentation-token-grid",
+      "subpath": "./specs/patterns/documentation-token-grid",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
       "valid": true,
       "errors": []
     },
@@ -694,6 +758,14 @@
       "name": "notification-panel",
       "subpath": "./specs/patterns/notification-panel",
       "target": "./packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "on-this-page-nav",
+      "name": "on-this-page-nav",
+      "subpath": "./specs/patterns/on-this-page-nav",
+      "target": "./packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
       "valid": true,
       "errors": []
     },
@@ -900,10 +972,50 @@
       "errors": []
     },
     {
+      "id": "component-detail-template",
+      "name": "component-detail-template",
+      "subpath": "./specs/templates/component-detail-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+      "valid": true,
+      "errors": []
+    },
+    {
       "id": "configuration-console",
       "name": "configuration-console",
       "subpath": "./specs/templates/configuration-console",
       "target": "./packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "name": "docs-artifact-detail-template",
+      "subpath": "./specs/templates/docs-artifact-detail-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "docs-collection-template",
+      "name": "docs-collection-template",
+      "subpath": "./specs/templates/docs-collection-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "docs-home-template",
+      "name": "docs-home-template",
+      "subpath": "./specs/templates/docs-home-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "docs-shell-template",
+      "name": "docs-shell-template",
+      "subpath": "./specs/templates/docs-shell-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
       "valid": true,
       "errors": []
     },
@@ -948,6 +1060,22 @@
       "errors": []
     },
     {
+      "id": "pattern-detail-template",
+      "name": "pattern-detail-template",
+      "subpath": "./specs/templates/pattern-detail-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+      "valid": true,
+      "errors": []
+    },
+    {
+      "id": "reference-detail-template",
+      "name": "reference-detail-template",
+      "subpath": "./specs/templates/reference-detail-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+      "valid": true,
+      "errors": []
+    },
+    {
       "id": "routes-and-stations",
       "name": "routes-and-stations",
       "subpath": "./specs/templates/routes-and-stations",
@@ -962,6 +1090,14 @@
       "target": "./packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
       "valid": true,
       "errors": []
+    },
+    {
+      "id": "template-detail-template",
+      "name": "template-detail-template",
+      "subpath": "./specs/templates/template-detail-template",
+      "target": "./packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+      "valid": true,
+      "errors": []
     }
   ],
   "tokenContract": {
@@ -970,7 +1106,7 @@
     "compatibleWith": [
       "style-dictionary"
     ],
-    "tokens": 1131,
+    "tokens": 1139,
     "types": [
       "border",
       "color",
@@ -1276,6 +1412,13 @@
       "shapeErrors": []
     },
     {
+      "id": "artifact-metadata-bar",
+      "name": "artifact-metadata-bar",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
       "id": "authentication-login-biometrics-and-otp",
       "name": "authentication-login-biometrics-and-otp",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
@@ -1381,9 +1524,58 @@
       "shapeErrors": []
     },
     {
+      "id": "demo-preview-frame",
+      "name": "demo-preview-frame",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
       "id": "dense-operational-list",
       "name": "dense-operational-list",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "documentation-hero",
+      "name": "documentation-hero",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "documentation-page-shell",
+      "name": "documentation-page-shell",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "documentation-primitive-demo",
+      "name": "documentation-primitive-demo",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "documentation-reference-grid",
+      "name": "documentation-reference-grid",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "documentation-section",
+      "name": "documentation-section",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "documentation-token-grid",
+      "name": "documentation-token-grid",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
       "exists": true,
       "shapeErrors": []
     },
@@ -1517,6 +1709,13 @@
       "id": "notification-panel",
       "name": "notification-panel",
       "file": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "on-this-page-nav",
+      "name": "on-this-page-nav",
+      "file": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
       "exists": true,
       "shapeErrors": []
     },
@@ -1698,9 +1897,44 @@
       "shapeErrors": []
     },
     {
+      "id": "component-detail-template",
+      "name": "component-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
       "id": "configuration-console",
       "name": "configuration-console",
       "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "name": "docs-artifact-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "docs-collection-template",
+      "name": "docs-collection-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "docs-home-template",
+      "name": "docs-home-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "docs-shell-template",
+      "name": "docs-shell-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
       "exists": true,
       "shapeErrors": []
     },
@@ -1740,6 +1974,20 @@
       "shapeErrors": []
     },
     {
+      "id": "pattern-detail-template",
+      "name": "pattern-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "reference-detail-template",
+      "name": "reference-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
       "id": "routes-and-stations",
       "name": "routes-and-stations",
       "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
@@ -1750,6 +1998,13 @@
       "id": "settings-workspace",
       "name": "settings-workspace",
       "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+      "exists": true,
+      "shapeErrors": []
+    },
+    {
+      "id": "template-detail-template",
+      "name": "template-detail-template",
+      "file": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
       "exists": true,
       "shapeErrors": []
     }

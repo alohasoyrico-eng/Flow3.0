@@ -4,15 +4,15 @@
   "principle": "Core controls and form components must pass TypeScript source/runtime/declaration checks plus React primary, props, controlled state, accessibility, interaction, visual cascade, CSS contract, and style governance before later component batches build on them.",
   "scope": "Original plan iteration 21: component fixes batch 1, core controls/forms.",
   "inventory": {
-    "coreControlComponents": 21,
-    "passingCoreControlComponents": 21,
+    "coreControlComponents": 22,
+    "passingCoreControlComponents": 22,
     "gateReports": 8,
     "passingGateReports": 8,
-    "tsxSources": 21,
-    "runtimeFiles": 21,
-    "declarationFiles": 21,
-    "componentGateEdges": 168,
-    "passingComponentGateEdges": 168,
+    "tsxSources": 22,
+    "runtimeFiles": 22,
+    "declarationFiles": 22,
+    "componentGateEdges": 176,
+    "passingComponentGateEdges": 176,
     "coreControlsFormsDebt": 0
   },
   "gates": [
@@ -636,6 +636,63 @@
         "sourceFile": "packages/react/src/CodeInput.tsx",
         "runtimeFile": "packages/react/src/CodeInput.js",
         "declarationFile": "packages/react/src/CodeInput.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "copy-button",
+      "component": "CopyButton",
+      "ts": {
+        "component": "CopyButton",
+        "sourceFile": "packages/react/src/CopyButton.tsx",
+        "runtimeFile": "packages/react/src/CopyButton.js",
+        "declarationFile": "packages/react/src/CopyButton.d.ts",
         "hasSource": true,
         "hasRuntime": true,
         "hasDeclaration": true

@@ -3,7 +3,7 @@ import { ErrorPanel } from "../ErrorPanel.js";
 import { Skeleton } from "../Skeleton.js";
 import { Surface } from "../Surface.js";
 import { flowRestProps } from "../internal/props.js";
-const validStates = new Set(["default", "interactive", "static", "viewport-mobile", "viewport-desktop", "loading", "error", "unsupported"]);
+const validStates = new Set(["default", "interactive", "static", "viewport-mobile", "viewport-desktop", "loading", "error", "unsupported", "dark", "density-compact"]);
 const validKinds = new Set(["demo", "viewport", "playground", "template", "specimen"]);
 const validTones = new Set(["default", "muted", "selected", "danger", "warning", "success", "info"]);
 function sanitizeRestProps(rest) {
@@ -83,7 +83,7 @@ export const DemoPreviewFrame = forwardRef(function DemoPreviewFrame({ label = "
         "data-demo-preview-frame-compact": String(Boolean(compact)),
         "data-demo-preview-frame-full-width": String(Boolean(fullWidth)),
     }, label || description
-        ? React.createElement("header", { "data-flow-slot": "demo-preview-frame.header" }, label ? React.createElement("strong", null, label) : null, description ? React.createElement("p", null, description) : null)
+        ? React.createElement("div", { "data-flow-slot": "demo-preview-frame.header" }, label ? React.createElement("strong", null, label) : null, description ? React.createElement("p", null, description) : null)
         : null, controls
         ? React.createElement("div", { "data-flow-slot": "demo-preview-frame.controls" }, controls)
         : null, React.createElement("div", { "data-flow-slot": "demo-preview-frame.preview" }, previewContent), source

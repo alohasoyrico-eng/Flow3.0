@@ -145,6 +145,11 @@ function readPatternContractGovernance() {
     "readinessExpectedInventory",
     issues,
   );
+  const approvedFormalArtifactsMissingCatalog = stringMap(
+    raw.approvedFormalArtifactsMissingCatalog,
+    "approvedFormalArtifactsMissingCatalog",
+    issues,
+  );
   const contractGovernanceExpectedInventory = numberMap(
     raw.contractGovernanceExpectedInventory,
     "contractGovernanceExpectedInventory",
@@ -158,6 +163,7 @@ function readPatternContractGovernance() {
     requiredMarkdownSections,
     requiredDemos,
     requiredDemoExemptions,
+    approvedFormalArtifactsMissingCatalog,
     readinessExpectedInventory,
     contractGovernanceExpectedInventory,
     demoCompositionPolicy: demoCompositionPolicy(raw, issues),

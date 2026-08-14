@@ -59,7 +59,8 @@
           "Fleet Manager Desktop",
           "Fleet Dashboard Suite",
           "Configuration Console",
-          "Internal Operations Console"
+          "Internal Operations Console",
+          "Docs Shell Template"
         ],
         "tokenDependencies": [
           "comp.accordion.*",

@@ -29,7 +29,7 @@ const {
   InternalOperationsConsole,
   RoutesAndStations,
   SettingsWorkspace,
-} = await import("../src/templates/index.js");
+} = await import("../dist/templates/index.js");
 
 function templateRoot(view, id) {
   const root = view.container.querySelector(`[data-flow-template="${id}"]`);

@@ -10,11 +10,11 @@
   "approvedCrossLayerArtifactIds": ["iconography"],
   "expectedInventory": {
     "rules": 5,
-    "decisions": 20,
+    "decisions": 28,
     "patternDecisions": 10,
-    "templateDecisions": 9,
+    "templateDecisions": 17,
     "nonComponentDecisions": 1,
-    "artifactsScanned": 167,
+    "artifactsScanned": 186,
     "crossLayerArtifactIds": 1,
     "unapprovedCrossLayerArtifactIds": 0,
     "artifactLayerMismatches": 0,
@@ -24,13 +24,13 @@
     "templateArtifactBlueprintMismatches": 0,
     "templateDependencyReferenceErrors": 0,
     "templateCatalogSyncErrors": 0,
-    "requiredBoundaryCases": 59,
+    "requiredBoundaryCases": 60,
     "requiredBoundaryCaseViolations": 0,
     "foundationBoundaryCases": 7,
     "primitiveBoundaryCases": 14,
     "componentBoundaryCases": 10,
     "patternBoundaryCases": 21,
-    "templateBoundaryCases": 6,
+    "templateBoundaryCases": 7,
     "nonComponentBoundaryCases": 1,
     "duplicateIds": 0,
     "auditErrors": 0,
@@ -157,6 +157,54 @@
       "layer": "template",
       "replacement": "settings-workspace",
       "reason": "Settings Workspace is a complete product settings surface that coordinates sections, preferences, validation, theme, and danger-zone confirmation through governed patterns."
+    },
+    {
+      "id": "docs-shell-template",
+      "layer": "template",
+      "replacement": "docs-shell-template",
+      "reason": "Docs Shell Template is the documentation product shell and must compose Topbar, Sidebar, Search, Command Palette, and Documentation Page Shell through Flow instead of owning shell behavior locally."
+    },
+    {
+      "id": "docs-home-template",
+      "layer": "template",
+      "replacement": "docs-home-template",
+      "reason": "Docs Home Template is the documentation landing surface and must compose documentation patterns, primitives, and foundations instead of recreating editorial layout locally."
+    },
+    {
+      "id": "docs-collection-template",
+      "layer": "template",
+      "replacement": "docs-collection-template",
+      "reason": "Docs Collection Template is the collection index surface for foundations, primitives, components, patterns, and templates; filtering, metadata, and section structure must stay governed."
+    },
+    {
+      "id": "component-detail-template",
+      "layer": "template",
+      "replacement": "component-detail-template",
+      "reason": "Component Detail Template is the repeated component documentation surface and must compose Documentation Section, Demo Preview Frame, metadata, and navigation patterns through Flow."
+    },
+    {
+      "id": "pattern-detail-template",
+      "layer": "template",
+      "replacement": "pattern-detail-template",
+      "reason": "Pattern Detail Template is the repeated pattern documentation surface and must keep demos, sections, metadata, and navigation inside governed Flow documentation patterns."
+    },
+    {
+      "id": "reference-detail-template",
+      "layer": "template",
+      "replacement": "reference-detail-template",
+      "reason": "Reference Detail Template is the shared foundation and primitive reference surface and must keep research, measurement, sections, hero, and navigation governed by Flow."
+    },
+    {
+      "id": "template-detail-template",
+      "layer": "template",
+      "replacement": "template-detail-template",
+      "reason": "Template Detail Template is the repeated product-template documentation surface and must compose Flow documentation patterns instead of defining bespoke page shells."
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "layer": "template",
+      "replacement": "docs-artifact-detail-template",
+      "reason": "Docs Artifact Detail Template is the generic documentation artifact detail fallback and must stay a governed template boundary rather than becoming local page chrome in FlowDocs."
     }
   ],
   "requiredBoundaryCases": [
@@ -212,6 +260,7 @@
     { "id": "fleet-dashboard-suite", "layer": "template", "source": "artifact", "reason": "Fleet Dashboard Suite is a product surface template." },
     { "id": "fleet-manager-desktop", "layer": "template", "source": "artifact", "reason": "Fleet Manager Desktop is a product surface template." },
     { "id": "routes-and-stations", "layer": "template", "source": "artifact", "reason": "Routes and Stations is a product surface template." },
+    { "id": "docs-artifact-detail-template", "layer": "template", "source": "artifact", "reason": "Docs Artifact Detail Template is a documentation artifact detail fallback template, not reusable local docs markup." },
     { "id": "alert-strip", "layer": "non-component", "source": "taxonomy-decision", "replacement": "notification-panel", "reason": "Alert strip must resolve to feedback orchestration instead of becoming another component." },
     { "id": "checkbox-group", "layer": "pattern", "source": "taxonomy-decision", "replacement": "checkbox-group", "reason": "Checkbox group is pattern state around atomic Checkbox." },
     { "id": "radio-group", "layer": "pattern", "source": "taxonomy-decision", "replacement": "radio-group", "reason": "Radio group is pattern state around atomic Radio Button." },

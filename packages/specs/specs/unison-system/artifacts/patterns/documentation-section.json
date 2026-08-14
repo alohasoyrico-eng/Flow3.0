@@ -20,7 +20,8 @@
           "Depth",
           "State",
           "Tone",
-          "Accessibility"
+          "Accessibility",
+          "Energy"
         ],
         "primitiveDependencies": [
           "Surface",
@@ -31,18 +32,9 @@
           "Focus",
           "Message"
         ],
-        "componentDependencies": [
-          "Card",
-          "Table",
-          "List",
-          "Badge",
-          "Tag",
-          "Accordion",
-          "Empty State"
-        ],
+        "componentDependencies": [],
         "patternDependencies": [
-          "Section Header",
-          "Artifact Metadata Bar"
+          "Section Header"
         ],
         "templateDependencies": [
           "Docs Home Template",
@@ -71,38 +63,25 @@
               "Section Header"
             ],
             "required": "conditional",
-            "purpose": "Provides local title, description, status, and actions."
+            "purpose": "Section heading and description."
           },
           {
             "name": "body",
-            "owner": "template",
+            "owner": "channel",
             "uses": [
-              "Surface",
-              "Typography",
-              "Spacing"
+              "host content"
             ],
             "required": true,
-            "purpose": "Hosts documentation content without creating a local docs panel."
+            "purpose": "Section content."
           },
           {
-            "name": "matrix",
-            "owner": "component",
+            "name": "footer",
+            "owner": "channel",
             "uses": [
-              "Table",
-              "Badge",
-              "Tag"
+              "host content"
             ],
             "required": "conditional",
-            "purpose": "Renders variant, state, token, dependency, or QA matrices through governed components."
-          },
-          {
-            "name": "cards",
-            "owner": "component",
-            "uses": [
-              "Card"
-            ],
-            "required": "conditional",
-            "purpose": "Allows card composition inside template slots without creating docs-only Card variants."
+            "purpose": "Supplemental section content."
           }
         ],
         "entryConditions": [
@@ -147,6 +126,15 @@
           "A section contains another page-level card wrapper.",
           "Matrix content is rendered through local div grids when Table/List is appropriate.",
           "A new Card variant is proposed only for documentation section styling."
+        ],
+        "tokenDependencies": [
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.accessibility.*",
+          "sys.energy.*"
         ]
       }
     }

@@ -11,7 +11,7 @@ function normalizeItems(items) {
         .map((item, index) => typeof item === "string" ? { key: `token-${index}`, token: item } : item)
         .filter((item) => Boolean(item?.token));
 }
-export const DocumentationTokenGrid = forwardRef(function DocumentationTokenGrid({ items, label = "Token reference", variant = "tokens", density, className = "", surface, ...rest }, ref) {
+export const DocumentationTokenGrid = forwardRef(function DocumentationTokenGrid({ items, label = "Token reference", variant = "tokens", density, state, className = "", surface, ...rest }, ref) {
     const resolvedVariant = resolveVariant(variant);
     const normalizedItems = normalizeItems(items);
     if (!normalizedItems.length)
@@ -25,7 +25,7 @@ export const DocumentationTokenGrid = forwardRef(function DocumentationTokenGrid
         density,
         elevation: surface?.elevation ?? "none",
         tone: surface?.tone ?? "default",
-        state: "default",
+        state: state ?? resolvedVariant,
         "aria-label": rest["aria-label"] ?? label,
         "data-flow-pattern": "documentation-token-grid",
         "data-documentation-token-grid-variant": resolvedVariant,
@@ -35,11 +35,11 @@ export const DocumentationTokenGrid = forwardRef(function DocumentationTokenGrid
         code: item.token,
         label: item.label,
         helper: item.helper,
-        variant: "inline",
+        variant: "inline-group",
+        state: "default",
         density,
-        className: "documentation-token-grid__item",
-        wrap: false,
         "data-flow-slot": "documentation-token-grid.item",
+        wrap: false,
     })));
 });
 DocumentationTokenGrid.displayName = "DocumentationTokenGrid";

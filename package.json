@@ -409,6 +409,18 @@
       "types": "./packages/react/dist/patterns/DocumentationSection.d.ts",
       "default": "./packages/react/dist/patterns/DocumentationSection.js"
     },
+    "./react/patterns/documentation-primitive-demo": {
+      "types": "./packages/react/dist/patterns/DocumentationPrimitiveDemo.d.ts",
+      "default": "./packages/react/dist/patterns/DocumentationPrimitiveDemo.js"
+    },
+    "./react/patterns/documentation-reference-grid": {
+      "types": "./packages/react/dist/patterns/DocumentationReferenceGrid.d.ts",
+      "default": "./packages/react/dist/patterns/DocumentationReferenceGrid.js"
+    },
+    "./react/patterns/documentation-token-grid": {
+      "types": "./packages/react/dist/patterns/DocumentationTokenGrid.d.ts",
+      "default": "./packages/react/dist/patterns/DocumentationTokenGrid.js"
+    },
     "./react/patterns/select-option-layer": {
       "types": "./packages/react/dist/patterns/SelectOptionLayer.d.ts",
       "default": "./packages/react/dist/patterns/SelectOptionLayer.js"
@@ -545,9 +557,21 @@
       "types": "./packages/react/dist/templates/AgentWorkspace.d.ts",
       "default": "./packages/react/dist/templates/AgentWorkspace.js"
     },
+    "./react/templates/component-detail-template": {
+      "types": "./packages/react/dist/templates/ComponentDetailTemplate.d.ts",
+      "default": "./packages/react/dist/templates/ComponentDetailTemplate.js"
+    },
     "./react/templates/configuration-console": {
       "types": "./packages/react/dist/templates/ConfigurationConsole.d.ts",
       "default": "./packages/react/dist/templates/ConfigurationConsole.js"
+    },
+    "./react/templates/docs-collection-template": {
+      "types": "./packages/react/dist/templates/DocsCollectionTemplate.d.ts",
+      "default": "./packages/react/dist/templates/DocsCollectionTemplate.js"
+    },
+    "./react/templates/docs-home-template": {
+      "types": "./packages/react/dist/templates/DocsHomeTemplate.d.ts",
+      "default": "./packages/react/dist/templates/DocsHomeTemplate.js"
     },
     "./react/templates/driver-card-wallet": {
       "types": "./packages/react/dist/templates/DriverCardWallet.d.ts",
@@ -556,10 +580,6 @@
     "./react/templates/driver-mobile-app": {
       "types": "./packages/react/dist/templates/DriverMobileApp.d.ts",
       "default": "./packages/react/dist/templates/DriverMobileApp.js"
-    },
-    "./react/templates/docs-shell": {
-      "types": "./packages/react/dist/templates/DocsShellTemplate.d.ts",
-      "default": "./packages/react/dist/templates/DocsShellTemplate.js"
     },
     "./react/templates/fleet-dashboard-suite": {
       "types": "./packages/react/dist/templates/FleetDashboardSuite.d.ts",
@@ -573,6 +593,14 @@
       "types": "./packages/react/dist/templates/InternalOperationsConsole.d.ts",
       "default": "./packages/react/dist/templates/InternalOperationsConsole.js"
     },
+    "./react/templates/pattern-detail-template": {
+      "types": "./packages/react/dist/templates/PatternDetailTemplate.d.ts",
+      "default": "./packages/react/dist/templates/PatternDetailTemplate.js"
+    },
+    "./react/templates/reference-detail-template": {
+      "types": "./packages/react/dist/templates/ReferenceDetailTemplate.d.ts",
+      "default": "./packages/react/dist/templates/ReferenceDetailTemplate.js"
+    },
     "./react/templates/routes-and-stations": {
       "types": "./packages/react/dist/templates/RoutesAndStations.d.ts",
       "default": "./packages/react/dist/templates/RoutesAndStations.js"
@@ -580,6 +608,10 @@
     "./react/templates/settings-workspace": {
       "types": "./packages/react/dist/templates/SettingsWorkspace.d.ts",
       "default": "./packages/react/dist/templates/SettingsWorkspace.js"
+    },
+    "./react/templates/template-detail-template": {
+      "types": "./packages/react/dist/templates/TemplateDetailTemplate.d.ts",
+      "default": "./packages/react/dist/templates/TemplateDetailTemplate.js"
     },
     "./react/text-area": {
       "types": "./packages/react/dist/TextArea.d.ts",
@@ -608,7 +640,43 @@
     "./tokens/flutter": "./packages/tokens/dist/flutter/flow_tokens.dart",
     "./tokens/ios": "./packages/tokens/dist/ios/FlowTokens.swift",
     "./tokens.json": "./packages/tokens/tokens.json",
-    "./tokens/styles.css": "./packages/tokens/styles/tokens.css"
+    "./tokens/styles.css": "./packages/tokens/styles/tokens.css",
+    "./react/code-block": {
+      "types": "./packages/react/dist/CodeBlock.d.ts",
+      "default": "./packages/react/dist/CodeBlock.js"
+    },
+    "./react/copy-button": {
+      "types": "./packages/react/dist/CopyButton.d.ts",
+      "default": "./packages/react/dist/CopyButton.js"
+    },
+    "./react/templates/docs-artifact-detail-template": {
+      "types": "./packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts",
+      "default": "./packages/react/dist/templates/DocsArtifactDetailTemplate.js"
+    },
+    "./react/templates/docs-shell-template": {
+      "types": "./packages/react/dist/templates/DocsShellTemplate.d.ts",
+      "default": "./packages/react/dist/templates/DocsShellTemplate.js"
+    },
+    "./react/patterns/artifact-metadata-bar": {
+      "types": "./packages/react/dist/patterns/ArtifactMetadataBar.d.ts",
+      "default": "./packages/react/dist/patterns/ArtifactMetadataBar.js"
+    },
+    "./react/patterns/demo-preview-frame": {
+      "types": "./packages/react/dist/patterns/DemoPreviewFrame.d.ts",
+      "default": "./packages/react/dist/patterns/DemoPreviewFrame.js"
+    },
+    "./react/patterns/documentation-hero": {
+      "types": "./packages/react/dist/patterns/DocumentationHero.d.ts",
+      "default": "./packages/react/dist/patterns/DocumentationHero.js"
+    },
+    "./react/patterns/documentation-page-shell": {
+      "types": "./packages/react/dist/patterns/DocumentationPageShell.d.ts",
+      "default": "./packages/react/dist/patterns/DocumentationPageShell.js"
+    },
+    "./react/patterns/on-this-page-nav": {
+      "types": "./packages/react/dist/patterns/OnThisPageNav.d.ts",
+      "default": "./packages/react/dist/patterns/OnThisPageNav.js"
+    }
   },
   "imports": {
     "#flow/components": "./packages/components/src/index.js",
@@ -690,6 +758,24 @@
     "audit:react-summary-action-typescript": "node packages/audit/scripts/report-system-react-summary-action-typescript-surface.js",
     "audit:react-root-index-typescript": "node packages/audit/scripts/report-system-react-root-index-typescript-surface.js",
     "audit:react-section-indexes-typescript": "node packages/audit/scripts/report-system-react-section-indexes-typescript-surface.js",
+    "audit:react-source-of-truth": "node packages/audit/scripts/report-system-react-source-of-truth.js",
+    "audit:react-build-reproducibility": "node packages/audit/scripts/report-system-react-build-reproducibility.js",
+    "audit:react-export-parity": "node packages/audit/scripts/report-system-react-export-parity.js",
+    "audit:react-publication-boundary": "node packages/audit/scripts/report-system-react-publication-boundary.js",
+    "audit:consumer-runtime-smoke": "node packages/audit/scripts/report-system-consumer-runtime-smoke.js",
+    "audit:consumer-css-token-cascade": "node packages/audit/scripts/report-system-consumer-css-token-cascade.js",
+    "audit:consumer-type-smoke": "node packages/audit/scripts/report-system-consumer-type-smoke.js",
+    "audit:consumer-boundary-checkpoint": "node packages/audit/scripts/report-system-consumer-boundary-checkpoint.js",
+    "audit:component-artifact-tests": "node packages/audit/scripts/report-system-component-artifact-tests.js",
+    "audit:component-runtime": "node packages/audit/scripts/report-system-component-runtime-audit.js",
+    "audit:pattern-artifact-tests": "node packages/audit/scripts/report-system-pattern-artifact-tests.js",
+    "audit:pattern-runtime": "node packages/audit/scripts/report-system-pattern-runtime-audit.js",
+    "audit:template-artifact-tests": "node packages/audit/scripts/report-system-template-artifact-tests.js",
+    "audit:template-runtime": "node packages/audit/scripts/report-system-template-runtime-audit.js",
+    "audit:test-ownership": "node packages/audit/scripts/report-system-test-ownership.js",
+    "audit:public-runtime-boundary": "node packages/audit/scripts/report-system-public-runtime-boundary.js",
+    "audit:phase5-public-runtime-readiness": "node packages/audit/scripts/report-system-phase5-public-runtime-readiness.js",
+    "audit:phase6-flowdocs-consumer": "node packages/audit/scripts/report-system-phase6-flowdocs-consumer-checkpoint.js",
     "test": "node packages/components/test/smoke.test.mjs",
     "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete"
   },

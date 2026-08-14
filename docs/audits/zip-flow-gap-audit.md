@@ -19,7 +19,7 @@ Every ZIP component, pattern concept, and template/screen must resolve to a Flow
 - missingOrPartialPatternConcepts: 0
 - zipTemplateKitsExcludingIos: 15
 - zipTemplateScreensExcludingIos: 33
-- implementedFlowTemplates: 9
+- implementedFlowTemplates: 17
 - missingTemplateOrChannelFamilies: 0
 - missingProductTemplateFamilies: 0
 - missingEmailTemplateFamilies: 0

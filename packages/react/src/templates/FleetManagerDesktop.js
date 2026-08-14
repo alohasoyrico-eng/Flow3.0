@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, useState } from "react";
 import { Surface } from "../Surface.js";
 import { RolesAndPermissions } from "../patterns/RolesAndPermissions.js";
@@ -149,6 +153,11 @@ export const FleetManagerDesktop = forwardRef(function FleetManagerDesktop({ lab
         ...(sidebar ?? {}),
         label: sidebar?.label ?? "Fleet manager navigation",
         density: sidebar?.density ?? density,
+        drawer: sidebar?.drawer === false ? false : {
+            ...(sidebar?.drawer ?? {}),
+            closeLabel: sidebar?.drawer?.closeLabel ?? "Close navigation panel",
+            showCloseButton: sidebar?.drawer?.showCloseButton ?? true,
+        },
         groups: routes,
         activeKey: resolvedSelectedDashboard,
         drawerOpen: resolvedDrawerOpen,

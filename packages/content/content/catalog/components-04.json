@@ -182,6 +182,26 @@
     },
     {
       "type": "component",
+      "id": "code-block",
+      "title": "Code Block",
+      "group": "Display",
+      "summary": "Source snippet surface for commands, token paths, and examples with governed overflow and optional copy action.",
+      "platform": "Cross-platform",
+      "audiences": [
+        "Product Designers",
+        "Developers",
+        "Content Designers",
+        "Researchers"
+      ],
+      "tokens": [
+        "color.semantic",
+        "spacing.relationship",
+        "motion.semantic",
+        "a11y.focus"
+      ]
+    },
+    {
+      "type": "component",
       "id": "list",
       "title": "List",
       "group": "Display",

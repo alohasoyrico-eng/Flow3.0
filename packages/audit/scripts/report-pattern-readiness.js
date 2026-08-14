@@ -195,6 +195,16 @@ function createReport() {
   const catalogOnlyIds = uniqueCatalogIds.filter((id) => !copyIds.includes(id));
   const copyOnlyIds = copyIds.filter((id) => !uniqueCatalogIds.includes(id));
   const formalArtifactsMissingCatalog = formalArtifactIds.filter((id) => !uniqueCatalogIds.includes(id));
+  const approvedFormalArtifactsMissingCatalog = patternContractGovernance.approvedFormalArtifactsMissingCatalog ?? {};
+  const approvedFormalArtifactsMissingCatalogRows = formalArtifactsMissingCatalog
+    .filter((id) => approvedFormalArtifactsMissingCatalog[id])
+    .map((id) => ({
+      id,
+      reason: approvedFormalArtifactsMissingCatalog[id],
+    }));
+  const approvedFormalArtifactIds = new Set(approvedFormalArtifactsMissingCatalogRows.map((row) => row.id));
+  const unapprovedFormalArtifactsMissingCatalog = formalArtifactsMissingCatalog
+    .filter((id) => !approvedFormalArtifactIds.has(id));
   const taxonomy = fs.existsSync(taxonomyFile) ? readJson(taxonomyFile) : {};
   const catalogOnlyDecisions = (taxonomy.decisions ?? [])
     .filter((decision) => catalogOnlyIds.includes(decision.id));
@@ -273,7 +283,7 @@ function createReport() {
     + staleMarkdownContracts.length
     + unapprovedCatalogOnlyPatterns.length
     + catalogOnlyGovernanceIssues.length
-    + formalArtifactsMissingCatalog.length
+    + unapprovedFormalArtifactsMissingCatalog.length
     + catalogComponentReferenceErrors.length
     + catalogArtifactDependencyMismatches.length
     + patternContractGovernance.issues.length
@@ -313,6 +323,8 @@ function createReport() {
     catalogOnlyGovernanceIssues,
     copyOnlyIds,
     formalArtifactsMissingCatalog,
+    approvedFormalArtifactsMissingCatalog: approvedFormalArtifactsMissingCatalogRows,
+    unapprovedFormalArtifactsMissingCatalog,
     catalogComponentReferenceErrors,
     catalogArtifactDependencyMismatches,
     formalArtifactIds,
@@ -334,6 +346,8 @@ function toMarkdown(report) {
   const catalogOnlyGovernanceIssueRows = report.catalogOnlyGovernanceIssues.map((issue) => `| ${issue.id} | ${issue.message} |`);
   const copyOnlyRows = report.copyOnlyIds.map((id) => `| ${id} |`);
   const formalArtifactsMissingCatalogRows = report.formalArtifactsMissingCatalog.map((id) => `| ${id} |`);
+  const approvedFormalArtifactsMissingCatalogRows = report.approvedFormalArtifactsMissingCatalog.map((row) => `| ${row.id} | ${row.reason} |`);
+  const unapprovedFormalArtifactsMissingCatalogRows = report.unapprovedFormalArtifactsMissingCatalog.map((id) => `| ${id} |`);
   const catalogComponentReferenceRows = report.catalogComponentReferenceErrors
     .map((row) => `| ${row.pattern} | ${row.componentName} | ${row.layer} | ${row.file} |`);
   const catalogArtifactDependencyRows = report.catalogArtifactDependencyMismatches
@@ -450,6 +464,18 @@ function toMarkdown(report) {
     "| Pattern |",
     "| --- |",
     ...(formalArtifactsMissingCatalogRows.length ? formalArtifactsMissingCatalogRows : ["| None |"]),
+    "",
+    "## Approved Formal Artifacts Missing Catalog",
+    "",
+    "| Pattern | Reason |",
+    "| --- | --- |",
+    ...(approvedFormalArtifactsMissingCatalogRows.length ? approvedFormalArtifactsMissingCatalogRows : ["| None | None |"]),
+    "",
+    "## Unapproved Formal Artifacts Missing Catalog",
+    "",
+    "| Pattern |",
+    "| --- |",
+    ...(unapprovedFormalArtifactsMissingCatalogRows.length ? unapprovedFormalArtifactsMissingCatalogRows : ["| None |"]),
     "",
     "## Catalog Component Reference Errors",
     "",

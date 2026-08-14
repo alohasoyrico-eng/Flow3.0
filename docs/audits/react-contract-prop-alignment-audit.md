@@ -6,19 +6,19 @@ The public React prop surface must stay aligned with componentContracts so produ
 
 ## Inventory
 
-- React components scanned: 60
+- React components scanned: 62
 - Prop alignment debt: 0
-- Pass: 60
+- Pass: 62
 - Fail: 0
-- Contract props: 723
-- Public React props: 604
+- Contract props: 750
+- Public React props: 627
 - Semantic inherited props: 1
 - Contract props satisfied by React DOM inheritance: 28
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 605
+- Public props expected in source: 628
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -28,19 +28,19 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 60 | 60 |
+| components | 62 | 62 |
 | propAlignmentDebt | 0 | 0 |
-| pass | 60 | 60 |
+| pass | 62 | 62 |
 | fail | 0 | 0 |
-| contractProps | 723 | 723 |
-| publicReactProps | 604 | 604 |
+| contractProps | 750 | 750 |
+| publicReactProps | 627 | 627 |
 | semanticInheritedProps | 1 | 1 |
 | inheritedContractProps | 28 | 28 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 605 | 605 |
+| publicPropsExpectedInSource | 628 | 628 |
 | unreferencedPublicProps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
 
@@ -73,8 +73,10 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | ChatThread | pass | 9 | 9 | 9 | None | None | None | None | None |
 | Checkbox | pass | 13 | 8 | 8 | None | None | None | None | None |
 | Chip | pass | 13 | 12 | 12 | None | None | None | None | None |
+| CodeBlock | pass | 12 | 11 | 11 | None | None | None | None | None |
 | CodeInput | pass | 12 | 10 | 10 | None | None | None | None | None |
 | Combobox | pass | 16 | 12 | 12 | None | None | None | None | None |
+| CopyButton | pass | 15 | 12 | 12 | None | None | None | None | None |
 | CountrySelector | pass | 14 | 12 | 12 | None | None | None | None | None |
 | DatePicker | pass | 19 | 14 | 14 | None | None | None | None | None |
 | DateRangePicker | pass | 21 | 18 | 18 | None | None | None | None | None |

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "flow-system-consumer-runtime-smoke@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "packedFiles": 1356,
+    "resolvedExports": 16,
+    "renderedArtifacts": 20,
+    "consumerRuntimeSmokeDebt": 0
+  },
+  "renderedArtifacts": [
+    {
+      "name": "Button",
+      "markupLength": 168
+    },
+    {
+      "name": "Card",
+      "markupLength": 305
+    },
+    {
+      "name": "Input",
+      "markupLength": 326
+    },
+    {
+      "name": "Select",
+      "markupLength": 1132
+    },
+    {
+      "name": "Table",
+      "markupLength": 278
+    },
+    {
+      "name": "CodeBlock",
+      "markupLength": 342
+    },
+    {
+      "name": "CopyButton",
+      "markupLength": 198
+    },
+    {
+      "name": "Search",
+      "markupLength": 1303
+    },
+    {
+      "name": "Sidebar",
+      "markupLength": 1922
+    },
+    {
+      "name": "Topbar",
+      "markupLength": 1547
+    },
+    {
+      "name": "DocumentationHero",
+      "markupLength": 1182
+    },
+    {
+      "name": "DocumentationSection",
+      "markupLength": 859
+    },
+    {
+      "name": "DemoPreviewFrame",
+      "markupLength": 778
+    },
+    {
+      "name": "ArtifactMetadataBar",
+      "markupLength": 842
+    },
+    {
+      "name": "OnThisPageNav",
+      "markupLength": 497
+    },
+    {
+      "name": "DocsShellTemplate",
+      "markupLength": 5547
+    },
+    {
+      "name": "DocsHomeTemplate",
+      "markupLength": 4515
+    },
+    {
+      "name": "ComponentDetailTemplate",
+      "markupLength": 4294
+    },
+    {
+      "name": "PatternDetailTemplate",
+      "markupLength": 5998
+    },
+    {
+      "name": "FleetDashboardSuite",
+      "markupLength": 13642
+    }
+  ],
+  "policy": {
+    "packageBoundary": "Runtime smoke must import through public @alohasoyrico-eng/flow exports only.",
+    "renderBoundary": "Representative components, documentation patterns, and templates must render outside FlowDocs.",
+    "docsLeakBoundary": "Rendered markup must not leak apps/docs, docs-demo, gold-* or sourcemap markers."
+  }
+}

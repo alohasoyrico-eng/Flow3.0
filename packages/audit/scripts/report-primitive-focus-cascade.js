@@ -213,7 +213,7 @@ function writeReport(report) {
     const currentJson = readIfExists(jsonOutput);
     const currentMarkdown = readIfExists(markdownOutput);
     if (currentJson !== json || currentMarkdown !== `${markdown}\n`) {
-      console.error("Primitive Focus cascade audit is stale. Run npm run audit:primitive:focus.");
+      console.error("Primitive Focus cascade audit is stale. Run: node packages/audit/scripts/report-primitive-focus-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

@@ -3,13 +3,13 @@
   "audit": "react class ownership",
   "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
   "inventory": {
-    "components": 60,
-    "componentClassRoots": 63,
+    "components": 62,
+    "componentClassRoots": 65,
     "protectedComponentRoots": 7,
-    "supportClassRoots": 6,
-    "packageCssRoots": 71,
+    "supportClassRoots": 9,
+    "packageCssRoots": 75,
     "componentsWithFamilyRoots": 14,
-    "observedRootAssignments": 77,
+    "observedRootAssignments": 79,
     "observedSupportRootAssignments": 21,
     "violations": 0,
     "classOwnershipDebt": 0
@@ -25,6 +25,9 @@
   ],
   "reactSupportClassRoots": [
     "animation-asset",
+    "docs-artifact-detail-template",
+    "documentation-hero",
+    "documentation-section",
     "field-action",
     "illustration-asset",
     "input",
@@ -53,14 +56,18 @@
     "checkbox",
     "chip",
     "choice",
+    "code-block",
     "code-input",
     "combobox",
+    "copy-button",
     "country-flag",
     "country-selector",
     "date-picker",
     "date-range-picker",
     "dialog",
     "docs-package-demo",
+    "documentation-hero",
+    "documentation-section",
     "drawer",
     "empty-state",
     "error-panel",
@@ -427,6 +434,21 @@
       "status": "pass"
     },
     {
+      "component": "CodeBlock",
+      "file": "packages/react/src/CodeBlock.js",
+      "ownerRoot": "code-block",
+      "allowedRoots": [
+        "code-block"
+      ],
+      "observedRoots": [
+        "code-block"
+      ],
+      "observedSupportRoots": [],
+      "protectedRootsObserved": [],
+      "violations": [],
+      "status": "pass"
+    },
+    {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.js",
       "ownerRoot": "code-input",
@@ -466,6 +488,21 @@
       "protectedRootsObserved": [
         "field"
       ],
+      "violations": [],
+      "status": "pass"
+    },
+    {
+      "component": "CopyButton",
+      "file": "packages/react/src/CopyButton.js",
+      "ownerRoot": "copy-button",
+      "allowedRoots": [
+        "copy-button"
+      ],
+      "observedRoots": [
+        "copy-button"
+      ],
+      "observedSupportRoots": [],
+      "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
     },

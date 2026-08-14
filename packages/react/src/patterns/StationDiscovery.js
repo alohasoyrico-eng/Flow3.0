@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { createMapsPrimitive } from "@design-system/components";
 import { Button } from "../Button.js";
@@ -245,8 +249,8 @@ export const StationDiscovery = forwardRef(function StationDiscovery({ label = "
         state: loading ? "loading" : query ? "results" : "idle",
         density,
         disabled: isDisabled || search?.disabled,
-        onQueryChange: (value, _meta, event) => {
-            onQueryChange?.(value, event);
+        onQueryChange: (value, meta, event) => {
+            onQueryChange?.(value, meta, event);
         },
         onResultSelect: (key, event) => {
             search?.onResultSelect?.(key, event);

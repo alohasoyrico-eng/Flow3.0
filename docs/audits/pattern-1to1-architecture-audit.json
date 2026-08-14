@@ -3,22 +3,22 @@
   "audit": "pattern 1:1 architecture",
   "principle": "Every pattern needs an explicit 1:1 architecture map across foundations, primitives, components, pattern crossings, template references, and docs evidence before React migration starts.",
   "inventory": {
-    "patterns": 63,
+    "patterns": 72,
     "patternArchitecturePolicyIssues": 0,
     "foundationPrimitiveHintPolicy": 11,
     "complexityWeightPolicy": 8,
-    "formalArtifacts": 63,
-    "markdownContracts": 63,
+    "formalArtifacts": 72,
+    "markdownContracts": 72,
     "catalogEntries": 63,
-    "patternsWithDeclaredPrimitives": 63,
+    "patternsWithDeclaredPrimitives": 72,
     "patternsWithOnlyInferredPrimitives": 0,
     "patternsWithUnknownComponents": 0,
     "patternsWithComponentArtifactGaps": 0,
     "patternContractScopeIssues": 0,
     "patternContractArtifactCoverageIssues": 0,
-    "patternsWithPatternCrossings": 45,
-    "patternsReferencedByTemplates": 16,
-    "templatePatternDependencies": 50,
+    "patternsWithPatternCrossings": 49,
+    "patternsReferencedByTemplates": 26,
+    "templatePatternDependencies": 120,
     "templatePatternDependencyGaps": 0,
     "templateModuleDependencyMismatches": 0,
     "missingFormalTemplatePatternDependencies": 0,
@@ -36,22 +36,22 @@
   },
   "baseline": {
     "inventory": {
-      "patterns": 63,
+      "patterns": 72,
       "patternArchitecturePolicyIssues": 0,
       "foundationPrimitiveHintPolicy": 11,
       "complexityWeightPolicy": 8,
-      "formalArtifacts": 63,
-      "markdownContracts": 63,
+      "formalArtifacts": 72,
+      "markdownContracts": 72,
       "catalogEntries": 63,
-      "patternsWithDeclaredPrimitives": 63,
+      "patternsWithDeclaredPrimitives": 72,
       "patternsWithOnlyInferredPrimitives": 0,
       "patternsWithUnknownComponents": 0,
       "patternsWithComponentArtifactGaps": 0,
       "patternContractScopeIssues": 0,
       "patternContractArtifactCoverageIssues": 0,
-      "patternsWithPatternCrossings": 45,
-      "patternsReferencedByTemplates": 16,
-      "templatePatternDependencies": 50,
+      "patternsWithPatternCrossings": 49,
+      "patternsReferencedByTemplates": 26,
+      "templatePatternDependencies": 120,
       "templatePatternDependencyGaps": 0,
       "templateModuleDependencyMismatches": 0,
       "missingFormalTemplatePatternDependencies": 0,
@@ -298,6 +298,96 @@
     },
     {
       "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Component Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:component-detail-template.json",
+      "template": "component-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
       "template": "Configuration Console",
       "dependency": "Authentication, Login, Biometrics and OTP",
       "dependencyId": "authentication-login-biometrics-and-otp",
@@ -380,6 +470,294 @@
     {
       "source": "template-artifact:configuration-console.json",
       "template": "configuration-console",
+      "dependency": "Topbar",
+      "dependencyId": "topbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Artifact Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Artifact Detail Template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Collection Template",
+      "dependency": "Toolbar",
+      "dependencyId": "toolbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Home Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Command Palette",
+      "dependencyId": "command-palette",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Documentation Page Shell",
+      "dependencyId": "documentation-page-shell",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Sidebar",
+      "dependencyId": "sidebar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Docs Shell Template",
+      "dependency": "Topbar",
+      "dependencyId": "topbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-artifact-detail-template.json",
+      "template": "docs-artifact-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-artifact-detail-template.json",
+      "template": "docs-artifact-detail-template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-collection-template.json",
+      "template": "docs-collection-template",
+      "dependency": "Toolbar",
+      "dependencyId": "toolbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-home-template.json",
+      "template": "docs-home-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Command Palette",
+      "dependencyId": "command-palette",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Documentation Page Shell",
+      "dependencyId": "documentation-page-shell",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Search",
+      "dependencyId": "search",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
+      "dependency": "Sidebar",
+      "dependencyId": "sidebar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:docs-shell-template.json",
+      "template": "docs-shell-template",
       "dependency": "Topbar",
       "dependencyId": "topbar",
       "formalPatternPresent": true,
@@ -652,6 +1030,186 @@
       "template": "internal-operations-console",
       "dependency": "Topbar",
       "dependencyId": "topbar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Pattern Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:pattern-detail-template.json",
+      "template": "pattern-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Reference Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Documentation Hero",
+      "dependencyId": "documentation-hero",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "On This Page Nav",
+      "dependencyId": "on-this-page-nav",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:reference-detail-template.json",
+      "template": "reference-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
       "formalPatternPresent": true,
       "knownTemplateModule": false,
       "classification": "formal-pattern"
@@ -690,6 +1248,78 @@
       "dependencyId": "preference-management",
       "formalPatternPresent": true,
       "knownTemplateModule": true,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-blueprints",
+      "template": "Template Detail Template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Artifact Metadata Bar",
+      "dependencyId": "artifact-metadata-bar",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Demo Preview Frame",
+      "dependencyId": "demo-preview-frame",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Documentation Section",
+      "dependencyId": "documentation-section",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
+      "classification": "formal-pattern"
+    },
+    {
+      "source": "template-artifact:template-detail-template.json",
+      "template": "template-detail-template",
+      "dependency": "Section Header",
+      "dependencyId": "section-header",
+      "formalPatternPresent": true,
+      "knownTemplateModule": false,
       "classification": "formal-pattern"
     }
   ],
@@ -907,6 +1537,7 @@
       "action-sheet",
       "advanced-filters",
       "agent-conversation",
+      "artifact-metadata-bar",
       "authentication-login-biometrics-and-otp",
       "autocomplete",
       "avatar-group",
@@ -917,6 +1548,10 @@
       "checkbox-group",
       "column-configurator",
       "confirmation-dialog",
+      "demo-preview-frame",
+      "documentation-primitive-demo",
+      "documentation-reference-grid",
+      "documentation-token-grid",
       "drag-sortable-list",
       "driver-and-vehicle-administration",
       "driver-onboarding-mobile",
@@ -947,7 +1582,6 @@
     "wave-2-composed-workflows": [
       "bottom-sheet",
       "bulk-actions",
-      "command-palette",
       "drawer-adapter",
       "expandable-detail-table",
       "filterable-editable-table",
@@ -955,9 +1589,6 @@
       "help-center",
       "kanban-board",
       "polar-chart",
-      "search",
-      "section-header",
-      "toolbar",
       "transfer-list",
       "virtual-data-table",
       "waterfall-chart"
@@ -966,13 +1597,21 @@
       "account-operations",
       "backoffice-approval",
       "case-management",
+      "command-palette",
       "dense-operational-list",
+      "documentation-hero",
+      "documentation-page-shell",
+      "documentation-section",
+      "on-this-page-nav",
       "preference-management",
       "pricing-operations",
+      "search",
       "status-feedback-view",
-      "ticket-queue"
+      "ticket-queue",
+      "toolbar"
     ],
     "wave-4-template-adjacent": [
+      "section-header",
       "topbar"
     ]
   },
@@ -1890,6 +2529,263 @@
       ],
       "migration": {
         "complexityScore": 15,
+        "wave": "wave-0-formalized",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
+      }
+    },
+    {
+      "id": "artifact-metadata-bar",
+      "title": "Artifact Metadata Bar",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/artifact-metadata-bar/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/artifact-metadata-bar.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json"
+      },
+      "purpose": "Expose repeated documentation metadata as compact, accessible Flow-owned items instead of local pill systems.",
+      "components": {
+        "declared": [
+          "Badge",
+          "Button",
+          "Chip",
+          "Tag",
+          "Tooltip"
+        ],
+        "normalizedIds": [
+          "badge",
+          "button",
+          "chip",
+          "tag",
+          "tooltip"
+        ],
+        "known": [
+          "badge",
+          "button",
+          "chip",
+          "tag",
+          "tooltip"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "items",
+          "type": "Badge | Tag | Chip",
+          "required": "yes",
+          "notes": "Metadata values with explicit labels.",
+          "componentRefs": [
+            "badge",
+            "chip",
+            "tag"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "explanation",
+          "type": "Tooltip",
+          "required": "conditional",
+          "notes": "Compact metadata explanation.",
+          "componentRefs": [
+            "tooltip"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "actions",
+          "type": "Button[]",
+          "required": "conditional",
+          "notes": "Metadata-related actions.",
+          "componentRefs": [
+            "button"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.chip.*",
+          "comp.tag.*",
+          "comp.tooltip.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Home Template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-blueprints:Docs Collection Template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-blueprints:Docs Artifact Detail Template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-blueprints:Component Detail Template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-blueprints:Pattern Detail Template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-blueprints:Template Detail Template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-artifact:component-detail-template.json:component-detail-template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-artifact:docs-artifact-detail-template.json:docs-artifact-detail-template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-artifact:docs-collection-template.json:docs-collection-template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-artifact:docs-home-template.json:docs-home-template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-artifact:pattern-detail-template.json:pattern-detail-template",
+            "match": "Artifact Metadata Bar"
+          },
+          {
+            "source": "template-artifact:template-detail-template.json:template-detail-template",
+            "match": "Artifact Metadata Bar"
+          }
+        ],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers default, compact, overflow, interactive, loading, empty, dark, and mobile states.",
+        "Fails when migrated pages use local card-meta-row or custom pill wrappers.",
+        "Checks accessible names for compact metadata items."
+      ],
+      "accessibility": [
+        "Expose abbreviated metadata with accessible labels.",
+        "Do not rely on color alone for status.",
+        "Preserve readable order when metadata wraps."
+      ],
+      "migration": {
+        "complexityScore": 57,
         "wave": "wave-0-formalized",
         "blockers": [
           "referenced by templates; migration needs template-boundary review"
@@ -5108,7 +6004,16 @@
           "search",
           "topbar"
         ],
-        "templates": [],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Shell Template",
+            "match": "Command Palette"
+          },
+          {
+            "source": "template-artifact:docs-shell-template.json:docs-shell-template",
+            "match": "Command Palette"
+          }
+        ],
         "docs": [
           "../../apps/docs/pattern-candidate-demos.js",
           "../../apps/docs/pattern-miel-tabs.js",
@@ -5132,9 +6037,11 @@
         "No-result state is announced and includes recovery."
       ],
       "migration": {
-        "complexityScore": 23,
-        "wave": "wave-2-composed-workflows",
-        "blockers": []
+        "complexityScore": 31,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
       }
     },
     {
@@ -5343,6 +6250,246 @@
         "complexityScore": 15,
         "wave": "wave-0-formalized",
         "blockers": []
+      }
+    },
+    {
+      "id": "demo-preview-frame",
+      "title": "Demo Preview Frame",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/demo-preview-frame/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/demo-preview-frame.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json"
+      },
+      "purpose": "Frame documentation examples, playgrounds, source, controls, and fallback states with reusable Flow-owned behavior.",
+      "components": {
+        "declared": [
+          "Error Panel",
+          "Skeleton"
+        ],
+        "normalizedIds": [
+          "code-block",
+          "error-panel",
+          "skeleton"
+        ],
+        "known": [
+          "code-block",
+          "error-panel",
+          "skeleton"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "preview",
+          "type": "ReactNode",
+          "required": "yes",
+          "notes": "Rendered artifact preview.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "controls",
+          "type": "ReactNode",
+          "required": "conditional",
+          "notes": "Interactive demo controls.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "source",
+          "type": "Code Block",
+          "required": "conditional",
+          "notes": "Governed source snippet.",
+          "componentRefs": [
+            "code-block"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "fallback",
+          "type": "Error Panel | Skeleton",
+          "required": "conditional",
+          "notes": "Loading, error, or unsupported state.",
+          "componentRefs": [
+            "error-panel",
+            "skeleton"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.error-panel.*",
+          "comp.skeleton.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [],
+        "templates": [
+          {
+            "source": "template-blueprints:Component Detail Template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-blueprints:Pattern Detail Template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-blueprints:Reference Detail Template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-blueprints:Template Detail Template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-artifact:component-detail-template.json:component-detail-template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-artifact:pattern-detail-template.json:pattern-detail-template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-artifact:reference-detail-template.json:reference-detail-template",
+            "match": "Demo Preview Frame"
+          },
+          {
+            "source": "template-artifact:template-detail-template.json:template-detail-template",
+            "match": "Demo Preview Frame"
+          }
+        ],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers static, interactive, mobile viewport, desktop viewport, loading, error, dark, and density states.",
+        "Fails when migrated pages use local docs-demo-layout wrappers.",
+        "Checks source slot uses Code Block and Copy Button when source is shown."
+      ],
+      "accessibility": [
+        "Label interactive demos and controls.",
+        "Keep focus inside demo controls predictable.",
+        "Provide text fallback for unsupported or failed demos.",
+        "Do not trap keyboard focus in preview content unless the demo requires modal behavior."
+      ],
+      "migration": {
+        "complexityScore": 40,
+        "wave": "wave-0-formalized",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
       }
     },
     {
@@ -5610,6 +6757,1101 @@
           "high pattern-crossing count",
           "referenced by templates; migration needs template-boundary review"
         ]
+      }
+    },
+    {
+      "id": "documentation-hero",
+      "title": "Documentation Hero",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/documentation-hero/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/documentation-hero.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json"
+      },
+      "purpose": "Coordinate documentation page hero content, metadata, actions, visual slot, and governed background treatment.",
+      "components": {
+        "declared": [
+          "Badge",
+          "Button",
+          "Tag"
+        ],
+        "normalizedIds": [
+          "badge",
+          "button",
+          "tag"
+        ],
+        "known": [
+          "badge",
+          "button",
+          "tag"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "title",
+          "type": "Section Header",
+          "required": "yes",
+          "notes": "Page title with template-supplied heading level.",
+          "componentRefs": [],
+          "patternRefs": [
+            "section-header"
+          ]
+        },
+        {
+          "slot": "metadata",
+          "type": "Artifact Metadata Bar | Badge | Tag",
+          "required": "conditional",
+          "notes": "Layer, maturity, status, and counts.",
+          "componentRefs": [
+            "badge",
+            "tag"
+          ],
+          "patternRefs": [
+            "artifact-metadata-bar"
+          ]
+        },
+        {
+          "slot": "actions",
+          "type": "Button[]",
+          "required": "conditional",
+          "notes": "Hero actions.",
+          "componentRefs": [
+            "button"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "visual",
+          "type": "ReactNode",
+          "required": "conditional",
+          "notes": "Governed visual specimen.",
+          "componentRefs": [],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "comp.tag.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "artifact-metadata-bar",
+          "section-header"
+        ],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Home Template",
+            "match": "Documentation Hero"
+          },
+          {
+            "source": "template-blueprints:Docs Artifact Detail Template",
+            "match": "Documentation Hero"
+          },
+          {
+            "source": "template-blueprints:Reference Detail Template",
+            "match": "Documentation Hero"
+          },
+          {
+            "source": "template-artifact:docs-artifact-detail-template.json:docs-artifact-detail-template",
+            "match": "Documentation Hero"
+          },
+          {
+            "source": "template-artifact:docs-home-template.json:docs-home-template",
+            "match": "Documentation Hero"
+          },
+          {
+            "source": "template-artifact:reference-detail-template.json:reference-detail-template",
+            "match": "Documentation Hero"
+          }
+        ],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers title-only, metadata, actions, status, dark, mobile, and loading states.",
+        "Rejects unmanaged gradient/grid CSS in migrated pages.",
+        "Checks heading order and action focus order."
+      ],
+      "accessibility": [
+        "Use one visible h1 per documentation page.",
+        "Keep actions keyboard reachable.",
+        "Do not hide status or metadata behind color-only cues."
+      ],
+      "migration": {
+        "complexityScore": 38,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
+      }
+    },
+    {
+      "id": "documentation-page-shell",
+      "title": "Documentation Page Shell",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/documentation-page-shell/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/documentation-page-shell.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json"
+      },
+      "purpose": "Compose FlowDocs topbar, sidebar, local nav, background, and content regions through Flow-owned shell boundaries.",
+      "components": {
+        "declared": [],
+        "normalizedIds": [],
+        "known": [],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "topbar",
+          "type": "Topbar",
+          "required": "conditional",
+          "notes": "Global docs actions and search entry.",
+          "componentRefs": [],
+          "patternRefs": [
+            "topbar"
+          ]
+        },
+        {
+          "slot": "sidebar",
+          "type": "Sidebar",
+          "required": "conditional",
+          "notes": "Primary docs navigation.",
+          "componentRefs": [],
+          "patternRefs": [
+            "sidebar"
+          ]
+        },
+        {
+          "slot": "localNav",
+          "type": "On This Page Nav",
+          "required": "conditional",
+          "notes": "Local page anchors.",
+          "componentRefs": [],
+          "patternRefs": [
+            "on-this-page-nav"
+          ]
+        },
+        {
+          "slot": "content",
+          "type": "Surface",
+          "required": "yes",
+          "notes": "Documentation page body.",
+          "componentRefs": [],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Elevation",
+          "Focus",
+          "Loading",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Focus",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Elevation",
+          "Focus",
+          "Loading",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "on-this-page-nav",
+          "search",
+          "sidebar",
+          "topbar"
+        ],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Shell Template",
+            "match": "Documentation Page Shell"
+          },
+          {
+            "source": "template-artifact:docs-shell-template.json:docs-shell-template",
+            "match": "Documentation Page Shell"
+          }
+        ],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Desktop, mobile, dark, light, sidebar-open, sidebar-closed, and search-open states are covered.",
+        "Topbar and Sidebar do not duplicate drawer ownership.",
+        "No migrated docs page reintroduces local shell wrappers."
+      ],
+      "accessibility": [
+        "Expose one navigation landmark for primary docs navigation.",
+        "Keep sidebar toggle focusable and reversible with the same control on mobile.",
+        "Preserve skip-link and heading order across templates.",
+        "Do not communicate active state by color alone."
+      ],
+      "migration": {
+        "complexityScore": 25,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "high pattern-crossing count",
+          "referenced by templates; migration needs template-boundary review"
+        ]
+      }
+    },
+    {
+      "id": "documentation-primitive-demo",
+      "title": "Documentation Primitive Demo",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/documentation-primitive-demo/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/documentation-primitive-demo.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json"
+      },
+      "purpose": "Render primitive-specific documentation demos through Flow components while preserving local demo data as content.",
+      "components": {
+        "declared": [
+          "Button",
+          "Card",
+          "Code Block"
+        ],
+        "normalizedIds": [
+          "button",
+          "card",
+          "code-block"
+        ],
+        "known": [
+          "button",
+          "card",
+          "code-block"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "demo",
+          "type": "Card | Button | Code Block",
+          "required": true,
+          "notes": "Primitive demo UI.",
+          "componentRefs": [
+            "button",
+            "card",
+            "code-block"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.button.*",
+          "comp.card.*",
+          "comp.code-block.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [],
+        "templates": [],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers default and empty states.",
+        "Rejects local documentation wrappers that duplicate this pattern."
+      ],
+      "accessibility": [
+        "Expose a readable label.",
+        "Do not rely on color alone.",
+        "Preserve keyboard reachability for interactive children."
+      ],
+      "migration": {
+        "complexityScore": 3,
+        "wave": "wave-0-formalized",
+        "blockers": []
+      }
+    },
+    {
+      "id": "documentation-reference-grid",
+      "title": "Documentation Reference Grid",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/documentation-reference-grid/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/documentation-reference-grid.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json"
+      },
+      "purpose": "Render reference cards for documentation summaries, rules, and matrices.",
+      "components": {
+        "declared": [
+          "Card"
+        ],
+        "normalizedIds": [
+          "card"
+        ],
+        "known": [
+          "card"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "items",
+          "type": "Card",
+          "required": true,
+          "notes": "Reference items.",
+          "componentRefs": [
+            "card"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.card.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [],
+        "templates": [],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers default and empty states.",
+        "Rejects local documentation wrappers that duplicate this pattern."
+      ],
+      "accessibility": [
+        "Expose a readable label.",
+        "Do not rely on color alone.",
+        "Preserve keyboard reachability for interactive children."
+      ],
+      "migration": {
+        "complexityScore": 1,
+        "wave": "wave-0-formalized",
+        "blockers": []
+      }
+    },
+    {
+      "id": "documentation-section",
+      "title": "Documentation Section",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/documentation-section/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/documentation-section.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json"
+      },
+      "purpose": "Group documentation content with governed headings, callouts, matrix layouts, and section states.",
+      "components": {
+        "declared": [],
+        "normalizedIds": [],
+        "known": [],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "header",
+          "type": "Section Header",
+          "required": "conditional",
+          "notes": "Section heading and description.",
+          "componentRefs": [],
+          "patternRefs": [
+            "section-header"
+          ]
+        },
+        {
+          "slot": "body",
+          "type": "ReactNode",
+          "required": "yes",
+          "notes": "Section content.",
+          "componentRefs": [],
+          "patternRefs": []
+        },
+        {
+          "slot": "footer",
+          "type": "ReactNode",
+          "required": "conditional",
+          "notes": "Supplemental section content.",
+          "componentRefs": [],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "State",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Elevation",
+          "Focus",
+          "Loading",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Density",
+          "Focus",
+          "Message",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Elevation",
+          "Focus",
+          "Loading",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.state.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "demo-preview-frame",
+          "section-header"
+        ],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Home Template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-blueprints:Docs Collection Template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-blueprints:Component Detail Template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-blueprints:Pattern Detail Template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-blueprints:Reference Detail Template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-blueprints:Template Detail Template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-artifact:component-detail-template.json:component-detail-template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-artifact:docs-collection-template.json:docs-collection-template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-artifact:docs-home-template.json:docs-home-template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-artifact:pattern-detail-template.json:pattern-detail-template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-artifact:reference-detail-template.json:reference-detail-template",
+            "match": "Documentation Section"
+          },
+          {
+            "source": "template-artifact:template-detail-template.json:template-detail-template",
+            "match": "Documentation Section"
+          }
+        ],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers default, dense, callout, matrix, empty, loading, dark, and mobile states.",
+        "Fails when migrated pages use docs-section-surface or local matrix wrappers.",
+        "Checks Table/List semantics for structured content."
+      ],
+      "accessibility": [
+        "Maintain heading order from the host template.",
+        "Use semantic tables/lists for structured data.",
+        "Expose callout tone and status in text."
+      ],
+      "migration": {
+        "complexityScore": 58,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
+      }
+    },
+    {
+      "id": "documentation-token-grid",
+      "title": "Documentation Token Grid",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/documentation-token-grid/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/documentation-token-grid.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json"
+      },
+      "purpose": "Render token references through governed code blocks.",
+      "components": {
+        "declared": [
+          "Code Block"
+        ],
+        "normalizedIds": [
+          "code-block"
+        ],
+        "known": [
+          "code-block"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "items",
+          "type": "Code Block",
+          "required": true,
+          "notes": "Token reference rows.",
+          "componentRefs": [
+            "code-block"
+          ],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Focus",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Focus",
+          "Message",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.code-block.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [],
+        "templates": [],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers default and empty states.",
+        "Rejects local documentation wrappers that duplicate this pattern."
+      ],
+      "accessibility": [
+        "Expose a readable label.",
+        "Do not rely on color alone.",
+        "Preserve keyboard reachability for interactive children."
+      ],
+      "migration": {
+        "complexityScore": 1,
+        "wave": "wave-0-formalized",
+        "blockers": []
       }
     },
     {
@@ -10000,6 +12242,225 @@
       }
     },
     {
+      "id": "on-this-page-nav",
+      "title": "On This Page Nav",
+      "source": {
+        "copy": "packages/content/content/pattern-copy/patterns/on-this-page-nav/all.json",
+        "markdownContract": "packages/content/content/pattern-contracts/patterns/on-this-page-nav.md",
+        "catalog": null,
+        "formalArtifact": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json"
+      },
+      "purpose": "Expose local anchors for long documentation pages without taking over primary navigation.",
+      "components": {
+        "declared": [
+          "Badge",
+          "Button"
+        ],
+        "normalizedIds": [
+          "badge",
+          "button"
+        ],
+        "known": [
+          "badge",
+          "button"
+        ],
+        "unknown": [],
+        "missingArtifacts": []
+      },
+      "slots": [
+        {
+          "slot": "items",
+          "type": "Button[]",
+          "required": "yes",
+          "notes": "Local page anchors.",
+          "componentRefs": [
+            "button"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "badge",
+          "type": "Badge",
+          "required": "conditional",
+          "notes": "Section count or state.",
+          "componentRefs": [
+            "badge"
+          ],
+          "patternRefs": []
+        },
+        {
+          "slot": "body",
+          "type": "ReactNode",
+          "required": "conditional",
+          "notes": "Supplemental local nav content.",
+          "componentRefs": [],
+          "patternRefs": []
+        }
+      ],
+      "foundations": {
+        "declared": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "formal": [
+          "Accessibility",
+          "Depth",
+          "Energy",
+          "Frame",
+          "Growth",
+          "Iconography",
+          "Momentum",
+          "State",
+          "Symbol",
+          "Tone",
+          "Voice"
+        ],
+        "inferredPrimitiveHints": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ]
+      },
+      "primitives": {
+        "declared": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Surface",
+          "Typography"
+        ],
+        "inferredFromComponents": [
+          "Breakpoints",
+          "Color",
+          "Density",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Motion Curves",
+          "Radius",
+          "Spacing",
+          "Typography"
+        ],
+        "inferredFromFoundations": [
+          "Breakpoints",
+          "Color",
+          "Disabled",
+          "Duration",
+          "Elevation",
+          "Focus",
+          "Iconography",
+          "Loading",
+          "Measurement",
+          "Message",
+          "Motion Curves",
+          "Radius",
+          "Research",
+          "Spacing",
+          "Typography"
+        ],
+        "tokenDependencies": [
+          "comp.badge.*",
+          "comp.button.*",
+          "sys.accessibility.*",
+          "sys.depth.*",
+          "sys.energy.*",
+          "sys.frame.*",
+          "sys.growth.*",
+          "sys.iconography.*",
+          "sys.momentum.*",
+          "sys.state.*",
+          "sys.symbol.*",
+          "sys.tone.*",
+          "sys.voice.*"
+        ],
+        "declarationGap": 0
+      },
+      "crossings": {
+        "patterns": [
+          "sidebar",
+          "topbar"
+        ],
+        "templates": [
+          {
+            "source": "template-blueprints:Component Detail Template",
+            "match": "On This Page Nav"
+          },
+          {
+            "source": "template-blueprints:Pattern Detail Template",
+            "match": "On This Page Nav"
+          },
+          {
+            "source": "template-blueprints:Reference Detail Template",
+            "match": "On This Page Nav"
+          },
+          {
+            "source": "template-artifact:component-detail-template.json:component-detail-template",
+            "match": "On This Page Nav"
+          },
+          {
+            "source": "template-artifact:pattern-detail-template.json:pattern-detail-template",
+            "match": "On This Page Nav"
+          },
+          {
+            "source": "template-artifact:reference-detail-template.json:reference-detail-template",
+            "match": "On This Page Nav"
+          }
+        ],
+        "docs": []
+      },
+      "contractScopeIssues": [],
+      "contractArtifactCoverageIssues": [],
+      "tests": [
+        "Covers default, sticky, collapsed, active-section, overflow, mobile, and dark states.",
+        "Verifies Sidebar and On This Page Nav landmarks are distinct.",
+        "Checks active section is not color-only."
+      ],
+      "accessibility": [
+        "Use nav landmarks only when the host page can distinguish local nav from primary nav.",
+        "Keep anchor targets focusable or announceable.",
+        "Preserve keyboard traversal and visible focus."
+      ],
+      "migration": {
+        "complexityScore": 36,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
+      }
+    },
+    {
       "id": "payment-form",
       "title": "Payment Form",
       "source": {
@@ -12049,7 +14510,24 @@
           "settings",
           "toolbar"
         ],
-        "templates": [],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Shell Template",
+            "match": "Search"
+          },
+          {
+            "source": "template-blueprints:Docs Collection Template",
+            "match": "Search"
+          },
+          {
+            "source": "template-artifact:docs-collection-template.json:docs-collection-template",
+            "match": "Search"
+          },
+          {
+            "source": "template-artifact:docs-shell-template.json:docs-shell-template",
+            "match": "Search"
+          }
+        ],
         "docs": [
           "../../apps/docs/app.js",
           "../../apps/docs/avatar-menu-slot.js",
@@ -12096,9 +14574,11 @@
         "Scope changes do not clear typed input without confirmation."
       ],
       "migration": {
-        "complexityScore": 22,
-        "wave": "wave-2-composed-workflows",
-        "blockers": []
+        "complexityScore": 38,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
       }
     },
     {
@@ -12281,7 +14761,56 @@
           "settings",
           "toolbar"
         ],
-        "templates": [],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Home Template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-blueprints:Docs Collection Template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-blueprints:Component Detail Template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-blueprints:Pattern Detail Template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-blueprints:Reference Detail Template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-blueprints:Template Detail Template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-artifact:component-detail-template.json:component-detail-template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-artifact:docs-collection-template.json:docs-collection-template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-artifact:docs-home-template.json:docs-home-template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-artifact:pattern-detail-template.json:pattern-detail-template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-artifact:reference-detail-template.json:reference-detail-template",
+            "match": "Section Header"
+          },
+          {
+            "source": "template-artifact:template-detail-template.json:template-detail-template",
+            "match": "Section Header"
+          }
+        ],
         "docs": [
           "../../apps/docs/foundation-visual-sections.js",
           "../../apps/docs/pattern-contract-tabs.js",
@@ -12303,10 +14832,11 @@
         "Overflow menu is keyboard reachable."
       ],
       "migration": {
-        "complexityScore": 20,
-        "wave": "wave-2-composed-workflows",
+        "complexityScore": 68,
+        "wave": "wave-4-template-adjacent",
         "blockers": [
-          "high pattern-crossing count"
+          "high pattern-crossing count",
+          "referenced by templates; migration needs template-boundary review"
         ]
       }
     },
@@ -13006,7 +15536,15 @@
             "match": "Sidebar"
           },
           {
+            "source": "template-blueprints:Docs Shell Template",
+            "match": "Sidebar"
+          },
+          {
             "source": "template-artifact:configuration-console.json:configuration-console",
+            "match": "Sidebar"
+          },
+          {
+            "source": "template-artifact:docs-shell-template.json:docs-shell-template",
             "match": "Sidebar"
           },
           {
@@ -13056,7 +15594,7 @@
         "Reduced motion removes nonessential movement."
       ],
       "migration": {
-        "complexityScore": 50,
+        "complexityScore": 58,
         "wave": "wave-0-formalized",
         "blockers": [
           "referenced by templates; migration needs template-boundary review"
@@ -14626,7 +17164,16 @@
           "search",
           "topbar"
         ],
-        "templates": [],
+        "templates": [
+          {
+            "source": "template-blueprints:Docs Collection Template",
+            "match": "Toolbar"
+          },
+          {
+            "source": "template-artifact:docs-collection-template.json:docs-collection-template",
+            "match": "Toolbar"
+          }
+        ],
         "docs": [
           "../../apps/docs/doc-interactions.js",
           "../../apps/docs/gold-icon-button-docs.js",
@@ -14653,9 +17200,11 @@
         "Disabled actions explain unavailable state when needed."
       ],
       "migration": {
-        "complexityScore": 18,
-        "wave": "wave-2-composed-workflows",
-        "blockers": []
+        "complexityScore": 26,
+        "wave": "wave-3-cross-pattern-orchestration",
+        "blockers": [
+          "referenced by templates; migration needs template-boundary review"
+        ]
       }
     },
     {
@@ -14673,24 +17222,30 @@
           "Avatar",
           "Badge",
           "Drawer",
+          "Empty State",
           "Icon Button",
           "Input",
+          "List",
           "Menu"
         ],
         "normalizedIds": [
           "avatar",
           "badge",
           "drawer",
+          "empty-state",
           "icon-button",
           "input",
+          "list",
           "menu"
         ],
         "known": [
           "avatar",
           "badge",
           "drawer",
+          "empty-state",
           "icon-button",
           "input",
+          "list",
           "menu"
         ],
         "unknown": [],
@@ -14867,8 +17422,10 @@
           "comp.avatar.*",
           "comp.badge.*",
           "comp.drawer.*",
+          "comp.empty-state.*",
           "comp.icon-button.*",
           "comp.input.*",
+          "comp.list.*",
           "comp.menu.*",
           "sys.accessibility.*",
           "sys.depth.*",
@@ -14916,11 +17473,19 @@
             "match": "Topbar"
           },
           {
+            "source": "template-blueprints:Docs Shell Template",
+            "match": "Topbar"
+          },
+          {
             "source": "template-artifact:agent-workspace.json:agent-workspace",
             "match": "Topbar"
           },
           {
             "source": "template-artifact:configuration-console.json:configuration-console",
+            "match": "Topbar"
+          },
+          {
+            "source": "template-artifact:docs-shell-template.json:docs-shell-template",
             "match": "Topbar"
           },
           {
@@ -14968,7 +17533,7 @@
         "Compact/mobile mode preserves navigation, search, and account access."
       ],
       "migration": {
-        "complexityScore": 75,
+        "complexityScore": 85,
         "wave": "wave-4-template-adjacent",
         "blockers": [
           "high pattern-crossing count",

@@ -4,15 +4,15 @@
   "principle": "Overlay, navigation, and data/display components must pass TypeScript source/runtime/declaration checks plus React primary, props, controlled state, accessibility, interaction, visual cascade, CSS contract, and style governance before domain and complex components build on them.",
   "scope": "Original plan iteration 22: component fixes batch 2, overlays/navigation/data.",
   "inventory": {
-    "overlaysNavigationDataComponents": 14,
-    "passingOverlaysNavigationDataComponents": 14,
+    "overlaysNavigationDataComponents": 15,
+    "passingOverlaysNavigationDataComponents": 15,
     "gateReports": 8,
     "passingGateReports": 8,
-    "tsxSources": 14,
-    "runtimeFiles": 14,
-    "declarationFiles": 14,
-    "componentGateEdges": 112,
-    "passingComponentGateEdges": 112,
+    "tsxSources": 15,
+    "runtimeFiles": 15,
+    "declarationFiles": 15,
+    "componentGateEdges": 120,
+    "passingComponentGateEdges": 120,
     "overlaysNavigationDataDebt": 0
   },
   "gates": [
@@ -693,6 +693,63 @@
         "sourceFile": "packages/react/src/Table.tsx",
         "runtimeFile": "packages/react/src/Table.js",
         "declarationFile": "packages/react/src/Table.d.ts",
+        "hasSource": true,
+        "hasRuntime": true,
+        "hasDeclaration": true
+      },
+      "gateResults": [
+        {
+          "gate": "react-primary",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "prop-alignment",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "controlled",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "accessibility",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "interaction",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "visual-cascade",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "css-contract",
+          "status": "pass",
+          "covered": true
+        },
+        {
+          "gate": "style",
+          "status": "pass",
+          "covered": true
+        }
+      ],
+      "status": "pass",
+      "failures": []
+    },
+    {
+      "id": "code-block",
+      "component": "CodeBlock",
+      "ts": {
+        "component": "CodeBlock",
+        "sourceFile": "packages/react/src/CodeBlock.tsx",
+        "runtimeFile": "packages/react/src/CodeBlock.js",
+        "declarationFile": "packages/react/src/CodeBlock.d.ts",
         "hasSource": true,
         "hasRuntime": true,
         "hasDeclaration": true

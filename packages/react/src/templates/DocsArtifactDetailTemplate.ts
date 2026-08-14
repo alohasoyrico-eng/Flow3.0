@@ -88,7 +88,11 @@ export const DocsArtifactDetailTemplate = forwardRef<HTMLElement, DocsArtifactDe
   contentClassName = "",
   ...rest
 }, ref) {
-  const resolvedState = resolveState({ loading, state, body });
+  const resolvedState = resolveState({
+    loading,
+    ...(state !== undefined ? { state } : {}),
+    body,
+  });
   const resolvedLabel = label ?? title;
   const hasBreadcrumbs = breadcrumbs.length > 0;
   const hasMetadata = metadata.length > 0;
@@ -162,14 +166,14 @@ export const DocsArtifactDetailTemplate = forwardRef<HTMLElement, DocsArtifactDe
             variant: "default",
             density: "md",
             onValueChange: onSelectedTabChange,
-            className: "detail-tabs docs-detail-tabs-nav",
+            className: "docs-artifact-detail-template__tabs",
             "data-doc-template": "artifact-detail",
             "data-doc-control-bridge": "artifact-detail-tabs",
             "data-flow-slot": "artifact-detail.tabs",
           } as ComponentProps<typeof Tabs>)
           : null,
         React.createElement(Surface, {
-          surfaceRole: "section",
+          surfaceRole: "inline",
           density,
           tone: "default",
           elevation: "none",

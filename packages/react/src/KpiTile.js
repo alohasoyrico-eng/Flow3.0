@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
@@ -26,7 +30,7 @@ export const KpiTile = forwardRef(function KpiTile({ label, value, delta = "", t
     const sparklineValues = Array.isArray(values) ? values : [];
     const requestedInteraction = Boolean(href || onSelect || rest.onClick || resolvedVariant === "drill-in");
     const canActivateTile = Boolean(href || onSelect || rest.onClick);
-    const selectMeta = { ...(label ? { label } : {}), value, ...(delta ? { delta } : {}), tone: resolvedTone, variant: resolvedVariant };
+    const selectMeta = { ...(label ? { label } : {}), value, delta, tone: resolvedTone, variant: resolvedVariant };
     const accessibleLabel = requestedInteraction && label ? `${label} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
     const interactive = requestedInteraction && canActivateTile && Boolean(label);
     const Element = href && interactive ? "a" : "article";

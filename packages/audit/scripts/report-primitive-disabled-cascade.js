@@ -228,7 +228,7 @@ function writeReport(report) {
     const currentJson = readIfExists(jsonOutput);
     const currentMarkdown = readIfExists(markdownOutput);
     if (currentJson !== json || currentMarkdown !== `${markdown}\n`) {
-      console.error("Primitive Disabled cascade audit is stale. Run npm run audit:primitive:disabled.");
+      console.error("Primitive Disabled cascade audit is stale. Run: node packages/audit/scripts/report-primitive-disabled-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

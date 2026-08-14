@@ -55,6 +55,7 @@ const {
   KpiCard,
   MultiSelect,
   NotificationPanel,
+  OnThisPageNav,
   PaymentForm,
   PolarChart,
   PricingOperations,
@@ -77,7 +78,7 @@ const {
   TransferList,
   VirtualDataTable,
   WaterfallChart,
-} = await import("../src/patterns/index.js");
+} = await import("../dist/patterns/index.js");
 
 try {
   const actionSheetEvents = [];
@@ -256,6 +257,14 @@ try {
   fireEvent.click(searchView.getByRole("button", { name: /^search$/i }));
   fireEvent.click(searchView.getByRole("button", { name: /^clear$/i }));
   assert.deepEqual(searchEvents.map((event) => event[0]), ["scope", "query", "select", "submit", "clear"]);
+  cleanup();
+
+  const onThisPageNavEvents = [];
+  const onThisPageNavView = render(React.createElement(OnThisPageNav, {
+    items: [{ id: "overview", label: "Overview", active: true, badge: "2", onClick: (event) => onThisPageNavEvents.push(["item", event.type]) }],
+  }));
+  fireEvent.click(onThisPageNavView.getByRole("button", { name: /overview/i }));
+  assert.deepEqual(onThisPageNavEvents, [["item", "click"]]);
   cleanup();
 
   const filterEvents = [];
@@ -1128,11 +1137,10 @@ try {
     onRouteSelect: (key, route, event) => sidebarEvents.push(["route", key, route.label, event.type]),
     onCollapse: (collapsed, event) => sidebarEvents.push(["collapse", collapsed, event.type]),
   }));
-  fireEvent.click(sidebarView.getByRole("button", { name: /close navigation/i }));
   fireEvent.click(sidebarView.getByRole("button", { name: /collapse navigation/i }));
   fireEvent.click(sidebarView.getByRole("button", { name: /main/i }));
   fireEvent.click(sidebarView.getByRole("button", { name: /dashboard/i }));
-  assert.deepEqual(sidebarEvents.map((event) => event[0]), ["drawer", "collapse", "expanded", "route"]);
+  assert.deepEqual(sidebarEvents.map((event) => event[0]), ["collapse", "expanded", "route"]);
   cleanup();
 
   const snackbarEvents = [];
@@ -1708,7 +1716,9 @@ try {
     search: {
       label: "Global search",
       query: "",
+      results: [{ key: "route", label: "Route result" }],
       onQueryChange: (value, meta, event) => topbarDelegatedEvents.push(["query", value, event.type]),
+      onResultSelect: (key, event) => topbarDelegatedEvents.push(["result", key, event.type]),
     },
     account: {
       name: "Ana Torres",
@@ -1719,9 +1729,10 @@ try {
     },
   }));
   fireEvent.input(topbarDelegatedView.getByRole("searchbox", { name: /global search/i }), { target: { value: "route" } });
+  fireEvent.click(topbarDelegatedView.getByRole("button", { name: /route result/i }));
   fireEvent.click(topbarDelegatedView.getByRole("button", { name: /ana torres menu/i }));
   fireEvent.click(topbarDelegatedView.getByRole("menuitem", { name: /profile/i, hidden: true }));
-  assert.deepEqual(topbarDelegatedEvents.map((event) => event[0]), ["query", "account-open", "account-select", "account-open"]);
+  assert.deepEqual(topbarDelegatedEvents.map((event) => event[0]), ["query", "result", "account-open", "account-select", "account-open"]);
   cleanup();
 
   const denseListEvents = [];

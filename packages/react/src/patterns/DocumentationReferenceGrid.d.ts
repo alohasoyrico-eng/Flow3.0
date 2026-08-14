@@ -5,6 +5,7 @@ import type { FlowDataAttributes } from "../internal/props.js";
 
 export type DocumentationReferenceGridKind = "summary" | "rule" | "matrix";
 export type DocumentationReferenceGridDensity = SurfaceDensity;
+export type DocumentationReferenceGridState = "default" | "summary" | "rule" | "matrix" | "empty" | "mobile";
 
 export interface DocumentationReferenceGridItem {
   key?: string;
@@ -19,7 +20,9 @@ export interface DocumentationReferenceGridItem {
 export interface DocumentationReferenceGridProps extends FlowDataAttributes {
   items?: DocumentationReferenceGridItem[];
   kind?: DocumentationReferenceGridKind;
+  label?: string;
   density?: DocumentationReferenceGridDensity;
+  state?: DocumentationReferenceGridState;
   className?: string;
   cardClassName?: string;
   surface?: Omit<SurfaceProps, "children" | "density" | "surfaceRole" | "state">;

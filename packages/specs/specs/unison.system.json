@@ -189,6 +189,7 @@
     "unison-system/artifacts/templates/component-detail-template.json",
     "unison-system/artifacts/templates/pattern-detail-template.json",
     "unison-system/artifacts/templates/template-detail-template.json",
+    "unison-system/artifacts/templates/docs-artifact-detail-template.json",
     "unison-system/artifacts/components/button/layer.json",
     "unison-system/artifacts/components/button/platform.json",
     "unison-system/artifacts/components/button/audiences.json",

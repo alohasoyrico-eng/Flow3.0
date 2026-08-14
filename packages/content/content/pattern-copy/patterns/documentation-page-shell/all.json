@@ -1,0 +1,97 @@
+{
+  "patterns": {
+    "documentation-page-shell": {
+      "purpose": "Compose FlowDocs topbar, sidebar, local nav, background, and content regions through Flow-owned shell boundaries.",
+      "useWhen": [
+        "A documentation page needs shell navigation, topbar, content rail, background treatment, or grid overlay.",
+        "The page is rendered by FlowDocs but structure must be owned by Flow.",
+        "Responsive shell behavior must remain consistent across documentation templates."
+      ],
+      "doNotUseWithoutReview": [
+        "The page is embedded inside another app shell.",
+        "A product template owns the navigation and chrome.",
+        "The shell would duplicate Topbar or Sidebar internals."
+      ],
+      "foundations": [
+        [
+          "Accessibility",
+          "Shell regions need clear landmarks and labels."
+        ],
+        [
+          "Depth",
+          "Background and shell surfaces define hierarchy without local cards."
+        ],
+        [
+          "Frame",
+          "Topbar, sidebar, local nav, and content regions keep stable responsive layout."
+        ],
+        [
+          "State",
+          "Desktop, mobile, sidebar, search, theme, grid, and loading states are declared."
+        ],
+        [
+          "Voice",
+          "Shell regions, search labels, and navigation labels remain explicit."
+        ],
+        [
+          "Energy",
+          "Governs accent, status, and interactive emphasis through Flow tokens."
+        ],
+        [
+          "Tone",
+          "Governs semantic color/copy tone without local palette decisions."
+        ]
+      ],
+      "slots": [
+        [
+          "topbar",
+          "Topbar",
+          "conditional",
+          "Global docs actions and search entry."
+        ],
+        [
+          "sidebar",
+          "Sidebar",
+          "conditional",
+          "Primary docs navigation."
+        ],
+        [
+          "localNav",
+          "On This Page Nav",
+          "conditional",
+          "Local page anchors."
+        ],
+        [
+          "content",
+          "Surface",
+          "yes",
+          "Documentation page body."
+        ]
+      ],
+      "componentsUsed": [],
+      "accessibility": [
+        "Expose one navigation landmark for primary docs navigation.",
+        "Keep sidebar toggle focusable and reversible with the same control on mobile.",
+        "Preserve skip-link and heading order across templates.",
+        "Do not communicate active state by color alone."
+      ],
+      "tests": [
+        "Desktop, mobile, dark, light, sidebar-open, sidebar-closed, and search-open states are covered.",
+        "Topbar and Sidebar do not duplicate drawer ownership.",
+        "No migrated docs page reintroduces local shell wrappers."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use Documentation Page Shell for FlowDocs chrome."
+        ],
+        "mustAsk": [
+          "A docs-only background treatment cannot be expressed through existing primitives."
+        ],
+        "rejectIf": [
+          "The page shell is implemented with local FlowDocs HTML wrappers.",
+          "Topbar, Sidebar, or Search behavior is reimplemented inside a docs template."
+        ]
+      }
+    }
+  }
+}

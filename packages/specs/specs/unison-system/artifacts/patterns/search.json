@@ -169,6 +169,10 @@
           "Symbol",
           "Tone",
           "Voice"
+        ],
+        "templateDependencies": [
+          "Docs Collection Template",
+          "Docs Shell Template"
         ]
       }
     }

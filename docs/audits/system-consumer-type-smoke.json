@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "flow-system-consumer-type-smoke@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "packedFiles": 1356,
+    "typedComponents": 7,
+    "typedPatterns": 8,
+    "typedTemplates": 5,
+    "negativeTypeAssertions": 4,
+    "tscStatus": 0,
+    "consumerTypeSmokeDebt": 0
+  },
+  "policy": {
+    "packageBoundary": "Type smoke must import runtime and types through public package exports only.",
+    "typeBoundary": "Representative components, patterns, and templates must be consumable from an installed TypeScript project.",
+    "escapeBoundary": "Representative surfaces must reject inline style and dangerous HTML escape props."
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "status": "pass",
+  "audit": "system template runtime audit",
+  "planIteration": 21,
+  "principle": "Every public template must pass formal artifact, composition, cascade, runtime, interaction, and visual governance according to its declared runtime surface.",
+  "sourceReports": {
+    "artifactTests": "docs/audits/system-template-artifact-tests.json",
+    "compositionGovernance": "docs/audits/react-template-composition-governance-audit.json",
+    "interactionGovernance": "docs/audits/react-template-interaction-governance-audit.json",
+    "runtimeGovernance": "docs/audits/react-template-runtime-governance-audit.json",
+    "visualGovernance": "docs/audits/react-template-visual-governance-audit.json",
+    "cascadeGovernance": "docs/audits/template-cascade-governance-audit.json"
+  },
+  "inventory": {
+    "templates": 17,
+    "runtimeRequiredTemplates": 9,
+    "interactionRequiredTemplates": 9,
+    "visualRequiredTemplates": 9,
+    "runtimeAuditedTemplates": 17,
+    "passingRuntimeTemplates": 17,
+    "failingRuntimeTemplates": 0,
+    "sourceReports": 6,
+    "passingSourceReports": 6,
+    "sourceReportIssues": 0,
+    "templateRuntimeDebt": 0
+  },
+  "sourceReportIssues": [],
+  "templates": [
+    {
+      "id": "agent-workspace",
+      "componentName": "AgentWorkspace",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json",
+        "source": "packages/react/src/templates/AgentWorkspace.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/AgentWorkspace.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "component-detail-template",
+      "componentName": "ComponentDetailTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json",
+        "source": "packages/react/src/templates/ComponentDetailTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/ComponentDetailTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "configuration-console",
+      "componentName": "ConfigurationConsole",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json",
+        "source": "packages/react/src/templates/ConfigurationConsole.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/ConfigurationConsole.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "docs-artifact-detail-template",
+      "componentName": "DocsArtifactDetailTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json",
+        "source": "packages/react/src/templates/DocsArtifactDetailTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "docs-collection-template",
+      "componentName": "DocsCollectionTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json",
+        "source": "packages/react/src/templates/DocsCollectionTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/DocsCollectionTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "docs-home-template",
+      "componentName": "DocsHomeTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json",
+        "source": "packages/react/src/templates/DocsHomeTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/DocsHomeTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "docs-shell-template",
+      "componentName": "DocsShellTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json",
+        "source": "packages/react/src/templates/DocsShellTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/DocsShellTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "driver-card-wallet",
+      "componentName": "DriverCardWallet",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json",
+        "source": "packages/react/src/templates/DriverCardWallet.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/DriverCardWallet.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "driver-mobile-app",
+      "componentName": "DriverMobileApp",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json",
+        "source": "packages/react/src/templates/DriverMobileApp.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/DriverMobileApp.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "fleet-dashboard-suite",
+      "componentName": "FleetDashboardSuite",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json",
+        "source": "packages/react/src/templates/FleetDashboardSuite.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/FleetDashboardSuite.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "fleet-manager-desktop",
+      "componentName": "FleetManagerDesktop",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json",
+        "source": "packages/react/src/templates/FleetManagerDesktop.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/FleetManagerDesktop.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "internal-operations-console",
+      "componentName": "InternalOperationsConsole",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json",
+        "source": "packages/react/src/templates/InternalOperationsConsole.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/InternalOperationsConsole.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "pattern-detail-template",
+      "componentName": "PatternDetailTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json",
+        "source": "packages/react/src/templates/PatternDetailTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/PatternDetailTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "reference-detail-template",
+      "componentName": "ReferenceDetailTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json",
+        "source": "packages/react/src/templates/ReferenceDetailTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/ReferenceDetailTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "routes-and-stations",
+      "componentName": "RoutesAndStations",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json",
+        "source": "packages/react/src/templates/RoutesAndStations.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/RoutesAndStations.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "settings-workspace",
+      "componentName": "SettingsWorkspace",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "pass",
+      "runtimeGovernance": "pass",
+      "visualGovernance": "pass",
+      "runtimeRequired": true,
+      "interactionRequired": true,
+      "visualRequired": true,
+      "metrics": {
+        "renderCases": 8,
+        "visualCases": 3,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json",
+        "source": "packages/react/src/templates/SettingsWorkspace.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/SettingsWorkspace.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    },
+    {
+      "id": "template-detail-template",
+      "componentName": "TemplateDetailTemplate",
+      "artifactTests": "pass",
+      "compositionGovernance": "pass",
+      "cascadeGovernance": "pass",
+      "interactionGovernance": "not-applicable",
+      "runtimeGovernance": "not-applicable",
+      "visualGovernance": "not-applicable",
+      "runtimeRequired": false,
+      "interactionRequired": false,
+      "visualRequired": false,
+      "metrics": {
+        "renderCases": 0,
+        "visualCases": 0,
+        "patternDependencies": 0,
+        "moduleMarkers": 0
+      },
+      "runtimeEvidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json",
+        "source": "packages/react/src/templates/TemplateDetailTemplate.js",
+        "runtime": "packages/react/dist/templates/index.js",
+        "types": "packages/react/dist/templates/TemplateDetailTemplate.d.ts"
+      },
+      "issues": [],
+      "status": "pass"
+    }
+  ]
+}

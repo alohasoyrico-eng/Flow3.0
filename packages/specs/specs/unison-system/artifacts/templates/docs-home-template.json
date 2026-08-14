@@ -95,6 +95,38 @@
           "The home page defines a parallel card system.",
           "Background gradients, grid texture, or hero tint are local unmanaged CSS.",
           "A docs-only card treatment is promoted to a public Card variant without satisfying variant criteria."
+        ],
+        "contextDensityStrategy": [
+          {
+            "context": "smartphones + phablets",
+            "density": "lg",
+            "scaleSource": "Density",
+            "layout": "stacked homepage sections"
+          },
+          {
+            "context": "tablets + laptops",
+            "density": "md",
+            "scaleSource": "Density",
+            "layout": "editorial homepage grid"
+          },
+          {
+            "context": "desktops + TV",
+            "density": "sm",
+            "scaleSource": "Density",
+            "layout": "dense overview with anchored sections"
+          }
+        ],
+        "tokenDependencies": [
+          "sys.voice.*",
+          "sys.frame.*",
+          "sys.depth.*",
+          "sys.growth.*",
+          "sys.accessibility.*",
+          "surface.*"
+        ],
+        "surfaces": [
+          "page",
+          "section"
         ]
       }
     }

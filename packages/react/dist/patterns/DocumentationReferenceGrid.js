@@ -14,7 +14,7 @@ function cardCompositionFor(kind, item) {
         return item.composition;
     return kind === "summary" ? "stats" : "standard";
 }
-export const DocumentationReferenceGrid = forwardRef(function DocumentationReferenceGrid({ items, kind, density, className = "", cardClassName = "", surface, ...rest }, ref) {
+export const DocumentationReferenceGrid = forwardRef(function DocumentationReferenceGrid({ items, kind, label = "Reference grid", density, state, className = "", cardClassName = "", surface, ...rest }, ref) {
     const resolvedKind = resolveKind(kind);
     const normalizedItems = normalizeItems(items);
     return React.createElement(Surface, {
@@ -26,7 +26,8 @@ export const DocumentationReferenceGrid = forwardRef(function DocumentationRefer
         density,
         elevation: surface?.elevation ?? "none",
         tone: surface?.tone ?? "default",
-        state: "default",
+        state: state ?? (normalizedItems.length ? resolvedKind : "empty"),
+        "aria-label": rest["aria-label"] ?? label,
         "data-flow-pattern": "documentation-reference-grid",
         "data-documentation-reference-grid-kind": resolvedKind,
         "data-doc-primitive": `reference-${resolvedKind}-grid`,
@@ -39,6 +40,7 @@ export const DocumentationReferenceGrid = forwardRef(function DocumentationRefer
         status: item.status,
         variant: item.variant ?? "minimal",
         composition: cardCompositionFor(resolvedKind, item),
+        state: "default",
         density,
         fullWidth: true,
         "data-flow-slot": "documentation-reference-grid.item",

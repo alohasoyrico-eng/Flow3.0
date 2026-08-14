@@ -1,0 +1,91 @@
+{
+  "patterns": {
+    "documentation-reference-grid": {
+      "purpose": "Render reference cards for documentation summaries, rules, and matrices.",
+      "useWhen": [
+        "Documentation content needs this reusable rendering boundary.",
+        "The layout appears across more than one documentation page."
+      ],
+      "doNotUseWithoutReview": [
+        "The content can be rendered by an existing component or pattern directly."
+      ],
+      "foundations": [
+        [
+          "Frame",
+          "Frame remains governed by Flow."
+        ],
+        [
+          "Voice",
+          "Voice remains governed by Flow."
+        ],
+        [
+          "Accessibility",
+          "Accessibility remains governed by Flow."
+        ],
+        [
+          "Depth",
+          "Governs layering, elevation, and surface hierarchy without local wrappers."
+        ],
+        [
+          "Energy",
+          "Governs accent, status, and interactive emphasis through Flow tokens."
+        ],
+        [
+          "Growth",
+          "Governs maturity, coverage, and documentation status signals."
+        ],
+        [
+          "Iconography",
+          "Governs functional glyph usage without parallel icon styling."
+        ],
+        [
+          "Momentum",
+          "Governs motion timing and responsive transition behavior."
+        ],
+        [
+          "State",
+          "Governs active, loading, empty, disabled, and responsive states."
+        ],
+        [
+          "Symbol",
+          "Governs symbolic visuals while labels and fallback text remain visible."
+        ],
+        [
+          "Tone",
+          "Governs semantic color/copy tone without local palette decisions."
+        ]
+      ],
+      "slots": [
+        [
+          "items",
+          "Card",
+          true,
+          "Reference items."
+        ]
+      ],
+      "componentsUsed": [
+        "Card"
+      ],
+      "accessibility": [
+        "Expose a readable label.",
+        "Do not rely on color alone.",
+        "Preserve keyboard reachability for interactive children."
+      ],
+      "tests": [
+        "Covers default and empty states.",
+        "Rejects local documentation wrappers that duplicate this pattern."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use this pattern for repeated documentation rendering."
+        ],
+        "mustAsk": [
+          "A new visual variant is requested."
+        ],
+        "rejectIf": [
+          "The page reimplements this pattern locally."
+        ]
+      }
+    }
+  }
+}

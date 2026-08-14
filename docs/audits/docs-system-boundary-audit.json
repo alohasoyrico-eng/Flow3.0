@@ -4,19 +4,19 @@
   "principle": "FlowDocs must consume Flow through package exports and generated assets; any docs-owned component tokens or missing aliases are tracked debt, not invisible system behavior. The actionable debt metric is docsSystemBoundaryDebt.",
   "docsRoot": "../FlowDocs",
   "inventory": {
-    "sourceFilesScanned": 209,
-    "generatedFiles": 356,
+    "sourceFilesScanned": 214,
+    "generatedFiles": 396,
     "flowDependencyPresent": 1,
     "flowBoundaryAliases": 21,
     "missingFlowAliases": 0,
     "localFlowImportViolations": 0,
     "docsComponentTokenDefinitions": 0,
     "docsComponentTokenDefinitionFiles": 0,
-    "docsProtectedFlowClassRoots": 69,
+    "docsProtectedFlowClassRoots": 73,
     "docsComponentClassDefinitions": 0,
     "docsComponentClassDefinitionFiles": 0,
-    "docsPatternClassDefinitions": 290,
-    "docsPatternClassRoots": 113,
+    "docsPatternClassDefinitions": 286,
+    "docsPatternClassRoots": 112,
     "docsUnapprovedPatternClassRoots": 0,
     "docsPatternClassPolicyIssues": 0,
     "docsContractualPatternClassDefinitions": 0,
@@ -27,19 +27,19 @@
   },
   "baseline": {
     "inventory": {
-      "sourceFilesScanned": 209,
-      "generatedFiles": 356,
+      "sourceFilesScanned": 214,
+      "generatedFiles": 396,
       "flowDependencyPresent": 1,
       "flowBoundaryAliases": 21,
       "missingFlowAliases": 0,
       "localFlowImportViolations": 0,
       "docsComponentTokenDefinitions": 0,
       "docsComponentTokenDefinitionFiles": 0,
-      "docsProtectedFlowClassRoots": 69,
+      "docsProtectedFlowClassRoots": 73,
       "docsComponentClassDefinitions": 0,
       "docsComponentClassDefinitionFiles": 0,
-      "docsPatternClassDefinitions": 290,
-      "docsPatternClassRoots": 113,
+      "docsPatternClassDefinitions": 286,
+      "docsPatternClassRoots": 112,
       "docsUnapprovedPatternClassRoots": 0,
       "docsPatternClassPolicyIssues": 0,
       "docsContractualPatternClassDefinitions": 0,
@@ -76,13 +76,17 @@
     "checkbox",
     "chip",
     "choice",
+    "code-block",
     "code-input",
     "combobox",
+    "copy-button",
     "country-flag",
     "country-selector",
     "date-picker",
     "date-range-picker",
     "dialog",
+    "documentation-hero",
+    "documentation-section",
     "drawer",
     "empty-state",
     "error-panel",
@@ -1154,18 +1158,6 @@
     },
     {
       "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-      "line": 13,
-      "classRoot": "pattern-mobile-demo",
-      "contractualRoot": ""
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-      "line": 24,
-      "classRoot": "pattern-mobile-demo",
-      "contractualRoot": ""
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
       "line": 28,
       "classRoot": "pattern-fullscreen-sheet-demo__sheet",
       "contractualRoot": ""
@@ -1268,12 +1260,6 @@
     },
     {
       "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-      "line": 104,
-      "classRoot": "pattern-mobile-demo",
-      "contractualRoot": ""
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
       "line": 105,
       "classRoot": "pattern-fullscreen-sheet-demo__sheet",
       "contractualRoot": ""
@@ -1318,12 +1304,6 @@
       "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
       "line": 126,
       "classRoot": "pattern-mobile-panel",
-      "contractualRoot": ""
-    },
-    {
-      "file": "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-      "line": 130,
-      "classRoot": "pattern-mobile-demo",
       "contractualRoot": ""
     },
     {

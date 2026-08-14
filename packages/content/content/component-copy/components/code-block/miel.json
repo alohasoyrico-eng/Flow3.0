@@ -1,0 +1,25 @@
+{
+  "components": {
+    "code-block": {
+      "miel": {
+        "copy": "Code Block is the governed source presentation component for documentation and generated output.",
+        "canDecide": [
+          "Use Code Block for commands, API snippets, token paths, and generated source examples.",
+          "Choose wrapping for short examples and scrollable behavior for long source.",
+          "Use Copy Button composition when the snippet is copyable."
+        ],
+        "mustAsk": [
+          "The snippet includes secrets, credentials, or private data.",
+          "The source is not validated or has no recovery path.",
+          "The use is an email OTP/security code instead of documentation source."
+        ],
+        "rejectIf": [
+          "A docs page styles raw pre/code locally after Code Block exists.",
+          "The snippet has no label or accessible context when multiple snippets are present.",
+          "Copy feedback is visual-only."
+        ],
+        "handoff": "Use Code Block for source examples and escalate unclear source ownership before rendering."
+      }
+    }
+  }
+}

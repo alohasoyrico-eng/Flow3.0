@@ -1,0 +1,109 @@
+{
+  "patterns": {
+    "on-this-page-nav": {
+      "purpose": "Expose local anchors for long documentation pages without taking over primary navigation.",
+      "useWhen": [
+        "A long documentation detail page needs local section navigation.",
+        "A page mixes tabs, anchors, or section groups.",
+        "Local navigation must not become primary app navigation."
+      ],
+      "doNotUseWithoutReview": [
+        "The links navigate between primary sections of the product shell.",
+        "A sidebar or topbar already owns the navigation scope.",
+        "Items are not anchorable or focusable."
+      ],
+      "foundations": [
+        [
+          "Accessibility",
+          "Local nav has a label and active state."
+        ],
+        [
+          "Frame",
+          "Sticky, collapsed, overflow, dark, and mobile layouts are explicit."
+        ],
+        [
+          "Depth",
+          "Surface owns the local nav boundary."
+        ],
+        [
+          "State",
+          "Active, collapsed, sticky, overflow, dark, and mobile states are declared."
+        ],
+        [
+          "Voice",
+          "Item labels and badges stay human-readable."
+        ],
+        [
+          "Energy",
+          "Governs accent, status, and interactive emphasis through Flow tokens."
+        ],
+        [
+          "Growth",
+          "Governs maturity, coverage, and documentation status signals."
+        ],
+        [
+          "Iconography",
+          "Governs functional glyph usage without parallel icon styling."
+        ],
+        [
+          "Momentum",
+          "Governs motion timing and responsive transition behavior."
+        ],
+        [
+          "Symbol",
+          "Governs symbolic visuals while labels and fallback text remain visible."
+        ],
+        [
+          "Tone",
+          "Governs semantic color/copy tone without local palette decisions."
+        ]
+      ],
+      "slots": [
+        [
+          "items",
+          "Button[]",
+          "yes",
+          "Local page anchors."
+        ],
+        [
+          "badge",
+          "Badge",
+          "conditional",
+          "Section count or state."
+        ],
+        [
+          "body",
+          "ReactNode",
+          "conditional",
+          "Supplemental local nav content."
+        ]
+      ],
+      "componentsUsed": [
+        "Badge",
+        "Button"
+      ],
+      "accessibility": [
+        "Use nav landmarks only when the host page can distinguish local nav from primary nav.",
+        "Keep anchor targets focusable or announceable.",
+        "Preserve keyboard traversal and visible focus."
+      ],
+      "tests": [
+        "Covers default, sticky, collapsed, active-section, overflow, mobile, and dark states.",
+        "Verifies Sidebar and On This Page Nav landmarks are distinct.",
+        "Checks active section is not color-only."
+      ],
+      "miel": {
+        "canDecide": [
+          "Use On This Page Nav for local documentation anchors."
+        ],
+        "mustAsk": [
+          "Tabs and anchor navigation are mixed on the same content group."
+        ],
+        "rejectIf": [
+          "The local nav changes app route groups.",
+          "Active section state depends only on color."
+        ]
+      }
+    }
+  }
+}

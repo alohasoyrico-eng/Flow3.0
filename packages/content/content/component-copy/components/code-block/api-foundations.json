@@ -1,0 +1,29 @@
+{
+  "components": {
+    "code-block": {
+      "api-foundations": {
+        "copy": "Code Block exposes snippet content, context labels, density, wrapping, disabled state, and optional Copy Button composition through package props.",
+        "props": [
+          {
+            "name": "code",
+            "type": "string",
+            "required": "yes",
+            "notes": "Source text rendered inside the governed code region."
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": "no",
+            "notes": "Human-readable context for the snippet."
+          },
+          {
+            "name": "copyAction",
+            "type": "CodeBlockAction",
+            "required": "no",
+            "notes": "Configures the composed Copy Button when the snippet is copyable."
+          }
+        ]
+      }
+    }
+  }
+}

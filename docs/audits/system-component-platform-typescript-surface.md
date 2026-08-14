@@ -7,8 +7,8 @@ This report governs component platform adapters: TypeScript files are maintained
 ## Summary
 
 - Status: pass
-- Platform runtime files: 61
-- Platform TypeScript source files: 61
+- Platform runtime files: 63
+- Platform TypeScript source files: 63
 - Component platform TypeScript surface debt: 0
 
 ## Gates

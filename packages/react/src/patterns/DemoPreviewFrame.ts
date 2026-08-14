@@ -8,7 +8,7 @@ import type { SurfaceDensity, SurfaceElevation, SurfaceProps, SurfaceTone } from
 import type { FlowDataAttributes } from "../internal/props.js";
 import { flowRestProps } from "../internal/props.js";
 
-export type DemoPreviewFrameState = "default" | "interactive" | "static" | "viewport-mobile" | "viewport-desktop" | "loading" | "error" | "unsupported";
+export type DemoPreviewFrameState = "default" | "interactive" | "static" | "viewport-mobile" | "viewport-desktop" | "loading" | "error" | "unsupported" | "dark" | "density-compact";
 export type DemoPreviewFrameKind = "demo" | "viewport" | "playground" | "template" | "specimen";
 export type DemoPreviewFrameDensity = SurfaceDensity;
 export type DemoPreviewFrameTone = SurfaceTone | "info";
@@ -45,7 +45,7 @@ export interface DemoPreviewFrameComponent extends ForwardRefExoticComponent<Dem
 
 type DemoPreviewFrameRestProps = Record<string, unknown>;
 
-const validStates = new Set<DemoPreviewFrameState>(["default", "interactive", "static", "viewport-mobile", "viewport-desktop", "loading", "error", "unsupported"]);
+const validStates = new Set<DemoPreviewFrameState>(["default", "interactive", "static", "viewport-mobile", "viewport-desktop", "loading", "error", "unsupported", "dark", "density-compact"]);
 const validKinds = new Set<DemoPreviewFrameKind>(["demo", "viewport", "playground", "template", "specimen"]);
 const validTones = new Set<DemoPreviewFrameTone>(["default", "muted", "selected", "danger", "warning", "success", "info"]);
 
@@ -150,7 +150,7 @@ export const DemoPreviewFrame = forwardRef<HTMLDivElement, DemoPreviewFrameProps
     } as ComponentProps<typeof Surface>,
     label || description
       ? React.createElement(
-        "header",
+        "div",
         { "data-flow-slot": "demo-preview-frame.header" },
         label ? React.createElement("strong", null, label) : null,
         description ? React.createElement("p", null, description) : null,

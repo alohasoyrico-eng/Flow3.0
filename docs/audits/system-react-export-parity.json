@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "flow-system-react-export-parity@1",
+  "generatedAt": "2026-08-14",
+  "status": "pass",
+  "inventory": {
+    "exportEntries": 182,
+    "directExportEntries": 178,
+    "wildcardExportEntries": 4,
+    "reactExportEntries": 155,
+    "directTargets": 333,
+    "wildcardResolvedTargets": 124,
+    "resolvedDirectExports": 178,
+    "missingDirectTargets": 0,
+    "targetOutsidePackage": 0,
+    "reactExportsWithoutTypesOrDefault": 0,
+    "missingObjectTypes": 0,
+    "missingObjectDefault": 0,
+    "unresolvedDirectExports": 0,
+    "unresolvedWildcardExports": 0,
+    "reactDistRuntimeFiles": 157,
+    "exportedReactDistRuntimeFiles": 155,
+    "allowedInternalReactDistRuntimeFiles": 2,
+    "orphanReactDistRuntimeFiles": 0,
+    "exportParityDebt": 0
+  },
+  "issues": {
+    "missingDirectTargets": [],
+    "targetOutsidePackage": [],
+    "reactExportsWithoutTypesOrDefault": [],
+    "missingObjectTypes": [],
+    "missingObjectDefault": [],
+    "unresolvedDirectExports": [],
+    "unresolvedWildcardExports": [],
+    "orphanReactDistRuntimeFiles": []
+  },
+  "policy": {
+    "reactExports": "Every ./react subpath must publish both types and default runtime targets.",
+    "directTargets": "Every direct package export target must exist inside the package root.",
+    "wildcardTargets": "Every spec wildcard artifact must resolve through the package exports map.",
+    "reactDistRuntime": "Every public React dist runtime file must be reachable through exports; internal runtime files may remain private."
+  }
+}

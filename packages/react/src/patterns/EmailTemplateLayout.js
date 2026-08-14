@@ -1,3 +1,7 @@
+/* @generated from packages/react/src TypeScript source.
+ * Do not edit this compatibility runtime directly.
+ * Authored source of truth is the paired .ts/.tsx file.
+ */
 import React, { forwardRef, } from "react";
 // @ts-expect-error Style Dictionary owns this generated email-token output; it intentionally has no maintained TS source.
 import { emailTokenValues } from "../internal/email-token-values.js";

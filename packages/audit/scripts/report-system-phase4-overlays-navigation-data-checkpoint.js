@@ -25,6 +25,7 @@ const overlaysNavigationDataIds = [
   "tree-view",
   "list",
   "table",
+  "code-block",
   "chart-panel",
   "kpi-tile",
 ];
