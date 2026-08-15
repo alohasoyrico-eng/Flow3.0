@@ -221,9 +221,26 @@ function availableTestCapabilities(corpus) {
 
 function readReadinessEvidence() {
   if (!fs.existsSync(readinessEvidencePath)) {
-    return { schemaVersion: null, components: {} };
+    return { schemaVersion: null, components: {}, files: [] };
   }
-  return readJson(readinessEvidencePath);
+  const manifest = readJson(readinessEvidencePath);
+  const files = unique(manifest.evidenceFiles ?? []);
+  if (!files.length) {
+    return { ...manifest, components: manifest.components ?? {}, files: [] };
+  }
+  const baseDir = path.dirname(readinessEvidencePath);
+  const merged = {
+    schemaVersion: manifest.schemaVersion ?? null,
+    components: { ...(manifest.components ?? {}) },
+    files: files.map((file) => rel(path.join(baseDir, file))),
+  };
+  files.forEach((file) => {
+    const evidenceFilePath = path.join(baseDir, file);
+    if (!fs.existsSync(evidenceFilePath)) return;
+    const evidence = readJson(evidenceFilePath);
+    Object.assign(merged.components, evidence.components ?? {});
+  });
+  return merged;
 }
 
 function unique(values) {
@@ -363,7 +380,10 @@ function createReport() {
       },
     },
     inventory,
-    readinessEvidence: rel(readinessEvidencePath),
+    readinessEvidence: {
+      manifest: rel(readinessEvidencePath),
+      files: readinessEvidence.files ?? [],
+    },
     testCapabilities: availableTestCapabilities(corpus),
     harnessIssues,
     missingPrioritySlugs,

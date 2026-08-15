@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 21,
-    "partialComponents": 42,
+    "readyComponents": 26,
+    "partialComponents": 37,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -41,17 +41,24 @@
     "missingPrioritySlugs": 0,
     "reactProductionReadinessHarnessDebt": 0
   },
-  "readinessEvidence": "packages/content/content/react-production-readiness-evidence.json",
+  "readinessEvidence": {
+    "manifest": "packages/content/content/react-production-readiness-evidence.json",
+    "files": [
+      "packages/content/content/react-production-readiness-evidence/p0-forms.json",
+      "packages/content/content/react-production-readiness-evidence/p0-overlays-navigation.json",
+      "packages/content/content/react-production-readiness-evidence/p1-actions.json"
+    ]
+  },
   "testCapabilities": {
-    "testingLibraryRender": 182,
-    "fireEvent": 471,
-    "getByRole": 297,
+    "testingLibraryRender": 187,
+    "fireEvent": 472,
+    "getByRole": 302,
     "getByLabelText": 13,
     "keyDown": 29,
     "escapeKey": 18,
     "arrowKeys": 14,
-    "userEvent": 8,
-    "axe": 5
+    "userEvent": 10,
+    "axe": 6
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -236,6 +243,7 @@
         "contract": "packages/content/content/component-contracts/components/badge.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -352,7 +360,7 @@
       "component": "Button",
       "priority": "P1",
       "family": "actions",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./button",
         "rootExport": true,
@@ -367,6 +375,7 @@
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/production-harness.test.mjs",
@@ -382,21 +391,25 @@
         "disabled/prevented"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/button-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "callback",
+          "disabled/prevented"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: callback",
-        "missing production evidence: disabled/prevented"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "card",
@@ -416,6 +429,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -1032,7 +1046,7 @@
       "component": "CopyButton",
       "priority": "P1",
       "family": "actions",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./copy-button",
         "rootExport": true,
@@ -1041,7 +1055,8 @@
         "types": "packages/react/dist/CopyButton.d.ts",
         "contract": "packages/content/content/component-contracts/components/copy-button.md",
         "tests": [
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-actions.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1052,21 +1067,26 @@
         "disabled/prevented"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "callback",
+          "disabled/prevented"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Clipboard success, failure, and prevented click paths are covered."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: callback",
-        "missing production evidence: disabled/prevented"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "country-selector",
@@ -1416,7 +1436,7 @@
       "component": "FloatingActionButton",
       "priority": "P1",
       "family": "actions",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./floating-action-button",
         "rootExport": true,
@@ -1425,7 +1445,8 @@
         "types": "packages/react/dist/FloatingActionButton.d.ts",
         "contract": "packages/content/content/component-contracts/components/floating-action-button.md",
         "tests": [
-          "packages/react/test/button-render.test.mjs"
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p1-actions.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1436,28 +1457,32 @@
         "disabled/prevented"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/button-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "callback",
+          "disabled/prevented"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: callback",
-        "missing production evidence: disabled/prevented"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "icon-button",
       "component": "IconButton",
       "priority": "P1",
       "family": "actions",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./icon-button",
         "rootExport": true,
@@ -1467,6 +1492,7 @@
         "contract": "packages/content/content/component-contracts/components/icon-button.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -1479,21 +1505,25 @@
         "disabled/prevented"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/button-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "callback",
+          "disabled/prevented"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: callback",
-        "missing production evidence: disabled/prevented"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "inline-validation",
@@ -2044,7 +2074,7 @@
       "component": "QuickAction",
       "priority": "P1",
       "family": "actions",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./quick-action",
         "rootExport": true,
@@ -2055,6 +2085,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2067,21 +2098,25 @@
         "disabled/prevented"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "callback",
+          "disabled/prevented"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: callback",
-        "missing production evidence: disabled/prevented"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "radio-button",
@@ -2235,6 +2270,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"

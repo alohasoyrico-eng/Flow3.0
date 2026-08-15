@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "dialog": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "drawer": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "menu": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "popover": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "tabs": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    }
+  }
+}

@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 21
-- Partial components: 42
+- Ready components: 26
+- Partial components: 37
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 182
-- fireEvent calls: 471
-- getByRole calls: 297
+- Testing Library render calls: 187
+- fireEvent calls: 472
+- getByRole calls: 302
 - getByLabelText calls: 13
 - keyDown calls: 29
 - Escape key checks: 18
 - Arrow key checks: 14
-- user-event usage: 8
-- axe usage: 5
+- user-event usage: 10
+- axe usage: 6
 
 ## Harness Issues
 
@@ -43,11 +43,11 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | animated-moment | AnimatedMoment | P2 | motion-feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: motion preference | None |
 | audit-event | AuditEvent | P2 | domain-event | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state | None |
 | avatar | Avatar | P2 | display-status | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
-| badge | Badge | P2 | display-status | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
+| badge | Badge | P2 | display-status | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
-| button | Button | P1 | actions | partial | yes | 11 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: callback; missing production evidence: disabled/prevented | None |
-| card | Card | P2 | surface-display | partial | yes | 7 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
+| button | Button | P1 | actions | ready | yes | 12 | None | None |
+| card | Card | P2 | surface-display | partial | yes | 8 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-security-code-input | CardSecurityCodeInput | P0 | forms-payment | ready | yes | 4 | None | None |
@@ -61,7 +61,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | code-block | CodeBlock | P1 | documentation-code | partial | yes | 0 | missing direct test evidence; family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: copy interaction | None |
 | code-input | CodeInput | P0 | forms | ready | yes | 4 | None | None |
 | combobox | Combobox | P0 | forms | ready | yes | 5 | None | None |
-| copy-button | CopyButton | P1 | actions | partial | yes | 1 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: callback; missing production evidence: disabled/prevented | None |
+| copy-button | CopyButton | P1 | actions | ready | yes | 2 | None | None |
 | country-selector | CountrySelector | P0 | forms | ready | yes | 3 | None | None |
 | date-picker | DatePicker | P0 | forms-date | ready | yes | 4 | None | None |
 | date-range-picker | DateRangePicker | P0 | forms-date | ready | yes | 5 | None | None |
@@ -69,8 +69,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | drawer | Drawer | P0 | overlays-feedback | ready | yes | 8 | None | None |
 | empty-state | EmptyState | P1 | feedback | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
 | error-panel | ErrorPanel | P1 | feedback | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
-| floating-action-button | FloatingActionButton | P1 | actions | partial | yes | 1 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: callback; missing production evidence: disabled/prevented | None |
-| icon-button | IconButton | P1 | actions | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: callback; missing production evidence: disabled/prevented | None |
+| floating-action-button | FloatingActionButton | P1 | actions | ready | yes | 2 | None | None |
+| icon-button | IconButton | P1 | actions | ready | yes | 4 | None | None |
 | inline-validation | InlineValidation | P1 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
 | input | Input | P0 | forms | ready | yes | 6 | None | None |
 | input-amount | InputAmount | P2 | forms-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: controlled/uncontrolled; missing production evidence: formatting/masking | None |
@@ -83,11 +83,11 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | phone-input | PhoneInput | P0 | forms | ready | yes | 4 | None | None |
 | popover | Popover | P0 | overlays-feedback | ready | yes | 5 | None | None |
 | progress-indicator | ProgressIndicator | P1 | feedback | partial | yes | 1 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
-| quick-action | QuickAction | P1 | actions | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: callback; missing production evidence: disabled/prevented | None |
+| quick-action | QuickAction | P1 | actions | ready | yes | 5 | None | None |
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
-| select | Select | P0 | forms | ready | yes | 7 | None | None |
+| select | Select | P0 | forms | ready | yes | 8 | None | None |
 | skeleton | Skeleton | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
 | spinner | Spinner | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
