@@ -855,8 +855,8 @@
         {
           "status": "pass",
           "component": "Toast",
-          "markupLength": 314,
-          "rootTag": "<article data-artifact-test=\"toast\" class=\"toast flow-artifact-test-hook\" role=\"status\" aria-live=\"polite\" data-tone=\"neutral\" data-variant=\"status\" data-state=\"visible\" data-density=\"lg\">",
+          "markupLength": 306,
+          "rootTag": "<div data-artifact-test=\"toast\" class=\"toast flow-artifact-test-hook\" role=\"status\" aria-live=\"polite\" data-tone=\"neutral\" data-variant=\"status\" data-state=\"visible\" data-density=\"lg\">",
           "issues": []
         },
         {
@@ -894,8 +894,8 @@
         {
           "status": "pass",
           "component": "ProgressIndicator",
-          "markupLength": 571,
-          "rootTag": "<div data-artifact-test=\"progressIndicator\" class=\"progress flow-artifact-test-hook\" role=\"progressbar\" aria-labelledby=\"progress-label-:R0:\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\" aria-busy=\"true\" data-tone=\"accent\" data-state=\"active\" data-density=\"lg\" data-full-width=\"false\" data-indeterminate=\"false\">",
+          "markupLength": 463,
+          "rootTag": "<div data-artifact-test=\"progressIndicator\" class=\"progress flow-artifact-test-hook\" aria-busy=\"true\" data-tone=\"accent\" data-state=\"active\" data-density=\"lg\" data-full-width=\"false\" data-indeterminate=\"false\">",
           "issues": []
         },
         {

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "empty-state": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-feedback.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Action callback and prevented action paths are covered."
+      ]
+    },
+    "error-panel": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-feedback.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Action callback and disabled action paths are covered."
+      ]
+    },
+    "inline-validation": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-feedback.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Component has no dismiss/action surface; evidence covers the non-interactive field and live-region states."
+      ]
+    },
+    "progress-indicator": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-feedback.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Component has no dismiss/action surface; evidence covers determinate, indeterminate, and complete states."
+      ]
+    },
+    "toast": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-feedback.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Action, uncontrolled dismiss, controlled dismissed state, and prevented dismiss paths are covered."
+      ]
+    }
+  }
+}

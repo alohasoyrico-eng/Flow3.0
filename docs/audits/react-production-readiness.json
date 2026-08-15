@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 29,
-    "partialComponents": 34,
+    "readyComponents": 34,
+    "partialComponents": 29,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -47,19 +47,20 @@
       "packages/content/content/react-production-readiness-evidence/p0-forms.json",
       "packages/content/content/react-production-readiness-evidence/p0-overlays-navigation.json",
       "packages/content/content/react-production-readiness-evidence/p1-actions.json",
-      "packages/content/content/react-production-readiness-evidence/p1-navigation-disclosure.json"
+      "packages/content/content/react-production-readiness-evidence/p1-navigation-disclosure.json",
+      "packages/content/content/react-production-readiness-evidence/p1-feedback.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 190,
+    "testingLibraryRender": 195,
     "fireEvent": 477,
-    "getByRole": 319,
-    "getByLabelText": 13,
+    "getByRole": 328,
+    "getByLabelText": 15,
     "keyDown": 34,
     "escapeKey": 18,
     "arrowKeys": 17,
-    "userEvent": 12,
-    "axe": 7
+    "userEvent": 14,
+    "axe": 8
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -377,6 +378,7 @@
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -432,6 +434,7 @@
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -1352,7 +1355,7 @@
       "component": "EmptyState",
       "priority": "P1",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./empty-state",
         "rootExport": true,
@@ -1363,6 +1366,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1374,28 +1378,32 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-feedback.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Action callback and prevented action paths are covered."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "error-panel",
       "component": "ErrorPanel",
       "priority": "P1",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./error-panel",
         "rootExport": true,
@@ -1406,6 +1414,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1417,21 +1426,25 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-feedback.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Action callback and disabled action paths are covered."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "floating-action-button",
@@ -1532,7 +1545,7 @@
       "component": "InlineValidation",
       "priority": "P1",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./inline-validation",
         "rootExport": true,
@@ -1542,6 +1555,7 @@
         "contract": "packages/content/content/component-contracts/components/inline-validation.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1553,21 +1567,25 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-feedback.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Component has no dismiss/action surface; evidence covers the non-interactive field and live-region states."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "input",
@@ -1587,6 +1605,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2042,7 +2061,7 @@
       "component": "ProgressIndicator",
       "priority": "P1",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./progress-indicator",
         "rootExport": true,
@@ -2051,7 +2070,8 @@
         "types": "packages/react/dist/ProgressIndicator.d.ts",
         "contract": "packages/content/content/component-contracts/components/progress-indicator.md",
         "tests": [
-          "packages/react/test/button-render.test.mjs"
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2062,21 +2082,25 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-feedback.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Component has no dismiss/action surface; evidence covers determinate, indeterminate, and complete states."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "quick-action",
@@ -2825,7 +2849,7 @@
       "component": "Toast",
       "priority": "P1",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./toast",
         "rootExport": true,
@@ -2836,6 +2860,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2848,21 +2873,25 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-feedback.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Action, uncontrolled dismiss, controlled dismissed state, and prevented dismiss paths are covered."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "tooltip",

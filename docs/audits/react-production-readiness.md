@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 29
-- Partial components: 34
+- Ready components: 34
+- Partial components: 29
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 190
+- Testing Library render calls: 195
 - fireEvent calls: 477
-- getByRole calls: 319
-- getByLabelText calls: 13
+- getByRole calls: 328
+- getByLabelText calls: 15
 - keyDown calls: 34
 - Escape key checks: 18
 - Arrow key checks: 17
-- user-event usage: 12
-- axe usage: 7
+- user-event usage: 14
+- axe usage: 8
 
 ## Harness Issues
 
@@ -46,8 +46,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | badge | Badge | P2 | display-status | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
-| button | Button | P1 | actions | ready | yes | 13 | None | None |
-| card | Card | P2 | surface-display | partial | yes | 8 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
+| button | Button | P1 | actions | ready | yes | 14 | None | None |
+| card | Card | P2 | surface-display | partial | yes | 9 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-security-code-input | CardSecurityCodeInput | P0 | forms-payment | ready | yes | 4 | None | None |
@@ -67,12 +67,12 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | date-range-picker | DateRangePicker | P0 | forms-date | ready | yes | 5 | None | None |
 | dialog | Dialog | P0 | overlays-feedback | ready | yes | 7 | None | None |
 | drawer | Drawer | P0 | overlays-feedback | ready | yes | 8 | None | None |
-| empty-state | EmptyState | P1 | feedback | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
-| error-panel | ErrorPanel | P1 | feedback | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
+| empty-state | EmptyState | P1 | feedback | ready | yes | 4 | None | None |
+| error-panel | ErrorPanel | P1 | feedback | ready | yes | 4 | None | None |
 | floating-action-button | FloatingActionButton | P1 | actions | ready | yes | 2 | None | None |
 | icon-button | IconButton | P1 | actions | ready | yes | 4 | None | None |
-| inline-validation | InlineValidation | P1 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
-| input | Input | P0 | forms | ready | yes | 6 | None | None |
+| inline-validation | InlineValidation | P1 | feedback | ready | yes | 3 | None | None |
+| input | Input | P0 | forms | ready | yes | 7 | None | None |
 | input-amount | InputAmount | P2 | forms-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: controlled/uncontrolled; missing production evidence: formatting/masking | None |
 | kpi-tile | KpiTile | P2 | data-display | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
 | list | List | P1 | data-display | partial | yes | 6 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
@@ -82,7 +82,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | pagination | Pagination | P1 | navigation-disclosure | ready | yes | 5 | None | None |
 | phone-input | PhoneInput | P0 | forms | ready | yes | 4 | None | None |
 | popover | Popover | P0 | overlays-feedback | ready | yes | 5 | None | None |
-| progress-indicator | ProgressIndicator | P1 | feedback | partial | yes | 1 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
+| progress-indicator | ProgressIndicator | P1 | feedback | ready | yes | 2 | None | None |
 | quick-action | QuickAction | P1 | actions | ready | yes | 5 | None | None |
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
@@ -99,7 +99,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | tabs | Tabs | P0 | navigation-disclosure | ready | yes | 3 | None | None |
 | tag | Tag | P2 | display-status | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
 | text-area | TextArea | P0 | forms | ready | yes | 4 | None | None |
-| toast | Toast | P1 | feedback | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
+| toast | Toast | P1 | feedback | ready | yes | 5 | None | None |
 | tooltip | Tooltip | P1 | overlays-feedback | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: focus management; missing production evidence: Escape/outside close; missing production evidence: controlled/uncontrolled | None |
 | tree-view | TreeView | P1 | navigation-disclosure | ready | yes | 3 | None | None |
 

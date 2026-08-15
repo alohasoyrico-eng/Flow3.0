@@ -313,7 +313,7 @@ const components = [
     requiredTokens: ["comp.progress.*", "component-loading-*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.tone.*", "sys.growth.*"],
     primitives: ["color", "typography", "spacing", "radius", "disabled", "duration", "motion-curves", "loading", "measurement"],
     props: ["label", "value", "max", "indeterminate", "showValue", "tone", "state", "density", "fullWidth"],
-    jsSnippets: ["progressIndicatorPlatformContract", "className: [\"progress\"", "role: \"progressbar\"", '"aria-valuenow": isIndeterminate ? undefined : String(numericValue)', '"data-indeterminate": String(Boolean(isIndeterminate))', "progress__meta", "progress__label", "progress__value", "progress__track", "progress__meter"],
+    jsSnippets: ["progressIndicatorPlatformContract", "className: [\"progress\"", "React.createElement(\"progress\"", "value: isIndeterminate ? undefined : numericValue", '"aria-labelledby": labelId', '"data-indeterminate": String(Boolean(isIndeterminate))', "progress__meta", "progress__label", "progress__value", "progress__track", "progress__meter"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLDivElement>", "ProgressIndicatorProps", "ProgressIndicatorDensity", "ProgressIndicatorTone", "ProgressIndicatorState", "progressIndicatorPlatformContract"],
     packagePath: "./progress-indicator",
     exportName: "ProgressIndicator",

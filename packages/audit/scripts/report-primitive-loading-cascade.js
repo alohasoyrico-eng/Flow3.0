@@ -282,7 +282,7 @@ function createReport() {
   const loadingComponentSource = [spinnerSource, buttonSource, progressIndicatorSource].join("\n");
   const ariaBusyUses = countMatches(loadingComponentSource, /aria-busy/g);
   const statusRoleUses = countMatches(loadingComponentSource, /role:\s*isDecorative\s*\?\s*undefined\s*:\s*"status"|role",\s*"status"|role', 'status'/g);
-  const progressbarRoleUses = countMatches(loadingComponentSource, /role:\s*"progressbar"|role",\s*"progressbar"|role', 'progressbar'/g);
+  const progressbarRoleUses = countMatches(loadingComponentSource, /React\.createElement\("progress"|role:\s*"progressbar"|role",\s*"progressbar"|role', 'progressbar'/g);
   const componentRefs = collectArtifactRefs(componentDir, /Loading|loading|skeleton|stale|sync|progress|aria-busy/i);
   const patternRefs = collectArtifactRefs(patternDir, /Loading|loading|skeleton|stale|sync|progress|aria-busy/i);
   const templateRefs = collectArtifactRefs(templateDir, /Loading|loading|skeleton|stale|sync|progress|aria-busy/i);

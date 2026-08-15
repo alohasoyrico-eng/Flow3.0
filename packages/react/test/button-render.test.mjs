@@ -1463,12 +1463,8 @@ const progressIndicatorMarkup = renderToStaticMarkup(React.createElement(Progres
 }));
 assert.match(progressIndicatorMarkup, /^<div/);
 assert.match(progressIndicatorMarkup, /class="progress"/);
-assert.match(progressIndicatorMarkup, /role="progressbar"/);
 assert.match(progressIndicatorMarkup, /id="docs-progress"/);
 assert.match(progressIndicatorMarkup, /aria-labelledby="docs-progress-label"/);
-assert.match(progressIndicatorMarkup, /aria-valuemin="0"/);
-assert.match(progressIndicatorMarkup, /aria-valuemax="100"/);
-assert.match(progressIndicatorMarkup, /aria-valuenow="75"/);
 assert.match(progressIndicatorMarkup, /data-tone="success"/);
 assert.match(progressIndicatorMarkup, /data-state="active"/);
 assert.match(progressIndicatorMarkup, /data-density="lg"/);
@@ -1477,7 +1473,7 @@ assert.match(progressIndicatorMarkup, /data-indeterminate="false"/);
 assert.match(progressIndicatorMarkup, /class="progress__label" id="docs-progress-label">Documents<\/span>/);
 assert.match(progressIndicatorMarkup, /class="progress__value">75%<\/span>/);
 assert.match(progressIndicatorMarkup, /class="progress__track"/);
-assert.match(progressIndicatorMarkup, /<progress class="progress__meter" max="100" value="75"/);
+assert.match(progressIndicatorMarkup, /<progress class="progress__meter" max="100" value="75" aria-labelledby="docs-progress-label"/);
 assert.doesNotMatch(progressIndicatorMarkup, /style="/);
 
 const indeterminateProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
@@ -1490,6 +1486,7 @@ assert.match(indeterminateProgressMarkup, /aria-valuetext="Syncing policies"/);
 assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-valuenow=/);
 assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /aria-valuemax=/);
 assert.doesNotMatch(indeterminateProgressMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+assert.doesNotMatch(indeterminateProgressMarkup, /<progress[^>]+value=/);
 
 const completeProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
   label: "Upload",
@@ -1500,7 +1497,7 @@ const completeProgressMarkup = renderToStaticMarkup(React.createElement(Progress
   ariaValueText: "Upload complete",
 }));
 assert.match(completeProgressMarkup, /data-state="complete"/);
-assert.match(completeProgressMarkup, /aria-valuenow="24"/);
+assert.match(completeProgressMarkup, /<progress class="progress__meter" max="24" value="24"/);
 assert.match(completeProgressMarkup, /aria-valuetext="Upload complete"/);
 assert.match(completeProgressMarkup, /class="progress__value">100%<\/span>/);
 const unnamedProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator));
@@ -1740,7 +1737,7 @@ const toastMarkup = renderToStaticMarkup(React.createElement(Toast, {
   dismissible: true,
   dismissLabel: "Dismiss route update",
 }));
-assert.match(toastMarkup, /^<article/);
+assert.match(toastMarkup, /^<div/);
 assert.match(toastMarkup, /class="toast"/);
 assert.match(toastMarkup, /role="status"/);
 assert.match(toastMarkup, /aria-live="polite"/);
@@ -2726,7 +2723,7 @@ assert.match(openDrawerMarkup, /class="drawer__status-row"/);
 assert.match(openDrawerMarkup, /class="badge__label">En ruta<\/span>/);
 assert.match(openDrawerMarkup, /class="drawer__progress-row"/);
 assert.match(openDrawerMarkup, /class="progress"/);
-assert.match(openDrawerMarkup, /aria-valuenow="75"/);
+assert.match(openDrawerMarkup, /<progress class="progress__meter" max="100" value="75"/);
 assert.match(openDrawerMarkup, /data-overlay-close=""/);
 assert.match(openDrawerMarkup, /data-key="save"/);
 const unstableDrawerActionMarkup = renderToStaticMarkup(React.createElement(Drawer, {

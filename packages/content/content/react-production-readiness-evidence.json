@@ -4,6 +4,7 @@
     "react-production-readiness-evidence/p0-forms.json",
     "react-production-readiness-evidence/p0-overlays-navigation.json",
     "react-production-readiness-evidence/p1-actions.json",
-    "react-production-readiness-evidence/p1-navigation-disclosure.json"
+    "react-production-readiness-evidence/p1-navigation-disclosure.json",
+    "react-production-readiness-evidence/p1-feedback.json"
   ]
 }

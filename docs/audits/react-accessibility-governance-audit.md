@@ -10,8 +10,8 @@ React components with accessibility-critical interaction must keep explicit role
 - Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
-- Role declarations: 71
-- ARIA declarations: 327
+- Role declarations: 70
+- ARIA declarations: 324
 - Keyboard handlers: 40
 - Focus calls: 15
 - Failures: 0
@@ -28,8 +28,8 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
-| totalRoles | 71 | 71 |
-| totalAria | 327 | 327 |
+| totalRoles | 70 | 70 |
+| totalAria | 324 | 324 |
 | keyboardHandlers | 40 | 40 |
 | focusCalls | 15 | 15 |
 | failures | 0 | 0 |
@@ -104,7 +104,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | Pagination | 0 | 6 | 0 | 0 | 0 | no |
 | PhoneInput | 1 | 3 | 0 | 0 | 0 | yes |
 | Popover | 1 | 4 | 2 | 0 | 1 | yes |
-| ProgressIndicator | 1 | 8 | 0 | 1 | 0 | yes |
+| ProgressIndicator | 0 | 5 | 0 | 0 | 0 | yes |
 | QuickAction | 0 | 3 | 0 | 0 | 0 | no |
 | RadioButton | 0 | 2 | 0 | 0 | 0 | no |
 | RouteSummary | 0 | 3 | 0 | 2 | 0 | no |

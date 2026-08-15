@@ -30,7 +30,7 @@ export const Toast = forwardRef(function Toast({ label, description, tone = "neu
     const canRenderAction = Boolean(actionLabel && onAction);
     if (!label)
         return null;
-    return React.createElement("article", {
+    return React.createElement("div", {
         ...flowRestProps(rest),
         ref,
         className: ["toast", className].filter(Boolean).join(" "),

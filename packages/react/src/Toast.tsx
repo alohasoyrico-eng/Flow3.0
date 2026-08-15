@@ -84,7 +84,7 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(function Toast({
   if (!label) return null;
 
   return React.createElement(
-    "article",
+    "div",
     {
       ...flowRestProps(rest),
       ref,

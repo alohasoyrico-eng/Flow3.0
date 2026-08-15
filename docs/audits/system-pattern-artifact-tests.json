@@ -1967,7 +1967,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 2490,
+        "markupLength": 2382,
         "callbacks": 1,
         "testedCallbacks": 1,
         "formalStates": 8,
