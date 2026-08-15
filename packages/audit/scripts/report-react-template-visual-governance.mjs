@@ -31,6 +31,10 @@ const tokensCssFile = path.join(root, "packages/tokens/styles/tokens.css");
 const componentsCssFile = path.join(root, "packages/components/styles/components.css");
 
 const codexRuntimeNodeModules = "/Users/r1c0/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules";
+const browserExecutableCandidates = [
+  process.env.FLOW_AUDIT_CHROME_EXECUTABLE,
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+].filter(Boolean);
 
 const templateContracts = [
   {
@@ -161,6 +165,13 @@ function resolvePlaywright() {
     }
   }
   throw new Error(`Playwright is required for real template visual QA. Tried ${errors.join(" | ")}`);
+}
+
+function browserLaunchOptions() {
+  const executablePath = browserExecutableCandidates.find((candidate) => fs.existsSync(candidate));
+  return executablePath
+    ? { headless: true, executablePath }
+    : { headless: true };
 }
 
 function propsForCase(contract, visualCase) {
@@ -329,7 +340,7 @@ async function inspectCase(page, contract, visualCase) {
 
 async function createReport() {
   const { chromium } = resolvePlaywright();
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch(browserLaunchOptions());
   const page = await browser.newPage();
   const visualRows = [];
   try {
