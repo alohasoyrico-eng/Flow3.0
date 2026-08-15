@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "checkbox": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "input": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "radio-button": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "slider": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "switch": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "text-area": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    }
+  }
+}

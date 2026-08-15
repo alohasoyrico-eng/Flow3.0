@@ -17,7 +17,7 @@
       "direct test evidence",
       "family-specific runtime/API/a11y/keyboard/state evidence"
     ],
-    "currentCertificationMode": "tooling harness active; components remain partial until family gates are implemented.",
+    "currentCertificationMode": "tooling harness active; components become ready only with explicit per-component evidence.",
     "toolingDecision": {
       "userEvent": "^14.6.4",
       "axeCore": "^4.13.0",
@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 0,
-    "partialComponents": 63,
+    "readyComponents": 6,
+    "partialComponents": 57,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -37,19 +37,21 @@
     "missingContracts": 1,
     "missingDirectTestEvidence": 1,
     "structuralIssues": 0,
+    "invalidReadinessEvidenceFiles": 0,
     "missingPrioritySlugs": 0,
     "reactProductionReadinessHarnessDebt": 0
   },
+  "readinessEvidence": "packages/content/content/react-production-readiness-evidence.json",
   "testCapabilities": {
-    "testingLibraryRender": 161,
-    "fireEvent": 446,
-    "getByRole": 258,
+    "testingLibraryRender": 167,
+    "fireEvent": 452,
+    "getByRole": 264,
     "getByLabelText": 12,
     "keyDown": 19,
     "escapeKey": 8,
     "arrowKeys": 12,
-    "userEvent": 2,
-    "axe": 2
+    "userEvent": 4,
+    "axe": 3
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -80,9 +82,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     },
     {
@@ -109,9 +123,20 @@
         "a11y",
         "motion preference"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: motion preference"
       ]
     },
     {
@@ -139,9 +164,20 @@
         "a11y",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state"
       ]
     },
     {
@@ -169,9 +205,20 @@
         "a11y",
         "theme/density"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: theme/density"
       ]
     },
     {
@@ -199,9 +246,20 @@
         "a11y",
         "theme/density"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: theme/density"
       ]
     },
     {
@@ -229,9 +287,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -260,9 +330,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     },
     {
@@ -282,6 +364,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/production-harness.test.mjs",
@@ -296,9 +379,21 @@
         "callback",
         "disabled/prevented"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: callback",
+        "missing production evidence: disabled/prevented"
       ]
     },
     {
@@ -317,6 +412,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -328,9 +424,20 @@
         "composition",
         "theme/density"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: composition",
+        "missing production evidence: theme/density"
       ]
     },
     {
@@ -359,9 +466,21 @@
         "controlled/uncontrolled",
         "formatting/masking"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: formatting/masking"
       ]
     },
     {
@@ -390,9 +509,21 @@
         "controlled/uncontrolled",
         "formatting/masking"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: formatting/masking"
       ]
     },
     {
@@ -421,9 +552,21 @@
         "controlled/uncontrolled",
         "formatting/masking"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: formatting/masking"
       ]
     },
     {
@@ -450,9 +593,20 @@
         "a11y",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state"
       ]
     },
     {
@@ -480,9 +634,21 @@
         "state",
         "keyboard when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: keyboard when interactive"
       ]
     },
     {
@@ -510,9 +676,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -540,9 +718,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -570,9 +760,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -580,7 +782,7 @@
       "component": "Checkbox",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./checkbox",
         "rootExport": true,
@@ -591,6 +793,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -603,10 +806,27 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "chip",
@@ -634,9 +854,20 @@
         "a11y",
         "theme/density"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: theme/density"
       ]
     },
     {
@@ -660,10 +891,21 @@
         "a11y",
         "copy interaction"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
         "missing direct test evidence",
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: copy interaction"
       ]
     },
     {
@@ -693,9 +935,22 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: disabled/invalid"
       ]
     },
     {
@@ -726,9 +981,22 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: disabled/invalid"
       ]
     },
     {
@@ -755,9 +1023,21 @@
         "callback",
         "disabled/prevented"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: callback",
+        "missing production evidence: disabled/prevented"
       ]
     },
     {
@@ -786,9 +1066,22 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: disabled/invalid"
       ]
     },
     {
@@ -818,9 +1111,22 @@
         "keyboard/input events",
         "date constraints"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: date constraints"
       ]
     },
     {
@@ -851,9 +1157,22 @@
         "keyboard/input events",
         "date constraints"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: date constraints"
       ]
     },
     {
@@ -886,9 +1205,22 @@
         "Escape/outside close",
         "controlled/uncontrolled"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: focus management",
+        "missing production evidence: Escape/outside close",
+        "missing production evidence: controlled/uncontrolled"
       ]
     },
     {
@@ -922,9 +1254,22 @@
         "Escape/outside close",
         "controlled/uncontrolled"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: focus management",
+        "missing production evidence: Escape/outside close",
+        "missing production evidence: controlled/uncontrolled"
       ]
     },
     {
@@ -953,9 +1298,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -984,9 +1341,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -1013,9 +1382,21 @@
         "callback",
         "disabled/prevented"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: callback",
+        "missing production evidence: disabled/prevented"
       ]
     },
     {
@@ -1044,9 +1425,21 @@
         "callback",
         "disabled/prevented"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: callback",
+        "missing production evidence: disabled/prevented"
       ]
     },
     {
@@ -1074,9 +1467,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -1084,7 +1489,7 @@
       "component": "Input",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./input",
         "rootExport": true,
@@ -1095,6 +1500,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -1107,10 +1513,27 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "input-amount",
@@ -1137,9 +1560,21 @@
         "controlled/uncontrolled",
         "formatting/masking"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: formatting/masking"
       ]
     },
     {
@@ -1168,9 +1603,21 @@
         "state",
         "keyboard when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: keyboard when interactive"
       ]
     },
     {
@@ -1201,9 +1648,21 @@
         "state",
         "keyboard when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: keyboard when interactive"
       ]
     },
     {
@@ -1234,9 +1693,22 @@
         "Escape/outside close",
         "controlled/uncontrolled"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: focus management",
+        "missing production evidence: Escape/outside close",
+        "missing production evidence: controlled/uncontrolled"
       ]
     },
     {
@@ -1263,9 +1735,20 @@
         "a11y",
         "motion preference"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: motion preference"
       ]
     },
     {
@@ -1294,9 +1777,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -1326,9 +1821,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     },
     {
@@ -1358,9 +1865,22 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: disabled/invalid"
       ]
     },
     {
@@ -1391,9 +1911,22 @@
         "Escape/outside close",
         "controlled/uncontrolled"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: focus management",
+        "missing production evidence: Escape/outside close",
+        "missing production evidence: controlled/uncontrolled"
       ]
     },
     {
@@ -1420,9 +1953,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -1452,9 +1997,21 @@
         "callback",
         "disabled/prevented"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: callback",
+        "missing production evidence: disabled/prevented"
       ]
     },
     {
@@ -1462,7 +2019,7 @@
       "component": "RadioButton",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./radio-button",
         "rootExport": true,
@@ -1472,7 +2029,8 @@
         "contract": "packages/content/content/component-contracts/components/radio-button.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1483,10 +2041,27 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "route-summary",
@@ -1514,9 +2089,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -1544,9 +2131,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     },
     {
@@ -1578,9 +2177,22 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: controlled/uncontrolled",
+        "missing production evidence: keyboard/input events",
+        "missing production evidence: disabled/invalid"
       ]
     },
     {
@@ -1608,9 +2220,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -1618,7 +2242,7 @@
       "component": "Slider",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./slider",
         "rootExport": true,
@@ -1628,7 +2252,8 @@
         "contract": "packages/content/content/component-contracts/components/slider.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1639,10 +2264,27 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "spinner",
@@ -1669,9 +2311,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -1700,9 +2354,21 @@
         "state",
         "callback"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: callback"
       ]
     },
     {
@@ -1730,9 +2396,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     },
     {
@@ -1762,10 +2440,21 @@
         "composition",
         "theme/density"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
         "missing component contract",
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: composition",
+        "missing production evidence: theme/density"
       ]
     },
     {
@@ -1773,7 +2462,7 @@
       "component": "Switch",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./switch",
         "rootExport": true,
@@ -1785,6 +2474,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
@@ -1798,10 +2488,27 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "table",
@@ -1831,9 +2538,21 @@
         "state",
         "keyboard when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: keyboard when interactive"
       ]
     },
     {
@@ -1861,9 +2580,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     },
     {
@@ -1892,9 +2623,20 @@
         "a11y",
         "theme/density"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: theme/density"
       ]
     },
     {
@@ -1902,7 +2644,7 @@
       "component": "TextArea",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./text-area",
         "rootExport": true,
@@ -1913,6 +2655,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1924,10 +2667,27 @@
         "keyboard/input events",
         "disabled/invalid"
       ],
+      "productionReadiness": {
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "toast",
@@ -1956,9 +2716,21 @@
         "state",
         "dismiss/action when interactive"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: state",
+        "missing production evidence: dismiss/action when interactive"
       ]
     },
     {
@@ -1989,9 +2761,22 @@
         "Escape/outside close",
         "controlled/uncontrolled"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: focus management",
+        "missing production evidence: Escape/outside close",
+        "missing production evidence: controlled/uncontrolled"
       ]
     },
     {
@@ -2019,9 +2804,21 @@
         "keyboard navigation",
         "state"
       ],
+      "productionReadiness": {
+        "status": "unreviewed",
+        "evidenceFiles": [],
+        "coveredProductionEvidence": [],
+        "notes": [],
+        "invalidEvidenceFiles": []
+      },
       "structuralIssues": [],
       "evidenceGaps": [
-        "family-specific production checks not yet certified"
+        "family-specific production checks not yet certified",
+        "missing production evidence: render",
+        "missing production evidence: props",
+        "missing production evidence: a11y",
+        "missing production evidence: keyboard navigation",
+        "missing production evidence: state"
       ]
     }
   ]

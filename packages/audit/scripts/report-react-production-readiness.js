@@ -17,6 +17,7 @@ const contractsDir = path.join(root, "packages/content/content/component-contrac
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
 const reactTestDir = path.join(root, "packages/react/test");
+const readinessEvidencePath = path.join(root, "packages/content/content/react-production-readiness-evidence.json");
 
 const priority = {
   p0: [
@@ -218,8 +219,44 @@ function availableTestCapabilities(corpus) {
   };
 }
 
+function readReadinessEvidence() {
+  if (!fs.existsSync(readinessEvidencePath)) {
+    return { schemaVersion: null, components: {} };
+  }
+  return readJson(readinessEvidencePath);
+}
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function explicitReadinessFor(slug, evidence) {
+  const entry = evidence.components?.[slug] ?? null;
+  if (!entry) {
+    return {
+      status: "unreviewed",
+      evidenceFiles: [],
+      coveredProductionEvidence: [],
+      notes: [],
+      invalidEvidenceFiles: [],
+    };
+  }
+  const evidenceFiles = unique(entry.evidenceFiles ?? []);
+  return {
+    status: entry.status ?? "partial",
+    evidenceFiles,
+    coveredProductionEvidence: unique(entry.coveredProductionEvidence ?? []),
+    notes: entry.notes ?? [],
+    invalidEvidenceFiles: evidenceFiles.filter((file) => !fs.existsSync(path.join(root, file))),
+  };
+}
+
 function rowStatus(row) {
   if (row.structuralIssues.length) return "blocked";
+  if (row.productionReadiness.status === "blocked") return "blocked";
+  if (row.productionReadiness.status === "ready" && !row.evidenceGaps.length && !row.productionReadiness.invalidEvidenceFiles.length) {
+    return "ready";
+  }
   return "partial";
 }
 
@@ -227,6 +264,7 @@ function createReport() {
   const exports = directReactExports();
   const rootPackage = readJson(rootPackagePath);
   const corpus = testCorpus();
+  const readinessEvidence = readReadinessEvidence();
   const rows = exports.map((item) => {
     const componentName = componentNameFromTypeFile(item.types);
     const contractPath = path.join(contractsDir, `${item.slug}.md`);
@@ -236,6 +274,8 @@ function createReport() {
     const rootExport = rootReactExportExists(item.slug);
     const evidenceFiles = testFilesFor(componentName, item.slug);
     const family = familyBySlug[item.slug] ?? "unknown";
+    const requiredProductionEvidence = requiredEvidenceByFamily[family] ?? ["render", "props", "a11y", "state"];
+    const productionReadiness = explicitReadinessFor(item.slug, readinessEvidence);
     const structuralIssues = [];
     if (!rootExport) structuralIssues.push("missing root ./react subpath export");
     if (!fs.existsSync(srcPath)) structuralIssues.push("missing React TSX source");
@@ -245,7 +285,10 @@ function createReport() {
     const evidenceGaps = [];
     if (!contract) evidenceGaps.push("missing component contract");
     if (!evidenceFiles.length) evidenceGaps.push("missing direct test evidence");
-    evidenceGaps.push("family-specific production checks not yet certified");
+    const missingProductionEvidence = requiredProductionEvidence.filter((requirement) => !productionReadiness.coveredProductionEvidence.includes(requirement));
+    if (productionReadiness.status !== "ready") evidenceGaps.push("family-specific production checks not yet certified");
+    evidenceGaps.push(...missingProductionEvidence.map((requirement) => `missing production evidence: ${requirement}`));
+    evidenceGaps.push(...productionReadiness.invalidEvidenceFiles.map((file) => `invalid readiness evidence file: ${file}`));
     const row = {
       slug: item.slug,
       component: componentName,
@@ -261,7 +304,8 @@ function createReport() {
         contract: contract ? rel(contractPath) : null,
         tests: evidenceFiles,
       },
-      requiredProductionEvidence: requiredEvidenceByFamily[family] ?? ["render", "props", "a11y", "state"],
+      requiredProductionEvidence,
+      productionReadiness,
       structuralIssues,
       evidenceGaps,
     };
@@ -281,12 +325,14 @@ function createReport() {
     missingContracts: rows.filter((row) => row.evidence.contract === null).length,
     missingDirectTestEvidence: rows.filter((row) => !row.evidence.tests.length).length,
     structuralIssues: rows.reduce((total, row) => total + row.structuralIssues.length, 0),
+    invalidReadinessEvidenceFiles: rows.reduce((total, row) => total + row.productionReadiness.invalidEvidenceFiles.length, 0),
     missingPrioritySlugs: missingPrioritySlugs.length,
     reactProductionReadinessHarnessDebt: 0,
   };
   const harnessIssues = [];
   if (inventory.publicReactComponents !== 63) harnessIssues.push(`expected 63 direct public React components, found ${inventory.publicReactComponents}`);
   if (inventory.structuralIssues) harnessIssues.push(`${inventory.structuralIssues} structural component issues found`);
+  if (inventory.invalidReadinessEvidenceFiles) harnessIssues.push(`${inventory.invalidReadinessEvidenceFiles} readiness evidence file references are invalid`);
   if (missingPrioritySlugs.length) harnessIssues.push(`priority list references missing components: ${missingPrioritySlugs.join(", ")}`);
   inventory.reactProductionReadinessHarnessDebt = harnessIssues.length;
   return {
@@ -308,7 +354,7 @@ function createReport() {
         "direct test evidence",
         "family-specific runtime/API/a11y/keyboard/state evidence",
       ],
-      currentCertificationMode: "tooling harness active; components remain partial until family gates are implemented.",
+      currentCertificationMode: "tooling harness active; components become ready only with explicit per-component evidence.",
       toolingDecision: {
         userEvent: rootPackage.devDependencies?.["@testing-library/user-event"] ?? null,
         axeCore: rootPackage.devDependencies?.["axe-core"] ?? null,
@@ -317,6 +363,7 @@ function createReport() {
       },
     },
     inventory,
+    readinessEvidence: rel(readinessEvidencePath),
     testCapabilities: availableTestCapabilities(corpus),
     harnessIssues,
     missingPrioritySlugs,
