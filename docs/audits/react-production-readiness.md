@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 160
+- Testing Library render calls: 161
 - fireEvent calls: 446
-- getByRole calls: 256
+- getByRole calls: 258
 - getByLabelText calls: 12
 - keyDown calls: 19
 - Escape key checks: 8
 - Arrow key checks: 12
-- user-event usage: 0
-- axe usage: 0
+- user-event usage: 2
+- axe usage: 2
 
 ## Harness Issues
 
@@ -46,7 +46,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | badge | Badge | P2 | display-status | partial | yes | 3 | family-specific production checks not yet certified | None |
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | partial | yes | 3 | family-specific production checks not yet certified | None |
-| button | Button | P1 | actions | partial | yes | 7 | family-specific production checks not yet certified | None |
+| button | Button | P1 | actions | partial | yes | 8 | family-specific production checks not yet certified | None |
 | card | Card | P2 | surface-display | partial | yes | 5 | family-specific production checks not yet certified | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | partial | yes | 3 | family-specific production checks not yet certified | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | partial | yes | 3 | family-specific production checks not yet certified | None |

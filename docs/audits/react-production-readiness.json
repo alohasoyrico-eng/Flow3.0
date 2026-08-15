@@ -17,7 +17,13 @@
       "direct test evidence",
       "family-specific runtime/API/a11y/keyboard/state evidence"
     ],
-    "currentCertificationMode": "inventory-only harness; components remain partial until family gates are implemented."
+    "currentCertificationMode": "tooling harness active; components remain partial until family gates are implemented.",
+    "toolingDecision": {
+      "userEvent": "^14.6.4",
+      "axeCore": "^4.13.0",
+      "fireEvent": "^16.3.2",
+      "colorContrastInJsdom": "disabled; JSDOM lacks reliable canvas-backed contrast evaluation"
+    }
   },
   "inventory": {
     "publicReactComponents": 63,
@@ -35,15 +41,15 @@
     "reactProductionReadinessHarnessDebt": 0
   },
   "testCapabilities": {
-    "testingLibraryRender": 160,
+    "testingLibraryRender": 161,
     "fireEvent": 446,
-    "getByRole": 256,
+    "getByRole": 258,
     "getByLabelText": 12,
     "keyDown": 19,
     "escapeKey": 8,
     "arrowKeys": 12,
-    "userEvent": 0,
-    "axe": 0
+    "userEvent": 2,
+    "axe": 2
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -278,6 +284,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/production-harness.test.mjs",
           "packages/react/test/ref.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
         ]

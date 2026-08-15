@@ -225,6 +225,7 @@ function rowStatus(row) {
 
 function createReport() {
   const exports = directReactExports();
+  const rootPackage = readJson(rootPackagePath);
   const corpus = testCorpus();
   const rows = exports.map((item) => {
     const componentName = componentNameFromTypeFile(item.types);
@@ -307,7 +308,13 @@ function createReport() {
         "direct test evidence",
         "family-specific runtime/API/a11y/keyboard/state evidence",
       ],
-      currentCertificationMode: "inventory-only harness; components remain partial until family gates are implemented.",
+      currentCertificationMode: "tooling harness active; components remain partial until family gates are implemented.",
+      toolingDecision: {
+        userEvent: rootPackage.devDependencies?.["@testing-library/user-event"] ?? null,
+        axeCore: rootPackage.devDependencies?.["axe-core"] ?? null,
+        fireEvent: rootPackage.devDependencies?.["@testing-library/react"] ?? null,
+        colorContrastInJsdom: "disabled; JSDOM lacks reliable canvas-backed contrast evaluation",
+      },
     },
     inventory,
     testCapabilities: availableTestCapabilities(corpus),

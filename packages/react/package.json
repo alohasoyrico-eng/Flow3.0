@@ -632,7 +632,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/pattern-render.test.mjs && node test/pattern-interaction.test.mjs && node test/template-interaction.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs"
+    "test": "node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/pattern-render.test.mjs && node test/pattern-interaction.test.mjs && node test/template-interaction.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs && node test/production-harness.test.mjs"
   },
   "peerDependencies": {
     "react": ">=18"
