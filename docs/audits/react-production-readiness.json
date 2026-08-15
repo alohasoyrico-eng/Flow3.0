@@ -1,0 +1,2021 @@
+{
+  "status": "pass",
+  "audit": "react production readiness",
+  "planIteration": 1,
+  "principle": "Production readiness is not inferred from visual parity or TS build success; every public React component needs explicit API, runtime, interaction, accessibility, and family-specific evidence.",
+  "scope": {
+    "includes": "Direct public React component subpath exports only.",
+    "excludes": "Patterns, templates, docs shells, visual parity, and route-level documentation behavior."
+  },
+  "policy": {
+    "readyRequires": [
+      "public export and root export",
+      "TSX source",
+      "built JS artifact",
+      "built declaration artifact",
+      "component contract",
+      "direct test evidence",
+      "family-specific runtime/API/a11y/keyboard/state evidence"
+    ],
+    "currentCertificationMode": "inventory-only harness; components remain partial until family gates are implemented."
+  },
+  "inventory": {
+    "publicReactComponents": 63,
+    "readyComponents": 0,
+    "partialComponents": 63,
+    "blockedComponents": 0,
+    "unknownComponents": 0,
+    "p0Components": 21,
+    "p1Components": 18,
+    "p2Components": 24,
+    "missingContracts": 1,
+    "missingDirectTestEvidence": 1,
+    "structuralIssues": 0,
+    "missingPrioritySlugs": 0,
+    "reactProductionReadinessHarnessDebt": 0
+  },
+  "testCapabilities": {
+    "testingLibraryRender": 160,
+    "fireEvent": 446,
+    "getByRole": 256,
+    "getByLabelText": 12,
+    "keyDown": 19,
+    "escapeKey": 8,
+    "arrowKeys": 12,
+    "userEvent": 0,
+    "axe": 0
+  },
+  "harnessIssues": [],
+  "missingPrioritySlugs": [],
+  "components": [
+    {
+      "slug": "accordion",
+      "component": "Accordion",
+      "priority": "P2",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./accordion",
+        "rootExport": true,
+        "source": "packages/react/src/Accordion.tsx",
+        "dist": "packages/react/dist/Accordion.js",
+        "types": "packages/react/dist/Accordion.d.ts",
+        "contract": "packages/content/content/component-contracts/components/accordion.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "animated-moment",
+      "component": "AnimatedMoment",
+      "priority": "P2",
+      "family": "motion-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./animated-moment",
+        "rootExport": true,
+        "source": "packages/react/src/AnimatedMoment.tsx",
+        "dist": "packages/react/dist/AnimatedMoment.js",
+        "types": "packages/react/dist/AnimatedMoment.d.ts",
+        "contract": "packages/content/content/component-contracts/components/animated-moment.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "motion preference"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "audit-event",
+      "component": "AuditEvent",
+      "priority": "P2",
+      "family": "domain-event",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./audit-event",
+        "rootExport": true,
+        "source": "packages/react/src/AuditEvent.tsx",
+        "dist": "packages/react/dist/AuditEvent.js",
+        "types": "packages/react/dist/AuditEvent.d.ts",
+        "contract": "packages/content/content/component-contracts/components/audit-event.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "avatar",
+      "component": "Avatar",
+      "priority": "P2",
+      "family": "display-status",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./avatar",
+        "rootExport": true,
+        "source": "packages/react/src/Avatar.tsx",
+        "dist": "packages/react/dist/Avatar.js",
+        "types": "packages/react/dist/Avatar.d.ts",
+        "contract": "packages/content/content/component-contracts/components/avatar.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "badge",
+      "component": "Badge",
+      "priority": "P2",
+      "family": "display-status",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./badge",
+        "rootExport": true,
+        "source": "packages/react/src/Badge.tsx",
+        "dist": "packages/react/dist/Badge.js",
+        "types": "packages/react/dist/Badge.d.ts",
+        "contract": "packages/content/content/component-contracts/components/badge.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "biometric-prompt",
+      "component": "BiometricPrompt",
+      "priority": "P2",
+      "family": "domain-auth",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./biometric-prompt",
+        "rootExport": true,
+        "source": "packages/react/src/BiometricPrompt.tsx",
+        "dist": "packages/react/dist/BiometricPrompt.js",
+        "types": "packages/react/dist/BiometricPrompt.d.ts",
+        "contract": "packages/content/content/component-contracts/components/biometric-prompt.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "breadcrumbs",
+      "component": "Breadcrumbs",
+      "priority": "P2",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./breadcrumbs",
+        "rootExport": true,
+        "source": "packages/react/src/Breadcrumbs.tsx",
+        "dist": "packages/react/dist/Breadcrumbs.js",
+        "types": "packages/react/dist/Breadcrumbs.d.ts",
+        "contract": "packages/content/content/component-contracts/components/breadcrumbs.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "button",
+      "component": "Button",
+      "priority": "P1",
+      "family": "actions",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./button",
+        "rootExport": true,
+        "source": "packages/react/src/Button.tsx",
+        "dist": "packages/react/dist/Button.js",
+        "types": "packages/react/dist/Button.d.ts",
+        "contract": "packages/content/content/component-contracts/components/button.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/ref.test.mjs",
+          "packages/react/test/template-interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "callback",
+        "disabled/prevented"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "card",
+      "component": "Card",
+      "priority": "P2",
+      "family": "surface-display",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./card",
+        "rootExport": true,
+        "source": "packages/react/src/Card.tsx",
+        "dist": "packages/react/dist/Card.js",
+        "types": "packages/react/dist/Card.d.ts",
+        "contract": "packages/content/content/component-contracts/components/card.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/template-interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "composition",
+        "theme/density"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "card-expiry-input",
+      "component": "CardExpiryInput",
+      "priority": "P0",
+      "family": "forms-payment",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./card-expiry-input",
+        "rootExport": true,
+        "source": "packages/react/src/CardExpiryInput.tsx",
+        "dist": "packages/react/dist/CardExpiryInput.js",
+        "types": "packages/react/dist/CardExpiryInput.d.ts",
+        "contract": "packages/content/content/component-contracts/components/card-expiry-input.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "card-number-input",
+      "component": "CardNumberInput",
+      "priority": "P0",
+      "family": "forms-payment",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./card-number-input",
+        "rootExport": true,
+        "source": "packages/react/src/CardNumberInput.tsx",
+        "dist": "packages/react/dist/CardNumberInput.js",
+        "types": "packages/react/dist/CardNumberInput.d.ts",
+        "contract": "packages/content/content/component-contracts/components/card-number-input.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "card-security-code-input",
+      "component": "CardSecurityCodeInput",
+      "priority": "P0",
+      "family": "forms-payment",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./card-security-code-input",
+        "rootExport": true,
+        "source": "packages/react/src/CardSecurityCodeInput.tsx",
+        "dist": "packages/react/dist/CardSecurityCodeInput.js",
+        "types": "packages/react/dist/CardSecurityCodeInput.d.ts",
+        "contract": "packages/content/content/component-contracts/components/card-security-code-input.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "card-summary",
+      "component": "CardSummary",
+      "priority": "P2",
+      "family": "domain-payment",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./card-summary",
+        "rootExport": true,
+        "source": "packages/react/src/CardSummary.tsx",
+        "dist": "packages/react/dist/CardSummary.js",
+        "types": "packages/react/dist/CardSummary.d.ts",
+        "contract": "packages/content/content/component-contracts/components/card-summary.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "chart-panel",
+      "component": "ChartPanel",
+      "priority": "P2",
+      "family": "data-display",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./chart-panel",
+        "rootExport": true,
+        "source": "packages/react/src/ChartPanel.tsx",
+        "dist": "packages/react/dist/ChartPanel.js",
+        "types": "packages/react/dist/ChartPanel.d.ts",
+        "contract": "packages/content/content/component-contracts/components/chart-panel.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "chat-composer",
+      "component": "ChatComposer",
+      "priority": "P2",
+      "family": "domain-chat",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./chat-composer",
+        "rootExport": true,
+        "source": "packages/react/src/ChatComposer.tsx",
+        "dist": "packages/react/dist/ChatComposer.js",
+        "types": "packages/react/dist/ChatComposer.d.ts",
+        "contract": "packages/content/content/component-contracts/components/chat-composer.md",
+        "tests": [
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "chat-message",
+      "component": "ChatMessage",
+      "priority": "P2",
+      "family": "domain-chat",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./chat-message",
+        "rootExport": true,
+        "source": "packages/react/src/ChatMessage.tsx",
+        "dist": "packages/react/dist/ChatMessage.js",
+        "types": "packages/react/dist/ChatMessage.d.ts",
+        "contract": "packages/content/content/component-contracts/components/chat-message.md",
+        "tests": [
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "chat-thread",
+      "component": "ChatThread",
+      "priority": "P2",
+      "family": "domain-chat",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./chat-thread",
+        "rootExport": true,
+        "source": "packages/react/src/ChatThread.tsx",
+        "dist": "packages/react/dist/ChatThread.js",
+        "types": "packages/react/dist/ChatThread.d.ts",
+        "contract": "packages/content/content/component-contracts/components/chat-thread.md",
+        "tests": [
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "checkbox",
+      "component": "Checkbox",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./checkbox",
+        "rootExport": true,
+        "source": "packages/react/src/Checkbox.tsx",
+        "dist": "packages/react/dist/Checkbox.js",
+        "types": "packages/react/dist/Checkbox.d.ts",
+        "contract": "packages/content/content/component-contracts/components/checkbox.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "chip",
+      "component": "Chip",
+      "priority": "P2",
+      "family": "display-status",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./chip",
+        "rootExport": true,
+        "source": "packages/react/src/Chip.tsx",
+        "dist": "packages/react/dist/Chip.js",
+        "types": "packages/react/dist/Chip.d.ts",
+        "contract": "packages/content/content/component-contracts/components/chip.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "code-block",
+      "component": "CodeBlock",
+      "priority": "P1",
+      "family": "documentation-code",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./code-block",
+        "rootExport": true,
+        "source": "packages/react/src/CodeBlock.tsx",
+        "dist": "packages/react/dist/CodeBlock.js",
+        "types": "packages/react/dist/CodeBlock.d.ts",
+        "contract": "packages/content/content/component-contracts/components/code-block.md",
+        "tests": []
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "copy interaction"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "missing direct test evidence",
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "code-input",
+      "component": "CodeInput",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./code-input",
+        "rootExport": true,
+        "source": "packages/react/src/CodeInput.tsx",
+        "dist": "packages/react/dist/CodeInput.js",
+        "types": "packages/react/dist/CodeInput.d.ts",
+        "contract": "packages/content/content/component-contracts/components/code-input.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "combobox",
+      "component": "Combobox",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./combobox",
+        "rootExport": true,
+        "source": "packages/react/src/Combobox.tsx",
+        "dist": "packages/react/dist/Combobox.js",
+        "types": "packages/react/dist/Combobox.d.ts",
+        "contract": "packages/content/content/component-contracts/components/combobox.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "copy-button",
+      "component": "CopyButton",
+      "priority": "P1",
+      "family": "actions",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./copy-button",
+        "rootExport": true,
+        "source": "packages/react/src/CopyButton.tsx",
+        "dist": "packages/react/dist/CopyButton.js",
+        "types": "packages/react/dist/CopyButton.d.ts",
+        "contract": "packages/content/content/component-contracts/components/copy-button.md",
+        "tests": [
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "callback",
+        "disabled/prevented"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "country-selector",
+      "component": "CountrySelector",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./country-selector",
+        "rootExport": true,
+        "source": "packages/react/src/CountrySelector.tsx",
+        "dist": "packages/react/dist/CountrySelector.js",
+        "types": "packages/react/dist/CountrySelector.d.ts",
+        "contract": "packages/content/content/component-contracts/components/country-selector.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "date-picker",
+      "component": "DatePicker",
+      "priority": "P0",
+      "family": "forms-date",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./date-picker",
+        "rootExport": true,
+        "source": "packages/react/src/DatePicker.tsx",
+        "dist": "packages/react/dist/DatePicker.js",
+        "types": "packages/react/dist/DatePicker.d.ts",
+        "contract": "packages/content/content/component-contracts/components/date-picker.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "date constraints"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "date-range-picker",
+      "component": "DateRangePicker",
+      "priority": "P0",
+      "family": "forms-date",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./date-range-picker",
+        "rootExport": true,
+        "source": "packages/react/src/DateRangePicker.tsx",
+        "dist": "packages/react/dist/DateRangePicker.js",
+        "types": "packages/react/dist/DateRangePicker.d.ts",
+        "contract": "packages/content/content/component-contracts/components/date-range-picker.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "date constraints"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "dialog",
+      "component": "Dialog",
+      "priority": "P0",
+      "family": "overlays-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./dialog",
+        "rootExport": true,
+        "source": "packages/react/src/Dialog.tsx",
+        "dist": "packages/react/dist/Dialog.js",
+        "types": "packages/react/dist/Dialog.d.ts",
+        "contract": "packages/content/content/component-contracts/components/dialog.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/ref.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "drawer",
+      "component": "Drawer",
+      "priority": "P0",
+      "family": "overlays-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./drawer",
+        "rootExport": true,
+        "source": "packages/react/src/Drawer.tsx",
+        "dist": "packages/react/dist/Drawer.js",
+        "types": "packages/react/dist/Drawer.d.ts",
+        "contract": "packages/content/content/component-contracts/components/drawer.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/ref.test.mjs",
+          "packages/react/test/template-interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "empty-state",
+      "component": "EmptyState",
+      "priority": "P1",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./empty-state",
+        "rootExport": true,
+        "source": "packages/react/src/EmptyState.tsx",
+        "dist": "packages/react/dist/EmptyState.js",
+        "types": "packages/react/dist/EmptyState.d.ts",
+        "contract": "packages/content/content/component-contracts/components/empty-state.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "error-panel",
+      "component": "ErrorPanel",
+      "priority": "P1",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./error-panel",
+        "rootExport": true,
+        "source": "packages/react/src/ErrorPanel.tsx",
+        "dist": "packages/react/dist/ErrorPanel.js",
+        "types": "packages/react/dist/ErrorPanel.d.ts",
+        "contract": "packages/content/content/component-contracts/components/error-panel.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "floating-action-button",
+      "component": "FloatingActionButton",
+      "priority": "P1",
+      "family": "actions",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./floating-action-button",
+        "rootExport": true,
+        "source": "packages/react/src/FloatingActionButton.tsx",
+        "dist": "packages/react/dist/FloatingActionButton.js",
+        "types": "packages/react/dist/FloatingActionButton.d.ts",
+        "contract": "packages/content/content/component-contracts/components/floating-action-button.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "callback",
+        "disabled/prevented"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "icon-button",
+      "component": "IconButton",
+      "priority": "P1",
+      "family": "actions",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./icon-button",
+        "rootExport": true,
+        "source": "packages/react/src/IconButton.tsx",
+        "dist": "packages/react/dist/IconButton.js",
+        "types": "packages/react/dist/IconButton.d.ts",
+        "contract": "packages/content/content/component-contracts/components/icon-button.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "callback",
+        "disabled/prevented"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "inline-validation",
+      "component": "InlineValidation",
+      "priority": "P1",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./inline-validation",
+        "rootExport": true,
+        "source": "packages/react/src/InlineValidation.tsx",
+        "dist": "packages/react/dist/InlineValidation.js",
+        "types": "packages/react/dist/InlineValidation.d.ts",
+        "contract": "packages/content/content/component-contracts/components/inline-validation.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "input",
+      "component": "Input",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./input",
+        "rootExport": true,
+        "source": "packages/react/src/Input.tsx",
+        "dist": "packages/react/dist/Input.js",
+        "types": "packages/react/dist/Input.d.ts",
+        "contract": "packages/content/content/component-contracts/components/input.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "input-amount",
+      "component": "InputAmount",
+      "priority": "P2",
+      "family": "forms-payment",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./input-amount",
+        "rootExport": true,
+        "source": "packages/react/src/InputAmount.tsx",
+        "dist": "packages/react/dist/InputAmount.js",
+        "types": "packages/react/dist/InputAmount.d.ts",
+        "contract": "packages/content/content/component-contracts/components/input-amount.md",
+        "tests": [
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "kpi-tile",
+      "component": "KpiTile",
+      "priority": "P2",
+      "family": "data-display",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./kpi-tile",
+        "rootExport": true,
+        "source": "packages/react/src/KpiTile.tsx",
+        "dist": "packages/react/dist/KpiTile.js",
+        "types": "packages/react/dist/KpiTile.d.ts",
+        "contract": "packages/content/content/component-contracts/components/kpi-tile.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "list",
+      "component": "List",
+      "priority": "P1",
+      "family": "data-display",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./list",
+        "rootExport": true,
+        "source": "packages/react/src/List.tsx",
+        "dist": "packages/react/dist/List.js",
+        "types": "packages/react/dist/List.d.ts",
+        "contract": "packages/content/content/component-contracts/components/list.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/ref.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "menu",
+      "component": "Menu",
+      "priority": "P0",
+      "family": "overlays-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./menu",
+        "rootExport": true,
+        "source": "packages/react/src/Menu.tsx",
+        "dist": "packages/react/dist/Menu.js",
+        "types": "packages/react/dist/Menu.d.ts",
+        "contract": "packages/content/content/component-contracts/components/menu.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "motion-boundary",
+      "component": "MotionBoundary",
+      "priority": "P2",
+      "family": "motion-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./motion-boundary",
+        "rootExport": true,
+        "source": "packages/react/src/MotionBoundary.tsx",
+        "dist": "packages/react/dist/MotionBoundary.js",
+        "types": "packages/react/dist/MotionBoundary.d.ts",
+        "contract": "packages/content/content/component-contracts/components/motion-boundary.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "motion preference"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "movement-row",
+      "component": "MovementRow",
+      "priority": "P2",
+      "family": "domain-fleet",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./movement-row",
+        "rootExport": true,
+        "source": "packages/react/src/MovementRow.tsx",
+        "dist": "packages/react/dist/MovementRow.js",
+        "types": "packages/react/dist/MovementRow.d.ts",
+        "contract": "packages/content/content/component-contracts/components/movement-row.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "pagination",
+      "component": "Pagination",
+      "priority": "P1",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./pagination",
+        "rootExport": true,
+        "source": "packages/react/src/Pagination.tsx",
+        "dist": "packages/react/dist/Pagination.js",
+        "types": "packages/react/dist/Pagination.d.ts",
+        "contract": "packages/content/content/component-contracts/components/pagination.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "phone-input",
+      "component": "PhoneInput",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./phone-input",
+        "rootExport": true,
+        "source": "packages/react/src/PhoneInput.tsx",
+        "dist": "packages/react/dist/PhoneInput.js",
+        "types": "packages/react/dist/PhoneInput.d.ts",
+        "contract": "packages/content/content/component-contracts/components/phone-input.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "popover",
+      "component": "Popover",
+      "priority": "P0",
+      "family": "overlays-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./popover",
+        "rootExport": true,
+        "source": "packages/react/src/Popover.tsx",
+        "dist": "packages/react/dist/Popover.js",
+        "types": "packages/react/dist/Popover.d.ts",
+        "contract": "packages/content/content/component-contracts/components/popover.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "progress-indicator",
+      "component": "ProgressIndicator",
+      "priority": "P1",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./progress-indicator",
+        "rootExport": true,
+        "source": "packages/react/src/ProgressIndicator.tsx",
+        "dist": "packages/react/dist/ProgressIndicator.js",
+        "types": "packages/react/dist/ProgressIndicator.d.ts",
+        "contract": "packages/content/content/component-contracts/components/progress-indicator.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "quick-action",
+      "component": "QuickAction",
+      "priority": "P1",
+      "family": "actions",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./quick-action",
+        "rootExport": true,
+        "source": "packages/react/src/QuickAction.tsx",
+        "dist": "packages/react/dist/QuickAction.js",
+        "types": "packages/react/dist/QuickAction.d.ts",
+        "contract": "packages/content/content/component-contracts/components/quick-action.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "callback",
+        "disabled/prevented"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "radio-button",
+      "component": "RadioButton",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./radio-button",
+        "rootExport": true,
+        "source": "packages/react/src/RadioButton.tsx",
+        "dist": "packages/react/dist/RadioButton.js",
+        "types": "packages/react/dist/RadioButton.d.ts",
+        "contract": "packages/content/content/component-contracts/components/radio-button.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "route-summary",
+      "component": "RouteSummary",
+      "priority": "P2",
+      "family": "domain-fleet",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./route-summary",
+        "rootExport": true,
+        "source": "packages/react/src/RouteSummary.tsx",
+        "dist": "packages/react/dist/RouteSummary.js",
+        "types": "packages/react/dist/RouteSummary.d.ts",
+        "contract": "packages/content/content/component-contracts/components/route-summary.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "segmented-control",
+      "component": "SegmentedControl",
+      "priority": "P1",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./segmented-control",
+        "rootExport": true,
+        "source": "packages/react/src/SegmentedControl.tsx",
+        "dist": "packages/react/dist/SegmentedControl.js",
+        "types": "packages/react/dist/SegmentedControl.d.ts",
+        "contract": "packages/content/content/component-contracts/components/segmented-control.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "select",
+      "component": "Select",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./select",
+        "rootExport": true,
+        "source": "packages/react/src/Select.tsx",
+        "dist": "packages/react/dist/Select.js",
+        "types": "packages/react/dist/Select.d.ts",
+        "contract": "packages/content/content/component-contracts/components/select.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/template-interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "skeleton",
+      "component": "Skeleton",
+      "priority": "P2",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./skeleton",
+        "rootExport": true,
+        "source": "packages/react/src/Skeleton.tsx",
+        "dist": "packages/react/dist/Skeleton.js",
+        "types": "packages/react/dist/Skeleton.d.ts",
+        "contract": "packages/content/content/component-contracts/components/skeleton.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "slider",
+      "component": "Slider",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./slider",
+        "rootExport": true,
+        "source": "packages/react/src/Slider.tsx",
+        "dist": "packages/react/dist/Slider.js",
+        "types": "packages/react/dist/Slider.d.ts",
+        "contract": "packages/content/content/component-contracts/components/slider.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "spinner",
+      "component": "Spinner",
+      "priority": "P2",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./spinner",
+        "rootExport": true,
+        "source": "packages/react/src/Spinner.tsx",
+        "dist": "packages/react/dist/Spinner.js",
+        "types": "packages/react/dist/Spinner.d.ts",
+        "contract": "packages/content/content/component-contracts/components/spinner.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "station-pin",
+      "component": "StationPin",
+      "priority": "P2",
+      "family": "domain-fleet",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./station-pin",
+        "rootExport": true,
+        "source": "packages/react/src/StationPin.tsx",
+        "dist": "packages/react/dist/StationPin.js",
+        "types": "packages/react/dist/StationPin.d.ts",
+        "contract": "packages/content/content/component-contracts/components/station-pin.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "stepper",
+      "component": "Stepper",
+      "priority": "P1",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./stepper",
+        "rootExport": true,
+        "source": "packages/react/src/Stepper.tsx",
+        "dist": "packages/react/dist/Stepper.js",
+        "types": "packages/react/dist/Stepper.d.ts",
+        "contract": "packages/content/content/component-contracts/components/stepper.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "surface",
+      "component": "Surface",
+      "priority": "P2",
+      "family": "surface-display",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./surface",
+        "rootExport": true,
+        "source": "packages/react/src/Surface.tsx",
+        "dist": "packages/react/dist/Surface.js",
+        "types": "packages/react/dist/Surface.d.ts",
+        "contract": null,
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "composition",
+        "theme/density"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "missing component contract",
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "switch",
+      "component": "Switch",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./switch",
+        "rootExport": true,
+        "source": "packages/react/src/Switch.tsx",
+        "dist": "packages/react/dist/Switch.js",
+        "types": "packages/react/dist/Switch.d.ts",
+        "contract": "packages/content/content/component-contracts/components/switch.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/ref.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "table",
+      "component": "Table",
+      "priority": "P1",
+      "family": "data-display",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./table",
+        "rootExport": true,
+        "source": "packages/react/src/Table.tsx",
+        "dist": "packages/react/dist/Table.js",
+        "types": "packages/react/dist/Table.d.ts",
+        "contract": "packages/content/content/component-contracts/components/table.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "tabs",
+      "component": "Tabs",
+      "priority": "P0",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./tabs",
+        "rootExport": true,
+        "source": "packages/react/src/Tabs.tsx",
+        "dist": "packages/react/dist/Tabs.js",
+        "types": "packages/react/dist/Tabs.d.ts",
+        "contract": "packages/content/content/component-contracts/components/tabs.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "tag",
+      "component": "Tag",
+      "priority": "P2",
+      "family": "display-status",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./tag",
+        "rootExport": true,
+        "source": "packages/react/src/Tag.tsx",
+        "dist": "packages/react/dist/Tag.js",
+        "types": "packages/react/dist/Tag.d.ts",
+        "contract": "packages/content/content/component-contracts/components/tag.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/ref.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "text-area",
+      "component": "TextArea",
+      "priority": "P0",
+      "family": "forms",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./text-area",
+        "rootExport": true,
+        "source": "packages/react/src/TextArea.tsx",
+        "dist": "packages/react/dist/TextArea.js",
+        "types": "packages/react/dist/TextArea.d.ts",
+        "contract": "packages/content/content/component-contracts/components/text-area.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "toast",
+      "component": "Toast",
+      "priority": "P1",
+      "family": "feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./toast",
+        "rootExport": true,
+        "source": "packages/react/src/Toast.tsx",
+        "dist": "packages/react/dist/Toast.js",
+        "types": "packages/react/dist/Toast.d.ts",
+        "contract": "packages/content/content/component-contracts/components/toast.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "tooltip",
+      "component": "Tooltip",
+      "priority": "P1",
+      "family": "overlays-feedback",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./tooltip",
+        "rootExport": true,
+        "source": "packages/react/src/Tooltip.tsx",
+        "dist": "packages/react/dist/Tooltip.js",
+        "types": "packages/react/dist/Tooltip.d.ts",
+        "contract": "packages/content/content/component-contracts/components/tooltip.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    },
+    {
+      "slug": "tree-view",
+      "component": "TreeView",
+      "priority": "P1",
+      "family": "navigation-disclosure",
+      "status": "partial",
+      "evidence": {
+        "reactExport": "./tree-view",
+        "rootExport": true,
+        "source": "packages/react/src/TreeView.tsx",
+        "dist": "packages/react/dist/TreeView.js",
+        "types": "packages/react/dist/TreeView.d.ts",
+        "contract": "packages/content/content/component-contracts/components/tree-view.md",
+        "tests": [
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ]
+      },
+      "requiredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "structuralIssues": [],
+      "evidenceGaps": [
+        "family-specific production checks not yet certified"
+      ]
+    }
+  ]
+}

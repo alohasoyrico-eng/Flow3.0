@@ -768,6 +768,7 @@
     "audit:consumer-type-smoke": "node packages/audit/scripts/report-system-consumer-type-smoke.js",
     "audit:consumer-boundary-checkpoint": "node packages/audit/scripts/report-system-consumer-boundary-checkpoint.js",
     "audit:component-artifact-tests": "node packages/audit/scripts/report-system-component-artifact-tests.js",
+    "audit:react-production-readiness": "node packages/audit/scripts/report-react-production-readiness.js",
     "audit:component-runtime": "node packages/audit/scripts/report-system-component-runtime-audit.js",
     "audit:pattern-artifact-tests": "node packages/audit/scripts/report-system-pattern-artifact-tests.js",
     "audit:pattern-runtime": "node packages/audit/scripts/report-system-pattern-runtime-audit.js",

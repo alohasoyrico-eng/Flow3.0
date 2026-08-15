@@ -4,10 +4,10 @@
   "audit": "system audit contract governance",
   "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
   "inventory": {
-    "trackedJsonReports": 158,
-    "gateReports": 158,
+    "trackedJsonReports": 159,
+    "gateReports": 159,
     "contractArtifacts": 0,
-    "markdownReports": 150,
+    "markdownReports": 151,
     "orphanMarkdownReports": 0,
     "dirtyDocsAuditEntries": 0,
     "reportsMissingCategory": 0,
@@ -1014,6 +1014,19 @@
       "issues": []
     },
     {
+      "file": "docs/audits/react-production-readiness.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "reactProductionReadinessHarnessDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
       "file": "docs/audits/react-style-governance-audit.json",
       "kind": "gate-report",
       "category": "react-primary",
@@ -1280,11 +1293,11 @@
       "debtMetrics": [
         {
           "key": "reportsWithDebtMetrics",
-          "value": 157
+          "value": 158
         },
         {
           "key": "debtMetrics",
-          "value": 191
+          "value": 192
         },
         {
           "key": "categoryMinimumDebt",
@@ -2639,6 +2652,12 @@
     {
       "file": "docs/audits/react-primary-coverage-audit.md",
       "jsonPair": "docs/audits/react-primary-coverage-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-production-readiness.md",
+      "jsonPair": "docs/audits/react-production-readiness.json",
       "status": "pass",
       "issues": []
     },

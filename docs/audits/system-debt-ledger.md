@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 157
-- Category mappings: 148
+- Reports scanned: 158
+- Category mappings: 149
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 157
-- Debt metrics: 191
+- Reports with debt metrics: 158
+- Debt metrics: 192
 - Categories: 9
 - Category minimums: 9
 - Category principles: 9
@@ -43,7 +43,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 9 | 2 | 0 | 10 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 40 | 1 | 0 | 42 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 21 | 1 | 0 | 39 | 0 |
-| quality | Component coverage must prove production readiness, not just presence. | 20 | 1 | 0 | 23 | 0 |
+| quality | Component coverage must prove production readiness, not just presence. | 21 | 1 | 0 | 24 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 45 | 10 | 0 | 52 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 | templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 2 | 1 | 0 | 4 | 0 |
@@ -161,6 +161,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | react-pattern-behavior-governance-audit.json | patterns | pass | patternsWithBehaviorDebt: 0<br>reactPatternBehaviorDebt: 0 |
 | react-pattern-composition-governance-audit.json | patterns | pass | reactPatternCompositionDebt: 0 |
 | react-primary-coverage-audit.json | react-primary | pass | primaryImplementationDebt: 0 |
+| react-production-readiness.json | quality | pass | reactProductionReadinessHarnessDebt: 0 |
 | react-style-governance-audit.json | react-primary | pass | styleEscapeDebt: 0 |
 | react-template-composition-governance-audit.json | react-primary | pass | reactTemplateCompositionGovernanceDebt: 0 |
 | react-template-interaction-governance-audit.json | react-primary | pass | reactTemplateInteractionGovernanceDebt: 0 |
