@@ -63,6 +63,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(function Toolti
   const [internalOpen, setInternalOpen] = useState(initiallyOpen);
   const [interactionState, setInteractionState] = useState(resolvedState);
   const isDisabled = resolvedState === "disabled" || interactionState === "disabled";
+  const displayedState = isDisabled ? "disabled" : interactionState;
   const isDismissed = !isOpenControlled && interactionState === "dismissed";
   const openValue = isOpenControlled ? Boolean(openProp) : internalOpen;
   const isOpen = Boolean(openValue) && !isDismissed;
@@ -85,7 +86,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(function Toolti
       "data-placement": resolvedPlacement,
       ...flowVariantProps(resolvedVariant),
       ...flowDensityProps(resolvedDensity),
-      ...flowStateProps(interactionState),
+      ...flowStateProps(displayedState),
       "data-open": String(isOpen),
     },
     React.createElement(

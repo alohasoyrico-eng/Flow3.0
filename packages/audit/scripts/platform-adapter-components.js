@@ -89,7 +89,7 @@ const components = [
     requiredTokens: ["comp.tooltip.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "message", "measurement"],
     props: ["triggerLabel", "content", "id", "placement", "variant", "density", "state", "disabled", "onOpenChange"],
-    jsSnippets: ["tooltipPlatformContract", "className: [\"tooltip\"", '"data-placement": resolvedPlacement', 'flowVariantProps(resolvedVariant)', 'flowDensityProps(resolvedDensity)', 'flowStateProps(interactionState)', '"data-open": String(isOpen)', "tooltip__trigger", "tooltip__bubble", "onOpenChange"],
+    jsSnippets: ["tooltipPlatformContract", "className: [\"tooltip\"", '"data-placement": resolvedPlacement', 'flowVariantProps(resolvedVariant)', 'flowDensityProps(resolvedDensity)', 'flowStateProps(displayedState)', '"data-open": String(isOpen)', "tooltip__trigger", "tooltip__bubble", "onOpenChange"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLSpanElement>", "TooltipProps", "TooltipPlacement", "TooltipVariant", "TooltipDensity", "TooltipState", "tooltipPlatformContract"],
     packagePath: "./tooltip",
     exportName: "Tooltip",

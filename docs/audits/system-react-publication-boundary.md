@@ -5,7 +5,7 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- Packed files: 1363
+- Packed files: 1364
 - Package file entries: 13
 - Root React export targets: 310
 - React package export targets: 310

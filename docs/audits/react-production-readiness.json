@@ -27,15 +27,15 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 36,
-    "partialComponents": 27,
+    "readyComponents": 38,
+    "partialComponents": 25,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
     "p1Components": 18,
     "p2Components": 24,
     "missingContracts": 1,
-    "missingDirectTestEvidence": 1,
+    "missingDirectTestEvidence": 0,
     "structuralIssues": 0,
     "invalidReadinessEvidenceFiles": 0,
     "missingPrioritySlugs": 0,
@@ -49,19 +49,20 @@
       "packages/content/content/react-production-readiness-evidence/p1-actions.json",
       "packages/content/content/react-production-readiness-evidence/p1-navigation-disclosure.json",
       "packages/content/content/react-production-readiness-evidence/p1-feedback.json",
-      "packages/content/content/react-production-readiness-evidence/p1-data-display.json"
+      "packages/content/content/react-production-readiness-evidence/p1-data-display.json",
+      "packages/content/content/react-production-readiness-evidence/p1-documentation-overlay.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 198,
-    "fireEvent": 478,
-    "getByRole": 345,
+    "testingLibraryRender": 201,
+    "fireEvent": 484,
+    "getByRole": 349,
     "getByLabelText": 15,
-    "keyDown": 35,
-    "escapeKey": 18,
+    "keyDown": 37,
+    "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 16,
-    "axe": 9
+    "userEvent": 18,
+    "axe": 10
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -380,6 +381,7 @@
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
@@ -914,7 +916,7 @@
       "component": "CodeBlock",
       "priority": "P1",
       "family": "documentation-code",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./code-block",
         "rootExport": true,
@@ -922,7 +924,9 @@
         "dist": "packages/react/dist/CodeBlock.js",
         "types": "packages/react/dist/CodeBlock.d.ts",
         "contract": "packages/content/content/component-contracts/components/code-block.md",
-        "tests": []
+        "tests": [
+          "packages/react/test/p1-documentation-overlay.test.mjs"
+        ]
       },
       "requiredProductionEvidence": [
         "render",
@@ -931,21 +935,24 @@
         "copy interaction"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-documentation-overlay.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "copy interaction"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Clipboard success and disabled copy paths are covered through the embedded CopyButton surface."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "missing direct test evidence",
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: copy interaction"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "code-input",
@@ -2317,6 +2324,7 @@
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2912,7 +2920,7 @@
       "component": "Tooltip",
       "priority": "P1",
       "family": "overlays-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./tooltip",
         "rootExport": true,
@@ -2924,6 +2932,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2936,22 +2945,27 @@
         "controlled/uncontrolled"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-documentation-overlay.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "focus management",
+          "Escape/outside close",
+          "controlled/uncontrolled"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Tooltip closes through blur/mouse leave and Escape; there is no document-level outside click surface."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: focus management",
-        "missing production evidence: Escape/outside close",
-        "missing production evidence: controlled/uncontrolled"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "tree-view",

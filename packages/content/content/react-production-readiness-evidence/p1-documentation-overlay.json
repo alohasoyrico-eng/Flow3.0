@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "code-block": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-documentation-overlay.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "copy interaction"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Clipboard success and disabled copy paths are covered through the embedded CopyButton surface."
+      ]
+    },
+    "tooltip": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-documentation-overlay.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "focus management",
+        "Escape/outside close",
+        "controlled/uncontrolled"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Tooltip closes through blur/mouse leave and Escape; there is no document-level outside click surface."
+      ]
+    }
+  }
+}
