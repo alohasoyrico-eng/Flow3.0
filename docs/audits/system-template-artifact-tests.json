@@ -118,7 +118,7 @@
         "visual": "pass"
       },
       "metrics": {
-        "markupLength": 20854,
+        "markupLength": 20858,
         "formalPatterns": 5,
         "runtimePatternImports": 5,
         "formalModules": 4,
@@ -258,7 +258,7 @@
         "visual": "not-applicable"
       },
       "metrics": {
-        "markupLength": 5391,
+        "markupLength": 5395,
         "formalPatterns": 5,
         "runtimePatternImports": 5,
         "formalModules": 0,
@@ -363,7 +363,7 @@
         "visual": "pass"
       },
       "metrics": {
-        "markupLength": 13694,
+        "markupLength": 13698,
         "formalPatterns": 2,
         "runtimePatternImports": 2,
         "formalModules": 4,
@@ -398,7 +398,7 @@
         "visual": "pass"
       },
       "metrics": {
-        "markupLength": 16850,
+        "markupLength": 16854,
         "formalPatterns": 3,
         "runtimePatternImports": 3,
         "formalModules": 4,
@@ -433,7 +433,7 @@
         "visual": "pass"
       },
       "metrics": {
-        "markupLength": 23983,
+        "markupLength": 23987,
         "formalPatterns": 8,
         "runtimePatternImports": 8,
         "formalModules": 6,

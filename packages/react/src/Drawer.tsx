@@ -257,7 +257,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
         onKeyDown,
       },
       React.createElement(
-        "aside",
+        "section",
         {
           className: "drawer__panel",
           id: drawerId,

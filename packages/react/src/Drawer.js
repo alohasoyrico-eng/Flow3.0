@@ -149,7 +149,7 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
                 closeDrawer({ event });
         },
         onKeyDown,
-    }, React.createElement("aside", {
+    }, React.createElement("section", {
         className: "drawer__panel",
         id: drawerId,
         role: "dialog",

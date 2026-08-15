@@ -117,7 +117,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 1518,
+        "markupLength": 1522,
         "callbacks": 0,
         "testedCallbacks": 0,
         "formalStates": 8,
@@ -413,7 +413,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 3032,
+        "markupLength": 3036,
         "callbacks": 3,
         "testedCallbacks": 3,
         "formalStates": 8,
@@ -672,7 +672,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 2133,
+        "markupLength": 2137,
         "callbacks": 4,
         "testedCallbacks": 4,
         "formalStates": 8,
@@ -1116,7 +1116,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 1575,
+        "markupLength": 1579,
         "callbacks": 2,
         "testedCallbacks": 2,
         "formalStates": 8,
@@ -1560,7 +1560,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 4634,
+        "markupLength": 4638,
         "callbacks": 5,
         "testedCallbacks": 5,
         "formalStates": 8,
@@ -1745,7 +1745,7 @@
         "composition": "pass"
       },
       "metrics": {
-        "markupLength": 1996,
+        "markupLength": 2000,
         "callbacks": 5,
         "testedCallbacks": 5,
         "formalStates": 8,

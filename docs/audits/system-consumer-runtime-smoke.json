@@ -71,7 +71,7 @@
     },
     {
       "name": "DocsShellTemplate",
-      "markupLength": 5547
+      "markupLength": 5551
     },
     {
       "name": "DocsHomeTemplate",
@@ -87,7 +87,7 @@
     },
     {
       "name": "FleetDashboardSuite",
-      "markupLength": 13642
+      "markupLength": 13646
     }
   ],
   "policy": {

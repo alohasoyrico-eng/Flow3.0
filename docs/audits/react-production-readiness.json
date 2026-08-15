@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 16,
-    "partialComponents": 47,
+    "readyComponents": 21,
+    "partialComponents": 42,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -43,15 +43,15 @@
   },
   "readinessEvidence": "packages/content/content/react-production-readiness-evidence.json",
   "testCapabilities": {
-    "testingLibraryRender": 177,
-    "fireEvent": 462,
-    "getByRole": 279,
+    "testingLibraryRender": 182,
+    "fireEvent": 471,
+    "getByRole": 297,
     "getByLabelText": 13,
-    "keyDown": 20,
-    "escapeKey": 9,
-    "arrowKeys": 12,
-    "userEvent": 6,
-    "axe": 4
+    "keyDown": 29,
+    "escapeKey": 18,
+    "arrowKeys": 14,
+    "userEvent": 8,
+    "axe": 5
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -366,6 +366,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/production-harness.test.mjs",
@@ -1222,7 +1223,7 @@
       "component": "Dialog",
       "priority": "P0",
       "family": "overlays-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./dialog",
         "rootExport": true,
@@ -1234,6 +1235,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
@@ -1248,29 +1250,33 @@
         "controlled/uncontrolled"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "focus management",
+          "Escape/outside close",
+          "controlled/uncontrolled"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: focus management",
-        "missing production evidence: Escape/outside close",
-        "missing production evidence: controlled/uncontrolled"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "drawer",
       "component": "Drawer",
       "priority": "P0",
       "family": "overlays-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./drawer",
         "rootExport": true,
@@ -1282,6 +1288,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs",
@@ -1297,22 +1304,26 @@
         "controlled/uncontrolled"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "focus management",
+          "Escape/outside close",
+          "controlled/uncontrolled"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: focus management",
-        "missing production evidence: Escape/outside close",
-        "missing production evidence: controlled/uncontrolled"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "empty-state",
@@ -1713,7 +1724,7 @@
       "component": "Menu",
       "priority": "P0",
       "family": "overlays-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./menu",
         "rootExport": true,
@@ -1724,6 +1735,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -1737,22 +1749,26 @@
         "controlled/uncontrolled"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "focus management",
+          "Escape/outside close",
+          "controlled/uncontrolled"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: focus management",
-        "missing production evidence: Escape/outside close",
-        "missing production evidence: controlled/uncontrolled"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "motion-boundary",
@@ -1936,7 +1952,7 @@
       "component": "Popover",
       "priority": "P0",
       "family": "overlays-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./popover",
         "rootExport": true,
@@ -1948,6 +1964,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1960,22 +1977,26 @@
         "controlled/uncontrolled"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "focus management",
+          "Escape/outside close",
+          "controlled/uncontrolled"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: focus management",
-        "missing production evidence: Escape/outside close",
-        "missing production evidence: controlled/uncontrolled"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "progress-indicator",
@@ -2213,6 +2234,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -2613,7 +2635,7 @@
       "component": "Tabs",
       "priority": "P0",
       "family": "navigation-disclosure",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./tabs",
         "rootExport": true,
@@ -2623,7 +2645,8 @@
         "contract": "packages/content/content/component-contracts/components/tabs.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2634,21 +2657,25 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "keyboard navigation",
+          "state"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "tag",

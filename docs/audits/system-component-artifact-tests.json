@@ -1204,7 +1204,7 @@
         {
           "status": "pass",
           "component": "Drawer",
-          "markupLength": 514,
+          "markupLength": 518,
           "rootTag": "<div data-artifact-test=\"drawer\" class=\"drawer drawer--neutral flow-artifact-test-hook\" data-variant=\"side-sheet\" data-state=\"open\" data-tone=\"neutral\" data-density=\"lg\" data-open=\"true\" data-side=\"right\">",
           "issues": []
         },

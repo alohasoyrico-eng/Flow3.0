@@ -29,11 +29,11 @@ Generated: 2026-08-14
 | DemoPreviewFrame | 778 |
 | ArtifactMetadataBar | 842 |
 | OnThisPageNav | 497 |
-| DocsShellTemplate | 5547 |
+| DocsShellTemplate | 5551 |
 | DocsHomeTemplate | 4515 |
 | ComponentDetailTemplate | 4294 |
 | PatternDetailTemplate | 5998 |
-| FleetDashboardSuite | 13642 |
+| FleetDashboardSuite | 13646 |
 
 ## Policy
 
