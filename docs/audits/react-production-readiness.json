@@ -27,14 +27,14 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 39,
-    "partialComponents": 24,
+    "readyComponents": 41,
+    "partialComponents": 22,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
     "p1Components": 18,
     "p2Components": 24,
-    "missingContracts": 1,
+    "missingContracts": 0,
     "missingDirectTestEvidence": 0,
     "structuralIssues": 0,
     "invalidReadinessEvidenceFiles": 0,
@@ -50,19 +50,20 @@
       "packages/content/content/react-production-readiness-evidence/p1-navigation-disclosure.json",
       "packages/content/content/react-production-readiness-evidence/p1-feedback.json",
       "packages/content/content/react-production-readiness-evidence/p1-data-display.json",
-      "packages/content/content/react-production-readiness-evidence/p1-documentation-overlay.json"
+      "packages/content/content/react-production-readiness-evidence/p1-documentation-overlay.json",
+      "packages/content/content/react-production-readiness-evidence/p2-surface-display.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 202,
+    "testingLibraryRender": 205,
     "fireEvent": 484,
-    "getByRole": 353,
+    "getByRole": 358,
     "getByLabelText": 15,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 18,
-    "axe": 10
+    "userEvent": 20,
+    "axe": 11
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -384,6 +385,7 @@
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/production-harness.test.mjs",
@@ -424,7 +426,7 @@
       "component": "Card",
       "priority": "P2",
       "family": "surface-display",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./card",
         "rootExport": true,
@@ -439,6 +441,7 @@
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -451,20 +454,25 @@
         "theme/density"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-surface-display.test.mjs",
+          "packages/react/test/button-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "composition",
+          "theme/density"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers whole-card activation, Enter/Space keyboard activation, disabled prevention, nested actions, invalid action filtering, media composition, stats composition, density, variant, and selected state."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: composition",
-        "missing production evidence: theme/density"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "card-expiry-input",
@@ -2327,6 +2335,7 @@
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -2591,18 +2600,19 @@
       "component": "Surface",
       "priority": "P2",
       "family": "surface-display",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./surface",
         "rootExport": true,
         "source": "packages/react/src/Surface.tsx",
         "dist": "packages/react/dist/Surface.js",
         "types": "packages/react/dist/Surface.d.ts",
-        "contract": null,
+        "contract": "packages/content/content/primitive-contracts/primitives/surface.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2614,21 +2624,24 @@
         "theme/density"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-surface-display.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "composition",
+          "theme/density"
+        ],
+        "notes": [
+          "Surface is a primitive runtime export, so readiness uses the primitive contract at packages/content/content/primitive-contracts/primitives/surface.md.",
+          "Evidence covers surface role, state, elevation, tone, focus mode, breakpoint, density propagation, invalid prop fallback, consumer data-state preservation, and child composition."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "missing component contract",
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: composition",
-        "missing production evidence: theme/density"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "switch",
@@ -2701,6 +2714,7 @@
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2798,6 +2812,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
         ]

@@ -157,6 +157,7 @@ export const Card = forwardRef<HTMLElement, CardProps>(function Card({
   const canActivateCard = hasStableActionKey && Boolean(onAction || rest.onClick);
   const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction && canActivateCard;
   const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
+  const RootElement = isInteractive ? "div" : "article";
   const header = React.createElement(
     "div",
     { className: "card__header", key: "header" },
@@ -191,7 +192,7 @@ export const Card = forwardRef<HTMLElement, CardProps>(function Card({
   ];
 
   return React.createElement(
-    "article",
+    RootElement,
     {
       ...flowRestProps(rest),
       ref,

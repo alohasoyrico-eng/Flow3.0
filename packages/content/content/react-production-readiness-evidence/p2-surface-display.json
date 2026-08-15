@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "card": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-surface-display.test.mjs",
+        "packages/react/test/button-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "composition",
+        "theme/density"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers whole-card activation, Enter/Space keyboard activation, disabled prevention, nested actions, invalid action filtering, media composition, stats composition, density, variant, and selected state."
+      ]
+    },
+    "surface": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-surface-display.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "composition",
+        "theme/density"
+      ],
+      "notes": [
+        "Surface is a primitive runtime export, so readiness uses the primitive contract at packages/content/content/primitive-contracts/primitives/surface.md.",
+        "Evidence covers surface role, state, elevation, tone, focus mode, breakpoint, density propagation, invalid prop fallback, consumer data-state preservation, and child composition."
+      ]
+    }
+  }
+}

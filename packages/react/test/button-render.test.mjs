@@ -956,6 +956,7 @@ const selectedCardMarkup = renderToStaticMarkup(React.createElement(Card, {
   status: "Up",
   trend: "up",
 }));
+assert.match(selectedCardMarkup, /^<div/);
 assert.match(selectedCardMarkup, /role="button"/);
 assert.match(selectedCardMarkup, /aria-pressed="true"/);
 assert.match(selectedCardMarkup, /data-state="selected"/);

@@ -78,6 +78,7 @@ export const Card = forwardRef(function Card({ title, value, unit, detail, statu
     const canActivateCard = hasStableActionKey && Boolean(onAction || rest.onClick);
     const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction && canActivateCard;
     const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
+    const RootElement = isInteractive ? "div" : "article";
     const header = React.createElement("div", { className: "card__header", key: "header" }, title || icon
         ? React.createElement("div", { className: "card__heading" }, icon ? React.createElement("span", { className: "card__icon", "aria-hidden": "true" }, icon) : null, title ? React.createElement("h3", { className: "card__title" }, title) : null)
         : null, status ? React.createElement("span", { className: "card__status", "data-trend": resolvedComposition === "stats" ? (trends.has(trend) ? trend : "neutral") : undefined }, status) : null);
@@ -91,7 +92,7 @@ export const Card = forwardRef(function Card({ title, value, unit, detail, statu
             ],
         hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, validActions.map((action, index) => cardAction(action, resolvedDensity, index, onAction))) : null,
     ];
-    return React.createElement("article", {
+    return React.createElement(RootElement, {
         ...flowRestProps(rest),
         ref,
         className: ["card", className].filter(Boolean).join(" "),

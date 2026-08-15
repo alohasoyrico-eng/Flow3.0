@@ -14,6 +14,7 @@ const markdownOutput = path.join(outputDir, "react-production-readiness.md");
 const reactPackagePath = path.join(root, "packages/react/package.json");
 const rootPackagePath = path.join(root, "package.json");
 const contractsDir = path.join(root, "packages/content/content/component-contracts/components");
+const primitiveContractsDir = path.join(root, "packages/content/content/primitive-contracts/primitives");
 const reactSrcDir = path.join(root, "packages/react/src");
 const reactDistDir = path.join(root, "packages/react/dist");
 const reactTestDir = path.join(root, "packages/react/test");
@@ -206,6 +207,11 @@ function testFilesFor(componentName, slug) {
     .map((file) => rel(path.join(reactTestDir, file)));
 }
 
+function contractPathFor(slug) {
+  if (slug === "surface") return path.join(primitiveContractsDir, "surface.md");
+  return path.join(contractsDir, `${slug}.md`);
+}
+
 function availableTestCapabilities(corpus) {
   return {
     testingLibraryRender: (corpus.match(/\brender\(/g) ?? []).length,
@@ -285,7 +291,7 @@ function createReport() {
   const readinessEvidence = readReadinessEvidence();
   const rows = exports.map((item) => {
     const componentName = componentNameFromTypeFile(item.types);
-    const contractPath = path.join(contractsDir, `${item.slug}.md`);
+    const contractPath = contractPathFor(item.slug);
     const srcPath = path.join(reactSrcDir, `${componentName}.tsx`);
     const distPath = path.join(root, "packages/react", item.dist);
     const typePath = path.join(root, "packages/react", item.types);
