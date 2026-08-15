@@ -13,7 +13,7 @@ Phase 5 is closed only when the public runtime boundary is installable, importab
 - Passing runtime artifacts: 151
 - Resolved exports: 16
 - Rendered artifacts: 20
-- Packed files: 1362
+- Packed files: 1363
 - Typed components: 7
 - Typed patterns: 8
 - Typed templates: 5

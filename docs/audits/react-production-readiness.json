@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 34,
-    "partialComponents": 29,
+    "readyComponents": 36,
+    "partialComponents": 27,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -48,19 +48,20 @@
       "packages/content/content/react-production-readiness-evidence/p0-overlays-navigation.json",
       "packages/content/content/react-production-readiness-evidence/p1-actions.json",
       "packages/content/content/react-production-readiness-evidence/p1-navigation-disclosure.json",
-      "packages/content/content/react-production-readiness-evidence/p1-feedback.json"
+      "packages/content/content/react-production-readiness-evidence/p1-feedback.json",
+      "packages/content/content/react-production-readiness-evidence/p1-data-display.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 195,
-    "fireEvent": 477,
-    "getByRole": 328,
+    "testingLibraryRender": 198,
+    "fireEvent": 478,
+    "getByRole": 345,
     "getByLabelText": 15,
-    "keyDown": 34,
+    "keyDown": 35,
     "escapeKey": 18,
     "arrowKeys": 17,
-    "userEvent": 14,
-    "axe": 8
+    "userEvent": 16,
+    "axe": 9
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -378,6 +379,7 @@
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
@@ -1730,7 +1732,7 @@
       "component": "List",
       "priority": "P1",
       "family": "data-display",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./list",
         "rootExport": true,
@@ -1741,6 +1743,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -1755,21 +1758,25 @@
         "keyboard when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-data-display.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "keyboard when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Interactive List rows are native buttons, so Enter/Space activation is covered by native button keyboard behavior."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: keyboard when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "menu",
@@ -2309,6 +2316,7 @@
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2665,7 +2673,7 @@
       "component": "Table",
       "priority": "P1",
       "family": "data-display",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./table",
         "rootExport": true,
@@ -2677,6 +2685,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2689,21 +2698,26 @@
         "keyboard when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "keyboard when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Sort, selection, expansion, controlled state, and keyboard row expansion paths are covered."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: keyboard when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "tabs",

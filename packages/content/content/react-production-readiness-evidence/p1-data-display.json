@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "list": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-data-display.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Interactive List rows are native buttons, so Enter/Space activation is covered by native button keyboard behavior."
+      ]
+    },
+    "table": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-data-display.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Sort, selection, expansion, controlled state, and keyboard row expansion paths are covered."
+      ]
+    }
+  }
+}

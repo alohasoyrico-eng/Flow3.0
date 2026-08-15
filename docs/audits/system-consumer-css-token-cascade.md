@@ -5,7 +5,7 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- Packed files: 1362
+- Packed files: 1363
 - Token CSS bytes: 64552
 - Component CSS bytes: 543622
 - Token markers: 4

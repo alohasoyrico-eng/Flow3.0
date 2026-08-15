@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 34
-- Partial components: 29
+- Ready components: 36
+- Partial components: 27
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 195
-- fireEvent calls: 477
-- getByRole calls: 328
+- Testing Library render calls: 198
+- fireEvent calls: 478
+- getByRole calls: 345
 - getByLabelText calls: 15
-- keyDown calls: 34
+- keyDown calls: 35
 - Escape key checks: 18
 - Arrow key checks: 17
-- user-event usage: 14
-- axe usage: 8
+- user-event usage: 16
+- axe usage: 9
 
 ## Harness Issues
 
@@ -46,7 +46,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | badge | Badge | P2 | display-status | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
-| button | Button | P1 | actions | ready | yes | 14 | None | None |
+| button | Button | P1 | actions | ready | yes | 15 | None | None |
 | card | Card | P2 | surface-display | partial | yes | 9 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | ready | yes | 4 | None | None |
@@ -75,7 +75,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | input | Input | P0 | forms | ready | yes | 7 | None | None |
 | input-amount | InputAmount | P2 | forms-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: controlled/uncontrolled; missing production evidence: formatting/masking | None |
 | kpi-tile | KpiTile | P2 | data-display | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
-| list | List | P1 | data-display | partial | yes | 6 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
+| list | List | P1 | data-display | ready | yes | 7 | None | None |
 | menu | Menu | P0 | overlays-feedback | ready | yes | 5 | None | None |
 | motion-boundary | MotionBoundary | P2 | motion-feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: motion preference | None |
 | movement-row | MovementRow | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
@@ -87,7 +87,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |
-| select | Select | P0 | forms | ready | yes | 9 | None | None |
+| select | Select | P0 | forms | ready | yes | 10 | None | None |
 | skeleton | Skeleton | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
 | spinner | Spinner | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
@@ -95,7 +95,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | stepper | Stepper | P1 | navigation-disclosure | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
 | surface | Surface | P2 | surface-display | partial | no | 5 | missing component contract; family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
 | switch | Switch | P0 | forms | ready | yes | 7 | None | None |
-| table | Table | P1 | data-display | partial | yes | 5 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
+| table | Table | P1 | data-display | ready | yes | 6 | None | None |
 | tabs | Tabs | P0 | navigation-disclosure | ready | yes | 3 | None | None |
 | tag | Tag | P2 | display-status | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
 | text-area | TextArea | P0 | forms | ready | yes | 4 | None | None |
