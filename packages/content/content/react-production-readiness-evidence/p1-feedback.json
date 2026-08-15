@@ -69,6 +69,24 @@
         "Component has no dismiss/action surface; evidence covers determinate, indeterminate, and complete states."
       ]
     },
+    "stepper": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-feedback.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "static progress semantics"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Stepper is intentionally a static ordered progress indicator; branching, routing, validation, and wizard navigation belong to patterns.",
+        "Evidence covers ordered list semantics, aria-current, current clamping, orientation fallback, density propagation, and stable id filtering."
+      ]
+    },
     "toast": {
       "status": "ready",
       "evidenceFiles": [

@@ -23,7 +23,7 @@ const React = await import("react");
 const axe = await import("axe-core");
 const userEvent = await import("@testing-library/user-event");
 const { cleanup, render, waitFor } = await import("@testing-library/react");
-const { EmptyState, ErrorPanel, InlineValidation, ProgressIndicator, Toast } = await import("../dist/index.js");
+const { EmptyState, ErrorPanel, InlineValidation, ProgressIndicator, Stepper, Toast } = await import("../dist/index.js");
 
 async function assertNoAxeViolations(container) {
   const results = await axe.default.run(container, {
@@ -204,6 +204,60 @@ try {
     }));
     assert.equal(progress.getAttribute("value"), "50");
     assert.equal(progressRoot.getAttribute("aria-busy"), null);
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const view = render(React.createElement(Stepper, {
+      label: "Driver onboarding progress",
+      current: 1,
+      orientation: "vertical",
+      density: "lg",
+      steps: [
+        { id: "account", label: "Account", description: "Invite accepted" },
+        { id: "documents", label: "Documents", description: "License and ID" },
+        { id: "vehicle", label: "Vehicle", description: "Assign vehicle" },
+      ],
+    }));
+    const list = view.getByRole("list", { name: /driver onboarding progress/i });
+    const items = view.getAllByRole("listitem");
+
+    assert.equal(list.dataset.orientation, "vertical");
+    assert.equal(list.dataset.density, "lg");
+    assert.equal(list.dataset.current, "1");
+    assert.equal(items.length, 3);
+    assert.equal(items[0].dataset.state, "complete");
+    assert.equal(items[1].dataset.state, "active");
+    assert.equal(items[1].getAttribute("aria-current"), "step");
+    assert.equal(items[2].dataset.state, "pending");
+    assert.equal(view.getByText("check").className, "stepper__marker");
+    assert.equal(view.getByText("Documents").tagName, "STRONG");
+
+    view.rerender(React.createElement(Stepper, {
+      label: "Driver onboarding progress",
+      current: 99,
+      orientation: "sideways",
+      steps: [
+        { id: "account", label: "Account" },
+        { id: "", label: "Missing id" },
+        { id: "vehicle", label: "Vehicle" },
+      ],
+    }));
+    const rerenderedList = view.getByRole("list", { name: /driver onboarding progress/i });
+    const rerenderedItems = view.getAllByRole("listitem");
+
+    assert.equal(rerenderedList.dataset.orientation, "horizontal");
+    assert.equal(rerenderedList.dataset.current, "1");
+    assert.equal(rerenderedItems.length, 2);
+    assert.equal(rerenderedItems[1].dataset.state, "active");
+    assert.equal(view.queryByText("Missing id"), null);
+
+    view.rerender(React.createElement(Stepper, {
+      label: "",
+      steps: [{ id: "account", label: "Account" }],
+    }));
+    assert.equal(view.container.textContent, "");
     await assertNoAxeViolations(view.container);
     cleanup();
   }

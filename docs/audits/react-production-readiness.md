@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 38
-- Partial components: 25
+- Ready components: 39
+- Partial components: 24
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,9 +21,9 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 201
+- Testing Library render calls: 202
 - fireEvent calls: 484
-- getByRole calls: 349
+- getByRole calls: 353
 - getByLabelText calls: 15
 - keyDown calls: 37
 - Escape key checks: 20
@@ -75,7 +75,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | input | Input | P0 | forms | ready | yes | 7 | None | None |
 | input-amount | InputAmount | P2 | forms-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: controlled/uncontrolled; missing production evidence: formatting/masking | None |
 | kpi-tile | KpiTile | P2 | data-display | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
-| list | List | P1 | data-display | ready | yes | 7 | None | None |
+| list | List | P1 | data-display | ready | yes | 8 | None | None |
 | menu | Menu | P0 | overlays-feedback | ready | yes | 5 | None | None |
 | motion-boundary | MotionBoundary | P2 | motion-feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: motion preference | None |
 | movement-row | MovementRow | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
@@ -92,12 +92,12 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
 | spinner | Spinner | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
 | station-pin | StationPin | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
-| stepper | Stepper | P1 | navigation-disclosure | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
+| stepper | Stepper | P1 | progress-feedback | ready | yes | 3 | None | None |
 | surface | Surface | P2 | surface-display | partial | no | 5 | missing component contract; family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: composition; missing production evidence: theme/density | None |
 | switch | Switch | P0 | forms | ready | yes | 7 | None | None |
 | table | Table | P1 | data-display | ready | yes | 6 | None | None |
 | tabs | Tabs | P0 | navigation-disclosure | ready | yes | 3 | None | None |
-| tag | Tag | P2 | display-status | partial | yes | 4 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
+| tag | Tag | P2 | display-status | partial | yes | 5 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: theme/density | None |
 | text-area | TextArea | P0 | forms | ready | yes | 4 | None | None |
 | toast | Toast | P1 | feedback | ready | yes | 5 | None | None |
 | tooltip | Tooltip | P1 | overlays-feedback | ready | yes | 5 | None | None |

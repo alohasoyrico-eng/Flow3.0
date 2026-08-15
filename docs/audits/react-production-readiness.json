@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 38,
-    "partialComponents": 25,
+    "readyComponents": 39,
+    "partialComponents": 24,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -54,9 +54,9 @@
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 201,
+    "testingLibraryRender": 202,
     "fireEvent": 484,
-    "getByRole": 349,
+    "getByRole": 353,
     "getByLabelText": 15,
     "keyDown": 37,
     "escapeKey": 20,
@@ -1751,6 +1751,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2541,8 +2542,8 @@
       "slug": "stepper",
       "component": "Stepper",
       "priority": "P1",
-      "family": "navigation-disclosure",
-      "status": "partial",
+      "family": "progress-feedback",
+      "status": "ready",
       "evidence": {
         "reactExport": "./stepper",
         "rootExport": true,
@@ -2552,6 +2553,7 @@
         "contract": "packages/content/content/component-contracts/components/stepper.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2559,25 +2561,30 @@
         "render",
         "props",
         "a11y",
-        "keyboard navigation",
-        "state"
+        "state",
+        "static progress semantics"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-feedback.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "static progress semantics"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Stepper is intentionally a static ordered progress indicator; branching, routing, validation, and wizard navigation belong to patterns.",
+          "Evidence covers ordered list semantics, aria-current, current clamping, orientation fallback, density propagation, and stable id filtering."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "surface",
@@ -2790,6 +2797,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
         ]
