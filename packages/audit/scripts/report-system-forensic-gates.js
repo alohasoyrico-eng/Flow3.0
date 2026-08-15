@@ -5,7 +5,7 @@ const path = require("path");
 
 const root = process.cwd();
 const docsRoot = path.resolve(root, "../FlowDocs");
-const outputDir = path.join(root, "docs/audits");
+const outputDir = path.join(root, "docs/forensics");
 const jsonOutput = path.join(outputDir, "system-forensic-gates.json");
 const markdownOutput = path.join(outputDir, "system-forensic-gates.md");
 const generatedAt = "2026-08-12";

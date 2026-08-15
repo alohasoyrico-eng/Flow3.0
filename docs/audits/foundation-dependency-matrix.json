@@ -396,5 +396,9 @@
         }
       ]
     }
-  ]
+  ],
+  "status": "pass",
+  "inventory": {
+    "foundationDependencyMatrixDebt": 0
+  }
 }

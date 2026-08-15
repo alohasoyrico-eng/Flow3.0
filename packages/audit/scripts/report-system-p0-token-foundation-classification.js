@@ -241,9 +241,12 @@ function writeReport() {
   const classification = classifyTokens(tokenSources.tokens, foundations);
   const totalTokens = Object.keys(tokenSources.tokens).length;
   const decisionCount = classification.rows.filter((row) => row.requiresDecision).length;
+  const tokenFoundationClassificationDebt = tokenSources.duplicates.length
+    + (tokenSources.legacyFlatSourcePresent ? 1 : 0);
   const data = {
     generatedAt: new Date().toISOString(),
     scope: "P0.1 token/foundation source classification",
+    status: tokenFoundationClassificationDebt === 0 ? "pass" : "fail",
     source: {
       foundationsMeta: path.relative(ROOT, FOUNDATIONS_META),
       foundationsDir: path.relative(ROOT, FOUNDATIONS_DIR),
@@ -264,6 +267,9 @@ function writeReport() {
       primitiveOrSemanticCandidates: classification.buckets.primitiveOrSemanticCandidate.length,
       unclassified: classification.buckets.unclassified.length,
       requiresDecision: decisionCount,
+    },
+    inventory: {
+      tokenFoundationClassificationDebt,
     },
     foundations,
     byFoundation: classification.byFoundation,

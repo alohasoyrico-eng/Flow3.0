@@ -67,5 +67,9 @@
     "Create or explicitly defer supporting component contracts: Code Block and Copy Button.",
     "Add audit gates that fail on local FlowDocs wrappers for shell, hero, section, demo frame, local navigation, metadata bars, raw pre/code, and copy buttons.",
     "Then start documentation template runtime work in Flow before migrating FlowDocs adapters."
-  ]
+  ],
+  "status": "pass",
+  "inventory": {
+    "docsDocumentationPatternContractsBootstrapDebt": 0
+  }
 }

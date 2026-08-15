@@ -4,8 +4,8 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const gatesFile = path.join(root, "docs/audits/system-forensic-gates.json");
-const outputDir = path.join(root, "docs/audits");
+const gatesFile = path.join(root, "docs/forensics/system-forensic-gates.json");
+const outputDir = path.join(root, "docs/forensics");
 const jsonOutput = path.join(outputDir, "system-remediation-matrix.json");
 const markdownOutput = path.join(outputDir, "system-remediation-matrix.md");
 
@@ -195,7 +195,7 @@ function main() {
   const report = {
     schemaVersion: "flow-system-remediation-matrix@1",
     generatedAt: "2026-08-11",
-    source: "docs/audits/system-forensic-gates.json",
+    source: "docs/forensics/system-forensic-gates.json",
     status: "planning_only",
     summary: {
       totalTickets: tickets.length,

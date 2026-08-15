@@ -4,10 +4,10 @@
   "audit": "system audit contract governance",
   "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
   "inventory": {
-    "trackedJsonReports": 163,
-    "gateReports": 145,
-    "contractArtifacts": 18,
-    "markdownReports": 155,
+    "trackedJsonReports": 158,
+    "gateReports": 158,
+    "contractArtifacts": 0,
+    "markdownReports": 150,
     "orphanMarkdownReports": 0,
     "dirtyDocsAuditEntries": 0,
     "reportsMissingCategory": 0,
@@ -87,34 +87,54 @@
     },
     {
       "file": "docs/audits/docs-documentation-component-contracts-bootstrap.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsDocumentationComponentContractsBootstrapDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
       "file": "docs/audits/docs-documentation-pattern-contracts-bootstrap.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsDocumentationPatternContractsBootstrapDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
       "file": "docs/audits/docs-documentation-section-runtime-bootstrap.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "runtime-preview",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsDocumentationSectionRuntimeBootstrapDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
       "file": "docs/audits/docs-shell-template-runtime-bootstrap.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsShellTemplateRuntimeBootstrapDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -132,10 +152,15 @@
     },
     {
       "file": "docs/audits/docs-template-contract-bootstrap.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "docsTemplateContractBootstrapDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -166,10 +191,15 @@
     },
     {
       "file": "docs/audits/energy-quality-contract.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "energyQualityContractDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -213,10 +243,15 @@
     },
     {
       "file": "docs/audits/foundation-dependency-matrix.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "foundationDependencyMatrixDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -1079,10 +1114,15 @@
     },
     {
       "file": "docs/audits/system-baseline-master.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "systemBaselineMasterDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -1240,11 +1280,11 @@
       "debtMetrics": [
         {
           "key": "reportsWithDebtMetrics",
-          "value": 144
+          "value": 157
         },
         {
           "key": "debtMetrics",
-          "value": 177
+          "value": 191
         },
         {
           "key": "categoryMinimumDebt",
@@ -1282,14 +1322,6 @@
       "issues": []
     },
     {
-      "file": "docs/audits/system-forensic-gates.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "fail",
-      "debtMetrics": [],
-      "issues": []
-    },
-    {
       "file": "docs/audits/system-generated-token-output-governance.json",
       "kind": "gate-report",
       "category": "foundations-primitives",
@@ -1304,50 +1336,41 @@
     },
     {
       "file": "docs/audits/system-master-remediation-plan.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
-      "issues": []
-    },
-    {
-      "file": "docs/audits/system-p0-forensic-detail.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "forensic_detail_only",
-      "debtMetrics": [],
-      "issues": []
-    },
-    {
-      "file": "docs/audits/system-p0-owner-decision-matrix.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "owner_decision_required",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "systemMasterRemediationPlanDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
       "file": "docs/audits/system-p0-primitive-runtime-matrix.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
-      "issues": []
-    },
-    {
-      "file": "docs/audits/system-p0-remediation-sequence.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "sequence_only",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "primitiveRuntimeMatrixDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
       "file": "docs/audits/system-p0-token-foundation-classification.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": null,
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "tokenFoundationClassificationDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -1656,10 +1679,15 @@
     },
     {
       "file": "docs/audits/system-raw-token-value-decision-matrix.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "PASS",
-      "debtMetrics": [],
+      "kind": "gate-report",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "rawTokenValueDecisionMatrixDebt",
+          "value": 0
+        }
+      ],
       "issues": []
     },
     {
@@ -1962,14 +1990,6 @@
       "issues": []
     },
     {
-      "file": "docs/audits/system-remediation-matrix.json",
-      "kind": "contract-artifact",
-      "category": null,
-      "status": "planning_only",
-      "debtMetrics": [],
-      "issues": []
-    },
-    {
       "file": "docs/audits/system-template-artifact-tests.json",
       "kind": "gate-report",
       "category": "react-primary",
@@ -2086,8 +2106,8 @@
     },
     {
       "file": "docs/audits/system-typescript-public-surface.json",
-      "kind": "contract-artifact",
-      "category": null,
+      "kind": "gate-report",
+      "category": "react-primary",
       "status": "pass",
       "debtMetrics": [
         {
@@ -2743,12 +2763,6 @@
       "issues": []
     },
     {
-      "file": "docs/audits/system-forensic-gates.md",
-      "jsonPair": "docs/audits/system-forensic-gates.json",
-      "status": "pass",
-      "issues": []
-    },
-    {
       "file": "docs/audits/system-generated-token-output-governance.md",
       "jsonPair": "docs/audits/system-generated-token-output-governance.json",
       "status": "pass",
@@ -2761,26 +2775,8 @@
       "issues": []
     },
     {
-      "file": "docs/audits/system-p0-forensic-detail.md",
-      "jsonPair": "docs/audits/system-p0-forensic-detail.json",
-      "status": "pass",
-      "issues": []
-    },
-    {
-      "file": "docs/audits/system-p0-owner-decision-matrix.md",
-      "jsonPair": "docs/audits/system-p0-owner-decision-matrix.json",
-      "status": "pass",
-      "issues": []
-    },
-    {
       "file": "docs/audits/system-p0-primitive-runtime-matrix.md",
       "jsonPair": "docs/audits/system-p0-primitive-runtime-matrix.json",
-      "status": "pass",
-      "issues": []
-    },
-    {
-      "file": "docs/audits/system-p0-remediation-sequence.md",
-      "jsonPair": "docs/audits/system-p0-remediation-sequence.json",
       "status": "pass",
       "issues": []
     },
@@ -3051,12 +3047,6 @@
     {
       "file": "docs/audits/system-react-summary-action-typescript-surface.md",
       "jsonPair": "docs/audits/system-react-summary-action-typescript-surface.json",
-      "status": "pass",
-      "issues": []
-    },
-    {
-      "file": "docs/audits/system-remediation-matrix.md",
-      "jsonPair": "docs/audits/system-remediation-matrix.json",
       "status": "pass",
       "issues": []
     },

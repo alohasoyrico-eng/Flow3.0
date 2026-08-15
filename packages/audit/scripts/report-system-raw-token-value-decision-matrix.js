@@ -87,8 +87,9 @@ function main() {
     return acc;
   }, {});
   const status = report.totals.violations === 0
-    ? "PASS"
-    : rows.every((row) => row.owner !== "unknown") ? "CLASSIFIED_BLOCKED" : "FAIL";
+    ? "pass"
+    : rows.every((row) => row.owner !== "unknown") ? "warning" : "fail";
+  const rawTokenValueDecisionMatrixDebt = rows.filter((row) => row.owner === "unknown").length;
   const data = {
     generatedAt: new Date().toISOString(),
     scope: "Raw token value decision matrix",
@@ -98,6 +99,9 @@ function main() {
       violations: report.totals.violations,
       rows: rows.length,
       owners: Object.keys(totalsByOwner).length,
+    },
+    inventory: {
+      rawTokenValueDecisionMatrixDebt,
     },
     totalsByDecision,
     totalsByOwner,

@@ -18,7 +18,8 @@
     "primitives": 24,
     "components": 60,
     "patterns": 63,
-    "templates": 9
+    "templates": 9,
+    "systemBaselineMasterDebt": 0
   },
   "runtimeCoverage": {
     "foundations": {
@@ -160,41 +161,6 @@
       }
     }
   },
-  "knownDuplicateDebt": {
-    "shellPatterns": [
-      "topbar",
-      "sidebar",
-      "search"
-    ],
-    "docOnlyPatternCandidates": [
-      "date-picker",
-      "date-range-picker",
-      "electromobility-dashboard",
-      "finance-dashboard",
-      "fleet-dashboard",
-      "fleet-dashboard-overview",
-      "fuel-dashboard",
-      "maintenance-dashboard",
-      "mobile-card-detail-and-quick-actions",
-      "mobile-card-overview",
-      "mobile-movement-detail",
-      "mobile-recent-movements",
-      "phone-input",
-      "routes-and-nearby-stations-mobile",
-      "station-detail-and-route-guidance",
-      "toll-dashboard"
-    ],
-    "docsVisualLeaks": [
-      "background gradients",
-      "grid texture",
-      "docs-only cards",
-      "docs-only tabs",
-      "docs-only shell layout",
-      "handcrafted demos",
-      "imperative DOM handlers"
-    ],
-    "status": "must_be_expanded_1_to_1_before_remediation"
-  },
   "criticalFindings": [
     {
       "id": "no-typescript-source",
@@ -235,5 +201,41 @@
       "blocked docs-only CSS/JS patterns",
       "TypeScript and Style Dictionary non-negotiable gates"
     ]
+  },
+  "status": "pass",
+  "knownDuplicateEvidence": {
+    "shellPatterns": [
+      "topbar",
+      "sidebar",
+      "search"
+    ],
+    "docOnlyPatternCandidates": [
+      "date-picker",
+      "date-range-picker",
+      "electromobility-dashboard",
+      "finance-dashboard",
+      "fleet-dashboard",
+      "fleet-dashboard-overview",
+      "fuel-dashboard",
+      "maintenance-dashboard",
+      "mobile-card-detail-and-quick-actions",
+      "mobile-card-overview",
+      "mobile-movement-detail",
+      "mobile-recent-movements",
+      "phone-input",
+      "routes-and-nearby-stations-mobile",
+      "station-detail-and-route-guidance",
+      "toll-dashboard"
+    ],
+    "docsVisualLeaks": [
+      "background gradients",
+      "grid texture",
+      "docs-only cards",
+      "docs-only tabs",
+      "docs-only shell layout",
+      "handcrafted demos",
+      "imperative DOM handlers"
+    ],
+    "status": "must_be_expanded_1_to_1_before_remediation"
   }
 }

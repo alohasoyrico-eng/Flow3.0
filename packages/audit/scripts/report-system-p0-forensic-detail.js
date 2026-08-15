@@ -4,8 +4,8 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const inputFile = path.join(root, "docs/audits/system-remediation-matrix.json");
-const outputDir = path.join(root, "docs/audits");
+const inputFile = path.join(root, "docs/forensics/system-remediation-matrix.json");
+const outputDir = path.join(root, "docs/forensics");
 const jsonOutput = path.join(outputDir, "system-p0-forensic-detail.json");
 const markdownOutput = path.join(outputDir, "system-p0-forensic-detail.md");
 
@@ -176,7 +176,7 @@ function main() {
   const report = {
     schemaVersion: "flow-system-p0-forensic-detail@1",
     generatedAt: "2026-08-11",
-    source: "docs/audits/system-remediation-matrix.json",
+    source: "docs/forensics/system-remediation-matrix.json",
     status: "forensic_detail_only",
     totalDocsHandSurfaceRefs: tickets.reduce((sum, ticket) => sum + ticket.docsHandSurfaceCount, 0),
     foundationTickets: tickets.filter((ticket) => ticket.layer === "foundation"),

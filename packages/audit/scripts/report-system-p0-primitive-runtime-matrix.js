@@ -180,10 +180,15 @@ function writeReport() {
     policyOrNonRuntimeDecisionNeeded: rows.filter((row) => row.status === "policy-or-non-runtime-decision-needed").length,
     p0RuntimeRequired: rows.filter((row) => row.p0RuntimeRequired).length,
   };
+  const primitiveRuntimeMatrixDebt = totals.missingP0Runtime + totals.jsRuntimeOnly;
   const data = {
     generatedAt: new Date().toISOString(),
     scope: "P0.2 primitive runtime matrix",
+    status: primitiveRuntimeMatrixDebt === 0 ? "pass" : "fail",
     totals,
+    inventory: {
+      primitiveRuntimeMatrixDebt,
+    },
     rows,
   };
   fs.mkdirSync(path.dirname(OUT_JSON), { recursive: true });

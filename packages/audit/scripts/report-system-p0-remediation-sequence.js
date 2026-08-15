@@ -4,12 +4,12 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const inputFile = path.join(root, "docs/audits/system-p0-owner-decision-matrix.json");
+const inputFile = path.join(root, "docs/forensics/system-p0-owner-decision-matrix.json");
 const tokenSourceGatesFile = path.join(root, "docs/audits/system-p0-token-source-gates.json");
 const primitiveRuntimeMatrixFile = path.join(root, "docs/audits/system-p0-primitive-runtime-matrix.json");
 const shellPatternContractGovernanceFile = path.join(root, "docs/audits/shell-pattern-contract-governance-audit.json");
 const flowDocsP0ShellCleanupEvidenceFile = path.join(root, "docs/audits/flowdocs-p0-shell-cleanup-evidence.json");
-const outputDir = path.join(root, "docs/audits");
+const outputDir = path.join(root, "docs/forensics");
 const jsonOutput = path.join(outputDir, "system-p0-remediation-sequence.json");
 const markdownOutput = path.join(outputDir, "system-p0-remediation-sequence.md");
 
@@ -269,7 +269,7 @@ function main() {
   const report = {
     schemaVersion: "flow-system-p0-remediation-sequence@1",
     generatedAt: "2026-08-11",
-    source: "docs/audits/system-p0-owner-decision-matrix.json",
+    source: "docs/forensics/system-p0-owner-decision-matrix.json",
     status: "sequence_only",
     completedPrerequisites: {
       p01Complete,

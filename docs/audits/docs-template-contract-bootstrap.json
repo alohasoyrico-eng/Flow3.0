@@ -71,5 +71,9 @@
     "Create or defer supporting component contracts: Code Block and Copy Button.",
     "Add audits that fail when FlowDocs migrated page families reintroduce local structural wrappers.",
     "Only then start implementation for documentation templates or FlowDocs adapters."
-  ]
+  ],
+  "status": "pass",
+  "inventory": {
+    "docsTemplateContractBootstrapDebt": 0
+  }
 }

@@ -70,5 +70,9 @@
     "Visual QA against existing FlowDocs shell on desktop and mobile.",
     "Adapter in FlowDocs that maps catalog routes, counts, search, theme, and drawer state into DocsShellTemplate.",
     "Strict FlowDocs gate that forbids local docs shell wrappers once the adapter is active."
-  ]
+  ],
+  "status": "pass",
+  "inventory": {
+    "docsShellTemplateRuntimeBootstrapDebt": 0
+  }
 }

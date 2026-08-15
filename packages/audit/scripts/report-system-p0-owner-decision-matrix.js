@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const inputFile = path.join(root, "docs/audits/system-p0-forensic-detail.json");
+const inputFile = path.join(root, "docs/forensics/system-p0-forensic-detail.json");
 const surfacePolicyFile = path.join(root, "packages/content/content/flowdocs-p0-surface-policy.json");
-const outputDir = path.join(root, "docs/audits");
+const outputDir = path.join(root, "docs/forensics");
 const jsonOutput = path.join(outputDir, "system-p0-owner-decision-matrix.json");
 const markdownOutput = path.join(outputDir, "system-p0-owner-decision-matrix.md");
 
@@ -211,7 +211,7 @@ function main() {
   const report = {
     schemaVersion: "flow-system-p0-owner-decision-matrix@1",
     generatedAt: "2026-08-11",
-    source: "docs/audits/system-p0-forensic-detail.json",
+    source: "docs/forensics/system-p0-forensic-detail.json",
     status: "owner_decision_required",
     totalSurfaceRefs: detail.totalDocsHandSurfaceRefs,
     decisionTickets,

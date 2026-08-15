@@ -1,26 +1,6 @@
 {
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
-  "contractArtifactFiles": [
-    "energy-quality-contract.json",
-    "foundation-dependency-matrix.json",
-    "system-baseline-master.json",
-    "system-forensic-gates.json",
-    "system-master-remediation-plan.json",
-    "system-p0-forensic-detail.json",
-    "system-p0-owner-decision-matrix.json",
-    "system-p0-primitive-runtime-matrix.json",
-    "system-p0-remediation-sequence.json",
-    "system-p0-token-foundation-classification.json",
-    "system-raw-token-value-decision-matrix.json",
-    "system-remediation-matrix.json",
-    "system-typescript-public-surface.json",
-    "trustworthy-salvage-matrix.json",
-    "docs-documentation-component-contracts-bootstrap.json",
-    "docs-documentation-pattern-contracts-bootstrap.json",
-    "docs-documentation-section-runtime-bootstrap.json",
-    "docs-shell-template-runtime-bootstrap.json",
-    "docs-template-contract-bootstrap.json"
-  ],
+  "contractArtifactFiles": [],
   "expectedStrategicCategories": [
     "anti-duplication",
     "cascade",
@@ -189,6 +169,19 @@
     "system-generated-token-output-governance.json": "foundations-primitives",
     "system-p0-token-source-gates.json": "foundations-primitives",
     "system-raw-token-value-governance.json": "foundations-primitives",
-    "system-token-output-gates.json": "foundations-primitives"
+    "system-token-output-gates.json": "foundations-primitives",
+    "docs-documentation-component-contracts-bootstrap.json": "docs-system-boundary",
+    "docs-documentation-pattern-contracts-bootstrap.json": "docs-system-boundary",
+    "docs-documentation-section-runtime-bootstrap.json": "docs-system-boundary",
+    "docs-shell-template-runtime-bootstrap.json": "docs-system-boundary",
+    "docs-template-contract-bootstrap.json": "docs-system-boundary",
+    "energy-quality-contract.json": "foundations-primitives",
+    "foundation-dependency-matrix.json": "foundations-primitives",
+    "system-baseline-master.json": "quality",
+    "system-master-remediation-plan.json": "quality",
+    "system-raw-token-value-decision-matrix.json": "foundations-primitives",
+    "system-p0-primitive-runtime-matrix.json": "foundations-primitives",
+    "system-p0-token-foundation-classification.json": "foundations-primitives",
+    "system-typescript-public-surface.json": "react-primary"
   }
 }

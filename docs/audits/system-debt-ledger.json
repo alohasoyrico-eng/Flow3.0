@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 144,
-    "categoryMappings": 135,
+    "reports": 157,
+    "categoryMappings": 148,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 144,
-    "debtMetrics": 177,
+    "reportsWithDebtMetrics": 157,
+    "debtMetrics": 191,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -67,19 +67,19 @@
     {
       "category": "docs-system-boundary",
       "principle": "FlowDocs must consume Flow instead of owning system behavior.",
-      "reports": 4,
+      "reports": 9,
       "minimumReports": 2,
       "coverageGap": 0,
-      "debtMetrics": 5,
+      "debtMetrics": 10,
       "totalDebt": 0
     },
     {
       "category": "foundations-primitives",
       "principle": "Foundations and primitives must be exportable beyond CSS.",
-      "reports": 35,
+      "reports": 40,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 37,
+      "debtMetrics": 42,
       "totalDebt": 0
     },
     {
@@ -94,19 +94,19 @@
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 18,
+      "reports": 20,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 21,
+      "debtMetrics": 23,
       "totalDebt": 0
     },
     {
       "category": "react-primary",
       "principle": "React must be the primary implementation with real contracts.",
-      "reports": 44,
+      "reports": 45,
       "minimumReports": 10,
       "coverageGap": 0,
-      "debtMetrics": 50,
+      "debtMetrics": 52,
       "totalDebt": 0
     },
     {
@@ -200,6 +200,62 @@
       ]
     },
     {
+      "file": "docs-documentation-component-contracts-bootstrap.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-documentation-component-contracts-bootstrap.json",
+          "scope": "inventory",
+          "metric": "docsDocumentationComponentContractsBootstrapDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "docs-documentation-pattern-contracts-bootstrap.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-documentation-pattern-contracts-bootstrap.json",
+          "scope": "inventory",
+          "metric": "docsDocumentationPatternContractsBootstrapDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "docs-documentation-section-runtime-bootstrap.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-documentation-section-runtime-bootstrap.json",
+          "scope": "inventory",
+          "metric": "docsDocumentationSectionRuntimeBootstrapDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "docs-shell-template-runtime-bootstrap.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-shell-template-runtime-bootstrap.json",
+          "scope": "inventory",
+          "metric": "docsShellTemplateRuntimeBootstrapDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "docs-system-boundary-audit.json",
       "category": "docs-system-boundary",
       "status": "pass",
@@ -208,6 +264,20 @@
           "report": "docs-system-boundary-audit.json",
           "scope": "inventory",
           "metric": "docsSystemBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "docs-template-contract-bootstrap.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "docs-template-contract-bootstrap.json",
+          "scope": "inventory",
+          "metric": "docsTemplateContractBootstrapDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -236,6 +306,20 @@
           "report": "email-channel-renderer-audit.json",
           "scope": "inventory",
           "metric": "emailRendererDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "energy-quality-contract.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "energy-quality-contract.json",
+          "scope": "inventory",
+          "metric": "energyQualityContractDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -278,6 +362,20 @@
           "report": "foundation-accessibility-cascade-audit.json",
           "scope": "topLevel",
           "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "foundation-dependency-matrix.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "foundation-dependency-matrix.json",
+          "scope": "inventory",
+          "metric": "foundationDependencyMatrixDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1243,6 +1341,20 @@
       ]
     },
     {
+      "file": "system-baseline-master.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-baseline-master.json",
+          "scope": "inventory",
+          "metric": "systemBaselineMasterDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "system-component-artifact-tests.json",
       "category": "quality",
       "status": "pass",
@@ -1412,6 +1524,48 @@
           "report": "system-generated-token-output-governance.json",
           "scope": "inventory",
           "metric": "generatedTokenOutputGovernanceDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-master-remediation-plan.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-master-remediation-plan.json",
+          "scope": "inventory",
+          "metric": "systemMasterRemediationPlanDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-p0-primitive-runtime-matrix.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-p0-primitive-runtime-matrix.json",
+          "scope": "inventory",
+          "metric": "primitiveRuntimeMatrixDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-p0-token-foundation-classification.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-p0-token-foundation-classification.json",
+          "scope": "inventory",
+          "metric": "tokenFoundationClassificationDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1769,6 +1923,20 @@
           "report": "system-public-runtime-boundary.json",
           "scope": "inventory",
           "metric": "publicRuntimeBoundaryDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-raw-token-value-decision-matrix.json",
+      "category": "foundations-primitives",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-raw-token-value-decision-matrix.json",
+          "scope": "inventory",
+          "metric": "rawTokenValueDecisionMatrixDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -2224,6 +2392,27 @@
           "report": "system-typescript-project-setup.json",
           "scope": "topLevel",
           "metric": "typescriptProjectSetupDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "system-typescript-public-surface.json",
+      "category": "react-primary",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "system-typescript-public-surface.json",
+          "scope": "topLevel",
+          "metric": "typescriptPublicSurfaceDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "system-typescript-public-surface.json",
+          "scope": "topLevel",
+          "metric": "uniqueTypescriptPublicSurfaceDebt",
           "value": 0,
           "numericValue": 0
         }

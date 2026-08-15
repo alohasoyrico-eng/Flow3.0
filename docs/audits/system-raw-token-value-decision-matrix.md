@@ -1,6 +1,6 @@
 # Raw Token Value Decision Matrix
 
-Status: **PASS**
+Status: **pass**
 
 This matrix classifies every raw token value violation by owner and required action. Classification is not remediation; Phase 1 remains blocked until violations are removed or converted into governed token source.
 

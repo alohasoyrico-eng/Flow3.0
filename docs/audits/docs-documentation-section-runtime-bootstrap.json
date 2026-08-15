@@ -3,7 +3,7 @@
   "date": "2026-08-13",
   "artifact": "documentation-section",
   "layer": "Pattern",
-  "status": "runtime-preview",
+  "status": "pass",
   "sourceRuntime": "packages/react/src/patterns/DocumentationSection.ts",
   "sourceTypes": "packages/react/src/patterns/DocumentationSection.d.ts",
   "distRuntime": "packages/react/dist/patterns/DocumentationSection.js",
@@ -33,5 +33,8 @@
   "notes": [
     "This closes the contract-only gap for the documentation-section boundary.",
     "FlowDocs still has local section wrappers inventoried by audit; those are adapter/migration debt, not runtime availability debt."
-  ]
+  ],
+  "inventory": {
+    "docsDocumentationSectionRuntimeBootstrapDebt": 0
+  }
 }

@@ -474,5 +474,9 @@
     "status": "phase_next",
     "phase": "7. FlowDocs v2",
     "then": "Continue with FlowDocs v2 shell consuming Flow real."
+  },
+  "status": "pass",
+  "inventory": {
+    "systemMasterRemediationPlanDebt": 0
   }
 }
