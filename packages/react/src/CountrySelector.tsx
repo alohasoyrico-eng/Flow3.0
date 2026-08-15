@@ -216,6 +216,27 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
       ),
       React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more"),
     ),
+    searchable
+      ? React.createElement(
+        "span",
+        { className: "country-selector__search" },
+        React.createElement("input", {
+          className: "country-selector__search-input",
+          "data-country-selector-search": "",
+          type: "search",
+          placeholder: searchPlaceholder,
+          value: query,
+          "aria-label": searchPlaceholder || `${label} search`,
+          onChange: (event: ChangeEvent<HTMLInputElement>) => setQuery(event.currentTarget.value),
+          onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.key === "Escape") {
+              event.preventDefault();
+              setOpen(false, event);
+            }
+          },
+        }),
+      )
+      : null,
     React.createElement(
       "span",
       {
@@ -225,26 +246,6 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
         role: "listbox",
         "aria-label": `${label} options`,
       },
-      searchable
-        ? React.createElement(
-          "span",
-          { className: "country-selector__search" },
-          React.createElement("input", {
-            className: "country-selector__search-input",
-            "data-country-selector-search": "",
-            type: "search",
-            placeholder: searchPlaceholder,
-            value: query,
-            onChange: (event: ChangeEvent<HTMLInputElement>) => setQuery(event.currentTarget.value),
-            onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => {
-              if (event.key === "Escape") {
-                event.preventDefault();
-                setOpen(false, event);
-              }
-            },
-          }),
-        )
-        : null,
       options.map((option, index) => {
         const hidden = !matchesQuery(option, query);
         const isSelected = option.country === selectedCountry.country;
@@ -285,8 +286,8 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
           React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"),
         );
       }),
-      emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
     ),
+    emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
   );
 }) as CountrySelectorComponent;
 

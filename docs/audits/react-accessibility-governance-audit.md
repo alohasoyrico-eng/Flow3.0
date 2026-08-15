@@ -11,7 +11,7 @@ React components with accessibility-critical interaction must keep explicit role
 - Accessibility-critical components: 10
 - Critical passing: 10
 - Role declarations: 71
-- ARIA declarations: 326
+- ARIA declarations: 327
 - Keyboard handlers: 40
 - Focus calls: 15
 - Failures: 0
@@ -29,7 +29,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
 | totalRoles | 71 | 71 |
-| totalAria | 326 | 326 |
+| totalAria | 327 | 327 |
 | keyboardHandlers | 40 | 40 |
 | focusCalls | 15 | 15 |
 | failures | 0 | 0 |
@@ -84,7 +84,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | CodeInput | 1 | 4 | 0 | 0 | 0 | yes |
 | Combobox | 4 | 15 | 2 | 1 | 0 | yes |
 | CopyButton | 0 | 2 | 0 | 0 | 0 | no |
-| CountrySelector | 4 | 14 | 3 | 2 | 0 | yes |
+| CountrySelector | 4 | 15 | 3 | 2 | 0 | yes |
 | DatePicker | 5 | 20 | 4 | 1 | 1 | yes |
 | DateRangePicker | 5 | 21 | 4 | 2 | 1 | yes |
 | Dialog | 1 | 6 | 2 | 0 | 2 | yes |

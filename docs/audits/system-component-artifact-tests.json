@@ -2029,7 +2029,7 @@
         {
           "status": "pass",
           "component": "CountrySelector",
-          "markupLength": 11395,
+          "markupLength": 11425,
           "rootTag": "<span data-artifact-test=\"countrySelector\" class=\"select-control country-selector flow-artifact-test-hook\" data-country-selector=\"\" data-country=\"AR\" data-value=\"AR\" data-open=\"false\" data-density=\"lg\">",
           "issues": []
         },

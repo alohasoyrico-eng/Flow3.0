@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 6,
-    "partialComponents": 57,
+    "readyComponents": 16,
+    "partialComponents": 47,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -43,15 +43,15 @@
   },
   "readinessEvidence": "packages/content/content/react-production-readiness-evidence.json",
   "testCapabilities": {
-    "testingLibraryRender": 167,
-    "fireEvent": 452,
-    "getByRole": 264,
-    "getByLabelText": 12,
-    "keyDown": 19,
-    "escapeKey": 8,
+    "testingLibraryRender": 177,
+    "fireEvent": 462,
+    "getByRole": 279,
+    "getByLabelText": 13,
+    "keyDown": 20,
+    "escapeKey": 9,
     "arrowKeys": 12,
-    "userEvent": 4,
-    "axe": 3
+    "userEvent": 6,
+    "axe": 4
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -364,6 +364,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -412,6 +413,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -445,7 +447,7 @@
       "component": "CardExpiryInput",
       "priority": "P0",
       "family": "forms-payment",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./card-expiry-input",
         "rootExport": true,
@@ -456,6 +458,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -467,28 +470,32 @@
         "formatting/masking"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "formatting/masking"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: formatting/masking"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "card-number-input",
       "component": "CardNumberInput",
       "priority": "P0",
       "family": "forms-payment",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./card-number-input",
         "rootExport": true,
@@ -499,6 +506,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -510,28 +518,32 @@
         "formatting/masking"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "formatting/masking"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: formatting/masking"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "card-security-code-input",
       "component": "CardSecurityCodeInput",
       "priority": "P0",
       "family": "forms-payment",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./card-security-code-input",
         "rootExport": true,
@@ -542,6 +554,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -553,21 +566,25 @@
         "formatting/masking"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "formatting/masking"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: formatting/masking"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "card-summary",
@@ -913,7 +930,7 @@
       "component": "CodeInput",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./code-input",
         "rootExport": true,
@@ -924,6 +941,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -936,29 +954,33 @@
         "disabled/invalid"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: disabled/invalid"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "combobox",
       "component": "Combobox",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./combobox",
         "rootExport": true,
@@ -969,6 +991,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -982,22 +1005,26 @@
         "disabled/invalid"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: disabled/invalid"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "copy-button",
@@ -1045,7 +1072,7 @@
       "component": "CountrySelector",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./country-selector",
         "rootExport": true,
@@ -1055,7 +1082,8 @@
         "contract": "packages/content/content/component-contracts/components/country-selector.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1067,29 +1095,33 @@
         "disabled/invalid"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: disabled/invalid"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "date-picker",
       "component": "DatePicker",
       "priority": "P0",
       "family": "forms-date",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./date-picker",
         "rootExport": true,
@@ -1100,6 +1132,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1112,29 +1145,33 @@
         "date constraints"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "date constraints"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: date constraints"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "date-range-picker",
       "component": "DateRangePicker",
       "priority": "P0",
       "family": "forms-date",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./date-range-picker",
         "rootExport": true,
@@ -1145,6 +1182,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -1158,22 +1196,26 @@
         "date constraints"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "date constraints"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: date constraints"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "dialog",
@@ -1500,6 +1542,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
@@ -1843,7 +1886,7 @@
       "component": "PhoneInput",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./phone-input",
         "rootExport": true,
@@ -1854,6 +1897,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1866,22 +1910,26 @@
         "disabled/invalid"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: disabled/invalid"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "popover",
@@ -2153,7 +2201,7 @@
       "component": "Select",
       "priority": "P0",
       "family": "forms",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./select",
         "rootExport": true,
@@ -2164,6 +2212,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -2178,22 +2227,26 @@
         "disabled/invalid"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "keyboard/input events",
+          "disabled/invalid"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: keyboard/input events",
-        "missing production evidence: disabled/invalid"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "skeleton",

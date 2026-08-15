@@ -19,10 +19,169 @@
         "Axe structural accessibility excludes color-contrast in JSDOM."
       ]
     },
+    "card-expiry-input": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "card-number-input": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "card-security-code-input": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "code-input": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "combobox": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "country-selector": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "date-picker": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "date constraints"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "date-range-picker": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "date constraints"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
     "input": {
       "status": "ready",
       "evidenceFiles": [
         "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "phone-input": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
         "packages/react/test/interaction.test.mjs"
       ],
       "coveredProductionEvidence": [
@@ -59,6 +218,24 @@
       "status": "ready",
       "evidenceFiles": [
         "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "keyboard/input events",
+        "disabled/invalid"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "select": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p0-forms-advanced.test.mjs",
         "packages/react/test/interaction.test.mjs"
       ],
       "coveredProductionEvidence": [

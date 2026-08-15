@@ -116,7 +116,7 @@ const qaReports = [
       criticalComponents: 10,
       criticalPassing: 10,
       totalRoles: 71,
-      totalAria: 326,
+      totalAria: 327,
       keyboardHandlers: 40,
       focusCalls: 15,
       failures: 0,

@@ -128,19 +128,14 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
                 moveActive(-1);
             }
         },
-    }, React.createElement(CountryFlag, { country: selectedCountry.country }), React.createElement("span", { className: "country-selector__value", "data-country-selector-value": "" }, React.createElement("span", { className: "country-selector__label", "data-country-selector-label": "" }, selectedCountry.label), React.createElement("span", { className: "select-control__code country-selector__code", "data-country-selector-prefix": "" }, selectedCountry.callingCode)), React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more")), React.createElement("span", {
-        id: `${selectorId}-listbox`,
-        className: "select-control__listbox country-selector__listbox",
-        "data-country-selector-list": "",
-        role: "listbox",
-        "aria-label": `${label} options`,
-    }, searchable
+    }, React.createElement(CountryFlag, { country: selectedCountry.country }), React.createElement("span", { className: "country-selector__value", "data-country-selector-value": "" }, React.createElement("span", { className: "country-selector__label", "data-country-selector-label": "" }, selectedCountry.label), React.createElement("span", { className: "select-control__code country-selector__code", "data-country-selector-prefix": "" }, selectedCountry.callingCode)), React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more")), searchable
         ? React.createElement("span", { className: "country-selector__search" }, React.createElement("input", {
             className: "country-selector__search-input",
             "data-country-selector-search": "",
             type: "search",
             placeholder: searchPlaceholder,
             value: query,
+            "aria-label": searchPlaceholder || `${label} search`,
             onChange: (event) => setQuery(event.currentTarget.value),
             onKeyDown: (event) => {
                 if (event.key === "Escape") {
@@ -149,7 +144,13 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
                 }
             },
         }))
-        : null, options.map((option, index) => {
+        : null, React.createElement("span", {
+        id: `${selectorId}-listbox`,
+        className: "select-control__listbox country-selector__listbox",
+        "data-country-selector-list": "",
+        role: "listbox",
+        "aria-label": `${label} options`,
+    }, options.map((option, index) => {
         const hidden = !matchesQuery(option, query);
         const isSelected = option.country === selectedCountry.country;
         return React.createElement("span", {
@@ -177,7 +178,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
                 }
             },
         }, React.createElement(CountryFlag, { country: option.country }), React.createElement("span", { className: "country-selector__option-body" }, React.createElement("span", { className: "select-control__option-label country-selector__option-label" }, option.label), React.createElement("span", { className: "select-control__option-code country-selector__option-code" }, option.callingCode)), React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"));
-    }), emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null));
+    })), emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null);
 });
 CountrySelector.displayName = "CountrySelector";
 CountrySelector.platformContract = countrySelectorPlatformContract;
