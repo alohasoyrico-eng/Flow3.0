@@ -27,7 +27,7 @@ type AvatarIdentityStyle = CSSProperties & {
 };
 
 const validStatuses = new Set<AvatarStatus>(["none", "online", "busy", "offline"]);
-const validStates = new Set<AvatarState>(["default", "disabled", "unknown"]);
+const validStates = new Set<AvatarState>(["default", "online", "busy", "offline", "disabled", "unknown"]);
 
 function initialsFromName(name: string): string {
   return String(name ?? "")

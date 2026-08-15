@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 41,
-    "partialComponents": 22,
+    "readyComponents": 45,
+    "partialComponents": 18,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -51,19 +51,20 @@
       "packages/content/content/react-production-readiness-evidence/p1-feedback.json",
       "packages/content/content/react-production-readiness-evidence/p1-data-display.json",
       "packages/content/content/react-production-readiness-evidence/p1-documentation-overlay.json",
-      "packages/content/content/react-production-readiness-evidence/p2-surface-display.json"
+      "packages/content/content/react-production-readiness-evidence/p2-surface-display.json",
+      "packages/content/content/react-production-readiness-evidence/p2-display-status.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 205,
+    "testingLibraryRender": 209,
     "fireEvent": 484,
-    "getByRole": 358,
-    "getByLabelText": 15,
+    "getByRole": 364,
+    "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 20,
-    "axe": 11
+    "userEvent": 22,
+    "axe": 12
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -197,7 +198,7 @@
       "component": "Avatar",
       "priority": "P2",
       "family": "display-status",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./avatar",
         "rootExport": true,
@@ -207,6 +208,7 @@
         "contract": "packages/content/content/component-contracts/components/avatar.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -218,27 +220,31 @@
         "theme/density"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-display-status.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "theme/density"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers initials, image fallback, accessible name, density, status/state mapping, state-only online/busy/offline support, identity token aliases, and empty-name guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: theme/density"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "badge",
       "component": "Badge",
       "priority": "P2",
       "family": "display-status",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./badge",
         "rootExport": true,
@@ -249,6 +255,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -260,20 +267,24 @@
         "theme/density"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-display-status.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "theme/density"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers live status semantics, count and dot variants, accessible label requirements, tone/state/density propagation, and hidden/empty guards."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: theme/density"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "biometric-prompt",
@@ -385,6 +396,7 @@
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -441,6 +453,7 @@
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -882,7 +895,7 @@
       "component": "Chip",
       "priority": "P2",
       "family": "display-status",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./chip",
         "rootExport": true,
@@ -893,6 +906,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -904,20 +918,25 @@
         "theme/density"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "theme/density"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers static/interactable boundary, selected state, aria-pressed, remove action labeling, callbacks, disabled prevention, tone, variant, icon, and density."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: theme/density"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "code-block",
@@ -2335,6 +2354,7 @@
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2800,7 +2820,7 @@
       "component": "Tag",
       "priority": "P2",
       "family": "display-status",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./tag",
         "rootExport": true,
@@ -2812,6 +2832,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
@@ -2824,20 +2845,24 @@
         "theme/density"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-display-status.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "theme/density"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers static and interactive variants, button semantics for link behavior, click callback, tone/state/density propagation, icon slot, and invalid prop fallback."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: theme/density"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "text-area",

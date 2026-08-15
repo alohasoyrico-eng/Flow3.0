@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "avatar": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-display-status.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers initials, image fallback, accessible name, density, status/state mapping, state-only online/busy/offline support, identity token aliases, and empty-name guard."
+      ]
+    },
+    "badge": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-display-status.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers live status semantics, count and dot variants, accessible label requirements, tone/state/density propagation, and hidden/empty guards."
+      ]
+    },
+    "chip": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-display-status.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers static/interactable boundary, selected state, aria-pressed, remove action labeling, callbacks, disabled prevention, tone, variant, icon, and density."
+      ]
+    },
+    "tag": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-display-status.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "theme/density"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers static and interactive variants, button semantics for link behavior, click callback, tone/state/density propagation, icon slot, and invalid prop fallback."
+      ]
+    }
+  }
+}

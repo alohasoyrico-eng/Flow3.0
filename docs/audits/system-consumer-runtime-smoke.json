@@ -3,7 +3,7 @@
   "generatedAt": "2026-08-14",
   "status": "pass",
   "inventory": {
-    "packedFiles": 1365,
+    "packedFiles": 1366,
     "resolvedExports": 16,
     "renderedArtifacts": 20,
     "consumerRuntimeSmokeDebt": 0
