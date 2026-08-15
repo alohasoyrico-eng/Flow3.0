@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "pagination": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-navigation-disclosure.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard coverage uses native button tab/activation semantics."
+      ]
+    },
+    "segmented-control": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-navigation-disclosure.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    },
+    "tree-view": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p1-navigation-disclosure.test.mjs",
+        "packages/react/test/interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM."
+      ]
+    }
+  }
+}

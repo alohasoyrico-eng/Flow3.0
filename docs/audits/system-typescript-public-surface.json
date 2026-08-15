@@ -6594,7 +6594,7 @@
     "counts": {
       "byExtension": {
         ".js": 684,
-        ".mjs": 25,
+        ".mjs": 26,
         ".ts": 195,
         ".d.ts": 312,
         ".tsx": 63
@@ -6602,7 +6602,7 @@
       "byArea": {
         "script": 307,
         "source": 646,
-        "test": 13,
+        "test": 14,
         "generated-dist": 313
       }
     }

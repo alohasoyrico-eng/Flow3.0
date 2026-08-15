@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 26,
-    "partialComponents": 37,
+    "readyComponents": 29,
+    "partialComponents": 34,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -46,19 +46,20 @@
     "files": [
       "packages/content/content/react-production-readiness-evidence/p0-forms.json",
       "packages/content/content/react-production-readiness-evidence/p0-overlays-navigation.json",
-      "packages/content/content/react-production-readiness-evidence/p1-actions.json"
+      "packages/content/content/react-production-readiness-evidence/p1-actions.json",
+      "packages/content/content/react-production-readiness-evidence/p1-navigation-disclosure.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 187,
-    "fireEvent": 472,
-    "getByRole": 302,
+    "testingLibraryRender": 190,
+    "fireEvent": 477,
+    "getByRole": 319,
     "getByLabelText": 13,
-    "keyDown": 29,
+    "keyDown": 34,
     "escapeKey": 18,
-    "arrowKeys": 14,
-    "userEvent": 10,
-    "axe": 6
+    "arrowKeys": 17,
+    "userEvent": 12,
+    "axe": 7
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -376,6 +377,7 @@
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/production-harness.test.mjs",
@@ -1720,6 +1722,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
@@ -1888,7 +1891,7 @@
       "component": "Pagination",
       "priority": "P1",
       "family": "navigation-disclosure",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./pagination",
         "rootExport": true,
@@ -1899,6 +1902,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -1911,21 +1915,26 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "keyboard navigation",
+          "state"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard coverage uses native button tab/activation semantics."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "phone-input",
@@ -2215,7 +2224,7 @@
       "component": "SegmentedControl",
       "priority": "P1",
       "family": "navigation-disclosure",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./segmented-control",
         "rootExport": true,
@@ -2225,7 +2234,8 @@
         "contract": "packages/content/content/component-contracts/components/segmented-control.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-navigation-disclosure.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2236,21 +2246,25 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "keyboard navigation",
+          "state"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "select",
@@ -2271,6 +2285,7 @@
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
@@ -2900,7 +2915,7 @@
       "component": "TreeView",
       "priority": "P1",
       "family": "navigation-disclosure",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./tree-view",
         "rootExport": true,
@@ -2910,7 +2925,8 @@
         "contract": "packages/content/content/component-contracts/components/tree-view.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs"
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-navigation-disclosure.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2921,21 +2937,25 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "keyboard navigation",
+          "state"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     }
   ]
 }
