@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "animated-moment": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-motion-feedback.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "motion preference"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "AnimatedMoment is non-interactive; evidence covers labeled local cue semantics and motion fallback instead of keyboard activation.",
+        "Evidence covers visible label/description/state copy, role img accessible name, variant/state/density/fullWidth props, Lottie asset metadata through Animation Assets boundary, reduced-motion fallback, disabled fallback, invalid prop fallback, and empty-label guard."
+      ]
+    },
+    "motion-boundary": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-motion-feedback.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "motion preference"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "MotionBoundary is non-interactive; evidence covers bounded group semantics and reduced-motion state precedence instead of keyboard activation.",
+        "Evidence covers group label/description/state description linkage, variant/state/density props, decorative icon and cue hiding, reducedMotion forcing reduced-motion state, disabled precedence, invalid prop fallback, and empty-label guard."
+      ]
+    }
+  }
+}

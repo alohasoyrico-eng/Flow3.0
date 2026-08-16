@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 51,
-    "partialComponents": 12,
+    "readyComponents": 53,
+    "partialComponents": 10,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -55,19 +55,20 @@
       "packages/content/content/react-production-readiness-evidence/p2-display-status.json",
       "packages/content/content/react-production-readiness-evidence/p2-loading-feedback.json",
       "packages/content/content/react-production-readiness-evidence/p2-navigation-disclosure.json",
-      "packages/content/content/react-production-readiness-evidence/p2-data-display.json"
+      "packages/content/content/react-production-readiness-evidence/p2-data-display.json",
+      "packages/content/content/react-production-readiness-evidence/p2-motion-feedback.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 215,
+    "testingLibraryRender": 217,
     "fireEvent": 484,
-    "getByRole": 378,
+    "getByRole": 384,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
     "userEvent": 26,
-    "axe": 15
+    "axe": 16
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -128,7 +129,7 @@
       "component": "AnimatedMoment",
       "priority": "P2",
       "family": "motion-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./animated-moment",
         "rootExport": true,
@@ -138,6 +139,7 @@
         "contract": "packages/content/content/component-contracts/components/animated-moment.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -148,20 +150,27 @@
         "motion preference"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-motion-feedback.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "motion preference"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "AnimatedMoment is non-interactive; evidence covers labeled local cue semantics and motion fallback instead of keyboard activation.",
+          "Evidence covers visible label/description/state copy, role img accessible name, variant/state/density/fullWidth props, Lottie asset metadata through Animation Assets boundary, reduced-motion fallback, disabled fallback, invalid prop fallback, and empty-label guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: motion preference"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "audit-event",
@@ -1910,7 +1919,7 @@
       "component": "MotionBoundary",
       "priority": "P2",
       "family": "motion-feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./motion-boundary",
         "rootExport": true,
@@ -1920,6 +1929,7 @@
         "contract": "packages/content/content/component-contracts/components/motion-boundary.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1930,20 +1940,27 @@
         "motion preference"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-motion-feedback.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "motion preference"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "MotionBoundary is non-interactive; evidence covers bounded group semantics and reduced-motion state precedence instead of keyboard activation.",
+          "Evidence covers group label/description/state description linkage, variant/state/density props, decorative icon and cue hiding, reducedMotion forcing reduced-motion state, disabled precedence, invalid prop fallback, and empty-label guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: motion preference"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "movement-row",
@@ -2398,6 +2415,7 @@
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
+          "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
@@ -2896,6 +2914,7 @@
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
+          "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
