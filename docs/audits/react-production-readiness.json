@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 49,
-    "partialComponents": 14,
+    "readyComponents": 51,
+    "partialComponents": 12,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -54,19 +54,20 @@
       "packages/content/content/react-production-readiness-evidence/p2-surface-display.json",
       "packages/content/content/react-production-readiness-evidence/p2-display-status.json",
       "packages/content/content/react-production-readiness-evidence/p2-loading-feedback.json",
-      "packages/content/content/react-production-readiness-evidence/p2-navigation-disclosure.json"
+      "packages/content/content/react-production-readiness-evidence/p2-navigation-disclosure.json",
+      "packages/content/content/react-production-readiness-evidence/p2-data-display.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 213,
+    "testingLibraryRender": 215,
     "fireEvent": 484,
-    "getByRole": 375,
+    "getByRole": 378,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 24,
-    "axe": 14
+    "userEvent": 26,
+    "axe": 15
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -414,6 +415,7 @@
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
@@ -696,7 +698,7 @@
       "component": "ChartPanel",
       "priority": "P2",
       "family": "data-display",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./chart-panel",
         "rootExport": true,
@@ -706,6 +708,7 @@
         "contract": "packages/content/content/component-contracts/components/chart-panel.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -717,21 +720,28 @@
         "keyboard when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-data-display.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "keyboard when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard evidence covers fallback chart marks that are intentionally focusable in bars and comparison variants; line, sparkline, area, donut, and pareto fallbacks remain read-only group imagery with textSummary.",
+          "Evidence covers Charts primitive ownership, ECharts option serialization, tableFallback availability, readable figure label, visible output value, variant/state/tone/density/fullWidth props, invalid value normalization, invalid series filtering, focusable fallback marks, invalid prop fallback, and empty label/data guards."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: keyboard when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "chat-composer",
@@ -1743,7 +1753,7 @@
       "component": "KpiTile",
       "priority": "P2",
       "family": "data-display",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./kpi-tile",
         "rootExport": true,
@@ -1754,6 +1764,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1765,21 +1776,29 @@
         "keyboard when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-data-display.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "keyboard when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard evidence covers button-style drill-in tiles; href tiles use native link semantics.",
+          "Evidence covers visible label/value/delta, trend icon hiding, drill-in role/label/tabIndex, click and Enter/Space selection callbacks, selected/pressed state, link mode, disabled/loading guards, density/variant/state/tone fallback, and missing-value guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: keyboard when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "list",
@@ -1800,6 +1819,7 @@
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2375,6 +2395,7 @@
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
@@ -2771,6 +2792,7 @@
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
@@ -2871,6 +2893,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
@@ -3021,6 +3044,7 @@
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-documentation-overlay.test.mjs",
+          "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "chart-panel": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-data-display.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard evidence covers fallback chart marks that are intentionally focusable in bars and comparison variants; line, sparkline, area, donut, and pareto fallbacks remain read-only group imagery with textSummary.",
+        "Evidence covers Charts primitive ownership, ECharts option serialization, tableFallback availability, readable figure label, visible output value, variant/state/tone/density/fullWidth props, invalid value normalization, invalid series filtering, focusable fallback marks, invalid prop fallback, and empty label/data guards."
+      ]
+    },
+    "kpi-tile": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-data-display.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/interaction.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "keyboard when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard evidence covers button-style drill-in tiles; href tiles use native link semantics.",
+        "Evidence covers visible label/value/delta, trend icon hiding, drill-in role/label/tabIndex, click and Enter/Space selection callbacks, selected/pressed state, link mode, disabled/loading guards, density/variant/state/tone fallback, and missing-value guard."
+      ]
+    }
+  }
+}

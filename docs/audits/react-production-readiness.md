@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 49
-- Partial components: 14
+- Ready components: 51
+- Partial components: 12
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 213
+- Testing Library render calls: 215
 - fireEvent calls: 484
-- getByRole calls: 375
+- getByRole calls: 378
 - getByLabelText calls: 19
 - keyDown calls: 37
 - Escape key checks: 20
 - Arrow key checks: 17
-- user-event usage: 24
-- axe usage: 14
+- user-event usage: 26
+- axe usage: 15
 
 ## Harness Issues
 
@@ -46,13 +46,13 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | badge | Badge | P2 | display-status | ready | yes | 5 | None | None |
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | ready | yes | 4 | None | None |
-| button | Button | P1 | actions | ready | yes | 19 | None | None |
+| button | Button | P1 | actions | ready | yes | 20 | None | None |
 | card | Card | P2 | surface-display | ready | yes | 12 | None | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-security-code-input | CardSecurityCodeInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-summary | CardSummary | P2 | domain-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state | None |
-| chart-panel | ChartPanel | P2 | data-display | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
+| chart-panel | ChartPanel | P2 | data-display | ready | yes | 3 | None | None |
 | chat-composer | ChatComposer | P2 | domain-chat | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | chat-message | ChatMessage | P2 | domain-chat | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | chat-thread | ChatThread | P2 | domain-chat | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
@@ -74,8 +74,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | inline-validation | InlineValidation | P1 | feedback | ready | yes | 3 | None | None |
 | input | Input | P0 | forms | ready | yes | 7 | None | None |
 | input-amount | InputAmount | P2 | forms-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: controlled/uncontrolled; missing production evidence: formatting/masking | None |
-| kpi-tile | KpiTile | P2 | data-display | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: keyboard when interactive | None |
-| list | List | P1 | data-display | ready | yes | 9 | None | None |
+| kpi-tile | KpiTile | P2 | data-display | ready | yes | 4 | None | None |
+| list | List | P1 | data-display | ready | yes | 10 | None | None |
 | menu | Menu | P0 | overlays-feedback | ready | yes | 5 | None | None |
 | motion-boundary | MotionBoundary | P2 | motion-feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: motion preference | None |
 | movement-row | MovementRow | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
@@ -87,7 +87,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |
-| select | Select | P0 | forms | ready | yes | 15 | None | None |
+| select | Select | P0 | forms | ready | yes | 16 | None | None |
 | skeleton | Skeleton | P2 | feedback | ready | yes | 3 | None | None |
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
 | spinner | Spinner | P2 | feedback | ready | yes | 3 | None | None |
@@ -95,11 +95,11 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | stepper | Stepper | P1 | progress-feedback | ready | yes | 3 | None | None |
 | surface | Surface | P2 | surface-display | ready | yes | 6 | None | None |
 | switch | Switch | P0 | forms | ready | yes | 7 | None | None |
-| table | Table | P1 | data-display | ready | yes | 9 | None | None |
+| table | Table | P1 | data-display | ready | yes | 10 | None | None |
 | tabs | Tabs | P0 | navigation-disclosure | ready | yes | 3 | None | None |
-| tag | Tag | P2 | display-status | ready | yes | 8 | None | None |
+| tag | Tag | P2 | display-status | ready | yes | 9 | None | None |
 | text-area | TextArea | P0 | forms | ready | yes | 4 | None | None |
 | toast | Toast | P1 | feedback | ready | yes | 5 | None | None |
-| tooltip | Tooltip | P1 | overlays-feedback | ready | yes | 5 | None | None |
+| tooltip | Tooltip | P1 | overlays-feedback | ready | yes | 6 | None | None |
 | tree-view | TreeView | P1 | navigation-disclosure | ready | yes | 3 | None | None |
 
