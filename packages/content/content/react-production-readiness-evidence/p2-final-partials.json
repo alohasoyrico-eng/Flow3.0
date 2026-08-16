@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "input-amount": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-final-partials.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "controlled/uncontrolled", "formatting/masking"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers shared field root ownership, visible label/currency context/helper/error, decimal input semantics, density/state/currency data attributes, controlled value rendering, uncontrolled onValueChange metadata, loading lock and spinner, validation error semantics, disabled/empty-label guards, and no custom payment shell."
+      ]
+    },
+    "audit-event": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-final-partials.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers article root semantics, visible label/description/meta/timestamp/status, decorative icon boundary, tone and state precedence for verified/warning/critical/disabled, density cascade, disabled aria semantics, empty-label guard, and parent-pattern ownership of timelines or investigations."
+      ]
+    },
+    "biometric-prompt": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-final-partials.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs",
+        "packages/react/test/pattern-interaction.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers labelled group semantics, variant/state/density/fullWidth props, icon fallback, visible status description, primary and fallback button callbacks, authenticating and disabled action locks, invalid prop fallback, empty-label guard, and pattern boundary for auth orchestration."
+      ]
+    },
+    "card-summary": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-final-partials.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Evidence covers article root semantics, visible identity/masked number/expiry/holder/status, Badge composition, limit metric filtering, variant/state/density/fullWidth props, virtual icon fallback, frozen status affordance, disabled aria semantics, empty-label guard, and the boundary that wallet/card lifecycle flows remain patterns."
+      ]
+    }
+  }
+}

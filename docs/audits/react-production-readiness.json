@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 59,
-    "partialComponents": 4,
+    "readyComponents": 63,
+    "partialComponents": 0,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -58,19 +58,20 @@
       "packages/content/content/react-production-readiness-evidence/p2-data-display.json",
       "packages/content/content/react-production-readiness-evidence/p2-motion-feedback.json",
       "packages/content/content/react-production-readiness-evidence/p2-domain-fleet.json",
-      "packages/content/content/react-production-readiness-evidence/p2-domain-chat.json"
+      "packages/content/content/react-production-readiness-evidence/p2-domain-chat.json",
+      "packages/content/content/react-production-readiness-evidence/p2-final-partials.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 223,
+    "testingLibraryRender": 227,
     "fireEvent": 484,
-    "getByRole": 414,
+    "getByRole": 425,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 30,
-    "axe": 18
+    "userEvent": 32,
+    "axe": 19
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -179,7 +180,7 @@
       "component": "AuditEvent",
       "priority": "P2",
       "family": "domain-event",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./audit-event",
         "rootExport": true,
@@ -189,6 +190,7 @@
         "contract": "packages/content/content/component-contracts/components/audit-event.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -200,20 +202,27 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-final-partials.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers article root semantics, visible label/description/meta/timestamp/status, decorative icon boundary, tone and state precedence for verified/warning/critical/disabled, density cascade, disabled aria semantics, empty-label guard, and parent-pattern ownership of timelines or investigations."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "avatar",
@@ -279,6 +288,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -314,7 +324,7 @@
       "component": "BiometricPrompt",
       "priority": "P2",
       "family": "domain-auth",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./biometric-prompt",
         "rootExport": true,
@@ -324,6 +334,7 @@
         "contract": "packages/content/content/component-contracts/components/biometric-prompt.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -335,21 +346,28 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-final-partials.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers labelled group semantics, variant/state/density/fullWidth props, icon fallback, visible status description, primary and fallback button callbacks, authenticating and disabled action locks, invalid prop fallback, empty-label guard, and pattern boundary for auth orchestration."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "breadcrumbs",
@@ -431,6 +449,7 @@
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
@@ -489,6 +508,7 @@
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
@@ -672,7 +692,7 @@
       "component": "CardSummary",
       "priority": "P2",
       "family": "domain-payment",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./card-summary",
         "rootExport": true,
@@ -682,6 +702,7 @@
         "contract": "packages/content/content/component-contracts/components/card-summary.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -692,20 +713,27 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-final-partials.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers article root semantics, visible identity/masked number/expiry/holder/status, Badge composition, limit metric filtering, variant/state/density/fullWidth props, virtual icon fallback, frozen status affordance, disabled aria semantics, empty-label guard, and the boundary that wallet/card lifecycle flows remain patterns."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "chart-panel",
@@ -1711,6 +1739,7 @@
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -1750,7 +1779,7 @@
       "component": "InputAmount",
       "priority": "P2",
       "family": "forms-payment",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./input-amount",
         "rootExport": true,
@@ -1760,6 +1789,7 @@
         "contract": "packages/content/content/component-contracts/components/input-amount.md",
         "tests": [
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1771,21 +1801,27 @@
         "formatting/masking"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-final-partials.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "controlled/uncontrolled",
+          "formatting/masking"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers shared field root ownership, visible label/currency context/helper/error, decimal input semantics, density/state/currency data attributes, controlled value rendering, uncontrolled onValueChange metadata, loading lock and spinner, validation error semantics, disabled/empty-label guards, and no custom payment shell."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: controlled/uncontrolled",
-        "missing production evidence: formatting/masking"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "kpi-tile",
@@ -1859,6 +1895,7 @@
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2463,6 +2500,7 @@
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
@@ -2615,6 +2653,7 @@
         "contract": "packages/content/content/component-contracts/components/spinner.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -2870,6 +2909,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
@@ -2973,6 +3013,7 @@
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
+          "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",

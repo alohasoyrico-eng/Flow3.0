@@ -15,6 +15,7 @@
     "react-production-readiness-evidence/p2-data-display.json",
     "react-production-readiness-evidence/p2-motion-feedback.json",
     "react-production-readiness-evidence/p2-domain-fleet.json",
-    "react-production-readiness-evidence/p2-domain-chat.json"
+    "react-production-readiness-evidence/p2-domain-chat.json",
+    "react-production-readiness-evidence/p2-final-partials.json"
   ]
 }
