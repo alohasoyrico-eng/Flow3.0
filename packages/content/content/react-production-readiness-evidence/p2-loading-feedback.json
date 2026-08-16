@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "skeleton": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-loading-feedback.test.mjs",
+        "packages/react/test/button-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Skeleton has no dismiss/action surface; evidence covers non-interactive loading semantics instead.",
+        "Evidence covers role status, aria-busy true/false, label requirement, table row/column clamping, decorative bones as aria-hidden, loaded/stale states, full width, width/height aliases, variant fallback, and empty-label guard."
+      ]
+    },
+    "spinner": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-loading-feedback.test.mjs",
+        "packages/react/test/button-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "dismiss/action when interactive"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Spinner has no dismiss/action surface; evidence covers announced and decorative loading semantics instead.",
+        "Evidence covers standalone role status and aria-label, decorative aria-hidden mode, unlabeled decorative fallback, tone/density/state propagation, invalid prop fallback, SVG hiding, and absence of progressbar values."
+      ]
+    }
+  }
+}

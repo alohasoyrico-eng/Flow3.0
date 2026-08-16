@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 45,
-    "partialComponents": 18,
+    "readyComponents": 47,
+    "partialComponents": 16,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -52,19 +52,20 @@
       "packages/content/content/react-production-readiness-evidence/p1-data-display.json",
       "packages/content/content/react-production-readiness-evidence/p1-documentation-overlay.json",
       "packages/content/content/react-production-readiness-evidence/p2-surface-display.json",
-      "packages/content/content/react-production-readiness-evidence/p2-display-status.json"
+      "packages/content/content/react-production-readiness-evidence/p2-display-status.json",
+      "packages/content/content/react-production-readiness-evidence/p2-loading-feedback.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 209,
+    "testingLibraryRender": 211,
     "fireEvent": 484,
-    "getByRole": 364,
+    "getByRole": 367,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
     "userEvent": 22,
-    "axe": 12
+    "axe": 13
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -454,6 +455,7 @@
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2355,6 +2357,7 @@
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2396,7 +2399,7 @@
       "component": "Skeleton",
       "priority": "P2",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./skeleton",
         "rootExport": true,
@@ -2406,6 +2409,7 @@
         "contract": "packages/content/content/component-contracts/components/skeleton.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2417,21 +2421,27 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-loading-feedback.test.mjs",
+          "packages/react/test/button-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Skeleton has no dismiss/action surface; evidence covers non-interactive loading semantics instead.",
+          "Evidence covers role status, aria-busy true/false, label requirement, table row/column clamping, decorative bones as aria-hidden, loaded/stale states, full width, width/height aliases, variant fallback, and empty-label guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "slider",
@@ -2487,7 +2497,7 @@
       "component": "Spinner",
       "priority": "P2",
       "family": "feedback",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./spinner",
         "rootExport": true,
@@ -2497,6 +2507,7 @@
         "contract": "packages/content/content/component-contracts/components/spinner.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2508,21 +2519,27 @@
         "dismiss/action when interactive"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-loading-feedback.test.mjs",
+          "packages/react/test/button-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "dismiss/action when interactive"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Spinner has no dismiss/action surface; evidence covers announced and decorative loading semantics instead.",
+          "Evidence covers standalone role status and aria-label, decorative aria-hidden mode, unlabeled decorative fallback, tone/density/state propagation, invalid prop fallback, SVG hiding, and absence of progressbar values."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: dismiss/action when interactive"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "station-pin",
@@ -2734,6 +2751,7 @@
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
+          "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
@@ -2833,6 +2851,7 @@
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"

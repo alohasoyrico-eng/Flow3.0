@@ -632,7 +632,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/pattern-render.test.mjs && node test/pattern-interaction.test.mjs && node test/template-interaction.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs && node test/production-harness.test.mjs && node test/p0-forms-basic.test.mjs && node test/p0-forms-advanced.test.mjs && node test/p0-overlays-navigation.test.mjs && node test/p1-actions.test.mjs && node test/p1-navigation-disclosure.test.mjs && node test/p1-feedback.test.mjs && node test/p1-data-display.test.mjs && node test/p1-documentation-overlay.test.mjs && node test/p2-surface-display.test.mjs && node test/p2-display-status.test.mjs"
+    "test": "node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/pattern-render.test.mjs && node test/pattern-interaction.test.mjs && node test/template-interaction.test.mjs && node test/interaction.test.mjs && node test/ref.test.mjs && node test/production-harness.test.mjs && node test/p0-forms-basic.test.mjs && node test/p0-forms-advanced.test.mjs && node test/p0-overlays-navigation.test.mjs && node test/p1-actions.test.mjs && node test/p1-navigation-disclosure.test.mjs && node test/p1-feedback.test.mjs && node test/p1-data-display.test.mjs && node test/p1-documentation-overlay.test.mjs && node test/p2-surface-display.test.mjs && node test/p2-display-status.test.mjs && node test/p2-loading-feedback.test.mjs"
   },
   "peerDependencies": {
     "react": ">=18"

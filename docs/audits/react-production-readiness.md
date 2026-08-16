@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 45
-- Partial components: 18
+- Ready components: 47
+- Partial components: 16
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 209
+- Testing Library render calls: 211
 - fireEvent calls: 484
-- getByRole calls: 364
+- getByRole calls: 367
 - getByLabelText calls: 19
 - keyDown calls: 37
 - Escape key checks: 20
 - Arrow key checks: 17
 - user-event usage: 22
-- axe usage: 12
+- axe usage: 13
 
 ## Harness Issues
 
@@ -47,7 +47,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: keyboard navigation; missing production evidence: state | None |
 | button | Button | P1 | actions | ready | yes | 18 | None | None |
-| card | Card | P2 | surface-display | ready | yes | 11 | None | None |
+| card | Card | P2 | surface-display | ready | yes | 12 | None | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-security-code-input | CardSecurityCodeInput | P0 | forms-payment | ready | yes | 4 | None | None |
@@ -87,17 +87,17 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |
-| select | Select | P0 | forms | ready | yes | 13 | None | None |
-| skeleton | Skeleton | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
+| select | Select | P0 | forms | ready | yes | 14 | None | None |
+| skeleton | Skeleton | P2 | feedback | ready | yes | 3 | None | None |
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
-| spinner | Spinner | P2 | feedback | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: dismiss/action when interactive | None |
+| spinner | Spinner | P2 | feedback | ready | yes | 3 | None | None |
 | station-pin | StationPin | P2 | domain-fleet | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | stepper | Stepper | P1 | progress-feedback | ready | yes | 3 | None | None |
 | surface | Surface | P2 | surface-display | ready | yes | 6 | None | None |
 | switch | Switch | P0 | forms | ready | yes | 7 | None | None |
-| table | Table | P1 | data-display | ready | yes | 7 | None | None |
+| table | Table | P1 | data-display | ready | yes | 8 | None | None |
 | tabs | Tabs | P0 | navigation-disclosure | ready | yes | 3 | None | None |
-| tag | Tag | P2 | display-status | ready | yes | 7 | None | None |
+| tag | Tag | P2 | display-status | ready | yes | 8 | None | None |
 | text-area | TextArea | P0 | forms | ready | yes | 4 | None | None |
 | toast | Toast | P1 | feedback | ready | yes | 5 | None | None |
 | tooltip | Tooltip | P1 | overlays-feedback | ready | yes | 5 | None | None |

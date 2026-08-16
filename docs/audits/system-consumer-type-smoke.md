@@ -5,7 +5,7 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- Packed files: 1366
+- Packed files: 1367
 - Typed components: 7
 - Typed patterns: 8
 - Typed templates: 5

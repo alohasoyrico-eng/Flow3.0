@@ -9,6 +9,7 @@
     "react-production-readiness-evidence/p1-data-display.json",
     "react-production-readiness-evidence/p1-documentation-overlay.json",
     "react-production-readiness-evidence/p2-surface-display.json",
-    "react-production-readiness-evidence/p2-display-status.json"
+    "react-production-readiness-evidence/p2-display-status.json",
+    "react-production-readiness-evidence/p2-loading-feedback.json"
   ]
 }
