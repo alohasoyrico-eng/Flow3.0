@@ -1,0 +1,2838 @@
+{
+  "status": "pass",
+  "audit": "react pattern production readiness",
+  "principle": "Public React patterns are production-ready only when artifact tests, behavior governance, composition governance, and runtime governance all pass through the package boundary.",
+  "inventory": {
+    "publicPatternArtifacts": 72,
+    "readyPatterns": 72,
+    "failingPatterns": 0,
+    "runtimePatternExports": 72,
+    "testedPatterns": 72,
+    "renderedPatterns": 72,
+    "callbackPropsDeclared": 271,
+    "callbackPropsTested": 271,
+    "slotCount": 336,
+    "slotUseCount": 513,
+    "behaviorDebt": 0,
+    "compositionDebt": 0,
+    "artifactTestDebt": 0,
+    "runtimeDebt": 0,
+    "reactPatternProductionReadinessDebt": 0
+  },
+  "evidenceSources": {
+    "artifactTests": "docs/audits/system-pattern-artifact-tests.json",
+    "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+    "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+    "runtime": "docs/audits/system-pattern-runtime-audit.json"
+  },
+  "patterns": [
+    {
+      "patternId": "account-operations",
+      "pattern": "AccountOperations",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/account-operations.json",
+        "source": "packages/react/src/patterns/AccountOperations.js",
+        "types": "packages/react/dist/patterns/AccountOperations.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2409,
+        "callbacks": 13,
+        "testedCallbacks": 13,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 3,
+        "runtimePatternImports": 3,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "action-sheet",
+      "pattern": "ActionSheet",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/action-sheet.json",
+        "source": "packages/react/src/patterns/ActionSheet.js",
+        "types": "packages/react/dist/patterns/ActionSheet.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1613,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 4,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 5,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "advanced-filters",
+      "pattern": "AdvancedFilters",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/advanced-filters.json",
+        "source": "packages/react/src/patterns/AdvancedFilters.js",
+        "types": "packages/react/dist/patterns/AdvancedFilters.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1522,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 11,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 10,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 16
+      },
+      "issues": []
+    },
+    {
+      "patternId": "agent-conversation",
+      "pattern": "AgentConversation",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/agent-conversation.json",
+        "source": "packages/react/src/patterns/AgentConversation.js",
+        "types": "packages/react/dist/patterns/AgentConversation.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1361,
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 4,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 2,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "artifact-metadata-bar",
+      "pattern": "ArtifactMetadataBar",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/artifact-metadata-bar.json",
+        "source": "packages/react/src/patterns/ArtifactMetadataBar.js",
+        "types": "packages/react/dist/patterns/ArtifactMetadataBar.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 743,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 5,
+        "primitiveDependencies": 14,
+        "tokenDependencies": 16
+      },
+      "issues": []
+    },
+    {
+      "patternId": "authentication-login-biometrics-and-otp",
+      "pattern": "AuthenticationLoginBiometricsAndOtp",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",
+        "source": "packages/react/src/patterns/AuthenticationLoginBiometricsAndOtp.js",
+        "types": "packages/react/dist/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 12719,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 9,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 8,
+        "primitiveDependencies": 18,
+        "tokenDependencies": 14
+      },
+      "issues": []
+    },
+    {
+      "patternId": "autocomplete",
+      "pattern": "Autocomplete",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/autocomplete.json",
+        "source": "packages/react/src/patterns/Autocomplete.js",
+        "types": "packages/react/dist/patterns/Autocomplete.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 444,
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 5,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "avatar-group",
+      "pattern": "AvatarGroup",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/avatar-group.json",
+        "source": "packages/react/src/patterns/AvatarGroup.js",
+        "types": "packages/react/dist/patterns/AvatarGroup.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 831,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 4,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 7,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "avatar-menu",
+      "pattern": "AvatarMenu",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/avatar-menu.json",
+        "source": "packages/react/src/patterns/AvatarMenu.js",
+        "types": "packages/react/dist/patterns/AvatarMenu.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1404,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 2,
+        "slotUseCount": 2,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 0,
+        "componentDependencies": 2,
+        "primitiveDependencies": 13,
+        "tokenDependencies": 8
+      },
+      "issues": []
+    },
+    {
+      "patternId": "backoffice-approval",
+      "pattern": "BackofficeApproval",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/backoffice-approval.json",
+        "source": "packages/react/src/patterns/BackofficeApproval.js",
+        "types": "packages/react/dist/patterns/BackofficeApproval.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2767,
+        "callbacks": 12,
+        "testedCallbacks": 12,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 3,
+        "runtimePatternImports": 3,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "bottom-sheet",
+      "pattern": "BottomSheet",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/bottom-sheet.json",
+        "source": "packages/react/src/patterns/BottomSheet.js",
+        "types": "packages/react/dist/patterns/BottomSheet.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 3036,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 6,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 4,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 15
+      },
+      "issues": []
+    },
+    {
+      "patternId": "bulk-actions",
+      "pattern": "BulkActions",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/bulk-actions.json",
+        "source": "packages/react/src/patterns/BulkActions.js",
+        "types": "packages/react/dist/patterns/BulkActions.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 999,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 9,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 8,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 15
+      },
+      "issues": []
+    },
+    {
+      "patternId": "calendar-view",
+      "pattern": "CalendarView",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/calendar-view.json",
+        "source": "packages/react/src/patterns/CalendarView.js",
+        "types": "packages/react/dist/patterns/CalendarView.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 10005,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 9,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 9,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 15
+      },
+      "issues": []
+    },
+    {
+      "patternId": "case-management",
+      "pattern": "CaseManagement",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/case-management.json",
+        "source": "packages/react/src/patterns/CaseManagement.js",
+        "types": "packages/react/dist/patterns/CaseManagement.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2376,
+        "callbacks": 18,
+        "testedCallbacks": 18,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 8,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 5,
+        "runtimePatternImports": 5,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "chart-legend-item",
+      "pattern": "ChartLegendItem",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-legend-item.json",
+        "source": "packages/react/src/patterns/ChartLegendItem.js",
+        "types": "packages/react/dist/patterns/ChartLegendItem.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 970,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 4,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "chart-wrapper",
+      "pattern": "ChartWrapper",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/chart-wrapper.json",
+        "source": "packages/react/src/patterns/ChartWrapper.js",
+        "types": "packages/react/dist/patterns/ChartWrapper.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 540,
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 10,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 10,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 16
+      },
+      "issues": []
+    },
+    {
+      "patternId": "checkbox-group",
+      "pattern": "CheckboxGroup",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/checkbox-group.json",
+        "source": "packages/react/src/patterns/CheckboxGroup.js",
+        "types": "packages/react/dist/patterns/CheckboxGroup.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1337,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 6,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 3,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 14
+      },
+      "issues": []
+    },
+    {
+      "patternId": "column-configurator",
+      "pattern": "ColumnConfigurator",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/column-configurator.json",
+        "source": "packages/react/src/patterns/ColumnConfigurator.js",
+        "types": "packages/react/dist/patterns/ColumnConfigurator.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2137,
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 9,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 9,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 15
+      },
+      "issues": []
+    },
+    {
+      "patternId": "command-palette",
+      "pattern": "CommandPalette",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/command-palette.json",
+        "source": "packages/react/src/patterns/CommandPalette.js",
+        "types": "packages/react/dist/patterns/CommandPalette.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2076,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 2,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "confirmation-dialog",
+      "pattern": "ConfirmationDialog",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/confirmation-dialog.json",
+        "source": "packages/react/src/patterns/ConfirmationDialog.js",
+        "types": "packages/react/dist/patterns/ConfirmationDialog.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1114,
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 3,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 5,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "demo-preview-frame",
+      "pattern": "DemoPreviewFrame",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/demo-preview-frame.json",
+        "source": "packages/react/src/patterns/DemoPreviewFrame.js",
+        "types": "packages/react/dist/patterns/DemoPreviewFrame.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 739,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 10,
+        "typedStates": 10,
+        "slotCount": 4,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 2,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "dense-operational-list",
+      "pattern": "DenseOperationalList",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/dense-operational-list.json",
+        "source": "packages/react/src/patterns/DenseOperationalList.js",
+        "types": "packages/react/dist/patterns/DenseOperationalList.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1771,
+        "callbacks": 9,
+        "testedCallbacks": 9,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 8,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 6,
+        "runtimePatternImports": 6,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "documentation-hero",
+      "pattern": "DocumentationHero",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-hero.json",
+        "source": "packages/react/src/patterns/DocumentationHero.js",
+        "types": "packages/react/dist/patterns/DocumentationHero.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 995,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 4,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 3,
+        "primitiveDependencies": 13,
+        "tokenDependencies": 14
+      },
+      "issues": []
+    },
+    {
+      "patternId": "documentation-page-shell",
+      "pattern": "DocumentationPageShell",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-page-shell.json",
+        "source": "packages/react/src/patterns/DocumentationPageShell.js",
+        "types": "packages/react/dist/patterns/DocumentationPageShell.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 809,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 9,
+        "typedStates": 9,
+        "slotCount": 4,
+        "slotUseCount": 4,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 0,
+        "primitiveDependencies": 7,
+        "tokenDependencies": 7
+      },
+      "issues": []
+    },
+    {
+      "patternId": "documentation-primitive-demo",
+      "pattern": "DocumentationPrimitiveDemo",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-primitive-demo.json",
+        "source": "packages/react/src/patterns/DocumentationPrimitiveDemo.js",
+        "types": "packages/react/dist/patterns/DocumentationPrimitiveDemo.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 524,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 4,
+        "typedStates": 4,
+        "slotCount": 1,
+        "slotUseCount": 3,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 3,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 14
+      },
+      "issues": []
+    },
+    {
+      "patternId": "documentation-reference-grid",
+      "pattern": "DocumentationReferenceGrid",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-reference-grid.json",
+        "source": "packages/react/src/patterns/DocumentationReferenceGrid.js",
+        "types": "packages/react/dist/patterns/DocumentationReferenceGrid.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 830,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 1,
+        "slotUseCount": 1,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 1,
+        "primitiveDependencies": 14,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "documentation-section",
+      "pattern": "DocumentationSection",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-section.json",
+        "source": "packages/react/src/patterns/DocumentationSection.js",
+        "types": "packages/react/dist/patterns/DocumentationSection.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 797,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 9,
+        "typedStates": 9,
+        "slotCount": 3,
+        "slotUseCount": 3,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 0,
+        "primitiveDependencies": 7,
+        "tokenDependencies": 7
+      },
+      "issues": []
+    },
+    {
+      "patternId": "documentation-token-grid",
+      "pattern": "DocumentationTokenGrid",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/documentation-token-grid.json",
+        "source": "packages/react/src/patterns/DocumentationTokenGrid.js",
+        "types": "packages/react/dist/patterns/DocumentationTokenGrid.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 918,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 1,
+        "slotUseCount": 1,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 1,
+        "primitiveDependencies": 10,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "drag-sortable-list",
+      "pattern": "DragSortableList",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/drag-sortable-list.json",
+        "source": "packages/react/src/patterns/DragSortableList.js",
+        "types": "packages/react/dist/patterns/DragSortableList.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1082,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 9,
+        "typedStates": 9,
+        "slotCount": 4,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 5,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "drawer-adapter",
+      "pattern": "DrawerAdapter",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/drawer-adapter.json",
+        "source": "packages/react/src/patterns/DrawerAdapter.js",
+        "types": "packages/react/dist/patterns/DrawerAdapter.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1579,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 8,
+        "slotUseCount": 11,
+        "declaredPatternDependencies": 3,
+        "runtimePatternImports": 3,
+        "componentDependencies": 7,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "driver-and-vehicle-administration",
+      "pattern": "DriverAndVehicleAdministration",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/driver-and-vehicle-administration.json",
+        "source": "packages/react/src/patterns/DriverAndVehicleAdministration.js",
+        "types": "packages/react/dist/patterns/DriverAndVehicleAdministration.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1842,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 12,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 11,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "driver-onboarding-mobile",
+      "pattern": "DriverOnboardingMobile",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/driver-onboarding-mobile.json",
+        "source": "packages/react/src/patterns/DriverOnboardingMobile.js",
+        "types": "packages/react/dist/patterns/DriverOnboardingMobile.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 14446,
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 12,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 11,
+        "primitiveDependencies": 19,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "email-template-layout",
+      "pattern": "EmailTemplateLayout",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/email-template-layout.json",
+        "source": "packages/react/src/patterns/EmailTemplateLayout.js",
+        "types": "packages/react/dist/patterns/EmailTemplateLayout.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 3181,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 5,
+        "typedStates": 5,
+        "slotCount": 11,
+        "slotUseCount": 12,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 0,
+        "primitiveDependencies": 9,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "expandable-detail-table",
+      "pattern": "ExpandableDetailTable",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/expandable-detail-table.json",
+        "source": "packages/react/src/patterns/ExpandableDetailTable.js",
+        "types": "packages/react/dist/patterns/ExpandableDetailTable.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1341,
+        "callbacks": 7,
+        "testedCallbacks": 7,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 3,
+        "runtimePatternImports": 3,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "file-upload",
+      "pattern": "FileUpload",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/file-upload.json",
+        "source": "packages/react/src/patterns/FileUpload.js",
+        "types": "packages/react/dist/patterns/FileUpload.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 714,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "filter-chip-group",
+      "pattern": "FilterChipGroup",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/filter-chip-group.json",
+        "source": "packages/react/src/patterns/FilterChipGroup.js",
+        "types": "packages/react/dist/patterns/FilterChipGroup.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 820,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 5,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 5,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 10
+      },
+      "issues": []
+    },
+    {
+      "patternId": "filterable-editable-table",
+      "pattern": "FilterableEditableTable",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/filterable-editable-table.json",
+        "source": "packages/react/src/patterns/FilterableEditableTable.js",
+        "types": "packages/react/dist/patterns/FilterableEditableTable.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1360,
+        "callbacks": 11,
+        "testedCallbacks": 11,
+        "formalStates": 9,
+        "typedStates": 9,
+        "slotCount": 7,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 4,
+        "runtimePatternImports": 4,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "fleet-manager-onboarding-desktop",
+      "pattern": "FleetManagerOnboardingDesktop",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/fleet-manager-onboarding-desktop.json",
+        "source": "packages/react/src/patterns/FleetManagerOnboardingDesktop.js",
+        "types": "packages/react/dist/patterns/FleetManagerOnboardingDesktop.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2222,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 12,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 11,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "form-section",
+      "pattern": "FormSection",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/form-section.json",
+        "source": "packages/react/src/patterns/FormSection.js",
+        "types": "packages/react/dist/patterns/FormSection.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 537,
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 3,
+        "slotUseCount": 11,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 0,
+        "componentDependencies": 10,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 15
+      },
+      "issues": []
+    },
+    {
+      "patternId": "fullscreen-sheet",
+      "pattern": "FullscreenSheet",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/fullscreen-sheet.json",
+        "source": "packages/react/src/patterns/FullscreenSheet.js",
+        "types": "packages/react/dist/patterns/FullscreenSheet.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 559,
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 7,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "gantt-chart",
+      "pattern": "GanttChart",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/gantt-chart.json",
+        "source": "packages/react/src/patterns/GanttChart.js",
+        "types": "packages/react/dist/patterns/GanttChart.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1923,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 1,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "help-center",
+      "pattern": "HelpCenter",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/help-center.json",
+        "source": "packages/react/src/patterns/HelpCenter.js",
+        "types": "packages/react/dist/patterns/HelpCenter.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 4638,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 2,
+        "runtimePatternImports": 2,
+        "componentDependencies": 5,
+        "primitiveDependencies": 18,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "kanban-board",
+      "pattern": "KanbanBoard",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/kanban-board.json",
+        "source": "packages/react/src/patterns/KanbanBoard.js",
+        "types": "packages/react/dist/patterns/KanbanBoard.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1648,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 5,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 5,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 16
+      },
+      "issues": []
+    },
+    {
+      "patternId": "kpi-card",
+      "pattern": "KpiCard",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/kpi-card.json",
+        "source": "packages/react/src/patterns/KpiCard.js",
+        "types": "packages/react/dist/patterns/KpiCard.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 416,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 7,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "multi-select",
+      "pattern": "MultiSelect",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/multi-select.json",
+        "source": "packages/react/src/patterns/MultiSelect.js",
+        "types": "packages/react/dist/patterns/MultiSelect.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2587,
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 3,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 0,
+        "componentDependencies": 7,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "multi-step-form",
+      "pattern": "MultiStepForm",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/multi-step-form.json",
+        "source": "packages/react/src/patterns/MultiStepForm.js",
+        "types": "packages/react/dist/patterns/MultiStepForm.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 600,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 6,
+        "slotUseCount": 9,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 7,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "notification-panel",
+      "pattern": "NotificationPanel",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/notification-panel.json",
+        "source": "packages/react/src/patterns/NotificationPanel.js",
+        "types": "packages/react/dist/patterns/NotificationPanel.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2000,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 0,
+        "componentDependencies": 7,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "on-this-page-nav",
+      "pattern": "OnThisPageNav",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/on-this-page-nav.json",
+        "source": "packages/react/src/patterns/OnThisPageNav.js",
+        "types": "packages/react/dist/patterns/OnThisPageNav.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 561,
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 3,
+        "slotUseCount": 3,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 2,
+        "primitiveDependencies": 13,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "payment-form",
+      "pattern": "PaymentForm",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/payment-form.json",
+        "source": "packages/react/src/patterns/PaymentForm.js",
+        "types": "packages/react/dist/patterns/PaymentForm.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 4438,
+        "callbacks": 7,
+        "testedCallbacks": 7,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 6,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 6,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "polar-chart",
+      "pattern": "PolarChart",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/polar-chart.json",
+        "source": "packages/react/src/patterns/PolarChart.js",
+        "types": "packages/react/dist/patterns/PolarChart.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1856,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 1,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "preference-management",
+      "pattern": "PreferenceManagement",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/preference-management.json",
+        "source": "packages/react/src/patterns/PreferenceManagement.js",
+        "types": "packages/react/dist/patterns/PreferenceManagement.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 590,
+        "callbacks": 9,
+        "testedCallbacks": 9,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 3,
+        "runtimePatternImports": 3,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "pricing-operations",
+      "pattern": "PricingOperations",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pricing-operations.json",
+        "source": "packages/react/src/patterns/PricingOperations.js",
+        "types": "packages/react/dist/patterns/PricingOperations.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1540,
+        "callbacks": 11,
+        "testedCallbacks": 11,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 8,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 5,
+        "runtimePatternImports": 5,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "pull-to-refresh",
+      "pattern": "PullToRefresh",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/pull-to-refresh.json",
+        "source": "packages/react/src/patterns/PullToRefresh.js",
+        "types": "packages/react/dist/patterns/PullToRefresh.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2382,
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 4,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 7,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "quick-actions-grid",
+      "pattern": "QuickActionsGrid",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/quick-actions-grid.json",
+        "source": "packages/react/src/patterns/QuickActionsGrid.js",
+        "types": "packages/react/dist/patterns/QuickActionsGrid.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 233,
+        "callbacks": 1,
+        "testedCallbacks": 1,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 4,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 5,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 10
+      },
+      "issues": []
+    },
+    {
+      "patternId": "radio-group",
+      "pattern": "RadioGroup",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/radio-group.json",
+        "source": "packages/react/src/patterns/RadioGroup.js",
+        "types": "packages/react/dist/patterns/RadioGroup.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1137,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 5,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 3,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 14
+      },
+      "issues": []
+    },
+    {
+      "patternId": "roles-and-permissions",
+      "pattern": "RolesAndPermissions",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/roles-and-permissions.json",
+        "source": "packages/react/src/patterns/RolesAndPermissions.js",
+        "types": "packages/react/dist/patterns/RolesAndPermissions.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1251,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 10,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 10,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 16
+      },
+      "issues": []
+    },
+    {
+      "patternId": "search",
+      "pattern": "Search",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/search.json",
+        "source": "packages/react/src/patterns/Search.js",
+        "types": "packages/react/dist/patterns/Search.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1178,
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 13,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "section-header",
+      "pattern": "SectionHeader",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/section-header.json",
+        "source": "packages/react/src/patterns/SectionHeader.js",
+        "types": "packages/react/dist/patterns/SectionHeader.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 242,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 5,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 3,
+        "runtimePatternImports": 3,
+        "componentDependencies": 5,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "select-option-layer",
+      "pattern": "SelectOptionLayer",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/select-option-layer.json",
+        "source": "packages/react/src/patterns/SelectOptionLayer.js",
+        "types": "packages/react/dist/patterns/SelectOptionLayer.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2520,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 13,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "settings",
+      "pattern": "Settings",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/settings.json",
+        "source": "packages/react/src/patterns/Settings.js",
+        "types": "packages/react/dist/patterns/Settings.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 206,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 7,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "sidebar",
+      "pattern": "Sidebar",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/sidebar.json",
+        "source": "packages/react/src/patterns/Sidebar.js",
+        "types": "packages/react/dist/patterns/Sidebar.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1641,
+        "callbacks": 4,
+        "testedCallbacks": 4,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 4,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "snackbar-provider",
+      "pattern": "SnackbarProvider",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/snackbar-provider.json",
+        "source": "packages/react/src/patterns/SnackbarProvider.js",
+        "types": "packages/react/dist/patterns/SnackbarProvider.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 441,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 4,
+        "slotUseCount": 4,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 3,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 9
+      },
+      "issues": []
+    },
+    {
+      "patternId": "station-discovery",
+      "pattern": "StationDiscovery",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/station-discovery.json",
+        "source": "packages/react/src/patterns/StationDiscovery.js",
+        "types": "packages/react/dist/patterns/StationDiscovery.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2603,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 11,
+        "typedStates": 11,
+        "slotCount": 8,
+        "slotUseCount": 11,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 8,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 17
+      },
+      "issues": []
+    },
+    {
+      "patternId": "status-feedback-view",
+      "pattern": "StatusFeedbackView",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/status-feedback-view.json",
+        "source": "packages/react/src/patterns/StatusFeedbackView.js",
+        "types": "packages/react/dist/patterns/StatusFeedbackView.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 748,
+        "callbacks": 8,
+        "testedCallbacks": 8,
+        "formalStates": 14,
+        "typedStates": 14,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 2,
+        "runtimePatternImports": 2,
+        "componentDependencies": 4,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 15
+      },
+      "issues": []
+    },
+    {
+      "patternId": "swipe-actions",
+      "pattern": "SwipeActions",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/swipe-actions.json",
+        "source": "packages/react/src/patterns/SwipeActions.js",
+        "types": "packages/react/dist/patterns/SwipeActions.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 567,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 3,
+        "slotUseCount": 5,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 5,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 10
+      },
+      "issues": []
+    },
+    {
+      "patternId": "ticket-queue",
+      "pattern": "TicketQueue",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/ticket-queue.json",
+        "source": "packages/react/src/patterns/TicketQueue.js",
+        "types": "packages/react/dist/patterns/TicketQueue.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 2368,
+        "callbacks": 15,
+        "testedCallbacks": 15,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 7,
+        "slotUseCount": 7,
+        "declaredPatternDependencies": 4,
+        "runtimePatternImports": 4,
+        "componentDependencies": 1,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "timeline",
+      "pattern": "Timeline",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/timeline.json",
+        "source": "packages/react/src/patterns/Timeline.js",
+        "types": "packages/react/dist/patterns/Timeline.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1262,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 3,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 0,
+        "runtimePatternImports": 0,
+        "componentDependencies": 6,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    },
+    {
+      "patternId": "toolbar",
+      "pattern": "Toolbar",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/toolbar.json",
+        "source": "packages/react/src/patterns/Toolbar.js",
+        "types": "packages/react/dist/patterns/Toolbar.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 227,
+        "callbacks": 0,
+        "testedCallbacks": 0,
+        "formalStates": 7,
+        "typedStates": 7,
+        "slotCount": 6,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 2,
+        "runtimePatternImports": 2,
+        "componentDependencies": 6,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 11
+      },
+      "issues": []
+    },
+    {
+      "patternId": "topbar",
+      "pattern": "Topbar",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/topbar.json",
+        "source": "packages/react/src/patterns/Topbar.js",
+        "types": "packages/react/dist/patterns/Topbar.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1279,
+        "callbacks": 5,
+        "testedCallbacks": 5,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 11,
+        "slotUseCount": 16,
+        "declaredPatternDependencies": 7,
+        "runtimePatternImports": 7,
+        "componentDependencies": 8,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 19
+      },
+      "issues": []
+    },
+    {
+      "patternId": "transfer-list",
+      "pattern": "TransferList",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/transfer-list.json",
+        "source": "packages/react/src/patterns/TransferList.js",
+        "types": "packages/react/dist/patterns/TransferList.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1188,
+        "callbacks": 3,
+        "testedCallbacks": 3,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 5,
+        "slotUseCount": 12,
+        "declaredPatternDependencies": 2,
+        "runtimePatternImports": 2,
+        "componentDependencies": 7,
+        "primitiveDependencies": 16,
+        "tokenDependencies": 13
+      },
+      "issues": []
+    },
+    {
+      "patternId": "virtual-data-table",
+      "pattern": "VirtualDataTable",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/virtual-data-table.json",
+        "source": "packages/react/src/patterns/VirtualDataTable.js",
+        "types": "packages/react/dist/patterns/VirtualDataTable.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 668,
+        "callbacks": 6,
+        "testedCallbacks": 6,
+        "formalStates": 8,
+        "typedStates": 8,
+        "slotCount": 3,
+        "slotUseCount": 8,
+        "declaredPatternDependencies": 2,
+        "runtimePatternImports": 0,
+        "componentDependencies": 8,
+        "primitiveDependencies": 15,
+        "tokenDependencies": 14
+      },
+      "issues": []
+    },
+    {
+      "patternId": "waterfall-chart",
+      "pattern": "WaterfallChart",
+      "status": "ready",
+      "evidence": {
+        "artifact": "packages/specs/specs/unison-system/artifacts/patterns/waterfall-chart.json",
+        "source": "packages/react/src/patterns/WaterfallChart.js",
+        "types": "packages/react/dist/patterns/WaterfallChart.d.ts",
+        "runtime": "docs/audits/system-pattern-runtime-audit.json",
+        "behavior": "docs/audits/react-pattern-behavior-governance-audit.json",
+        "composition": "docs/audits/react-pattern-composition-governance-audit.json",
+        "artifactTests": "docs/audits/system-pattern-artifact-tests.json"
+      },
+      "checks": {
+        "export": true,
+        "render": "pass",
+        "callbacks": "pass",
+        "slots": "pass",
+        "dependencies": "pass",
+        "behavior": "pass",
+        "composition": "pass",
+        "runtime": "pass"
+      },
+      "metrics": {
+        "markupLength": 1965,
+        "callbacks": 2,
+        "testedCallbacks": 2,
+        "formalStates": 6,
+        "typedStates": 6,
+        "slotCount": 6,
+        "slotUseCount": 6,
+        "declaredPatternDependencies": 1,
+        "runtimePatternImports": 1,
+        "componentDependencies": 1,
+        "primitiveDependencies": 17,
+        "tokenDependencies": 12
+      },
+      "issues": []
+    }
+  ]
+}

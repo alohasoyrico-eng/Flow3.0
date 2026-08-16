@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 158,
-    "categoryMappings": 149,
+    "reports": 159,
+    "categoryMappings": 150,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 158,
-    "debtMetrics": 192,
+    "reportsWithDebtMetrics": 159,
+    "debtMetrics": 197,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -85,10 +85,10 @@
     {
       "category": "patterns",
       "principle": "Patterns must compose components through governed contracts before template promotion.",
-      "reports": 21,
+      "reports": 22,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 39,
+      "debtMetrics": 44,
       "totalDebt": 0
     },
     {
@@ -1209,6 +1209,48 @@
           "report": "react-pattern-composition-governance-audit.json",
           "scope": "inventory",
           "metric": "reactPatternCompositionDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "react-pattern-production-readiness.json",
+      "category": "patterns",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "react-pattern-production-readiness.json",
+          "scope": "inventory",
+          "metric": "behaviorDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-pattern-production-readiness.json",
+          "scope": "inventory",
+          "metric": "compositionDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-pattern-production-readiness.json",
+          "scope": "inventory",
+          "metric": "artifactTestDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-pattern-production-readiness.json",
+          "scope": "inventory",
+          "metric": "runtimeDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "react-pattern-production-readiness.json",
+          "scope": "inventory",
+          "metric": "reactPatternProductionReadinessDebt",
           "value": 0,
           "numericValue": 0
         }

@@ -771,6 +771,7 @@
     "audit:react-production-readiness": "node packages/audit/scripts/report-react-production-readiness.js",
     "audit:component-runtime": "node packages/audit/scripts/report-system-component-runtime-audit.js",
     "audit:pattern-artifact-tests": "node packages/audit/scripts/report-system-pattern-artifact-tests.js",
+    "audit:react-pattern-production-readiness": "node packages/audit/scripts/report-react-pattern-production-readiness.js",
     "audit:pattern-runtime": "node packages/audit/scripts/report-system-pattern-runtime-audit.js",
     "audit:template-artifact-tests": "node packages/audit/scripts/report-system-template-artifact-tests.js",
     "audit:template-runtime": "node packages/audit/scripts/report-system-template-runtime-audit.js",

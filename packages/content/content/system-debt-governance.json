@@ -74,6 +74,7 @@
     "system-react-export-parity.json": "react-primary",
     "system-react-publication-boundary.json": "react-primary",
     "react-production-readiness.json": "quality",
+    "react-pattern-production-readiness.json": "patterns",
     "system-debt-ledger.json": "quality",
     "system-component-artifact-tests.json": "quality",
     "system-component-runtime-audit.json": "quality",
