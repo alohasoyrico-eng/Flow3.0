@@ -13,6 +13,7 @@
     "react-production-readiness-evidence/p2-loading-feedback.json",
     "react-production-readiness-evidence/p2-navigation-disclosure.json",
     "react-production-readiness-evidence/p2-data-display.json",
-    "react-production-readiness-evidence/p2-motion-feedback.json"
+    "react-production-readiness-evidence/p2-motion-feedback.json",
+    "react-production-readiness-evidence/p2-domain-fleet.json"
   ]
 }

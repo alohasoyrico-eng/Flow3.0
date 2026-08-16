@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 53,
-    "partialComponents": 10,
+    "readyComponents": 56,
+    "partialComponents": 7,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -56,19 +56,20 @@
       "packages/content/content/react-production-readiness-evidence/p2-loading-feedback.json",
       "packages/content/content/react-production-readiness-evidence/p2-navigation-disclosure.json",
       "packages/content/content/react-production-readiness-evidence/p2-data-display.json",
-      "packages/content/content/react-production-readiness-evidence/p2-motion-feedback.json"
+      "packages/content/content/react-production-readiness-evidence/p2-motion-feedback.json",
+      "packages/content/content/react-production-readiness-evidence/p2-domain-fleet.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 217,
+    "testingLibraryRender": 220,
     "fireEvent": 484,
-    "getByRole": 384,
+    "getByRole": 392,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 26,
-    "axe": 16
+    "userEvent": 28,
+    "axe": 17
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -426,6 +427,7 @@
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
@@ -1967,7 +1969,7 @@
       "component": "MovementRow",
       "priority": "P2",
       "family": "domain-fleet",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./movement-row",
         "rootExport": true,
@@ -1978,6 +1980,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -1989,21 +1992,29 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-domain-fleet.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard coverage uses native button focus and activation semantics when MovementRow is interactive.",
+          "Evidence covers article versus button rendering, type propagation, category/variant/state/density/fullWidth props, visible amount and status text, click callback order, onSelect metadata, disabled guard, invalid prop fallback, and empty-label guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "pagination",
@@ -2305,7 +2316,7 @@
       "component": "RouteSummary",
       "priority": "P2",
       "family": "domain-fleet",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./route-summary",
         "rootExport": true,
@@ -2316,6 +2327,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2327,21 +2339,28 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-domain-fleet.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Action keyboard behavior is covered through Flow Button and IconButton semantics in the shared action tests.",
+          "Evidence covers article semantics, selected/disabled state precedence, tone/variant/density/fullWidth props, metric filtering, standard and compact action rendering, action callback metadata, disabled action guard, invalid prop fallback, and empty-label guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "segmented-control",
@@ -2414,6 +2433,7 @@
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
@@ -2605,7 +2625,7 @@
       "component": "StationPin",
       "priority": "P2",
       "family": "domain-fleet",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./station-pin",
         "rootExport": true,
@@ -2616,6 +2636,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2627,21 +2648,29 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-domain-fleet.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard coverage uses native button focus and activation semantics.",
+          "Evidence covers Maps primitive ownership, accessible label carrying station identity/value/meta, selected/unavailable/disabled state precedence, variant/density props, cluster count rendering, visible marker value, click callback order, onSelect metadata, blocked state guards, and empty-label guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "stepper",
@@ -2913,6 +2942,7 @@
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",

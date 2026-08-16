@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "movement-row": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-domain-fleet.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/interaction.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard coverage uses native button focus and activation semantics when MovementRow is interactive.",
+        "Evidence covers article versus button rendering, type propagation, category/variant/state/density/fullWidth props, visible amount and status text, click callback order, onSelect metadata, disabled guard, invalid prop fallback, and empty-label guard."
+      ]
+    },
+    "route-summary": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-domain-fleet.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Action keyboard behavior is covered through Flow Button and IconButton semantics in the shared action tests.",
+        "Evidence covers article semantics, selected/disabled state precedence, tone/variant/density/fullWidth props, metric filtering, standard and compact action rendering, action callback metadata, disabled action guard, invalid prop fallback, and empty-label guard."
+      ]
+    },
+    "station-pin": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-domain-fleet.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "packages/react/test/interaction.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard coverage uses native button focus and activation semantics.",
+        "Evidence covers Maps primitive ownership, accessible label carrying station identity/value/meta, selected/unavailable/disabled state precedence, variant/density props, cluster count rendering, visible marker value, click callback order, onSelect metadata, blocked state guards, and empty-label guard."
+      ]
+    }
+  }
+}
