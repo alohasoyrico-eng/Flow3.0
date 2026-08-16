@@ -8,8 +8,8 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 - Plan iteration: 1
 - Public React components: 63
-- Ready components: 56
-- Partial components: 7
+- Ready components: 59
+- Partial components: 4
 - Blocked components: 0
 - P0 components: 21
 - P1 components: 18
@@ -21,15 +21,15 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 220
+- Testing Library render calls: 223
 - fireEvent calls: 484
-- getByRole calls: 392
+- getByRole calls: 414
 - getByLabelText calls: 19
 - keyDown calls: 37
 - Escape key checks: 20
 - Arrow key checks: 17
-- user-event usage: 28
-- axe usage: 17
+- user-event usage: 30
+- axe usage: 18
 
 ## Harness Issues
 
@@ -42,20 +42,20 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | accordion | Accordion | P2 | navigation-disclosure | ready | yes | 4 | None | None |
 | animated-moment | AnimatedMoment | P2 | motion-feedback | ready | yes | 3 | None | None |
 | audit-event | AuditEvent | P2 | domain-event | partial | yes | 3 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state | None |
-| avatar | Avatar | P2 | display-status | ready | yes | 4 | None | None |
+| avatar | Avatar | P2 | display-status | ready | yes | 5 | None | None |
 | badge | Badge | P2 | display-status | ready | yes | 5 | None | None |
 | biometric-prompt | BiometricPrompt | P2 | domain-auth | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
 | breadcrumbs | Breadcrumbs | P2 | navigation-disclosure | ready | yes | 4 | None | None |
-| button | Button | P1 | actions | ready | yes | 21 | None | None |
+| button | Button | P1 | actions | ready | yes | 22 | None | None |
 | card | Card | P2 | surface-display | ready | yes | 12 | None | None |
 | card-expiry-input | CardExpiryInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-number-input | CardNumberInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-security-code-input | CardSecurityCodeInput | P0 | forms-payment | ready | yes | 4 | None | None |
 | card-summary | CardSummary | P2 | domain-payment | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state | None |
 | chart-panel | ChartPanel | P2 | data-display | ready | yes | 3 | None | None |
-| chat-composer | ChatComposer | P2 | domain-chat | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
-| chat-message | ChatMessage | P2 | domain-chat | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
-| chat-thread | ChatThread | P2 | domain-chat | partial | yes | 2 | family-specific production checks not yet certified; missing production evidence: render; missing production evidence: props; missing production evidence: a11y; missing production evidence: state; missing production evidence: callback | None |
+| chat-composer | ChatComposer | P2 | domain-chat | ready | yes | 3 | None | None |
+| chat-message | ChatMessage | P2 | domain-chat | ready | yes | 3 | None | None |
+| chat-thread | ChatThread | P2 | domain-chat | ready | yes | 3 | None | None |
 | checkbox | Checkbox | P0 | forms | ready | yes | 5 | None | None |
 | chip | Chip | P2 | display-status | ready | yes | 5 | None | None |
 | code-block | CodeBlock | P1 | documentation-code | ready | yes | 1 | None | None |
@@ -67,7 +67,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | date-range-picker | DateRangePicker | P0 | forms-date | ready | yes | 5 | None | None |
 | dialog | Dialog | P0 | overlays-feedback | ready | yes | 7 | None | None |
 | drawer | Drawer | P0 | overlays-feedback | ready | yes | 8 | None | None |
-| empty-state | EmptyState | P1 | feedback | ready | yes | 4 | None | None |
+| empty-state | EmptyState | P1 | feedback | ready | yes | 5 | None | None |
 | error-panel | ErrorPanel | P1 | feedback | ready | yes | 4 | None | None |
 | floating-action-button | FloatingActionButton | P1 | actions | ready | yes | 2 | None | None |
 | icon-button | IconButton | P1 | actions | ready | yes | 4 | None | None |
@@ -87,13 +87,13 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | ready | yes | 4 | None | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |
-| select | Select | P0 | forms | ready | yes | 18 | None | None |
+| select | Select | P0 | forms | ready | yes | 19 | None | None |
 | skeleton | Skeleton | P2 | feedback | ready | yes | 3 | None | None |
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
 | spinner | Spinner | P2 | feedback | ready | yes | 3 | None | None |
 | station-pin | StationPin | P2 | domain-fleet | ready | yes | 4 | None | None |
 | stepper | Stepper | P1 | progress-feedback | ready | yes | 3 | None | None |
-| surface | Surface | P2 | surface-display | ready | yes | 6 | None | None |
+| surface | Surface | P2 | surface-display | ready | yes | 7 | None | None |
 | switch | Switch | P0 | forms | ready | yes | 7 | None | None |
 | table | Table | P1 | data-display | ready | yes | 10 | None | None |
 | tabs | Tabs | P0 | navigation-disclosure | ready | yes | 3 | None | None |

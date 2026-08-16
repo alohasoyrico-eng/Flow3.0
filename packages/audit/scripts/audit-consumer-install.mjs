@@ -3408,8 +3408,8 @@ function assertReactGovernanceBaselines() {
     components: 62,
     defaultDebt: 0,
     prohibitedDefaults: 0,
-    semanticDefaultDecisions: 119,
-    contractBackedSemanticDefaultDecisions: 119,
+    semanticDefaultDecisions: 118,
+    contractBackedSemanticDefaultDecisions: 118,
     unbackedSemanticDefaultDecisions: 0,
     semanticDefaultDecisionContractGaps: 0,
   }, "React default governance");

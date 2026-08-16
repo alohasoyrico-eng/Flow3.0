@@ -2337,8 +2337,8 @@
         {
           "status": "pass",
           "component": "ChatThread",
-          "markupLength": 802,
-          "rootTag": "<div data-artifact-test=\"chatThread\" role=\"log\" aria-label=\"Conversation\" aria-live=\"polite\" data-flow-component=\"chat-thread\" data-state=\"default\" data-density=\"lg\" class=\"surface chat-thread flow-artifact-test-hook\" data-flow-primitive=\"surface\" data-surface-role=\"section\" data-surface-state=\"default\" data-surface-elevation=\"none\" data-surface-tone=\"default\" data-surface-focus-mode=\"none\" data-surface-breakpoint=\"base\">",
+          "markupLength": 800,
+          "rootTag": "<div data-artifact-test=\"chatThread\" role=\"log\" aria-label=\"Conversation\" aria-live=\"polite\" data-flow-component=\"chat-thread\" data-state=\"empty\" data-density=\"lg\" class=\"surface chat-thread flow-artifact-test-hook\" data-flow-primitive=\"surface\" data-surface-role=\"section\" data-surface-state=\"default\" data-surface-elevation=\"none\" data-surface-tone=\"default\" data-surface-focus-mode=\"none\" data-surface-breakpoint=\"base\">",
           "issues": []
         },
         {

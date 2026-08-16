@@ -17,11 +17,13 @@ function normalizeMessage(message, index) {
         key: String(message.key ?? message.id ?? `message-${index}`),
     };
 }
-export const ChatThread = forwardRef(function ChatThread({ label = "Conversation", description, messages = [], empty, error, state = "default", density, selectedMessageKey, className = "", onMessageAction, ...rest }, ref) {
+export const ChatThread = forwardRef(function ChatThread({ label = "Conversation", description, messages = [], empty, error, state, density, selectedMessageKey, className = "", onMessageAction, ...rest }, ref) {
     const normalizedMessages = useMemo(() => (Array.isArray(messages) ? messages : [])
         .map(normalizeMessage)
         .filter((message) => Boolean(message)), [messages]);
-    const resolvedState = normalizeFlowValue(state, validStates, normalizedMessages.length ? "default" : "empty");
+    const resolvedState = state === undefined
+        ? normalizedMessages.length ? "default" : "empty"
+        : normalizeFlowValue(state, validStates, normalizedMessages.length ? "default" : "empty");
     const resolvedDensity = normalizeFlowDensity(density);
     const isUnavailable = resolvedState === "empty" || resolvedState === "error" || resolvedState === "loading" || resolvedState === "offline";
     return React.createElement(Surface, {

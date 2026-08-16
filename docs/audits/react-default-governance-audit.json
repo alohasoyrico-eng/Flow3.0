@@ -7,14 +7,14 @@
       "components": 62,
       "defaultDebt": 0,
       "prohibitedDefaults": 0,
-      "semanticDefaultDecisions": 119,
-      "contractBackedSemanticDefaultDecisions": 119,
+      "semanticDefaultDecisions": 118,
+      "contractBackedSemanticDefaultDecisions": 118,
       "unbackedSemanticDefaultDecisions": 0,
       "semanticDefaultDecisionContractGaps": 0,
       "reactGovernancePolicyIssues": 0
     },
     "semanticByRule": {
-      "state-default": 47,
+      "state-default": 46,
       "variant-default": 42,
       "tone-default": 15,
       "intent-default": 2,
@@ -38,7 +38,7 @@
     "issues": [],
     "semanticByRulePolicy": {
       "expectedSemanticByRule": {
-        "state-default": 47,
+        "state-default": 46,
         "variant-default": 42,
         "tone-default": 15,
         "intent-default": 2,
@@ -189,8 +189,8 @@
     "components": 62,
     "defaultDebt": 0,
     "prohibitedDefaults": 0,
-    "semanticDefaultDecisions": 119,
-    "contractBackedSemanticDefaultDecisions": 119,
+    "semanticDefaultDecisions": 118,
+    "contractBackedSemanticDefaultDecisions": 118,
     "unbackedSemanticDefaultDecisions": 0,
     "semanticDefaultDecisionContractGaps": 0,
     "reactGovernancePolicyIssues": 0,
@@ -198,8 +198,8 @@
       {
         "rule": "state-default",
         "description": "Component behavior default; allowed when normalized through component state.",
-        "count": 47,
-        "contractBacked": 47,
+        "count": 46,
+        "contractBacked": 46,
         "unbacked": 0
       },
       {
@@ -596,16 +596,6 @@
       "value": "neutral",
       "description": "Component tone fallback; allowed when constrained by the component contract.",
       "text": "tone = \"neutral\","
-    },
-    {
-      "component": "ChatThread",
-      "file": "packages/react/src/ChatThread.tsx",
-      "line": 98,
-      "rule": "state-default",
-      "prop": "state",
-      "value": "default",
-      "description": "Component behavior default; allowed when normalized through component state.",
-      "text": "state = \"default\","
     },
     {
       "component": "Checkbox",
@@ -2341,36 +2331,6 @@
         "success",
         "warning",
         "danger"
-      ],
-      "publicContractStatus": "pass",
-      "systemContractStatus": "pass",
-      "contractBacked": true,
-      "status": "pass"
-    },
-    {
-      "component": "ChatThread",
-      "file": "packages/react/src/ChatThread.tsx",
-      "line": 98,
-      "rule": "state-default",
-      "prop": "state",
-      "value": "default",
-      "description": "Component behavior default; allowed when normalized through component state.",
-      "text": "state = \"default\",",
-      "publicAllowedValues": [
-        "default",
-        "loading",
-        "empty",
-        "error",
-        "handoff",
-        "offline"
-      ],
-      "contractAllowedValues": [
-        "default",
-        "loading",
-        "empty",
-        "error",
-        "handoff",
-        "offline"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",

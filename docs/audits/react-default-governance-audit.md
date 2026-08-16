@@ -9,8 +9,8 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 - React components scanned: 62
 - Default debt: 0
 - Prohibited platform defaults: 0
-- Visible semantic default decisions: 119
-- Contract-backed semantic default decisions: 119
+- Visible semantic default decisions: 118
+- Contract-backed semantic default decisions: 118
 - Unbacked semantic default decisions: 0
 - Semantic default decision contract gaps: 0
 - Inventory baseline mismatches: 0
@@ -25,8 +25,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | components | 62 | 62 |
 | defaultDebt | 0 | 0 |
 | prohibitedDefaults | 0 | 0 |
-| semanticDefaultDecisions | 119 | 119 |
-| contractBackedSemanticDefaultDecisions | 119 | 119 |
+| semanticDefaultDecisions | 118 | 118 |
+| contractBackedSemanticDefaultDecisions | 118 | 118 |
 | unbackedSemanticDefaultDecisions | 0 | 0 |
 | semanticDefaultDecisionContractGaps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
@@ -41,7 +41,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Rule | Expected | Actual |
 | --- | ---: | ---: |
-| state-default | 47 | 47 |
+| state-default | 46 | 46 |
 | variant-default | 42 | 42 |
 | tone-default | 15 | 15 |
 | intent-default | 2 | 2 |
@@ -66,7 +66,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Rule | Count | Contract-backed | Unbacked | Meaning |
 | --- | ---: | ---: | ---: | --- |
-| state-default | 47 | 47 | 0 | Component behavior default; allowed when normalized through component state. |
+| state-default | 46 | 46 | 0 | Component behavior default; allowed when normalized through component state. |
 | variant-default | 42 | 42 | 0 | Component composition default; allowed when constrained by the component contract. |
 | tone-default | 15 | 15 | 0 | Component tone fallback; allowed when constrained by the component contract. |
 | intent-default | 2 | 2 | 0 | Action intent fallback; allowed when constrained by the component contract. |
@@ -127,7 +127,6 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChartPanel | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChartPanel.tsx:276 |
 | ChatMessage | state-default | state | default | pass | pass | Yes | packages/react/src/ChatMessage.tsx:89 |
 | ChatMessage | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/ChatMessage.tsx:90 |
-| ChatThread | state-default | state | default | pass | pass | Yes | packages/react/src/ChatThread.tsx:98 |
 | Checkbox | variant-default | variant | default | pass | pass | Yes | packages/react/src/Checkbox.tsx:53 |
 | Checkbox | state-default | state | unchecked | pass | pass | Yes | packages/react/src/Checkbox.tsx:54 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:46 |
@@ -251,7 +250,6 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ChartPanel | tone-default | tone | neutral | packages/react/src/ChartPanel.tsx:276 | `tone = "neutral",` |
 | ChatMessage | state-default | state | default | packages/react/src/ChatMessage.tsx:89 | `state = "default",` |
 | ChatMessage | tone-default | tone | neutral | packages/react/src/ChatMessage.tsx:90 | `tone = "neutral",` |
-| ChatThread | state-default | state | default | packages/react/src/ChatThread.tsx:98 | `state = "default",` |
 | Checkbox | variant-default | variant | default | packages/react/src/Checkbox.tsx:53 | `variant = "default",` |
 | Checkbox | state-default | state | unchecked | packages/react/src/Checkbox.tsx:54 | `state = "unchecked",` |
 | Chip | state-default | state | default | packages/react/src/Chip.tsx:46 | `function normalizeState({ disabled = false, selected = false, state = "default" }: { disabled?: boolean; selected?: boolean; state?: ChipState } = {}): ChipState {` |

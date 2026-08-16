@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 56,
-    "partialComponents": 7,
+    "readyComponents": 59,
+    "partialComponents": 4,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -57,19 +57,20 @@
       "packages/content/content/react-production-readiness-evidence/p2-navigation-disclosure.json",
       "packages/content/content/react-production-readiness-evidence/p2-data-display.json",
       "packages/content/content/react-production-readiness-evidence/p2-motion-feedback.json",
-      "packages/content/content/react-production-readiness-evidence/p2-domain-fleet.json"
+      "packages/content/content/react-production-readiness-evidence/p2-domain-fleet.json",
+      "packages/content/content/react-production-readiness-evidence/p2-domain-chat.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 220,
+    "testingLibraryRender": 223,
     "fireEvent": 484,
-    "getByRole": 392,
+    "getByRole": 414,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 28,
-    "axe": 17
+    "userEvent": 30,
+    "axe": 18
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -230,6 +231,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
@@ -427,6 +429,7 @@
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
@@ -759,7 +762,7 @@
       "component": "ChatComposer",
       "priority": "P2",
       "family": "domain-chat",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./chat-composer",
         "rootExport": true,
@@ -769,6 +772,7 @@
         "contract": "packages/content/content/component-contracts/components/chat-composer.md",
         "tests": [
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -780,28 +784,35 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-domain-chat.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers Surface form ownership, TextArea composition, Button and IconButton composition, controlled and uncontrolled value flow, counter metadata, attach callback, send callback, empty-send guard, send clear behavior, sending lock, error recovery semantics, density cascade, and default accessible label fallback."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "chat-message",
       "component": "ChatMessage",
       "priority": "P2",
       "family": "domain-chat",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./chat-message",
         "rootExport": true,
@@ -811,6 +822,7 @@
         "contract": "packages/content/content/component-contracts/components/chat-message.md",
         "tests": [
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -822,28 +834,35 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-domain-chat.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers article semantics, author/state/tone/density fallbacks, Surface bubble ownership, visible author/time/meta/body, Avatar composition, recovery Button callback, alert/status live-region semantics for failed and loading states, typing indicator, and empty-body guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "chat-thread",
       "component": "ChatThread",
       "priority": "P2",
       "family": "domain-chat",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./chat-thread",
         "rootExport": true,
@@ -853,6 +872,7 @@
         "contract": "packages/content/content/component-contracts/components/chat-thread.md",
         "tests": [
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -864,21 +884,28 @@
         "callback"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-domain-chat.test.mjs",
+          "packages/react/test/button-render.test.mjs",
+          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "state",
+          "callback"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Evidence covers Surface log ownership, ChatMessage composition, invalid message filtering, selected message state, message action delegation, empty/offline/loading fallback composition through EmptyState, aria-busy loading semantics, invalid state fallback, and implicit empty-state resolution when no messages are provided."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: state",
-        "missing production evidence: callback"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "checkbox",
@@ -1444,6 +1471,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -2433,6 +2461,7 @@
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
@@ -2737,6 +2766,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"

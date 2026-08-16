@@ -95,7 +95,7 @@ export const ChatThread = forwardRef<HTMLDivElement, ChatThreadProps>(function C
   messages = [],
   empty,
   error,
-  state = "default",
+  state,
   density,
   selectedMessageKey,
   className = "",
@@ -105,7 +105,9 @@ export const ChatThread = forwardRef<HTMLDivElement, ChatThreadProps>(function C
   const normalizedMessages = useMemo(() => (Array.isArray(messages) ? messages : [])
     .map(normalizeMessage)
     .filter((message): message is NormalizedChatThreadMessage => Boolean(message)), [messages]);
-  const resolvedState = normalizeFlowValue(state, validStates, normalizedMessages.length ? "default" : "empty");
+  const resolvedState = state === undefined
+    ? normalizedMessages.length ? "default" : "empty"
+    : normalizeFlowValue(state, validStates, normalizedMessages.length ? "default" : "empty");
   const resolvedDensity = normalizeFlowDensity(density);
   const isUnavailable = resolvedState === "empty" || resolvedState === "error" || resolvedState === "loading" || resolvedState === "offline";
 
