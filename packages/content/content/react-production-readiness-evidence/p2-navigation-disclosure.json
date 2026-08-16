@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "react-production-readiness-evidence@1",
+  "components": {
+    "accordion": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-navigation-disclosure.test.mjs",
+        "packages/react/test/interaction.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard coverage uses native button focus and Space activation semantics.",
+        "Evidence covers single and multiple disclosure modes, controlled and uncontrolled expansion, aria-expanded/aria-controls, hidden panels, disabled row guard, item onClick ordering, density/variant props, invalid-item filtering, and empty render guard."
+      ]
+    },
+    "breadcrumbs": {
+      "status": "ready",
+      "evidenceFiles": [
+        "packages/react/test/p2-navigation-disclosure.test.mjs",
+        "packages/react/test/interaction.test.mjs",
+        "packages/react/test/pattern-render.test.mjs"
+      ],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "keyboard navigation",
+        "state"
+      ],
+      "notes": [
+        "Axe structural accessibility excludes color-contrast in JSDOM.",
+        "Keyboard coverage uses native link and button focus/activation semantics.",
+        "Evidence covers nav labeling, links, action buttons, current-page aria-current text, overflow collapse, mobile truncation, disabled state precedence, density/variant/state/fullWidth props, separator hiding, invalid prop fallback, and invalid item filtering."
+      ]
+    }
+  }
+}

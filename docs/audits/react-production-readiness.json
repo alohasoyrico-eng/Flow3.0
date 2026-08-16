@@ -27,8 +27,8 @@
   },
   "inventory": {
     "publicReactComponents": 63,
-    "readyComponents": 47,
-    "partialComponents": 16,
+    "readyComponents": 49,
+    "partialComponents": 14,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
@@ -53,19 +53,20 @@
       "packages/content/content/react-production-readiness-evidence/p1-documentation-overlay.json",
       "packages/content/content/react-production-readiness-evidence/p2-surface-display.json",
       "packages/content/content/react-production-readiness-evidence/p2-display-status.json",
-      "packages/content/content/react-production-readiness-evidence/p2-loading-feedback.json"
+      "packages/content/content/react-production-readiness-evidence/p2-loading-feedback.json",
+      "packages/content/content/react-production-readiness-evidence/p2-navigation-disclosure.json"
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 211,
+    "testingLibraryRender": 213,
     "fireEvent": 484,
-    "getByRole": 367,
+    "getByRole": 375,
     "getByLabelText": 19,
     "keyDown": 37,
     "escapeKey": 20,
     "arrowKeys": 17,
-    "userEvent": 22,
-    "axe": 13
+    "userEvent": 24,
+    "axe": 14
   },
   "harnessIssues": [],
   "missingPrioritySlugs": [],
@@ -75,7 +76,7 @@
       "component": "Accordion",
       "priority": "P2",
       "family": "navigation-disclosure",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./accordion",
         "rootExport": true,
@@ -86,6 +87,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -97,21 +99,28 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "keyboard navigation",
+          "state"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard coverage uses native button focus and Space activation semantics.",
+          "Evidence covers single and multiple disclosure modes, controlled and uncontrolled expansion, aria-expanded/aria-controls, hidden panels, disabled row guard, item onClick ordering, density/variant props, invalid-item filtering, and empty render guard."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "animated-moment",
@@ -334,7 +343,7 @@
       "component": "Breadcrumbs",
       "priority": "P2",
       "family": "navigation-disclosure",
-      "status": "partial",
+      "status": "ready",
       "evidence": {
         "reactExport": "./breadcrumbs",
         "rootExport": true,
@@ -345,6 +354,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-render.test.mjs"
         ]
       },
@@ -356,21 +366,28 @@
         "state"
       ],
       "productionReadiness": {
-        "status": "unreviewed",
-        "evidenceFiles": [],
-        "coveredProductionEvidence": [],
-        "notes": [],
+        "status": "ready",
+        "evidenceFiles": [
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
+          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/pattern-render.test.mjs"
+        ],
+        "coveredProductionEvidence": [
+          "render",
+          "props",
+          "a11y",
+          "keyboard navigation",
+          "state"
+        ],
+        "notes": [
+          "Axe structural accessibility excludes color-contrast in JSDOM.",
+          "Keyboard coverage uses native link and button focus/activation semantics.",
+          "Evidence covers nav labeling, links, action buttons, current-page aria-current text, overflow collapse, mobile truncation, disabled state precedence, density/variant/state/fullWidth props, separator hiding, invalid prop fallback, and invalid item filtering."
+        ],
         "invalidEvidenceFiles": []
       },
       "structuralIssues": [],
-      "evidenceGaps": [
-        "family-specific production checks not yet certified",
-        "missing production evidence: render",
-        "missing production evidence: props",
-        "missing production evidence: a11y",
-        "missing production evidence: keyboard navigation",
-        "missing production evidence: state"
-      ]
+      "evidenceGaps": []
     },
     {
       "slug": "button",
@@ -398,6 +415,7 @@
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -1782,6 +1800,7 @@
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
           "packages/react/test/ref.test.mjs"
@@ -2358,6 +2377,7 @@
           "packages/react/test/p1-navigation-disclosure.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs",
@@ -2752,6 +2772,7 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
+          "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
           "packages/react/test/pattern-interaction.test.mjs",
           "packages/react/test/pattern-render.test.mjs"

@@ -5,7 +5,7 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- Packed files: 1367
+- Packed files: 1368
 - Resolved exports: 16
 - Rendered artifacts: 20
 - Consumer runtime smoke debt: 0
