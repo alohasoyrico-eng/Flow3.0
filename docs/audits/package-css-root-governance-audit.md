@@ -7,7 +7,7 @@ Every root class and --comp-* alias in the package stylesheet must map to a know
 ## Inventory
 
 - Package CSS: packages/components/styles/components.css
-- Selectors scanned: 1288
+- Selectors scanned: 1285
 - Component aliases scanned: 3340
 - Component alias roots: 68
 - Unknown component aliases: 0
@@ -26,7 +26,7 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| selectors | 1288 | 1288 |
+| selectors | 1285 | 1285 |
 | componentAliases | 3340 | 3340 |
 | componentAliasRoots | 68 | 68 |
 | unknownComponentAliases | 0 | 0 |

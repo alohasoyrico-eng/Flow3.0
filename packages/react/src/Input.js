@@ -7,6 +7,7 @@ import { inputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 const validVariants = new Set(["text", "email", "password", "number", "currency", "unit", "search"]);
+const validStates = new Set(["default", "focus", "filled", "loading", "error", "disabled"]);
 const numericVariants = new Set(["number", "currency", "unit"]);
 function resolveInputState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
     if (disabled)
@@ -15,7 +16,9 @@ function resolveInputState({ disabled = false, loading = false, error = "", stat
         return "loading";
     if (error)
         return "error";
-    return state ?? (value ? "filled" : "default");
+    if (state && validStates.has(state))
+        return state;
+    return value ? "filled" : "default";
 }
 function typeForVariant(variant, type) {
     if (variant === "email")

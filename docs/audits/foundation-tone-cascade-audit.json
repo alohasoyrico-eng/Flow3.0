@@ -320,10 +320,10 @@
     "scannedFiles": [
       "packages/components/styles/components.css"
     ],
-    "totalFindings": 573,
+    "totalFindings": 570,
     "failures": [],
     "reviews": [],
-    "passCount": 573
+    "passCount": 570
   },
   "toneCopyReviews": [],
   "missingDependencyEdges": [],

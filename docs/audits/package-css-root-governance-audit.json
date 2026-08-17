@@ -4,7 +4,7 @@
   "principle": "Every root class and --comp-* alias in the package stylesheet must map to a known component, observed React root, or explicitly classified shared primitive/bridge; unclassified, unobserved, or unknown aliases indicate accidental visual implementations. The actionable debt metric is packageCssRootDebt.",
   "baseline": {
     "inventory": {
-      "selectors": 1288,
+      "selectors": 1285,
       "componentAliases": 3340,
       "componentAliasRoots": 68,
       "unknownComponentAliases": 0,
@@ -25,7 +25,7 @@
   },
   "inventory": {
     "packageCssFile": "packages/components/styles/components.css",
-    "selectors": 1288,
+    "selectors": 1285,
     "componentAliases": 3340,
     "componentAliasRoots": 68,
     "unknownComponentAliases": 0,

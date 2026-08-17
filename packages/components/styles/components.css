@@ -2207,8 +2207,7 @@
 }
 
 .field-control:hover .field-control__surface,
-.field:hover .field__control,
-.field[data-state="hover"] .field__control {
+.field:hover .field__control {
   border-color: var(--comp-input-hover-border);
 }
 
@@ -2230,19 +2229,6 @@
 .field[data-state="error"] .field__control {
   border-color: var(--comp-input-error-border);
   background: var(--comp-input-error-bg);
-}
-
-.field[data-state="valid"] .field__control {
-  border-color: var(--comp-input-valid-border);
-}
-
-.field[data-state="warning"] .field__control {
-  background: var(--comp-input-warning-bg);
-  border-color: var(--comp-input-warning-border);
-}
-
-.field[data-state="warning"] .field__helper {
-  color: var(--comp-input-warning-helper-fg);
 }
 
 .field-control[data-state="error"] .field-control__helper,

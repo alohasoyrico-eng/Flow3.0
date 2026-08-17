@@ -6201,7 +6201,7 @@
           "field-control",
           "field-input"
         ],
-        "matchedRules": 34,
+        "matchedRules": 31,
         "tokenAliases": [
           "input"
         ],
@@ -6249,10 +6249,6 @@
           "--comp-input-surface-bg",
           "--comp-input-surface-border",
           "--comp-input-surface-fg",
-          "--comp-input-valid-border",
-          "--comp-input-warning-bg",
-          "--comp-input-warning-border",
-          "--comp-input-warning-helper-fg",
           "--comp-phone-input-otp-helper-fg",
           "--comp-text-area-bg-error",
           "--comp-text-area-bg-loading",
@@ -6330,10 +6326,6 @@
           "--comp-input-surface-bg",
           "--comp-input-surface-border",
           "--comp-input-surface-fg",
-          "--comp-input-valid-border",
-          "--comp-input-warning-bg",
-          "--comp-input-warning-border",
-          "--comp-input-warning-helper-fg",
           "--comp-phone-input-otp-helper-fg",
           "--comp-text-area-bg-error",
           "--comp-text-area-bg-loading",
@@ -6381,11 +6373,7 @@
           "--comp-input-padding-x",
           "--comp-input-surface-bg",
           "--comp-input-surface-border",
-          "--comp-input-surface-fg",
-          "--comp-input-valid-border",
-          "--comp-input-warning-bg",
-          "--comp-input-warning-border",
-          "--comp-input-warning-helper-fg"
+          "--comp-input-surface-fg"
         ],
         "foundationTokenUses": [],
         "hardcodedColors": [],

@@ -155,8 +155,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:32 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:40 |
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.tsx:48 |
-| Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:126 |
-| Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:134 |
+| Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:128 |
+| Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:136 |
 | KpiTile | trend-default | trend | flat | pass | pass | Yes | packages/react/src/KpiTile.tsx:67 |
 | KpiTile | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/KpiTile.tsx:68 |
 | KpiTile | variant-default | variant | standard | pass | pass | Yes | packages/react/src/KpiTile.tsx:70 |
@@ -278,8 +278,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:32 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
 | IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:40 | `variant = "ghost",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.tsx:48 | `state = "default",` |
-| Input | variant-default | variant | text | packages/react/src/Input.tsx:126 | `variant = "text",` |
-| Input | align-default | align | start | packages/react/src/Input.tsx:134 | `align = "start",` |
+| Input | variant-default | variant | text | packages/react/src/Input.tsx:128 | `variant = "text",` |
+| Input | align-default | align | start | packages/react/src/Input.tsx:136 | `align = "start",` |
 | KpiTile | trend-default | trend | flat | packages/react/src/KpiTile.tsx:67 | `trend = "flat",` |
 | KpiTile | tone-default | tone | neutral | packages/react/src/KpiTile.tsx:68 | `tone = "neutral",` |
 | KpiTile | variant-default | variant | standard | packages/react/src/KpiTile.tsx:70 | `variant = "standard",` |

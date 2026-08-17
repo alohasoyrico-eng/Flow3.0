@@ -48,6 +48,7 @@ export interface InputComponent extends ForwardRefExoticComponent<InputProps & R
 }
 
 const validVariants = new Set<InputVariant>(["text", "email", "password", "number", "currency", "unit", "search"]);
+const validStates = new Set<InputState>(["default", "focus", "filled", "loading", "error", "disabled"]);
 const numericVariants = new Set<InputVariant>(["number", "currency", "unit"]);
 
 function resolveInputState({ disabled = false, loading = false, error = "", state, value = "" }: {
@@ -60,7 +61,8 @@ function resolveInputState({ disabled = false, loading = false, error = "", stat
   if (disabled) return "disabled";
   if (loading) return "loading";
   if (error) return "error";
-  return state ?? (value ? "filled" : "default");
+  if (state && validStates.has(state)) return state;
+  return value ? "filled" : "default";
 }
 
 function typeForVariant(variant: InputVariant, type?: InputHTMLAttributes<HTMLInputElement>["type"]) {

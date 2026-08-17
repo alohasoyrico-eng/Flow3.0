@@ -7,6 +7,7 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "component-state-visual-governance.json");
 const markdownOutput = path.join(outputDir, "component-state-visual-governance.md");
 const componentCssFile = path.join(root, "packages/components/styles/components.css");
+const inputSourceFile = path.join(root, "packages/react/src/Input.tsx");
 
 const toneNames = ["danger", "warning", "error", "success", "info"];
 const actionLeakPatterns = [
@@ -78,11 +79,59 @@ function addFinding(findings, rule) {
   });
 }
 
+function unionValues(source, typeName) {
+  const match = source.match(new RegExp(`export\\s+type\\s+${typeName}\\s*=\\s*([^;]+);`));
+  if (!match) return new Set();
+  return new Set([...match[1].matchAll(/"([^"]+)"/g)].map((item) => item[1]));
+}
+
+function collectSelectorStates(rules, rootSelector) {
+  const states = new Set();
+  const pattern = new RegExp(`${rootSelector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\[data-state=["']([^"']+)["']\\]`);
+  for (const rule of rules) {
+    const match = rule.selector.match(pattern);
+    if (match) states.add(match[1]);
+  }
+  return states;
+}
+
+function addApiStateFindings(blockers, rules) {
+  const inputSource = read(inputSourceFile);
+  const inputStates = unionValues(inputSource, "InputState");
+  const fieldCssStates = collectSelectorStates(rules, ".field");
+
+  for (const state of fieldCssStates) {
+    if (inputStates.has(state)) continue;
+    const rule = rules.find((item) => item.selector.includes(`.field[data-state="${state}"]`));
+    blockers.push({
+      file: rel(componentCssFile),
+      rule: "css-state-not-in-input-api",
+      severity: "blocker",
+      line: rule?.line ?? 1,
+      selector: rule?.selector ?? `.field[data-state="${state}"]`,
+      message: `Field CSS exposes data-state="${state}", but InputState does not. Add it deliberately to the API/contract or remove the CSS state.`,
+    });
+  }
+
+  if (!/validStates\s*=\s*new Set<InputState>/.test(inputSource)) {
+    blockers.push({
+      file: rel(inputSourceFile),
+      rule: "input-runtime-state-not-normalized",
+      severity: "blocker",
+      line: 1,
+      selector: "InputState",
+      message: "Input must normalize runtime state values against the TypeScript state union so JS consumers cannot activate hidden CSS states.",
+    });
+  }
+}
+
 function createReport() {
   const css = read(componentCssFile);
   const rules = collectCssRules(css);
   const blockers = [];
   const reviews = [];
+
+  addApiStateFindings(blockers, rules);
 
   for (const rule of rules) {
     const selector = rule.selector;
