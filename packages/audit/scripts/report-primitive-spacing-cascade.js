@@ -236,7 +236,7 @@ function writeReport(report) {
     const currentJson = readIfExists(jsonOutput);
     const currentMarkdown = readIfExists(markdownOutput);
     if (currentJson !== json || currentMarkdown !== `${markdown}\n`) {
-      console.error("Primitive Spacing cascade report is stale. Run npm run audit:primitive:spacing.");
+      console.error("Primitive Spacing cascade report is stale. Run: node packages/audit/scripts/report-primitive-spacing-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

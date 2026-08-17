@@ -535,9 +535,9 @@
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
   --component-transition-tabs-indicator: left var(--component-duration-base) var(--component-ease-state), width var(--component-duration-base) var(--component-ease-state);
   --component-gradient-stepper-marker-active: linear-gradient(145deg, color-mix(in srgb, var(--component-color-action) 78%, var(--component-color-surface)) 0%, var(--component-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
-  --component-field-control-size-sm: calc(var(--ref-frame-height-control-sm-compact) - var(--component-frame-space-micro));
-  --component-field-control-size-md: calc(var(--sys-frame-height-control-sm) - var(--component-frame-space-micro));
-  --component-field-control-size-lg: calc(var(--ref-frame-height-control-md-compact) + var(--component-frame-space-micro));
+  --component-field-control-size-sm: var(--sys-frame-height-control-sm);
+  --component-field-control-size-md: var(--sys-frame-height-control-md);
+  --component-field-control-size-lg: var(--sys-frame-height-control-lg);
   --component-field-icon-action-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
   --component-field-icon-action-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));

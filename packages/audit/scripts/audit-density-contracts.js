@@ -18,8 +18,10 @@ const cssDensityContracts = {
   checkbox: { selector: '.checkbox[data-density="sm"]', token: "--comp-choice-current-mark-size" },
   codeInput: { selector: '.code-input[data-density="sm"]', token: "--comp-code-input-current-slot-block-size" },
   iconButton: { selector: '.icon-button[data-density="sm"]', token: "--comp-icon-button-current-size" },
+  input: { selector: '.field[data-density="sm"]', token: "--comp-field-control-size" },
   pagination: { selector: '.pagination[data-density="sm"]', token: "--comp-pagination-size" },
   radioButton: { selector: '.radio[data-density="sm"]', token: "--comp-choice-current-mark-size" },
+  select: { selector: '.select-control[data-density="sm"]', token: "--comp-select-current-control-size" },
   spinner: { selector: '.spinner[data-density="sm"]', token: "--comp-spinner-size" },
   stepper: { selector: '.stepper[data-density="sm"]', token: "--comp-stepper-marker-size" },
   switch: { selector: '.switch[data-density="sm"]', token: "--comp-switch-current-track-width" },
@@ -36,6 +38,8 @@ function checkDensityContracts() {
   if (explicitMediumSelectors.length) {
     add("errors", packageCssFile, 1, `Component CSS must not define explicit md density selectors; medium is the inherited base cascade. Found: ${explicitMediumSelectors.join(", ")}`);
   }
+
+  checkControlSizeScale(css);
 
   for (const id of densityContracts) {
     const component = reactFiles.get(id);
@@ -69,6 +73,23 @@ function checkDensityContracts() {
 
     const cssContract = cssDensityContracts[id];
     if (cssContract) checkCssDensity(css, cssContract.selector, cssContract.token, id);
+  }
+}
+
+function checkControlSizeScale(css) {
+  const required = [
+    ["--component-button-size-sm: var(--sys-frame-height-control-sm);", "Button sm size must use the system sm control height."],
+    ["--component-button-size-md: var(--component-density-control-height);", "Button md size must use the system density control height."],
+    ["--component-button-size-lg: var(--sys-frame-height-control-lg);", "Button lg size must use the system lg control height."],
+    ["--component-field-control-size-sm: var(--sys-frame-height-control-sm);", "Field/Input sm size must use the system sm control height."],
+    ["--component-field-control-size-md: var(--sys-frame-height-control-md);", "Field/Input md size must use the system md control height."],
+    ["--component-field-control-size-lg: var(--sys-frame-height-control-lg);", "Field/Input lg size must use the system lg control height."],
+    ["--comp-input-control-size: var(--component-density-control-height);", "Input inherited md size must stay on the density cascade."],
+    ["--comp-select-control-size: var(--component-density-control-height);", "Select inherited md size must stay on the density cascade."],
+  ];
+
+  for (const [snippet, message] of required) {
+    if (!css.includes(snippet)) add("errors", packageCssFile, 1, message);
   }
 }
 
