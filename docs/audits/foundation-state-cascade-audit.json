@@ -348,7 +348,7 @@
         "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     },
-    "packageCssDirectUses": 1046,
+    "packageCssDirectUses": 1098,
     "docsCssDirectUses": 0
   },
   "componentStateContracts": {
@@ -361,10 +361,10 @@
     "scannedFiles": [
       "packages/components/styles/components.css"
     ],
-    "totalFindings": 588,
+    "totalFindings": 608,
     "failures": [],
     "reviews": [],
-    "passCount": 588
+    "passCount": 608
   },
   "gaps": [],
   "nextActions": [

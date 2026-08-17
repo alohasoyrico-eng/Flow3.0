@@ -98,8 +98,8 @@
       "--component-opacity-disabled"
     ],
     "missing": [],
-    "disabledSelectors": 106,
-    "disabledTokenUses": 76
+    "disabledSelectors": 128,
+    "disabledTokenUses": 80
   },
   "docsSignal": {
     "disabledTokenUses": 0

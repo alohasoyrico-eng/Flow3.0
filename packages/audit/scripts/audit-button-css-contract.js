@@ -23,7 +23,8 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const focusBlock = blockFor(blocks, selectorKey, ".button:focus-visible");
   const hoverBlock = blockFor(blocks, selectorKey, ".button:hover:not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".button:active:not(:disabled)");
-  const disabledBlock = blockFor(blocks, selectorKey, ".button:disabled");
+  const disabledBlock = blockFor(blocks, selectorKey, ".button:disabled:not([data-state=\"loading\"])");
+  const loadingBlock = blockFor(blocks, selectorKey, ".button[data-state=\"loading\"]");
   const iconBlock = blockFor(blocks, selectorKey, ".button__icon");
   const spinnerBlock = blockFor(blocks, selectorKey, ".button .spinner");
   const pressedBlock = blockFor(blocks, selectorKey, ".button[data-state=\"pressed\"]:not(:disabled)");
@@ -142,8 +143,21 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
     block: disabledBlock,
     text,
     packageCssFile,
-    snippets: ["cursor: var(--comp-button-disabled-cursor)", "opacity: var(--comp-button-disabled-opacity)"],
+    snippets: [
+      "background: var(--comp-button-disabled-bg)",
+      "border-color: var(--comp-button-disabled-border)",
+      "color: var(--comp-button-disabled-fg)",
+      "cursor: var(--comp-button-disabled-cursor)",
+      "opacity: var(--comp-button-disabled-opacity)",
+    ],
     message: "Button disabled state must consume Button disabled aliases.",
+  });
+  requireIncludes({
+    block: loadingBlock,
+    text,
+    packageCssFile,
+    snippets: ["cursor: var(--component-loading-busy-cursor)"],
+    message: "Button loading state must keep busy affordance separate from disabled visual aliases.",
   });
   requireIncludes({
     block: iconBlock,

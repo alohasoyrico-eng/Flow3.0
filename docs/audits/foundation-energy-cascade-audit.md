@@ -13,7 +13,7 @@ Energy must govern semantic color for actions, status, risk, text, surfaces, bor
 | Component refs | 62 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
 | Pattern refs | 72 | account-operations, action-sheet, advanced-filters, agent-conversation, artifact-metadata-bar, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator... |
 | Template refs | 6 | configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, routes-and-stations |
-| Package CSS direct uses | 883 | packages/components/styles/components.css |
+| Package CSS direct uses | 901 | packages/components/styles/components.css |
 | Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Semantic Locks

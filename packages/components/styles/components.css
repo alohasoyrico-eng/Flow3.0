@@ -141,6 +141,15 @@
   --component-color-text-muted: var(--sys-color-text-muted);
   --component-color-text-subtle: var(--sys-color-text-subtle);
   --component-color-warning: var(--sys-color-warning);
+  --component-color-action-pressed: var(--sys-color-action-pressed);
+  --component-color-danger-hover: var(--sys-color-danger-hover);
+  --component-color-danger-pressed: var(--sys-color-danger-pressed);
+  --component-color-danger-surface-hover: var(--sys-color-danger-surface-hover);
+  --component-color-danger-surface-pressed: var(--sys-color-danger-surface-pressed);
+  --component-color-danger-border-hover: var(--sys-color-danger-border-hover);
+  --component-color-danger-border-pressed: var(--sys-color-danger-border-pressed);
+  --component-color-warning-hover: var(--sys-color-warning-hover);
+  --component-color-warning-pressed: var(--sys-color-warning-pressed);
   --component-content-size-xs: calc(var(--component-control-min-size) * 4);
   --component-content-size-sm: calc(var(--component-control-min-size) * 6);
   --component-content-size-md: calc(var(--component-control-min-size) * 8);
@@ -407,6 +416,7 @@
   --component-transform-tooltip-mobile-closed: translate(-50%, var(--component-translate-overlay-exit)) scale(var(--component-scale-quiet));
   --component-transform-tooltip-mobile-open: translate(-50%, var(--component-translate-rest)) scale(var(--component-scale-rest));
   --component-disabled-opacity: var(--sys-disabled-opacity);
+  --component-disabled-bg: var(--sys-disabled-background-color);
   --component-disabled-readable-opacity: var(--sys-disabled-readable-opacity);
   --component-disabled-surface-opacity: var(--sys-disabled-surface-opacity);
   --component-disabled-text: var(--sys-disabled-text-color);
@@ -420,6 +430,21 @@
   --component-opacity-muted: var(--sys-state-muted-opacity);
   --component-opacity-closed: var(--sys-state-closed-opacity);
   --component-opacity-visible: var(--sys-state-visible-opacity);
+  --component-tone-action-bg-pressed: var(--component-color-action-pressed);
+  --component-tone-action-surface-pressed: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface-raised));
+  --component-tone-action-border-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --component-tone-action-border-pressed: color-mix(in srgb, var(--component-color-action) 48%, var(--component-color-border));
+  --component-tone-action-subtle-bg-pressed: color-mix(in srgb, var(--component-color-action) 6%, var(--component-color-surface));
+  --component-tone-action-subtle-border-hover: color-mix(in srgb, var(--component-color-action) 18%, transparent);
+  --component-tone-action-subtle-border-pressed: color-mix(in srgb, var(--component-color-action) 28%, transparent);
+  --component-tone-danger-bg-hover: var(--component-color-danger-hover);
+  --component-tone-danger-bg-pressed: var(--component-color-danger-pressed);
+  --component-tone-danger-surface-hover: var(--component-color-danger-surface-hover);
+  --component-tone-danger-surface-pressed: var(--component-color-danger-surface-pressed);
+  --component-tone-danger-border-hover: var(--component-color-danger-border-hover);
+  --component-tone-danger-border-pressed: var(--component-color-danger-border-pressed);
+  --component-tone-warning-bg-hover: var(--component-color-warning-hover);
+  --component-tone-warning-bg-pressed: var(--component-color-warning-pressed);
   --component-input-ghost-opacity: calc(var(--component-border-width) / 100);
   --component-surface-transparent: transparent;
   --component-border-transparent: transparent;
@@ -1183,9 +1208,9 @@
   --component-icon-button-size-sm: var(--sys-space-9);
   --component-icon-button-size-md: var(--component-control-min-size);
   --component-icon-button-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));
-  --component-button-size-sm: var(--sys-space-9);
-  --component-button-size-md: var(--component-control-min-size);
-  --component-button-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
+  --component-button-size-sm: var(--sys-frame-height-control-sm);
+  --component-button-size-md: var(--component-density-control-height);
+  --component-button-size-lg: var(--sys-frame-height-control-lg);
   --component-segmented-control-item-min-block-sm: var(--component-button-size-sm);
   --component-segmented-control-item-min-block-lg: var(--component-button-size-lg);
   --comp-icon-button-size-sm: var(--component-icon-button-size-sm);
@@ -1442,39 +1467,58 @@
   --comp-button-hover-shadow: var(--component-depth-raised);
   --comp-button-hover-transform: var(--component-transform-lift-hover);
   --comp-button-press-transform: var(--component-transform-press);
+  --comp-button-disabled-bg: var(--component-disabled-bg);
+  --comp-button-disabled-border: var(--component-disabled-border);
   --comp-button-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-button-disabled-opacity: var(--component-disabled-readable-opacity);
+  --comp-button-disabled-fg: var(--component-disabled-text);
   --comp-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-button-spinner-tone: currentColor;
   --comp-button-icon-color: currentColor;
   --comp-button-bg-primary: var(--component-color-action);
   --comp-button-fg-primary: var(--component-color-action-text);
   --comp-button-bg-primary-hover: var(--component-color-action-hover);
+  --comp-button-bg-primary-pressed: var(--component-tone-action-bg-pressed);
   --comp-button-bg-secondary: var(--component-color-surface);
   --comp-button-border-secondary: var(--component-color-text);
   --comp-button-fg-secondary: var(--component-color-text);
   --comp-button-bg-secondary-hover: var(--component-color-surface-raised);
-  --comp-button-border-secondary-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --comp-button-bg-secondary-pressed: var(--component-tone-action-surface-pressed);
+  --comp-button-border-secondary-hover: var(--component-tone-action-border-hover);
+  --comp-button-border-secondary-pressed: var(--component-tone-action-border-pressed);
   --comp-button-bg-danger: var(--component-color-danger);
   --comp-button-fg-danger: var(--component-color-action-text);
+  --comp-button-bg-danger-hover: var(--component-tone-danger-bg-hover);
+  --comp-button-bg-danger-pressed: var(--component-tone-danger-bg-pressed);
   --comp-button-bg-tertiary: var(--component-color-surface-raised);
   --comp-button-border-tertiary: var(--component-border-transparent);
   --comp-button-fg-tertiary: var(--component-color-text);
   --comp-button-bg-tertiary-hover: var(--component-color-surface);
-  --comp-button-border-tertiary-hover: color-mix(in srgb, var(--component-color-action) 18%, transparent);
+  --comp-button-bg-tertiary-pressed: var(--component-tone-action-subtle-bg-pressed);
+  --comp-button-border-tertiary-hover: var(--component-tone-action-subtle-border-hover);
+  --comp-button-border-tertiary-pressed: var(--component-tone-action-subtle-border-pressed);
   --comp-button-bg-outlined: var(--component-color-surface);
   --comp-button-border-outlined: var(--component-color-border);
   --comp-button-fg-outlined: var(--component-color-text);
-  --comp-button-border-outlined-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
+  --comp-button-border-outlined-hover: var(--component-tone-action-border-hover);
+  --comp-button-bg-outlined-pressed: var(--component-tone-action-subtle-bg-pressed);
+  --comp-button-border-outlined-pressed: var(--component-tone-action-border-pressed);
   --comp-button-bg-ghost: var(--component-surface-transparent);
   --comp-button-border-ghost: var(--component-border-transparent);
   --comp-button-fg-ghost: var(--component-color-text);
   --comp-button-bg-ghost-hover: var(--component-color-surface-raised);
+  --comp-button-bg-ghost-pressed: var(--component-tone-action-surface-pressed);
   --comp-button-bg-warning: var(--component-color-warning);
-  --comp-button-fg-warning: var(--component-color-action-text);
+  --comp-button-fg-warning: var(--component-energy-status-warning-foreground);
+  --comp-button-bg-warning-hover: var(--component-tone-warning-bg-hover);
+  --comp-button-bg-warning-pressed: var(--component-tone-warning-bg-pressed);
   --comp-button-bg-danger-secondary: var(--component-color-surface);
   --comp-button-border-danger-secondary: var(--component-color-danger);
   --comp-button-fg-danger-secondary: var(--component-color-danger);
+  --comp-button-bg-danger-secondary-hover: var(--component-tone-danger-surface-hover);
+  --comp-button-bg-danger-secondary-pressed: var(--component-tone-danger-surface-pressed);
+  --comp-button-border-danger-secondary-hover: var(--component-tone-danger-border-hover);
+  --comp-button-border-danger-secondary-pressed: var(--component-tone-danger-border-pressed);
   align-items: var(--comp-button-align);
   border: var(--comp-button-border);
   border-radius: var(--comp-button-radius);
@@ -1537,9 +1581,16 @@
   opacity: var(--comp-icon-button-disabled-opacity);
 }
 
-.button:disabled {
+.button:disabled:not([data-state="loading"]) {
+  background: var(--comp-button-disabled-bg);
+  border-color: var(--comp-button-disabled-border);
+  color: var(--comp-button-disabled-fg);
   cursor: var(--comp-button-disabled-cursor);
   opacity: var(--comp-button-disabled-opacity);
+}
+
+.button[data-state="loading"] {
+  cursor: var(--component-loading-busy-cursor);
 }
 
 .copy-button {
@@ -1670,6 +1721,11 @@
   background: var(--comp-button-bg-primary-hover);
 }
 
+.button--primary:active:not(:disabled),
+.button--primary[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-primary-pressed);
+}
+
 .button--secondary {
   background: var(--comp-button-bg-secondary);
   border-color: var(--comp-button-border-secondary);
@@ -1681,9 +1737,24 @@
   border-color: var(--comp-button-border-secondary-hover);
 }
 
+.button--secondary:active:not(:disabled),
+.button--secondary[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-secondary-pressed);
+  border-color: var(--comp-button-border-secondary-pressed);
+}
+
 .button--danger {
   background: var(--comp-button-bg-danger);
   color: var(--comp-button-fg-danger);
+}
+
+.button--danger.button--primary:hover:not(:disabled) {
+  background: var(--comp-button-bg-danger-hover);
+}
+
+.button--danger.button--primary:active:not(:disabled),
+.button--danger.button--primary[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-danger-pressed);
 }
 
 .button--tertiary {
@@ -1697,6 +1768,12 @@
   border-color: var(--comp-button-border-tertiary-hover);
 }
 
+.button--tertiary:active:not(:disabled),
+.button--tertiary[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-tertiary-pressed);
+  border-color: var(--comp-button-border-tertiary-pressed);
+}
+
 .button--outlined {
   background: var(--comp-button-bg-outlined);
   border-color: var(--comp-button-border-outlined);
@@ -1705,6 +1782,12 @@
 
 .button--outlined:hover:not(:disabled) {
   border-color: var(--comp-button-border-outlined-hover);
+}
+
+.button--outlined:active:not(:disabled),
+.button--outlined[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-outlined-pressed);
+  border-color: var(--comp-button-border-outlined-pressed);
 }
 
 .button--ghost {
@@ -1717,9 +1800,23 @@
   background: var(--comp-button-bg-ghost-hover);
 }
 
+.button--ghost:active:not(:disabled),
+.button--ghost[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-ghost-pressed);
+}
+
 .button--warning {
   background: var(--comp-button-bg-warning);
   color: var(--comp-button-fg-warning);
+}
+
+.button--warning.button--primary:hover:not(:disabled) {
+  background: var(--comp-button-bg-warning-hover);
+}
+
+.button--warning.button--primary:active:not(:disabled),
+.button--warning.button--primary[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-warning-pressed);
 }
 
 .button--danger.button--secondary,
@@ -1727,6 +1824,20 @@
   background: var(--comp-button-bg-danger-secondary);
   border-color: var(--comp-button-border-danger-secondary);
   color: var(--comp-button-fg-danger-secondary);
+}
+
+.button--danger.button--secondary:hover:not(:disabled),
+.button--danger.button--outlined:hover:not(:disabled) {
+  background: var(--comp-button-bg-danger-secondary-hover);
+  border-color: var(--comp-button-border-danger-secondary-hover);
+}
+
+.button--danger.button--secondary:active:not(:disabled),
+.button--danger.button--outlined:active:not(:disabled),
+.button--danger.button--secondary[data-state="pressed"]:not(:disabled),
+.button--danger.button--outlined[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-danger-secondary-pressed);
+  border-color: var(--comp-button-border-danger-secondary-pressed);
 }
 
 .button[data-state="pressed"]:not(:disabled) {
@@ -12244,7 +12355,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-button-border-outlined: color-mix(in srgb, var(--component-color-text) 36%, var(--component-color-border));
   --comp-button-fg-outlined: var(--component-color-text);
   --comp-button-bg-ghost-hover: color-mix(in srgb, var(--component-color-text) 10%, transparent);
-  --comp-button-bg-danger-secondary: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface));
+  --comp-button-bg-danger-secondary: var(--component-tone-danger-surface-pressed);
 }
 
 [data-flow-template="docs-shell-template"][data-theme="dark"] .field,

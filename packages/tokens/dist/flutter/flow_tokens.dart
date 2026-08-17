@@ -384,10 +384,17 @@ class FlowTokens {
   static const String sysChartTooltipForeground = "var(--sys-energy-surface-primary)";
   static const String sysColorAction = "var(--sys-energy-action-primary)";
   static const String sysColorActionHover = "var(--sys-energy-action-hover)";
+  static const String sysColorActionPressed = "color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))";
   static const String sysColorActionText = "var(--sys-energy-text-on-action)";
   static const String sysColorBorder = "var(--sys-energy-border-default)";
   static const String sysColorBorderStrong = "var(--sys-energy-border-strong)";
   static const String sysColorDanger = "var(--sys-energy-status-error)";
+  static const String sysColorDangerBorderHover = "color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))";
+  static const String sysColorDangerBorderPressed = "color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))";
+  static const String sysColorDangerHover = "color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))";
+  static const String sysColorDangerPressed = "color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))";
+  static const String sysColorDangerSurfaceHover = "color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))";
+  static const String sysColorDangerSurfacePressed = "color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))";
   static const String sysColorFocus = "var(--sys-energy-action-primary)";
   static const String sysColorSuccess = "var(--sys-energy-status-success)";
   static const String sysColorSurface = "var(--sys-energy-surface-primary)";
@@ -397,6 +404,8 @@ class FlowTokens {
   static const String sysColorTextMuted = "var(--sys-energy-text-secondary)";
   static const String sysColorTextSubtle = "var(--sys-energy-text-tertiary)";
   static const String sysColorWarning = "var(--sys-energy-status-warning)";
+  static const String sysColorWarningHover = "color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))";
+  static const String sysColorWarningPressed = "color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))";
   static const String sysDensityCardPadding = "var(--sys-space-6)";
   static const String sysDensityComponentGap = "var(--sys-space-5)";
   static const String sysDensityComponentGapLg = "var(--sys-space-7)";
@@ -444,6 +453,7 @@ class FlowTokens {
   static const String sysDepthZSticky = "var(--ref-depth-z-sticky)";
   static const String sysDepthZToast = "var(--ref-depth-z-toast)";
   static const String sysDepthZUnderlay = "-1";
+  static const String sysDisabledBackgroundColor = "color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))";
   static const String sysDisabledBorderColor = "color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)";
   static const String sysDisabledCursor = "not-allowed";
   static const String sysDisabledIconColor = "var(--sys-icon-color-disabled)";
@@ -1525,10 +1535,17 @@ class FlowTokens {
     "sys-chart-tooltip-foreground": "var(--sys-energy-surface-primary)",
     "sys-color-action": "var(--sys-energy-action-primary)",
     "sys-color-action-hover": "var(--sys-energy-action-hover)",
+    "sys-color-action-pressed": "color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))",
     "sys-color-action-text": "var(--sys-energy-text-on-action)",
     "sys-color-border": "var(--sys-energy-border-default)",
     "sys-color-border-strong": "var(--sys-energy-border-strong)",
     "sys-color-danger": "var(--sys-energy-status-error)",
+    "sys-color-danger-border-hover": "color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))",
+    "sys-color-danger-border-pressed": "color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))",
+    "sys-color-danger-hover": "color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))",
+    "sys-color-danger-pressed": "color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))",
+    "sys-color-danger-surface-hover": "color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))",
+    "sys-color-danger-surface-pressed": "color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))",
     "sys-color-focus": "var(--sys-energy-action-primary)",
     "sys-color-success": "var(--sys-energy-status-success)",
     "sys-color-surface": "var(--sys-energy-surface-primary)",
@@ -1538,6 +1555,8 @@ class FlowTokens {
     "sys-color-text-muted": "var(--sys-energy-text-secondary)",
     "sys-color-text-subtle": "var(--sys-energy-text-tertiary)",
     "sys-color-warning": "var(--sys-energy-status-warning)",
+    "sys-color-warning-hover": "color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))",
+    "sys-color-warning-pressed": "color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))",
     "sys-density-card-padding": "var(--sys-space-6)",
     "sys-density-component-gap": "var(--sys-space-5)",
     "sys-density-component-gap-lg": "var(--sys-space-7)",
@@ -1585,6 +1604,7 @@ class FlowTokens {
     "sys-depth-z-sticky": "var(--ref-depth-z-sticky)",
     "sys-depth-z-toast": "var(--ref-depth-z-toast)",
     "sys-depth-z-underlay": "-1",
+    "sys-disabled-background-color": "color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))",
     "sys-disabled-border-color": "color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)",
     "sys-disabled-cursor": "not-allowed",
     "sys-disabled-icon-color": "var(--sys-icon-color-disabled)",

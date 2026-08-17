@@ -19,6 +19,15 @@
       }
     }
   },
+  "sys-color-action-pressed": {
+    "$value": "color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-action-pressed"
+      }
+    }
+  },
   "sys-color-action-text": {
     "$value": "{sys-energy-text-on-action}",
     "$type": "color",
@@ -56,6 +65,60 @@
       "flow": {
         "cssVariable": "--sys-color-danger",
         "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-color-danger-hover": {
+    "$value": "color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-danger-hover"
+      }
+    }
+  },
+  "sys-color-danger-pressed": {
+    "$value": "color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-danger-pressed"
+      }
+    }
+  },
+  "sys-color-danger-surface-hover": {
+    "$value": "color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-danger-surface-hover"
+      }
+    }
+  },
+  "sys-color-danger-surface-pressed": {
+    "$value": "color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-danger-surface-pressed"
+      }
+    }
+  },
+  "sys-color-danger-border-hover": {
+    "$value": "color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-danger-border-hover"
+      }
+    }
+  },
+  "sys-color-danger-border-pressed": {
+    "$value": "color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-danger-border-pressed"
       }
     }
   },
@@ -146,6 +209,24 @@
       "flow": {
         "cssVariable": "--sys-color-warning",
         "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-color-warning-hover": {
+    "$value": "color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-warning-hover"
+      }
+    }
+  },
+  "sys-color-warning-pressed": {
+    "$value": "color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-color-warning-pressed"
       }
     }
   }

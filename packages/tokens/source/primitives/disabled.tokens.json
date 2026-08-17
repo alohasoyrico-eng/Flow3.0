@@ -9,6 +9,15 @@
       }
     }
   },
+  "sys-disabled-background-color": {
+    "$value": "color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-disabled-background-color"
+      }
+    }
+  },
   "sys-disabled-cursor": {
     "$value": "not-allowed",
     "$type": "content",

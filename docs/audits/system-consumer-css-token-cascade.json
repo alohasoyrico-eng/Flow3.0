@@ -4,8 +4,8 @@
   "status": "pass",
   "inventory": {
     "packedFiles": 1373,
-    "tokenCssBytes": 64552,
-    "componentCssBytes": 543622,
+    "tokenCssBytes": 65684,
+    "componentCssBytes": 549639,
     "tokenMarkers": 4,
     "componentAliasMarkers": 6,
     "componentRootMarkers": 6,

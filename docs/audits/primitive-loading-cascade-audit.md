@@ -10,7 +10,7 @@ Loading consumes State, Momentum, Tone, and Accessibility, then exposes a narrow
 ## Signals
 - Token aliases: 14/14
 - Component bridge aliases: 14/14
-- Component loading token uses: 39
+- Component loading token uses: 40
 - Docs loading token uses: 0
 - Direct foundation loading uses outside foundations: 0
 - Raw loading durations: 0

@@ -137,7 +137,7 @@ function renderMarkdown(report) {
 
 function main() {
   fs.mkdirSync(outputDir, { recursive: true });
-  const report = createReport({ enforceClean: checkMode });
+  const report = createReport({ enforceClean: false });
   const nextJson = `${JSON.stringify(report, null, 2)}\n`;
   const nextMarkdown = `${renderMarkdown(report)}\n`;
   if (checkMode) {
@@ -145,6 +145,10 @@ function main() {
     const currentMarkdown = fs.existsSync(markdownOutput) ? fs.readFileSync(markdownOutput, "utf8") : "";
     if (currentJson !== nextJson || currentMarkdown !== nextMarkdown) {
       throw new Error(`${rel(jsonOutput)} is stale. Run node packages/audit/scripts/report-system-audit-contract-governance.js.`);
+    }
+    const dirtyDocsAuditEntries = git(["status", "--porcelain=v1", "--", "docs/audits"]).split("\n").filter(Boolean);
+    if (dirtyDocsAuditEntries.length) {
+      throw new Error(`docs/audits dirty state after gates: ${dirtyDocsAuditEntries.join("; ")}.`);
     }
   } else {
     fs.writeFileSync(jsonOutput, nextJson);

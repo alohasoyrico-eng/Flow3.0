@@ -383,10 +383,17 @@ public enum FlowTokens {
   public static let sysChartTooltipForeground = "var(--sys-energy-surface-primary)"
   public static let sysColorAction = "var(--sys-energy-action-primary)"
   public static let sysColorActionHover = "var(--sys-energy-action-hover)"
+  public static let sysColorActionPressed = "color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))"
   public static let sysColorActionText = "var(--sys-energy-text-on-action)"
   public static let sysColorBorder = "var(--sys-energy-border-default)"
   public static let sysColorBorderStrong = "var(--sys-energy-border-strong)"
   public static let sysColorDanger = "var(--sys-energy-status-error)"
+  public static let sysColorDangerBorderHover = "color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))"
+  public static let sysColorDangerBorderPressed = "color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))"
+  public static let sysColorDangerHover = "color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))"
+  public static let sysColorDangerPressed = "color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))"
+  public static let sysColorDangerSurfaceHover = "color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))"
+  public static let sysColorDangerSurfacePressed = "color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))"
   public static let sysColorFocus = "var(--sys-energy-action-primary)"
   public static let sysColorSuccess = "var(--sys-energy-status-success)"
   public static let sysColorSurface = "var(--sys-energy-surface-primary)"
@@ -396,6 +403,8 @@ public enum FlowTokens {
   public static let sysColorTextMuted = "var(--sys-energy-text-secondary)"
   public static let sysColorTextSubtle = "var(--sys-energy-text-tertiary)"
   public static let sysColorWarning = "var(--sys-energy-status-warning)"
+  public static let sysColorWarningHover = "color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))"
+  public static let sysColorWarningPressed = "color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))"
   public static let sysDensityCardPadding = "var(--sys-space-6)"
   public static let sysDensityComponentGap = "var(--sys-space-5)"
   public static let sysDensityComponentGapLg = "var(--sys-space-7)"
@@ -443,6 +452,7 @@ public enum FlowTokens {
   public static let sysDepthZSticky = "var(--ref-depth-z-sticky)"
   public static let sysDepthZToast = "var(--ref-depth-z-toast)"
   public static let sysDepthZUnderlay = "-1"
+  public static let sysDisabledBackgroundColor = "color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))"
   public static let sysDisabledBorderColor = "color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)"
   public static let sysDisabledCursor = "not-allowed"
   public static let sysDisabledIconColor = "var(--sys-icon-color-disabled)"
@@ -1524,10 +1534,17 @@ public enum FlowTokens {
     "sys-chart-tooltip-foreground": "var(--sys-energy-surface-primary)",
     "sys-color-action": "var(--sys-energy-action-primary)",
     "sys-color-action-hover": "var(--sys-energy-action-hover)",
+    "sys-color-action-pressed": "color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))",
     "sys-color-action-text": "var(--sys-energy-text-on-action)",
     "sys-color-border": "var(--sys-energy-border-default)",
     "sys-color-border-strong": "var(--sys-energy-border-strong)",
     "sys-color-danger": "var(--sys-energy-status-error)",
+    "sys-color-danger-border-hover": "color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))",
+    "sys-color-danger-border-pressed": "color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))",
+    "sys-color-danger-hover": "color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))",
+    "sys-color-danger-pressed": "color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))",
+    "sys-color-danger-surface-hover": "color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))",
+    "sys-color-danger-surface-pressed": "color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))",
     "sys-color-focus": "var(--sys-energy-action-primary)",
     "sys-color-success": "var(--sys-energy-status-success)",
     "sys-color-surface": "var(--sys-energy-surface-primary)",
@@ -1537,6 +1554,8 @@ public enum FlowTokens {
     "sys-color-text-muted": "var(--sys-energy-text-secondary)",
     "sys-color-text-subtle": "var(--sys-energy-text-tertiary)",
     "sys-color-warning": "var(--sys-energy-status-warning)",
+    "sys-color-warning-hover": "color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))",
+    "sys-color-warning-pressed": "color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))",
     "sys-density-card-padding": "var(--sys-space-6)",
     "sys-density-component-gap": "var(--sys-space-5)",
     "sys-density-component-gap-lg": "var(--sys-space-7)",
@@ -1584,6 +1603,7 @@ public enum FlowTokens {
     "sys-depth-z-sticky": "var(--ref-depth-z-sticky)",
     "sys-depth-z-toast": "var(--ref-depth-z-toast)",
     "sys-depth-z-underlay": "-1",
+    "sys-disabled-background-color": "color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))",
     "sys-disabled-border-color": "color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)",
     "sys-disabled-cursor": "not-allowed",
     "sys-disabled-icon-color": "var(--sys-icon-color-disabled)",

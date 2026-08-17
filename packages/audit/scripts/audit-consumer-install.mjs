@@ -3336,7 +3336,7 @@ function assertReactGovernanceBaselines() {
     primitives: 24,
     patterns: 72,
     templates: 17,
-    tokenCount: 1139,
+    tokenCount: 1149,
     missingFoundationArtifacts: 0,
     missingPrimitiveArtifacts: 0,
     missingPatternArtifacts: 0,
@@ -3477,8 +3477,8 @@ function assertReactGovernanceBaselines() {
   const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
   assertReportStatus(packageCssRoots, "Package CSS root governance");
   assertInventory(packageCssRoots, {
-    selectors: 1274,
-    componentAliases: 3319,
+    selectors: 1286,
+    componentAliases: 3338,
     componentAliasRoots: 68,
     unknownComponentAliases: 0,
     cssRoots: 75,

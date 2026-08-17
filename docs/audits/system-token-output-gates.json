@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-14T23:44:47.883Z",
+  "generatedAt": "2026-08-17T18:56:40.076Z",
   "scope": "Style Dictionary multiplatform output gates",
   "status": "pass",
-  "tokenCount": 1139,
+  "tokenCount": 1149,
   "inventory": {
     "tokenOutputGateDebt": 0
   },
@@ -11,42 +11,42 @@
       "id": "css",
       "file": "packages/tokens/styles/tokens.css",
       "exists": true,
-      "tokenCount": 1139,
+      "tokenCount": 1149,
       "matchesContract": true
     },
     {
       "id": "json",
       "file": "packages/tokens/tokens.json",
       "exists": true,
-      "tokenCount": 1139,
+      "tokenCount": 1149,
       "matchesContract": true
     },
     {
       "id": "typescript",
       "file": "packages/tokens/src/generated/tokens.ts",
       "exists": true,
-      "tokenCount": 1139,
+      "tokenCount": 1149,
       "matchesContract": true
     },
     {
       "id": "flutter-dart",
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",
       "exists": true,
-      "tokenCount": 1139,
+      "tokenCount": 1149,
       "matchesContract": true
     },
     {
       "id": "android-xml",
       "file": "packages/tokens/dist/android/flow_tokens.xml",
       "exists": true,
-      "tokenCount": 1139,
+      "tokenCount": 1149,
       "matchesContract": true
     },
     {
       "id": "ios-swift",
       "file": "packages/tokens/dist/ios/FlowTokens.swift",
       "exists": true,
-      "tokenCount": 1139,
+      "tokenCount": 1149,
       "matchesContract": true
     }
   ],
@@ -55,7 +55,7 @@
       "id": "contract-has-tokens",
       "status": "pass",
       "evidence": {
-        "tokenCount": 1139
+        "tokenCount": 1149
       },
       "failMessage": null
     },
@@ -66,7 +66,7 @@
         "id": "css",
         "file": "packages/tokens/styles/tokens.css",
         "exists": true,
-        "tokenCount": 1139,
+        "tokenCount": 1149,
         "matchesContract": true
       },
       "failMessage": null
@@ -78,7 +78,7 @@
         "id": "json",
         "file": "packages/tokens/tokens.json",
         "exists": true,
-        "tokenCount": 1139,
+        "tokenCount": 1149,
         "matchesContract": true
       },
       "failMessage": null
@@ -90,7 +90,7 @@
         "id": "typescript",
         "file": "packages/tokens/src/generated/tokens.ts",
         "exists": true,
-        "tokenCount": 1139,
+        "tokenCount": 1149,
         "matchesContract": true
       },
       "failMessage": null
@@ -102,7 +102,7 @@
         "id": "flutter-dart",
         "file": "packages/tokens/dist/flutter/flow_tokens.dart",
         "exists": true,
-        "tokenCount": 1139,
+        "tokenCount": 1149,
         "matchesContract": true
       },
       "failMessage": null
@@ -114,7 +114,7 @@
         "id": "android-xml",
         "file": "packages/tokens/dist/android/flow_tokens.xml",
         "exists": true,
-        "tokenCount": 1139,
+        "tokenCount": 1149,
         "matchesContract": true
       },
       "failMessage": null
@@ -126,7 +126,7 @@
         "id": "ios-swift",
         "file": "packages/tokens/dist/ios/FlowTokens.swift",
         "exists": true,
-        "tokenCount": 1139,
+        "tokenCount": 1149,
         "matchesContract": true
       },
       "failMessage": null

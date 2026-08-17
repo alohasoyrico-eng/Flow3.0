@@ -384,10 +384,17 @@
   <string name="sys_chart_tooltip_foreground">var(--sys-energy-surface-primary)</string>
   <string name="sys_color_action">var(--sys-energy-action-primary)</string>
   <string name="sys_color_action_hover">var(--sys-energy-action-hover)</string>
+  <string name="sys_color_action_pressed">color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))</string>
   <string name="sys_color_action_text">var(--sys-energy-text-on-action)</string>
   <string name="sys_color_border">var(--sys-energy-border-default)</string>
   <string name="sys_color_border_strong">var(--sys-energy-border-strong)</string>
   <string name="sys_color_danger">var(--sys-energy-status-error)</string>
+  <string name="sys_color_danger_border_hover">color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))</string>
+  <string name="sys_color_danger_border_pressed">color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))</string>
+  <string name="sys_color_danger_hover">color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))</string>
+  <string name="sys_color_danger_pressed">color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))</string>
+  <string name="sys_color_danger_surface_hover">color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))</string>
+  <string name="sys_color_danger_surface_pressed">color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))</string>
   <string name="sys_color_focus">var(--sys-energy-action-primary)</string>
   <string name="sys_color_success">var(--sys-energy-status-success)</string>
   <string name="sys_color_surface">var(--sys-energy-surface-primary)</string>
@@ -397,6 +404,8 @@
   <string name="sys_color_text_muted">var(--sys-energy-text-secondary)</string>
   <string name="sys_color_text_subtle">var(--sys-energy-text-tertiary)</string>
   <string name="sys_color_warning">var(--sys-energy-status-warning)</string>
+  <string name="sys_color_warning_hover">color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))</string>
+  <string name="sys_color_warning_pressed">color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))</string>
   <string name="sys_density_card_padding">var(--sys-space-6)</string>
   <string name="sys_density_component_gap">var(--sys-space-5)</string>
   <string name="sys_density_component_gap_lg">var(--sys-space-7)</string>
@@ -444,6 +453,7 @@
   <string name="sys_depth_z_sticky">var(--ref-depth-z-sticky)</string>
   <string name="sys_depth_z_toast">var(--ref-depth-z-toast)</string>
   <string name="sys_depth_z_underlay">-1</string>
+  <string name="sys_disabled_background_color">color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))</string>
   <string name="sys_disabled_border_color">color-mix(in srgb, var(--sys-energy-border-default) 82%, transparent)</string>
   <string name="sys_disabled_cursor">not-allowed</string>
   <string name="sys_disabled_icon_color">var(--sys-icon-color-disabled)</string>

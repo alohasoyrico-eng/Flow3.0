@@ -144,7 +144,7 @@
       "--component-block-size-lg"
     ],
     "missing": [],
-    "spacingAliasUseCount": 2205,
+    "spacingAliasUseCount": 2202,
     "directRefFrameSpaceConsumerUses": []
   },
   "foundationGate": {
@@ -191,7 +191,7 @@
     "rawSpacingFallbacks": [
       {
         "file": "packages/components/styles/components.css",
-        "line": 3811,
+        "line": 3922,
         "property": "max-inline-size",
         "value": "min(42rem, 88%)",
         "status": "review",

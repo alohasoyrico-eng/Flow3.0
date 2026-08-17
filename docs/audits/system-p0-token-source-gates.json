@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-14T23:44:47.817Z",
+  "generatedAt": "2026-08-17T18:59:09.903Z",
   "scope": "P0.1 token source gates",
   "status": "pass",
   "totals": {
     "sourceFiles": 36,
-    "sourceTokens": 1139,
-    "outputTokens": 1139,
+    "sourceTokens": 1149,
+    "outputTokens": 1149,
     "foundations": 11,
     "decisionQueueFiles": 5,
     "decisionQueueTokens": 0,
@@ -20,8 +20,8 @@
       "id": "style-dictionary-output-count-matches-source",
       "status": "pass",
       "evidence": {
-        "sourceTokenCount": 1139,
-        "outputTokenCount": 1139
+        "sourceTokenCount": 1149,
+        "outputTokenCount": 1149
       },
       "failMessage": null
     },
@@ -121,7 +121,7 @@
             "Iconography": 24,
             "Accessibility": 26
           },
-          "primitives": 315,
+          "primitives": 325,
           "docs": 20,
           "decisionQueues": {
             "aliasesToFoundations": 0,
@@ -130,7 +130,7 @@
             "unclassified": 0,
             "unresolved": 0
           },
-          "total": 1139
+          "total": 1149
         },
         "actualCounts": {
           "sourcePath": "packages/tokens/source/**/*.tokens.json",
@@ -147,7 +147,7 @@
             "Iconography": 24,
             "Accessibility": 26
           },
-          "primitives": 315,
+          "primitives": 325,
           "docs": 20,
           "decisionQueues": {
             "aliasesToFoundations": 0,
@@ -156,7 +156,7 @@
             "unclassified": 0,
             "unresolved": 0
           },
-          "total": 1139
+          "total": 1149
         }
       },
       "failMessage": null

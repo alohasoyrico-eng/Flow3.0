@@ -382,10 +382,17 @@ export type FlowTokenName =
   | "sys-chart-tooltip-foreground"
   | "sys-color-action"
   | "sys-color-action-hover"
+  | "sys-color-action-pressed"
   | "sys-color-action-text"
   | "sys-color-border"
   | "sys-color-border-strong"
   | "sys-color-danger"
+  | "sys-color-danger-border-hover"
+  | "sys-color-danger-border-pressed"
+  | "sys-color-danger-hover"
+  | "sys-color-danger-pressed"
+  | "sys-color-danger-surface-hover"
+  | "sys-color-danger-surface-pressed"
   | "sys-color-focus"
   | "sys-color-success"
   | "sys-color-surface"
@@ -395,6 +402,8 @@ export type FlowTokenName =
   | "sys-color-text-muted"
   | "sys-color-text-subtle"
   | "sys-color-warning"
+  | "sys-color-warning-hover"
+  | "sys-color-warning-pressed"
   | "sys-density-card-padding"
   | "sys-density-component-gap"
   | "sys-density-component-gap-lg"
@@ -442,6 +451,7 @@ export type FlowTokenName =
   | "sys-depth-z-sticky"
   | "sys-depth-z-toast"
   | "sys-depth-z-underlay"
+  | "sys-disabled-background-color"
   | "sys-disabled-border-color"
   | "sys-disabled-cursor"
   | "sys-disabled-icon-color"
@@ -7043,6 +7053,12 @@ export const flowTokens = {
     "reference": "sys-energy-action-hover",
     "cssReference": "--sys-energy-action-hover"
   },
+  "sys-color-action-pressed": {
+    "value": "color-mix(in srgb, var(--sys-color-action-hover) 88%, var(--sys-color-text))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-action-pressed"
+  },
   "sys-color-action-text": {
     "value": "var(--sys-energy-text-on-action)",
     "type": "color",
@@ -7074,6 +7090,42 @@ export const flowTokens = {
     "cssVariable": "--sys-color-danger",
     "reference": "sys-energy-status-error",
     "cssReference": "--sys-energy-status-error"
+  },
+  "sys-color-danger-hover": {
+    "value": "color-mix(in srgb, var(--sys-color-danger) 82%, var(--sys-color-text))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-danger-hover"
+  },
+  "sys-color-danger-pressed": {
+    "value": "color-mix(in srgb, var(--sys-color-danger) 68%, var(--sys-color-text))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-danger-pressed"
+  },
+  "sys-color-danger-surface-hover": {
+    "value": "color-mix(in srgb, var(--sys-color-danger) 8%, var(--sys-color-surface))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-danger-surface-hover"
+  },
+  "sys-color-danger-surface-pressed": {
+    "value": "color-mix(in srgb, var(--sys-color-danger) 14%, var(--sys-color-surface))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-danger-surface-pressed"
+  },
+  "sys-color-danger-border-hover": {
+    "value": "color-mix(in srgb, var(--sys-color-danger) 52%, var(--sys-color-border))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-danger-border-hover"
+  },
+  "sys-color-danger-border-pressed": {
+    "value": "color-mix(in srgb, var(--sys-color-danger) 72%, var(--sys-color-border))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-danger-border-pressed"
   },
   "sys-color-focus": {
     "value": "var(--sys-energy-action-primary)",
@@ -7146,6 +7198,18 @@ export const flowTokens = {
     "cssVariable": "--sys-color-warning",
     "reference": "sys-energy-status-warning",
     "cssReference": "--sys-energy-status-warning"
+  },
+  "sys-color-warning-hover": {
+    "value": "color-mix(in srgb, var(--sys-color-warning) 88%, var(--sys-energy-status-warning-foreground))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-warning-hover"
+  },
+  "sys-color-warning-pressed": {
+    "value": "color-mix(in srgb, var(--sys-color-warning) 76%, var(--sys-energy-status-warning-foreground))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-color-warning-pressed"
   },
   "density-card-padding": {
     "value": "var(--sys-density-card-padding)",
@@ -7344,6 +7408,12 @@ export const flowTokens = {
     "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-disabled-border-color"
+  },
+  "sys-disabled-background-color": {
+    "value": "color-mix(in srgb, var(--sys-energy-surface-secondary) 76%, var(--sys-energy-text-tertiary))",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-disabled-background-color"
   },
   "sys-disabled-cursor": {
     "value": "not-allowed",
@@ -9619,10 +9689,17 @@ export const flowTokenNames = [
   "sys-chart-tooltip-foreground",
   "sys-color-action",
   "sys-color-action-hover",
+  "sys-color-action-pressed",
   "sys-color-action-text",
   "sys-color-border",
   "sys-color-border-strong",
   "sys-color-danger",
+  "sys-color-danger-border-hover",
+  "sys-color-danger-border-pressed",
+  "sys-color-danger-hover",
+  "sys-color-danger-pressed",
+  "sys-color-danger-surface-hover",
+  "sys-color-danger-surface-pressed",
   "sys-color-focus",
   "sys-color-success",
   "sys-color-surface",
@@ -9632,6 +9709,8 @@ export const flowTokenNames = [
   "sys-color-text-muted",
   "sys-color-text-subtle",
   "sys-color-warning",
+  "sys-color-warning-hover",
+  "sys-color-warning-pressed",
   "sys-density-card-padding",
   "sys-density-component-gap",
   "sys-density-component-gap-lg",
@@ -9679,6 +9758,7 @@ export const flowTokenNames = [
   "sys-depth-z-sticky",
   "sys-depth-z-toast",
   "sys-depth-z-underlay",
+  "sys-disabled-background-color",
   "sys-disabled-border-color",
   "sys-disabled-cursor",
   "sys-disabled-icon-color",

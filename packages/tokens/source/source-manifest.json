@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T15:38:36.933Z",
+  "generatedAt": "2026-08-17T18:58:49.282Z",
   "purpose": "Curated P0.1 source split. Foundation-namespaced tokens live under source/foundations; all non-foundation tokens stay in explicit decision queues until primitives/components/docs ownership is resolved.",
   "counts": {
     "sourcePath": "packages/tokens/source/**/*.tokens.json",
@@ -16,7 +16,7 @@
       "Iconography": 24,
       "Accessibility": 26
     },
-    "primitives": 315,
+    "primitives": 325,
     "docs": 20,
     "decisionQueues": {
       "aliasesToFoundations": 0,
@@ -25,10 +25,10 @@
       "unclassified": 0,
       "unresolved": 0
     },
-    "total": 1139
+    "total": 1149
   },
   "lastOwnershipResolution": {
-    "generatedAt": "2026-08-12T15:38:36.933Z",
+    "generatedAt": "2026-08-17T18:58:49.282Z",
     "moved": {
       "foundations": {
         "accessibility": 0,
