@@ -361,10 +361,10 @@
     "scannedFiles": [
       "packages/components/styles/components.css"
     ],
-    "totalFindings": 606,
+    "totalFindings": 615,
     "failures": [],
     "reviews": [],
-    "passCount": 606
+    "passCount": 615
   },
   "gaps": [],
   "nextActions": [

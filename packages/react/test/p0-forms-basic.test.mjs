@@ -82,6 +82,58 @@ try {
   }
 
   {
+    const view = render(React.createElement(Input, {
+      label: "Driver email",
+      helper: "Looks good",
+      state: "success",
+      value: "driver@example.com",
+      live: true,
+    }));
+    const field = view.getByRole("textbox", { name: /driver email/i });
+    const message = view.getByText("Looks good");
+
+    assert.equal(field.getAttribute("aria-invalid"), null);
+    assert.equal(field.getAttribute("aria-describedby"), message.id);
+    assert.equal(message.getAttribute("data-state"), "success");
+    assert.equal(message.getAttribute("role"), "status");
+
+    view.rerender(React.createElement(Input, {
+      label: "Driver email",
+      helper: "Domain is unusual",
+      state: "warning",
+      value: "driver@example.test",
+      live: true,
+    }));
+    const warning = view.getByText("Domain is unusual");
+    assert.equal(field.getAttribute("aria-invalid"), null);
+    assert.equal(warning.getAttribute("data-state"), "warning");
+    assert.equal(warning.getAttribute("role"), "status");
+
+    view.rerender(React.createElement(Input, {
+      label: "Driver email",
+      helper: "We will verify this address",
+      state: "info",
+      value: "driver@example.test",
+    }));
+    const info = view.getByText("We will verify this address");
+    assert.equal(field.getAttribute("aria-invalid"), null);
+    assert.equal(info.getAttribute("data-state"), "info");
+    assert.equal(info.getAttribute("role"), null);
+
+    view.rerender(React.createElement(Input, {
+      label: "Driver email",
+      error: "Use a valid company email",
+      value: "driver@example.test",
+    }));
+    const error = view.getByText("Use a valid company email");
+    assert.equal(field.getAttribute("aria-invalid"), "true");
+    assert.equal(error.getAttribute("data-state"), "error");
+    assert.equal(error.getAttribute("role"), "alert");
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
     const user = createUser();
     const changes = [];
     const view = render(React.createElement(TextArea, {

@@ -6593,17 +6593,17 @@
   "sourceInventory": {
     "counts": {
       "byExtension": {
-        ".js": 686,
+        ".js": 688,
         ".mjs": 38,
-        ".ts": 195,
+        ".ts": 196,
         ".d.ts": 312,
         ".tsx": 63
       },
       "byArea": {
         "script": 309,
-        "source": 646,
+        "source": 648,
         "test": 26,
-        "generated-dist": 313
+        "generated-dist": 314
       }
     }
   },

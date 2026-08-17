@@ -3324,7 +3324,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 924,
+    filesScanned: 926,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3477,8 +3477,8 @@ function assertReactGovernanceBaselines() {
   const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
   assertReportStatus(packageCssRoots, "Package CSS root governance");
   assertInventory(packageCssRoots, {
-    selectors: 1285,
-    componentAliases: 3340,
+    selectors: 1291,
+    componentAliases: 3343,
     componentAliasRoots: 68,
     unknownComponentAliases: 0,
     cssRoots: 75,
@@ -4388,7 +4388,7 @@ function assertReactGovernanceBaselines() {
     generatedTokenOutputs: 9,
     matchingGeneratedTokenOutputs: 9,
     rawTokenValueViolations: 0,
-    sourceBoundaryFilesScanned: 678,
+    sourceBoundaryFilesScanned: 680,
     sourceBoundaryViolations: 0,
     phase3FoundationsPrimitivesDebt: 0,
   }, "Phase 3 foundations/primitives checkpoint");

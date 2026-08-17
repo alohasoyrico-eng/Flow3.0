@@ -5,9 +5,10 @@
 import React, { forwardRef, useId, useState } from "react";
 import { inputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 const validVariants = new Set(["text", "email", "password", "number", "currency", "unit", "search"]);
-const validStates = new Set(["default", "focus", "filled", "loading", "error", "disabled"]);
+const validStates = new Set(["default", "focus", "filled", "info", "success", "warning", "loading", "error", "disabled"]);
 const numericVariants = new Set(["number", "currency", "unit"]);
 function resolveInputState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
     if (disabled)
@@ -74,7 +75,7 @@ function normalizeValue(value, variant) {
         numericValue: normalized === "" || normalized === "-" ? null : Number(normalized),
     };
 }
-export const Input = forwardRef(function Input({ label, helper = "", helperText, error = "", value, name = "", placeholder = "", disabled = false, loading = false, required = false, density, state, variant = "text", icon = "", prefix = "", suffix = "", mono = false, type = "text", inputMode, autocomplete, align = "start", revealable = false, revealed: revealedProp, revealLabel, hideLabel, locale, onValueChange, onRevealChange, className = "", id, ...rest }, ref) {
+export const Input = forwardRef(function Input({ label, helper = "", helperText, error = "", live = false, value, name = "", placeholder = "", disabled = false, loading = false, required = false, density, state, variant = "text", icon = "", prefix = "", suffix = "", mono = false, type = "text", inputMode, autocomplete, align = "start", revealable = false, revealed: revealedProp, revealLabel, hideLabel, locale, onValueChange, onRevealChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const inputId = id ?? `input-${generatedId}`;
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "text");
@@ -95,10 +96,17 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
         value: currentValue,
     });
     const resolvedDensity = normalizeFlowDensity(density);
-    const resolvedHelper = error || helperText || helper;
     const isDisabled = Boolean(disabled) || Boolean(loading);
     const resolvedAlign = align === "end" || (align === "start" && numericVariants.has(resolvedVariant)) ? "end" : "start";
-    const describedBy = [resolvedHelper ? `${inputId}-helper` : "", rest["aria-describedby"]].filter(Boolean).join(" ") || undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error,
+        helper,
+        helperText,
+        live,
+        state: resolvedState,
+    });
     const inputType = canReveal && revealed ? "text" : resolvedType;
     if (!label)
         return null;
@@ -140,8 +148,8 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
         inputMode: inputMode || inputModeForVariant(resolvedVariant),
         autoComplete: autocomplete || autocompleteForVariant(resolvedVariant),
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : rest["aria-invalid"],
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: handleChange,
     }), suffix
         ? React.createElement("span", { className: "field__suffix", "aria-hidden": "true" }, suffix)
@@ -155,8 +163,14 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
             "data-field-action": "reveal",
             onClick: handleRevealClick,
         }, React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, revealed ? "visibility_off" : "visibility"))
-        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), resolvedHelper
-        ? React.createElement("span", { className: "field__helper", "data-field-helper": "", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), fieldMessage.message
+        ? React.createElement("span", {
+            className: "field__helper",
+            "data-field-helper": "",
+            ...flowStateProps(fieldMessage.state),
+            id: fieldMessage.messageId,
+            role: fieldMessage.role,
+        }, fieldMessage.message)
         : null);
 });
 Input.displayName = "Input";

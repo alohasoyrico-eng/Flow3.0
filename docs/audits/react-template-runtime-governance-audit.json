@@ -635,7 +635,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "routes",
-      "markupBytes": 22976,
+      "markupBytes": 22997,
       "densityMarkers": 29,
       "failures": []
     },
@@ -646,7 +646,7 @@
       "density": "md",
       "state": "loading",
       "selected": "home",
-      "markupBytes": 25109,
+      "markupBytes": 25130,
       "densityMarkers": 32,
       "failures": []
     },
@@ -657,7 +657,7 @@
       "density": "md",
       "state": "empty",
       "selected": "home",
-      "markupBytes": 22941,
+      "markupBytes": 22962,
       "densityMarkers": 29,
       "failures": []
     },
@@ -668,7 +668,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "home",
-      "markupBytes": 23983,
+      "markupBytes": 24004,
       "densityMarkers": 32,
       "failures": []
     },
@@ -679,7 +679,7 @@
       "density": "sm",
       "state": "error",
       "selected": "home",
-      "markupBytes": 23076,
+      "markupBytes": 23097,
       "densityMarkers": 29,
       "failures": []
     },
@@ -690,7 +690,7 @@
       "density": "md",
       "state": "offline",
       "selected": "home",
-      "markupBytes": 23080,
+      "markupBytes": 23101,
       "densityMarkers": 29,
       "failures": []
     },
@@ -701,7 +701,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "home",
-      "markupBytes": 23211,
+      "markupBytes": 23233,
       "densityMarkers": 29,
       "failures": []
     },
@@ -712,7 +712,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "support",
-      "markupBytes": 22939,
+      "markupBytes": 22960,
       "densityMarkers": 29,
       "failures": []
     },
@@ -723,7 +723,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "industrial",
-      "markupBytes": 9238,
+      "markupBytes": 9259,
       "densityMarkers": 20,
       "failures": []
     },
@@ -734,7 +734,7 @@
       "density": "md",
       "state": "loading",
       "selected": "centro",
-      "markupBytes": 9834,
+      "markupBytes": 9855,
       "densityMarkers": 21,
       "failures": []
     },
@@ -745,7 +745,7 @@
       "density": "md",
       "state": "empty",
       "selected": "centro",
-      "markupBytes": 9746,
+      "markupBytes": 9767,
       "densityMarkers": 22,
       "failures": []
     },
@@ -756,7 +756,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "centro",
-      "markupBytes": 9801,
+      "markupBytes": 9822,
       "densityMarkers": 22,
       "failures": []
     },
@@ -767,7 +767,7 @@
       "density": "sm",
       "state": "error",
       "selected": "centro",
-      "markupBytes": 9145,
+      "markupBytes": 9166,
       "densityMarkers": 20,
       "failures": []
     },
@@ -778,7 +778,7 @@
       "density": "md",
       "state": "offline",
       "selected": "centro",
-      "markupBytes": 9149,
+      "markupBytes": 9170,
       "densityMarkers": 20,
       "failures": []
     },
@@ -789,7 +789,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "centro",
-      "markupBytes": 9246,
+      "markupBytes": 9268,
       "densityMarkers": 20,
       "failures": []
     },
@@ -800,7 +800,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "poniente",
-      "markupBytes": 9174,
+      "markupBytes": 9195,
       "densityMarkers": 20,
       "failures": []
     },

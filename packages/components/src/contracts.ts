@@ -134,7 +134,7 @@ export const componentContracts = {
     purpose: "Capture short free-form input with visible label, helper or recovery text, density, state, optional icon, qualifiers, capture role, and native input semantics.",
     variants: ["text", "email", "password", "number", "currency", "unit", "search"],
     intents: ["default"],
-    states: ["default", "focus", "filled", "loading", "error", "disabled"],
+    states: ["default", "focus", "filled", "info", "success", "warning", "loading", "error", "disabled"],
     props: [
       { name: "label", type: "string", required: true },
       { name: "helper", type: "string", required: false },
@@ -147,7 +147,8 @@ export const componentContracts = {
       { name: "loading", type: "boolean", required: false },
       { name: "required", type: "boolean", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-      { name: "state", type: "\"default\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"", required: false },
+      { name: "state", type: "\"default\" | \"focus\" | \"filled\" | \"info\" | \"success\" | \"warning\" | \"loading\" | \"error\" | \"disabled\"", required: false },
+      { name: "live", type: "boolean", required: false },
       { name: "variant", type: "\"text\" | \"email\" | \"password\" | \"number\" | \"currency\" | \"unit\" | \"search\"", required: false },
       { name: "icon", type: "string", required: false },
       { name: "prefix", type: "string", required: false },

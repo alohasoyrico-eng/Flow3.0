@@ -176,7 +176,7 @@
       "id": "input",
       "component": "Input",
       "factory": "@design-system/react/input",
-      "contractProps": 28,
+      "contractProps": 29,
       "requiredProps": [
         "label"
       ],

@@ -10,10 +10,10 @@
     "nextRequiredDecision": "remove or quarantine src runtime mirrors after tests/audits stop importing ../src/*.js"
   },
   "counts": {
-    "tsSources": 156,
-    "srcRuntimeFiles": 157,
+    "tsSources": 157,
+    "srcRuntimeFiles": 158,
     "srcDeclarationFiles": 156,
-    "distRuntimeFiles": 157,
+    "distRuntimeFiles": 158,
     "distDeclarationFiles": 156,
     "publicRuntimeTargets": 155,
     "publicDeclarationTargets": 155,
@@ -21,10 +21,10 @@
     "srcRuntimeMirrorMissingGeneratedHeader": 0
   },
   "sourceTruthDebt": 0,
-  "srcRuntimeMirrorCount": 156,
+  "srcRuntimeMirrorCount": 157,
   "metrics": {
     "sourceTruthDebt": 0,
-    "srcRuntimeMirrorCount": 156,
+    "srcRuntimeMirrorCount": 157,
     "publicRuntimeTargetsOutsideDistDebt": 0,
     "publicDeclarationTargetsOutsideDistDebt": 0,
     "srcRuntimeWithoutTsSourceDebt": 0,

@@ -6,7 +6,7 @@ Interactive states must not borrow the wrong visual language: loading is not dis
 
 - Blocking debt: 0
 - Review debt: 0
-- CSS rules scanned: 1325
+- CSS rules scanned: 1331
 
 ## Blocking Findings
 

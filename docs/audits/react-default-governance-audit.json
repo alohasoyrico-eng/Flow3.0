@@ -880,7 +880,7 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.tsx",
-      "line": 128,
+      "line": 132,
       "rule": "variant-default",
       "prop": "variant",
       "value": "text",
@@ -890,7 +890,7 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.tsx",
-      "line": 136,
+      "line": 140,
       "rule": "align-default",
       "prop": "align",
       "value": "start",
@@ -3110,7 +3110,7 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.tsx",
-      "line": 128,
+      "line": 132,
       "rule": "variant-default",
       "prop": "variant",
       "value": "text",
@@ -3142,7 +3142,7 @@
     {
       "component": "Input",
       "file": "packages/react/src/Input.tsx",
-      "line": 136,
+      "line": 140,
       "rule": "align-default",
       "prop": "align",
       "value": "start",

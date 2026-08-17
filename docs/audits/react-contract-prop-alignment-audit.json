@@ -8,15 +8,15 @@
       "propAlignmentDebt": 0,
       "pass": 62,
       "fail": 0,
-      "contractProps": 750,
-      "publicReactProps": 627,
+      "contractProps": 751,
+      "publicReactProps": 628,
       "semanticInheritedProps": 1,
       "inheritedContractProps": 28,
       "extraReactProps": 0,
       "missingReactProps": 0,
       "requiredMismatches": 0,
       "typeValueMismatches": 0,
-      "publicPropsExpectedInSource": 628,
+      "publicPropsExpectedInSource": 629,
       "unreferencedPublicProps": 0,
       "reactGovernancePolicyIssues": 0
     },
@@ -31,15 +31,15 @@
     "components": 62,
     "pass": 62,
     "fail": 0,
-    "contractProps": 750,
-    "publicReactProps": 627,
+    "contractProps": 751,
+    "publicReactProps": 628,
     "semanticInheritedProps": 1,
     "inheritedContractProps": 28,
     "extraReactProps": 0,
     "missingReactProps": 0,
     "requiredMismatches": 0,
     "typeValueMismatches": 0,
-    "publicPropsExpectedInSource": 628,
+    "publicPropsExpectedInSource": 629,
     "unreferencedPublicProps": 0,
     "reactGovernancePolicyIssues": 0,
     "propAlignmentDebt": 0
@@ -4629,7 +4629,12 @@
         },
         {
           "name": "state",
-          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "type": "\\\"default\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"info\\\" | \\\"success\\\" | \\\"warning\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "required": false
+        },
+        {
+          "name": "live",
+          "type": "boolean",
           "required": false
         },
         {
@@ -4731,6 +4736,10 @@
           "required": false
         },
         {
+          "name": "live",
+          "required": false
+        },
+        {
           "name": "density",
           "required": false
         },
@@ -4823,6 +4832,7 @@
         "hideLabel",
         "icon",
         "label",
+        "live",
         "loading",
         "locale",
         "mono",

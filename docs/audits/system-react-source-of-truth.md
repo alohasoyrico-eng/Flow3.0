@@ -13,15 +13,15 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- TS/TSX source files: 156
-- Runtime JS files in src: 157
+- TS/TSX source files: 157
+- Runtime JS files in src: 158
 - Declaration files in src: 156
-- Runtime JS files in dist: 157
+- Runtime JS files in dist: 158
 - Declaration files in dist: 156
 - Generated src runtime without TS source: 1
 - src runtime mirrors missing generated header: 0
 - Source truth debt: 0
-- Temporary src runtime mirror count: 156
+- Temporary src runtime mirror count: 157
 
 ## Blocking Debt
 

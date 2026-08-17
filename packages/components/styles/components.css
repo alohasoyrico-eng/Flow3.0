@@ -588,7 +588,10 @@
   --comp-input-loading-bg: color-mix(in srgb, var(--component-loading-skeleton-surface) 62%, var(--component-color-surface));
   --comp-input-error-border: var(--component-color-danger);
   --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
-  --comp-input-valid-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
+  --comp-input-info-border: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
+  --comp-input-info-bg: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface));
+  --comp-input-success-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
+  --comp-input-success-bg: color-mix(in srgb, var(--component-color-success) 8%, var(--component-color-surface));
   --comp-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 9%, var(--component-color-surface));
   --comp-input-warning-border: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
   --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 72%, var(--component-color-text));
@@ -2231,10 +2234,40 @@
   background: var(--comp-input-error-bg);
 }
 
+.field[data-state="info"] .field__control {
+  border-color: var(--comp-input-info-border);
+  background: var(--comp-input-info-bg);
+}
+
+.field[data-state="success"] .field__control {
+  border-color: var(--comp-input-success-border);
+  background: var(--comp-input-success-bg);
+}
+
+.field[data-state="warning"] .field__control {
+  border-color: var(--comp-input-warning-border);
+  background: var(--comp-input-warning-bg);
+}
+
 .field-control[data-state="error"] .field-control__helper,
 .field[data-state="error"] .field__helper,
 .field[data-state="error"] .field__icon {
   color: var(--comp-input-error-border);
+}
+
+.field[data-state="info"] .field__helper,
+.field[data-state="info"] .field__icon {
+  color: var(--comp-input-info-border);
+}
+
+.field[data-state="success"] .field__helper,
+.field[data-state="success"] .field__icon {
+  color: var(--comp-input-success-border);
+}
+
+.field[data-state="warning"] .field__helper,
+.field[data-state="warning"] .field__icon {
+  color: var(--comp-input-warning-helper-fg);
 }
 
 .field-control[data-state="disabled"],

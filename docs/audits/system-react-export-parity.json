@@ -17,9 +17,9 @@
     "missingObjectDefault": 0,
     "unresolvedDirectExports": 0,
     "unresolvedWildcardExports": 0,
-    "reactDistRuntimeFiles": 157,
+    "reactDistRuntimeFiles": 158,
     "exportedReactDistRuntimeFiles": 155,
-    "allowedInternalReactDistRuntimeFiles": 2,
+    "allowedInternalReactDistRuntimeFiles": 3,
     "orphanReactDistRuntimeFiles": 0,
     "exportParityDebt": 0
   },

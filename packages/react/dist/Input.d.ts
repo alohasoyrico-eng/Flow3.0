@@ -4,7 +4,7 @@ import { inputPlatformContract } from "#flow/platforms";
 
 export type InputVariant = "text" | "email" | "password" | "number" | "currency" | "unit" | "search";
 export type InputDensity = "sm" | "md" | "lg";
-export type InputState = "default" | "focus" | "filled" | "loading" | "error" | "disabled";
+export type InputState = "default" | "focus" | "filled" | "info" | "success" | "warning" | "loading" | "error" | "disabled";
 export type InputAlign = "start" | "end";
 export type InputValueMeta = {
   value: string;
@@ -18,6 +18,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   helper?: string;
   helperText?: string;
   error?: string;
+  live?: boolean;
   value?: string;
   density?: InputDensity;
   state?: InputState;

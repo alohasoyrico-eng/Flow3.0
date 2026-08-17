@@ -7,7 +7,7 @@ Generated: 2026-08-14
 - Status: pass
 - Reports: 7
 - Passing reports: 7
-- Packed files: 1373
+- Packed files: 1374
 - Resolved exports: 16
 - Rendered artifacts: 20
 - Typed components: 7
@@ -23,7 +23,7 @@ Generated: 2026-08-14
 - Dist import leaks: 0
 - Build check status: 0
 - Source truth debt: 0
-- Source runtime mirror count: 156
+- Source runtime mirror count: 157
 - Consumer boundary checkpoint debt: 0
 
 ## Reports

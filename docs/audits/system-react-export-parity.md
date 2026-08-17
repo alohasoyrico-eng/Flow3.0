@@ -12,9 +12,9 @@ Generated: 2026-08-14
 - Direct targets: 333
 - Wildcard resolved targets: 124
 - Resolved direct exports: 178
-- React dist runtime files: 157
+- React dist runtime files: 158
 - Exported React dist runtime files: 155
-- Allowed internal React dist runtime files: 2
+- Allowed internal React dist runtime files: 3
 - Orphan public React dist runtime files: 0
 - Export parity debt: 0
 

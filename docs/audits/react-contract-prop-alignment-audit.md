@@ -10,15 +10,15 @@ The public React prop surface must stay aligned with componentContracts so produ
 - Prop alignment debt: 0
 - Pass: 62
 - Fail: 0
-- Contract props: 750
-- Public React props: 627
+- Contract props: 751
+- Public React props: 628
 - Semantic inherited props: 1
 - Contract props satisfied by React DOM inheritance: 28
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 628
+- Public props expected in source: 629
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -32,15 +32,15 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | propAlignmentDebt | 0 | 0 |
 | pass | 62 | 62 |
 | fail | 0 | 0 |
-| contractProps | 750 | 750 |
-| publicReactProps | 627 | 627 |
+| contractProps | 751 | 751 |
+| publicReactProps | 628 | 628 |
 | semanticInheritedProps | 1 | 1 |
 | inheritedContractProps | 28 | 28 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 628 | 628 |
+| publicPropsExpectedInSource | 629 | 629 |
 | unreferencedPublicProps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
 
@@ -87,7 +87,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | FloatingActionButton | pass | 9 | 7 | 7 | None | None | None | None | None |
 | IconButton | pass | 9 | 5 | 5 | None | None | None | None | None |
 | InlineValidation | pass | 9 | 7 | 7 | None | None | None | None | None |
-| Input | pass | 28 | 21 | 21 | None | None | None | None | None |
+| Input | pass | 29 | 22 | 22 | None | None | None | None | None |
 | InputAmount | pass | 18 | 13 | 13 | None | None | None | None | None |
 | KpiTile | pass | 15 | 12 | 12 | None | None | None | None | None |
 | List | pass | 8 | 8 | 8 | None | None | None | None | None |

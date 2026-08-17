@@ -123,6 +123,41 @@ function addApiStateFindings(blockers, rules) {
       message: "Input must normalize runtime state values against the TypeScript state union so JS consumers cannot activate hidden CSS states.",
     });
   }
+
+  for (const state of ["info", "success", "warning"]) {
+    if (!inputStates.has(state)) {
+      blockers.push({
+        file: rel(inputSourceFile),
+        rule: "input-feedback-state-missing",
+        severity: "blocker",
+        line: 1,
+        selector: "InputState",
+        message: `Input must expose ${state} as a non-invalidating feedback state so field feedback matches InlineValidation semantics.`,
+      });
+    }
+  }
+
+  if (!inputSource.includes('resolveFieldMessage({')) {
+    blockers.push({
+      file: rel(inputSourceFile),
+      rule: "input-field-message-not-shared",
+      severity: "blocker",
+      line: 1,
+      selector: "resolveFieldMessage",
+      message: "Input must route helper/error feedback through the shared field message helper instead of rebuilding aria-describedby, aria-invalid, and live-region semantics locally.",
+    });
+  }
+
+  if (!inputSource.includes('"aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"]')) {
+    blockers.push({
+      file: rel(inputSourceFile),
+      rule: "input-non-error-invalid-semantics",
+      severity: "blocker",
+      line: 1,
+      selector: "aria-invalid",
+      message: "Input must only mark field feedback invalid when the shared field message resolves error; success, warning, and info are not invalid states.",
+    });
+  }
 }
 
 function createReport() {

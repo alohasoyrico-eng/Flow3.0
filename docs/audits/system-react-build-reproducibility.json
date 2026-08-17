@@ -3,16 +3,16 @@
   "generatedAt": "2026-08-14",
   "status": "pass",
   "inventory": {
-    "srcRuntimeMirrors": 156,
+    "srcRuntimeMirrors": 157,
     "srcRuntimeMirrorsMissingHeader": 0,
-    "distRuntimeFiles": 157,
+    "distRuntimeFiles": 158,
     "distDeclarationFiles": 156,
     "buildCheckStatus": 0,
     "reactBuildReproducibilityDebt": 0
   },
   "buildCheck": {
     "status": 0,
-    "stdout": "{\"status\":\"pass\",\"package\":\"@design-system/react\",\"outDir\":\"dist\",\"files\":313}",
+    "stdout": "{\"status\":\"pass\",\"package\":\"@design-system/react\",\"outDir\":\"dist\",\"files\":314}",
     "stderr": ""
   },
   "srcRuntimeMirrorsMissingHeader": [],
