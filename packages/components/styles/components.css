@@ -2209,8 +2209,8 @@
   font: inherit;
 }
 
-.field-control:hover .field-control__surface,
-.field:hover .field__control {
+.field-control:not([data-state="disabled"]):not([data-state="loading"]):hover .field-control__surface,
+.field:not([data-state="disabled"]):not([data-state="loading"]):hover .field__control {
   border-color: var(--comp-input-hover-border);
 }
 

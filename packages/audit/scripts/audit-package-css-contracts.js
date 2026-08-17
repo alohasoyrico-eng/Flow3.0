@@ -4,7 +4,7 @@ const { checkTokenizedVisualProperties } = require("./audit-tokenized-css-proper
 const { checkComponentVarFallbacks } = require("./audit-component-var-fallbacks.js");
 const { checkComponentCrossAliases } = require("./audit-component-cross-aliases.js");
 const { checkComponentAliasLiterals } = require("./audit-component-alias-literals.js");
-const { checkDarkModeCssContract } = require("./audit-dark-mode-css-contract.js");
+const { checkDarkModeCssContract } = require("./audit-dark-mode-css-contract.js"), { checkInputMotionCssContract } = require("./audit-input-motion-css-contract.js");
 
 const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css"), packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
 function cssBlocks(text) {
@@ -19,7 +19,6 @@ function cssBlocks(text) {
   }
   return blocks;
 }
-
 function normalizedSelector(block) {
   return block?.selector.replace(/\/\*[\s\S]*?\*\//g, "").trim();
 }
@@ -217,6 +216,7 @@ function checkPackageCssContracts() {
   for (const match of text.matchAll(/--comp-[\w-]+:\s*var\(--sys-(?:disabled|state)-[\w-]+\);/g)) add("errors", packageCssFile, lineNumber(text, match.index), "Component state aliases must consume component opacity/disabled aliases instead of reaching into sys state or disabled directly.");
 
   const blocks = cssBlocks(text);
+  checkInputMotionCssContract({ text, blocks, packageCssFile });
   checkComponentCssContracts({ text, blocks, packageCssFile, selectorKey, normalizedSelector });
   const buttonBlock = blocks.find((block) => block.selector === ".button");
   const buttonSmBlock = blocks.find((block) => block.selector === ".button[data-density=\"sm\"]");

@@ -7,7 +7,7 @@ Generated: 2026-08-14
 - Status: pass
 - Packed files: 1374
 - Token CSS bytes: 65876
-- Component CSS bytes: 550622
+- Component CSS bytes: 550736
 - Token markers: 4
 - Component alias markers: 6
 - Component root markers: 6

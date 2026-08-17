@@ -114,6 +114,7 @@ const expectedAuditFiles = new Set([
   "audit-gold-docs.js",
   "audit-gold-page-parity.js",
   "audit-icon-button-css-contract.js",
+  "audit-input-motion-css-contract.js",
   "audit-inline-validation-css-contract.js",
   "audit-integration.js",
   "audit-kpi-tile-css-contract.js",
