@@ -191,7 +191,7 @@
     "rawSpacingFallbacks": [
       {
         "file": "packages/components/styles/components.css",
-        "line": 3922,
+        "line": 3930,
         "property": "max-inline-size",
         "value": "min(42rem, 88%)",
         "status": "review",

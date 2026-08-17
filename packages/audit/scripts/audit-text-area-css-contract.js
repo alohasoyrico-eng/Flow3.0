@@ -15,7 +15,8 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
   const counterPaddingBlock = blockFor(blocks, selectorKey, ".text-area__surface[data-has-counter=\"true\"] .text-area");
   const focusBlock = blockFor(blocks, selectorKey, ".text-area:focus-visible,.field[data-state=\"focus\"] .text-area");
   const errorBlock = blockFor(blocks, selectorKey, ".field[data-state=\"error\"] .text-area");
-  const mutedBlock = blockFor(blocks, selectorKey, ".field[data-state=\"disabled\"] .text-area,.field[data-state=\"loading\"] .text-area");
+  const mutedBlock = blockFor(blocks, selectorKey, ".field[data-state=\"disabled\"] .text-area");
+  const loadingBlock = blockFor(blocks, selectorKey, ".field[data-state=\"loading\"] .text-area");
   const counterBlock = blockFor(blocks, selectorKey, ".text-area__counter");
   const counterErrorBlock = blockFor(blocks, selectorKey, ".field[data-state=\"error\"] .text-area__counter");
 
@@ -78,7 +79,14 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
     text,
     packageCssFile,
     snippets: ["background: var(--comp-text-area-bg-muted)"],
-    message: "TextArea disabled/loading state must consume component muted aliases.",
+    message: "TextArea disabled state must consume component muted aliases.",
+  });
+  requireIncludes({
+    block: loadingBlock,
+    text,
+    packageCssFile,
+    snippets: ["background: var(--comp-text-area-bg-loading)"],
+    message: "TextArea loading state must consume component loading aliases instead of disabled aliases.",
   });
   requireIncludes({
     block: counterBlock,

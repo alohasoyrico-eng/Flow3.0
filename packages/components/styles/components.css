@@ -585,6 +585,7 @@
   --comp-input-focus-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --comp-input-icon-fg: var(--component-color-text-muted);
   --comp-input-icon-loading-fg: var(--component-color-action);
+  --comp-input-loading-bg: color-mix(in srgb, var(--component-loading-skeleton-surface) 62%, var(--component-color-surface));
   --comp-input-error-border: var(--component-color-danger);
   --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
   --comp-input-valid-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
@@ -592,7 +593,7 @@
   --comp-input-warning-border: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
   --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 72%, var(--component-color-text));
   --comp-input-disabled-opacity: var(--component-disabled-readable-opacity);
-  --comp-input-disabled-bg: var(--component-color-surface-raised);
+  --comp-input-disabled-bg: var(--component-disabled-bg);
   --comp-input-open-opacity: var(--component-opacity-visible);
   --comp-text-area-min-block: var(--component-textarea-min-block);
   --comp-text-area-padding-block: var(--component-space-md);
@@ -602,6 +603,7 @@
   --comp-text-area-counter-inset-inline: var(--component-density-control-padding-x);
   --comp-text-area-bg: var(--component-color-surface);
   --comp-text-area-bg-muted: var(--component-color-surface-raised);
+  --comp-text-area-bg-loading: color-mix(in srgb, var(--component-loading-skeleton-surface) 62%, var(--component-color-surface));
   --comp-text-area-bg-error: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
   --comp-text-area-border: var(--component-color-border);
   --comp-text-area-border-hover: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
@@ -2257,10 +2259,13 @@
 }
 
 .field-control[data-state="disabled"] .field-control__surface,
-.field-control[data-state="loading"] .field-control__surface,
-.field[data-state="disabled"] .field__control,
-.field[data-state="loading"] .field__control {
+.field[data-state="disabled"] .field__control {
   background: var(--comp-input-disabled-bg);
+}
+
+.field-control[data-state="loading"] .field-control__surface,
+.field[data-state="loading"] .field__control {
+  background: var(--comp-input-loading-bg);
 }
 
 .field-control[data-mono="true"] .field-input,
@@ -2312,9 +2317,12 @@
   border-color: var(--comp-text-area-border-error);
 }
 
-.field[data-state="disabled"] .text-area,
-.field[data-state="loading"] .text-area {
+.field[data-state="disabled"] .text-area {
   background: var(--comp-text-area-bg-muted);
+}
+
+.field[data-state="loading"] .text-area {
+  background: var(--comp-text-area-bg-loading);
 }
 
 .text-area__counter {

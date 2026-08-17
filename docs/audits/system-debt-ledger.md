@@ -6,12 +6,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 159
-- Category mappings: 150
+- Reports scanned: 160
+- Category mappings: 151
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 159
-- Debt metrics: 197
+- Reports with debt metrics: 160
+- Debt metrics: 201
 - Categories: 9
 - Category minimums: 9
 - Category principles: 9
@@ -43,7 +43,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 9 | 2 | 0 | 10 | 0 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 40 | 1 | 0 | 42 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 22 | 1 | 0 | 44 | 0 |
-| quality | Component coverage must prove production readiness, not just presence. | 21 | 1 | 0 | 24 | 0 |
+| quality | Component coverage must prove production readiness, not just presence. | 22 | 1 | 0 | 28 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 45 | 10 | 0 | 52 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 | templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 2 | 1 | 0 | 4 | 0 |
@@ -91,6 +91,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | anti-duplication-coverage.json | anti-duplication | pass | antiDuplicationDebt: 0 |
 | component-1to1-quality-matrix.json | quality | pass | qualityDebt: 0 |
 | component-css-contract-coverage.json | cascade | pass | cssContractDebt: 0 |
+| component-state-visual-governance.json | quality | pass | componentStateVisualDebt: 0<br>componentStateVisualReviewDebt: 0<br>blockerDebt: 0<br>reviewDebt: 0 |
 | component-visual-cascade-audit.json | cascade | pass | visualCascadeDebt: 0 |
 | docs-component-demo-ownership.json | docs-system-boundary | pass | docsDemoOwnershipDebt: 0 |
 | docs-documentation-component-contracts-bootstrap.json | docs-system-boundary | pass | docsDocumentationComponentContractsBootstrapDebt: 0 |

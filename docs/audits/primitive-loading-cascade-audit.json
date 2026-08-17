@@ -122,7 +122,7 @@
       "--component-loading-busy-cursor"
     ],
     "missing": [],
-    "loadingTokenUses": 40
+    "loadingTokenUses": 42
   },
   "docsSignal": {
     "loadingTokenUses": 0

@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 159,
-    "categoryMappings": 150,
+    "reports": 160,
+    "categoryMappings": 151,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 159,
-    "debtMetrics": 197,
+    "reportsWithDebtMetrics": 160,
+    "debtMetrics": 201,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -94,10 +94,10 @@
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 21,
+      "reports": 22,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 24,
+      "debtMetrics": 28,
       "totalDebt": 0
     },
     {
@@ -166,6 +166,41 @@
           "report": "component-css-contract-coverage.json",
           "scope": "topLevel",
           "metric": "cssContractDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "component-state-visual-governance.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "component-state-visual-governance.json",
+          "scope": "topLevel",
+          "metric": "componentStateVisualDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "component-state-visual-governance.json",
+          "scope": "topLevel",
+          "metric": "componentStateVisualReviewDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "component-state-visual-governance.json",
+          "scope": "inventory",
+          "metric": "blockerDebt",
+          "value": 0,
+          "numericValue": 0
+        },
+        {
+          "report": "component-state-visual-governance.json",
+          "scope": "inventory",
+          "metric": "reviewDebt",
           "value": 0,
           "numericValue": 0
         }

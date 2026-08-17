@@ -38,6 +38,7 @@
     "anti-duplication-coverage.json": "anti-duplication",
     "component-1to1-quality-matrix.json": "quality",
     "component-css-contract-coverage.json": "cascade",
+    "component-state-visual-governance.json": "quality",
     "component-visual-cascade-audit.json": "cascade",
     "docs-component-demo-ownership.json": "docs-system-boundary",
     "docs-system-boundary-audit.json": "docs-system-boundary",

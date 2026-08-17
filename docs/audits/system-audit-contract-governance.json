@@ -4,10 +4,10 @@
   "audit": "system audit contract governance",
   "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
   "inventory": {
-    "trackedJsonReports": 160,
-    "gateReports": 160,
+    "trackedJsonReports": 161,
+    "gateReports": 161,
     "contractArtifacts": 0,
-    "markdownReports": 152,
+    "markdownReports": 153,
     "orphanMarkdownReports": 0,
     "dirtyDocsAuditEntries": 0,
     "reportsMissingCategory": 0,
@@ -54,6 +54,39 @@
         },
         {
           "key": "cssContractDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-state-visual-governance.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "componentStateVisualDebt",
+          "value": 0
+        },
+        {
+          "key": "componentStateVisualReviewDebt",
+          "value": 0
+        },
+        {
+          "key": "blockerDebt",
+          "value": 0
+        },
+        {
+          "key": "reviewDebt",
+          "value": 0
+        },
+        {
+          "key": "componentStateVisualDebt",
+          "value": 0
+        },
+        {
+          "key": "componentStateVisualReviewDebt",
           "value": 0
         }
       ],
@@ -1322,11 +1355,11 @@
       "debtMetrics": [
         {
           "key": "reportsWithDebtMetrics",
-          "value": 159
+          "value": 160
         },
         {
           "key": "debtMetrics",
-          "value": 197
+          "value": 201
         },
         {
           "key": "categoryMinimumDebt",
@@ -2303,6 +2336,12 @@
     {
       "file": "docs/audits/component-css-contract-coverage.md",
       "jsonPair": "docs/audits/component-css-contract-coverage.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/component-state-visual-governance.md",
+      "jsonPair": "docs/audits/component-state-visual-governance.json",
       "status": "pass",
       "issues": []
     },

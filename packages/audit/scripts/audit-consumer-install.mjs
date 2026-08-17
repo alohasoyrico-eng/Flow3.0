@@ -3324,7 +3324,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 923,
+    filesScanned: 924,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3477,8 +3477,8 @@ function assertReactGovernanceBaselines() {
   const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
   assertReportStatus(packageCssRoots, "Package CSS root governance");
   assertInventory(packageCssRoots, {
-    selectors: 1286,
-    componentAliases: 3338,
+    selectors: 1288,
+    componentAliases: 3340,
     componentAliasRoots: 68,
     unknownComponentAliases: 0,
     cssRoots: 75,
@@ -4396,12 +4396,12 @@ function assertReactGovernanceBaselines() {
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
   assertReportStatus(systemDebtLedger, "System debt ledger");
   assertInventory(systemDebtLedger, {
-    reports: 159,
-    categoryMappings: 150,
+    reports: 160,
+    categoryMappings: 151,
     systemDebtGovernanceIssues: 0,
     staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 159,
-    debtMetrics: 197,
+    reportsWithDebtMetrics: 160,
+    debtMetrics: 201,
     categories: 9,
     categoryMinimums: 9,
     categoryPrinciples: 9,

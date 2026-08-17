@@ -28,8 +28,8 @@
     }
   ],
   "packageCssRootExpectedInventory": {
-    "selectors": 1286,
-    "componentAliases": 3338,
+    "selectors": 1288,
+    "componentAliases": 3340,
     "componentAliasRoots": 68,
     "unknownComponentAliases": 0,
     "cssRoots": 75,

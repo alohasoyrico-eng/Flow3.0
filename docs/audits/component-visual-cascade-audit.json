@@ -6201,7 +6201,7 @@
           "field-control",
           "field-input"
         ],
-        "matchedRules": 32,
+        "matchedRules": 34,
         "tokenAliases": [
           "input"
         ],
@@ -6244,6 +6244,7 @@
           "--comp-input-icon-size-sm",
           "--comp-input-label-fg",
           "--comp-input-label-weight",
+          "--comp-input-loading-bg",
           "--comp-input-padding-x",
           "--comp-input-surface-bg",
           "--comp-input-surface-border",
@@ -6254,6 +6255,7 @@
           "--comp-input-warning-helper-fg",
           "--comp-phone-input-otp-helper-fg",
           "--comp-text-area-bg-error",
+          "--comp-text-area-bg-loading",
           "--comp-text-area-bg-muted",
           "--comp-text-area-border-error",
           "--comp-text-area-border-focus",
@@ -6323,6 +6325,7 @@
           "--comp-input-icon-size-sm",
           "--comp-input-label-fg",
           "--comp-input-label-weight",
+          "--comp-input-loading-bg",
           "--comp-input-padding-x",
           "--comp-input-surface-bg",
           "--comp-input-surface-border",
@@ -6333,6 +6336,7 @@
           "--comp-input-warning-helper-fg",
           "--comp-phone-input-otp-helper-fg",
           "--comp-text-area-bg-error",
+          "--comp-text-area-bg-loading",
           "--comp-text-area-bg-muted",
           "--comp-text-area-border-error",
           "--comp-text-area-border-focus",
@@ -6373,6 +6377,7 @@
           "--comp-input-icon-size-sm",
           "--comp-input-label-fg",
           "--comp-input-label-weight",
+          "--comp-input-loading-bg",
           "--comp-input-padding-x",
           "--comp-input-surface-bg",
           "--comp-input-surface-border",
@@ -11583,13 +11588,14 @@
         "aliases": [
           "text-area"
         ],
-        "matchedRules": 13,
+        "matchedRules": 14,
         "tokenAliases": [
           "text-area"
         ],
         "componentTokenUses": [
           "--comp-text-area-bg",
           "--comp-text-area-bg-error",
+          "--comp-text-area-bg-loading",
           "--comp-text-area-bg-muted",
           "--comp-text-area-border",
           "--comp-text-area-border-error",
@@ -11625,6 +11631,7 @@
         "compTokenUses": [
           "--comp-text-area-bg",
           "--comp-text-area-bg-error",
+          "--comp-text-area-bg-loading",
           "--comp-text-area-bg-muted",
           "--comp-text-area-border",
           "--comp-text-area-border-error",
@@ -11655,6 +11662,7 @@
         "componentTokenFamilyUses": [
           "--comp-text-area-bg",
           "--comp-text-area-bg-error",
+          "--comp-text-area-bg-loading",
           "--comp-text-area-bg-muted",
           "--comp-text-area-border",
           "--comp-text-area-border-error",

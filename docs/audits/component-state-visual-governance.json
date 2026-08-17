@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "component-state-visual-governance@1",
+  "status": "pass",
+  "principle": "Interactive states must not borrow the wrong visual language: loading is not disabled, pressed is not hover, and semantic tones must not fall back to action blue.",
+  "inventory": {
+    "blockerDebt": 0,
+    "reviewDebt": 0,
+    "componentStateVisualDebt": 0,
+    "componentStateVisualReviewDebt": 0,
+    "cssRulesScanned": 1328
+  },
+  "componentStateVisualDebt": 0,
+  "componentStateVisualReviewDebt": 0,
+  "blockers": [],
+  "reviews": []
+}
