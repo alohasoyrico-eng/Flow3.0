@@ -6,7 +6,7 @@
   "principle": "Energy must govern semantic color for actions, status, risk, text, surfaces, borders, charts, and maps without changing Flow tokens to copy reference visuals.",
   "tokenOwnership": {
     "tokenCss": "packages/tokens/styles/tokens.css",
-    "declarations": 116,
+    "declarations": 119,
     "requiredTokens": [
       "--sys-energy-surface-primary",
       "--sys-energy-surface-secondary",
@@ -357,7 +357,7 @@
         "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json"
       ]
     },
-    "packageCssDirectUses": 908,
+    "packageCssDirectUses": 911,
     "docsCssDirectUses": 0
   },
   "semanticLocks": {

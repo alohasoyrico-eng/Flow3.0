@@ -4,9 +4,9 @@ const { checkTokenizedVisualProperties } = require("./audit-tokenized-css-proper
 const { checkComponentVarFallbacks } = require("./audit-component-var-fallbacks.js");
 const { checkComponentCrossAliases } = require("./audit-component-cross-aliases.js");
 const { checkComponentAliasLiterals } = require("./audit-component-alias-literals.js");
+const { checkDarkModeCssContract } = require("./audit-dark-mode-css-contract.js");
 
-const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css");
-const packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
+const packageCssFile = path.join(process.cwd(), "packages/components/styles/components.css"), packageSpinnerFile = path.join(process.cwd(), "packages/react/src/Spinner.js");
 function cssBlocks(text) {
   const blocks = [];
   const pattern = /(?<selector>[^{}]+)\{(?<body>[^{}]*)\}/g;
@@ -32,6 +32,7 @@ function checkPackageCssContracts() {
   const text = read(packageCssFile);
   const spinnerSource = read(packageSpinnerFile);
   const rootAliasBlock = text.match(/:root\s*{[\s\S]*?\n}/)?.[0] ?? "";
+  checkDarkModeCssContract({ text, packageCssFile });
   const requiredAliases = [
     "--component-control-min-size",
     "--component-focus-ring-width",

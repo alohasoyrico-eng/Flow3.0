@@ -3324,7 +3324,7 @@ function assertReactGovernanceBaselines() {
   const legacyDomSource = readAuditReport("docs/audits/legacy-dom-source-governance-audit.json");
   assertReportStatus(legacyDomSource, "Legacy DOM source governance");
   assertInventory(legacyDomSource, {
-    filesScanned: 926,
+    filesScanned: 927,
     violations: 0,
     legacyDomSourceDebt: 0,
   }, "Legacy DOM source governance");
@@ -3336,7 +3336,7 @@ function assertReactGovernanceBaselines() {
     primitives: 24,
     patterns: 72,
     templates: 17,
-    tokenCount: 1149,
+    tokenCount: 1152,
     missingFoundationArtifacts: 0,
     missingPrimitiveArtifacts: 0,
     missingPatternArtifacts: 0,

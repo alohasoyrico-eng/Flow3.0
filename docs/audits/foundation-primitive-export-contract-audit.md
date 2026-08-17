@@ -10,12 +10,12 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 - Primitives: 24
 - Patterns: 72
 - Templates: 17
-- Tokens: 1149
+- Tokens: 1152
 - Token types: 15
 - Token scopes: 3
-- Tokens with scope: 1149
-- Tokens with CSS variable: 1149
-- Tokens with CSS reference: 625
+- Tokens with scope: 1152
+- Tokens with CSS variable: 1152
+- Tokens with CSS reference: 628
 - Unknown token types: 0
 - Invalid token transform fields: 0
 - Invalid token type values: 0
@@ -47,12 +47,12 @@ Foundations, primitives, patterns, and templates must be exportable as platform-
 | primitives | 24 | 24 |
 | patterns | 72 | 72 |
 | templates | 17 | 17 |
-| tokenCount | 1149 | 1149 |
+| tokenCount | 1152 | 1152 |
 | tokenTypes | 15 | 15 |
 | tokenScopes | 3 | 3 |
-| tokensWithScope | 1149 | 1149 |
-| tokensWithCssVariable | 1149 | 1149 |
-| tokensWithCssReference | 625 | 625 |
+| tokensWithScope | 1152 | 1152 |
+| tokensWithCssVariable | 1152 | 1152 |
+| tokensWithCssReference | 628 | 628 |
 | unknownTokenTypes | 0 | 0 |
 | invalidTokenTransformFields | 0 | 0 |
 | invalidTokenTypeValues | 0 | 0 |

@@ -196,6 +196,9 @@
   --sys-energy-dark-text-primary: var(--ref-energy-neutral-50);
   --sys-energy-dark-text-secondary: var(--ref-energy-neutral-200);
   --sys-energy-dark-text-tertiary: var(--ref-energy-neutral-300);
+  --sys-energy-dark-status-success: var(--ref-energy-green-300);
+  --sys-energy-dark-status-warning: var(--ref-energy-yellow-300);
+  --sys-energy-dark-status-error: var(--ref-energy-red-300);
   --sys-energy-dark-border-default: color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent);
   --sys-energy-dark-border-strong: color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent);
   --ref-frame-border-control: 1.5px;

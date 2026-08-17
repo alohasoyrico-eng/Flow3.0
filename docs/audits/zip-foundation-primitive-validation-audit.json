@@ -2,7 +2,7 @@
   "status": "pass",
   "audit": "zip foundation primitive validation",
   "principle": "ZIP guidelines, CSS token outputs, and platform token exports must resolve to Flow foundations/primitives before UI promotion.",
-  "generatedAt": "2026-08-17T19:04:49.104Z",
+  "generatedAt": "2026-08-17T21:52:01.161Z",
   "inventory": {
     "zipGuidelineFiles": 15,
     "mappedGuidelineFiles": 15,
@@ -13,7 +13,7 @@
     "zipW3cTokenTypes": 5,
     "angularTokenVariables": 85,
     "flutterColorConstants": 31,
-    "flowTokenContractTokens": 1149,
+    "flowTokenContractTokens": 1152,
     "flowFoundations": 11,
     "flowPrimitives": 24,
     "mappedFlowFoundations": 11,

@@ -549,6 +549,9 @@ export type FlowTokenName =
   | "sys-energy-border-strong"
   | "sys-energy-dark-border-default"
   | "sys-energy-dark-border-strong"
+  | "sys-energy-dark-status-error"
+  | "sys-energy-dark-status-success"
+  | "sys-energy-dark-status-warning"
   | "sys-energy-dark-surface-primary"
   | "sys-energy-dark-surface-secondary"
   | "sys-energy-dark-surface-tertiary"
@@ -2480,6 +2483,30 @@ export const flowTokens = {
     "cssVariable": "--sys-energy-dark-text-tertiary",
     "reference": "ref-energy-neutral-300",
     "cssReference": "--ref-energy-neutral-300"
+  },
+  "sys-energy-dark-status-success": {
+    "value": "var(--ref-energy-green-300)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-status-success",
+    "reference": "ref-energy-green-300",
+    "cssReference": "--ref-energy-green-300"
+  },
+  "sys-energy-dark-status-warning": {
+    "value": "var(--ref-energy-yellow-300)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-status-warning",
+    "reference": "ref-energy-yellow-300",
+    "cssReference": "--ref-energy-yellow-300"
+  },
+  "sys-energy-dark-status-error": {
+    "value": "var(--ref-energy-red-300)",
+    "type": "color",
+    "scope": "sys",
+    "cssVariable": "--sys-energy-dark-status-error",
+    "reference": "ref-energy-red-300",
+    "cssReference": "--ref-energy-red-300"
   },
   "sys-energy-dark-border-default": {
     "value": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
@@ -9856,6 +9883,9 @@ export const flowTokenNames = [
   "sys-energy-border-strong",
   "sys-energy-dark-border-default",
   "sys-energy-dark-border-strong",
+  "sys-energy-dark-status-error",
+  "sys-energy-dark-status-success",
+  "sys-energy-dark-status-warning",
   "sys-energy-dark-surface-primary",
   "sys-energy-dark-surface-secondary",
   "sys-energy-dark-surface-tertiary",

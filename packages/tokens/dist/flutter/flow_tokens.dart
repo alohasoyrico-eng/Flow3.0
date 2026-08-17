@@ -551,6 +551,9 @@ class FlowTokens {
   static const String sysEnergyBorderStrong = "rgb(10 10 15 / 15%)";
   static const String sysEnergyDarkBorderDefault = "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)";
   static const String sysEnergyDarkBorderStrong = "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)";
+  static const String sysEnergyDarkStatusError = "var(--ref-energy-red-300)";
+  static const String sysEnergyDarkStatusSuccess = "var(--ref-energy-green-300)";
+  static const String sysEnergyDarkStatusWarning = "var(--ref-energy-yellow-300)";
   static const String sysEnergyDarkSurfacePrimary = "var(--ref-energy-neutral-900)";
   static const String sysEnergyDarkSurfaceSecondary = "#020617";
   static const String sysEnergyDarkSurfaceTertiary = "var(--ref-energy-neutral-800)";
@@ -1702,6 +1705,9 @@ class FlowTokens {
     "sys-energy-border-strong": "rgb(10 10 15 / 15%)",
     "sys-energy-dark-border-default": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
     "sys-energy-dark-border-strong": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "sys-energy-dark-status-error": "var(--ref-energy-red-300)",
+    "sys-energy-dark-status-success": "var(--ref-energy-green-300)",
+    "sys-energy-dark-status-warning": "var(--ref-energy-yellow-300)",
     "sys-energy-dark-surface-primary": "var(--ref-energy-neutral-900)",
     "sys-energy-dark-surface-secondary": "#020617",
     "sys-energy-dark-surface-tertiary": "var(--ref-energy-neutral-800)",

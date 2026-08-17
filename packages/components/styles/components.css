@@ -12308,7 +12308,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   position: relative;
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] {
+:root[data-theme="dark"],
+body[data-theme="dark"],
+[data-theme="dark"] {
   --sys-energy-surface-primary: var(--sys-energy-dark-surface-primary);
   --sys-energy-surface-secondary: var(--sys-energy-dark-surface-secondary);
   --sys-energy-surface-tertiary: var(--sys-energy-dark-surface-tertiary);
@@ -12320,57 +12322,64 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --sys-energy-border-strong: var(--sys-energy-dark-border-strong);
   --sys-color-border: var(--sys-energy-border-default);
   --sys-color-border-strong: var(--sys-energy-border-strong);
+  --sys-color-danger: var(--sys-energy-dark-status-error);
+  --sys-color-success: var(--sys-energy-dark-status-success);
   --sys-color-surface: var(--sys-energy-surface-primary);
   --sys-color-surface-muted: var(--sys-energy-surface-sunken);
   --sys-color-surface-raised: var(--sys-energy-surface-tertiary);
   --sys-color-text: var(--sys-energy-text-primary);
   --sys-color-text-muted: var(--sys-energy-text-secondary);
   --sys-color-text-subtle: var(--sys-energy-text-tertiary);
+  --sys-color-warning: var(--sys-energy-dark-status-warning);
   --component-color-bg: var(--sys-energy-surface-primary);
+  --component-color-action-text: var(--sys-color-action-text);
   --component-color-border: var(--sys-color-border);
   --component-color-border-strong: var(--sys-color-border-strong);
+  --component-color-danger: var(--sys-color-danger);
   --component-color-surface: var(--sys-color-surface);
   --component-color-surface-muted: var(--sys-color-surface-muted);
   --component-color-surface-raised: var(--sys-color-surface-raised);
   --component-color-surface-sunken: var(--sys-energy-surface-sunken);
+  --component-color-success: var(--sys-color-success);
   --component-color-text: var(--sys-color-text);
   --component-color-text-muted: var(--sys-color-text-muted);
   --component-color-text-subtle: var(--sys-color-text-subtle);
+  --component-color-warning: var(--sys-color-warning);
   color-scheme: dark;
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .badge {
+[data-theme="dark"] .badge {
   --comp-badge-bg: color-mix(in srgb, var(--component-color-surface-raised) 74%, transparent);
   --comp-badge-border: color-mix(in srgb, var(--component-color-border-strong) 76%, transparent);
   --comp-badge-fg: var(--component-color-text-muted);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="info"],
-[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="accent"] {
+[data-theme="dark"] .badge[data-tone="info"],
+[data-theme="dark"] .badge[data-tone="accent"] {
   --comp-badge-bg: color-mix(in srgb, var(--component-color-action) 26%, var(--component-color-surface));
   --comp-badge-border: color-mix(in srgb, var(--component-color-action) 48%, var(--component-color-border));
   --comp-badge-fg: var(--component-color-text);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="danger"] {
+[data-theme="dark"] .badge[data-tone="danger"] {
   --comp-badge-bg: color-mix(in srgb, var(--component-color-danger) 20%, var(--component-color-surface));
   --comp-badge-border: color-mix(in srgb, var(--component-color-danger) 48%, var(--component-color-border));
   --comp-badge-fg: var(--component-color-text);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="success"] {
+[data-theme="dark"] .badge[data-tone="success"] {
   --comp-badge-bg: color-mix(in srgb, var(--component-color-success) 20%, var(--component-color-surface));
   --comp-badge-border: color-mix(in srgb, var(--component-color-success) 48%, var(--component-color-border));
   --comp-badge-fg: var(--component-color-text);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .badge[data-tone="warning"] {
+[data-theme="dark"] .badge[data-tone="warning"] {
   --comp-badge-bg: color-mix(in srgb, var(--component-color-warning) 22%, var(--component-color-surface));
   --comp-badge-border: color-mix(in srgb, var(--component-color-warning) 50%, var(--component-color-border));
   --comp-badge-fg: var(--component-color-text);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .button {
+[data-theme="dark"] .button {
   --comp-button-bg-secondary: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
   --comp-button-border-secondary: color-mix(in srgb, var(--component-color-text) 54%, var(--component-color-border));
   --comp-button-fg-secondary: var(--component-color-text);
@@ -12385,8 +12394,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-button-bg-danger-secondary: var(--component-tone-danger-surface-pressed);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .field,
-[data-flow-template="docs-shell-template"][data-theme="dark"] .field-control {
+[data-theme="dark"] .field,
+[data-theme="dark"] .field-control {
   --comp-input-surface-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
   --comp-input-surface-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
   --comp-input-surface-fg: var(--component-color-text);
@@ -12398,7 +12407,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-input-disabled-bg: color-mix(in srgb, var(--component-color-surface-raised) 62%, transparent);
 }
 
-[data-flow-template="docs-shell-template"][data-theme="dark"] .card {
+[data-theme="dark"] .card {
   --comp-card-status-bg: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-surface));
   --comp-card-status-border: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
   --comp-card-status-fg: var(--component-color-text);

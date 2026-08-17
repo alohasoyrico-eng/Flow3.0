@@ -1139,6 +1139,36 @@
       }
     }
   },
+  "sys-energy-dark-status-success": {
+    "$value": "{ref-energy-green-300}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-status-success",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-status-warning": {
+    "$value": "{ref-energy-yellow-300}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-status-warning",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
+  "sys-energy-dark-status-error": {
+    "$value": "{ref-energy-red-300}",
+    "$type": "color",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-energy-dark-status-error",
+        "legacyBootstrapSource": "packages/components/styles/components.css"
+      }
+    }
+  },
   "sys-energy-dark-border-default": {
     "$value": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
     "$type": "color",

@@ -8,12 +8,12 @@ Energy must govern semantic color for actions, status, risk, text, surfaces, bor
 
 | Layer | Count | Evidence |
 | --- | ---: | --- |
-| Token declarations | 116 | packages/tokens/styles/tokens.css |
+| Token declarations | 119 | packages/tokens/styles/tokens.css |
 | Primitive refs | 11 | animation-assets, charts, color, country-flags, disabled, field-action, iconography, illustration-assets, library-sources, maps, surface |
 | Component refs | 62 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
 | Pattern refs | 72 | account-operations, action-sheet, advanced-filters, agent-conversation, artifact-metadata-bar, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator... |
 | Template refs | 6 | configuration-console, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, routes-and-stations |
-| Package CSS direct uses | 908 | packages/components/styles/components.css |
+| Package CSS direct uses | 911 | packages/components/styles/components.css |
 | Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Semantic Locks
