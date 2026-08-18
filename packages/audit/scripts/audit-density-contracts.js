@@ -8,6 +8,7 @@ const {
 
 const contractsFile = path.join(root, "packages/components/src/contracts.js");
 const packageCssFile = path.join(root, "packages/components/styles/components.css");
+const tokensFile = path.join(root, "packages/tokens/tokens.json");
 const reactSrcDir = path.join(root, "packages/react/src");
 
 const cssDensityContracts = {
@@ -77,6 +78,7 @@ function checkDensityContracts() {
 }
 
 function checkControlSizeScale(css) {
+  const tokens = JSON.parse(read(tokensFile));
   const required = [
     ["--component-button-size-sm: var(--sys-frame-height-control-sm);", "Button sm size must use the system sm control height."],
     ["--component-button-size-md: var(--component-density-control-height);", "Button md size must use the system density control height."],
@@ -91,6 +93,41 @@ function checkControlSizeScale(css) {
   for (const [snippet, message] of required) {
     if (!css.includes(snippet)) add("errors", packageCssFile, 1, message);
   }
+
+  checkOrderedControlSizeTokens(tokens);
+}
+
+function checkOrderedControlSizeTokens(tokens) {
+  const sm = pxToken(tokens, "ref-frame-height-control-sm");
+  const md = pxToken(tokens, "ref-frame-height-control-md");
+  const lg = pxToken(tokens, "ref-frame-height-control-lg");
+  if (!(sm < md && md < lg)) {
+    add("errors", tokensFile, 1, `Control density heights must be ordered sm < md < lg; got sm=${sm}px, md=${md}px, lg=${lg}px.`);
+  }
+
+  const compactSm = pxToken(tokens, "ref-frame-height-control-sm-compact");
+  const compactMd = pxToken(tokens, "ref-frame-height-control-md-compact");
+  const compactLg = pxToken(tokens, "ref-frame-height-control-lg-compact");
+  if (!(compactSm < compactMd && compactMd < compactLg)) {
+    add("errors", tokensFile, 1, `Compact control density heights must be ordered sm < md < lg; got sm=${compactSm}px, md=${compactMd}px, lg=${compactLg}px.`);
+  }
+
+  const comfortableSm = pxToken(tokens, "ref-frame-height-control-sm-comfortable");
+  const comfortableMd = pxToken(tokens, "ref-frame-height-control-md-comfortable");
+  const comfortableLg = pxToken(tokens, "ref-frame-height-control-lg-comfortable");
+  if (!(comfortableSm < comfortableMd && comfortableMd < comfortableLg)) {
+    add("errors", tokensFile, 1, `Comfortable control density heights must be ordered sm < md < lg; got sm=${comfortableSm}px, md=${comfortableMd}px, lg=${comfortableLg}px.`);
+  }
+}
+
+function pxToken(tokens, name) {
+  const rawValue = tokens?.tokens?.[name]?.value ?? tokens?.[name]?.value;
+  const match = typeof rawValue === "string" ? rawValue.match(/^(\d+(?:\.\d+)?)px$/) : null;
+  if (!match) {
+    add("errors", tokensFile, 1, `${name} must be a px token so density ordering can be audited.`);
+    return Number.NaN;
+  }
+  return Number(match[1]);
 }
 
 function reactComponentFiles() {
