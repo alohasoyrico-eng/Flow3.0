@@ -3477,8 +3477,8 @@ function assertReactGovernanceBaselines() {
   const packageCssRoots = readAuditReport("docs/audits/package-css-root-governance-audit.json");
   assertReportStatus(packageCssRoots, "Package CSS root governance");
   assertInventory(packageCssRoots, {
-    selectors: 1291,
-    componentAliases: 3343,
+    selectors: 1296,
+    componentAliases: 3359,
     componentAliasRoots: 68,
     unknownComponentAliases: 0,
     cssRoots: 75,

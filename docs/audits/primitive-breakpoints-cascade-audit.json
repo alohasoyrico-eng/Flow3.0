@@ -96,13 +96,13 @@
     "sampleMediaQueries": [
       {
         "file": "packages/components/styles/components.css",
-        "line": 3940,
+        "line": 3988,
         "query": "(prefers-reduced-motion: reduce)",
         "values": []
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 4108,
+        "line": 4156,
         "query": "(max-width: 520px)",
         "values": [
           "520px"
@@ -110,7 +110,7 @@
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 6752,
+        "line": 6800,
         "query": "(max-width: 575px)",
         "values": [
           "575px"
@@ -118,7 +118,7 @@
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7104,
+        "line": 7152,
         "query": "(max-width: 575px)",
         "values": [
           "575px"
@@ -126,7 +126,7 @@
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7584,
+        "line": 7632,
         "query": "(max-width: 520px)",
         "values": [
           "520px"
@@ -134,13 +134,13 @@
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7975,
+        "line": 8023,
         "query": "(prefers-color-scheme: dark)",
         "values": []
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8190,
+        "line": 8238,
         "query": "(min-width: 760px)",
         "values": [
           "760px"
@@ -148,13 +148,13 @@
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8375,
+        "line": 8423,
         "query": "(prefers-reduced-motion: reduce)",
         "values": []
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 9863,
+        "line": 9954,
         "query": "(max-width: 480px)",
         "values": [
           "480px"

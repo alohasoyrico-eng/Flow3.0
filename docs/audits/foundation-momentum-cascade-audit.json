@@ -315,158 +315,178 @@
         "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     },
-    "packageCssDirectUses": 867,
+    "packageCssDirectUses": 907,
     "docsCssDirectUses": 0
   },
   "motionDeclarations": {
     "scannedFiles": [
       "packages/components/styles/components.css"
     ],
-    "totalFindings": 458,
+    "totalFindings": 481,
     "failures": [],
     "reviews": [],
-    "passCount": 458
+    "passCount": 481
   },
   "animationCoverage": {
     "keyframes": [
       {
         "file": "packages/components/styles/components.css",
-        "line": 2719,
+        "line": 2173,
+        "name": "field-message-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 2185,
+        "name": "field-status-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 2767,
         "name": "choice-indicator-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 2735,
+        "line": 2783,
         "name": "choice-dot-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 3060,
+        "line": 3108,
         "name": "badge-live-dot"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 3928,
+        "line": 3976,
         "name": "toast-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 4207,
+        "line": 4255,
         "name": "spinner-spin"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 4212,
+        "line": 4260,
         "name": "spinner-arc-breathe"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 5825,
+        "line": 5873,
         "name": "pagination-current-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 7762,
+        "line": 7810,
         "name": "tree-view-item-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8174,
+        "line": 8222,
         "name": "animated-moment-icon-breathe"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8212,
+        "line": 8260,
         "name": "component-pulse"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8219,
+        "line": 8267,
         "name": "progress-indeterminate"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8233,
+        "line": 8281,
         "name": "skeleton-shimmer"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8243,
+        "line": 8291,
         "name": "dialog-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8255,
+        "line": 8303,
         "name": "dialog-exit"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8267,
+        "line": 8315,
         "name": "menu-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8279,
+        "line": 8327,
         "name": "drawer-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8291,
+        "line": 8339,
         "name": "drawer-enter-left"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8303,
+        "line": 8351,
         "name": "drawer-exit"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8315,
+        "line": 8363,
         "name": "drawer-exit-left"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8327,
+        "line": 8375,
         "name": "chart-bar-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8339,
+        "line": 8387,
         "name": "chart-line-draw"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8351,
+        "line": 8399,
         "name": "chart-dot-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8363,
+        "line": 8411,
         "name": "popover-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8752,
+        "line": 8600,
+        "name": "inline-validation-message-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8612,
+        "name": "inline-validation-icon-enter"
+      },
+      {
+        "file": "packages/components/styles/components.css",
+        "line": 8843,
         "name": "stepper-current-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8764,
+        "line": 8855,
         "name": "stepper-connector-fill"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 8773,
+        "line": 8864,
         "name": "stepper-check-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 10074,
+        "line": 10165,
         "name": "code-digit-enter"
       },
       {
         "file": "packages/components/styles/components.css",
-        "line": 10086,
+        "line": 10177,
         "name": "code-invalid"
       }
     ],

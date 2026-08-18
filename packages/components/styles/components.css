@@ -368,6 +368,7 @@
   --component-translate-rest: var(--sys-momentum-translate-rest);
   --component-translate-overlay-enter: calc(var(--sys-space-xs) * -1);
   --component-translate-overlay-exit: var(--sys-space-xs);
+  --component-translate-message-enter: calc(var(--sys-space-2) * -1);
   --component-translate-sheet-enter: var(--sys-space-10);
   --component-translate-sheet-exit: var(--sys-space-5);
   --component-rotation-expanded: var(--sys-momentum-rotate-expanded);
@@ -1984,6 +1985,14 @@
   --comp-field-control-size: var(--comp-input-control-size);
   --comp-field-icon-size: var(--comp-input-icon-size);
   --comp-field-icon-action-size: var(--comp-input-action-size);
+  --comp-field-message-motion-duration: var(--component-duration-state);
+  --comp-field-message-motion-ease: var(--component-ease-enter);
+  --comp-field-message-enter-transform: translateY(var(--component-translate-message-enter));
+  --comp-field-message-rest-transform: var(--component-transform-rest);
+  --comp-field-status-motion-duration: var(--component-duration-snappy);
+  --comp-field-status-motion-ease: var(--component-ease-enter);
+  --comp-field-status-enter-transform: var(--component-transform-scale-enter);
+  --comp-field-status-rest-transform: var(--component-transform-scale-rest);
   display: grid;
   gap: var(--comp-input-gap);
   inline-size: 100%;
@@ -2094,6 +2103,9 @@
   color: var(--comp-input-icon-fg);
   flex: none;
   font-size: var(--comp-field-icon-size);
+  transition:
+    color var(--component-duration-state) var(--component-ease-state),
+    transform var(--comp-field-status-motion-duration) var(--comp-field-status-motion-ease);
 }
 
 .field__icon--loading {
@@ -2103,10 +2115,15 @@
 
 .field-control__helper,
 .field__helper {
+  animation: field-message-enter var(--comp-field-message-motion-duration) var(--component-ease-enter) both;
   color: var(--comp-input-helper-fg);
   font-size: var(--component-font-size-caption);
   font-weight: var(--comp-input-helper-weight);
   line-height: var(--comp-input-helper-line-height);
+  transition:
+    color var(--component-duration-state) var(--component-ease-state),
+    opacity var(--comp-field-message-motion-duration) var(--comp-field-message-motion-ease),
+    transform var(--comp-field-message-motion-duration) var(--comp-field-message-motion-ease);
 }
 
 .field__prefix,
@@ -2151,6 +2168,30 @@
 
 .input-amount[data-state="error"] {
   --comp-input-amount-helper-color: var(--component-color-danger);
+}
+
+@keyframes field-message-enter {
+  from {
+    opacity: 0;
+    transform: var(--comp-field-message-enter-transform);
+  }
+
+  to {
+    opacity: 1;
+    transform: var(--comp-field-message-rest-transform);
+  }
+}
+
+@keyframes field-status-enter {
+  from {
+    opacity: 0;
+    transform: var(--comp-field-status-enter-transform);
+  }
+
+  to {
+    opacity: 1;
+    transform: var(--comp-field-status-rest-transform);
+  }
 }
 
 .field-action {
@@ -2253,6 +2294,13 @@
 .field[data-state="error"] .field__helper,
 .field[data-state="error"] .field__icon {
   color: var(--comp-input-error-border);
+}
+
+.field[data-state="info"] .field__icon,
+.field[data-state="success"] .field__icon,
+.field[data-state="warning"] .field__icon,
+.field[data-state="error"] .field__icon {
+  animation: field-status-enter var(--comp-field-status-motion-duration) var(--component-ease-enter) both;
 }
 
 .field[data-state="info"] .field__helper,
@@ -8386,6 +8434,11 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   .dialog__panel,
   .menu__panel,
   .drawer__panel,
+  .field-control__helper,
+  .field__helper,
+  .field__icon,
+  .inline-validation__message,
+  .inline-validation__message::before,
   .code-input__control,
   .code-input__digit,
   .biometric-prompt__icon,
@@ -8440,6 +8493,14 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-icon-size: var(--component-font-size-small);
   --comp-inline-validation-icon-weight: var(--component-font-weight-semibold);
   --comp-inline-validation-icon-line-height: var(--component-line-height-none);
+  --comp-inline-validation-message-motion-duration: var(--component-duration-state);
+  --comp-inline-validation-message-motion-ease: var(--component-ease-enter);
+  --comp-inline-validation-message-enter-transform: translateY(var(--component-translate-message-enter));
+  --comp-inline-validation-message-rest-transform: var(--component-transform-rest);
+  --comp-inline-validation-icon-motion-duration: var(--component-duration-snappy);
+  --comp-inline-validation-icon-motion-ease: var(--component-ease-enter);
+  --comp-inline-validation-icon-enter-transform: var(--component-transform-scale-enter);
+  --comp-inline-validation-icon-rest-transform: var(--component-transform-scale-rest);
   --comp-inline-validation-error-icon: "error";
   --comp-inline-validation-success-icon: "check_circle";
   --comp-inline-validation-warning-icon: "warning";
@@ -8508,6 +8569,7 @@ body[data-contrast="quiet"] .inline-validation {
 
 .inline-validation__message {
   align-items: var(--comp-inline-validation-message-align);
+  animation: inline-validation-message-enter var(--comp-inline-validation-message-motion-duration) var(--component-ease-enter) both;
   color: var(--comp-inline-validation-tone);
   display: var(--comp-inline-validation-message-display);
   font-size: var(--comp-inline-validation-message-size);
@@ -8516,6 +8578,10 @@ body[data-contrast="quiet"] .inline-validation {
   line-height: var(--comp-inline-validation-message-line-height);
   margin: var(--comp-inline-validation-message-margin);
   min-block-size: var(--comp-inline-validation-message-min-block);
+  transition:
+    color var(--component-duration-state) var(--component-ease-state),
+    opacity var(--comp-inline-validation-message-motion-duration) var(--comp-inline-validation-message-motion-ease),
+    transform var(--comp-inline-validation-message-motion-duration) var(--comp-inline-validation-message-motion-ease);
 }
 
 .inline-validation[data-field="false"] .inline-validation__message {
@@ -8523,11 +8589,36 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .inline-validation__message::before {
+  animation: inline-validation-icon-enter var(--comp-inline-validation-icon-motion-duration) var(--component-ease-enter) both;
   content: var(--comp-inline-validation-icon-content);
   font-family: var(--comp-inline-validation-icon-family);
   font-size: var(--comp-inline-validation-icon-size);
   font-weight: var(--comp-inline-validation-icon-weight);
   line-height: var(--comp-inline-validation-icon-line-height);
+}
+
+@keyframes inline-validation-message-enter {
+  from {
+    opacity: 0;
+    transform: var(--comp-inline-validation-message-enter-transform);
+  }
+
+  to {
+    opacity: 1;
+    transform: var(--comp-inline-validation-message-rest-transform);
+  }
+}
+
+@keyframes inline-validation-icon-enter {
+  from {
+    opacity: 0;
+    transform: var(--comp-inline-validation-icon-enter-transform);
+  }
+
+  to {
+    opacity: 1;
+    transform: var(--comp-inline-validation-icon-rest-transform);
+  }
 }
 
 .inline-validation[data-state="error"] .inline-validation__message {

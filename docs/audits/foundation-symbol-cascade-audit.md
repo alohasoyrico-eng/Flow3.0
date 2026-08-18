@@ -13,7 +13,7 @@ Symbol must govern visual metaphors, domain symbols, illustration rules, image/a
 | Component refs | 62 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
 | Pattern refs | 49 | account-operations, action-sheet, advanced-filters, agent-conversation, artifact-metadata-bar, authentication-login-biometrics-and-otp, autocomplete, avatar-group, backoffice-approval, bottom-sheet, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator, command-palette, demo-preview-frame... |
 | Template refs | 4 | docs-artifact-detail-template, driver-mobile-app, reference-detail-template, routes-and-stations |
-| Package CSS direct uses | 490 | packages/components/styles/components.css |
+| Package CSS direct uses | 493 | packages/components/styles/components.css |
 | Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Dependencies

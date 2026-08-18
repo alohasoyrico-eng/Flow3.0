@@ -313,17 +313,17 @@
         "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     },
-    "packageCssDirectUses": 179,
+    "packageCssDirectUses": 203,
     "docsCssDirectUses": 0
   },
   "toneCssDeclarations": {
     "scannedFiles": [
       "packages/components/styles/components.css"
     ],
-    "totalFindings": 584,
+    "totalFindings": 596,
     "failures": [],
     "reviews": [],
-    "passCount": 584
+    "passCount": 596
   },
   "toneCopyReviews": [],
   "missingDependencyEdges": [],

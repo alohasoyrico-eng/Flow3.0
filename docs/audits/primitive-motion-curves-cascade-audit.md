@@ -13,7 +13,7 @@ Motion Curves consumes Momentum, State, and Accessibility, coordinates Duration 
 - Token aliases: 6/6
 - Component bridge aliases: 10/10
 - Component primitive token uses: 9
-- Component bridge token uses: 194
+- Component bridge token uses: 205
 - Direct foundation easing uses outside tokens/reference: 0
 - Raw motion curve literals outside tokens/reference: 0
 

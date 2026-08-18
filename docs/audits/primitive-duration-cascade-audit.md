@@ -13,7 +13,7 @@ Duration consumes Momentum, State, and Accessibility, coordinates Motion Curves 
 - Token aliases: 17/17
 - Component bridge aliases: 18/18
 - Component primitive token uses: 12
-- Component bridge token uses: 185
+- Component bridge token uses: 192
 - Direct foundation duration uses outside tokens/reference: 0
 - Raw duration literals outside tokens/reference: 0
 

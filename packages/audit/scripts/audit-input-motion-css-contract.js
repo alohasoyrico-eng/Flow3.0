@@ -21,13 +21,36 @@ function checkInputMotionCssContract({ text, blocks, packageCssFile }) {
     "border-color var(--component-duration-state) var(--component-ease-state)";
   const requiredFocusTransition =
     "outline-color var(--component-duration-state) var(--component-ease-state)";
+  const requiredMessageMotion =
+    "--comp-field-message-motion-duration: var(--component-duration-state)";
+  const requiredStatusMotion =
+    "--comp-field-status-motion-duration: var(--component-duration-snappy)";
   for (const [snippet, message] of [
     [requiredStateTransition, "Field surface background transitions must use the state motion role."],
     [requiredBorderTransition, "Field surface border transitions must use the state motion role."],
     [requiredFocusTransition, "Field surface focus transitions must use the state motion role."],
+    [requiredMessageMotion, "Field message motion must use the shared state duration role."],
+    [requiredStatusMotion, "Field status icon motion must use the shared snappy duration role."],
   ]) {
-    if (!fieldSurfaceBlock.body.includes(snippet)) {
-      add("errors", packageCssFile, lineNumber(text, fieldSurfaceBlock.index), message);
+    const targetBlock = snippet.startsWith("--comp-field-") ? blockFor(blocks, ".field-control,.field") : fieldSurfaceBlock;
+    if (!targetBlock?.body.includes(snippet)) {
+      add("errors", packageCssFile, lineNumber(text, targetBlock?.index ?? fieldSurfaceBlock.index), message);
+    }
+  }
+
+  const fieldHelperBlock = blockFor(blocks, ".field-control__helper,.field__helper");
+  if (!fieldHelperBlock?.body.includes("animation: field-message-enter var(--comp-field-message-motion-duration) var(--component-ease-enter) both")) {
+    add("errors", packageCssFile, fieldHelperBlock ? lineNumber(text, fieldHelperBlock.index) : 1, "Input helper messages must use tokenized field-message enter motion.");
+  }
+
+  const fieldStatusBlock = blockFor(blocks, '.field[data-state="info"] .field__icon,.field[data-state="success"] .field__icon,.field[data-state="warning"] .field__icon,.field[data-state="error"] .field__icon');
+  if (!fieldStatusBlock?.body.includes("animation: field-status-enter var(--comp-field-status-motion-duration) var(--component-ease-enter) both")) {
+    add("errors", packageCssFile, fieldStatusBlock ? lineNumber(text, fieldStatusBlock.index) : 1, "Input status icons must use tokenized status enter motion.");
+  }
+
+  for (const keyframeName of ["@keyframes field-message-enter", "@keyframes field-status-enter"]) {
+    if (!text.includes(keyframeName)) {
+      add("errors", packageCssFile, 1, `Input-family motion contract requires ${keyframeName}.`);
     }
   }
 
@@ -56,12 +79,28 @@ function checkInputMotionCssContract({ text, blocks, packageCssFile }) {
     add("errors", packageCssFile, fieldActionBlock ? lineNumber(text, fieldActionBlock.index) : 1, "Field Action may use press motion, but it must consume the press motion role.");
   }
 
+  const inlineValidationMessageBlock = blockFor(blocks, ".inline-validation__message");
+  if (!inlineValidationMessageBlock?.body.includes("animation: inline-validation-message-enter var(--comp-inline-validation-message-motion-duration) var(--component-ease-enter) both")) {
+    add("errors", packageCssFile, inlineValidationMessageBlock ? lineNumber(text, inlineValidationMessageBlock.index) : 1, "Inline Validation messages must use tokenized message enter motion.");
+  }
+
+  const inlineValidationIconBlock = blockFor(blocks, ".inline-validation__message::before");
+  if (!inlineValidationIconBlock?.body.includes("animation: inline-validation-icon-enter var(--comp-inline-validation-icon-motion-duration) var(--component-ease-enter) both")) {
+    add("errors", packageCssFile, inlineValidationIconBlock ? lineNumber(text, inlineValidationIconBlock.index) : 1, "Inline Validation status icons must use tokenized icon enter motion.");
+  }
+
+  for (const keyframeName of ["@keyframes inline-validation-message-enter", "@keyframes inline-validation-icon-enter"]) {
+    if (!text.includes(keyframeName)) {
+      add("errors", packageCssFile, 1, `Inline Validation motion contract requires ${keyframeName}.`);
+    }
+  }
+
   const codeSlotBlock = blockFor(blocks, ".code-input__slot");
   if (codeSlotBlock && !codeSlotBlock.body.includes("transform var(--comp-code-input-motion-duration) var(--comp-code-input-motion-ease)")) {
     add("errors", packageCssFile, lineNumber(text, codeSlotBlock.index), "Code Input slot motion must be slot-scoped and tokenized, not inherited from base Input.");
   }
 
-  for (const selector of [".code-input__control", ".code-input__digit"]) {
+  for (const selector of [".field-control__helper", ".field__helper", ".field__icon", ".inline-validation__message", ".inline-validation__message::before", ".code-input__control", ".code-input__digit"]) {
     const reducedSelectorPattern = new RegExp(`@media\\s*\\(prefers-reduced-motion:\\s*reduce\\)[\\s\\S]*?${selector.replace(".", "\\.")}`);
     if (!reducedSelectorPattern.test(text)) {
       add("errors", packageCssFile, 1, `Input-family expressive motion must include ${selector} in reduced-motion handling.`);

@@ -13,7 +13,7 @@ Iconography must govern functional glyph family, sizing, semantic color, optical
 | Component refs | 62 | accordion, animated-moment, audit-event, avatar, badge, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-panel, chat-composer, chat-message, chat-thread, checkbox... |
 | Pattern refs | 70 | account-operations, action-sheet, advanced-filters, agent-conversation, artifact-metadata-bar, authentication-login-biometrics-and-otp, autocomplete, avatar-group, avatar-menu, backoffice-approval, bottom-sheet, bulk-actions, calendar-view, case-management, chart-legend-item, chart-wrapper, checkbox-group, column-configurator... |
 | Template refs | 13 | agent-workspace, component-detail-template, configuration-console, docs-home-template, docs-shell-template, driver-card-wallet, driver-mobile-app, fleet-dashboard-suite, fleet-manager-desktop, internal-operations-console, reference-detail-template, routes-and-stations, settings-workspace |
-| Package CSS direct uses | 407 | packages/components/styles/components.css |
+| Package CSS direct uses | 410 | packages/components/styles/components.css |
 | Docs CSS direct uses | 0 | apps/docs/styles |
 
 ## Dependencies
