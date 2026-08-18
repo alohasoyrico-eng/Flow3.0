@@ -21,6 +21,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type DateRangePickerDensity = "sm" | "md" | "lg";
 export type DateRangePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
@@ -178,8 +179,14 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
   const [internalOpen, setInternalOpen] = useState<boolean>(false);
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [viewDate, setViewDate] = useState(() => clampViewDate(initialFrom || initialTo));
-  const helperText = error || helper;
   const resolvedState = resolveDateRangePickerState({ disabled, error, invalid, state, from: range.from, to: range.to });
+  const fieldMessage = resolveFieldMessage({
+    controlId,
+    describedBy: rest["aria-describedby"],
+    error: error || (invalid ? helper : ""),
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
@@ -303,8 +310,6 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
     }, String(cell.getDate()));
   });
 
-  const describedBy = helperText ? `${controlId}-helper` : undefined;
-
   return React.createElement(
     "div",
     {
@@ -336,8 +341,8 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
         "aria-expanded": String(open),
         "aria-controls": panelId,
         "aria-labelledby": `${controlId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
       },
@@ -419,8 +424,8 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
         dayButtons,
       ),
     ),
-    helperText
-      ? React.createElement("span", { className: "field__helper date-picker__helper date-range-picker__helper", id: `${controlId}-helper` }, helperText)
+    fieldMessage.message
+      ? React.createElement("span", { className: "field__helper date-picker__helper date-range-picker__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
       : null,
   );
 }) as DateRangePickerComponent;

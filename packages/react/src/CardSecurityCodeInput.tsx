@@ -20,6 +20,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type CardSecurityCodeInputDensity = "sm" | "md" | "lg";
 export type CardSecurityCodeInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";
@@ -130,12 +131,17 @@ export const CardSecurityCodeInput = forwardRef<HTMLInputElement, CardSecurityCo
   const digits = normalizeCardSecurityCode(currentValue, resolvedLength);
   const validity = cardSecurityCodeValidity(digits, resolvedLength);
   const resolvedError = error;
-  const resolvedHelper = resolvedError || helper;
   const isDisabled = Boolean(disabled || loading);
   const canReveal = Boolean(revealable && revealLabel && hideLabel);
   const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
   const resolvedDensity = normalizeFlowDensity(density);
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const fieldMessage = resolveFieldMessage({
+    controlId: inputId,
+    describedBy: rest["aria-describedby"],
+    error: resolvedError,
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   const meta = useMemo(() => ({
     validity,
     expectedLength: resolvedLength,
@@ -186,8 +192,8 @@ export const CardSecurityCodeInput = forwardRef<HTMLInputElement, CardSecurityCo
         spellCheck: false,
         "data-card-security-code-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           const nextDigits = normalizeCardSecurityCode(event.target.value, resolvedLength);
           const nextValidity = cardSecurityCodeValidity(nextDigits, resolvedLength);
@@ -217,16 +223,17 @@ export const CardSecurityCodeInput = forwardRef<HTMLInputElement, CardSecurityCo
         : null,
       loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
-    resolvedHelper
+    fieldMessage.message
       ? React.createElement(
         "span",
         {
           className: "field__helper card-security-code-input__helper",
-          id: `${inputId}-helper`,
+          id: fieldMessage.messageId,
           "data-card-security-code-helper": "",
-          role: resolvedError ? "alert" : undefined,
+          role: fieldMessage.role,
+          ...flowStateProps(fieldMessage.state),
         },
-        resolvedHelper,
+        fieldMessage.message,
       )
       : null,
   );

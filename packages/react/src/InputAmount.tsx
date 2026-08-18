@@ -11,6 +11,7 @@ import { inputAmountPlatformContract } from "@design-system/components/platforms
 import { Spinner } from "./Spinner.js";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type InputAmountDensity = FlowDensity;
 export type InputAmountState = "default" | "filled" | "loading" | "error" | "disabled";
@@ -118,10 +119,16 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
   const currentValue = isValueControlled ? value ?? "" : internalValue;
   const normalizedValue = normalizeAmount(currentValue);
   const resolvedError = error || validationMessage || "";
-  const resolvedHelper = resolvedError || helperText || helper;
   const resolvedState = resolveAmountState({ disabled, loading, error: resolvedError, ...(state !== undefined ? { state } : {}), value: normalizedValue });
   const resolvedDensity = normalizeFlowDensity(density);
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const fieldMessage = resolveFieldMessage({
+    controlId: inputId,
+    describedBy: rest["aria-describedby"],
+    error: resolvedError,
+    helper,
+    helperText,
+    state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+  });
 
   if (!label) return null;
 
@@ -155,8 +162,8 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
         disabled: Boolean(disabled || loading),
         required,
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           const meta = amountMeta(event.target.value, resolvedCurrency, locale);
           if (!isValueControlled) setInternalValue(meta.value);
@@ -168,15 +175,16 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
         : null,
       loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
-    resolvedHelper
+    fieldMessage.message
       ? React.createElement(
         "span",
         {
           className: "field__helper input-amount__helper",
-          id: `${inputId}-helper`,
-          role: resolvedError ? "alert" : undefined,
+          id: fieldMessage.messageId,
+          role: fieldMessage.role,
+          ...flowStateProps(fieldMessage.state),
         },
-        resolvedHelper,
+        fieldMessage.message,
       )
       : null,
   );

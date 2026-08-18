@@ -17,6 +17,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type SelectDensity = "sm" | "md" | "lg";
 export type SelectVariant = "default" | "inline";
@@ -108,6 +109,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
   const activeIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : 0;
+  const fieldMessage = resolveFieldMessage({
+    controlId: selectId,
+    describedBy: rest["aria-describedby"],
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   if (!label || !normalizedOptions.length) return null;
 
   const setOpen = (nextOpen: boolean, event?: SelectOpenChangeEvent): void => {
@@ -178,7 +185,8 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
           "aria-haspopup": "listbox",
           "aria-controls": `${selectId}-listbox`,
           "aria-labelledby": `${selectId}-label`,
-          "aria-invalid": state === "error" ? "true" : undefined,
+          "aria-describedby": fieldMessage.describedBy,
+          "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
           "aria-activedescendant": selectedOption ? `${selectId}-option-${activeIndex}` : undefined,
           onClick: handleTriggerClick,
           onKeyDown: handleTriggerKeyDown,
@@ -237,7 +245,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
       ),
       name ? React.createElement("input", { type: "hidden", name, value: selectedValue, "data-select-input": "", readOnly: true }) : null,
     ),
-    helper ? React.createElement("span", { className: "field__helper", id: `${selectId}-helper` }, helper) : null,
+    fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null,
   );
 }) as SelectComponent;
 

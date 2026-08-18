@@ -11,6 +11,7 @@ import React, {
 import { codeInputPlatformContract } from "@design-system/components/platforms";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type CodeInputDensity = FlowDensity;
 export type CodeInputVariant = "sms" | "otp" | "approval" | "masked" | "compact";
@@ -97,8 +98,13 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(function C
   const currentValue = isValueControlled ? normalizeCodeValue(value ?? "", resolvedLength) : internalValue;
   const digits = normalizeCodeValue(currentValue, resolvedLength);
   const resolvedState = resolveCodeInputState({ disabled, error, ...(state !== undefined ? { state } : {}), value: digits, length: resolvedLength });
-  const resolvedHelper = error || helper;
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const fieldMessage = resolveFieldMessage({
+    controlId: inputId,
+    describedBy: rest["aria-describedby"],
+    error,
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   const isMasked = Boolean(masked) || resolvedVariant === "masked";
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
   const resolvedDensity = normalizeFlowDensity(density);
@@ -135,8 +141,8 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(function C
         disabled: Boolean(disabled),
         "data-code-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onFocus: (event: FocusEvent<HTMLInputElement>) => {
           rest.onFocus?.(event);
           if (event.defaultPrevented) return;
@@ -179,8 +185,8 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(function C
         }),
       ),
     ),
-    resolvedHelper
-      ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+    fieldMessage.message
+      ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
       : null,
   );
 }) as CodeInputComponent;

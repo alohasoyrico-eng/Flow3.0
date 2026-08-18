@@ -1,6 +1,7 @@
 import React, { forwardRef, useId, useState } from "react";
 import { textAreaPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 function resolveState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
     if (disabled)
         return "disabled";
@@ -16,12 +17,17 @@ export const TextArea = forwardRef(function TextArea({ label, helper = "", helpe
     const isValueControlled = value !== undefined;
     const [internalValue, setInternalValue] = useState(value ?? "");
     const currentValue = isValueControlled ? value ?? "" : internalValue;
-    const resolvedHelper = error || helperText || helper;
     const resolvedState = resolveState({ disabled, loading, error, ...(state ? { state } : {}), value: currentValue });
     const isDisabled = Boolean(disabled) || Boolean(loading);
     const counterId = maxLength != null ? `${textAreaId}-counter` : "";
-    const helperId = resolvedHelper ? `${textAreaId}-helper` : "";
-    const describedBy = [helperId, counterId].filter(Boolean).join(" ") || undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: textAreaId,
+        describedBy: [counterId, rest["aria-describedby"]].filter(Boolean).join(" ") || undefined,
+        error,
+        helper,
+        helperText,
+        state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     const counterText = maxLength != null ? `${String(currentValue ?? "").length}/${Number(maxLength)}` : "";
     const resolvedDensity = normalizeFlowDensity(density);
     if (!label)
@@ -56,10 +62,10 @@ export const TextArea = forwardRef(function TextArea({ label, helper = "", helpe
         rows,
         maxLength: maxLength == null ? undefined : Number(maxLength),
         "aria-labelledby": `${textAreaId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: handleChange,
-    }), maxLength != null ? React.createElement("span", { className: "text-area__counter", id: counterId, "data-text-area-counter": "" }, counterText) : null), resolvedHelper ? React.createElement("span", { className: "field__helper", id: helperId, role: error ? "alert" : undefined }, resolvedHelper) : null);
+    }), maxLength != null ? React.createElement("span", { className: "text-area__counter", id: counterId, "data-text-area-counter": "" }, counterText) : null), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
 });
 TextArea.displayName = "TextArea";
 TextArea.platformContract = textAreaPlatformContract;

@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useRef, useState, } from "react";
 import { datePickerPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 function parseDate(value) {
     if (!value)
         return null;
@@ -70,7 +71,13 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
     const open = isOpenControlled ? Boolean(openProp) : internalOpen;
     const [viewDate, setViewDate] = useState(() => clampViewDate(value));
     const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: selectedValue });
-    const helperText = error || helper;
+    const fieldMessage = resolveFieldMessage({
+        controlId,
+        describedBy: rest["aria-describedby"],
+        error: error || (invalid ? helper : ""),
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     const todayValue = useMemo(() => dateIso(new Date()), []);
     const cells = useMemo(() => dateCells(viewDate), [viewDate]);
     const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
@@ -173,7 +180,6 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
             },
         }, String(cell.getDate()));
     });
-    const describedBy = helperText ? `${controlId}-helper` : undefined;
     return React.createElement("div", {
         className: ["field date-picker", className].filter(Boolean).join(" "),
         ...flowDataProps(rest),
@@ -199,8 +205,8 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
         "aria-expanded": String(open),
         "aria-controls": panelId,
         "aria-labelledby": `${controlId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
     }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "calendar_month"), visibleValue ? React.createElement("span", { className: "date-picker__value", "data-date-picker-value": "" }, visibleValue) : null), React.createElement("input", {
@@ -247,8 +253,8 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
         "data-date-picker-grid": "",
         role: "grid",
         "aria-labelledby": monthId,
-    }, sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)), dayButtons)), helperText
-        ? React.createElement("span", { className: "field__helper date-picker__helper", id: `${controlId}-helper` }, helperText)
+    }, sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)), dayButtons)), fieldMessage.message
+        ? React.createElement("span", { className: "field__helper date-picker__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
         : null);
 });
 DatePicker.displayName = "DatePicker";

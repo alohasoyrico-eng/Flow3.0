@@ -48,7 +48,7 @@
         "visual": "pass"
       },
       "metrics": {
-        "markupLength": 9387,
+        "markupLength": 9408,
         "formalPatterns": 3,
         "runtimePatternImports": 3,
         "formalModules": 5,

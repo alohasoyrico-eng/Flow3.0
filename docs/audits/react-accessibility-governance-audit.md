@@ -10,8 +10,8 @@ React components with accessibility-critical interaction must keep explicit role
 - Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
-- Role declarations: 70
-- ARIA declarations: 324
+- Role declarations: 74
+- ARIA declarations: 348
 - Keyboard handlers: 40
 - Focus calls: 15
 - Failures: 0
@@ -28,8 +28,8 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
-| totalRoles | 70 | 70 |
-| totalAria | 324 | 324 |
+| totalRoles | 74 | 74 |
+| totalAria | 348 | 348 |
 | keyboardHandlers | 40 | 40 |
 | focusCalls | 15 | 15 |
 | failures | 0 | 0 |
@@ -70,9 +70,9 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | Breadcrumbs | 0 | 5 | 0 | 0 | 0 | no |
 | Button | 0 | 3 | 0 | 0 | 0 | no |
 | Card | 1 | 8 | 3 | 2 | 0 | no |
-| CardExpiryInput | 1 | 4 | 0 | 0 | 0 | yes |
-| CardNumberInput | 1 | 5 | 0 | 0 | 0 | yes |
-| CardSecurityCodeInput | 1 | 7 | 0 | 0 | 0 | yes |
+| CardExpiryInput | 1 | 6 | 0 | 0 | 0 | yes |
+| CardNumberInput | 1 | 7 | 0 | 0 | 0 | yes |
+| CardSecurityCodeInput | 1 | 9 | 0 | 0 | 0 | yes |
 | CardSummary | 0 | 4 | 0 | 2 | 0 | no |
 | ChartPanel | 9 | 9 | 0 | 4 | 0 | no |
 | ChatComposer | 1 | 1 | 0 | 0 | 0 | yes |
@@ -81,12 +81,12 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | Checkbox | 0 | 3 | 0 | 0 | 0 | no |
 | Chip | 0 | 6 | 0 | 0 | 0 | no |
 | CodeBlock | 0 | 1 | 0 | 0 | 0 | no |
-| CodeInput | 1 | 4 | 0 | 0 | 0 | yes |
-| Combobox | 4 | 15 | 2 | 1 | 0 | yes |
+| CodeInput | 1 | 6 | 0 | 0 | 0 | yes |
+| Combobox | 5 | 18 | 2 | 1 | 0 | yes |
 | CopyButton | 0 | 2 | 0 | 0 | 0 | no |
 | CountrySelector | 4 | 15 | 3 | 2 | 0 | yes |
-| DatePicker | 5 | 20 | 4 | 1 | 1 | yes |
-| DateRangePicker | 5 | 21 | 4 | 2 | 1 | yes |
+| DatePicker | 6 | 22 | 4 | 1 | 1 | yes |
+| DateRangePicker | 6 | 23 | 4 | 2 | 1 | yes |
 | Dialog | 1 | 6 | 2 | 0 | 2 | yes |
 | Drawer | 1 | 5 | 2 | 0 | 2 | yes |
 | EmptyState | 0 | 2 | 0 | 0 | 0 | yes |
@@ -95,21 +95,21 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | IconButton | 0 | 4 | 0 | 0 | 0 | no |
 | InlineValidation | 1 | 4 | 0 | 0 | 0 | yes |
 | Input | 1 | 11 | 0 | 0 | 0 | yes |
-| InputAmount | 1 | 5 | 0 | 0 | 0 | yes |
+| InputAmount | 1 | 7 | 0 | 0 | 0 | yes |
 | KpiTile | 1 | 8 | 2 | 1 | 0 | no |
 | List | 1 | 5 | 0 | 0 | 0 | no |
 | Menu | 3 | 7 | 2 | 1 | 5 | yes |
 | MotionBoundary | 1 | 5 | 0 | 0 | 0 | yes |
 | MovementRow | 0 | 2 | 0 | 0 | 0 | no |
 | Pagination | 0 | 6 | 0 | 0 | 0 | no |
-| PhoneInput | 1 | 3 | 0 | 0 | 0 | yes |
+| PhoneInput | 1 | 5 | 0 | 0 | 0 | yes |
 | Popover | 1 | 4 | 2 | 0 | 1 | yes |
 | ProgressIndicator | 0 | 5 | 0 | 0 | 0 | yes |
 | QuickAction | 0 | 3 | 0 | 0 | 0 | no |
 | RadioButton | 0 | 2 | 0 | 0 | 0 | no |
 | RouteSummary | 0 | 3 | 0 | 2 | 0 | no |
 | SegmentedControl | 2 | 6 | 3 | 1 | 1 | yes |
-| Select | 4 | 13 | 3 | 1 | 0 | yes |
+| Select | 5 | 16 | 3 | 1 | 0 | yes |
 | Skeleton | 1 | 5 | 0 | 0 | 0 | no |
 | Slider | 0 | 6 | 0 | 0 | 0 | no |
 | Spinner | 1 | 4 | 0 | 0 | 0 | no |
@@ -119,7 +119,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | Table | 0 | 5 | 1 | 1 | 0 | no |
 | Tabs | 2 | 3 | 3 | 1 | 1 | no |
 | Tag | 0 | 2 | 0 | 0 | 0 | no |
-| TextArea | 1 | 3 | 0 | 0 | 0 | yes |
+| TextArea | 1 | 5 | 0 | 0 | 0 | yes |
 | Toast | 0 | 2 | 0 | 0 | 0 | no |
 | Tooltip | 1 | 3 | 1 | 0 | 0 | yes |
 | TreeView | 3 | 4 | 3 | 1 | 1 | no |

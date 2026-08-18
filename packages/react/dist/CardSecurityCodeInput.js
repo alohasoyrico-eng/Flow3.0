@@ -2,6 +2,7 @@ import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { cardSecurityCodeInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 const validStates = new Set(["default", "filled", "valid", "loading", "error", "disabled"]);
 function normalizeExpectedLength(expectedLength) {
     return Number(expectedLength) === 4 ? 4 : 3;
@@ -45,12 +46,17 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     const digits = normalizeCardSecurityCode(currentValue, resolvedLength);
     const validity = cardSecurityCodeValidity(digits, resolvedLength);
     const resolvedError = error;
-    const resolvedHelper = resolvedError || helper;
     const isDisabled = Boolean(disabled || loading);
     const canReveal = Boolean(revealable && revealLabel && hideLabel);
     const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
     const resolvedDensity = normalizeFlowDensity(density);
-    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error: resolvedError,
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     const meta = useMemo(() => ({
         validity,
         expectedLength: resolvedLength,
@@ -92,8 +98,8 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         spellCheck: false,
         "data-card-security-code-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => {
             const nextDigits = normalizeCardSecurityCode(event.target.value, resolvedLength);
             const nextValidity = cardSecurityCodeValidity(nextDigits, resolvedLength);
@@ -116,13 +122,14 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
             "aria-pressed": String(isRevealed),
             onClick: toggleReveal,
         }, React.createElement("span", { className: "field-action__icon field__icon card-security-code-input__action-icon", "aria-hidden": "true" }, isRevealed ? "visibility_off" : "visibility"))
-        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), resolvedHelper
+        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), fieldMessage.message
         ? React.createElement("span", {
             className: "field__helper card-security-code-input__helper",
-            id: `${inputId}-helper`,
+            id: fieldMessage.messageId,
             "data-card-security-code-helper": "",
-            role: resolvedError ? "alert" : undefined,
-        }, resolvedHelper)
+            role: fieldMessage.role,
+            ...flowStateProps(fieldMessage.state),
+        }, fieldMessage.message)
         : null);
 });
 CardSecurityCodeInput.displayName = "CardSecurityCodeInput";

@@ -18,6 +18,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type CardExpiryInputDensity = "sm" | "md" | "lg";
 export type CardExpiryInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";
@@ -132,10 +133,15 @@ export const CardExpiryInput = forwardRef<HTMLInputElement, CardExpiryInputProps
   const { month, year } = parseCardExpiry(digits);
   const localError = validity === "invalid" ? validationMessage : validity === "expired" ? expiredMessage : undefined;
   const resolvedError = error || localError;
-  const resolvedHelper = resolvedError || helper;
   const resolvedState = resolveCardExpiryState({ disabled, loading, error: resolvedError, state, value: digits, validity });
   const resolvedDensity = normalizeFlowDensity(density);
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const fieldMessage = resolveFieldMessage({
+    controlId: inputId,
+    describedBy: rest["aria-describedby"],
+    error: resolvedError,
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   const meta = useMemo(() => ({
     digits,
     month,
@@ -184,8 +190,8 @@ export const CardExpiryInput = forwardRef<HTMLInputElement, CardExpiryInputProps
         spellCheck: false,
         "data-card-expiry-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           const nextDigits = normalizeCardExpiry(event.target.value);
           const nextFormatted = formatCardExpiry(nextDigits);
@@ -203,16 +209,17 @@ export const CardExpiryInput = forwardRef<HTMLInputElement, CardExpiryInputProps
       }),
       loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
-    resolvedHelper
+    fieldMessage.message
       ? React.createElement(
         "span",
         {
           className: "field__helper card-expiry-input__helper",
-          id: `${inputId}-helper`,
+          id: fieldMessage.messageId,
           "data-card-expiry-helper": "",
-          role: resolvedError ? "alert" : undefined,
+          role: fieldMessage.role,
+          ...flowStateProps(fieldMessage.state),
         },
-        resolvedHelper,
+        fieldMessage.message,
       )
       : null,
   );

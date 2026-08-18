@@ -8,8 +8,8 @@
       "accessibilityDebt": 0,
       "criticalComponents": 10,
       "criticalPassing": 10,
-      "totalRoles": 70,
-      "totalAria": 324,
+      "totalRoles": 74,
+      "totalAria": 348,
       "keyboardHandlers": 40,
       "focusCalls": 15,
       "failures": 0,
@@ -336,8 +336,8 @@
     "components": 62,
     "criticalComponents": 10,
     "criticalPassing": 10,
-    "totalRoles": 70,
-    "totalAria": 324,
+    "totalRoles": 74,
+    "totalAria": 348,
     "keyboardHandlers": 40,
     "focusCalls": 15,
     "failures": 0,
@@ -498,7 +498,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 4,
+        "aria": 6,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -514,7 +514,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 5,
+        "aria": 7,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -530,7 +530,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 7,
+        "aria": 9,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -674,7 +674,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 4,
+        "aria": 6,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -731,8 +731,8 @@
         "missing": []
       },
       "signals": {
-        "roles": 4,
-        "aria": 15,
+        "roles": 5,
+        "aria": 18,
         "tabIndex": 1,
         "keyboardHandlers": 2,
         "usesId": true,
@@ -859,8 +859,8 @@
         "missing": []
       },
       "signals": {
-        "roles": 5,
-        "aria": 20,
+        "roles": 6,
+        "aria": 22,
         "tabIndex": 1,
         "keyboardHandlers": 4,
         "usesId": true,
@@ -917,8 +917,8 @@
         "missing": []
       },
       "signals": {
-        "roles": 5,
-        "aria": 21,
+        "roles": 6,
+        "aria": 23,
         "tabIndex": 2,
         "keyboardHandlers": 4,
         "usesId": true,
@@ -1124,7 +1124,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 5,
+        "aria": 7,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -1274,7 +1274,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 3,
+        "aria": 5,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -1462,8 +1462,8 @@
         "missing": []
       },
       "signals": {
-        "roles": 4,
-        "aria": 13,
+        "roles": 5,
+        "aria": 16,
         "tabIndex": 1,
         "keyboardHandlers": 3,
         "usesId": true,
@@ -1623,7 +1623,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 3,
+        "aria": 5,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,

@@ -21,6 +21,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type DatePickerDensity = "sm" | "md" | "lg";
 export type DatePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
@@ -162,7 +163,13 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [viewDate, setViewDate] = useState(() => clampViewDate(value));
   const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: selectedValue });
-  const helperText = error || helper;
+  const fieldMessage = resolveFieldMessage({
+    controlId,
+    describedBy: rest["aria-describedby"],
+    error: error || (invalid ? helper : ""),
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
@@ -260,8 +267,6 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     }, String(cell.getDate()));
   });
 
-  const describedBy = helperText ? `${controlId}-helper` : undefined;
-
   return React.createElement(
     "div",
     {
@@ -291,8 +296,8 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
         "aria-expanded": String(open),
         "aria-controls": panelId,
         "aria-labelledby": `${controlId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": invalid || error || state === "error" ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
       },
@@ -359,8 +364,8 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
         dayButtons,
       ),
     ),
-    helperText
-      ? React.createElement("span", { className: "field__helper date-picker__helper", id: `${controlId}-helper` }, helperText)
+    fieldMessage.message
+      ? React.createElement("span", { className: "field__helper date-picker__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
       : null,
   );
 }) as DatePickerComponent;

@@ -18,6 +18,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type CardNumberInputDensity = "sm" | "md" | "lg";
 export type CardNumberInputState = "default" | "filled" | "valid" | "loading" | "error" | "disabled";
@@ -137,10 +138,15 @@ export const CardNumberInput = forwardRef<HTMLInputElement, CardNumberInputProps
   const validity = cardNumberValidity(digits);
   const brand = cardNumberBrand(digits);
   const resolvedError = error || (validity === "invalid" ? validationMessage : undefined);
-  const resolvedHelper = resolvedError || helper;
   const resolvedState = resolveCardNumberState({ disabled, loading, error: resolvedError, state, value: digits, validity });
   const resolvedDensity = normalizeFlowDensity(density);
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const fieldMessage = resolveFieldMessage({
+    controlId: inputId,
+    describedBy: rest["aria-describedby"],
+    error: resolvedError,
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+  });
   const meta = useMemo(() => ({
     formatted: formattedValue,
     validity,
@@ -185,8 +191,8 @@ export const CardNumberInput = forwardRef<HTMLInputElement, CardNumberInputProps
         spellCheck: false,
         "data-card-number-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           const nextDigits = normalizeCardNumber(event.target.value);
           const nextFormatted = formatCardNumber(nextDigits);
@@ -213,16 +219,17 @@ export const CardNumberInput = forwardRef<HTMLInputElement, CardNumberInputProps
       ),
       loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
-    resolvedHelper
+    fieldMessage.message
       ? React.createElement(
         "span",
         {
           className: "field__helper card-number-input__helper",
-          id: `${inputId}-helper`,
+          id: fieldMessage.messageId,
           "data-card-number-helper": "",
-          role: resolvedError ? "alert" : undefined,
+          role: fieldMessage.role,
+          ...flowStateProps(fieldMessage.state),
         },
-        resolvedHelper,
+        fieldMessage.message,
       )
       : null,
   );

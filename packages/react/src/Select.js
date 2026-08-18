@@ -5,6 +5,7 @@
 import React, { forwardRef, useId, useState, } from "react";
 import { selectPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 function selectedOptionFor(options, value) {
     if (!value)
         return null;
@@ -29,6 +30,12 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     const isOpen = open;
     const resolvedState = disabled ? "disabled" : state || "default";
     const activeIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : 0;
+    const fieldMessage = resolveFieldMessage({
+        controlId: selectId,
+        describedBy: rest["aria-describedby"],
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     if (!label || !normalizedOptions.length)
         return null;
     const setOpen = (nextOpen, event) => {
@@ -94,7 +101,8 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         "aria-haspopup": "listbox",
         "aria-controls": `${selectId}-listbox`,
         "aria-labelledby": `${selectId}-label`,
-        "aria-invalid": state === "error" ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-activedescendant": selectedOption ? `${selectId}-option-${activeIndex}` : undefined,
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
@@ -136,7 +144,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
                 }
             },
         }, React.createElement("span", { className: "select-control__option-label" }, option.label), option.meta ? React.createElement("span", { className: "select-control__option-code" }, option.meta) : null);
-    })), name ? React.createElement("input", { type: "hidden", name, value: selectedValue, "data-select-input": "", readOnly: true }) : null), helper ? React.createElement("span", { className: "field__helper", id: `${selectId}-helper` }, helper) : null);
+    })), name ? React.createElement("input", { type: "hidden", name, value: selectedValue, "data-select-input": "", readOnly: true }) : null), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
 });
 Select.displayName = "Select";
 Select.platformContract = selectPlatformContract;

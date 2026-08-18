@@ -2,6 +2,7 @@ import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { cardNumberInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 function normalizeCardNumber(value) {
     return String(value ?? "").replace(/\D/g, "").slice(0, 19);
 }
@@ -68,10 +69,15 @@ export const CardNumberInput = forwardRef(function CardNumberInput({ label, valu
     const validity = cardNumberValidity(digits);
     const brand = cardNumberBrand(digits);
     const resolvedError = error || (validity === "invalid" ? validationMessage : undefined);
-    const resolvedHelper = resolvedError || helper;
     const resolvedState = resolveCardNumberState({ disabled, loading, error: resolvedError, state, value: digits, validity });
     const resolvedDensity = normalizeFlowDensity(density);
-    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error: resolvedError,
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     const meta = useMemo(() => ({
         formatted: formattedValue,
         validity,
@@ -107,8 +113,8 @@ export const CardNumberInput = forwardRef(function CardNumberInput({ label, valu
         spellCheck: false,
         "data-card-number-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => {
             const nextDigits = normalizeCardNumber(event.target.value);
             const nextFormatted = formatCardNumber(nextDigits);
@@ -128,13 +134,14 @@ export const CardNumberInput = forwardRef(function CardNumberInput({ label, valu
         "data-card-number-brand": "",
         "aria-hidden": "true",
         hidden: !brand,
-    }, brand), loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), resolvedHelper
+    }, brand), loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), fieldMessage.message
         ? React.createElement("span", {
             className: "field__helper card-number-input__helper",
-            id: `${inputId}-helper`,
+            id: fieldMessage.messageId,
             "data-card-number-helper": "",
-            role: resolvedError ? "alert" : undefined,
-        }, resolvedHelper)
+            role: fieldMessage.role,
+            ...flowStateProps(fieldMessage.state),
+        }, fieldMessage.message)
         : null);
 });
 CardNumberInput.displayName = "CardNumberInput";

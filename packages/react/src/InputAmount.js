@@ -6,6 +6,7 @@ import React, { forwardRef, useId, useState, } from "react";
 import { inputAmountPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 const validStates = new Set(["default", "filled", "loading", "error", "disabled"]);
 function normalizeAmount(value) {
     const normalized = String(value ?? "").replace(/[^\d.,-]/g, "").replace(/,/g, "");
@@ -51,10 +52,16 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
     const currentValue = isValueControlled ? value ?? "" : internalValue;
     const normalizedValue = normalizeAmount(currentValue);
     const resolvedError = error || validationMessage || "";
-    const resolvedHelper = resolvedError || helperText || helper;
     const resolvedState = resolveAmountState({ disabled, loading, error: resolvedError, ...(state !== undefined ? { state } : {}), value: normalizedValue });
     const resolvedDensity = normalizeFlowDensity(density);
-    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error: resolvedError,
+        helper,
+        helperText,
+        state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     if (!label)
         return null;
     return React.createElement("label", {
@@ -79,8 +86,8 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
         disabled: Boolean(disabled || loading),
         required,
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => {
             const meta = amountMeta(event.target.value, resolvedCurrency, locale);
             if (!isValueControlled)
@@ -89,12 +96,13 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
         },
     }), suffix
         ? React.createElement("span", { className: "field__suffix input-amount__suffix", "aria-hidden": "true" }, suffix)
-        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), resolvedHelper
+        : null, loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), fieldMessage.message
         ? React.createElement("span", {
             className: "field__helper input-amount__helper",
-            id: `${inputId}-helper`,
-            role: resolvedError ? "alert" : undefined,
-        }, resolvedHelper)
+            id: fieldMessage.messageId,
+            role: fieldMessage.role,
+            ...flowStateProps(fieldMessage.state),
+        }, fieldMessage.message)
         : null);
 });
 InputAmount.displayName = "InputAmount";

@@ -5,6 +5,7 @@
 import React, { forwardRef, useId, useState, } from "react";
 import { codeInputPlatformContract } from "@design-system/components/platforms";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 const validVariants = new Set(["sms", "otp", "approval", "masked", "compact"]);
 const validStates = new Set(["default", "hover", "focus", "complete", "warning", "error", "disabled"]);
 function normalizeCodeValue(value, length = 6) {
@@ -37,8 +38,13 @@ export const CodeInput = forwardRef(function CodeInput({ label, value, length = 
     const currentValue = isValueControlled ? normalizeCodeValue(value ?? "", resolvedLength) : internalValue;
     const digits = normalizeCodeValue(currentValue, resolvedLength);
     const resolvedState = resolveCodeInputState({ disabled, error, ...(state !== undefined ? { state } : {}), value: digits, length: resolvedLength });
-    const resolvedHelper = error || helper;
-    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error,
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     const isMasked = Boolean(masked) || resolvedVariant === "masked";
     const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
     const resolvedDensity = normalizeFlowDensity(density);
@@ -67,8 +73,8 @@ export const CodeInput = forwardRef(function CodeInput({ label, value, length = 
         disabled: Boolean(disabled),
         "data-code-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onFocus: (event) => {
             rest.onFocus?.(event);
             if (event.defaultPrevented)
@@ -104,8 +110,8 @@ export const CodeInput = forwardRef(function CodeInput({ label, value, length = 
             : isActive
                 ? React.createElement("span", { className: "code-input__caret" })
                 : null);
-    }))), resolvedHelper
-        ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+    }))), fieldMessage.message
+        ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
         : null);
 });
 CodeInput.displayName = "CodeInput";

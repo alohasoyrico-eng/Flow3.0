@@ -7,6 +7,7 @@ import { countryCallingCodeOptions, normalizeCountryCallingCodeOptions, resolveC
 import { phoneInputPlatformContract } from "@design-system/components/platforms";
 import { CountrySelector } from "./CountrySelector.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 const validVariants = new Set(["country-code", "compact", "otp-handoff", "readonly"]);
 const validStates = new Set(["default", "hover", "focus", "valid", "warning", "error", "disabled"]);
 function phoneResolverInput(countryValue, prefixValue) {
@@ -64,9 +65,14 @@ export const PhoneInput = forwardRef(function PhoneInput({ label, value, prefix 
     const isReadonly = resolvedVariant === "readonly";
     const resolvedState = disabled ? "disabled" : error ? "error" : normalizeFlowValue(state ?? "default", validStates, "default");
     const resolvedDensity = normalizeFlowDensity(density);
-    const resolvedHelper = error || helper;
     const formattedValue = formatPhoneValue(digits, selectedCountry.nationalLength);
-    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error,
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     if (!label)
         return null;
     const commitDigits = (nextValue, countryValue = selectedCountry, event) => {
@@ -119,11 +125,11 @@ export const PhoneInput = forwardRef(function PhoneInput({ label, value, prefix 
         readOnly: isReadonly,
         "data-phone-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => commitDigits(event.target.value, selectedCountry, event),
-    })), resolvedHelper
-        ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+    })), fieldMessage.message
+        ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
         : null);
 });
 PhoneInput.displayName = "PhoneInput";

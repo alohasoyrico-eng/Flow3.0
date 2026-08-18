@@ -135,7 +135,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:57 |
 | CodeBlock | variant-default | variant | block | pass | pass | Yes | packages/react/src/CodeBlock.tsx:94 |
 | CodeBlock | state-default | state | default | pass | pass | Yes | packages/react/src/CodeBlock.tsx:95 |
-| CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.tsx:77 |
+| CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.tsx:78 |
 | CopyButton | variant-default | variant | text | pass | pass | Yes | packages/react/src/CopyButton.tsx:66 |
 | CopyButton | state-default | state | default | pass | pass | Yes | packages/react/src/CopyButton.tsx:67 |
 | Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.tsx:112 |
@@ -174,7 +174,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | MovementRow | state-default | state | default | pass | pass | Yes | packages/react/src/MovementRow.tsx:67 |
 | Pagination | variant-default | variant | numbered | pass | pass | Yes | packages/react/src/Pagination.tsx:90 |
 | Pagination | state-default | state | default | pass | pass | Yes | packages/react/src/Pagination.tsx:91 |
-| PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.tsx:108 |
+| PhoneInput | variant-default | variant | country-code | pass | pass | Yes | packages/react/src/PhoneInput.tsx:109 |
 | Popover | variant-default | variant | information | pass | pass | Yes | packages/react/src/Popover.tsx:81 |
 | Popover | state-default | state | default | pass | pass | Yes | packages/react/src/Popover.tsx:82 |
 | Popover | placement-default | placement | bottom | pass | pass | Yes | packages/react/src/Popover.tsx:83 |
@@ -189,8 +189,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.tsx:117 |
 | RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.tsx:119 |
 | SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.tsx:73 |
-| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.tsx:87 |
-| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.tsx:88 |
+| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.tsx:88 |
+| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.tsx:89 |
 | Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.tsx:113 |
 | Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.tsx:76 |
 | Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.tsx:77 |
@@ -258,7 +258,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | state-default | state | default | packages/react/src/Chip.tsx:57 | `state = "default",` |
 | CodeBlock | variant-default | variant | block | packages/react/src/CodeBlock.tsx:94 | `variant = "block",` |
 | CodeBlock | state-default | state | default | packages/react/src/CodeBlock.tsx:95 | `state = "default",` |
-| CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.tsx:77 | `variant = "sms",` |
+| CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.tsx:78 | `variant = "sms",` |
 | CopyButton | variant-default | variant | text | packages/react/src/CopyButton.tsx:66 | `variant = "text",` |
 | CopyButton | state-default | state | default | packages/react/src/CopyButton.tsx:67 | `state = "default",` |
 | Dialog | tone-default | tone | neutral | packages/react/src/Dialog.tsx:112 | `tone = "neutral",` |
@@ -297,7 +297,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | MovementRow | state-default | state | default | packages/react/src/MovementRow.tsx:67 | `state = "default",` |
 | Pagination | variant-default | variant | numbered | packages/react/src/Pagination.tsx:90 | `variant = "numbered",` |
 | Pagination | state-default | state | default | packages/react/src/Pagination.tsx:91 | `state = "default",` |
-| PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.tsx:108 | `variant = "country-code",` |
+| PhoneInput | variant-default | variant | country-code | packages/react/src/PhoneInput.tsx:109 | `variant = "country-code",` |
 | Popover | variant-default | variant | information | packages/react/src/Popover.tsx:81 | `variant = "information",` |
 | Popover | state-default | state | default | packages/react/src/Popover.tsx:82 | `state = "default",` |
 | Popover | placement-default | placement | bottom | packages/react/src/Popover.tsx:83 | `placement = "bottom",` |
@@ -312,8 +312,8 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | RouteSummary | state-default | state | default | packages/react/src/RouteSummary.tsx:117 | `state = "default",` |
 | RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.tsx:119 | `tone = "neutral",` |
 | SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.tsx:73 | `variant = "outlined",` |
-| Select | variant-default | variant | default | packages/react/src/Select.tsx:87 | `variant = "default",` |
-| Select | state-default | state | default | packages/react/src/Select.tsx:88 | `state = "default",` |
+| Select | variant-default | variant | default | packages/react/src/Select.tsx:88 | `variant = "default",` |
+| Select | state-default | state | default | packages/react/src/Select.tsx:89 | `state = "default",` |
 | Skeleton | variant-default | variant | text | packages/react/src/Skeleton.tsx:113 | `variant = "text",` |
 | Slider | variant-default | variant | continuous | packages/react/src/Slider.tsx:76 | `variant = "continuous",` |
 | Slider | state-default | state | default | packages/react/src/Slider.tsx:77 | `state = "default",` |

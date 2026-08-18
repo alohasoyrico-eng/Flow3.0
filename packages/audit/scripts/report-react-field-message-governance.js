@@ -111,7 +111,8 @@ function createReport() {
       file: rel(item.file),
       component: path.basename(item.file).replace(/\.(?:tsx|js)$/, ""),
       contract: item.source.includes("resolveFieldMessage") ? "shared-field-message" : "local-field-helper",
-      hasErrorOnlyInvalid: /aria-invalid["']?\s*:\s*(?:error|resolvedError|state === "error"|resolvedState === "error")/.test(item.source),
+      hasErrorOnlyInvalid: item.source.includes('"aria-invalid": fieldMessage.invalid ??')
+        || /aria-invalid["']?\s*:\s*(?:error|resolvedError|state === "error"|resolvedState === "error")/.test(item.source),
       hasLiveRole: /role:\s*(?:fieldMessage\.role|error\s*\?\s*"alert"|messageRole)/.test(item.source),
     }));
   const localFieldHelpers = fieldHelperSources.filter((item) => item.contract === "local-field-helper");

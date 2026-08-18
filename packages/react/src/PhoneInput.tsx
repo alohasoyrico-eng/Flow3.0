@@ -18,6 +18,7 @@ import { CountrySelector } from "./CountrySelector.js";
 import type { CountrySelectorCountry, CountrySelectorValueChangeEvent } from "./CountrySelector.js";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 import { flowVariantProps, flowStateProps, normalizeFlowValue, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type PhoneInputDensity = FlowDensity;
 export type PhoneInputVariant = "country-code" | "compact" | "otp-handoff" | "readonly";
@@ -132,9 +133,14 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(function
   const isReadonly = resolvedVariant === "readonly";
   const resolvedState = disabled ? "disabled" : error ? "error" : normalizeFlowValue(state ?? "default", validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
-  const resolvedHelper = error || helper;
   const formattedValue = formatPhoneValue(digits, selectedCountry.nationalLength);
-  const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+  const fieldMessage = resolveFieldMessage({
+    controlId: inputId,
+    describedBy: rest["aria-describedby"],
+    error,
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+  });
 
   if (!label) return null;
 
@@ -198,13 +204,13 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(function
         readOnly: isReadonly,
         "data-phone-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": error ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => commitDigits(event.target.value, selectedCountry, event),
       }),
     ),
-    resolvedHelper
-      ? React.createElement("span", { className: "field__helper", id: `${inputId}-helper`, role: error ? "alert" : undefined }, resolvedHelper)
+    fieldMessage.message
+      ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
       : null,
   );
 }) as PhoneInputComponent;

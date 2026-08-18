@@ -245,7 +245,7 @@
         "runtime": "pass"
       },
       "metrics": {
-        "markupLength": 12719,
+        "markupLength": 12740,
         "callbacks": 2,
         "testedCallbacks": 2,
         "formalStates": 8,

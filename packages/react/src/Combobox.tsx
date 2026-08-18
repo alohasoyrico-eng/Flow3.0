@@ -20,6 +20,7 @@ import {
   flowDataProps,
   normalizeFlowDensity,
 } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type ComboboxDensity = "sm" | "md" | "lg";
 export type ComboboxState = "default" | "open" | "focus" | "filled" | "empty" | "error" | "disabled";
@@ -161,6 +162,12 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
   const activeOption = enabledOptions[activeIndex] ?? enabledOptions[0] ?? null;
   const resolvedState = normalizedState({ disabled, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
   const resolvedDensity = normalizeFlowDensity(density);
+  const fieldMessage = resolveFieldMessage({
+    controlId: comboboxId,
+    describedBy: rest["aria-describedby"],
+    helper,
+    state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
+  });
 
   if (!label || !normalizedOptions.length) return null;
 
@@ -255,7 +262,8 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
         "aria-haspopup": "listbox",
         "aria-controls": `${comboboxId}-listbox`,
         "aria-labelledby": `${comboboxId}-label`,
-        "aria-invalid": resolvedState === "error" ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onFocus: handleInputFocus,
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
@@ -322,7 +330,7 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
         emptyText ? React.createElement("span", { className: "combobox__empty", "data-combobox-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
       ),
     ),
-    helper ? React.createElement("span", { className: "field__helper", id: `${comboboxId}-helper` }, helper) : null,
+    fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null,
   );
 }) as ComboboxComponent;
 

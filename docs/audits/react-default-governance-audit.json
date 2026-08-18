@@ -680,7 +680,7 @@
     {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.tsx",
-      "line": 77,
+      "line": 78,
       "rule": "variant-default",
       "prop": "variant",
       "value": "sms",
@@ -1070,7 +1070,7 @@
     {
       "component": "PhoneInput",
       "file": "packages/react/src/PhoneInput.tsx",
-      "line": 108,
+      "line": 109,
       "rule": "variant-default",
       "prop": "variant",
       "value": "country-code",
@@ -1220,7 +1220,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 87,
+      "line": 88,
       "rule": "variant-default",
       "prop": "variant",
       "value": "default",
@@ -1230,7 +1230,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 88,
+      "line": 89,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -2564,7 +2564,7 @@
     {
       "component": "CodeInput",
       "file": "packages/react/src/CodeInput.tsx",
-      "line": 77,
+      "line": 78,
       "rule": "variant-default",
       "prop": "variant",
       "value": "sms",
@@ -3630,7 +3630,7 @@
     {
       "component": "PhoneInput",
       "file": "packages/react/src/PhoneInput.tsx",
-      "line": 108,
+      "line": 109,
       "rule": "variant-default",
       "prop": "variant",
       "value": "country-code",
@@ -4046,7 +4046,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 87,
+      "line": 88,
       "rule": "variant-default",
       "prop": "variant",
       "value": "default",
@@ -4068,7 +4068,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 88,
+      "line": 89,
       "rule": "state-default",
       "prop": "state",
       "value": "default",

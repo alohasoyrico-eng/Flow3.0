@@ -371,7 +371,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "route-help",
-      "markupBytes": 9373,
+      "markupBytes": 9394,
       "densityMarkers": 26,
       "failures": []
     },
@@ -382,7 +382,7 @@
       "density": "md",
       "state": "loading",
       "selected": "handoff",
-      "markupBytes": 8654,
+      "markupBytes": 8676,
       "densityMarkers": 24,
       "failures": []
     },
@@ -393,7 +393,7 @@
       "density": "md",
       "state": "empty",
       "selected": "handoff",
-      "markupBytes": 9338,
+      "markupBytes": 9359,
       "densityMarkers": 26,
       "failures": []
     },
@@ -404,7 +404,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "handoff",
-      "markupBytes": 8243,
+      "markupBytes": 8265,
       "densityMarkers": 23,
       "failures": []
     },
@@ -415,7 +415,7 @@
       "density": "sm",
       "state": "error",
       "selected": "handoff",
-      "markupBytes": 7810,
+      "markupBytes": 7829,
       "densityMarkers": 22,
       "failures": []
     },
@@ -426,7 +426,7 @@
       "density": "md",
       "state": "offline",
       "selected": "handoff",
-      "markupBytes": 7918,
+      "markupBytes": 7940,
       "densityMarkers": 22,
       "failures": []
     },
@@ -437,7 +437,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "handoff",
-      "markupBytes": 7880,
+      "markupBytes": 7902,
       "densityMarkers": 22,
       "failures": []
     },
@@ -448,7 +448,7 @@
       "density": "md",
       "state": "handoff",
       "selected": "receipt",
-      "markupBytes": 9346,
+      "markupBytes": 9367,
       "densityMarkers": 26,
       "failures": []
     },

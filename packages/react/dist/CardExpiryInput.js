@@ -2,6 +2,7 @@ import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { cardExpiryInputPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
+import { resolveFieldMessage } from "./internal/field-message.js";
 function normalizeCardExpiry(value) {
     return String(value ?? "").replace(/\D/g, "").slice(0, 4);
 }
@@ -58,10 +59,15 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({ label, valu
     const { month, year } = parseCardExpiry(digits);
     const localError = validity === "invalid" ? validationMessage : validity === "expired" ? expiredMessage : undefined;
     const resolvedError = error || localError;
-    const resolvedHelper = resolvedError || helper;
     const resolvedState = resolveCardExpiryState({ disabled, loading, error: resolvedError, state, value: digits, validity });
     const resolvedDensity = normalizeFlowDensity(density);
-    const describedBy = resolvedHelper ? `${inputId}-helper` : undefined;
+    const fieldMessage = resolveFieldMessage({
+        controlId: inputId,
+        describedBy: rest["aria-describedby"],
+        error: resolvedError,
+        helper,
+        state: resolvedState === "error" ? "error" : resolvedState === "valid" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+    });
     const meta = useMemo(() => ({
         digits,
         month,
@@ -101,8 +107,8 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({ label, valu
         spellCheck: false,
         "data-card-expiry-input": "",
         "aria-labelledby": `${inputId}-label`,
-        "aria-describedby": describedBy,
-        "aria-invalid": resolvedError ? "true" : undefined,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => {
             const nextDigits = normalizeCardExpiry(event.target.value);
             const nextFormatted = formatCardExpiry(nextDigits);
@@ -118,13 +124,14 @@ export const CardExpiryInput = forwardRef(function CardExpiryInput({ label, valu
                 expired: nextValidity === "expired",
             }, event);
         },
-    }), loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), resolvedHelper
+    }), loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null), fieldMessage.message
         ? React.createElement("span", {
             className: "field__helper card-expiry-input__helper",
-            id: `${inputId}-helper`,
+            id: fieldMessage.messageId,
             "data-card-expiry-helper": "",
-            role: resolvedError ? "alert" : undefined,
-        }, resolvedHelper)
+            role: fieldMessage.role,
+            ...flowStateProps(fieldMessage.state),
+        }, fieldMessage.message)
         : null);
 });
 CardExpiryInput.displayName = "CardExpiryInput";
