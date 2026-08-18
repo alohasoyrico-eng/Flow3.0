@@ -104,6 +104,7 @@ function checkPackageCssContracts() {
     "--component-depth-toast",
     "--component-depth-card-hover",
     "--component-depth-date-panel",
+    "--component-option-row-min-block-size-sm", "--component-option-row-min-block-size-md", "--component-option-row-min-block-size-lg", "--component-option-row-padding-inline-sm", "--component-option-row-padding-inline-md", "--component-option-row-padding-inline-lg", "--component-option-row-radius", "--component-option-row-gap", "--component-option-row-selected-bg", "--component-option-row-check-size", "--component-listbox-padding", "--component-listbox-radius", "--component-listbox-depth", "--component-listbox-gap",
   ];
   for (const alias of requiredAliases) {
     if (!text.includes(`${alias}:`)) {
@@ -393,7 +394,6 @@ function checkPackageCssContracts() {
       add("errors", packageCssFile, line, "Package focus states must not disable outline.");
     }
   }
-
 }
 
 module.exports = { checkPackageCssContracts };

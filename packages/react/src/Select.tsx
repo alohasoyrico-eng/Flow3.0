@@ -1,5 +1,6 @@
 import React, {
   type ButtonHTMLAttributes,
+  type FocusEvent,
   type ForwardRefExoticComponent,
   type KeyboardEvent,
   type MouseEvent,
@@ -75,6 +76,27 @@ function normalizeOptions(options: SelectOption[] | undefined): SelectOption[] {
   ));
 }
 
+function firstEnabledIndex(options: SelectOption[]): number {
+  return Math.max(options.findIndex((option) => !option.disabled), 0);
+}
+
+function nextEnabledIndex(options: SelectOption[], currentIndex: number, direction: 1 | -1): number {
+  if (!options.length) return 0;
+  const startIndex = Math.min(Math.max(currentIndex, 0), options.length - 1);
+  for (let offset = 1; offset <= options.length; offset += 1) {
+    const index = (startIndex + direction * offset + options.length) % options.length;
+    if (!options[index]?.disabled) return index;
+  }
+  return startIndex;
+}
+
+function lastEnabledIndex(options: SelectOption[]): number {
+  for (let index = options.length - 1; index >= 0; index -= 1) {
+    if (!options[index]?.disabled) return index;
+  }
+  return firstEnabledIndex(options);
+}
+
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({
   label,
   helper = "",
@@ -108,7 +130,11 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   const selectedLabel = selectedOption ? selectedOption.label : "";
   const isOpen = open;
   const resolvedState = disabled ? "disabled" : state || "default";
-  const activeIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : 0;
+  const isLoading = resolvedState === "loading";
+  const selectedIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : firstEnabledIndex(normalizedOptions);
+  const [activeIndex, setActiveIndex] = useState<number>(selectedIndex);
+  const resolvedActiveIndex = normalizedOptions[activeIndex]?.disabled ? selectedIndex : activeIndex;
+  const activeOption = normalizedOptions[resolvedActiveIndex] ?? null;
   const fieldMessage = resolveFieldMessage({
     controlId: selectId,
     describedBy: rest["aria-describedby"],
@@ -128,6 +154,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
     if (option.disabled) return;
     const optionValue = option.value ?? "";
     if (!isValueControlled) setInternalValue(optionValue);
+    setActiveIndex(Math.max(normalizedOptions.indexOf(option), 0));
     setOpen(false, event);
     onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" }, event);
   };
@@ -135,18 +162,45 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
     rest.onClick?.(event);
     if (event.defaultPrevented) return;
     setOpen(!open, event);
+    if (!open) setActiveIndex(selectedIndex);
   };
   const handleTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
     rest.onKeyDown?.(event);
     if (event.defaultPrevented) return;
-    if (["ArrowDown", "Enter", " "].includes(event.key)) {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       event.preventDefault();
+      const direction = event.key === "ArrowDown" ? 1 : -1;
+      setActiveIndex((index) => (isOpen ? nextEnabledIndex(normalizedOptions, index, direction) : selectedIndex));
+      setOpen(true, event);
+    }
+    if (event.key === "Home") {
+      event.preventDefault();
+      setActiveIndex(firstEnabledIndex(normalizedOptions));
+      setOpen(true, event);
+    }
+    if (event.key === "End") {
+      event.preventDefault();
+      setActiveIndex(lastEnabledIndex(normalizedOptions));
+      setOpen(true, event);
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      if (isOpen && activeOption) {
+        commitOption(activeOption, event);
+        return;
+      }
       setOpen(true, event);
     }
     if (event.key === "Escape") {
       event.preventDefault();
       setOpen(false, event);
     }
+  };
+  const handleRootBlur = (event: FocusEvent<HTMLSpanElement>): void => {
+    const nextTarget = event.relatedTarget;
+    if (nextTarget && event.currentTarget.contains(nextTarget as Node)) return;
+    if (!open) return;
+    setOpen(false);
   };
   const resolvedDensity = normalizeFlowDensity(density);
 
@@ -159,6 +213,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
       ...flowDensityProps(resolvedDensity),
       role: "group",
       "aria-labelledby": `${selectId}-label`,
+      onBlur: handleRootBlur,
     },
     React.createElement("span", { className: "field__label", id: `${selectId}-label` }, label),
     React.createElement(
@@ -187,11 +242,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
           "aria-labelledby": `${selectId}-label`,
           "aria-describedby": fieldMessage.describedBy,
           "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
-          "aria-activedescendant": selectedOption ? `${selectId}-option-${activeIndex}` : undefined,
+          "aria-busy": isLoading ? "true" : undefined,
+          "aria-activedescendant": isOpen && activeOption ? `${selectId}-option-${resolvedActiveIndex}` : selectedOption ? `${selectId}-option-${selectedIndex}` : undefined,
           onClick: handleTriggerClick,
           onKeyDown: handleTriggerKeyDown,
         },
-        icon ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, icon) : null,
+        icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null,
         selectedLabel ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel) : null,
         selectedOption?.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null,
         React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more"),
@@ -209,6 +265,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
         normalizedOptions.map((option, index) => {
           const optionValue = option.value;
           const isSelected = optionValue === selectedValue;
+          const isActive = index === resolvedActiveIndex;
           return React.createElement(
             "span",
             {
@@ -221,10 +278,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
               "aria-disabled": option.disabled ? "true" : undefined,
               "data-select-option": "",
               "data-selected": String(isSelected),
+              "data-active": String(isActive),
               "data-value": optionValue,
               "data-label": option.label,
               "data-meta": option.meta || undefined,
               "data-disabled": option.disabled ? "true" : undefined,
+              onMouseDown: (event: MouseEvent<HTMLSpanElement>) => event.preventDefault(),
               onClick: option.disabled ? undefined : (event: MouseEvent<HTMLSpanElement>) => commitOption(option, event),
               onKeyDown: (event: KeyboardEvent<HTMLSpanElement>) => {
                 if (option.disabled) return;
@@ -240,6 +299,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
             },
             React.createElement("span", { className: "select-control__option-label" }, option.label),
             option.meta ? React.createElement("span", { className: "select-control__option-code" }, option.meta) : null,
+            React.createElement("span", { className: "select-control__option-check", "aria-hidden": "true" }, isSelected ? "check" : ""),
           );
         }),
       ),

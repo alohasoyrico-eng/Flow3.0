@@ -218,6 +218,27 @@
   --component-navigation-target-size-lg: var(--sys-frame-content-navigation-target-lg);
   --component-navigation-ellipsis-inline-size: var(--sys-frame-content-navigation-ellipsis-inline);
   --component-option-min-block-size: var(--sys-frame-content-option-min-block);
+  --component-option-row-min-block-size-sm: calc(var(--component-option-min-block-size) + var(--component-space-md));
+  --component-option-row-min-block-size-md: calc(var(--component-option-min-block-size) + var(--component-space-xl));
+  --component-option-row-min-block-size-lg: calc(var(--component-option-min-block-size) + var(--component-space-xl) + var(--component-space-md));
+  --component-option-row-padding-inline-sm: var(--component-space-lg);
+  --component-option-row-padding-inline-md: var(--component-space-xl);
+  --component-option-row-padding-inline-lg: calc(var(--component-space-xl) + var(--component-space-sm));
+  --component-option-row-gap: var(--component-space-sm);
+  --component-option-row-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
+  --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
+  --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
+  --component-option-row-selected-weight: var(--component-font-weight-semibold);
+  --component-option-row-check-size: var(--component-icon-size-sm);
+  --component-listbox-gap: var(--component-space-2xs);
+  --component-listbox-padding: var(--component-space-xs);
+  --component-listbox-radius: var(--component-radius-control);
+  --component-listbox-bg: var(--component-color-surface);
+  --component-listbox-border: var(--component-color-border);
+  --component-listbox-offset: var(--component-space-xs);
+  --component-listbox-depth: var(--component-depth-popover);
+  --component-listbox-max-block-size: var(--component-content-size-lg);
+  --component-listbox-open-opacity: var(--component-opacity-visible);
   --component-segmented-control-inline-size: var(--sys-frame-content-segmented-control-inline);
   --component-code-slot-block-size-sm: var(--sys-frame-content-code-slot-block-sm);
   --component-code-slot-block-size-md: var(--sys-frame-content-code-slot-block-md);
@@ -6819,23 +6840,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-border: var(--component-color-border);
   --comp-menu-panel-fg: var(--component-color-text);
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md);
-  --comp-menu-panel-padding: var(--component-space-xs);
-  --comp-menu-panel-radius: var(--component-radius-surface);
+  --comp-menu-panel-padding: var(--component-listbox-padding);
+  --comp-menu-panel-radius: var(--component-listbox-radius);
   --comp-menu-panel-depth: var(--component-depth-popover);
-  --comp-menu-panel-offset: var(--component-space-xs);
+  --comp-menu-panel-offset: var(--component-listbox-offset);
   --comp-menu-panel-z-index: var(--component-z-overlay);
-  --comp-menu-panel-gap: var(--component-space-xs);
+  --comp-menu-panel-gap: var(--component-listbox-gap);
   --comp-menu-item-bg: var(--component-surface-transparent);
   --comp-menu-item-fg: var(--component-color-text);
-  --comp-menu-item-hover-bg: var(--component-color-surface-muted);
+  --comp-menu-item-hover-bg: var(--component-option-row-hover-bg);
   --comp-menu-item-danger-fg: var(--component-color-danger);
   --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
   --comp-menu-item-disabled-fg: var(--component-color-text-muted);
   --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
-  --comp-menu-item-height: var(--component-option-min-block-size);
-  --comp-menu-item-padding-x: var(--component-space-sm);
-  --comp-menu-item-radius: var(--component-radius-sm);
-  --comp-menu-item-gap: var(--component-space-xs);
+  --comp-menu-item-height: var(--component-option-row-min-block-size-md);
+  --comp-menu-item-padding-x: var(--component-option-row-padding-inline-sm);
+  --comp-menu-item-radius: var(--component-option-row-radius);
+  --comp-menu-item-gap: var(--component-listbox-gap);
   --comp-menu-item-font-family: var(--component-font-family-inherit);
   --comp-menu-item-font-size: var(--component-font-size-label);
   --comp-menu-item-font-weight: var(--component-font-weight-semibold);
@@ -6873,12 +6894,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .menu[data-density="sm"] {
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-sm);
-  --comp-menu-panel-padding: calc(var(--component-space-xs) / 2);
-  --comp-menu-panel-radius: var(--component-radius-md);
-  --comp-menu-item-height: var(--component-inline-size-md);
-  --comp-menu-item-padding-x: var(--component-space-xs);
-  --comp-menu-item-radius: var(--component-radius-sm);
-  --comp-menu-item-gap: calc(var(--component-space-xs) / 2);
+  --comp-menu-panel-padding: var(--component-listbox-gap);
+  --comp-menu-panel-radius: var(--component-listbox-radius);
+  --comp-menu-item-height: var(--component-option-row-min-block-size-sm);
+  --comp-menu-item-padding-x: var(--component-option-row-padding-inline-sm);
+  --comp-menu-item-radius: var(--component-option-row-radius);
+  --comp-menu-item-gap: var(--component-listbox-gap);
   --comp-menu-item-font-size: var(--component-font-size-small);
   --comp-menu-item-icon-size: var(--component-icon-size-sm);
 }
@@ -6886,11 +6907,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .menu[data-density="lg"] {
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-lg);
   --comp-menu-panel-padding: var(--component-space-sm);
-  --comp-menu-panel-radius: var(--component-radius-surface);
-  --comp-menu-item-height: var(--component-inline-size-lg);
-  --comp-menu-item-padding-x: var(--component-space-md);
-  --comp-menu-item-radius: var(--component-radius-md);
-  --comp-menu-item-gap: var(--component-space-sm);
+  --comp-menu-panel-radius: var(--component-listbox-radius);
+  --comp-menu-item-height: var(--component-option-row-min-block-size-lg);
+  --comp-menu-item-padding-x: var(--component-option-row-padding-inline-md);
+  --comp-menu-item-radius: var(--component-option-row-radius);
+  --comp-menu-item-gap: var(--component-option-row-gap);
   --comp-menu-item-font-size: var(--component-font-size-body);
   --comp-menu-item-icon-size: var(--component-icon-size-md);
 }
@@ -10210,6 +10231,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-focus-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --comp-select-error-border: var(--component-color-danger);
   --comp-select-error-bg: color-mix(in srgb, var(--component-color-danger) 8%, var(--component-color-surface));
+  --comp-select-loading-bg: color-mix(in srgb, var(--component-color-action) 7%, var(--component-color-surface));
+  --comp-select-loading-border: color-mix(in srgb, var(--component-color-action) 36%, var(--component-color-border));
+  --comp-select-loading-icon-color: var(--component-color-action);
+  --comp-select-loading-icon-duration: var(--component-duration-loading-spin);
+  --comp-select-loading-icon-ease: var(--component-loading-easing-linear);
   --comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro));
   --comp-select-chevron-color: var(--component-color-text-muted);
   --comp-select-chevron-family: var(--component-font-family-icon);
@@ -10219,27 +10245,35 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-chevron-motion-ease: var(--component-ease-press);
   --comp-select-overlay-motion-duration: var(--component-duration-state);
   --comp-select-overlay-motion-ease: var(--component-ease-enter);
-  --comp-select-listbox-gap: var(--component-space-2xs);
-  --comp-select-listbox-padding: var(--component-space-xs);
-  --comp-select-listbox-radius: var(--component-radius-control);
-  --comp-select-listbox-bg: var(--component-color-surface);
-  --comp-select-listbox-border: var(--component-color-border);
+  --comp-select-listbox-gap: var(--component-listbox-gap);
+  --comp-select-listbox-padding: var(--component-listbox-padding);
+  --comp-select-listbox-radius: var(--component-listbox-radius);
+  --comp-select-listbox-bg: var(--component-listbox-bg);
+  --comp-select-listbox-border: var(--component-listbox-border);
   --comp-select-listbox-inline: min(100%, calc(100vw - (var(--component-space-md) * 2)));
-  --comp-select-listbox-offset: var(--component-space-xs);
-  --comp-select-listbox-depth: var(--component-depth-popover);
-  --comp-select-listbox-max-block-size: var(--component-content-size-lg);
-  --comp-select-listbox-open-opacity: var(--component-opacity-visible);
-  --comp-select-option-gap: var(--component-space-sm);
-  --comp-select-option-min-size: var(--component-option-min-block-size);
-  --comp-select-option-padding-x: var(--component-space-sm);
-  --comp-select-option-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
+  --comp-select-listbox-offset: var(--component-listbox-offset);
+  --comp-select-listbox-depth: var(--component-listbox-depth);
+  --comp-select-listbox-max-block-size: var(--component-listbox-max-block-size);
+  --comp-select-listbox-open-opacity: var(--component-listbox-open-opacity);
+  --comp-select-option-gap: var(--component-option-row-gap);
+  --comp-select-option-min-size-sm: var(--component-option-row-min-block-size-sm);
+  --comp-select-option-min-size-md: var(--component-option-row-min-block-size-md);
+  --comp-select-option-min-size-lg: var(--component-option-row-min-block-size-lg);
+  --comp-select-option-min-size: var(--comp-select-option-min-size-md);
+  --comp-select-option-padding-x-sm: var(--component-option-row-padding-inline-sm);
+  --comp-select-option-padding-x-md: var(--component-option-row-padding-inline-md);
+  --comp-select-option-padding-x-lg: var(--component-option-row-padding-inline-lg);
+  --comp-select-option-padding-x: var(--comp-select-option-padding-x-md);
+  --comp-select-option-radius: var(--component-option-row-radius);
   --comp-select-option-color: var(--component-color-text);
-  --comp-select-option-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
-  --comp-select-option-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
-  --comp-select-option-selected-weight: var(--component-font-weight-semibold);
+  --comp-select-option-hover-bg: var(--component-option-row-hover-bg);
+  --comp-select-option-selected-bg: var(--component-option-row-selected-bg);
+  --comp-select-option-selected-weight: var(--component-option-row-selected-weight);
   --comp-select-option-check-family: var(--component-font-family-icon);
+  --comp-select-option-check-size: var(--component-option-row-check-size);
   --comp-select-option-check-weight: var(--component-font-weight-medium);
   --comp-select-option-check-visible-opacity: var(--component-opacity-visible);
+  --comp-select-option-check-hidden-opacity: var(--component-opacity-hidden);
   --comp-select-current-control-size: var(--comp-select-control-size);
   --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
@@ -10327,11 +10361,15 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control[data-density="sm"] {
   --comp-select-current-control-size: var(--comp-select-control-size-sm);
   --comp-select-current-icon-size: var(--comp-select-icon-size-sm);
+  --comp-select-option-min-size: var(--comp-select-option-min-size-sm);
+  --comp-select-option-padding-x: var(--comp-select-option-padding-x-sm);
 }
 
 .select-control[data-density="lg"] {
   --comp-select-current-control-size: var(--comp-select-control-size-lg);
   --comp-select-current-icon-size: var(--comp-select-icon-size-lg);
+  --comp-select-option-min-size: var(--comp-select-option-min-size-lg);
+  --comp-select-option-padding-x: var(--comp-select-option-padding-x-lg);
 }
 
 .select-control--inline,
@@ -10590,6 +10628,17 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-select-error-bg);
 }
 
+.select-control[data-state="loading"] .select-control__trigger {
+  background: var(--comp-select-loading-bg);
+  border-color: var(--comp-select-loading-border);
+  cursor: progress;
+}
+
+.select-control[data-state="loading"] .select-control__icon {
+  color: var(--comp-select-loading-icon-color);
+  animation: spinner-spin var(--comp-select-loading-icon-duration) var(--comp-select-loading-icon-ease) infinite;
+}
+
 .select-control__listbox,
 .country-selector__listbox,
 .phone-input__country-listbox {
@@ -10709,6 +10758,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
     color var(--component-duration-state) var(--component-ease-state);
 }
 
+.select-control__option {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
 .country-selector__option,
 .phone-input__country-option {
   border-radius: var(--comp-country-selector-option-radius);
@@ -10720,6 +10773,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .select-control__option:hover,
 .select-control__option:focus-visible,
+.select-control__option[data-active="true"],
 .country-selector__option:hover,
 .country-selector__option:focus-visible {
   background: var(--comp-select-option-hover-bg);
@@ -10772,6 +10826,21 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   font-size: var(--comp-country-selector-code-font-size);
   font-weight: var(--comp-country-selector-code-font-weight);
   opacity: var(--comp-country-selector-option-code-opacity);
+}
+
+.select-control__option-check {
+  color: currentColor;
+  font-family: var(--comp-select-option-check-family);
+  font-size: var(--comp-select-option-check-size);
+  font-weight: var(--comp-select-option-check-weight);
+  inline-size: var(--comp-select-option-check-size);
+  line-height: var(--component-line-height-none);
+  opacity: var(--comp-select-option-check-hidden-opacity);
+  text-align: center;
+}
+
+.select-control__option[data-selected="true"] .select-control__option-check {
+  opacity: var(--comp-select-option-check-visible-opacity);
 }
 
 .country-selector__option-check {

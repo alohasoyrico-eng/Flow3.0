@@ -1923,6 +1923,21 @@ try {
     { open: false, eventType: "click", key: undefined },
   ]);
 
+  fireEvent.keyDown(selectTrigger, { key: "ArrowDown" });
+  assert.equal(selectTrigger.getAttribute("aria-expanded"), "true");
+  const mexicoOption = getSelectRole("option", { name: /mexico/i });
+  const unitedStatesOption = getSelectRole("option", { name: /united states/i });
+  assert.equal(mexicoOption.querySelector(".select-control__option-check")?.textContent, "check");
+  assert.equal(selectTrigger.getAttribute("aria-activedescendant"), mexicoOption.id);
+  assert.equal(mexicoOption.getAttribute("data-active"), "true");
+  fireEvent.keyDown(selectTrigger, { key: "ArrowDown" });
+  assert.equal(selectTrigger.getAttribute("aria-activedescendant"), unitedStatesOption.id);
+  assert.equal(unitedStatesOption.getAttribute("data-active"), "true");
+  fireEvent.keyDown(selectTrigger, { key: "Enter" });
+  assert.equal(selectTrigger.getAttribute("aria-expanded"), "false");
+  assert.deepEqual(selectChanges.at(-1), { value: "us", meta: { label: "United States", meta: "+1" }, eventType: "keydown" });
+  assert.equal(document.activeElement, selectTrigger);
+
   rerenderSelect(React.createElement(Select, {
     label: "Country",
     value: "mx",
@@ -1966,6 +1981,17 @@ try {
     open: false,
   }));
   await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-expanded"), "false"));
+  rerenderSelect(React.createElement(Select, {
+    label: "Country",
+    value: "mx",
+    state: "loading",
+    options: [
+      { label: "Mexico", value: "mx", meta: "+52" },
+      { label: "United States", value: "us", meta: "+1" },
+    ],
+  }));
+  await waitFor(() => assert.equal(selectTrigger.getAttribute("aria-busy"), "true"));
+  assert.equal(selectTrigger.textContent.includes("progress_activity"), true);
 
   cleanup();
 
