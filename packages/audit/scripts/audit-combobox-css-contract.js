@@ -12,9 +12,15 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const comboboxBlock = blockFor(blocks, selectorKey, ".combobox");
   const chevronBlock = blockFor(blocks, selectorKey, ".combobox__chevron");
+  const disabledClearBlock = blockFor(blocks, selectorKey, ".combobox__clear:disabled");
   const focusChevronBlock = blockFor(blocks, selectorKey, ".combobox:focus-within .combobox__chevron");
+  const listboxBlock = blockFor(blocks, selectorKey, ".combobox__listbox");
   const openListboxBlock = blockFor(blocks, selectorKey, ".combobox[data-open=\"true\"] .combobox__listbox");
-  const emptyBlock = blockFor(blocks, selectorKey, ".combobox__empty");
+  const optionBlock = blockFor(blocks, selectorKey, ".combobox__option");
+  const selectedCheckBlock = blockFor(blocks, selectorKey, ".combobox__option[data-selected=\"true\"] .combobox__option-check");
+  const loadingIconBlock = blockFor(blocks, selectorKey, ".combobox[data-state=\"loading\"] .combobox__loading-icon");
+  const loadingBlock = blockFor(blocks, selectorKey, ".combobox__loading");
+  const emptyBlock = blockFor(blocks, selectorKey, ".combobox__empty") ?? blockFor(blocks, selectorKey, ".combobox__loading,.combobox__empty");
 
   requireIncludes({
     block: comboboxBlock,
@@ -25,9 +31,23 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-combobox-chevron-motion-duration: var(--component-duration-state)",
       "--comp-combobox-overlay-motion-duration: var(--component-duration-state)",
       "--comp-combobox-overlay-visibility-duration: var(--component-duration-instant)",
+      "--comp-combobox-listbox-bg: var(--component-listbox-bg)",
+      "--comp-combobox-listbox-padding: var(--component-listbox-padding)",
+      "--comp-combobox-listbox-radius: var(--component-listbox-radius)",
+      "--comp-combobox-listbox-offset: var(--component-listbox-offset)",
+      "--comp-combobox-loading-font-size: var(--component-font-size-caption)",
+      "--comp-combobox-loading-padding-inline: var(--component-option-row-padding-inline-sm)",
       "--comp-combobox-empty-font-size: var(--component-font-size-caption)",
+      "--comp-combobox-empty-padding-inline: var(--component-option-row-padding-inline-sm)",
+      "--comp-combobox-option-min-size: var(--component-option-row-min-block-size-md)",
+      "--comp-combobox-option-padding-x: var(--component-option-row-padding-inline-sm)",
+      "--comp-combobox-option-selected-bg: var(--component-option-row-selected-bg)",
+      "--comp-combobox-option-check-family: \"Material Symbols Rounded\"",
+      "--comp-combobox-option-check-size: var(--component-option-row-check-size)",
+      "--comp-combobox-option-check-hidden-opacity: var(--component-opacity-hidden)",
+      "--comp-combobox-option-check-visible-opacity: var(--component-opacity-visible)",
     ],
-    message: "Combobox aliases must derive chevron, overlay, and empty-state roles from Flow component tokens.",
+    message: "Combobox aliases must derive chevron, overlay, listbox, option, loading, and empty-state roles from Flow component tokens.",
   });
   requireIncludes({
     block: chevronBlock,
@@ -37,11 +57,34 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey })
     message: "Combobox chevron must consume its component color alias.",
   });
   requireIncludes({
+    block: disabledClearBlock,
+    text,
+    packageCssFile,
+    snippets: ["display: none"],
+    message: "Combobox clear action must stay hidden until a value can be cleared.",
+  });
+  requireIncludes({
     block: focusChevronBlock,
     text,
     packageCssFile,
     snippets: ["color: var(--comp-combobox-chevron-focus-color)"],
     message: "Combobox focused chevron must consume its component focus color alias.",
+  });
+  requireIncludes({
+    block: listboxBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "background: var(--comp-combobox-listbox-bg)",
+      "border: var(--component-border-width) solid var(--comp-combobox-listbox-border)",
+      "border-radius: var(--comp-combobox-listbox-radius)",
+      "box-shadow: var(--comp-combobox-listbox-depth)",
+      "display: grid",
+      "inset-block-start: calc(100% + var(--comp-combobox-listbox-offset))",
+      "position: absolute",
+      "padding: var(--comp-combobox-listbox-padding)",
+    ],
+    message: "Combobox listbox must own its Flow listbox geometry instead of relying on Select-only aliases.",
   });
   requireIncludes({
     block: openListboxBlock,
@@ -53,6 +96,43 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey })
       "visibility var(--comp-combobox-overlay-visibility-duration) var(--comp-combobox-overlay-visibility-ease) var(--comp-combobox-overlay-visibility-duration)",
     ],
     message: "Combobox open listbox must consume component overlay motion aliases.",
+  });
+  requireIncludes({
+    block: optionBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "grid-template-columns: minmax(0, 1fr) auto auto",
+      "min-block-size: var(--comp-combobox-option-min-size)",
+      "padding: 0 var(--comp-combobox-option-padding-x)",
+      "display: grid",
+    ],
+    message: "Combobox options must own row geometry and reserve trailing columns for metadata and selected check geometry.",
+  });
+  requireIncludes({
+    block: selectedCheckBlock,
+    text,
+    packageCssFile,
+    snippets: ["opacity: var(--comp-combobox-option-check-visible-opacity)"],
+    message: "Combobox selected options must expose the shared selected check affordance.",
+  });
+  requireIncludes({
+    block: loadingIconBlock,
+    text,
+    packageCssFile,
+    snippets: ["color: var(--comp-combobox-loading-icon-color)"],
+    message: "Combobox loading icon must consume the shared input loading color alias.",
+  });
+  requireIncludes({
+    block: loadingBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "color: var(--comp-combobox-loading-color)",
+      "font-size: var(--comp-combobox-loading-font-size)",
+      "padding: var(--comp-combobox-loading-padding-block) var(--comp-combobox-loading-padding-inline)",
+    ],
+    message: "Combobox loading status must consume component voice and spacing aliases.",
   });
   requireIncludes({
     block: emptyBlock,

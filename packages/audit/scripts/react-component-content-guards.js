@@ -99,6 +99,14 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Input" && /if \(isValueControlled\) set|if \(isRevealControlled\) set/.test(source)) add("errors", sourceFile, 1, "Input must not mirror controlled value or revealed state through state effects.");
   if (name === "Input" && !source.includes("if (!isValueControlled) setInternalValue(meta.value);")) add("errors", sourceFile, 1, "Input must not mutate internal value state when value is controlled.");
   if (name === "Input" && !source.includes("if (!isRevealControlled) setInternalRevealed(nextRevealed);")) add("errors", sourceFile, 1, "Input must not mutate internal reveal state when revealed is controlled.");
+  if (name === "Combobox" && !source.includes("state === \"loading\"")) add("errors", sourceFile, 1, "Combobox must expose a loading state for async suggestion flows.");
+  if (name === "Combobox" && !source.includes("className: \"field__control combobox\"")) add("errors", sourceFile, 1, "Combobox must render inside the shared field control surface instead of a bare combobox wrapper.");
+  if (name === "Combobox" && !source.includes("\"aria-busy\": isLoading ? \"true\" : undefined")) add("errors", sourceFile, 1, "Combobox input must expose aria-busy during loading suggestion flows.");
+  if (name === "Combobox" && !source.includes("React.createElement(Spinner")) add("errors", sourceFile, 1, "Combobox loading state must reuse the shared Spinner component.");
+  if (name === "Combobox" && source.includes("select-control__listbox")) add("errors", sourceFile, 1, "Combobox must own its listbox class instead of relying on Select internal listbox classes.");
+  if (name === "Combobox" && source.includes("select-control__option")) add("errors", sourceFile, 1, "Combobox must own its option classes instead of relying on Select internal option classes.");
+  if (name === "Combobox" && !source.includes("className: \"combobox__option-check\"")) add("errors", sourceFile, 1, "Combobox selected options must expose its trailing selected check affordance.");
+  if (name === "Combobox" && !source.includes("className: \"combobox__loading\"")) add("errors", sourceFile, 1, "Combobox listbox must expose a visible loading status row.");
   if (name === "TextArea" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "TextArea must require a visible field label before rendering.");
   if (name === "TextArea" && /"aria-label":\s*label\s*\?\s*undefined\s*:\s*rest\["aria-label"\]|label \? React\.createElement\("span", \{ className: "field__label"/.test(source)) add("errors", sourceFile, 1, "TextArea must not replace its required visible label with an aria-only fallback.");
   if (name === "TextArea" && source.includes("onChange?.(")) add("errors", sourceFile, 1, "TextArea must use onValueChange as the only Flow semantic value callback; do not restore the legacy onChange alias.");

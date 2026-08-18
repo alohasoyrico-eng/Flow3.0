@@ -2,6 +2,7 @@ import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { comboboxPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
 import { resolveFieldMessage } from "./internal/field-message.js";
+import { Spinner } from "./Spinner.js";
 function optionValue(option) {
     return option.value ?? "";
 }
@@ -19,13 +20,15 @@ function normalizedState({ disabled, state, currentValue, visibleCount, }) {
         return "disabled";
     if (state === "error")
         return "error";
+    if (state === "loading")
+        return "loading";
     if (state === "open" || state === "focus")
         return state;
     if (visibleCount === 0 && currentValue)
         return "empty";
     return state ?? (currentValue ? "filled" : "default");
 }
-export const Combobox = forwardRef(function Combobox({ label, helper = "", icon = "search", options, optionsLabel, clearSelectionLabel, value, name = "", placeholder = "", emptyText, disabled = false, density, state, open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
+export const Combobox = forwardRef(function Combobox({ label, helper = "", icon = "search", options, optionsLabel, clearSelectionLabel, value, name = "", placeholder = "", emptyText, loadingText = "Loading results", disabled = false, density, state, open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const comboboxId = id ?? `combobox-${generatedId}`;
     const normalizedOptions = useMemo(() => normalizeOptions(options), [options]);
@@ -52,6 +55,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
     const enabledOptions = filteredOptions.filter((option) => !option.disabled);
     const activeOption = enabledOptions[activeIndex] ?? enabledOptions[0] ?? null;
     const resolvedState = normalizedState({ disabled, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
+    const isLoading = resolvedState === "loading";
     const resolvedDensity = normalizeFlowDensity(density);
     const fieldMessage = resolveFieldMessage({
         controlId: comboboxId,
@@ -102,12 +106,12 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         if (event.key === "ArrowDown") {
             event.preventDefault();
             setOpen(true, event);
-            setActiveIndex((index) => Math.min(enabledOptions.length - 1, index + 1));
+            setActiveIndex((index) => enabledOptions.length ? Math.min(enabledOptions.length - 1, index + 1) : 0);
         }
         if (event.key === "ArrowUp") {
             event.preventDefault();
             setOpen(true, event);
-            setActiveIndex((index) => Math.max(0, index - 1));
+            setActiveIndex((index) => enabledOptions.length ? Math.max(0, index - 1) : 0);
         }
         if (event.key === "Enter") {
             event.preventDefault();
@@ -124,7 +128,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         ...flowStateProps(resolvedState),
         ...flowDensityProps(resolvedDensity),
     }, React.createElement("span", { className: "field__label", id: `${comboboxId}-label` }, label), React.createElement("span", {
-        className: "combobox",
+        className: "field__control combobox",
         "data-open": String(isOpen),
         ...flowStateProps(resolvedState),
         ...flowDensityProps(resolvedDensity),
@@ -150,6 +154,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         "aria-labelledby": `${comboboxId}-label`,
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
+        "aria-busy": isLoading ? "true" : undefined,
         "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onFocus: handleInputFocus,
         onChange: (event) => {
@@ -170,9 +175,9 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         "data-field-action": "clear",
         "data-combobox-clear": "",
         onClick: clearValue,
-    }, React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, "close")) : null, React.createElement("span", { className: "select-control__chevron combobox__chevron", "aria-hidden": "true" }, "expand_more"), React.createElement("span", {
+    }, React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, "close")) : null, isLoading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading combobox__loading-icon" }) : null, React.createElement("span", { className: "select-control__chevron combobox__chevron", "aria-hidden": "true" }, "expand_more"), React.createElement("span", {
         id: `${comboboxId}-listbox`,
-        className: "select-control__listbox combobox__listbox",
+        className: "combobox__listbox",
         role: "listbox",
         "data-combobox-listbox": "",
         "aria-label": optionsLabel,
@@ -184,7 +189,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         return React.createElement("span", {
             key: valueKey,
             id: `${comboboxId}-option-${index}`,
-            className: "select-control__option combobox__option",
+            className: "combobox__option",
             role: "option",
             tabIndex: -1,
             "aria-selected": String(isSelected),
@@ -197,8 +202,8 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             "data-disabled": option.disabled ? "true" : undefined,
             onMouseDown: (event) => event.preventDefault(),
             onClick: option.disabled ? undefined : (event) => commitOption(option, event),
-        }, React.createElement("span", { className: "select-control__option-label combobox__option-label" }, optionLabel(option)), option.meta ? React.createElement("span", { className: "select-control__option-code combobox__option-meta" }, option.meta) : null);
-    }), emptyText ? React.createElement("span", { className: "combobox__empty", "data-combobox-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null)), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
+        }, React.createElement("span", { className: "combobox__option-label" }, optionLabel(option)), option.meta ? React.createElement("span", { className: "combobox__option-meta" }, option.meta) : null, React.createElement("span", { className: "combobox__option-check", "aria-hidden": "true" }, isSelected ? "check" : ""));
+    }), isLoading ? React.createElement("span", { className: "combobox__loading", "data-combobox-loading": "", role: "status" }, loadingText) : null, emptyText ? React.createElement("span", { className: "combobox__empty", "data-combobox-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null)), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
 });
 Combobox.displayName = "Combobox";
 Combobox.platformContract = comboboxPlatformContract;

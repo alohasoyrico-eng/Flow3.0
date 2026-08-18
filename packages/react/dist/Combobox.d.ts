@@ -3,7 +3,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import type { comboboxPlatformContract } from "#flow/platforms";
 
 export type ComboboxDensity = "sm" | "md" | "lg";
-export type ComboboxState = "default" | "open" | "focus" | "filled" | "empty" | "error" | "disabled";
+export type ComboboxState = "default" | "open" | "focus" | "filled" | "empty" | "loading" | "error" | "disabled";
 
 export interface ComboboxOption {
   label: string;
@@ -42,6 +42,7 @@ export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
   name?: string;
   placeholder?: string;
   emptyText?: string;
+  loadingText?: string;
   disabled?: boolean;
   density?: ComboboxDensity;
   state?: ComboboxState;

@@ -593,6 +593,36 @@ try {
   await waitFor(() => assert.equal(comboboxInput.getAttribute("aria-expanded"), "true"));
   rerenderCombobox(React.createElement(Combobox, {
     label: "Driver",
+    value: "ana",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    open: true,
+  }));
+  const selectedComboboxOption = getComboboxRole("option", { name: /ana sosa/i });
+  assert.equal(selectedComboboxOption.getAttribute("data-selected"), "true");
+  assert.equal(selectedComboboxOption.querySelector(".combobox__option-check")?.textContent, "check");
+  assert.equal(
+    document.querySelectorAll("[data-combobox-listbox] [data-combobox-option][data-selected=\"true\"]").length,
+    1,
+    "Combobox must keep single-select semantics: only one option can be selected in a listbox.",
+  );
+  rerenderCombobox(React.createElement(Combobox, {
+    label: "Driver",
+    state: "loading",
+    loadingText: "Loading drivers",
+    options: [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Driver" },
+    ],
+    open: true,
+  }));
+  assert.equal(comboboxInput.getAttribute("aria-busy"), "true");
+  assert.equal(document.querySelector("[data-combobox-loading]")?.textContent, "Loading drivers");
+  assert.ok(document.querySelector(".combobox__loading-icon"), "Combobox loading state should render shared Spinner icon.");
+  rerenderCombobox(React.createElement(Combobox, {
+    label: "Driver",
     options: [
       { label: "Ana Sosa", value: "ana", meta: "Driver" },
       { label: "Luis Perez", value: "luis", meta: "Driver" },

@@ -325,7 +325,7 @@ export const componentContracts = {
         purpose: "Let users type to filter and choose one option from a known operational set.",
         variants: ["default"],
         intents: ["default"],
-        states: ["default", "open", "focus", "filled", "empty", "error", "disabled"],
+        states: ["default", "open", "focus", "filled", "empty", "loading", "error", "disabled"],
         props: [
             { name: "label", type: "string", required: true },
             { name: "helper", type: "string", required: false },
@@ -337,9 +337,10 @@ export const componentContracts = {
             { name: "name", type: "string", required: false },
             { name: "placeholder", type: "string", required: false },
             { name: "emptyText", type: "string", required: false },
+            { name: "loadingText", type: "string", required: false },
             { name: "disabled", type: "boolean", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-            { name: "state", type: "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"error\" | \"disabled\"", required: false },
+            { name: "state", type: "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"loading\" | \"error\" | \"disabled\"", required: false },
             { name: "open", type: "boolean", required: false },
             { name: "onValueChange", type: "(value: string, meta: ComboboxValueMeta) => void", required: false },
             { name: "onOpenChange", type: "(open: boolean) => void", required: false }
@@ -351,6 +352,7 @@ export const componentContracts = {
             "Expose active option with aria-activedescendant while the listbox is open.",
             "Escape closes the option layer without changing the current input value.",
             "Provide visible empty-state copy when filtering produces no results.",
+            "Use the loading state for async suggestions without changing the committed value.",
             "Do not use Combobox for global search, async command palettes, multi-select, or form submission flows."
         ]
     },
