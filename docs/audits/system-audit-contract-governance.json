@@ -4,10 +4,10 @@
   "audit": "system audit contract governance",
   "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
   "inventory": {
-    "trackedJsonReports": 161,
-    "gateReports": 161,
+    "trackedJsonReports": 162,
+    "gateReports": 162,
     "contractArtifacts": 0,
-    "markdownReports": 153,
+    "markdownReports": 154,
     "orphanMarkdownReports": 0,
     "dirtyDocsAuditEntries": 0,
     "reportsMissingCategory": 0,
@@ -991,6 +991,23 @@
       "issues": []
     },
     {
+      "file": "docs/audits/react-field-message-governance-audit.json",
+      "kind": "gate-report",
+      "category": "react-primary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "fieldMessageGovernanceDebt",
+          "value": 0
+        },
+        {
+          "key": "fieldMessageGovernanceDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
       "file": "docs/audits/react-interaction-coverage-audit.json",
       "kind": "gate-report",
       "category": "react-primary",
@@ -1355,11 +1372,11 @@
       "debtMetrics": [
         {
           "key": "reportsWithDebtMetrics",
-          "value": 160
+          "value": 161
         },
         {
           "key": "debtMetrics",
-          "value": 201
+          "value": 202
         },
         {
           "key": "categoryMinimumDebt",
@@ -2696,6 +2713,12 @@
     {
       "file": "docs/audits/react-default-governance-audit.md",
       "jsonPair": "docs/audits/react-default-governance-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/react-field-message-governance-audit.md",
+      "jsonPair": "docs/audits/react-field-message-governance-audit.json",
       "status": "pass",
       "issues": []
     },

@@ -146,6 +146,7 @@
     "react-contract-prop-alignment-audit.json": "react-primary",
     "react-controlled-governance-audit.json": "react-primary",
     "react-default-governance-audit.json": "react-primary",
+    "react-field-message-governance-audit.json": "react-primary",
     "react-interaction-coverage-audit.json": "react-primary",
     "react-pattern-behavior-governance-audit.json": "patterns",
     "react-pattern-composition-governance-audit.json": "patterns",

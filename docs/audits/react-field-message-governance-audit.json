@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "react-field-message-governance@1",
+  "status": "pass",
+  "audit": "react field message governance",
+  "principle": "Field feedback must have one semantic contract for message id, aria-describedby, aria-invalid, live-region role, and feedback state. Existing local helpers are migration backlog; new local helpers are blocked.",
+  "inventory": {
+    "fieldMessageSources": 12,
+    "sharedFieldMessageSources": 1,
+    "legacyLocalFieldMessageBacklog": 11,
+    "expectedLegacyLocalFieldMessageBacklog": 11,
+    "resolvedLegacyLocalFieldMessageSources": 0,
+    "unexpectedLocalFieldMessageSources": 0,
+    "contractIssues": 0,
+    "fieldMessageGovernanceDebt": 0
+  },
+  "fieldMessageGovernanceDebt": 0,
+  "fieldHelperSources": [
+    {
+      "file": "packages/react/src/CardExpiryInput.tsx",
+      "component": "CardExpiryInput",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/CardNumberInput.tsx",
+      "component": "CardNumberInput",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/CardSecurityCodeInput.tsx",
+      "component": "CardSecurityCodeInput",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/CodeInput.tsx",
+      "component": "CodeInput",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": true
+    },
+    {
+      "file": "packages/react/src/Combobox.tsx",
+      "component": "Combobox",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/DatePicker.tsx",
+      "component": "DatePicker",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": false,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/DateRangePicker.tsx",
+      "component": "DateRangePicker",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": false,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/Input.tsx",
+      "component": "Input",
+      "contract": "shared-field-message",
+      "hasErrorOnlyInvalid": false,
+      "hasLiveRole": true
+    },
+    {
+      "file": "packages/react/src/InputAmount.tsx",
+      "component": "InputAmount",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/PhoneInput.tsx",
+      "component": "PhoneInput",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": true
+    },
+    {
+      "file": "packages/react/src/Select.tsx",
+      "component": "Select",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": false
+    },
+    {
+      "file": "packages/react/src/TextArea.tsx",
+      "component": "TextArea",
+      "contract": "local-field-helper",
+      "hasErrorOnlyInvalid": true,
+      "hasLiveRole": true
+    }
+  ],
+  "expectedLegacyLocalFieldHelperSources": [
+    "packages/react/src/CardExpiryInput.tsx",
+    "packages/react/src/CardNumberInput.tsx",
+    "packages/react/src/CardSecurityCodeInput.tsx",
+    "packages/react/src/CodeInput.tsx",
+    "packages/react/src/Combobox.tsx",
+    "packages/react/src/DatePicker.tsx",
+    "packages/react/src/DateRangePicker.tsx",
+    "packages/react/src/InputAmount.tsx",
+    "packages/react/src/PhoneInput.tsx",
+    "packages/react/src/Select.tsx",
+    "packages/react/src/TextArea.tsx"
+  ],
+  "resolvedLegacySources": [],
+  "unexpectedLocalFieldHelpers": [],
+  "issues": []
+}

@@ -6,10 +6,10 @@ Audit outputs are evidence, not narrative ledgers: every gate report must have s
 
 ## Inventory
 
-- trackedJsonReports: 161
-- gateReports: 161
+- trackedJsonReports: 162
+- gateReports: 162
 - contractArtifacts: 0
-- markdownReports: 153
+- markdownReports: 154
 - orphanMarkdownReports: 0
 - dirtyDocsAuditEntries: 0
 - reportsMissingCategory: 0
