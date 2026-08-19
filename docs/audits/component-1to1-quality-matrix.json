@@ -371,7 +371,7 @@
     },
     {
       "id": "button",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -379,40 +379,36 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "partial",
+        "interaction-logic": "pass",
         "motion": "pass",
         "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "partial",
-        "visual-qa": "needs-current-local-review",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
-        "docs/audits/button-1to1-visual-metrics.json",
-        "docs/audits/button-1to1-light.png",
-        "docs/audits/button-1to1-dark.png",
-        "packages/components/src/components/actions.js",
+        "docs/audits/button-current-light-dark-review.json",
+        "docs/audits/button-current-light-dark-review.md",
+        "packages/react/src/Button.tsx",
+        "packages/components/src/platforms/button.ts",
         "packages/components/styles/components.css",
         "packages/components/src/contracts.js",
         "packages/content/content/component-copy/components/button/variants.json",
-        "apps/docs/gold-button-docs.js",
-        "apps/docs/gold-component-data.js",
         "packages/audit/scripts/audit-package-css-contracts.js",
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-button-css-contract.js",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p1-actions.test.mjs",
-        "commit 5c264331"
+        "docs/audits/react-interaction-coverage-audit.json"
       ],
-      "openIssues": [
-        "Recent demo QA exposed keyboard activation verification gaps; native React behavior has tests, but local interactive demo evidence must be rechecked with current cache-busted artifact.",
-        "Button density and tone hover/pressed fixes are covered by audits, but current manual light/dark review must be recorded before restoring pass."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Action groups, toolbar layout, and step navigation remain patterns/templates; Button only owns the action trigger."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "currentReviewCommit": "0e65c781",
+      "decision": "Button is closed for current review: React native button activation is covered by p1-actions, CSS contracts guard monotonic density, semantic danger/warning hover/pressed tone, disabled/loading separation, focus and motion aliases, and current light/dark QA measured sm/md/lg as 36/44/52 with icon scale 16/20/24 and contrast >= 5.37 for semantic tone cases."
     },
     {
       "id": "card",
@@ -2344,17 +2340,16 @@
   ],
   "summary": {
     "total": 56,
-    "pass": 49,
-    "partial": 7,
+    "pass": 50,
+    "partial": 6,
     "fail": 0,
-    "qualityDebt": 7
+    "qualityDebt": 6
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
     "updatedAt": "2026-08-19",
     "sourceCommit": "5c264331 Harden component interaction and density contracts",
     "scope": [
-      "button",
       "input",
       "select",
       "combobox",

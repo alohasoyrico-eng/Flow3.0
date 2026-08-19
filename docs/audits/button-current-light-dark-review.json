@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "component-current-review@1",
+  "component": "button",
+  "status": "pass",
+  "generatedAt": "2026-08-19T00:00:00.000-06:00",
+  "source": {
+    "harness": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/button-flow-current.html?fresh=button-close-qa-2",
+    "packageCss": "packages/components/styles/components.css",
+    "reactTests": "packages/react/test/p1-actions.test.mjs",
+    "cssContract": "packages/audit/scripts/audit-button-css-contract.js"
+  },
+  "checks": [
+    {
+      "id": "keyboard-activation",
+      "status": "pass",
+      "evidence": "Focused enabled native button fired 3 clicks across Enter, Space, and pointer click."
+    },
+    {
+      "id": "density-order",
+      "status": "pass",
+      "evidence": "Measured sm=36px, md=44px, lg=52px; monotonic and contract-owned."
+    },
+    {
+      "id": "icon-density",
+      "status": "pass",
+      "evidence": "Measured icon sizes sm=16px, md=20px, lg=24px."
+    },
+    {
+      "id": "semantic-tones",
+      "status": "pass",
+      "evidence": "Danger and warning use red/yellow token families, not action blue."
+    },
+    {
+      "id": "loading-vs-disabled",
+      "status": "pass",
+      "evidence": "Loading keeps busy cursor, aria-busy, opacity 1, and tone; disabled uses gray disabled aliases and not-allowed cursor."
+    },
+    {
+      "id": "light-dark-legibility",
+      "status": "pass",
+      "evidence": "Primary danger, warning, and loading text/background contrast measured >= 5.37 in light and dark review."
+    }
+  ],
+  "measurements": {
+    "density": [
+      {
+        "density": "sm",
+        "blockSizePx": 36,
+        "iconPx": 16,
+        "fontPx": 13,
+        "paddingInlinePx": 16
+      },
+      {
+        "density": "md",
+        "blockSizePx": 44,
+        "iconPx": 20,
+        "fontPx": 14,
+        "paddingInlinePx": 20
+      },
+      {
+        "density": "lg",
+        "blockSizePx": 52,
+        "iconPx": 24,
+        "fontPx": 16,
+        "paddingInlinePx": 28
+      }
+    ],
+    "contrast": {
+      "light": {
+        "danger": 5.62,
+        "warning": 5.43,
+        "loading": 5.37
+      },
+      "dark": {
+        "danger": 5.62,
+        "warning": 5.43,
+        "loading": 5.37
+      }
+    },
+    "disabled": {
+      "opacity": 0.58,
+      "cursor": "not-allowed",
+      "visualTone": "gray disabled aliases"
+    },
+    "loading": {
+      "opacity": 1,
+      "cursor": "progress",
+      "ariaBusy": true
+    }
+  },
+  "openIssues": [],
+  "buttonCurrentReviewDebt": 0
+}

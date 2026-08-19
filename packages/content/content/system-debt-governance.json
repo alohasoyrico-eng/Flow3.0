@@ -36,6 +36,7 @@
   },
   "reportCategories": {
     "anti-duplication-coverage.json": "anti-duplication",
+    "button-current-light-dark-review.json": "quality",
     "component-1to1-quality-matrix.json": "quality",
     "component-css-contract-coverage.json": "cascade",
     "component-state-visual-governance.json": "quality",
