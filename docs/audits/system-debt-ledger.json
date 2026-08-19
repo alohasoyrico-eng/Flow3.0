@@ -1,39 +1,131 @@
 {
-  "status": "pass",
+  "status": "fail",
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 161,
-    "categoryMappings": 152,
+    "reports": 177,
+    "categoryMappings": 168,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 161,
-    "debtMetrics": 202,
+    "reportsWithDebtMetrics": 162,
+    "debtMetrics": 203,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
     "categoryMinimumDebt": 0,
-    "statusDebt": 0,
-    "nonPassReports": 0,
+    "statusDebt": 12,
+    "nonPassReports": 12,
     "categoriesMissingMinimums": 0,
     "unexpectedCategoryMinimums": 0,
     "categoriesMissingPrinciples": 0,
     "unexpectedCategoryPrinciples": 0,
-    "categoriesWithDebt": 0,
+    "categoriesWithDebt": 1,
     "undercoveredStrategicCategories": 0,
     "uncategorizedReports": 0,
     "unexpectedCategories": 0,
     "missingStrategicCategories": 0,
     "emptyStrategicCategories": 0,
-    "nonNumericDebtMetrics": 0,
-    "totalDebt": 0,
-    "categoryDebt": 0,
+    "nonNumericDebtMetrics": 1,
+    "totalDebt": 7,
+    "categoryDebt": 7,
     "categoryCoverageDebt": 0,
-    "systemDebt": 0
+    "systemDebt": 35
   },
-  "nonPassReports": [],
-  "missingDebtReports": [],
-  "nonNumericDebtEntries": [],
+  "nonPassReports": [
+    {
+      "report": "component-1to1-quality-matrix.json",
+      "status": "partial"
+    },
+    {
+      "report": "flowdocs-content-source-of-truth.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-demo-boundary.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-legacy-slot-quarantine.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-runtime-inventory.json",
+      "status": "unknown"
+    },
+    {
+      "report": "flowdocs-safe-cleanup-plan.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-shell-decision.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-stale-audit-classification.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-template-boundary.json",
+      "status": "action_required"
+    },
+    {
+      "report": "flowdocs-trustworthy-checkpoint.json",
+      "status": "blocked"
+    },
+    {
+      "report": "system-gate-boundary-classification.json",
+      "status": "action_required"
+    },
+    {
+      "report": "system-gate-split.json",
+      "status": "action_required"
+    }
+  ],
+  "missingDebtReports": [
+    "ds-fast-gate.json",
+    "ds-qa-performance.json",
+    "ds-qa-topology.json",
+    "ds-release-gate.json",
+    "flowdocs-consumer-contract.json",
+    "flowdocs-content-source-of-truth.json",
+    "flowdocs-demo-boundary.json",
+    "flowdocs-legacy-slot-quarantine.json",
+    "flowdocs-runtime-inventory.json",
+    "flowdocs-shell-decision.json",
+    "flowdocs-stale-audit-classification.json",
+    "flowdocs-template-boundary.json",
+    "flowdocs-trustworthy-checkpoint.json",
+    "system-gate-boundary-classification.json",
+    "system-gate-split.json"
+  ],
+  "nonNumericDebtEntries": [
+    {
+      "report": "flowdocs-safe-cleanup-plan.json",
+      "metric": "protectedRuntimeDebt",
+      "value": [
+        {
+          "area": "Shell mutation",
+          "evidence": "5 innerHTML writes, 17 querySelector calls, 17 dataset mutations",
+          "action": "do not delete; replace through DocsShell consumer adapter"
+        },
+        {
+          "area": "Template hybrid layer",
+          "evidence": "53 local renderer files and 50 HTML-boundary files",
+          "action": "quarantine as legacy slots; replace page by page with template contracts"
+        },
+        {
+          "area": "Demo boundary",
+          "evidence": "73 FlowDocs demo risk files",
+          "action": "keep as docs harness only; package behavior must be proven in package tests/local QA"
+        },
+        {
+          "area": "Content source",
+          "evidence": "254 package content files outside docs bundle; 2 local FlowDocs JSON files",
+          "action": "do not call bundle stale; classify non-docs bundle content before deletion"
+        }
+      ]
+    }
+  ],
   "uncategorizedReports": [],
   "staleCategoryMappings": [],
   "categoriesMissingMinimums": [],
@@ -67,10 +159,10 @@
     {
       "category": "docs-system-boundary",
       "principle": "FlowDocs must consume Flow instead of owning system behavior.",
-      "reports": 9,
+      "reports": 19,
       "minimumReports": 2,
       "coverageGap": 0,
-      "debtMetrics": 10,
+      "debtMetrics": 11,
       "totalDebt": 0
     },
     {
@@ -94,11 +186,11 @@
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 22,
+      "reports": 28,
       "minimumReports": 1,
       "coverageGap": 0,
       "debtMetrics": 28,
-      "totalDebt": 0
+      "totalDebt": 7
     },
     {
       "category": "react-primary",
@@ -146,14 +238,14 @@
     {
       "file": "component-1to1-quality-matrix.json",
       "category": "quality",
-      "status": "pass",
+      "status": "partial",
       "debtEntries": [
         {
           "report": "component-1to1-quality-matrix.json",
           "scope": "summary",
           "metric": "qualityDebt",
-          "value": 0,
-          "numericValue": 0
+          "value": 7,
+          "numericValue": 7
         }
       ]
     },
@@ -319,6 +411,30 @@
       ]
     },
     {
+      "file": "ds-fast-gate.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": []
+    },
+    {
+      "file": "ds-qa-performance.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": []
+    },
+    {
+      "file": "ds-qa-topology.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": []
+    },
+    {
+      "file": "ds-release-gate.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": []
+    },
+    {
       "file": "email-channel-governance-audit.json",
       "category": "patterns",
       "status": "pass",
@@ -375,6 +491,30 @@
       ]
     },
     {
+      "file": "flowdocs-consumer-contract.json",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-content-source-of-truth.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-demo-boundary.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-legacy-slot-quarantine.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
       "file": "flowdocs-p0-shell-cleanup-evidence.json",
       "category": "docs-system-boundary",
       "status": "pass",
@@ -387,6 +527,71 @@
           "numericValue": 0
         }
       ]
+    },
+    {
+      "file": "flowdocs-runtime-inventory.json",
+      "category": "docs-system-boundary",
+      "status": "unknown",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-safe-cleanup-plan.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": [
+        {
+          "report": "flowdocs-safe-cleanup-plan.json",
+          "scope": "topLevel",
+          "metric": "protectedRuntimeDebt",
+          "value": [
+            {
+              "area": "Shell mutation",
+              "evidence": "5 innerHTML writes, 17 querySelector calls, 17 dataset mutations",
+              "action": "do not delete; replace through DocsShell consumer adapter"
+            },
+            {
+              "area": "Template hybrid layer",
+              "evidence": "53 local renderer files and 50 HTML-boundary files",
+              "action": "quarantine as legacy slots; replace page by page with template contracts"
+            },
+            {
+              "area": "Demo boundary",
+              "evidence": "73 FlowDocs demo risk files",
+              "action": "keep as docs harness only; package behavior must be proven in package tests/local QA"
+            },
+            {
+              "area": "Content source",
+              "evidence": "254 package content files outside docs bundle; 2 local FlowDocs JSON files",
+              "action": "do not call bundle stale; classify non-docs bundle content before deletion"
+            }
+          ],
+          "numericValue": null
+        }
+      ]
+    },
+    {
+      "file": "flowdocs-shell-decision.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-stale-audit-classification.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-template-boundary.json",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
+      "file": "flowdocs-trustworthy-checkpoint.json",
+      "category": "docs-system-boundary",
+      "status": "blocked",
+      "debtEntries": []
     },
     {
       "file": "foundation-accessibility-cascade-audit.json",
@@ -1619,6 +1824,18 @@
           "numericValue": 0
         }
       ]
+    },
+    {
+      "file": "system-gate-boundary-classification.json",
+      "category": "quality",
+      "status": "action_required",
+      "debtEntries": []
+    },
+    {
+      "file": "system-gate-split.json",
+      "category": "quality",
+      "status": "action_required",
+      "debtEntries": []
     },
     {
       "file": "system-generated-token-output-governance.json",
