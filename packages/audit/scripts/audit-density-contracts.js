@@ -106,8 +106,28 @@ function checkOrderedComponentDensityAliases(css, tokens) {
       names: ["--comp-checkbox-mark-size-sm", "--comp-checkbox-mark-size-md", "--comp-checkbox-mark-size-lg"],
     },
     {
+      label: "Checkbox indicator icon size",
+      names: ["--comp-checkbox-indicator-size-sm", "--comp-checkbox-indicator-size-md", "--comp-checkbox-indicator-size-lg"],
+      expected: [16, 20, 24],
+    },
+    {
       label: "RadioButton mark size",
       names: ["--comp-radio-button-mark-size-sm", "--comp-radio-button-mark-size-md", "--comp-radio-button-mark-size-lg"],
+    },
+    {
+      label: "Button icon size",
+      names: ["--comp-button-icon-size-sm", "--comp-button-icon-size-md", "--comp-button-icon-size-lg"],
+      expected: [16, 20, 24],
+    },
+    {
+      label: "Input icon size",
+      names: ["--comp-input-icon-size-sm", "--comp-input-icon-size-md", "--comp-input-icon-size-lg"],
+      expected: [16, 20, 24],
+    },
+    {
+      label: "IconButton icon size",
+      names: ["--comp-icon-button-icon-size-sm", "--comp-icon-button-icon-size-md", "--comp-icon-button-icon-size-lg"],
+      expected: [16, 20, 24],
     },
     {
       label: "Switch thumb size",
@@ -125,6 +145,21 @@ function checkOrderedComponentDensityAliases(css, tokens) {
       label: "Select option row size",
       names: ["--comp-select-option-min-size-sm", "--comp-select-option-min-size-md", "--comp-select-option-min-size-lg"],
     },
+    {
+      label: "Select option check icon size",
+      names: ["--comp-select-option-check-size-sm", "--comp-select-option-check-size-md", "--comp-select-option-check-size-lg"],
+      expected: [16, 20, 24],
+    },
+    {
+      label: "Combobox option check icon size",
+      names: ["--comp-combobox-option-check-size-sm", "--comp-combobox-option-check-size-md", "--comp-combobox-option-check-size-lg"],
+      expected: [16, 20, 24],
+    },
+    {
+      label: "Menu item icon size",
+      names: ["--comp-menu-item-icon-size-sm", "--comp-menu-item-icon-size-md", "--comp-menu-item-icon-size-lg"],
+      expected: [16, 20, 24],
+    },
   ];
 
   for (const scale of requiredScales) {
@@ -136,6 +171,9 @@ function checkOrderedComponentDensityAliases(css, tokens) {
     const [sm, md, lg] = values;
     if (!(sm < md && md < lg)) {
       add("errors", packageCssFile, 1, `${scale.label} density aliases must be ordered sm < md < lg; got sm=${sm}px, md=${md}px, lg=${lg}px.`);
+    }
+    if (scale.expected && !scale.expected.every((expected, index) => values[index] === expected)) {
+      add("errors", packageCssFile, 1, `${scale.label} must resolve to the shared Flow icon density scale ${scale.expected.join("/")}; got sm=${sm}px, md=${md}px, lg=${lg}px.`);
     }
   }
 }

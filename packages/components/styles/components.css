@@ -234,7 +234,10 @@
   --component-option-row-disabled-bg: transparent;
   --component-option-row-disabled-color: var(--component-color-text-muted);
   --component-option-row-disabled-opacity: var(--component-opacity-disabled);
-  --component-option-row-check-size: var(--component-icon-size-sm);
+  --component-option-row-check-size-sm: var(--component-density-icon-size-sm);
+  --component-option-row-check-size-md: var(--component-density-icon-size-md);
+  --component-option-row-check-size-lg: var(--component-density-icon-size-lg);
+  --component-option-row-check-size: var(--component-option-row-check-size-md);
   --component-listbox-gap: var(--component-space-2xs);
   --component-listbox-padding: var(--component-space-xs);
   --component-listbox-radius: var(--component-radius-control);
@@ -286,6 +289,9 @@
   --component-icon-size-md-plus: var(--sys-icon-size-md-plus);
   --component-icon-size-lg: var(--sys-icon-size-lg);
   --component-icon-size-lg-plus: var(--sys-icon-size-lg-plus);
+  --component-density-icon-size-sm: var(--component-icon-size-sm);
+  --component-density-icon-size-md: var(--component-icon-size-md);
+  --component-density-icon-size-lg: var(--component-icon-size-lg);
   --component-icon-size-display-sm: var(--sys-icon-size-display-sm);
   --component-icon-size-display-md: var(--sys-icon-size-display-md);
   --component-icon-size-marker: var(--sys-icon-size-marker);
@@ -577,10 +583,10 @@
   --comp-input-control-size-md: var(--component-field-control-size-md);
   --comp-input-control-size-lg: var(--component-field-control-size-lg);
   --comp-input-control-size: var(--component-density-control-height);
-  --comp-input-icon-size-sm: var(--component-icon-size-sm-plus);
-  --comp-input-icon-size-md: var(--component-icon-size-md);
-  --comp-input-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-input-icon-size: var(--component-icon-size-md);
+  --comp-input-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-input-icon-size-md: var(--component-density-icon-size-md);
+  --comp-input-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-input-icon-size: var(--component-density-icon-size-md);
   --comp-input-action-size-sm: var(--component-field-icon-action-size-sm);
   --comp-input-action-size-md: var(--component-field-icon-action-size-md);
   --comp-input-action-size-lg: var(--component-field-icon-action-size-lg);
@@ -762,9 +768,9 @@
   --comp-checkbox-mark-size-md: var(--component-inline-size-sm);
   --comp-checkbox-mark-size-lg: var(--component-inline-size-md);
   --comp-checkbox-mark-size-compact: var(--comp-checkbox-mark-size-sm);
-  --comp-checkbox-indicator-size-sm: var(--component-icon-size-sm);
-  --comp-checkbox-indicator-size-md: var(--component-icon-size-sm-plus);
-  --comp-checkbox-indicator-size-lg: var(--component-icon-size-md);
+  --comp-checkbox-indicator-size-sm: var(--component-density-icon-size-sm);
+  --comp-checkbox-indicator-size-md: var(--component-density-icon-size-md);
+  --comp-checkbox-indicator-size-lg: var(--component-density-icon-size-lg);
   --comp-checkbox-gap-sm: var(--component-space-xs);
   --comp-checkbox-gap-md: var(--component-space-sm);
   --comp-checkbox-gap-lg: var(--component-space-md);
@@ -1253,10 +1259,10 @@
   --comp-icon-button-size-md: var(--component-icon-button-size-md);
   --comp-icon-button-size-lg: var(--component-icon-button-size-lg);
   --comp-icon-button-size: var(--component-density-control-height);
-  --comp-icon-button-icon-size-sm: var(--component-icon-size-sm-plus);
-  --comp-icon-button-icon-size-md: var(--component-icon-size-md-plus);
-  --comp-icon-button-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-icon-button-icon-size: var(--component-icon-size-md-plus);
+  --comp-icon-button-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-icon-button-icon-size-md: var(--component-density-icon-size-md);
+  --comp-icon-button-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-icon-button-icon-size: var(--component-density-icon-size-md);
   --comp-icon-button-badge-size: var(--component-space-2);
   --comp-icon-button-hover-scale: var(--component-scale-hover);
   --comp-icon-button-press-scale: var(--component-scale-press);
@@ -1268,10 +1274,10 @@
   --comp-button-padding-md: var(--component-space-lg);
   --comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-frame-space-micro));
   --comp-button-padding: var(--component-density-control-padding-x);
-  --comp-button-icon-size-sm: var(--component-icon-size-sm-plus);
-  --comp-button-icon-size-md: var(--component-icon-size-md);
-  --comp-button-icon-size-lg: var(--component-icon-size-md-plus);
-  --comp-button-icon-size: var(--component-icon-size-md);
+  --comp-button-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-button-icon-size-md: var(--component-density-icon-size-md);
+  --comp-button-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-button-icon-size: var(--component-density-icon-size-md);
   --comp-button-font-size: var(--component-font-size-label);
   --comp-copy-button-feedback-gap: var(--component-space-xs);
   --comp-copy-button-feedback-opacity: var(--component-opacity-visible);
@@ -2107,7 +2113,10 @@
   --comp-combobox-option-selected-bg: var(--component-option-row-selected-bg);
   --comp-combobox-option-selected-weight: var(--component-option-row-selected-weight);
   --comp-combobox-option-check-family: "Material Symbols Rounded";
-  --comp-combobox-option-check-size: var(--component-option-row-check-size);
+  --comp-combobox-option-check-size-sm: var(--component-option-row-check-size-sm);
+  --comp-combobox-option-check-size-md: var(--component-option-row-check-size-md);
+  --comp-combobox-option-check-size-lg: var(--component-option-row-check-size-lg);
+  --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-md);
   --comp-combobox-option-check-weight: var(--component-icon-weight-semibold);
   --comp-combobox-option-check-hidden-opacity: var(--component-opacity-hidden);
   --comp-combobox-option-check-visible-opacity: var(--component-opacity-visible);
@@ -2117,6 +2126,14 @@
   --comp-select-overlay-motion-duration: var(--comp-combobox-overlay-motion-duration);
   --comp-select-overlay-motion-ease: var(--comp-combobox-overlay-motion-ease);
   cursor: text;
+}
+
+.combobox[data-density="sm"] {
+  --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-sm);
+}
+
+.combobox[data-density="lg"] {
+  --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-lg);
 }
 
 .combobox__input {
@@ -2730,13 +2747,14 @@
 
 .radio[data-density="sm"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-sm);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size);
   --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
   --comp-choice-current-text-gap: var(--comp-radio-button-gap-sm);
 }
 
 .choice[data-density="lg"] {
   --comp-choice-current-mark-size: var(--component-min-text-line);
-  --comp-choice-current-indicator-size: var(--component-icon-size-md);
+  --comp-choice-current-indicator-size: var(--component-density-icon-size-lg);
   --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--component-space-md);
 }
@@ -2751,6 +2769,7 @@
 
 .radio[data-density="lg"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-lg);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size);
   --comp-choice-current-gap: var(--comp-radio-button-gap-lg);
   --comp-choice-current-text-gap: var(--comp-radio-button-gap-lg);
 }
@@ -7039,7 +7058,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-font-family: var(--component-font-family-inherit);
   --comp-menu-item-font-size: var(--component-font-size-label);
   --comp-menu-item-font-weight: var(--component-font-weight-semibold);
-  --comp-menu-item-icon-size: var(--component-icon-size-sm);
+  --comp-menu-item-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-menu-item-icon-size-md: var(--component-density-icon-size-md);
+  --comp-menu-item-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-menu-item-icon-size: var(--comp-menu-item-icon-size-md);
   --comp-menu-item-icon-family: var(--component-font-family-icon);
   --comp-menu-item-icon-weight: var(--component-font-weight-regular);
   --comp-menu-item-shortcut-fg: var(--component-color-text-muted);
@@ -7080,7 +7102,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-listbox-gap);
   --comp-menu-item-font-size: var(--component-font-size-small);
-  --comp-menu-item-icon-size: var(--component-icon-size-sm);
+  --comp-menu-item-icon-size: var(--comp-menu-item-icon-size-sm);
 }
 
 .menu[data-density="lg"] {
@@ -7092,7 +7114,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-option-row-gap);
   --comp-menu-item-font-size: var(--component-font-size-body);
-  --comp-menu-item-icon-size: var(--component-icon-size-md);
+  --comp-menu-item-icon-size: var(--comp-menu-item-icon-size-lg);
 }
 
 .menu__panel {
@@ -10391,10 +10413,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-control-size-sm: var(--component-field-control-size-sm);
   --comp-select-control-size-lg: var(--component-field-control-size-lg);
   --comp-select-control-size: var(--component-density-control-height);
-  --comp-select-icon-size-md: var(--component-icon-size-md);
-  --comp-select-icon-size-sm: var(--component-icon-size-sm-plus);
-  --comp-select-icon-size-lg: var(--component-font-size-icon-md);
-  --comp-select-icon-size: var(--component-icon-size-md);
+  --comp-select-icon-size-md: var(--component-density-icon-size-md);
+  --comp-select-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-select-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-select-icon-size: var(--component-density-icon-size-md);
   --comp-select-gap: var(--component-field-gap);
   --comp-select-padding-start: var(--component-space-lg);
   --comp-select-padding-end: calc(var(--component-space-lg) - var(--component-frame-space-micro));
@@ -10454,7 +10476,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-option-disabled-color: var(--component-option-row-disabled-color);
   --comp-select-option-disabled-opacity: var(--component-option-row-disabled-opacity);
   --comp-select-option-check-family: var(--component-font-family-icon);
-  --comp-select-option-check-size: var(--component-option-row-check-size);
+  --comp-select-option-check-size-sm: var(--component-option-row-check-size-sm);
+  --comp-select-option-check-size-md: var(--component-option-row-check-size-md);
+  --comp-select-option-check-size-lg: var(--component-option-row-check-size-lg);
+  --comp-select-option-check-size: var(--comp-select-option-check-size-md);
   --comp-select-option-check-weight: var(--component-font-weight-medium);
   --comp-select-option-check-visible-opacity: var(--component-opacity-visible);
   --comp-select-option-check-hidden-opacity: var(--component-opacity-hidden);
@@ -10547,6 +10572,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-current-icon-size: var(--comp-select-icon-size-sm);
   --comp-select-option-min-size: var(--comp-select-option-min-size-sm);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-sm);
+  --comp-select-option-check-size: var(--comp-select-option-check-size-sm);
 }
 
 .select-control[data-density="lg"] {
@@ -10554,6 +10580,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-current-icon-size: var(--comp-select-icon-size-lg);
   --comp-select-option-min-size: var(--comp-select-option-min-size-lg);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-lg);
+  --comp-select-option-check-size: var(--comp-select-option-check-size-lg);
 }
 
 .select-control--inline,

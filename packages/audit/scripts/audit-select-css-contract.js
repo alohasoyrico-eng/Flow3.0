@@ -42,7 +42,10 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-select-option-disabled-color: var(--component-option-row-disabled-color)",
       "--comp-select-option-disabled-opacity: var(--component-option-row-disabled-opacity)",
       "--comp-select-loading-bg: color-mix(in srgb, var(--component-color-action) 7%, var(--component-color-surface))",
-      "--comp-select-option-check-size: var(--component-option-row-check-size)",
+      "--comp-select-option-check-size-sm: var(--component-option-row-check-size-sm)",
+      "--comp-select-option-check-size-md: var(--component-option-row-check-size-md)",
+      "--comp-select-option-check-size-lg: var(--component-option-row-check-size-lg)",
+      "--comp-select-option-check-size: var(--comp-select-option-check-size-md)",
       "--comp-select-option-check-hidden-opacity: var(--component-opacity-hidden)",
     ],
     message: "Select frame offsets and option/listbox geometry must consume shared component option/listbox roles.",
@@ -92,6 +95,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
     snippets: [
       "--comp-select-option-min-size: var(--comp-select-option-min-size-sm)",
       "--comp-select-option-padding-x: var(--comp-select-option-padding-x-sm)",
+      "--comp-select-option-check-size: var(--comp-select-option-check-size-sm)",
     ],
     message: "Select small density must scale option pill geometry through Select density aliases.",
   });
@@ -103,6 +107,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
     snippets: [
       "--comp-select-option-min-size: var(--comp-select-option-min-size-lg)",
       "--comp-select-option-padding-x: var(--comp-select-option-padding-x-lg)",
+      "--comp-select-option-check-size: var(--comp-select-option-check-size-lg)",
     ],
     message: "Select large density must scale option pill geometry through Select density aliases.",
   });

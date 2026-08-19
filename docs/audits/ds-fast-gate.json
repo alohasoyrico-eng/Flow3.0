@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ds-fast-gate@1",
-  "generatedAt": "2026-08-18T23:37:32.086Z",
+  "generatedAt": "2026-08-19T01:05:14.514Z",
   "status": "pass",
   "decision": "Fast DS feedback is green; run validate:flow-core before release.",
   "checks": [
@@ -14,7 +14,7 @@
       "commandLine": "node packages/audit/scripts/report-ds-qa-topology.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 28,
+      "durationMs": 37,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -38,7 +38,7 @@
       "commandLine": "npm run audit:flow-core-gate",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 1019,
+      "durationMs": 969,
       "stdoutTail": [
         "> @alohasoyrico-eng/flow@0.3.0-platform-mvp audit:flow-core-gate",
         "> node packages/audit/scripts/audit-flow-core-gate.js",
@@ -62,7 +62,7 @@
       "commandLine": "node packages/audit/scripts/report-react-production-readiness.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 122,
+      "durationMs": 126,
       "stdoutTail": [
         "  \"status\": \"pass\",",
         "  \"publicReactComponents\": 63,",
@@ -87,7 +87,7 @@
       "commandLine": "node packages/audit/scripts/report-react-interaction-coverage.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 65,
+      "durationMs": 61,
       "stdoutTail": [
         "  \"fail\": 0,",
         "  \"missingTestCallbacks\": 0,",
