@@ -1,7 +1,12 @@
 {
   "schemaVersion": "system-gate-boundary-classification@1",
-  "generatedAt": "2026-08-18T22:53:44.655Z",
-  "status": "action_required",
+  "generatedAt": "2026-08-19T23:43:04.903Z",
+  "status": "pass",
+  "summary": {
+    "highIssues": 0,
+    "boundaryClassificationDebt": 0,
+    "mixedGatesAreAuthoritative": false
+  },
   "rules": [
     "The authoritative Flow package release command is npm run validate:flow-core; npm run validate:system is a compatibility alias to that command.",
     "Generated reports are never canonical source; they are reproducible evidence only.",
@@ -32,6 +37,9 @@
       ],
       "scripts": [
         "audit-ds-release-gate.js",
+        "audit-ds-fast-gate.js",
+        "report-ds-qa-performance.js",
+        "report-ds-qa-topology.js",
         "audit-consumer-install.mjs",
         "audit-component-css-contracts.js",
         "audit-package-css-contracts.js",
@@ -102,19 +110,19 @@
     {
       "layer": "generated-reports",
       "file": "packages/audit/scripts/audit-integration.js",
-      "severity": "high",
+      "severity": "info",
       "message": "audit-integration uses component-1to1 generated report validation inside the mixed gate."
     },
     {
       "layer": "flowdocs-consumer",
       "file": "packages/audit/scripts/audit-integration.js",
-      "severity": "high",
+      "severity": "info",
       "message": "audit-integration mixes FlowDocs template composition with Flow core validation."
     },
     {
       "layer": "flowdocs-consumer",
       "file": "packages/audit/scripts/audit-system-scope.js",
-      "severity": "medium",
+      "severity": "info",
       "message": "audit-system-scope includes FlowDocs demo ownership in the system/core scope."
     },
     {

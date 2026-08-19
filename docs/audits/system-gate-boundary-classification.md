@@ -1,6 +1,6 @@
 # System Gate Boundary Classification
 
-Status: action_required
+Status: pass
 
 ## Rules
 
@@ -20,7 +20,7 @@ Status: action_required
 - Purpose: Validate tokens, specs, package CSS, React source, public exports, runtime install, accessibility, interaction, and component contracts.
 - Source of truth: packages/tokens/src/**, packages/tokens/tokens.json, packages/specs/specs/**, packages/components/src/**, packages/components/styles/components.css, packages/react/src/**, packages/react/dist/**, packages/react/test/**
 - Allowed generated evidence: docs/audits/react-production-readiness.json, docs/audits/react-interaction-coverage-audit.json
-- Scripts: audit-ds-release-gate.js, audit-consumer-install.mjs, audit-component-css-contracts.js, audit-package-css-contracts.js, audit-density-contracts.js, audit-energy-contracts.js, audit-voice-contracts.js, audit-state-contracts.js, audit-motion-contracts.js, audit-accessibility-contracts.js, audit-react-primary-contract.js, report-react-production-readiness.js, report-react-interaction-coverage.js
+- Scripts: audit-ds-release-gate.js, audit-ds-fast-gate.js, report-ds-qa-performance.js, report-ds-qa-topology.js, audit-consumer-install.mjs, audit-component-css-contracts.js, audit-package-css-contracts.js, audit-density-contracts.js, audit-energy-contracts.js, audit-voice-contracts.js, audit-state-contracts.js, audit-motion-contracts.js, audit-accessibility-contracts.js, audit-react-primary-contract.js, report-react-production-readiness.js, report-react-interaction-coverage.js
 
 ### flowdocs-consumer
 
@@ -49,9 +49,9 @@ Status: action_required
 
 ## Issues
 
-- [high] generated-reports: packages/audit/scripts/audit-integration.js - audit-integration uses component-1to1 generated report validation inside the mixed gate.
-- [high] flowdocs-consumer: packages/audit/scripts/audit-integration.js - audit-integration mixes FlowDocs template composition with Flow core validation.
-- [medium] flowdocs-consumer: packages/audit/scripts/audit-system-scope.js - audit-system-scope includes FlowDocs demo ownership in the system/core scope.
+- [info] generated-reports: packages/audit/scripts/audit-integration.js - audit-integration uses component-1to1 generated report validation inside the mixed gate.
+- [info] flowdocs-consumer: packages/audit/scripts/audit-integration.js - audit-integration mixes FlowDocs template composition with Flow core validation.
+- [info] flowdocs-consumer: packages/audit/scripts/audit-system-scope.js - audit-system-scope includes FlowDocs demo ownership in the system/core scope.
 - [info] generated-reports: docs/audits/component-1to1-quality-matrix.json - Generated report exists and must be treated as evidence, not source of truth.
 - [info] generated-reports: docs/audits/react-production-readiness.json - Generated report exists and must be treated as evidence, not source of truth.
 - [info] generated-reports: docs/audits/react-interaction-coverage-audit.json - Generated report exists and must be treated as evidence, not source of truth.

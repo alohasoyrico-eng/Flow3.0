@@ -28,6 +28,4 @@ Decision: **ds-release-gate-is-authoritative-legacy-mixed-gates-are-non-authorit
 
 | id | evidence | action |
 | --- | --- | --- |
-| flowdocs-consumer-still-blocked | 0 consumer contract failures remain | Do not mark FlowDocs trustworthy until consumer contract passes without active legacy slots. |
-| mixed-gates-still-exist | 4 mixed top-level gates classified | Do not use mixed gates as authoritative release gates. |
 | cleanup-still-protected | 49 quarantine candidates and 453 runtime-protected files | Cleanup must follow consumer replacement order. |

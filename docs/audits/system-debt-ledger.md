@@ -10,29 +10,29 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 - Category mappings: 168
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 162
-- Debt metrics: 203
+- Reports with debt metrics: 177
+- Debt metrics: 218
 - Categories: 9
 - Category minimums: 9
 - Category principles: 9
 - Category minimum debt: 0
-- Status debt: 12
-- Non-pass reports: 12
+- Status debt: 10
+- Non-pass reports: 10
 - Categories missing minimums: 0
 - Unexpected category minimums: 0
 - Categories missing principles: 0
 - Unexpected category principles: 0
-- Categories with debt: 1
+- Categories with debt: 2
 - Undercovered strategic categories: 0
 - Uncategorized reports: 0
 - Unexpected categories: 0
 - Missing strategic categories: 0
 - Empty strategic categories: 0
-- Non-numeric debt metrics: 1
-- Total numeric debt: 7
-- Category debt: 7
+- Non-numeric debt metrics: 0
+- Total numeric debt: 19
+- Category debt: 19
 - Category coverage debt: 0
-- System debt: 35
+- System debt: 29
 
 ## Categories
 
@@ -40,10 +40,10 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | anti-duplication | One visual or conceptual source per system concept. | 4 | 1 | 0 | 4 | 0 |
 | cascade | Component styling must cascade from exported system contracts. | 15 | 4 | 0 | 16 | 0 |
-| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 19 | 2 | 0 | 11 | 0 |
+| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 19 | 2 | 0 | 20 | 11 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 40 | 1 | 0 | 42 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 22 | 1 | 0 | 44 | 0 |
-| quality | Component coverage must prove production readiness, not just presence. | 28 | 1 | 0 | 28 | 7 |
+| quality | Component coverage must prove production readiness, not just presence. | 28 | 1 | 0 | 34 | 8 |
 | react-primary | React must be the primary implementation with real contracts. | 46 | 10 | 0 | 53 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 | templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 2 | 1 | 0 | 4 | 0 |
@@ -56,13 +56,11 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | flowdocs-content-source-of-truth.json | action_required |
 | flowdocs-demo-boundary.json | action_required |
 | flowdocs-legacy-slot-quarantine.json | action_required |
-| flowdocs-runtime-inventory.json | unknown |
 | flowdocs-safe-cleanup-plan.json | action_required |
 | flowdocs-shell-decision.json | action_required |
 | flowdocs-stale-audit-classification.json | action_required |
 | flowdocs-template-boundary.json | action_required |
 | flowdocs-trustworthy-checkpoint.json | blocked |
-| system-gate-boundary-classification.json | action_required |
 | system-gate-split.json | action_required |
 
 ## Uncategorized Reports
@@ -87,27 +85,13 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 | Report |
 | --- |
-| ds-fast-gate.json |
-| ds-qa-performance.json |
-| ds-qa-topology.json |
-| ds-release-gate.json |
-| flowdocs-consumer-contract.json |
-| flowdocs-content-source-of-truth.json |
-| flowdocs-demo-boundary.json |
-| flowdocs-legacy-slot-quarantine.json |
-| flowdocs-runtime-inventory.json |
-| flowdocs-shell-decision.json |
-| flowdocs-stale-audit-classification.json |
-| flowdocs-template-boundary.json |
-| flowdocs-trustworthy-checkpoint.json |
-| system-gate-boundary-classification.json |
-| system-gate-split.json |
+| None |
 
 ## Non-Numeric Debt Metrics
 
 | Report | Metric | Value |
 | --- | --- | --- |
-| flowdocs-safe-cleanup-plan.json | protectedRuntimeDebt | [{"area":"Shell mutation","evidence":"5 innerHTML writes, 17 querySelector calls, 17 dataset mutations","action":"do not delete; replace through DocsShell consumer adapter"},{"area":"Template hybrid layer","evidence":"53 local renderer files and 50 HTML-boundary files","action":"quarantine as legacy slots; replace page by page with template contracts"},{"area":"Demo boundary","evidence":"73 FlowDocs demo risk files","action":"keep as docs harness only; package behavior must be proven in package tests/local QA"},{"area":"Content source","evidence":"254 package content files outside docs bundle; 2 local FlowDocs JSON files","action":"do not call bundle stale; classify non-docs bundle content before deletion"}] |
+| None | None | None |
 
 ## Reports
 
@@ -125,25 +109,25 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | docs-shell-template-runtime-bootstrap.json | docs-system-boundary | pass | docsShellTemplateRuntimeBootstrapDebt: 0 |
 | docs-system-boundary-audit.json | docs-system-boundary | pass | docsSystemBoundaryDebt: 0 |
 | docs-template-contract-bootstrap.json | docs-system-boundary | pass | docsTemplateContractBootstrapDebt: 0 |
-| ds-fast-gate.json | quality | pass | None |
-| ds-qa-performance.json | quality | pass | None |
-| ds-qa-topology.json | quality | pass | None |
-| ds-release-gate.json | quality | pass | None |
+| ds-fast-gate.json | quality | pass | normalizedReportDebt: 0 |
+| ds-qa-performance.json | quality | pass | normalizedReportDebt: 0 |
+| ds-qa-topology.json | quality | pass | normalizedReportDebt: 0 |
+| ds-release-gate.json | quality | pass | normalizedReportDebt: 0 |
 | email-channel-governance-audit.json | patterns | pass | emailChannelDebt: 0 |
 | email-channel-renderer-audit.json | patterns | pass | emailRendererDebt: 0 |
 | energy-quality-contract.json | foundations-primitives | pass | energyQualityContractDebt: 0 |
 | family-css-contract-maturity.json | cascade | pass | familyCssMaturityDebt: 0 |
-| flowdocs-consumer-contract.json | docs-system-boundary | pass | None |
-| flowdocs-content-source-of-truth.json | docs-system-boundary | action_required | None |
-| flowdocs-demo-boundary.json | docs-system-boundary | action_required | None |
-| flowdocs-legacy-slot-quarantine.json | docs-system-boundary | action_required | None |
+| flowdocs-consumer-contract.json | docs-system-boundary | pass | normalizedReportDebt: 0 |
+| flowdocs-content-source-of-truth.json | docs-system-boundary | action_required | normalizedReportDebt: 1 |
+| flowdocs-demo-boundary.json | docs-system-boundary | action_required | normalizedReportDebt: 1 |
+| flowdocs-legacy-slot-quarantine.json | docs-system-boundary | action_required | normalizedReportDebt: 1 |
 | flowdocs-p0-shell-cleanup-evidence.json | docs-system-boundary | pass | flowDocsP0ShellCleanupDebt: 0 |
-| flowdocs-runtime-inventory.json | docs-system-boundary | unknown | None |
-| flowdocs-safe-cleanup-plan.json | docs-system-boundary | action_required | protectedRuntimeDebt: [object Object],[object Object],[object Object],[object Object] |
-| flowdocs-shell-decision.json | docs-system-boundary | action_required | None |
-| flowdocs-stale-audit-classification.json | docs-system-boundary | action_required | None |
-| flowdocs-template-boundary.json | docs-system-boundary | action_required | None |
-| flowdocs-trustworthy-checkpoint.json | docs-system-boundary | blocked | None |
+| flowdocs-runtime-inventory.json | docs-system-boundary | pass | runtimeInventoryDebt: 0 |
+| flowdocs-safe-cleanup-plan.json | docs-system-boundary | action_required | protectedRuntimeDebt: 4 |
+| flowdocs-shell-decision.json | docs-system-boundary | action_required | normalizedReportDebt: 1 |
+| flowdocs-stale-audit-classification.json | docs-system-boundary | action_required | normalizedReportDebt: 1 |
+| flowdocs-template-boundary.json | docs-system-boundary | action_required | normalizedReportDebt: 1 |
+| flowdocs-trustworthy-checkpoint.json | docs-system-boundary | blocked | normalizedReportDebt: 1 |
 | foundation-accessibility-cascade-audit.json | cascade | pass | gapsDebt: 0 |
 | foundation-dependency-matrix.json | foundations-primitives | pass | foundationDependencyMatrixDebt: 0 |
 | foundation-depth-cascade-audit.json | cascade | pass | gapsDebt: 0 |
@@ -223,8 +207,8 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-consumer-css-token-cascade.json | quality | pass | consumerCssTokenCascadeDebt: 0 |
 | system-consumer-runtime-smoke.json | quality | pass | consumerRuntimeSmokeDebt: 0 |
 | system-consumer-type-smoke.json | quality | pass | consumerTypeSmokeDebt: 0 |
-| system-gate-boundary-classification.json | quality | action_required | None |
-| system-gate-split.json | quality | action_required | None |
+| system-gate-boundary-classification.json | quality | pass | boundaryClassificationDebt: 0 |
+| system-gate-split.json | quality | action_required | gateSplitDebt: 1 |
 | system-generated-token-output-governance.json | foundations-primitives | pass | generatedTokenOutputGovernanceDebt: 0 |
 | system-master-remediation-plan.json | quality | pass | systemMasterRemediationPlanDebt: 0 |
 | system-p0-primitive-runtime-matrix.json | foundations-primitives | pass | primitiveRuntimeMatrixDebt: 0 |

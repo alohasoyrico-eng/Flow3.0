@@ -1,7 +1,11 @@
 {
-  "generatedAt": "2026-08-18T22:53:44.779Z",
+  "generatedAt": "2026-08-19T23:43:04.937Z",
   "status": "action_required",
   "decision": "ds-release-gate-is-authoritative-legacy-mixed-gates-are-non-authoritative",
+  "summary": {
+    "gateSplitDebt": 1,
+    "blockers": 1
+  },
   "gates": [
     {
       "gate": "DS release",
@@ -73,23 +77,13 @@
   ],
   "blockers": [
     {
-      "id": "flowdocs-consumer-still-blocked",
-      "evidence": "0 consumer contract failures remain",
-      "action": "Do not mark FlowDocs trustworthy until consumer contract passes without active legacy slots."
-    },
-    {
-      "id": "mixed-gates-still-exist",
-      "evidence": "4 mixed top-level gates classified",
-      "action": "Do not use mixed gates as authoritative release gates."
-    },
-    {
       "id": "cleanup-still-protected",
       "evidence": "49 quarantine candidates and 453 runtime-protected files",
       "action": "Cleanup must follow consumer replacement order."
     }
   ],
   "sourceEvidence": {
-    "gateBoundaryStatus": "action_required",
+    "gateBoundaryStatus": "pass",
     "staleAuditStatus": "action_required",
     "consumerStatus": "pass"
   }

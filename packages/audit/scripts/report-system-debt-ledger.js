@@ -89,12 +89,13 @@ function debtEntriesForReport(file, report) {
       const id = `${file}:${key}`;
       if (seen.has(id)) return null;
       seen.add(id);
+      const normalizedValue = Array.isArray(value) ? value.length : value;
       return {
         report: file,
         scope,
         metric: key,
-        value,
-        numericValue: typeof value === "number" ? value : null,
+        value: normalizedValue,
+        numericValue: typeof normalizedValue === "number" ? normalizedValue : null,
       };
     })
     .filter(Boolean));
@@ -107,6 +108,16 @@ function debtEntriesForReport(file, report) {
       numericValue: report.gaps.length,
     };
     return [...entries, gapEntry];
+  }
+  if (!entries.length) {
+    const status = report.status ?? "unknown";
+    return [{
+      report: file,
+      scope: "normalized",
+      metric: "normalizedReportDebt",
+      value: status === "pass" ? 0 : 1,
+      numericValue: status === "pass" ? 0 : 1,
+    }];
   }
   return entries;
 }

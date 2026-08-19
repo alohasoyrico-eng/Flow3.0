@@ -124,13 +124,21 @@ function exists(file) {
 const integrationSource = readIfExists("packages/audit/scripts/audit-integration.js");
 const systemScopeSource = readIfExists("packages/audit/scripts/audit-system-scope.js");
 const packageJson = JSON.parse(readIfExists("package.json") || "{}");
+const expectedFlowCoreCommand = "npm run build:tokens && npm run build:react && npm run typecheck && npm run test:react:release && npm run audit:ds-release-gate";
+const authoritativeCommands = [
+  packageJson?.scripts?.["validate:flow-core"] ?? "",
+  packageJson?.scripts?.["validate:system"] ?? "",
+  packageJson?.scripts?.["audit:ds-release-gate"] ?? "",
+  packageJson?.scripts?.["audit:ds-fast-gate"] ?? "",
+].join(" ");
+const mixedGatesAreAuthoritative = /audit-integration|audit-system-scope|audit-system\.js|audit-complete/.test(authoritativeCommands);
 
 const issues = [];
 if (integrationSource.includes("checkComponent1to1QualityMatrix()")) {
   issues.push({
     layer: "generated-reports",
     file: "packages/audit/scripts/audit-integration.js",
-    severity: "high",
+    severity: mixedGatesAreAuthoritative ? "high" : "info",
     message: "audit-integration uses component-1to1 generated report validation inside the mixed gate.",
   });
 }
@@ -138,7 +146,7 @@ if (integrationSource.includes("checkTemplateComposition()")) {
   issues.push({
     layer: "flowdocs-consumer",
     file: "packages/audit/scripts/audit-integration.js",
-    severity: "high",
+    severity: mixedGatesAreAuthoritative ? "high" : "info",
     message: "audit-integration mixes FlowDocs template composition with Flow core validation.",
   });
 }
@@ -146,11 +154,11 @@ if (systemScopeSource.includes("checkDocsComponentDemoOwnership()")) {
   issues.push({
     layer: "flowdocs-consumer",
     file: "packages/audit/scripts/audit-system-scope.js",
-    severity: "medium",
+    severity: mixedGatesAreAuthoritative ? "high" : "info",
     message: "audit-system-scope includes FlowDocs demo ownership in the system/core scope.",
   });
 }
-if (packageJson?.scripts?.["validate:flow-core"] !== "npm run build:tokens && npm run build:react && npm run typecheck && npm run test:react && npm run audit:ds-release-gate") {
+if (packageJson?.scripts?.["validate:flow-core"] !== expectedFlowCoreCommand) {
   issues.push({
     layer: "flow-core",
     file: "package.json",
@@ -217,6 +225,11 @@ const report = {
   schemaVersion: "system-gate-boundary-classification@1",
   generatedAt: new Date().toISOString(),
   status: issues.some((issue) => issue.severity === "high") ? "action_required" : "pass",
+  summary: {
+    highIssues: issues.filter((issue) => issue.severity === "high").length,
+    boundaryClassificationDebt: issues.filter((issue) => issue.severity === "high").length,
+    mixedGatesAreAuthoritative,
+  },
   rules,
   layers,
   issues,

@@ -146,6 +146,8 @@ const summary = rows.reduce((acc, row) => {
 const report = {
   schemaVersion: "flowdocs-runtime-inventory@1",
   generatedAt: new Date().toISOString(),
+  status: missing.length ? "fail" : "pass",
+  runtimeInventoryDebt: missing.length,
   docsDir: path.relative(root, docsDir),
   entryFile,
   totalFiles: files.length,

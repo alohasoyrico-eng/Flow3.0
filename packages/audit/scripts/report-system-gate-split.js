@@ -94,28 +94,40 @@ const retiredOrHistorical = [
   },
 ];
 
-const blockers = [
-  {
+const blockers = [];
+
+if (consumer.status !== "pass" || (consumer.summary?.hardFailures ?? consumer.summary?.fail ?? 0) > 0) {
+  blockers.push({
     id: "flowdocs-consumer-still-blocked",
-    evidence: `${consumer.summary?.fail ?? 0} consumer contract failures remain`,
+    evidence: `${consumer.summary?.hardFailures ?? consumer.summary?.fail ?? 0} consumer contract failures remain`,
     action: "Do not mark FlowDocs trustworthy until consumer contract passes without active legacy slots.",
-  },
-  {
+  });
+}
+
+if (gateBoundary.status !== "pass") {
+  blockers.push({
     id: "mixed-gates-still-exist",
-    evidence: `${staleAudits.summary?.["mixed-top-level-gate"] ?? 0} mixed top-level gates classified`,
+    evidence: `${staleAudits.summary?.["mixed-top-level-gate"] ?? 0} mixed top-level gates classified and gate boundary is ${gateBoundary.status}`,
     action: "Do not use mixed gates as authoritative release gates.",
-  },
-  {
+  });
+}
+
+if ((cleanup.totals?.protectedRuntimeDebt ?? 0) > 0) {
+  blockers.push({
     id: "cleanup-still-protected",
     evidence: `${cleanup.totals?.legacyQuarantineCandidates ?? 0} quarantine candidates and ${cleanup.totals?.runtimeKeepRows ?? 0} runtime-protected files`,
     action: "Cleanup must follow consumer replacement order.",
-  },
-];
+  });
+}
 
 const report = {
   generatedAt: new Date().toISOString(),
-  status: "action_required",
+  status: blockers.length ? "action_required" : "pass",
   decision: "ds-release-gate-is-authoritative-legacy-mixed-gates-are-non-authoritative",
+  summary: {
+    gateSplitDebt: blockers.length,
+    blockers: blockers.length,
+  },
   gates,
   retiredOrHistorical,
   blockers,
