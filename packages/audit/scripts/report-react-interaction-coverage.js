@@ -69,7 +69,7 @@ const requiredKeyboardContracts = [
   { component: "Combobox", keys: ["ArrowDown", "ArrowUp", "Enter", "Escape"], assertions: ["aria-activedescendant", "aria-expanded", "data-selected"] },
   { component: "Select", keys: ["ArrowDown", "ArrowUp", "Enter", "Escape"], assertions: ["aria-activedescendant", "aria-expanded", "data-active"] },
   { component: "CountrySelector", keys: ["ArrowDown", "ArrowUp", "Enter", "Escape"], assertions: ["aria-activedescendant", "aria-expanded", "data-selected"] },
-  { component: "Menu", keys: ["ArrowDown", "ArrowUp", "Escape"], assertions: ["aria-expanded"] },
+  { component: "Menu", keys: ["ArrowDown", "ArrowUp", "Home", "End", "Enter", "Escape"], assertions: ["aria-expanded", "activeElement"] },
   { component: "Dialog", keys: ["Escape"], assertions: ["aria-modal", "aria-expanded"] },
   { component: "Drawer", keys: ["Escape"], assertions: ["aria-modal", "aria-expanded"] },
   { component: "Popover", keys: ["Escape"], assertions: ["aria-expanded"] },

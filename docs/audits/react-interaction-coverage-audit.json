@@ -512,10 +512,14 @@
       "keys": [
         "ArrowDown",
         "ArrowUp",
+        "Home",
+        "End",
+        "Enter",
         "Escape"
       ],
       "assertions": [
-        "aria-expanded"
+        "aria-expanded",
+        "activeElement"
       ],
       "covered": true,
       "missingKeys": [],

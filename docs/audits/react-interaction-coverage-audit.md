@@ -77,7 +77,7 @@ Changing these numbers is a contract decision. interactionDebt must stay at 0; c
 | Combobox | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected | None | None |
 | Select | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-active | None | None |
 | CountrySelector | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected | None | None |
-| Menu | pass | ArrowDown, ArrowUp, Escape | aria-expanded | None | None |
+| Menu | pass | ArrowDown, ArrowUp, Home, End, Enter, Escape | aria-expanded, activeElement | None | None |
 | Dialog | pass | Escape | aria-modal, aria-expanded | None | None |
 | Drawer | pass | Escape | aria-modal, aria-expanded | None | None |
 | Popover | pass | Escape | aria-expanded | None | None |
