@@ -26,16 +26,17 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const cardInputBlock = blockFor(blocks, selectorKey, ".card-number-input__input,.card-expiry-input__input,.card-security-code-input__input");
   const cardSecurityActionBlock = blockFor(blocks, selectorKey, ".card-security-code-input__action");
 
-  if (!text.includes("--comp-input-control-size: var(--component-density-control-height)")) {
-    add("errors", packageCssFile, 1, "Input base control size must inherit from the density cascade.");
+  if (!text.includes("--comp-input-control-size: var(--comp-input-control-size-md)")) {
+    add("errors", packageCssFile, 1, "Input base control size must default to the field md size, not the global density control height.");
   }
   for (const snippet of [
-    "--component-field-control-size-sm: var(--sys-frame-height-control-sm);",
-    "--component-field-control-size-md: var(--sys-frame-height-control-md);",
-    "--component-field-control-size-lg: var(--sys-frame-height-control-lg);",
+    "--component-field-control-size-sm: var(--component-button-size-sm);",
+    "--component-field-control-size-md: var(--component-button-size-md);",
+    "--component-field-control-size-lg: var(--component-button-size-lg);",
     "--comp-input-control-size-sm: var(--component-field-control-size-sm);",
     "--comp-input-control-size-md: var(--component-field-control-size-md);",
     "--comp-input-control-size-lg: var(--component-field-control-size-lg);",
+    "--comp-input-control-size: var(--comp-input-control-size-md);",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, `Field/Input density must keep monotonic sm/md/lg geometry through shared field tokens: missing ${snippet}`);

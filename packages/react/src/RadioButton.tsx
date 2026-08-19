@@ -104,7 +104,11 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(functi
       "aria-invalid": isInvalid ? "true" : undefined,
       onChange: handleChange,
     }),
-    React.createElement("span", { className: "choice__mark", "aria-hidden": "true" }),
+    React.createElement(
+      "span",
+      { className: "choice__mark", "aria-hidden": "true" },
+      React.createElement("span", { className: "choice__indicator" }),
+    ),
     React.createElement(
       "span",
       { className: "choice__text" },

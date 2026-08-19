@@ -549,8 +549,8 @@ class FlowTokens {
   static const String sysEnergyActionPrimary = "var(--ref-energy-blue-500)";
   static const String sysEnergyBorderDefault = "rgb(10 10 15 / 8%)";
   static const String sysEnergyBorderStrong = "rgb(10 10 15 / 15%)";
-  static const String sysEnergyDarkBorderDefault = "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)";
-  static const String sysEnergyDarkBorderStrong = "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)";
+  static const String sysEnergyDarkBorderDefault = "color-mix(in srgb, var(--ref-energy-neutral-50) 14%, transparent)";
+  static const String sysEnergyDarkBorderStrong = "color-mix(in srgb, var(--ref-energy-neutral-50) 28%, transparent)";
   static const String sysEnergyDarkStatusError = "var(--ref-energy-red-300)";
   static const String sysEnergyDarkStatusSuccess = "var(--ref-energy-green-300)";
   static const String sysEnergyDarkStatusWarning = "var(--ref-energy-yellow-300)";
@@ -1703,8 +1703,8 @@ class FlowTokens {
     "sys-energy-action-primary": "var(--ref-energy-blue-500)",
     "sys-energy-border-default": "rgb(10 10 15 / 8%)",
     "sys-energy-border-strong": "rgb(10 10 15 / 15%)",
-    "sys-energy-dark-border-default": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
-    "sys-energy-dark-border-strong": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "sys-energy-dark-border-default": "color-mix(in srgb, var(--ref-energy-neutral-50) 14%, transparent)",
+    "sys-energy-dark-border-strong": "color-mix(in srgb, var(--ref-energy-neutral-50) 28%, transparent)",
     "sys-energy-dark-status-error": "var(--ref-energy-red-300)",
     "sys-energy-dark-status-success": "var(--ref-energy-green-300)",
     "sys-energy-dark-status-warning": "var(--ref-energy-yellow-300)",

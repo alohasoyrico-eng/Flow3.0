@@ -52,11 +52,34 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!text.includes("--comp-switch-track-width-sm: var(--component-switch-track-width-sm);")) {
     add("errors", packageCssFile, 1, "Switch small track width must consume --component-switch-track-width-sm.");
   }
+  if (!text.includes("--component-switch-track-width-lg: calc(var(--component-inline-size-lg) + var(--component-space-md));")) {
+    add("errors", packageCssFile, 1, "Switch large track width must be wider than medium so large density preserves track/thumb proportions.");
+  }
+  for (const snippet of [
+    "--comp-switch-thumb-size-sm: var(--component-icon-size-sm)",
+    "--comp-switch-thumb-size-md: var(--component-icon-size-md)",
+    "--comp-switch-thumb-size-lg: var(--component-icon-size-lg)",
+    "--comp-switch-thumb-press-inline-sm: var(--component-icon-size-md)",
+    "--comp-switch-thumb-press-inline-md: var(--component-icon-size-lg)",
+    "--comp-switch-thumb-press-inline-lg: calc(var(--component-icon-size-lg) + var(--component-space-sm))",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "Switch thumb geometry must use the shared 3-step icon density scale and one-step press expansion.");
+    }
+  }
   if (text.includes("--comp-switch-track-padding: var(--sys-frame-border-indicator);")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-switch-track-padding: var(--sys-frame-border-indicator);")), "Switch track padding must consume --component-border-width-indicator instead of reaching into frame border directly.");
   }
   if (!text.includes("--comp-switch-track-padding: var(--component-border-width-indicator);")) {
     add("errors", packageCssFile, 1, "Switch track padding must consume --component-border-width-indicator.");
+  }
+  for (const snippet of [
+    "--comp-switch-track-on-bg: var(--component-color-action-indicator)",
+    "--comp-switch-thumb-bg: var(--component-color-action-indicator-text)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "Switch active state must use the shared action indicator color pair for dark-mode legibility.");
+    }
   }
 
   requireIncludes({
@@ -81,8 +104,8 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
     [smBlock, ["--comp-switch-current-track-width: var(--comp-switch-track-width-sm)", "--comp-switch-current-gap: var(--comp-switch-gap-sm)"], "Switch small density must set component-scoped current aliases."],
     [lgBlock, ["--comp-switch-current-track-width: var(--comp-switch-track-width-lg)", "--comp-switch-current-gap: var(--comp-switch-gap-lg)"], "Switch large density must set component-scoped current aliases."],
     [inputFocusBlock, ["outline: var(--comp-switch-current-focus-width) solid var(--comp-switch-current-focus-color)", "outline-offset: var(--comp-switch-current-focus-offset)"], "Switch input focus must consume switch focus aliases."],
-    [textBlock, ["gap: var(--comp-switch-current-gap)"], "Switch text rhythm must consume switch gap alias."],
-    [labelBlock, ["font-weight: var(--comp-switch-current-label-weight)"], "Switch label must consume switch voice alias."],
+    [textBlock, ["gap: var(--comp-switch-current-gap)", "line-height: var(--component-line-height-snug-state)"], "Switch text rhythm must consume switch gap alias and stable line-height."],
+    [labelBlock, ["font-weight: var(--comp-switch-current-label-weight)", "line-height: var(--component-line-height-snug-state)"], "Switch label must consume switch voice alias and stable line-height."],
     [descriptionBlock, ["color: var(--comp-switch-current-description-fg)", "font-size: var(--comp-switch-current-description-size)"], "Switch description must consume switch voice aliases."],
     [disabledBlock, ["opacity: var(--comp-switch-current-disabled-opacity)"], "Switch disabled state must consume switch disabled alias."],
     [trackBlock, ["background: var(--comp-switch-current-track-bg)", "inline-size: var(--comp-switch-current-track-width)", "min-block-size: var(--comp-switch-current-track-block)", "padding: var(--comp-switch-current-track-padding)"], "Switch track must consume current geometry and state aliases."],

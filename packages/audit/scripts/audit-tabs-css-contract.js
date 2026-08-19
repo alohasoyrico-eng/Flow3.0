@@ -21,6 +21,8 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
   const tabBlock = blockFor(blocks, selectorKey, ".tabs__tab");
   const selectedBlock = blockFor(blocks, selectorKey, ".tabs__tab[aria-selected=\"true\"]");
   const selectedIconBlock = blockFor(blocks, selectorKey, ".tabs__tab[aria-selected=\"true\"] .tabs__icon");
+  const disabledBlock = blockFor(blocks, selectorKey, ".tabs__tab:disabled");
+  const disabledBadgeBlock = blockFor(blocks, selectorKey, ".tabs__tab:disabled .badge");
   const hoverBlock = blockFor(blocks, selectorKey, ".tabs__tab:hover:not([aria-selected=\"true\"]):not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".tabs__tab:active:not(:disabled)");
   const underlineBlock = blockFor(blocks, selectorKey, ".tabs[data-variant=\"underline\"]");
@@ -47,6 +49,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
   if (!source.includes("ArrowRight") || !source.includes("ArrowLeft") || !source.includes("Home") || !source.includes("End") || !source.includes("onValueChange?.(nextKey, event);")) {
     add("errors", sourceFile, 1, "Tabs must keep keyboard roving behavior and pass the source event to onValueChange.");
   }
+  if (!source.includes("disabled: Boolean(disabled)") || !source.includes("const enabled = normalizedItems.filter((item) => !item.disabled);")) {
+    add("errors", sourceFile, 1, "Tabs must wire disabled items to native buttons and exclude them from roving keyboard navigation.");
+  }
   if (blocks.filter((block) => selectorKey(block) === ".tabs__tab").length > 1) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".tabs__tab")), "Tabs must not define duplicate .tabs__tab blocks; all tab sizing belongs in the primary block.");
   }
@@ -68,6 +73,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "--comp-tabs-indicator-transition: var(--component-transition-tabs-indicator)",
       "--comp-tabs-tab-min-block: var(--component-navigation-target-size-lg)",
       "--comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg)",
+      "--comp-tabs-disabled-fg: var(--component-disabled-text)",
+      "--comp-tabs-disabled-cursor: var(--component-disabled-cursor)",
+      "--comp-tabs-disabled-opacity: var(--component-disabled-readable-opacity)",
       "--comp-tabs-focus-width: var(--component-focus-ring-width)",
       "--comp-tabs-underline-indicator-shadow: var(--component-depth-none)",
       "align-items: var(--comp-tabs-align)",
@@ -125,6 +133,25 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
     packageCssFile,
     snippets: ["font-variation-settings: var(--comp-tabs-icon-selected-variation)"],
     message: "Tabs selected icon state must consume iconography alias.",
+  });
+  requireIncludes({
+    block: disabledBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "color: var(--comp-tabs-disabled-fg)",
+      "cursor: var(--comp-tabs-disabled-cursor)",
+      "opacity: var(--comp-tabs-disabled-opacity)",
+      "transform: var(--component-transform-scale-rest)",
+    ],
+    message: "Tabs disabled state must be visibly disabled and block pressed motion.",
+  });
+  requireIncludes({
+    block: disabledBadgeBlock,
+    text,
+    packageCssFile,
+    snippets: ["opacity: var(--component-opacity-disabled)"],
+    message: "Tabs disabled badges must dim with the disabled tab.",
   });
   requireIncludes({
     block: hoverBlock,

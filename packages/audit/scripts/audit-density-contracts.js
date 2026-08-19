@@ -80,14 +80,14 @@ function checkDensityContracts() {
 function checkControlSizeScale(css) {
   const tokens = JSON.parse(read(tokensFile));
   const required = [
-    ["--component-button-size-sm: var(--sys-frame-height-control-sm);", "Button sm size must use the system sm control height."],
-    ["--component-button-size-md: var(--component-density-control-height);", "Button md size must use the system density control height."],
-    ["--component-button-size-lg: var(--sys-frame-height-control-lg);", "Button lg size must use the system lg control height."],
-    ["--component-field-control-size-sm: var(--sys-frame-height-control-sm);", "Field/Input sm size must use the system sm control height."],
-    ["--component-field-control-size-md: var(--sys-frame-height-control-md);", "Field/Input md size must use the system md control height."],
-    ["--component-field-control-size-lg: var(--sys-frame-height-control-lg);", "Field/Input lg size must use the system lg control height."],
-    ["--comp-input-control-size: var(--component-density-control-height);", "Input inherited md size must stay on the density cascade."],
-    ["--comp-select-control-size: var(--component-density-control-height);", "Select inherited md size must stay on the density cascade."],
+    ["--component-button-size-sm: var(--component-icon-button-size-sm);", "Button sm size must use the shared action trigger sm height."],
+    ["--component-button-size-md: var(--component-icon-button-size-md);", "Button md size must use the shared action trigger md height."],
+    ["--component-button-size-lg: var(--component-icon-button-size-lg);", "Button lg size must use the shared action trigger lg height."],
+    ["--component-field-control-size-sm: var(--component-button-size-sm);", "Field/Input sm size must share the action sm size."],
+    ["--component-field-control-size-md: var(--component-button-size-md);", "Field/Input md size must share the action md size."],
+    ["--component-field-control-size-lg: var(--component-button-size-lg);", "Field/Input lg size must share the action lg size."],
+    ["--comp-input-control-size: var(--comp-input-control-size-md);", "Input inherited md size must stay on the field md cascade."],
+    ["--comp-select-control-size: var(--comp-select-control-size-md);", "Select inherited md size must stay on the field md cascade."],
   ];
 
   for (const [snippet, message] of required) {
@@ -144,6 +144,14 @@ function checkOrderedComponentDensityAliases(css, tokens) {
     {
       label: "Select option row size",
       names: ["--comp-select-option-min-size-sm", "--comp-select-option-min-size-md", "--comp-select-option-min-size-lg"],
+    },
+    {
+      label: "Combobox option row size",
+      names: ["--comp-combobox-option-min-size-sm", "--comp-combobox-option-min-size-md", "--comp-combobox-option-min-size-lg"],
+    },
+    {
+      label: "Menu item row size",
+      names: ["--comp-menu-item-height-sm", "--comp-menu-item-height-md", "--comp-menu-item-height-lg"],
     },
     {
       label: "Select option check icon size",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ds-qa-topology@1",
-  "generatedAt": "2026-08-19T01:05:13.348Z",
+  "generatedAt": "2026-08-19T22:12:00.310Z",
   "status": "pass",
   "decision": "Flow React QA is split into fast, release, deep, and quarantine lanes; release lanes must stay deterministic and executable.",
   "rules": [

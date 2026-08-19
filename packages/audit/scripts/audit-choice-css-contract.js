@@ -50,6 +50,7 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2)",
       "--comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size)",
       "--comp-choice-current-gap: var(--component-space-sm)",
+      "align-items: center",
       "gap: var(--comp-choice-current-gap)",
       "padding-block: var(--comp-choice-current-padding-block)",
     ],
@@ -57,14 +58,14 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   });
 
   for (const [block, snippets, message] of [
-    [markBlock, ["background: var(--comp-choice-current-mark-bg)", "block-size: var(--comp-choice-current-mark-size)", "inline-size: var(--comp-choice-current-mark-size)"], "Choice mark must consume Choice current aliases."],
+    [markBlock, ["background: var(--comp-choice-current-mark-bg)", "block-size: var(--comp-choice-current-mark-size)", "inline-size: var(--comp-choice-current-mark-size)", "margin-block-start: 0"], "Choice mark must consume Choice current aliases and stay vertically centered with label text."],
     [indicatorBlock, ["color: var(--comp-choice-current-indicator-fg)", "font-size: var(--comp-choice-current-indicator-font-size)"], "Choice indicator must consume Choice current aliases."],
     [iconBlock, ["--comp-choice-current-icon-color: var(--comp-choice-current-indicator-fg)"], "Choice icon hook must stay component-scoped."],
     [focusBlock, ["outline: var(--comp-choice-current-focus-width) solid var(--comp-choice-current-focus-color)"], "Choice focus state must consume Choice current focus aliases."],
     [hoverBlock, ["border-color: var(--comp-choice-current-mark-hover-border", "transform: scale(var(--comp-choice-current-hover-scale"], "Choice hover state must consume Choice current aliases."],
     [activeBlock, ["transform: scale(var(--comp-choice-current-press-scale"], "Choice pressed state must consume Choice current aliases."],
-    [textBlock, ["gap: var(--comp-choice-current-text-gap)"], "Choice text rhythm must consume Choice current alias."],
-    [labelBlock, ["font-weight: var(--comp-choice-current-label-weight"], "Choice label must consume Choice current voice alias."],
+    [textBlock, ["gap: var(--comp-choice-current-text-gap)", "line-height: var(--component-line-height-snug-state)"], "Choice text rhythm must consume Choice current alias and keep stable vertical alignment."],
+    [labelBlock, ["font-weight: var(--comp-choice-current-label-weight", "line-height: var(--component-line-height-snug-state)"], "Choice label must consume Choice current voice alias and keep stable vertical alignment."],
     [copyBlock, ["color: var(--comp-choice-current-description-fg", "font-size: var(--comp-choice-current-description-size"], "Choice description/error copy must consume Choice current voice aliases."],
     [errorBlock, ["color: var(--comp-choice-current-error-fg", "font-weight: var(--comp-choice-current-error-weight"], "Choice error copy must consume Choice current error aliases."],
     [disabledBlock, ["opacity: var(--comp-choice-current-disabled-opacity"], "Choice disabled state must consume Choice current disabled alias."],
@@ -73,6 +74,15 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   }
   if (!text.includes(".button__icon,\n.material-symbol,") || !text.includes("font-family: var(--component-font-family-icon)")) {
     add("errors", packageCssFile, 1, "Choice material-symbol indicators must be covered by the shared Flow icon font contract.");
+  }
+  for (const snippet of [
+    "--comp-checkbox-checked-bg: var(--component-color-action-indicator)",
+    "--comp-checkbox-checked-border: var(--component-color-action-indicator)",
+    "--comp-checkbox-indicator-fg: var(--component-color-action-indicator-text)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "Checkbox selected state must use the shared action indicator color pair for dark-mode legibility.");
+    }
   }
 }
 

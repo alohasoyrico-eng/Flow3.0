@@ -125,6 +125,8 @@
   --component-animation-name-pulse: component-pulse;
   --component-color-action: var(--sys-color-action);
   --component-color-action-hover: var(--sys-color-action-hover);
+  --component-color-action-indicator: var(--component-color-action);
+  --component-color-action-indicator-text: var(--component-color-action-text);
   --component-color-action-text: var(--sys-color-action-text);
   --component-color-bg: var(--sys-energy-surface-primary);
   --component-color-border: var(--sys-color-border);
@@ -238,13 +240,19 @@
   --component-option-row-check-size-md: var(--component-density-icon-size-md);
   --component-option-row-check-size-lg: var(--component-density-icon-size-lg);
   --component-option-row-check-size: var(--component-option-row-check-size-md);
+  --component-overlay-panel-bg: var(--component-color-surface);
+  --component-overlay-panel-border: var(--component-color-border);
+  --component-overlay-panel-depth: var(--component-depth-popover);
+  --component-overlay-panel-offset: var(--component-space-xs);
+  --component-overlay-panel-radius: var(--component-radius-control);
+  --component-overlay-panel-z-index: var(--component-z-overlay);
   --component-listbox-gap: var(--component-space-2xs);
-  --component-listbox-padding: var(--component-space-xs);
-  --component-listbox-radius: var(--component-radius-control);
-  --component-listbox-bg: var(--component-color-surface);
-  --component-listbox-border: var(--component-color-border);
-  --component-listbox-offset: var(--component-space-xs);
-  --component-listbox-depth: var(--component-depth-popover);
+  --component-listbox-padding: var(--component-space-sm);
+  --component-listbox-radius: var(--component-overlay-panel-radius);
+  --component-listbox-bg: var(--component-overlay-panel-bg);
+  --component-listbox-border: var(--component-overlay-panel-border);
+  --component-listbox-offset: var(--component-overlay-panel-offset);
+  --component-listbox-depth: var(--component-overlay-panel-depth);
   --component-listbox-max-block-size: var(--component-content-size-lg);
   --component-listbox-open-opacity: var(--component-opacity-visible);
   --component-segmented-control-inline-size: var(--sys-frame-content-segmented-control-inline);
@@ -568,9 +576,9 @@
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
   --component-transition-tabs-indicator: left var(--component-duration-base) var(--component-ease-state), width var(--component-duration-base) var(--component-ease-state);
   --component-gradient-stepper-marker-active: linear-gradient(145deg, color-mix(in srgb, var(--component-color-action) 78%, var(--component-color-surface)) 0%, var(--component-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
-  --component-field-control-size-sm: var(--sys-frame-height-control-sm);
-  --component-field-control-size-md: var(--sys-frame-height-control-md);
-  --component-field-control-size-lg: var(--sys-frame-height-control-lg);
+  --component-field-control-size-sm: var(--component-button-size-sm);
+  --component-field-control-size-md: var(--component-button-size-md);
+  --component-field-control-size-lg: var(--component-button-size-lg);
   --component-field-icon-action-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
   --component-field-icon-action-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));
@@ -582,7 +590,7 @@
   --comp-input-control-size-sm: var(--component-field-control-size-sm);
   --comp-input-control-size-md: var(--component-field-control-size-md);
   --comp-input-control-size-lg: var(--component-field-control-size-lg);
-  --comp-input-control-size: var(--component-density-control-height);
+  --comp-input-control-size: var(--comp-input-control-size-md);
   --comp-input-icon-size-sm: var(--component-density-icon-size-sm);
   --comp-input-icon-size-md: var(--component-density-icon-size-md);
   --comp-input-icon-size-lg: var(--component-density-icon-size-lg);
@@ -753,7 +761,7 @@
   --component-slider-touch-size-lg: var(--sys-frame-height-control-sm);
   --component-switch-track-width-sm: var(--component-control-min-size);
   --component-switch-track-width-md: var(--component-inline-size-lg);
-  --component-switch-track-width-lg: var(--component-inline-size-lg);
+  --component-switch-track-width-lg: calc(var(--component-inline-size-lg) + var(--component-space-md));
   --component-skeleton-circle-size: var(--sys-frame-content-skeleton-circle);
   --component-skeleton-row-leading-size: var(--sys-frame-content-skeleton-row-leading);
   --component-table-expander-size: var(--sys-frame-content-table-expander);
@@ -778,12 +786,12 @@
   --comp-checkbox-radius: var(--component-radius-sm);
   --comp-checkbox-bg: var(--component-color-surface);
   --comp-checkbox-border: var(--component-color-border);
-  --comp-checkbox-checked-bg: var(--component-color-action);
-  --comp-checkbox-checked-border: var(--component-color-action);
+  --comp-checkbox-checked-bg: var(--component-color-action-indicator);
+  --comp-checkbox-checked-border: var(--component-color-action-indicator);
   --comp-checkbox-error-bg: var(--component-color-danger);
   --comp-checkbox-error-border: var(--component-color-danger);
   --comp-checkbox-hover-border: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
-  --comp-checkbox-indicator-fg: var(--component-color-action-text);
+  --comp-checkbox-indicator-fg: var(--component-color-action-indicator-text);
   --comp-checkbox-focus-width: var(--component-focus-ring-width);
   --comp-checkbox-focus-color: var(--component-color-focus);
   --comp-checkbox-focus-offset: var(--component-focus-ring-offset);
@@ -807,20 +815,20 @@
   --comp-switch-track-block-md: var(--component-badge-min-size);
   --comp-switch-track-block-lg: var(--component-inline-size-md);
   --comp-switch-track-padding: var(--component-border-width-indicator);
-  --comp-switch-thumb-size-sm: var(--component-inline-size-xs);
-  --comp-switch-thumb-size-md: var(--component-inline-size-sm);
-  --comp-switch-thumb-size-lg: var(--component-inline-size-md);
-  --comp-switch-thumb-press-inline-sm: var(--component-inline-size-sm);
-  --comp-switch-thumb-press-inline-md: var(--component-min-text-line);
-  --comp-switch-thumb-press-inline-lg: var(--component-badge-min-size);
+  --comp-switch-thumb-size-sm: var(--component-icon-size-sm);
+  --comp-switch-thumb-size-md: var(--component-icon-size-md);
+  --comp-switch-thumb-size-lg: var(--component-icon-size-lg);
+  --comp-switch-thumb-press-inline-sm: var(--component-icon-size-md);
+  --comp-switch-thumb-press-inline-md: var(--component-icon-size-lg);
+  --comp-switch-thumb-press-inline-lg: calc(var(--component-icon-size-lg) + var(--component-space-sm));
   --comp-switch-gap-sm: var(--component-space-xs);
   --comp-switch-gap-md: var(--component-space-sm);
   --comp-switch-gap-lg: var(--component-space-md);
   --comp-switch-padding-block: var(--component-space-xs);
   --comp-switch-radius: var(--component-radius-pill);
   --comp-switch-track-bg: var(--component-color-border);
-  --comp-switch-track-on-bg: var(--component-color-action);
-  --comp-switch-thumb-bg: var(--component-color-action-text);
+  --comp-switch-track-on-bg: var(--component-color-action-indicator);
+  --comp-switch-thumb-bg: var(--component-color-action-indicator-text);
   --comp-switch-thumb-shadow: var(--component-depth-low);
   --comp-switch-hover-shadow: var(--component-depth-raised);
   --comp-switch-error-bg: color-mix(in srgb, var(--component-color-danger) 14%, var(--component-color-border));
@@ -845,18 +853,22 @@
   --comp-radio-button-mark-size-md: var(--component-inline-size-sm);
   --comp-radio-button-mark-size-lg: var(--component-inline-size-md);
   --comp-radio-button-mark-size-compact: var(--comp-radio-button-mark-size-sm);
-  --comp-radio-button-indicator-scale: var(--component-ratio-half);
-  --comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) * var(--comp-radio-button-indicator-scale));
+  --comp-radio-button-indicator-size-sm: var(--component-space-sm);
+  --comp-radio-button-indicator-size-md: var(--component-space-md);
+  --comp-radio-button-indicator-size-lg: calc(var(--component-space-md) + var(--component-space-sm) - var(--component-space-2xs));
+  --comp-radio-button-indicator-size-compact: var(--comp-radio-button-indicator-size-sm);
   --comp-radio-button-gap-sm: var(--component-space-xs);
   --comp-radio-button-gap-md: var(--component-space-sm);
   --comp-radio-button-gap-lg: var(--component-space-md);
   --comp-radio-button-padding-block: var(--component-space-xs);
   --comp-radio-button-radius: var(--component-radius-pill);
   --comp-radio-button-bg: var(--component-color-surface);
-  --comp-radio-button-border: var(--component-color-border);
-  --comp-radio-button-selected-bg: var(--component-color-surface);
-  --comp-radio-button-selected-border: var(--component-color-action);
-  --comp-radio-button-dot-bg: var(--component-color-action);
+  --comp-radio-button-border: var(--component-color-border-strong);
+  --comp-radio-button-rest-shadow: inset 0 0 0 var(--component-border-width) color-mix(in srgb, var(--component-color-border-strong) 68%, transparent);
+  --comp-radio-button-selected-bg: color-mix(in srgb, var(--component-color-action-indicator) 12%, var(--component-color-surface));
+  --comp-radio-button-selected-border: var(--component-color-action-indicator);
+  --comp-radio-button-selected-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-action-indicator) 24%, transparent);
+  --comp-radio-button-dot-bg: var(--component-color-action-indicator);
   --comp-radio-button-error-bg: color-mix(in srgb, var(--component-color-danger) 8%, var(--component-color-surface));
   --comp-radio-button-error-border: var(--component-color-danger);
   --comp-radio-button-error-dot-bg: var(--component-color-danger);
@@ -1250,15 +1262,15 @@
   --component-icon-button-size-sm: var(--sys-space-9);
   --component-icon-button-size-md: var(--component-control-min-size);
   --component-icon-button-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));
-  --component-button-size-sm: var(--sys-frame-height-control-sm);
-  --component-button-size-md: var(--component-density-control-height);
-  --component-button-size-lg: var(--sys-frame-height-control-lg);
+  --component-button-size-sm: var(--component-icon-button-size-sm);
+  --component-button-size-md: var(--component-icon-button-size-md);
+  --component-button-size-lg: var(--component-icon-button-size-lg);
   --component-segmented-control-item-min-block-sm: var(--component-button-size-sm);
   --component-segmented-control-item-min-block-lg: var(--component-button-size-lg);
   --comp-icon-button-size-sm: var(--component-icon-button-size-sm);
   --comp-icon-button-size-md: var(--component-icon-button-size-md);
   --comp-icon-button-size-lg: var(--component-icon-button-size-lg);
-  --comp-icon-button-size: var(--component-density-control-height);
+  --comp-icon-button-size: var(--component-icon-button-size-md);
   --comp-icon-button-icon-size-sm: var(--component-density-icon-size-sm);
   --comp-icon-button-icon-size-md: var(--component-density-icon-size-md);
   --comp-icon-button-icon-size-lg: var(--component-density-icon-size-lg);
@@ -1269,11 +1281,11 @@
   --comp-button-size-sm: var(--component-button-size-sm);
   --comp-button-size-md: var(--component-button-size-md);
   --comp-button-size-lg: var(--component-button-size-lg);
-  --comp-button-size: var(--component-density-control-height);
-  --comp-button-padding-sm: calc(var(--component-space-md) + var(--component-frame-space-micro));
-  --comp-button-padding-md: var(--component-space-lg);
-  --comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-frame-space-micro));
-  --comp-button-padding: var(--component-density-control-padding-x);
+  --comp-button-size: var(--component-button-size-md);
+  --comp-button-padding-sm: var(--component-space-lg);
+  --comp-button-padding-md: var(--component-density-control-padding-x);
+  --comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-space-xs));
+  --comp-button-padding: var(--comp-button-padding-md);
   --comp-button-icon-size-sm: var(--component-density-icon-size-sm);
   --comp-button-icon-size-md: var(--component-density-icon-size-md);
   --comp-button-icon-size-lg: var(--component-density-icon-size-lg);
@@ -2107,8 +2119,14 @@
   --comp-combobox-option-meta-font-size: var(--component-font-size-caption);
   --comp-combobox-option-meta-font-weight: var(--component-font-weight-semibold);
   --comp-combobox-option-meta-opacity: var(--component-opacity-muted);
-  --comp-combobox-option-min-size: var(--component-option-row-min-block-size-md);
-  --comp-combobox-option-padding-x: var(--component-option-row-padding-inline-sm);
+  --comp-combobox-option-min-size-sm: var(--component-option-row-min-block-size-sm);
+  --comp-combobox-option-min-size-md: var(--component-option-row-min-block-size-md);
+  --comp-combobox-option-min-size-lg: var(--component-option-row-min-block-size-lg);
+  --comp-combobox-option-min-size: var(--comp-combobox-option-min-size-md);
+  --comp-combobox-option-padding-x-sm: var(--component-option-row-padding-inline-sm);
+  --comp-combobox-option-padding-x-md: var(--component-option-row-padding-inline-md);
+  --comp-combobox-option-padding-x-lg: var(--component-option-row-padding-inline-lg);
+  --comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-md);
   --comp-combobox-option-radius: var(--component-option-row-radius);
   --comp-combobox-option-selected-bg: var(--component-option-row-selected-bg);
   --comp-combobox-option-selected-weight: var(--component-option-row-selected-weight);
@@ -2129,10 +2147,14 @@
 }
 
 .combobox[data-density="sm"] {
+  --comp-combobox-option-min-size: var(--comp-combobox-option-min-size-sm);
+  --comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-sm);
   --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-sm);
 }
 
 .combobox[data-density="lg"] {
+  --comp-combobox-option-min-size: var(--comp-combobox-option-min-size-lg);
+  --comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-lg);
   --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-lg);
 }
 
@@ -2656,6 +2678,7 @@
   --comp-choice-current-press-scale: var(--component-scale-press);
   --comp-choice-current-text-gap: var(--component-space-sm);
   --comp-choice-current-disabled-opacity: var(--component-disabled-readable-opacity);
+  align-items: center;
   grid-template-columns: auto 1fr;
   gap: var(--comp-choice-current-gap);
   padding-block: var(--comp-choice-current-padding-block);
@@ -2698,7 +2721,7 @@
 
 .radio {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-md);
-  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size-md);
   --comp-choice-current-gap: var(--comp-radio-button-gap-md);
   --comp-choice-current-padding-block: var(--comp-radio-button-padding-block);
   --comp-choice-current-mark-bg: var(--comp-radio-button-bg);
@@ -2747,7 +2770,7 @@
 
 .radio[data-density="sm"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-sm);
-  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size-sm);
   --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
   --comp-choice-current-text-gap: var(--comp-radio-button-gap-sm);
 }
@@ -2769,7 +2792,7 @@
 
 .radio[data-density="lg"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-lg);
-  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size-lg);
   --comp-choice-current-gap: var(--comp-radio-button-gap-lg);
   --comp-choice-current-text-gap: var(--comp-radio-button-gap-lg);
 }
@@ -2793,6 +2816,7 @@
 
 .radio[data-variant="compact"] {
   --comp-choice-current-mark-size: var(--comp-radio-button-mark-size-compact);
+  --comp-choice-current-indicator-size: var(--comp-radio-button-indicator-size-compact);
   --comp-choice-current-gap: var(--comp-radio-button-gap-sm);
   --comp-choice-current-text-gap: var(--comp-radio-button-gap-sm);
 }
@@ -2816,7 +2840,7 @@
   block-size: var(--comp-choice-current-mark-size);
   inline-size: var(--comp-choice-current-mark-size);
   justify-content: center;
-  margin-block-start: var(--component-border-width);
+  margin-block-start: 0;
   transition:
     background-color var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
     border-color var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-ease),
@@ -2830,6 +2854,7 @@
 
 .radio .choice__mark {
   border-radius: var(--comp-choice-current-mark-radius);
+  box-shadow: var(--comp-radio-button-rest-shadow);
 }
 
 .checkbox .choice__input:checked + .choice__mark {
@@ -2882,24 +2907,48 @@
   transform: var(--component-transform-scale-rest);
 }
 
-.radio .choice__mark::after {
+.radio .choice__mark:empty::after {
   background: var(--comp-choice-current-dot-bg);
   border-radius: var(--comp-choice-current-mark-radius);
   content: "";
+  display: block;
   block-size: var(--comp-choice-current-indicator-size);
   inline-size: var(--comp-choice-current-indicator-size);
   transform: var(--component-transform-scale-none);
+  transform-origin: center;
   transition: transform var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-press);
 }
 
-.radio .choice__input:checked + .choice__mark::after {
+.radio .choice__input:checked + .choice__mark:empty::after {
   animation: choice-dot-enter var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-enter) both;
   transform: var(--component-transform-scale-rest);
 }
 
-.radio .choice__input:checked + .choice__mark {
+.radio .choice__indicator {
+  background: var(--comp-choice-current-dot-bg);
+  border-radius: var(--comp-choice-current-mark-radius);
+  block-size: var(--comp-choice-current-indicator-size);
+  display: block;
+  inline-size: var(--comp-choice-current-indicator-size);
+  opacity: 1;
+  transform: var(--component-transform-scale-none);
+  transform-origin: center;
+  transition: transform var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-press);
+}
+
+.radio .choice__input:checked + .choice__mark .choice__indicator,
+.radio[data-checked="true"] .choice__mark .choice__indicator,
+.radio[data-state="selected"] .choice__mark .choice__indicator {
+  animation: choice-dot-enter var(--comp-choice-current-motion-duration) var(--comp-choice-current-motion-enter) both;
+  transform: var(--component-transform-scale-rest);
+}
+
+.radio .choice__input:checked + .choice__mark,
+.radio[data-checked="true"] .choice__mark,
+.radio[data-state="selected"] .choice__mark {
   background: var(--comp-choice-current-mark-selected-bg);
   border-color: var(--comp-choice-current-mark-selected-border);
+  box-shadow: var(--comp-radio-button-selected-shadow);
 }
 
 .radio[data-state="error"] .choice__mark,
@@ -2913,8 +2962,12 @@
   border-color: var(--comp-choice-current-mark-error-border);
 }
 
-.radio[data-state="error"] .choice__input:checked + .choice__mark::after,
-.radio[data-invalid="true"] .choice__input:checked + .choice__mark::after {
+.radio[data-state="error"] .choice__input:checked + .choice__mark:empty::after,
+.radio[data-invalid="true"] .choice__input:checked + .choice__mark:empty::after,
+.radio[data-state="error"] .choice__input:checked + .choice__mark .choice__indicator,
+.radio[data-invalid="true"] .choice__input:checked + .choice__mark .choice__indicator,
+.radio[data-state="error"][data-checked="true"] .choice__mark .choice__indicator,
+.radio[data-invalid="true"][data-checked="true"] .choice__mark .choice__indicator {
   background: var(--comp-choice-current-dot-error-bg);
 }
 
@@ -2941,19 +2994,23 @@
 .choice__text {
   display: grid;
   gap: var(--comp-choice-current-text-gap);
+  line-height: var(--component-line-height-snug-state);
 }
 
 .switch__text {
   display: grid;
   gap: var(--comp-switch-current-gap);
+  line-height: var(--component-line-height-snug-state);
 }
 
 .choice__label {
   font-weight: var(--comp-choice-current-label-weight);
+  line-height: var(--component-line-height-snug-state);
 }
 
 .switch__label {
   font-weight: var(--comp-switch-current-label-weight);
+  line-height: var(--component-line-height-snug-state);
 }
 
 .choice__description,
@@ -3665,6 +3722,9 @@ button.tag:disabled,
   --comp-tabs-selected-fg: var(--component-color-action);
   --comp-tabs-selected-weight: var(--component-font-weight-extrabold);
   --comp-tabs-hover-fg: var(--component-color-text);
+  --comp-tabs-disabled-fg: var(--component-disabled-text);
+  --comp-tabs-disabled-cursor: var(--component-disabled-cursor);
+  --comp-tabs-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-tabs-pressed-transform: var(--component-transform-press);
   --comp-tabs-focus-width: var(--component-focus-ring-width);
   --comp-tabs-focus-color: var(--component-color-focus);
@@ -3739,6 +3799,17 @@ button.tag:disabled,
 
 .tabs__tab[aria-selected="true"] .tabs__icon {
   font-variation-settings: var(--comp-tabs-icon-selected-variation);
+}
+
+.tabs__tab:disabled {
+  color: var(--comp-tabs-disabled-fg);
+  cursor: var(--comp-tabs-disabled-cursor);
+  opacity: var(--comp-tabs-disabled-opacity);
+  transform: var(--component-transform-scale-rest);
+}
+
+.tabs__tab:disabled .badge {
+  opacity: var(--component-opacity-disabled);
 }
 
 .tabs__tab:hover:not([aria-selected="true"]):not(:disabled) {
@@ -7047,12 +7118,19 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-fg: var(--component-color-text);
   --comp-menu-item-hover-bg: var(--component-option-row-hover-bg);
   --comp-menu-item-active-bg: var(--component-option-row-active-bg);
+  --comp-menu-item-active-ring: var(--component-option-row-active-ring);
   --comp-menu-item-danger-fg: var(--component-color-danger);
   --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
   --comp-menu-item-disabled-fg: var(--component-color-text-muted);
   --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
-  --comp-menu-item-height: var(--component-option-row-min-block-size-md);
-  --comp-menu-item-padding-x: var(--component-option-row-padding-inline-sm);
+  --comp-menu-item-height-sm: var(--component-option-row-min-block-size-sm);
+  --comp-menu-item-height-md: var(--component-option-row-min-block-size-md);
+  --comp-menu-item-height-lg: var(--component-option-row-min-block-size-lg);
+  --comp-menu-item-height: var(--comp-menu-item-height-md);
+  --comp-menu-item-padding-x-sm: var(--component-option-row-padding-inline-sm);
+  --comp-menu-item-padding-x-md: var(--component-option-row-padding-inline-md);
+  --comp-menu-item-padding-x-lg: var(--component-option-row-padding-inline-lg);
+  --comp-menu-item-padding-x: var(--comp-menu-item-padding-x-md);
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-listbox-gap);
   --comp-menu-item-font-family: var(--component-font-family-inherit);
@@ -7095,10 +7173,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .menu[data-density="sm"] {
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-sm);
-  --comp-menu-panel-padding: var(--component-listbox-gap);
+  --comp-menu-panel-padding: var(--component-listbox-padding);
   --comp-menu-panel-radius: var(--component-listbox-radius);
-  --comp-menu-item-height: var(--component-option-row-min-block-size-sm);
-  --comp-menu-item-padding-x: var(--component-option-row-padding-inline-sm);
+  --comp-menu-item-height: var(--comp-menu-item-height-sm);
+  --comp-menu-item-padding-x: var(--comp-menu-item-padding-x-sm);
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-listbox-gap);
   --comp-menu-item-font-size: var(--component-font-size-small);
@@ -7109,8 +7187,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-lg);
   --comp-menu-panel-padding: var(--component-space-sm);
   --comp-menu-panel-radius: var(--component-listbox-radius);
-  --comp-menu-item-height: var(--component-option-row-min-block-size-lg);
-  --comp-menu-item-padding-x: var(--component-option-row-padding-inline-md);
+  --comp-menu-item-height: var(--comp-menu-item-height-lg);
+  --comp-menu-item-padding-x: var(--comp-menu-item-padding-x-lg);
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-option-row-gap);
   --comp-menu-item-font-size: var(--component-font-size-body);
@@ -7201,6 +7279,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .menu__item:hover,
 .menu__item:focus-visible {
   background: var(--comp-menu-item-hover-bg);
+}
+
+.menu__item:focus-visible {
+  outline: var(--component-focus-ring-width) solid var(--comp-menu-item-active-ring);
+  outline-offset: calc(var(--component-focus-ring-offset) * -1);
 }
 
 .menu__item:hover {
@@ -10412,7 +10495,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-control-size-md: var(--component-field-control-size-md);
   --comp-select-control-size-sm: var(--component-field-control-size-sm);
   --comp-select-control-size-lg: var(--component-field-control-size-lg);
-  --comp-select-control-size: var(--component-density-control-height);
+  --comp-select-control-size: var(--comp-select-control-size-md);
   --comp-select-icon-size-md: var(--component-density-icon-size-md);
   --comp-select-icon-size-sm: var(--component-density-icon-size-sm);
   --comp-select-icon-size-lg: var(--component-density-icon-size-lg);
@@ -11811,15 +11894,15 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-popover-gap: var(--component-space-xs);
   --comp-popover-panel-padding: var(--component-space-md);
   --comp-popover-panel-width: var(--component-content-size-sm);
-  --comp-popover-panel-offset: var(--component-space-xs);
-  --comp-popover-panel-bg: var(--component-color-surface);
+  --comp-popover-panel-offset: var(--component-overlay-panel-offset);
+  --comp-popover-panel-bg: var(--component-overlay-panel-bg);
   --comp-popover-panel-border-width: var(--component-border-width);
-  --comp-popover-panel-border: var(--component-color-border);
+  --comp-popover-panel-border: var(--component-overlay-panel-border);
   --comp-popover-panel-border-warning: var(--component-color-warning);
-  --comp-popover-panel-radius: var(--component-radius-control);
-  --comp-popover-panel-depth: var(--component-depth-popover);
+  --comp-popover-panel-radius: var(--component-overlay-panel-radius);
+  --comp-popover-panel-depth: var(--component-overlay-panel-depth);
   --comp-popover-panel-fg: var(--component-color-text);
-  --comp-popover-panel-z-index: var(--component-z-dropdown);
+  --comp-popover-panel-z-index: var(--component-overlay-panel-z-index);
   --comp-popover-enter-duration: var(--component-duration-enter);
   --comp-popover-enter-ease: var(--component-ease-enter);
   --comp-popover-title-family: var(--component-font-family-title);
@@ -12718,6 +12801,8 @@ body[data-theme="dark"],
   --sys-color-text-subtle: var(--sys-energy-text-tertiary);
   --sys-color-warning: var(--sys-energy-dark-status-warning);
   --component-color-bg: var(--sys-energy-surface-primary);
+  --component-color-action-indicator: var(--ref-energy-blue-200);
+  --component-color-action-indicator-text: var(--component-color-surface);
   --component-color-action-text: var(--sys-color-action-text);
   --component-color-border: var(--sys-color-border);
   --component-color-border-strong: var(--sys-color-border-strong);
@@ -12733,8 +12818,8 @@ body[data-theme="dark"],
   --component-color-warning: var(--sys-color-warning);
   --component-field-placeholder-fg: var(--component-color-text-muted);
   --component-field-error-helper-fg: var(--sys-energy-dark-status-error);
-  --component-listbox-bg: color-mix(in srgb, var(--component-color-surface-raised) 88%, var(--component-color-surface));
-  --component-listbox-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
+  --component-overlay-panel-bg: color-mix(in srgb, var(--component-color-surface-raised) 88%, var(--component-color-surface));
+  --component-overlay-panel-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
   --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-surface-raised));
   --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface-raised));
   --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-surface-raised));

@@ -60,7 +60,7 @@ export const RadioButton = forwardRef(function RadioButton({ label, description,
         required,
         "aria-invalid": isInvalid ? "true" : undefined,
         onChange: handleChange,
-    }), React.createElement("span", { className: "choice__mark", "aria-hidden": "true" }), React.createElement("span", { className: "choice__text" }, React.createElement("span", { className: "choice__label" }, label), description ? React.createElement("span", { className: "choice__description" }, description) : null, error ? React.createElement("span", { className: "choice__error" }, error) : null));
+    }), React.createElement("span", { className: "choice__mark", "aria-hidden": "true" }, React.createElement("span", { className: "choice__indicator" })), React.createElement("span", { className: "choice__text" }, React.createElement("span", { className: "choice__label" }, label), description ? React.createElement("span", { className: "choice__description" }, description) : null, error ? React.createElement("span", { className: "choice__error" }, error) : null));
 });
 RadioButton.displayName = "RadioButton";
 RadioButton.platformContract = radioButtonPlatformContract;

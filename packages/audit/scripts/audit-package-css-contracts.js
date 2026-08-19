@@ -232,9 +232,8 @@ function checkPackageCssContracts() {
   if (!buttonSmBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-sm)") || !buttonLgBlock?.body.includes("--comp-button-current-size: var(--comp-button-size-lg)")) {
     add("errors", packageCssFile, 1, "Button sm and lg densities must set --comp-button-current-size from comp Button size tokens.");
   }
-  if (!text.includes("--comp-button-size: var(--component-density-control-height)") || !text.includes("--comp-button-padding: var(--component-density-control-padding-x)")) {
-    add("errors", packageCssFile, 1, "Button base geometry must inherit from component density aliases instead of a fixed md size.");
-  }
+  if (!text.includes("--comp-button-size: var(--component-button-size-md)") || !text.includes("--comp-button-padding: var(--comp-button-padding-md)")) add("errors", packageCssFile, 1, "Button base geometry must default to the Button md size and padding aliases.");
+  if (text.includes("--comp-button-size: var(--component-density-control-height)") || text.includes("--comp-icon-button-size: var(--component-density-control-height)")) add("errors", packageCssFile, 1, "Action triggers must not use the global density control height as their base md size.");
   if (/--button-(?:size|padding|icon-size)(?:-|:|\))/.test(text)) {
     add("errors", packageCssFile, 1, "Button geometry aliases must stay in the --comp-button-* contract; legacy --button-* shortcuts are not allowed.");
   }
@@ -257,8 +256,8 @@ function checkPackageCssContracts() {
   if (/--select-|--component-select/.test(text)) {
     add("errors", packageCssFile, 1, "Select must use the component alias family --comp-select-*; legacy --select-* and --component-select-* aliases are not allowed.");
   }
-  if (!selectControlBlock?.body.includes("--comp-select-control-size: var(--component-density-control-height)") || !selectControlBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size)")) {
-    add("errors", packageCssFile, selectControlBlock ? lineNumber(text, selectControlBlock.index) : 1, "Select must inherit base control size from the density cascade.");
+  if (!selectControlBlock?.body.includes("--comp-select-control-size: var(--comp-select-control-size-md)") || !selectControlBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size)")) {
+    add("errors", packageCssFile, selectControlBlock ? lineNumber(text, selectControlBlock.index) : 1, "Select must default to the field md size, not the global density control height.");
   }
   if (!selectSmBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size-sm)") || !selectLgBlock?.body.includes("--comp-select-current-control-size: var(--comp-select-control-size-lg)")) {
     add("errors", packageCssFile, 1, "Select density states must consume comp Select size tokens.");

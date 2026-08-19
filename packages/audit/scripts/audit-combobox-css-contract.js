@@ -45,8 +45,14 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
       "--comp-combobox-loading-padding-inline: var(--component-option-row-padding-inline-sm)",
       "--comp-combobox-empty-font-size: var(--component-font-size-caption)",
       "--comp-combobox-empty-padding-inline: var(--component-option-row-padding-inline-sm)",
-      "--comp-combobox-option-min-size: var(--component-option-row-min-block-size-md)",
-      "--comp-combobox-option-padding-x: var(--component-option-row-padding-inline-sm)",
+      "--comp-combobox-option-min-size-sm: var(--component-option-row-min-block-size-sm)",
+      "--comp-combobox-option-min-size-md: var(--component-option-row-min-block-size-md)",
+      "--comp-combobox-option-min-size-lg: var(--component-option-row-min-block-size-lg)",
+      "--comp-combobox-option-min-size: var(--comp-combobox-option-min-size-md)",
+      "--comp-combobox-option-padding-x-sm: var(--component-option-row-padding-inline-sm)",
+      "--comp-combobox-option-padding-x-md: var(--component-option-row-padding-inline-md)",
+      "--comp-combobox-option-padding-x-lg: var(--component-option-row-padding-inline-lg)",
+      "--comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-md)",
       "--comp-combobox-option-active-ring: var(--component-option-row-active-ring)",
       "--comp-combobox-option-selected-bg: var(--component-option-row-selected-bg)",
       "--comp-combobox-option-disabled-bg: var(--component-option-row-disabled-bg)",
@@ -177,6 +183,31 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
   if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && activeIndex !== null")) {
     add("errors", sourceFile, 1, "Combobox aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
   }
+
+  const smDensityBlock = blockFor(blocks, selectorKey, ".combobox[data-density=\"sm\"]");
+  requireIncludes({
+    block: smDensityBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-combobox-option-min-size: var(--comp-combobox-option-min-size-sm)",
+      "--comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-sm)",
+      "--comp-combobox-option-check-size: var(--comp-combobox-option-check-size-sm)",
+    ],
+    message: "Combobox small density must scale option pill geometry through Combobox density aliases.",
+  });
+  const lgDensityBlock = blockFor(blocks, selectorKey, ".combobox[data-density=\"lg\"]");
+  requireIncludes({
+    block: lgDensityBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-combobox-option-min-size: var(--comp-combobox-option-min-size-lg)",
+      "--comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-lg)",
+      "--comp-combobox-option-check-size: var(--comp-combobox-option-check-size-lg)",
+    ],
+    message: "Combobox large density must scale option pill geometry through Combobox density aliases.",
+  });
 
   if (/--comp-combobox[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
     add("errors", packageCssFile, 1, "Combobox component aliases must not hardcode 2px or 0.125rem frame offsets.");

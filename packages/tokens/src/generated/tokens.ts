@@ -2509,13 +2509,13 @@ export const flowTokens = {
     "cssReference": "--ref-energy-red-300"
   },
   "sys-energy-dark-border-default": {
-    "value": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
+    "value": "color-mix(in srgb, var(--ref-energy-neutral-50) 14%, transparent)",
     "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-energy-dark-border-default"
   },
   "sys-energy-dark-border-strong": {
-    "value": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "value": "color-mix(in srgb, var(--ref-energy-neutral-50) 28%, transparent)",
     "type": "color",
     "scope": "sys",
     "cssVariable": "--sys-energy-dark-border-strong"

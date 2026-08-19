@@ -1170,7 +1170,7 @@
     }
   },
   "sys-energy-dark-border-default": {
-    "$value": "color-mix(in srgb, {ref-energy-neutral-50} 14%, transparent)",
+    "$value": "color-mix(in srgb, var(--ref-energy-neutral-50) 14%, transparent)",
     "$type": "color",
     "$extensions": {
       "flow": {
@@ -1180,7 +1180,7 @@
     }
   },
   "sys-energy-dark-border-strong": {
-    "$value": "color-mix(in srgb, {ref-energy-neutral-50} 28%, transparent)",
+    "$value": "color-mix(in srgb, var(--ref-energy-neutral-50) 28%, transparent)",
     "$type": "color",
     "$extensions": {
       "flow": {

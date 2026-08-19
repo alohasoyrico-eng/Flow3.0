@@ -38,6 +38,9 @@ function checkDarkModeContrast({ text, packageCssFile }) {
     ["text on listbox", "--component-color-text", "--component-listbox-bg", 4.5],
     ["muted text on listbox", "--component-color-text-muted", "--component-listbox-bg", 4.5],
     ["text on selected option row", "--component-color-text", "--component-option-row-selected-bg", 4.5],
+    ["small action indicator on surface", "--component-color-action-indicator", "--component-color-surface", 4.5],
+    ["small action indicator on raised surface", "--component-color-action-indicator", "--component-color-surface-raised", 4.5],
+    ["small action indicator text", "--component-color-action-indicator-text", "--component-color-action-indicator", 4.5],
   ];
 
   for (const [label, foregroundToken, backgroundToken, minimum] of pairs) {

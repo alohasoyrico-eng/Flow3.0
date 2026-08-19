@@ -208,6 +208,14 @@ try {
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(selections.at(-1), { key: "archive", eventType: "click" });
 
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    view.getByRole("menuitem", { name: /edit/i }).focus();
+    await user.keyboard("{Enter}");
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(selections.at(-1), { key: "edit", eventType: "click" });
+    assert.equal(globalThis.document.activeElement, trigger);
+
     view.rerender(React.createElement(Menu, {
       label: "Row actions",
       triggerLabel: "Actions",
