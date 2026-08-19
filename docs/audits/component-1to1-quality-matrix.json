@@ -1,9 +1,9 @@
 {
   "schemaVersion": "0.1.0",
-  "updatedAt": "2026-07-24",
+  "updatedAt": "2026-08-19",
   "scope": "priority components touched in the 1:1 review",
-  "status": "pass",
-  "rule": "A component can be pass only when all 13 steps are pass and evidence exists, including light and dark visual QA. Technical validation alone is not quality closure.",
+  "status": "partial",
+  "rule": "A component can be pass only when all 13 steps are pass and current evidence exists, including light and dark visual QA, keyboard behavior, density order, icon scale, and demo/manual verification. Historical pass evidence is downgraded when a newer 1:1 review finds unresolved bugs.",
   "relatedAudits": [
     "docs/audits/component-variant-pattern-boundary-matrix.json"
   ],
@@ -371,7 +371,7 @@
     },
     {
       "id": "button",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -379,12 +379,12 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "pass",
+        "interaction-logic": "partial",
         "motion": "pass",
         "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -398,12 +398,21 @@
         "apps/docs/gold-button-docs.js",
         "apps/docs/gold-component-data.js",
         "packages/audit/scripts/audit-package-css-contracts.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-button-css-contract.js",
+        "packages/audit/scripts/audit-density-contracts.js",
+        "packages/react/test/p1-actions.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Recent demo QA exposed keyboard activation verification gaps; native React behavior has tests, but local interactive demo evidence must be rechecked with current cache-busted artifact.",
+        "Button density and tone hover/pressed fixes are covered by audits, but current manual light/dark review must be recorded before restoring pass."
+      ],
       "inventoryEscalations": [
         "Action groups, toolbar layout, and step navigation remain patterns/templates; Button only owns the action trigger."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "card",
@@ -650,7 +659,7 @@
     },
     {
       "id": "checkbox",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -660,10 +669,10 @@
         "states-variants": "pass",
         "interaction-logic": "pass",
         "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -681,12 +690,21 @@
         "apps/docs/gold-checkbox-docs.js",
         "apps/docs/component-demo-interactions.js",
         "packages/specs/specs/unison-system/artifacts/components/checkbox.json",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-choice-css-contract.js",
+        "packages/audit/scripts/audit-density-contracts.js",
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Checkbox indicator/icon scale was corrected systemically to the 16/20/24 density scale, but current visual QA must confirm alignment and dark-mode contrast.",
+        "Label vertical alignment was manually flagged and must be verified against the current demo before pass."
+      ],
       "inventoryEscalations": [
         "Checkbox Group remains separate because it owns group validation, select-all orchestration, and multi-row relationships."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "chip",
@@ -764,7 +782,7 @@
     },
     {
       "id": "combobox",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -772,12 +790,12 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "pass",
+        "interaction-logic": "partial",
         "motion": "pass",
-        "density-layout": "pass",
+        "density-layout": "partial",
         "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -788,13 +806,22 @@
         "docs/audits/combobox-desktop-light-open-qa.png",
         "docs/audits/combobox-mobile-dark-open-qa.png",
         "packages/components/src/components/fields.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-combobox-css-contract.js",
+        "packages/audit/scripts/audit-density-contracts.js",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Manual QA found active vs selected confusion, clear action visibility before selection, and keyboard close/commit gaps during the review; React tests now cover key paths, but current interactive demo evidence must be recorded.",
+        "Dark-mode legibility and selected/active color consistency with Select/Menu remain current-review debt until verified."
+      ],
       "inventoryEscalations": [
         "Select Input in the ZIP is now covered by Combobox.",
         "Country Select and Multiple Select remain separate inventory decisions."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "country-selector",
@@ -1157,7 +1184,7 @@
     },
     {
       "id": "input",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1166,11 +1193,11 @@
         "foundations-primitives": "pass",
         "states-variants": "pass",
         "interaction-logic": "pass",
-        "motion": "pass",
+        "motion": "partial",
         "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -1180,9 +1207,20 @@
         "docs/audits/input-1to1-mobile-design-qa.png",
         "docs/audits/input-dark-mode-audit.png",
         "docs/audits/component-motion-role-audit.json",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "docs/forensics/input-motion-context-matrix.md",
+        "packages/audit/scripts/audit-field-css-contract.js",
+        "packages/audit/scripts/audit-dark-mode-css-contract.js",
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Input motion contexts were analyzed but not fully promoted into a production interaction contract.",
+        "Dark-mode contrast/legibility concerns require current component-level QA evidence.",
+        "InlineValidation composition is now the intended systematic path for helper/error/warning/success messaging, but the matrix must prove usage by input-family demos before pass."
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "kpi-tile",
@@ -1288,7 +1326,7 @@
     },
     {
       "id": "menu",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1296,12 +1334,12 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "pass",
+        "interaction-logic": "partial",
         "motion": "pass",
-        "density-layout": "pass",
+        "density-layout": "partial",
         "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -1319,12 +1357,22 @@
         "apps/docs/overlay-demo-interactions.js",
         "docs/audits/menu-1to1-visual-metrics.json",
         "docs/audits/menu-1to1-light.png",
-        "docs/audits/menu-1to1-dark.png"
+        "docs/audits/menu-1to1-dark.png",
+        "packages/audit/scripts/audit-menu-css-contract.js",
+        "packages/audit/scripts/audit-popover-css-contract.js",
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Local demo Enter/Space activation bug was fixed outside repo in local-visual-snapshots; repo now has React Enter coverage, but current demo URL/evidence must be refreshed and recorded.",
+        "Menu/Select/Combobox option-row geometry and active/focus colors must be verified as one shared overlay family in light/dark and sm/md/lg.",
+        "Focus outline must use shared option-row active ring, not global button focus styling."
+      ],
       "decision": "Menu remains a component for compact contextual action lists anchored to a trigger. Flow owns surface, color, typography, radius, depth, focus, and motion; ZIP parity informed structure, separators, density, icons, and open/close behavior.",
       "updatedAt": "2026-07-22",
-      "lastValidation": "npm run validate pass"
+      "lastValidation": "npm run validate pass",
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "motion-boundary",
@@ -1618,7 +1666,7 @@
     {
       "id": "radio-button",
       "name": "Radio Button",
-      "status": "pass",
+      "status": "partial",
       "platformPriority": "cross-platform",
       "auditedAt": "2026-07-21",
       "steps": {
@@ -1627,13 +1675,13 @@
         "package-source": "pass",
         "docs-source": "pass",
         "foundations-primitives": "pass",
-        "states-variants": "pass",
+        "states-variants": "partial",
         "interaction-logic": "pass",
-        "motion": "pass",
+        "motion": "partial",
         "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -1650,12 +1698,23 @@
         "packages/components/src/registry.js",
         "apps/docs/gold-radio-button-docs.js",
         "apps/docs/choice-demo-interactions.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-radio-button-css-contract.js",
+        "packages/audit/scripts/audit-choice-css-contract.js",
+        "packages/react/src/RadioButton.tsx",
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "commit 5c264331"
       ],
       "notes": [
         "Atomic Radio Button is closed; Radio Group remains pattern scope, not component scope.",
         "All docs demos are package-sourced and hydrated for real selection behavior."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "openIssues": [
+        "Manual QA repeatedly found the unselected circle/dark-mode contrast hard to perceive; fixes were added but require current visual confirmation before pass.",
+        "Radio selected indicator/dot and motion must be verified in light/dark and sm/md/lg."
+      ],
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "route-summary",
@@ -1733,7 +1792,7 @@
     },
     {
       "id": "select",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1741,12 +1800,12 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "pass",
+        "interaction-logic": "partial",
         "motion": "pass",
-        "density-layout": "pass",
+        "density-layout": "partial",
         "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -1759,14 +1818,23 @@
         "docs/audits/select-1to1-dark-open-qa.png",
         "docs/audits/component-motion-role-audit.json",
         "packages/components/src/components/fields.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-field-css-contract.js",
+        "packages/audit/scripts/audit-density-contracts.js",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Disabled option legibility and keyboard skip behavior were manually flagged; automated tests cover skip behavior, but current visual/dark evidence must be recorded.",
+        "Select menu colors/geometries must remain aligned with Combobox/Menu through shared option-row and overlay-panel tokens."
+      ],
       "inventoryEscalations": [
         "Select Input / Combobox exists in the ZIP reference and is not covered by base Select.",
         "Country Select exists in the ZIP reference and is currently covered only as Phone Input composition.",
         "Multiple Select exists in the ZIP reference and must stay outside base Select."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "skeleton",
@@ -1965,7 +2033,7 @@
     },
     {
       "id": "switch",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1974,11 +2042,11 @@
         "foundations-primitives": "pass",
         "states-variants": "pass",
         "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
+        "motion": "partial",
+        "density-layout": "partial",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "pass",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -1989,9 +2057,17 @@
         "packages/components/src/components/choices.js",
         "packages/components/styles/components.css",
         "apps/docs/choice-demo-interactions.js",
-        "packages/components/src/contracts.js"
+        "packages/components/src/contracts.js",
+        "packages/audit/scripts/audit-switch-css-contract.js",
+        "packages/audit/scripts/audit-density-contracts.js",
+        "packages/react/test/p0-forms-basic.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Manual QA flagged md/lg geometry and thumb proportions; audit coverage exists, but current demo verification must be recorded before pass."
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "table",
@@ -2034,20 +2110,20 @@
     },
     {
       "id": "tabs",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
         "package-source": "pass",
         "docs-source": "pass",
         "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
         "motion": "pass",
         "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
+        "accessibility": "partial",
+        "visual-qa": "needs-current-local-review",
         "validation": "pass"
       },
       "evidence": [
@@ -2059,12 +2135,20 @@
         "packages/components/src/components/interactions.js",
         "packages/components/src/registry.js",
         "packages/components/src/contracts.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-tabs-css-contract.js",
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Disabled tab semantics/style were fixed after manual QA found disabled looked enabled; current demo verification must be recorded before pass.",
+        "Keyboard navigation must keep skipping disabled tabs and preserve selected/active semantics in current demo."
+      ],
       "inventoryEscalations": [
         "Tabs stays a component for local view switching; documentation shell navigation is a separate docs implementation, and segmented choices stay in Segmented Control."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "5c264331"
     },
     {
       "id": "tag",
@@ -2263,5 +2347,22 @@
     "partial": 0,
     "fail": 0,
     "qualityDebt": 0
+  },
+  "currentReview": {
+    "name": "Flow3 component 1:1 QA consolidation",
+    "updatedAt": "2026-08-19",
+    "sourceCommit": "5c264331 Harden component interaction and density contracts",
+    "scope": [
+      "button",
+      "input",
+      "select",
+      "combobox",
+      "checkbox",
+      "radio-button",
+      "switch",
+      "tabs",
+      "menu"
+    ],
+    "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
   }
 }
