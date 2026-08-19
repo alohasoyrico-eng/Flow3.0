@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "ds-qa-performance@1",
+  "generatedAt": "2026-08-18T23:27:38.900Z",
+  "status": "pass",
+  "decision": "QA lanes are within the current execution budgets.",
+  "checks": [
+    {
+      "id": "test-react-fast",
+      "command": "npm",
+      "args": [
+        "run",
+        "test:react:fast"
+      ],
+      "budgetMs": 8000,
+      "lane": "fast",
+      "commandLine": "npm run test:react:fast",
+      "durationMs": 4452,
+      "status": "pass",
+      "exitCode": 0,
+      "overBudgetMs": 0,
+      "stdoutTail": [
+        "> @alohasoyrico-eng/flow@0.3.0-platform-mvp test:react:fast",
+        "> npm run test:fast --workspace @design-system/react",
+        "> @design-system/react@0.1.0 test:fast",
+        "> node test/button-render.test.mjs && node test/contract-render.test.mjs && node test/production-harness.test.mjs && node test/p0-forms-basic.test.mjs && node test/p0-forms-advanced.test.mjs && node test/p0-overlays-navigation.test.mjs",
+        "react action and field component render tests passed",
+        "react contract render tests passed for 62 components",
+        "react production harness supports user-event and axe-core",
+        "react P0 forms batch 1 production tests passed",
+        "react P0 forms batch 2 production tests passed",
+        "P0 overlays/navigation production evidence passed"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "audit-ds-fast-gate",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:ds-fast-gate"
+      ],
+      "budgetMs": 5000,
+      "lane": "fast",
+      "commandLine": "npm run audit:ds-fast-gate",
+      "durationMs": 1482,
+      "status": "pass",
+      "exitCode": 0,
+      "overBudgetMs": 0,
+      "stdoutTail": [
+        "> @alohasoyrico-eng/flow@0.3.0-platform-mvp audit:ds-fast-gate",
+        "> node packages/audit/scripts/audit-ds-fast-gate.js",
+        "{",
+        "  \"status\": \"pass\",",
+        "  \"checks\": 4,",
+        "  \"pass\": 4,",
+        "  \"fail\": 0,",
+        "  \"json\": \"docs/audits/ds-fast-gate.json\",",
+        "  \"markdown\": \"docs/audits/ds-fast-gate.md\"",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "validate-flow-core-fast",
+      "command": "npm",
+      "args": [
+        "run",
+        "validate:flow-core:fast"
+      ],
+      "budgetMs": 15000,
+      "lane": "fast",
+      "commandLine": "npm run validate:flow-core:fast",
+      "durationMs": 8056,
+      "status": "pass",
+      "exitCode": 0,
+      "overBudgetMs": 0,
+      "stdoutTail": [
+        "> @alohasoyrico-eng/flow@0.3.0-platform-mvp audit:ds-fast-gate",
+        "> node packages/audit/scripts/audit-ds-fast-gate.js",
+        "{",
+        "  \"status\": \"pass\",",
+        "  \"checks\": 4,",
+        "  \"pass\": 4,",
+        "  \"fail\": 0,",
+        "  \"json\": \"docs/audits/ds-fast-gate.json\",",
+        "  \"markdown\": \"docs/audits/ds-fast-gate.md\"",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "test-react-release",
+      "command": "npm",
+      "args": [
+        "run",
+        "test:react:release"
+      ],
+      "budgetMs": 35000,
+      "lane": "release",
+      "commandLine": "npm run test:react:release",
+      "durationMs": 18820,
+      "status": "pass",
+      "exitCode": 0,
+      "overBudgetMs": 0,
+      "stdoutTail": [
+        "P1 documentation/overlay production evidence passed",
+        "P2 surface/display production evidence passed",
+        "P2 display/status production evidence passed",
+        "P2 loading feedback production evidence passed",
+        "P2 navigation/disclosure production evidence passed",
+        "P2 data-display production evidence passed",
+        "P2 motion-feedback production evidence passed",
+        "P2 domain fleet production evidence passed",
+        "P2 domain chat production evidence passed",
+        "P2 final partial component evidence passed"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "audit-ds-release-gate",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:ds-release-gate"
+      ],
+      "budgetMs": 25000,
+      "lane": "release",
+      "commandLine": "npm run audit:ds-release-gate",
+      "durationMs": 14957,
+      "status": "pass",
+      "exitCode": 0,
+      "overBudgetMs": 0,
+      "stdoutTail": [
+        "> node packages/audit/scripts/audit-ds-release-gate.js",
+        "{",
+        "  \"status\": \"pass\",",
+        "  \"checks\": 11,",
+        "  \"pass\": 11,",
+        "  \"fail\": 0,",
+        "  \"forbiddenFlowDocsTargets\": 0,",
+        "  \"json\": \"docs/audits/ds-release-gate.json\",",
+        "  \"markdown\": \"docs/audits/ds-release-gate.md\"",
+        "}"
+      ],
+      "stderrTail": []
+    }
+  ],
+  "failures": []
+}

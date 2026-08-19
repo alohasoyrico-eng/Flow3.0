@@ -1,0 +1,2201 @@
+{
+  "generatedAt": "2026-08-18T19:15:28.586Z",
+  "status": "action_required",
+  "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
+  "rules": [
+    "Package-owned React tests define component behavior truth.",
+    "Local component QA harnesses are human review tools and must stay outside the repo.",
+    "FlowDocs demos may demonstrate composition but must not own component logic, keyboard semantics, or state truth.",
+    "Any docs demo wrapper that adds state or interaction must be labelled as an adapter, not proof that the component works.",
+    "Pattern/template demos can compose components, but component-level defects must be fixed in package source and package tests first."
+  ],
+  "summary": {
+    "flowdocsDemoFiles": 109,
+    "flowdocsDemoRiskFiles": 73,
+    "mixedFlowClaimFiles": 0,
+    "localQaFiles": 6,
+    "localQaComponents": 5,
+    "localQaComponentIds": [
+      "button",
+      "checkbox",
+      "combobox",
+      "input",
+      "select"
+    ]
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "issue": "FlowDocs owns stateful island wrappers for components such as input, checkbox, combobox, select and country selector.",
+      "action": "These wrappers are acceptable only as docs harness adapters; package behavior must be tested in package-owned tests and local QA harnesses.",
+      "count": 1
+    },
+    {
+      "severity": "medium",
+      "issue": "At least one local QA file may not prove React runtime directly.",
+      "action": "For each component QA harness, record whether it imports React runtime, generated docs runtime, or static markup.",
+      "count": 5
+    },
+    {
+      "severity": "medium",
+      "issue": "Local QA harnesses include their own layout CSS.",
+      "action": "Keep them local and out of repo; use them for human inspection, not as component source truth.",
+      "count": 5
+    }
+  ],
+  "flowdocsDemos": [
+    {
+      "file": "../FlowDocs/apps/docs/button-playground-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "mutates-html",
+        "selector-driven",
+        "manual-events",
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component.",
+        "Demo can change rendered behavior outside React/package contracts.",
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 7,
+        "listeners": 2,
+        "htmlMutations": 2,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/choice-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 3,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "mutates-html",
+        "selector-driven",
+        "manual-events",
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component.",
+        "Demo can change rendered behavior outside React/package contracts.",
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 8,
+        "listeners": 2,
+        "htmlMutations": 1,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo.js",
+      "classification": "docs-package-demo-bridge",
+      "signals": [
+        "uses-package-demo-props",
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 15,
+        "packageDemoProps": 62,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/demo-preview-frame-island.js",
+      "classification": "docs-react-pattern-island",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/display-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 3,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/doc-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 59,
+        "listeners": 4,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-template-islands.js",
+      "classification": "docs-runtime-support",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 2,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/documentation-section-island.js",
+      "classification": "docs-react-pattern-island",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-accordion-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-animated-moment-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-audit-event-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-avatar-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-badge-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-biometric-prompt-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-breadcrumbs-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-button-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-card-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-card-expiry-input-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-card-number-input-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-card-security-code-input-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-card-summary-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-chart-panel-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-checkbox-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-chip-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-code-input-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-combobox-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-component-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-country-selector-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-date-picker-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-date-range-picker-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-dialog-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-drawer-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-empty-state-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-error-panel-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-floating-action-button-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-icon-button-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-inline-validation-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-input-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-kpi-tile-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-list-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-menu-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-motion-boundary-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-movement-row-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-pagination-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-phone-input-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-popover-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-progress-indicator-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-quick-action-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-radio-button-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-route-summary-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-segmented-control-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-select-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-simple-component-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-skeleton-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-slider-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-spinner-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-station-pin-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-stepper-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-switch-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-table-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-tabs-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-tag-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-text-area-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-toast-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-tooltip-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-tree-view-docs.js",
+      "classification": "docs-component-detail-renderer",
+      "signals": [
+        "local-demo-helper"
+      ],
+      "risks": [
+        "Demo may be authored through docs-local helpers instead of package demo props."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/overlay-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 2,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 27,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-candidate-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-candidate-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-column-configurator-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 12,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-desktop-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-desktop-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 21,
+        "listeners": 4,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-journey-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-journey-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 9,
+        "listeners": 1,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-journey-react-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-mobile-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 20,
+        "listeners": 2,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-operational-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-package-demo.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-candidate-file-upload-island.js",
+      "classification": "docs-react-pattern-island",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 1,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-candidate-filter-chip-group-island.js",
+      "classification": "docs-react-pattern-island",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 1,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-candidate-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 13,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-candidate-toolbar-island.js",
+      "classification": "docs-react-pattern-island",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 1,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-desktop-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 7,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 22,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-journey-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 4,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 5,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-operational-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 15,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-shell-islands.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 4,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-roles-permissions-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 16,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-utility-demos.js",
+      "classification": "docs-pattern-demo-renderer",
+      "signals": [
+        "creates-react-island",
+        "declares-flow-source"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-utility-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 12,
+        "listeners": 2,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/progress-indicator-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 1,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/react-component-islands.js",
+      "classification": "docs-react-island-hydrator",
+      "signals": [
+        "uses-docs-generated-react",
+        "creates-react-island",
+        "hydrates-react",
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 63,
+        "selectors": 2,
+        "listeners": 1,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/reference-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "mutates-html",
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component.",
+        "Demo can change rendered behavior outside React/package contracts."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 39,
+        "listeners": 1,
+        "htmlMutations": 2,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/select-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 3,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/stateful-component-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 15,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-desktop-demos.js",
+      "classification": "docs-template-demo-renderer",
+      "signals": [],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-desktop-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "mutates-html",
+        "selector-driven",
+        "manual-events"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component.",
+        "Demo can change rendered behavior outside React/package contracts."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 18,
+        "listeners": 3,
+        "htmlMutations": 1,
+        "componentDemoCalls": 1
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-react-demos.js",
+      "classification": "docs-template-demo-renderer",
+      "signals": [
+        "creates-react-island"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 1,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-react-islands.js",
+      "classification": "docs-template-demo-renderer",
+      "signals": [
+        "uses-docs-generated-react",
+        "hydrates-react"
+      ],
+      "risks": [],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 11,
+        "selectors": 0,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/toast-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 1,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/tooltip-demo-interactions.js",
+      "classification": "docs-manual-interaction-layer",
+      "signals": [
+        "selector-driven"
+      ],
+      "risks": [
+        "Demo behavior may live in FlowDocs instead of the package component."
+      ],
+      "metrics": {
+        "reactIslands": 0,
+        "packageDemoProps": 0,
+        "generatedReactImports": 0,
+        "selectors": 1,
+        "listeners": 0,
+        "htmlMutations": 0,
+        "componentDemoCalls": 0
+      }
+    }
+  ],
+  "localQaHarnesses": [
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/button-flow-current.html",
+      "component": "button",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth.",
+        "Harness may not prove React runtime unless runtime import is explicit."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 2,
+        "keyboardTerms": 5
+      }
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/manifest.json",
+      "component": "button",
+      "classification": "local-component-qa-harness",
+      "signals": [],
+      "risks": [
+        "Harness may not prove React runtime unless runtime import is explicit."
+      ],
+      "metrics": {
+        "localStyleBlocks": 0,
+        "flowCssLinks": 0,
+        "keyboardTerms": 0
+      }
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/checkbox-2026-08-18/interactive/checkbox-flow-current.html",
+      "component": "checkbox",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth.",
+        "Harness may not prove React runtime unless runtime import is explicit."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 2,
+        "keyboardTerms": 4
+      }
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/combobox-2026-08-17/interactive/combobox-flow-current.html",
+      "component": "combobox",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 2,
+        "keyboardTerms": 9
+      }
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/input-flow-current.html",
+      "component": "input",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth.",
+        "Harness may not prove React runtime unless runtime import is explicit."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 2,
+        "keyboardTerms": 4
+      }
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/select-flow-current.html",
+      "component": "select",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth.",
+        "Harness may not prove React runtime unless runtime import is explicit."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 2,
+        "keyboardTerms": 13
+      }
+    }
+  ],
+  "nextIteration": {
+    "id": 7,
+    "name": "Templates Boundary",
+    "goal": "Classify docs templates and package templates so FlowDocs pages consume Flow templates without recreating layout rules locally."
+  }
+}

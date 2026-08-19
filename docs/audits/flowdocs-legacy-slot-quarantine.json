@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-08-18T19:15:28.870Z",
+  "status": "action_required",
+  "decision": "legacy-html-slots-are-explicitly-quarantined-but-still-blocking",
+  "slots": [
+    {
+      "id": "LegacyHtmlPageSlot",
+      "kind": "page",
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "named": true,
+      "marker": true,
+      "exit": true,
+      "activeInnerHtml": true,
+      "replacement": "typed-react-page-children",
+      "status": "quarantined-active"
+    },
+    {
+      "id": "LegacyHtmlTabSlot",
+      "kind": "tab",
+      "file": "../FlowDocs/apps/docs/template-react-islands.js",
+      "named": true,
+      "marker": true,
+      "exit": true,
+      "activeInnerHtml": true,
+      "replacement": "typed-react-tab-children",
+      "status": "quarantined-active"
+    }
+  ],
+  "exitGate": [
+    "LegacyHtmlPageSlot must be removed when app routes pass typed React children into DocsShellTemplate.",
+    "LegacyHtmlTabSlot must be removed when DocsArtifactDetailTemplate owns selected tab body/state.",
+    "No new data-legacy-html-slot values may be introduced without a replacement field and audit row.",
+    "FlowDocs cannot be called trustworthy while any quarantined-active slot remains."
+  ]
+}

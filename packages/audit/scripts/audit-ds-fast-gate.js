@@ -1,0 +1,113 @@
+#!/usr/bin/env node
+
+const fs = require("node:fs");
+const path = require("node:path");
+const { spawnSync } = require("node:child_process");
+
+const root = path.resolve(__dirname, "../../..");
+const outputDir = path.join(root, "docs/audits");
+const jsonOutput = path.join(outputDir, "ds-fast-gate.json");
+const markdownOutput = path.join(outputDir, "ds-fast-gate.md");
+
+const checks = [
+  {
+    id: "ds-qa-topology",
+    command: "node",
+    args: ["packages/audit/scripts/report-ds-qa-topology.js"],
+    owns: "QA lane integrity",
+  },
+  {
+    id: "flow-core-contracts",
+    command: "npm",
+    args: ["run", "audit:flow-core-gate"],
+    owns: "package/spec/token/component/pattern/react contracts",
+  },
+  {
+    id: "react-production-readiness",
+    command: "node",
+    args: ["packages/audit/scripts/report-react-production-readiness.js"],
+    owns: "React public surface readiness evidence",
+  },
+  {
+    id: "react-interaction-coverage",
+    command: "node",
+    args: ["packages/audit/scripts/report-react-interaction-coverage.js"],
+    owns: "callback, keyboard, and state semantics evidence",
+  },
+];
+
+function runCheck(check) {
+  const startedAt = Date.now();
+  const child = spawnSync(check.command, check.args, {
+    cwd: root,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  return {
+    ...check,
+    commandLine: [check.command, ...check.args].join(" "),
+    status: child.status === 0 ? "pass" : "fail",
+    exitCode: child.status,
+    durationMs: Date.now() - startedAt,
+    stdoutTail: String(child.stdout ?? "").split("\n").filter(Boolean).slice(-10),
+    stderrTail: String(child.stderr ?? "").split("\n").filter(Boolean).slice(-10),
+  };
+}
+
+function renderMarkdown(report) {
+  const rows = report.checks.map((check) => `| ${check.id} | ${check.status} | ${check.commandLine} | ${check.owns} | ${check.durationMs} |`);
+  return `# DS Fast Gate
+
+Status: **${report.status}**
+
+Decision: **${report.decision}**
+
+This gate is for frequent local/PR feedback. It intentionally excludes consumer install, clean-app smoke, deep runtime reports, FlowDocs, visual parity, and quarantine tests.
+
+## Checks
+
+| Check | Status | Command | Owns | Duration ms |
+| --- | --- | --- | --- | ---: |
+${rows.join("\n")}
+
+## Failures
+
+${report.failures.length ? report.failures.map((failure) => `- ${failure.id}: ${failure.commandLine}`).join("\n") : "- None"}
+`;
+}
+
+function main() {
+  const results = checks.map(runCheck);
+  const failures = results.filter((check) => check.status !== "pass");
+  const report = {
+    schemaVersion: "ds-fast-gate@1",
+    generatedAt: new Date().toISOString(),
+    status: failures.length ? "fail" : "pass",
+    decision: failures.length
+      ? "Fast DS feedback is blocked by core contract/readiness failures."
+      : "Fast DS feedback is green; run validate:flow-core before release.",
+    checks: results,
+    failures: failures.map(({ id, commandLine, exitCode, stdoutTail, stderrTail }) => ({
+      id,
+      commandLine,
+      exitCode,
+      stdoutTail,
+      stderrTail,
+    })),
+  };
+
+  fs.mkdirSync(outputDir, { recursive: true });
+  fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
+  fs.writeFileSync(markdownOutput, renderMarkdown(report));
+  console.log(JSON.stringify({
+    status: report.status,
+    checks: report.checks.length,
+    pass: report.checks.filter((check) => check.status === "pass").length,
+    fail: report.failures.length,
+    json: path.relative(root, jsonOutput),
+    markdown: path.relative(root, markdownOutput),
+  }, null, 2));
+  if (report.status !== "pass") process.exitCode = 1;
+}
+
+main();

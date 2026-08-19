@@ -1,0 +1,465 @@
+{
+  "generatedAt": "2026-08-18T19:15:28.838Z",
+  "status": "action_required",
+  "decision": "cleanup-is-possible-but-most-debt-is-runtime-protected",
+  "totals": {
+    "immediateDeleteCandidates": 0,
+    "protectedStringReferencedCandidates": 16,
+    "runtimeKeepRows": 453,
+    "legacyQuarantineCandidates": 49,
+    "gateRewriteCandidates": 7,
+    "protectedRuntimeDebt": 4
+  },
+  "immediateDeleteCandidates": [],
+  "protectedStringReferencedCandidates": [
+    {
+      "file": "../FlowDocs/apps/docs/assets/hero-visual-dark.png",
+      "reason": "asset-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/assets/hero-visual-light.png",
+      "reason": "asset-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/assets/logo-dark.svg",
+      "reason": "asset-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-detail-renderer-governance.json",
+      "reason": "source-orphan",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/react/index.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/react/patterns/index.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/react/templates/ComponentDetailTemplate.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/react/templates/PatternDetailTemplate.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/react/templates/TemplateDetailTemplate.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/react/templates/index.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/generated/vendor/echarts.esm.min.js",
+      "reason": "generated-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-business-renderers.js",
+      "reason": "source-orphan",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-design-lead.js",
+      "reason": "source-orphan",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/select-interactions.js",
+      "reason": "source-orphan",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
+      "reason": "vendor-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/vendor/open-doodles/manifest.json",
+      "reason": "vendor-unreferenced",
+      "action": "keep; referenced by runtime/build/audit string outside import graph"
+    }
+  ],
+  "legacyQuarantineCandidates": [
+    {
+      "file": "../FlowDocs/apps/docs/gold-component-core.js",
+      "signals": 10,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-react-islands.js",
+      "signals": 9,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-react-islands.js",
+      "signals": 7,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/family-component-docs.js",
+      "signals": 6,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/app.js",
+      "signals": 5,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-layout.js",
+      "signals": 5,
+      "owner": "page-renderer",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/detail-tabs-core.js",
+      "signals": 4,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/primitive-tabs.js",
+      "signals": 4,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/visual-examples.js",
+      "signals": 4,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-foundation-trace.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/documentation-section-island.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-simple-component-docs.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-miel-tabs.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-operational-demos.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-react-demos.js",
+      "signals": 3,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/button-playground-interactions.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/demo-preview-frame-island.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/foundation-tabs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-button-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-card-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-checkbox-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-icon-button-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-input-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-radio-button-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-select-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-switch-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-text-area-docs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-build-gates.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-mobile-demos.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/reference-demo-interactions.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/reference-layout.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-desktop-interactions.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/template-tabs.js",
+      "signals": 2,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/candidate-component-docs.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/catalog-renderers.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo-interactions.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/component-demo.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-template-islands.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/foundation-visual-sections.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/gold-combobox-docs.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/home-stack-renderers.js",
+      "signals": 1,
+      "owner": "page-renderer",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-contract-tabs.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-desktop-demos.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-journey-demos.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-package-demo.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-tabs.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/pattern-utility-demos.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    },
+    {
+      "file": "../FlowDocs/apps/docs/shell-controls.js",
+      "signals": 1,
+      "owner": "html-adapter",
+      "action": "rename/mark as LegacyHtmlPageSlot or LegacyHtmlTabSlot before replacement"
+    }
+  ],
+  "gateRewriteCandidates": [
+    {
+      "file": "packages/audit/scripts/audit-integration.js",
+      "severity": "high",
+      "issue": "Runs generated evidence checks such as component 1:1 matrix and FlowDocs template composition alongside package contracts.",
+      "action": "Keep package/runtime checks; move template composition and generated quality matrix checks out of the integration gate."
+    },
+    {
+      "file": "packages/audit/scripts/audit-system-scope.js",
+      "severity": "high",
+      "issue": "Includes FlowDocs demo ownership and generated reporting in the same scope as React/package boundary checks.",
+      "action": "Split FlowDocs consumer ownership from Flow core readiness."
+    },
+    {
+      "file": "packages/audit/scripts/audit-system.js",
+      "severity": "high",
+      "issue": "Legacy all-in-one gate still mixes Flow core, FlowDocs app files, content ownership, generated reports, and visual/doc parity checks.",
+      "action": "Do not use as the trustworthy system gate until split into core, consumer, content, and forensic gates."
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-implementation-status.js",
+      "severity": "medium",
+      "issue": "reads-flowdocs-runtime, legacy-narrative-or-zip-signal, missing-flowdocs-runtime-reference",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything."
+    },
+    {
+      "file": "packages/audit/scripts/audit-context.js",
+      "severity": "medium",
+      "issue": "reads-flowdocs-runtime, reads-content-copy, legacy-narrative-or-zip-signal, missing-flowdocs-runtime-reference",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything."
+    },
+    {
+      "file": "packages/audit/scripts/audit-css-ownership.js",
+      "severity": "medium",
+      "issue": "reads-flowdocs-runtime, legacy-narrative-or-zip-signal, missing-flowdocs-runtime-reference",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything."
+    },
+    {
+      "file": "packages/audit/scripts/audit-template-composition.js",
+      "severity": "medium",
+      "issue": "reads-flowdocs-runtime, reads-content-copy, missing-flowdocs-runtime-reference",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything."
+    }
+  ],
+  "protectedRuntimeDebt": [
+    {
+      "area": "Shell mutation",
+      "evidence": "5 innerHTML writes, 17 querySelector calls, 17 dataset mutations",
+      "action": "do not delete; replace through DocsShell consumer adapter"
+    },
+    {
+      "area": "Template hybrid layer",
+      "evidence": "53 local renderer files and 50 HTML-boundary files",
+      "action": "quarantine as legacy slots; replace page by page with template contracts"
+    },
+    {
+      "area": "Demo boundary",
+      "evidence": "73 FlowDocs demo risk files",
+      "action": "keep as docs harness only; package behavior must be proven in package tests/local QA"
+    },
+    {
+      "area": "Content source",
+      "evidence": "254 package content files outside docs bundle; 2 local FlowDocs JSON files",
+      "action": "do not call bundle stale; classify non-docs bundle content before deletion"
+    }
+  ],
+  "cleanupOrder": [
+    "Repair gates that reference stale or mixed ownership so cleanup results are trustworthy.",
+    "Remove only unreferenced assets/generated artifacts/source orphans after one runtime smoke.",
+    "Mark reachable HTML renderers as legacy adapters instead of deleting them.",
+    "Replace home/collection/detail/reference templates with Flow consumer contracts.",
+    "Only then remove legacy slots and local renderers."
+  ]
+}

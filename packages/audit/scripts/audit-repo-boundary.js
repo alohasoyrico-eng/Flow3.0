@@ -268,8 +268,14 @@ function checkRepoBoundary() {
     if (scripts["build:tokens"] !== "node scripts/build-tokens.mjs") {
       add("errors", packageJsonFile, 1, "Extracted system repo must expose build:tokens.");
     }
-    if (scripts["validate:system"] !== "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete") {
-      add("errors", packageJsonFile, 1, "Extracted system repo must run build:tokens, build:react, test:react, and audit:complete as the full system gate.");
+    if (scripts["audit:ds-release-gate"] !== "node packages/audit/scripts/audit-ds-release-gate.js") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must expose audit:ds-release-gate.");
+    }
+    if (scripts["validate:flow-core"] !== "npm run build:tokens && npm run build:react && npm run typecheck && npm run test:react && npm run audit:ds-release-gate") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must run build:tokens, build:react, typecheck, test:react, and audit:ds-release-gate as the Flow core release gate.");
+    }
+    if (scripts["validate:system"] !== "npm run validate:flow-core") {
+      add("errors", packageJsonFile, 1, "Extracted system repo must keep validate:system as a compatibility alias to validate:flow-core.");
     }
     return;
   }

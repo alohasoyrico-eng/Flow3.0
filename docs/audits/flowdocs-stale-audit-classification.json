@@ -1,0 +1,2456 @@
+{
+  "generatedAt": "2026-08-18T18:59:34.569Z",
+  "status": "action_required",
+  "purpose": "Classify stale, generated, FlowDocs-consumer, and Flow-core audit scripts so gates stop mixing source-of-truth layers.",
+  "sourceOfTruthRules": [
+    "Flow core gates may read package source, generated runtime from package builds, token outputs, specs, and package tests.",
+    "FlowDocs gates may prove docs consume Flow, but must not define component API, accessibility, state, motion, or token truth.",
+    "docs/audits/*.json reports are evidence snapshots, not source contracts.",
+    "Legacy ZIP/gold/parity narratives are forensic references unless rewritten into source-backed contracts."
+  ],
+  "summary": {
+    "mixed-top-level-gate": 4,
+    "rewrite-before-gating": 4,
+    "scope-flowdocs-consumer": 83,
+    "generated-evidence-only": 56,
+    "legacy-forensics-only": 15,
+    "content-governance": 25,
+    "keep-flow-core": 12,
+    "keep-flow-core-candidate": 1
+  },
+  "blockingFindings": [
+    {
+      "gate": "packages/audit/scripts/audit-system.js",
+      "issue": "Legacy all-in-one gate still mixes Flow core, FlowDocs app files, content ownership, generated reports, and visual/doc parity checks.",
+      "action": "Do not use as the trustworthy system gate until split into core, consumer, content, and forensic gates."
+    },
+    {
+      "gate": "packages/audit/scripts/audit-integration.js",
+      "issue": "Runs generated evidence checks such as component 1:1 matrix and FlowDocs template composition alongside package contracts.",
+      "action": "Keep package/runtime checks; move template composition and generated quality matrix checks out of the integration gate."
+    },
+    {
+      "gate": "packages/audit/scripts/audit-system-scope.js",
+      "issue": "Includes FlowDocs demo ownership and generated reporting in the same scope as React/package boundary checks.",
+      "action": "Split FlowDocs consumer ownership from Flow core readiness."
+    }
+  ],
+  "topGateImports": {
+    "packages/audit/scripts/audit-system.js": [
+      "packages/audit/scripts/audit-accessibility-contracts.js",
+      "packages/audit/scripts/audit-anti-duplication.js",
+      "packages/audit/scripts/audit-batch-zip-parity.js",
+      "packages/audit/scripts/audit-component-1to1-quality-matrix.js",
+      "packages/audit/scripts/audit-component-api-prop-alignment.js",
+      "packages/audit/scripts/audit-component-behavior-contracts.js",
+      "packages/audit/scripts/audit-component-contracts.js",
+      "packages/audit/scripts/audit-component-implementation-status.js",
+      "packages/audit/scripts/audit-component-modules.js",
+      "packages/audit/scripts/audit-component-motion-role-coverage.js",
+      "packages/audit/scripts/audit-component-registry.js",
+      "packages/audit/scripts/audit-component-remediation-coverage.js",
+      "packages/audit/scripts/audit-content-ownership.js",
+      "packages/audit/scripts/audit-css-ownership.js",
+      "packages/audit/scripts/audit-css.js",
+      "packages/audit/scripts/audit-demo-layout-contracts.js",
+      "packages/audit/scripts/audit-density-contracts.js",
+      "packages/audit/scripts/audit-docs-content.js",
+      "packages/audit/scripts/audit-energy-contracts.js",
+      "packages/audit/scripts/audit-foundation-cascade-contracts.js",
+      "packages/audit/scripts/audit-foundation-contracts.js",
+      "packages/audit/scripts/audit-frame-contracts.js",
+      "packages/audit/scripts/audit-gold-components.js",
+      "packages/audit/scripts/audit-gold-demo-quality.js",
+      "packages/audit/scripts/audit-gold-page-parity.js",
+      "packages/audit/scripts/audit-layout-contracts.js",
+      "packages/audit/scripts/audit-manual-accessibility.js",
+      "packages/audit/scripts/audit-motion-contracts.js",
+      "packages/audit/scripts/audit-package-css-contracts.js",
+      "packages/audit/scripts/audit-pattern-contracts.js",
+      "packages/audit/scripts/audit-platform.js",
+      "packages/audit/scripts/audit-primitive-contracts.js",
+      "packages/audit/scripts/audit-react-primary-contract.js",
+      "packages/audit/scripts/audit-result.js",
+      "packages/audit/scripts/audit-routes.js",
+      "packages/audit/scripts/audit-spec.js",
+      "packages/audit/scripts/audit-state-contracts.js",
+      "packages/audit/scripts/audit-table-contracts.js",
+      "packages/audit/scripts/audit-taxonomy-boundaries.js",
+      "packages/audit/scripts/audit-template-composition.js",
+      "packages/audit/scripts/audit-voice-contracts.js"
+    ],
+    "packages/audit/scripts/audit-integration.js": [
+      "packages/audit/scripts/audit-accessibility-contracts.js",
+      "packages/audit/scripts/audit-batch-zip-parity.js",
+      "packages/audit/scripts/audit-component-1to1-quality-matrix.js",
+      "packages/audit/scripts/audit-component-api-prop-alignment.js",
+      "packages/audit/scripts/audit-component-contract-alignment.js",
+      "packages/audit/scripts/audit-component-implementation-status.js",
+      "packages/audit/scripts/audit-component-motion-role-coverage.js",
+      "packages/audit/scripts/audit-component-registry.js",
+      "packages/audit/scripts/audit-component-remediation-coverage.js",
+      "packages/audit/scripts/audit-demo-layout-contracts.js",
+      "packages/audit/scripts/audit-density-contracts.js",
+      "packages/audit/scripts/audit-energy-contracts.js",
+      "packages/audit/scripts/audit-foundation-contracts.js",
+      "packages/audit/scripts/audit-gold-components.js",
+      "packages/audit/scripts/audit-gold-demo-quality.js",
+      "packages/audit/scripts/audit-gold-page-parity.js",
+      "packages/audit/scripts/audit-layout-contracts.js",
+      "packages/audit/scripts/audit-motion-contracts.js",
+      "packages/audit/scripts/audit-platform.js",
+      "packages/audit/scripts/audit-primitive-contracts.js",
+      "packages/audit/scripts/audit-result.js",
+      "packages/audit/scripts/audit-state-contracts.js",
+      "packages/audit/scripts/audit-table-contracts.js",
+      "packages/audit/scripts/audit-template-composition.js",
+      "packages/audit/scripts/audit-voice-contracts.js"
+    ],
+    "packages/audit/scripts/audit-system-scope.js": [
+      "packages/audit/scripts/audit-adoption-readiness.js",
+      "packages/audit/scripts/audit-anti-duplication.js",
+      "packages/audit/scripts/audit-architecture-gate.js",
+      "packages/audit/scripts/audit-breakpoint-contracts.js",
+      "packages/audit/scripts/audit-component-behavior-contracts.js",
+      "packages/audit/scripts/audit-component-contracts.js",
+      "packages/audit/scripts/audit-component-modules.js",
+      "packages/audit/scripts/audit-density-contracts.js",
+      "packages/audit/scripts/audit-docs-component-demo-ownership.js",
+      "packages/audit/scripts/audit-manual-accessibility.js",
+      "packages/audit/scripts/audit-package-api.js",
+      "packages/audit/scripts/audit-package-css-contracts.js",
+      "packages/audit/scripts/audit-package-css-namespace.js",
+      "packages/audit/scripts/audit-pattern-contracts.js",
+      "packages/audit/scripts/audit-platform-adapters.js",
+      "packages/audit/scripts/audit-react-contract-triangle.js",
+      "packages/audit/scripts/audit-react-copy-contract.js",
+      "packages/audit/scripts/audit-react-primary-contract.js",
+      "packages/audit/scripts/audit-result.js",
+      "packages/audit/scripts/audit-spec.js",
+      "packages/audit/scripts/audit-taxonomy-boundaries.js",
+      "packages/audit/scripts/report-component-visual-cascade.js",
+      "packages/audit/scripts/report-react-accessibility-governance.js",
+      "packages/audit/scripts/report-react-interaction-coverage.js"
+    ],
+    "packages/audit/scripts/audit-complete.mjs": []
+  },
+  "classifications": [
+    {
+      "file": "packages/audit/scripts/audit-complete.mjs",
+      "classification": "mixed-top-level-gate",
+      "action": "Split before trusting as a monolithic gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-integration.js",
+      "classification": "mixed-top-level-gate",
+      "action": "Split before trusting as a monolithic gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-system-scope.js",
+      "classification": "mixed-top-level-gate",
+      "action": "Split before trusting as a monolithic gate.",
+      "importedByTopGates": [],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-system.js",
+      "classification": "mixed-top-level-gate",
+      "action": "Split before trusting as a monolithic gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-implementation-status.js",
+      "classification": "rewrite-before-gating",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal",
+        "missing-flowdocs-runtime-reference"
+      ],
+      "missingDocsRefs": [
+        {
+          "file": "../FlowDocs/apps/docs/gold-final-keep-component-demos.js",
+          "expectedRuntimePath": "../FlowDocs/apps/docs/gold-final-keep-component-demos.js"
+        }
+      ]
+    },
+    {
+      "file": "packages/audit/scripts/audit-context.js",
+      "classification": "rewrite-before-gating",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal",
+        "missing-flowdocs-runtime-reference"
+      ],
+      "missingDocsRefs": [
+        {
+          "file": "../FlowDocs/apps/docs/navigation.js",
+          "expectedRuntimePath": "../FlowDocs/apps/docs/navigation.js"
+        }
+      ]
+    },
+    {
+      "file": "packages/audit/scripts/audit-css-ownership.js",
+      "classification": "rewrite-before-gating",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal",
+        "missing-flowdocs-runtime-reference"
+      ],
+      "missingDocsRefs": [
+        {
+          "file": "../FlowDocs/apps/docs/gold-final-keep-component-demos.js",
+          "expectedRuntimePath": "../FlowDocs/apps/docs/gold-final-keep-component-demos.js"
+        },
+        {
+          "file": "../FlowDocs/apps/docs/styles/05q-final-keep-components-docs.css",
+          "expectedRuntimePath": "../FlowDocs/apps/docs/styles/05q-final-keep-components-docs.css"
+        }
+      ]
+    },
+    {
+      "file": "packages/audit/scripts/audit-template-composition.js",
+      "classification": "rewrite-before-gating",
+      "action": "Fix stale FlowDocs path assumptions before this can gate anything.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "missing-flowdocs-runtime-reference"
+      ],
+      "missingDocsRefs": [
+        {
+          "file": "../FlowDocs/apps/docs/pattern-shell-renderers.js",
+          "expectedRuntimePath": "../FlowDocs/apps/docs/pattern-shell-renderers.js"
+        }
+      ]
+    },
+    {
+      "file": "packages/audit/scripts/anti-duplication-governance-core.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-accessibility-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-adoption-readiness.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-architecture-gate.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-catalog-classification.mjs",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-demo-interactions.mjs",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-demo-registry.mjs",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-registry.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-consumer-install.mjs",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-content-ownership.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-css.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-dark-mode-css-contract.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-demo-layout-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-docs-component-demo-ownership.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-docs-runtime.mjs",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-energy-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-foundation-cascade-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-frame-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-gold-components.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-gold-demo-quality.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-layout-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-pattern-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-platform.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-react-primary-contract.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-repo-boundary.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-table-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-voice-contracts.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/class-root-governance.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/react-primitive-contract-audit.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-component-visual-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-docs-component-demo-ownership.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-docs-system-boundary.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-consumer-contract.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-content-source-of-truth.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-demo-boundary.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-legacy-slot-quarantine.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-p0-shell-cleanup-evidence.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-runtime-inventory.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-safe-cleanup-plan.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-shell-decision.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-stale-audit-classification.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-template-boundary.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-flowdocs-trustworthy-checkpoint.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-accessibility-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-depth-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-energy-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-frame-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-growth-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-iconography-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-momentum-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-state-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-symbol-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-tone-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-voice-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-pattern-1to1-architecture.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-pattern-contract-governance.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-pattern-react-migration-plan.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-animation-assets-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-cascade-activation-plan.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-color-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-country-flags-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-density-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-iconography-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-illustration-assets-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-library-sources-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-maps-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-measurement-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-message-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-template-runtime-governance.mjs",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-shell-pattern-contract-governance.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-consumer-boundary-checkpoint.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-consumer-css-token-cascade.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-consumer-runtime-smoke.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-forensic-gates.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-gate-boundary-classification.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-gate-split.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-p0-forensic-detail.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-p0-owner-decision-matrix.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-p0-remediation-sequence.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase5-public-runtime-readiness.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase6-flowdocs-consumer-checkpoint.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase6-template-qa-checkpoint.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime",
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-remediation-matrix.js",
+      "classification": "scope-flowdocs-consumer",
+      "action": "Move to an explicit FlowDocs consumer gate; do not run as Flow core proof.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-flowdocs-runtime"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-batch-zip-parity.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-1to1-quality-matrix.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-behavior-contracts.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-contract-alignment.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-motion-role-coverage.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-motion-contracts.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-state-contracts.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-email-channel-governance.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-breakpoints-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-cascade-governance.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-charts-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-disabled-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-duration-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-elevation-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-field-action-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-focus-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-loading-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-motion-curves-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-radius-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-research-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-spacing-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-typography-cascade.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-production-readiness.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-audit-contract-governance.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-component-runtime-audit.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-generated-token-output-governance.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-p0-primitive-runtime-matrix.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-p0-token-foundation-classification.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-p0-token-source-gates.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-pattern-artifact-tests.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-pattern-runtime-audit.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase1-style-dictionary-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase3-foundations-primitives-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase4-component-cascade-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase4-component-qa-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase4-core-controls-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase4-domain-complex-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase4-overlays-navigation-data-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase5-data-domain-mobile-patterns-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase5-interaction-patterns-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase5-pattern-1to1-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase5-pattern-governance-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase5-shell-patterns-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-phase6-template-audit-fixes-checkpoint.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-public-runtime-boundary.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-raw-token-value-decision-matrix.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-raw-token-value-governance.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-template-artifact-tests.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-template-runtime-audit.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-test-ownership.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-token-output-gates.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-token-ownership-matrix.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-typescript-project-setup.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-kit-cascade-matrix.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-kit-runtime-coverage.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-owner-export-matrix.js",
+      "classification": "generated-evidence-only",
+      "action": "Use as checkpoint/report evidence, not as source-of-truth gate.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-generated-audit-evidence",
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-gold-copy.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-gold-docs.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-gold-page-parity.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-taxonomy-boundaries.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-quality.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-pattern-foundation-primitive-1to1.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-component-artifact-tests.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-react-export-parity.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-react-root-index-typescript-surface.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-react-section-indexes-typescript-surface.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-template-cascade-governance.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-flow-gap-audit.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-foundation-primitive-validation.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-system-intake.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-zip-template-parity.js",
+      "classification": "legacy-forensics-only",
+      "action": "Keep only as forensic reference unless rewritten against source contracts.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy",
+        "legacy-narrative-or-zip-signal"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/anti-duplication-concepts.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-api-prop-alignment.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-contracts.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-remediation-coverage.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-docs-content.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-foundation-contracts.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-manual-accessibility.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-package-api.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-primitive-contracts.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-routes.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js"
+      ],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/component-css-governance-policy.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/pattern-architecture-policy.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/pattern-contract-governance.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/react-primary-governance-policy.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-anti-duplication-coverage.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-email-channel-renderer.mjs",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-foundation-primitive-export-contract.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-pattern-react-migration-audit.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-pattern-readiness.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-primitive-surface-cascade.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-composition-governance.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-pattern-behavior-governance.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-pattern-composition-governance.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-system-debt-ledger.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-taxonomy-boundaries.js",
+      "classification": "content-governance",
+      "action": "Keep outside Flow runtime gates; content truth should be its own boundary.",
+      "importedByTopGates": [],
+      "smells": [
+        "reads-content-copy"
+      ],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-anti-duplication.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-breakpoint-contracts.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-component-modules.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-density-contracts.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-package-css-contracts.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-package-css-namespace.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-platform-adapters.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-react-contract-triangle.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-react-copy-contract.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-spec.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-accessibility-governance.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/report-react-interaction-coverage.js",
+      "classification": "keep-flow-core",
+      "action": "Eligible for Flow core/system gate.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    },
+    {
+      "file": "packages/audit/scripts/audit-result.js",
+      "classification": "keep-flow-core-candidate",
+      "action": "May remain in a Flow core/system gate if its inputs are source contracts or package runtime.",
+      "importedByTopGates": [
+        "packages/audit/scripts/audit-system.js",
+        "packages/audit/scripts/audit-integration.js",
+        "packages/audit/scripts/audit-system-scope.js"
+      ],
+      "smells": [],
+      "missingDocsRefs": []
+    }
+  ],
+  "nextIteration": {
+    "id": 4,
+    "name": "Fuente De Verdad De Contenido",
+    "goal": "Decide which FlowDocs content files are source, generated bundle, orphan, or legacy before deleting/migrating files."
+  }
+}

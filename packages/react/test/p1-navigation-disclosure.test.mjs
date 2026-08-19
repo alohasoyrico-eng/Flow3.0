@@ -177,6 +177,10 @@ try {
     assert.deepEqual(expanded.at(-1).keys, ["root"]);
     fireEvent.keyDown(root, { key: "ArrowDown" });
     await waitFor(() => assert.equal(globalThis.document.activeElement?.textContent.includes("Routes"), true));
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowUp" });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.textContent.includes("Workspace"), true));
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowDown" });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.textContent.includes("Routes"), true));
     fireEvent.keyDown(globalThis.document.activeElement, { key: "End" });
     await waitFor(() => assert.equal(globalThis.document.activeElement?.textContent.includes("Administration"), true));
 

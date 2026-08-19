@@ -1,0 +1,1473 @@
+{
+  "generatedAt": "2026-08-18T19:15:28.635Z",
+  "status": "action_required",
+  "decision": "package-templates-exist-but-flowdocs-pages-are-hybrid",
+  "sourceOfTruth": {
+    "reactTemplates": [
+      {
+        "name": "AgentWorkspace",
+        "file": "packages/react/src/templates/AgentWorkspace.ts"
+      },
+      {
+        "name": "ComponentDetailTemplate",
+        "file": "packages/react/src/templates/ComponentDetailTemplate.ts"
+      },
+      {
+        "name": "ConfigurationConsole",
+        "file": "packages/react/src/templates/ConfigurationConsole.ts"
+      },
+      {
+        "name": "DocsArtifactDetailTemplate",
+        "file": "packages/react/src/templates/DocsArtifactDetailTemplate.ts"
+      },
+      {
+        "name": "DocsCollectionTemplate",
+        "file": "packages/react/src/templates/DocsCollectionTemplate.ts"
+      },
+      {
+        "name": "DocsHomeTemplate",
+        "file": "packages/react/src/templates/DocsHomeTemplate.ts"
+      },
+      {
+        "name": "DocsShellTemplate",
+        "file": "packages/react/src/templates/DocsShellTemplate.ts"
+      },
+      {
+        "name": "DriverCardWallet",
+        "file": "packages/react/src/templates/DriverCardWallet.ts"
+      },
+      {
+        "name": "DriverMobileApp",
+        "file": "packages/react/src/templates/DriverMobileApp.ts"
+      },
+      {
+        "name": "FleetDashboardSuite",
+        "file": "packages/react/src/templates/FleetDashboardSuite.ts"
+      },
+      {
+        "name": "FleetManagerDesktop",
+        "file": "packages/react/src/templates/FleetManagerDesktop.ts"
+      },
+      {
+        "name": "InternalOperationsConsole",
+        "file": "packages/react/src/templates/InternalOperationsConsole.ts"
+      },
+      {
+        "name": "PatternDetailTemplate",
+        "file": "packages/react/src/templates/PatternDetailTemplate.ts"
+      },
+      {
+        "name": "ReferenceDetailTemplate",
+        "file": "packages/react/src/templates/ReferenceDetailTemplate.ts"
+      },
+      {
+        "name": "RoutesAndStations",
+        "file": "packages/react/src/templates/RoutesAndStations.ts"
+      },
+      {
+        "name": "SettingsWorkspace",
+        "file": "packages/react/src/templates/SettingsWorkspace.ts"
+      },
+      {
+        "name": "TemplateDetailTemplate",
+        "file": "packages/react/src/templates/TemplateDetailTemplate.ts"
+      },
+      {
+        "name": "index",
+        "file": "packages/react/src/templates/index.ts"
+      }
+    ],
+    "templateSpecs": [
+      {
+        "name": "agent-workspace",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/agent-workspace.json"
+      },
+      {
+        "name": "component-detail-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/component-detail-template.json"
+      },
+      {
+        "name": "configuration-console",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/configuration-console.json"
+      },
+      {
+        "name": "docs-artifact-detail-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/docs-artifact-detail-template.json"
+      },
+      {
+        "name": "docs-collection-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/docs-collection-template.json"
+      },
+      {
+        "name": "docs-home-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/docs-home-template.json"
+      },
+      {
+        "name": "docs-shell-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/docs-shell-template.json"
+      },
+      {
+        "name": "driver-card-wallet",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/driver-card-wallet.json"
+      },
+      {
+        "name": "driver-mobile-app",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/driver-mobile-app.json"
+      },
+      {
+        "name": "fleet-dashboard-suite",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-dashboard-suite.json"
+      },
+      {
+        "name": "fleet-manager-desktop",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/fleet-manager-desktop.json"
+      },
+      {
+        "name": "internal-operations-console",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
+      },
+      {
+        "name": "pattern-detail-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/pattern-detail-template.json"
+      },
+      {
+        "name": "reference-detail-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/reference-detail-template.json"
+      },
+      {
+        "name": "routes-and-stations",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/routes-and-stations.json"
+      },
+      {
+        "name": "settings-workspace",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/settings-workspace.json"
+      },
+      {
+        "name": "template-detail-template",
+        "file": "packages/specs/specs/unison-system/artifacts/templates/template-detail-template.json"
+      }
+    ],
+    "generatedFlowDocsTemplates": [
+      {
+        "name": "AgentWorkspace",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/AgentWorkspace.js"
+      },
+      {
+        "name": "ComponentDetailTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/ComponentDetailTemplate.js"
+      },
+      {
+        "name": "ConfigurationConsole",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/ConfigurationConsole.js"
+      },
+      {
+        "name": "DocsArtifactDetailTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/DocsArtifactDetailTemplate.js"
+      },
+      {
+        "name": "DocsCollectionTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/DocsCollectionTemplate.js"
+      },
+      {
+        "name": "DocsHomeTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/DocsHomeTemplate.js"
+      },
+      {
+        "name": "DocsShellTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/DocsShellTemplate.js"
+      },
+      {
+        "name": "DriverCardWallet",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/DriverCardWallet.js"
+      },
+      {
+        "name": "DriverMobileApp",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/DriverMobileApp.js"
+      },
+      {
+        "name": "FleetDashboardSuite",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/FleetDashboardSuite.js"
+      },
+      {
+        "name": "FleetManagerDesktop",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/FleetManagerDesktop.js"
+      },
+      {
+        "name": "InternalOperationsConsole",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/InternalOperationsConsole.js"
+      },
+      {
+        "name": "PatternDetailTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/PatternDetailTemplate.js"
+      },
+      {
+        "name": "ReferenceDetailTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/ReferenceDetailTemplate.js"
+      },
+      {
+        "name": "RoutesAndStations",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/RoutesAndStations.js"
+      },
+      {
+        "name": "SettingsWorkspace",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/SettingsWorkspace.js"
+      },
+      {
+        "name": "TemplateDetailTemplate",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/TemplateDetailTemplate.js"
+      },
+      {
+        "name": "index",
+        "file": "../FlowDocs/apps/docs/generated/react/templates/index.js"
+      }
+    ],
+    "requiredDocsTemplates": [
+      "DocsShellTemplate",
+      "DocsHomeTemplate",
+      "DocsCollectionTemplate",
+      "DocsArtifactDetailTemplate",
+      "ReferenceDetailTemplate",
+      "ComponentDetailTemplate",
+      "PatternDetailTemplate",
+      "TemplateDetailTemplate"
+    ],
+    "missingSourceTemplates": [],
+    "missingGeneratedTemplates": []
+  },
+  "flowdocsBoundary": {
+    "docsJsFiles": 148,
+    "localRendererFiles": [
+      {
+        "file": "catalog-renderers.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "choice-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "component-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "component-demo.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "demo-preview-frame-island.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "detail-tabs-core.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 4
+      },
+      {
+        "file": "detail-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "display-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "docs-layout.js",
+        "exportedRenderers": [
+          "renderCollectionContent",
+          "renderDetailContent",
+          "renderReferenceDetailContent",
+          "renderShell"
+        ],
+        "hasReactTemplateIsland": true,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 5
+      },
+      {
+        "file": "docs-template-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": true,
+        "usesKnownTemplateName": [
+          "DocsCollectionTemplate",
+          "DocsHomeTemplate"
+        ],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "documentation-section-island.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 3
+      },
+      {
+        "file": "foundation-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "gold-tabs-docs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "home-stack-renderers.js",
+        "exportedRenderers": [
+          "renderHomeContent",
+          "renderStackContent"
+        ],
+        "hasReactTemplateIsland": true,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "overlay-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-business-renderers.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-candidate-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-contract-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "pattern-desktop-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "pattern-desktop-react-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-journey-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "pattern-journey-react-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-miel-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 3
+      },
+      {
+        "file": "pattern-mobile-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "pattern-mobile-react-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-operational-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 3
+      },
+      {
+        "file": "pattern-operational-react-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-package-demo.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "pattern-react-candidate-file-upload-island.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-candidate-filter-chip-group-island.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-candidate-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-candidate-toolbar-island.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-desktop-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 9
+      },
+      {
+        "file": "pattern-react-journey-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-mobile-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-operational-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-react-shell-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-shell-react-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "pattern-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "pattern-utility-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 1
+      },
+      {
+        "file": "primitive-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 4
+      },
+      {
+        "file": "progress-indicator-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "react-component-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "reference-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "reference-layout.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "template-desktop-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "template-desktop-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "template-react-demos.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": true,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 3
+      },
+      {
+        "file": "template-react-islands.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": true,
+        "usesKnownTemplateName": [
+          "AgentWorkspace",
+          "ConfigurationConsole",
+          "DocsArtifactDetailTemplate",
+          "DriverCardWallet",
+          "DriverMobileApp",
+          "FleetDashboardSuite",
+          "FleetManagerDesktop",
+          "InternalOperationsConsole",
+          "ReferenceDetailTemplate",
+          "RoutesAndStations",
+          "SettingsWorkspace"
+        ],
+        "htmlBoundarySignals": 7
+      },
+      {
+        "file": "template-tabs.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 2
+      },
+      {
+        "file": "toast-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      },
+      {
+        "file": "tooltip-demo-interactions.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [],
+        "htmlBoundarySignals": 0
+      }
+    ],
+    "htmlBoundaryFiles": [
+      {
+        "file": "gold-component-core.js",
+        "bodyHtml": 1,
+        "previewHtml": 6,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 2,
+        "documentationSectionIsland": 1,
+        "total": 10
+      },
+      {
+        "file": "pattern-react-islands.js",
+        "bodyHtml": 3,
+        "previewHtml": 3,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 3,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 9
+      },
+      {
+        "file": "template-react-islands.js",
+        "bodyHtml": 5,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 2,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 7
+      },
+      {
+        "file": "family-component-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 6,
+        "documentationSectionIsland": 0,
+        "total": 6
+      },
+      {
+        "file": "app.js",
+        "bodyHtml": 3,
+        "previewHtml": 0,
+        "innerHTML": 1,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 5
+      },
+      {
+        "file": "docs-layout.js",
+        "bodyHtml": 5,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 5
+      },
+      {
+        "file": "detail-tabs-core.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 2,
+        "documentationSectionIsland": 1,
+        "total": 4
+      },
+      {
+        "file": "primitive-tabs.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 2,
+        "documentationSectionIsland": 1,
+        "total": 4
+      },
+      {
+        "file": "visual-examples.js",
+        "bodyHtml": 2,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 2,
+        "total": 4
+      },
+      {
+        "file": "component-foundation-trace.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 1,
+        "total": 3
+      },
+      {
+        "file": "docs-shell-react.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 3,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 3
+      },
+      {
+        "file": "documentation-section-island.js",
+        "bodyHtml": 2,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 3
+      },
+      {
+        "file": "gold-simple-component-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 2,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 3
+      },
+      {
+        "file": "pattern-miel-tabs.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 1,
+        "total": 3
+      },
+      {
+        "file": "pattern-operational-demos.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 1,
+        "total": 3
+      },
+      {
+        "file": "template-react-demos.js",
+        "bodyHtml": 1,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 3
+      },
+      {
+        "file": "button-playground-interactions.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 2,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "demo-preview-frame-island.js",
+        "bodyHtml": 0,
+        "previewHtml": 2,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "foundation-tabs.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 2
+      },
+      {
+        "file": "gold-button-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-card-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-checkbox-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-icon-button-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-input-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-radio-button-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-select-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-switch-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "gold-text-area-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "pattern-build-gates.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 2
+      },
+      {
+        "file": "pattern-design-lead.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 2
+      },
+      {
+        "file": "pattern-mobile-demos.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "reference-demo-interactions.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 2,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "reference-layout.js",
+        "bodyHtml": 1,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 1,
+        "total": 2
+      },
+      {
+        "file": "template-desktop-interactions.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 1,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "template-tabs.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 2,
+        "documentationSectionIsland": 0,
+        "total": 2
+      },
+      {
+        "file": "candidate-component-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "catalog-renderers.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "component-demo-interactions.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 1,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "component-demo.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "docs-template-islands.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 1,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "foundation-visual-sections.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "gold-combobox-docs.js",
+        "bodyHtml": 0,
+        "previewHtml": 1,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "home-stack-renderers.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "pattern-contract-tabs.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "pattern-desktop-demos.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "pattern-journey-demos.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "pattern-package-demo.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "pattern-tabs.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "pattern-utility-demos.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 0,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 1,
+        "documentationSectionIsland": 0,
+        "total": 1
+      },
+      {
+        "file": "shell-controls.js",
+        "bodyHtml": 0,
+        "previewHtml": 0,
+        "innerHTML": 1,
+        "dangerouslySetInnerHTML": 0,
+        "componentDemo": 0,
+        "documentationSectionIsland": 0,
+        "total": 1
+      }
+    ],
+    "reactTemplateUsageFiles": 19,
+    "knownTemplateBoundary": {
+      "home": {
+        "file": "home-stack-renderers.js",
+        "exportedRenderers": [
+          "renderHomeContent",
+          "renderStackContent"
+        ],
+        "hasReactTemplateIsland": true,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 1
+      },
+      "collection": {
+        "file": "docs-layout.js",
+        "exportedRenderers": [
+          "renderCollectionContent",
+          "renderDetailContent",
+          "renderReferenceDetailContent",
+          "renderShell"
+        ],
+        "hasReactTemplateIsland": true,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 5
+      },
+      "detailTabs": {
+        "file": "detail-tabs-core.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 4
+      },
+      "reference": {
+        "file": "reference-layout.js",
+        "exportedRenderers": [],
+        "hasReactTemplateIsland": false,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 2
+      },
+      "shell": {
+        "file": "docs-layout.js",
+        "exportedRenderers": [
+          "renderCollectionContent",
+          "renderDetailContent",
+          "renderReferenceDetailContent",
+          "renderShell"
+        ],
+        "hasReactTemplateIsland": true,
+        "importsGeneratedTemplates": false,
+        "usesKnownTemplateName": [
+          "index"
+        ],
+        "htmlBoundarySignals": 5
+      }
+    },
+    "docsTemplateUsages": [
+      {
+        "file": "artifact-metadata-bar.js",
+        "reactComponents": [
+          "artifact-metadata-bar"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "component-demo.js",
+        "reactComponents": [
+          "${component}",
+          "card-expiry-input",
+          "card-number-input",
+          "card-security-code-input",
+          "checkbox",
+          "code-input",
+          "inline-validation",
+          "phone-input",
+          "radio-button",
+          "segmented-control",
+          "select",
+          "skeleton"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "demo-preview-frame-island.js",
+        "reactComponents": [
+          "demo-preview-frame"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "docs-code-block.js",
+        "reactComponents": [
+          "code-block"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "docs-layout.js",
+        "reactComponents": [
+          "docs-artifact-detail-template",
+          "docs-collection-template",
+          "reference-detail-template"
+        ],
+        "reactTemplateMarkers": 3
+      },
+      {
+        "file": "documentation-section-island.js",
+        "reactComponents": [
+          "documentation-section"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "home-stack-renderers.js",
+        "reactComponents": [
+          "docs-home-template"
+        ],
+        "reactTemplateMarkers": 1
+      },
+      {
+        "file": "pattern-candidate-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-desktop-react-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-journey-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-journey-react-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-mobile-react-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-operational-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-operational-react-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-shell-react-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "pattern-utility-demos.js",
+        "reactComponents": [
+          "${pattern}"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "primitive-reference.js",
+        "reactComponents": [
+          "documentation-primitive-demo"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "reference-layout.js",
+        "reactComponents": [
+          "documentation-reference-grid",
+          "documentation-section",
+          "documentation-token-grid",
+          "list"
+        ],
+        "reactTemplateMarkers": 0
+      },
+      {
+        "file": "template-react-demos.js",
+        "reactComponents": [
+          "${template}"
+        ],
+        "reactTemplateMarkers": 1
+      }
+    ]
+  },
+  "findings": [
+    {
+      "severity": "high",
+      "title": "FlowDocs detail pages are still hybrid templates",
+      "evidence": "docs-layout.js mounts DocsArtifactDetailTemplate through a React island, but bodyHtml/tab bodies are still string HTML produced by local tab renderers.",
+      "files": [
+        "../FlowDocs/apps/docs/docs-layout.js",
+        "../FlowDocs/apps/docs/detail-tabs-core.js"
+      ]
+    },
+    {
+      "severity": "high",
+      "title": "Home and collection pages still have local page renderers",
+      "evidence": "renderHomeContent/renderStackContent/renderCollectionContent produce page sections and grids in FlowDocs instead of using DocsHomeTemplate/DocsCollectionTemplate as the full page contract.",
+      "files": [
+        "../FlowDocs/apps/docs/home-stack-renderers.js",
+        "../FlowDocs/apps/docs/docs-layout.js"
+      ]
+    },
+    {
+      "severity": "medium",
+      "title": "Foundation and primitive reference pages remain local body adapters",
+      "evidence": "reference-layout.js uses Flow islands for some sections/lists/grids, but still owns reference headers, breadcrumbs, peer nav, dividers and body composition.",
+      "files": [
+        "../FlowDocs/apps/docs/reference-layout.js"
+      ]
+    },
+    {
+      "severity": "medium",
+      "title": "Generated templates exist, but generated runtime copy is not proof of template ownership",
+      "evidence": "FlowDocs has generated React templates, yet local renderers still decide page structure and content slots. The source of truth must remain packages/react plus specs.",
+      "files": [
+        "../FlowDocs/apps/docs/generated/react/templates",
+        "packages/react/src/templates"
+      ]
+    }
+  ],
+  "remediationGate": [
+    "DocsHomeTemplate owns home layout; home-stack-renderers.js can only provide typed content sections, not raw page layout.",
+    "DocsCollectionTemplate owns collection index layout; docs-layout.js cannot render docs-page-intro/group-block/catalog-grid directly.",
+    "DocsArtifactDetailTemplate owns detail structure and tabs; tab changes cannot mutate #tabPanel.innerHTML.",
+    "ReferenceDetailTemplate owns foundation/primitive detail layout; reference-layout.js becomes content adapter or is removed.",
+    "FlowDocs local HTML adapters must be named LegacyHtmlPageSlot/LegacyHtmlTabSlot with expiration gate.",
+    "Consumer QA must cover home, collection, component detail, pattern detail, template detail, foundation detail and primitive detail."
+  ]
+}

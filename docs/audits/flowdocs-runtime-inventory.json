@@ -1,0 +1,5420 @@
+{
+  "schemaVersion": "flowdocs-runtime-inventory@1",
+  "generatedAt": "2026-08-18T19:15:28.291Z",
+  "docsDir": "../FlowDocs/apps/docs",
+  "entryFile": "index.html",
+  "totalFiles": 898,
+  "reachableFiles": 453,
+  "unreferencedFiles": 445,
+  "summary": {
+    "nonruntime-doc": 1,
+    "runtime-used": 209,
+    "asset-unreferenced": 3,
+    "asset-used": 1,
+    "source-orphan": 4,
+    "generated-used": 234,
+    "type-artifact": 158,
+    "generated-unreferenced": 7,
+    "entry": 1,
+    "vendor-dynamic-asset": 265,
+    "vendor-license": 5,
+    "vendor-unreferenced": 2,
+    "vendor-used": 8
+  },
+  "missingDependencies": [],
+  "rows": [
+    {
+      "file": "README.md",
+      "status": "nonruntime-doc",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "app.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 21
+    },
+    {
+      "file": "artifact-metadata-bar.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "assets/hero-visual-dark.png",
+      "status": "asset-unreferenced",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "assets/hero-visual-light.png",
+      "status": "asset-unreferenced",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "assets/logo-dark.svg",
+      "status": "asset-unreferenced",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "assets/logo.svg",
+      "status": "asset-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "button-playground-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "candidate-component-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "candidate-component-plans.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "catalog-renderers.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "choice-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "component-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "component-demo.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "component-detail-renderer-governance.json",
+      "status": "source-orphan",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "component-foundation-trace.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "content-loader.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "content-sources.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "demo-preview-frame-island.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "detail-tabs-core.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "detail-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "display-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "doc-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "docs-chrome.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "docs-code-block.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "docs-layout.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "docs-shell-react.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "docs-state.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "docs-template-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "documentation-section-island.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "family-component-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "foundation-explorer.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "foundation-reference.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "foundation-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "foundation-visual-sections.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/components.css",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/contracts.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/index.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 10
+    },
+    {
+      "file": "generated/components/platforms/accordion.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/animated-moment.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/audit-event.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/avatar.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/badge.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/biometric-prompt.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/breadcrumbs.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/button.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/card-expiry-input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/card-number-input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/card-security-code-input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/card-summary.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/card.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/chart-panel.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/chat-composer.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/platforms/chat-message.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/platforms/chat-thread.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/platforms/checkbox.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/chip.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/code-block.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/code-input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/combobox.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/copy-button.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/country-selector.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/date-picker.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/date-range-picker.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/dialog.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/drawer.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/empty-state.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/error-panel.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/floating-action-button.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/icon-button.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/index.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 62
+    },
+    {
+      "file": "generated/components/platforms/inline-validation.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/input-amount.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/kpi-tile.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/list.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/menu.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/motion-boundary.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/movement-row.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/pagination.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/phone-input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/popover.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/progress-indicator.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/quick-action.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/radio-button.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/route-summary.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/segmented-control.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/select.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/skeleton.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/slider.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/spinner.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/station-pin.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/stepper.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/switch.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/table.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/tabs.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/tag.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/text-area.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/toast.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/tooltip.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/platforms/tree-view.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/primitives/animation-assets.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/components/primitives/charts.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/primitives/country-flags.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/primitives/country-options.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/primitives/iconography.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/primitives/illustration-assets.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/primitives/library-sources.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/primitives/maps.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/components/registry.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/docs-content.bundle.json",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Accordion.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Accordion.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/AnimatedMoment.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/AnimatedMoment.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/AuditEvent.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/AuditEvent.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Avatar.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Avatar.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Badge.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Badge.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/BiometricPrompt.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/BiometricPrompt.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Breadcrumbs.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Breadcrumbs.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Button.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Button.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Card.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Card.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/CardExpiryInput.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CardExpiryInput.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/CardNumberInput.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CardNumberInput.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/CardSecurityCodeInput.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CardSecurityCodeInput.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/CardSummary.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CardSummary.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/ChartPanel.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/ChartPanel.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/ChatComposer.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/ChatComposer.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/ChatMessage.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/ChatMessage.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/ChatThread.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/ChatThread.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/Checkbox.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Checkbox.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Chip.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Chip.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/CodeBlock.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CodeBlock.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/CodeInput.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CodeInput.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Combobox.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Combobox.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/CopyButton.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CopyButton.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/CountrySelector.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/CountrySelector.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/DatePicker.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/DatePicker.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/DateRangePicker.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/DateRangePicker.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Dialog.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Dialog.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/Drawer.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Drawer.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/EmptyState.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/EmptyState.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/ErrorPanel.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/ErrorPanel.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/FloatingActionButton.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/FloatingActionButton.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/IconButton.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/IconButton.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/InlineValidation.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/InlineValidation.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Input.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Input.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/InputAmount.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/InputAmount.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/KpiTile.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/KpiTile.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/List.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/List.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Menu.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Menu.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/MotionBoundary.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/MotionBoundary.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/MovementRow.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/MovementRow.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Pagination.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Pagination.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/PhoneInput.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/PhoneInput.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/Popover.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Popover.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/ProgressIndicator.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/ProgressIndicator.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/QuickAction.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/QuickAction.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/RadioButton.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/RadioButton.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/RouteSummary.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/RouteSummary.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/SegmentedControl.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/SegmentedControl.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Select.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Select.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Skeleton.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Skeleton.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Slider.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Slider.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Spinner.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Spinner.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/StationPin.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/StationPin.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Stepper.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Stepper.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Surface.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Surface.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/react/Switch.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Switch.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/Table.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Table.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Tabs.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Tabs.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Tag.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Tag.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/TextArea.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/TextArea.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/Toast.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Toast.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/Tooltip.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/Tooltip.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/TreeView.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/TreeView.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/index.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/index.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 136
+    },
+    {
+      "file": "generated/react/internal/email-token-values.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/internal/field-message.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/internal/props.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/internal/props.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AccountOperations.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AccountOperations.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/ActionSheet.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ActionSheet.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/AdvancedFilters.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AdvancedFilters.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 11
+    },
+    {
+      "file": "generated/react/patterns/AgentConversation.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AgentConversation.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/patterns/ArtifactMetadataBar.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ArtifactMetadataBar.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/AuthenticationLoginBiometricsAndOtp.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AuthenticationLoginBiometricsAndOtp.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "generated/react/patterns/Autocomplete.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Autocomplete.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/AvatarGroup.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AvatarGroup.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/AvatarMenu.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/AvatarMenu.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/patterns/BackofficeApproval.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/BackofficeApproval.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/BottomSheet.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/BottomSheet.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/BulkActions.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/BulkActions.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "generated/react/patterns/CalendarView.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/CalendarView.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 10
+    },
+    {
+      "file": "generated/react/patterns/CaseManagement.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/CaseManagement.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/ChartLegendItem.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ChartLegendItem.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/ChartWrapper.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ChartWrapper.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 11
+    },
+    {
+      "file": "generated/react/patterns/CheckboxGroup.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/CheckboxGroup.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/patterns/ColumnConfigurator.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ColumnConfigurator.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 10
+    },
+    {
+      "file": "generated/react/patterns/CommandPalette.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/CommandPalette.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/ConfirmationDialog.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ConfirmationDialog.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/DemoPreviewFrame.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DemoPreviewFrame.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/patterns/DenseOperationalList.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DenseOperationalList.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/DocumentationHero.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DocumentationHero.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/DocumentationPageShell.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DocumentationPageShell.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/patterns/DocumentationPrimitiveDemo.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DocumentationPrimitiveDemo.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/DocumentationReferenceGrid.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DocumentationReferenceGrid.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/patterns/DocumentationSection.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DocumentationSection.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/patterns/DocumentationTokenGrid.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DocumentationTokenGrid.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/patterns/DragSortableList.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DragSortableList.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/DrawerAdapter.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DrawerAdapter.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 11
+    },
+    {
+      "file": "generated/react/patterns/DriverAndVehicleAdministration.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DriverAndVehicleAdministration.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 13
+    },
+    {
+      "file": "generated/react/patterns/DriverOnboardingMobile.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/DriverOnboardingMobile.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 13
+    },
+    {
+      "file": "generated/react/patterns/EmailTemplateLayout.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/EmailTemplateLayout.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "generated/react/patterns/ExpandableDetailTable.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/ExpandableDetailTable.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/FileUpload.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/FileUpload.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/FilterChipGroup.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/FilterChipGroup.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/FilterableEditableTable.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/FilterableEditableTable.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/FleetManagerOnboardingDesktop.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/FleetManagerOnboardingDesktop.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 13
+    },
+    {
+      "file": "generated/react/patterns/FormSection.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/FormSection.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 11
+    },
+    {
+      "file": "generated/react/patterns/FullscreenSheet.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/FullscreenSheet.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "generated/react/patterns/GanttChart.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/GanttChart.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/patterns/HelpCenter.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/HelpCenter.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/KanbanBoard.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/KanbanBoard.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/KpiCard.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/KpiCard.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/MultiSelect.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/MultiSelect.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/MultiStepForm.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/MultiStepForm.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "generated/react/patterns/NotificationPanel.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/NotificationPanel.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/OnThisPageNav.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/OnThisPageNav.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/patterns/PaymentForm.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/PaymentForm.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/PolarChart.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/PolarChart.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/patterns/PreferenceManagement.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/PreferenceManagement.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/PricingOperations.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/PricingOperations.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/PullToRefresh.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/PullToRefresh.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/QuickActionsGrid.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/QuickActionsGrid.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/RadioGroup.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/RadioGroup.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/patterns/RolesAndPermissions.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/RolesAndPermissions.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 10
+    },
+    {
+      "file": "generated/react/patterns/Search.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Search.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/SectionHeader.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/SectionHeader.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/SelectOptionLayer.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/SelectOptionLayer.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/Settings.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Settings.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/Sidebar.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Sidebar.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/SnackbarProvider.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/SnackbarProvider.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/patterns/StationDiscovery.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/StationDiscovery.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 11
+    },
+    {
+      "file": "generated/react/patterns/StatusFeedbackView.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/StatusFeedbackView.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/patterns/SwipeActions.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/SwipeActions.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "generated/react/patterns/TicketQueue.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/TicketQueue.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/Timeline.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Timeline.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/patterns/Toolbar.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Toolbar.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/Topbar.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/Topbar.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 16
+    },
+    {
+      "file": "generated/react/patterns/TransferList.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/TransferList.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "generated/react/patterns/VirtualDataTable.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/VirtualDataTable.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 8
+    },
+    {
+      "file": "generated/react/patterns/WaterfallChart.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/WaterfallChart.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/patterns/index.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/patterns/index.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 72
+    },
+    {
+      "file": "generated/react/templates/AgentWorkspace.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/AgentWorkspace.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/templates/ComponentDetailTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/ComponentDetailTemplate.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/templates/ConfigurationConsole.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/ConfigurationConsole.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/templates/DocsArtifactDetailTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/DocsArtifactDetailTemplate.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/templates/DocsCollectionTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/DocsCollectionTemplate.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/templates/DocsHomeTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/DocsHomeTemplate.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/templates/DocsShellTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/DocsShellTemplate.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/templates/DriverCardWallet.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/DriverCardWallet.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/templates/DriverMobileApp.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/DriverMobileApp.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/templates/FleetDashboardSuite.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/FleetDashboardSuite.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/templates/FleetManagerDesktop.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/FleetManagerDesktop.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "generated/react/templates/InternalOperationsConsole.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/InternalOperationsConsole.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 9
+    },
+    {
+      "file": "generated/react/templates/PatternDetailTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/PatternDetailTemplate.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/templates/ReferenceDetailTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/ReferenceDetailTemplate.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "generated/react/templates/RoutesAndStations.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/RoutesAndStations.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "generated/react/templates/SettingsWorkspace.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/SettingsWorkspace.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "generated/react/templates/TemplateDetailTemplate.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/TemplateDetailTemplate.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 6
+    },
+    {
+      "file": "generated/react/templates/index.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/react/templates/index.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 17
+    },
+    {
+      "file": "generated/token-contexts.css",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/tokens.css",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/vendor/echarts.esm.min.js",
+      "status": "generated-unreferenced",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "generated/vendor/react-dom-client.esm.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/vendor/react-dom.production.min.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/vendor/react.esm.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "generated/vendor/react.production.min.js",
+      "status": "generated-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "gold-accordion-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-animated-moment-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-audit-event-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-avatar-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-badge-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-biometric-prompt-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-breadcrumbs-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-button-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-card-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-card-expiry-input-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-card-number-input-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-card-security-code-input-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-card-summary-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-chart-panel-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-checkbox-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-chip-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-code-input-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-combobox-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-component-core.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-component-data.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-component-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 57
+    },
+    {
+      "file": "gold-country-selector-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-date-picker-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-date-range-picker-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-dialog-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-drawer-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-empty-state-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-error-panel-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-floating-action-button-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-icon-button-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-inline-validation-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-input-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-kpi-tile-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-list-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-menu-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-motion-boundary-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-movement-row-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-pagination-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-phone-input-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-popover-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-progress-indicator-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-quick-action-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-radio-button-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-route-summary-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-segmented-control-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-select-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-simple-component-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-skeleton-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-slider-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-spinner-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-station-pin-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-stepper-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-switch-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-table-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-tabs-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-tag-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-text-area-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "gold-toast-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-tooltip-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "gold-tree-view-docs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "home-illustrations.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "home-stack-renderers.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "icon-system.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "index.html",
+      "status": "entry",
+      "reachable": true,
+      "imports": 14
+    },
+    {
+      "file": "overlay-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-advanced-filter-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-build-gates.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "pattern-business-renderers.js",
+      "status": "source-orphan",
+      "reachable": false,
+      "imports": 1
+    },
+    {
+      "file": "pattern-candidate-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "pattern-candidate-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-column-configurator-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-contract-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 10
+    },
+    {
+      "file": "pattern-design-lead.js",
+      "status": "source-orphan",
+      "reachable": false,
+      "imports": 2
+    },
+    {
+      "file": "pattern-desktop-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "pattern-desktop-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "pattern-desktop-react-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-focused-design.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-journey-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "pattern-journey-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-journey-react-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-miel-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "pattern-mobile-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "pattern-mobile-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-mobile-react-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-operational-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "pattern-operational-react-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-package-demo.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-react-candidate-file-upload-island.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-react-candidate-filter-chip-group-island.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-react-candidate-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 16
+    },
+    {
+      "file": "pattern-react-candidate-toolbar-island.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-react-desktop-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "pattern-react-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 28
+    },
+    {
+      "file": "pattern-react-journey-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "pattern-react-mobile-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 5
+    },
+    {
+      "file": "pattern-react-operational-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 15
+    },
+    {
+      "file": "pattern-react-shell-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "pattern-roles-permissions-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "pattern-shell-react-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "pattern-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 7
+    },
+    {
+      "file": "pattern-utility-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "pattern-utility-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "primitive-reference.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 2
+    },
+    {
+      "file": "primitive-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "progress-indicator-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "react-component-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 66
+    },
+    {
+      "file": "reference-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "reference-layout.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "select-interactions.js",
+      "status": "source-orphan",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "shell-controls.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "stateful-component-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 65
+    },
+    {
+      "file": "styles/00-foundations-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/00-foundations-02-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/00-foundations-02-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/00-foundations-03.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/01-shell-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/01-shell-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/01-shell-icons.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/01-shell-intro.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/01-shell-react.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/02-doc-layout.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03a-reference-core-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03a-reference-core-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03a-reference-core-03.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03a-reference-core-04.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03b-foundation-reference-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03b-foundation-reference-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03c-motion-reference-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/03c-motion-reference-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04a-button-docs-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04a-button-docs-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04a-button-docs-03.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04a-demo-cell-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04b-card-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04b-component-standard-layout.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04b-select-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04c-input-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04d-checkbox-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04e-switch-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04f-radio-button-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04g-text-area-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04h-icon-button-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04i-simple-component-layout.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04j-badge-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04l-tag-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04m-tabs-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04n-tooltip-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04o-toast-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04t-menu-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04x-table-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04y-avatar-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/04z-slider-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05-catalog-and-examples-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05-catalog-and-examples-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05-catalog-and-examples-03.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05b-list-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05f-station-pin-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05h-code-input-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/05i-phone-input-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/06-responsive-01.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/06-responsive-02.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-bulk-actions.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-command-overlays.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-design-lead.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-desktop-demos.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-docs.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-focused-design.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-journey-demos.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-miel.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-mobile-demos.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-multi-step-form.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-settings-help.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/07-pattern-utility-demos.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "styles/08-template-desktop-demos.css",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "template-desktop-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "template-desktop-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 1
+    },
+    {
+      "file": "template-react-demos.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "template-react-islands.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 11
+    },
+    {
+      "file": "template-tabs.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 3
+    },
+    {
+      "file": "toast-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "tooltip-demo-interactions.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "types/flow-docs-boundary.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "types/react.d.ts",
+      "status": "type-artifact",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "utils.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AQ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AX.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/AZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BB.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BJ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BQ-BO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BQ-SA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BQ-SE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BQ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BV.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/BZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CV.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CX.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/CZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/DE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/DJ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/DK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/DM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/DO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/DZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/EC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/EE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/EG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/EH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ER.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ES-CT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ES.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ET.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/EU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/FI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/FJ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/FK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/FM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/FO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/FR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GB-ENG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GB-NIR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GB-SCT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GB-WLS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GB.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GP.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GQ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/GY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/HK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/HM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/HN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/HR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/HT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/HU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ID.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IQ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/IT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/JE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/JM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/JO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/JP.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KP.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/KZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LB.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LV.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/LY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ME.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ML.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MP.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MQ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MV.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MX.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/MZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NP.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/NZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/OM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/PY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/QA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/RE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/RO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/RS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/RU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/RW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SB.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SJ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ST.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SV.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SX.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/SZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TD.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TH.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TJ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TL.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TR.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TV.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/TZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/UA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/UG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/UM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/US.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/UY.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/UZ.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VG.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VI.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VN.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/VU.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/WF.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/WS.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/XA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/XC.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/XK.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/XO.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/YE.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/YT.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ZA.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ZM.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/3x2/ZW.svg",
+      "status": "vendor-dynamic-asset",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/country-flag-icons/LICENSE",
+      "status": "vendor-license",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/echarts.LICENSE",
+      "status": "vendor-license",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/echarts.esm.min.js",
+      "status": "vendor-unreferenced",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/lottie-web/LICENSE.md",
+      "status": "vendor-license",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/lottie-web/lottie.min.js",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/maplibre-gl/LICENSE.txt",
+      "status": "vendor-license",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/maplibre-gl/maplibre-gl.css",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/maplibre-gl/maplibre-gl.js",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/material-symbols/material-symbols-rounded-400.ttf",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/material-symbols/material-symbols-rounded-500.ttf",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/material-symbols/material-symbols-rounded-600.ttf",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/material-symbols/material-symbols-rounded-700.ttf",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 0
+    },
+    {
+      "file": "vendor/material-symbols/material-symbols-rounded.css",
+      "status": "vendor-used",
+      "reachable": true,
+      "imports": 4
+    },
+    {
+      "file": "vendor/open-doodles/LICENSE.md",
+      "status": "vendor-license",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "vendor/open-doodles/manifest.json",
+      "status": "vendor-unreferenced",
+      "reachable": false,
+      "imports": 0
+    },
+    {
+      "file": "visual-examples.js",
+      "status": "runtime-used",
+      "reachable": true,
+      "imports": 0
+    }
+  ],
+  "nextActions": [
+    "Review source-orphan files before deletion; some may be intentionally loaded by route/content indirection not visible to static import tracing.",
+    "Treat generated-unreferenced files as rebuild or clean-output candidates, never canonical source.",
+    "Treat vendor-unreferenced files as dependency cleanup candidates after visual/runtime smoke."
+  ]
+}

@@ -22,12 +22,12 @@ Production readiness is not inferred from visual parity or TS build success; eve
 ## Test Capability Snapshot
 
 - Testing Library render calls: 228
-- fireEvent calls: 487
-- getByRole calls: 426
+- fireEvent calls: 507
+- getByRole calls: 428
 - getByLabelText calls: 19
-- keyDown calls: 40
-- Escape key checks: 20
-- Arrow key checks: 19
+- keyDown calls: 58
+- Escape key checks: 23
+- Arrow key checks: 31
 - user-event usage: 32
 - axe usage: 19
 
@@ -75,7 +75,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | input | Input | P0 | forms | ready | yes | 8 | None | None |
 | input-amount | InputAmount | P2 | forms-payment | ready | yes | 3 | None | None |
 | kpi-tile | KpiTile | P2 | data-display | ready | yes | 4 | None | None |
-| list | List | P1 | data-display | ready | yes | 11 | None | None |
+| list | List | P1 | data-display | ready | yes | 12 | None | None |
 | menu | Menu | P0 | overlays-feedback | ready | yes | 5 | None | None |
 | motion-boundary | MotionBoundary | P2 | motion-feedback | ready | yes | 3 | None | None |
 | movement-row | MovementRow | P2 | domain-fleet | ready | yes | 4 | None | None |
@@ -87,10 +87,10 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | ready | yes | 4 | None | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |
-| select | Select | P0 | forms | ready | yes | 20 | None | None |
+| select | Select | P0 | forms | ready | yes | 21 | None | None |
 | skeleton | Skeleton | P2 | feedback | ready | yes | 3 | None | None |
 | slider | Slider | P0 | forms | ready | yes | 3 | None | None |
-| spinner | Spinner | P2 | feedback | ready | yes | 5 | None | None |
+| spinner | Spinner | P2 | feedback | ready | yes | 6 | None | None |
 | station-pin | StationPin | P2 | domain-fleet | ready | yes | 4 | None | None |
 | stepper | Stepper | P1 | progress-feedback | ready | yes | 3 | None | None |
 | surface | Surface | P2 | surface-display | ready | yes | 7 | None | None |

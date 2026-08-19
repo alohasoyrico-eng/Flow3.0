@@ -150,6 +150,7 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
+        "aria-busy": resolvedState === "loading" ? "true" : undefined,
         onChange: handleChange,
     }), suffix
         ? React.createElement("span", { className: "field__suffix", "aria-hidden": "true" }, suffix)

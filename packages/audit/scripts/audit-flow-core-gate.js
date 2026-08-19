@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+const { checkSystemArchitectureGate } = require("./audit-architecture-gate.js");
+const { checkAdoptionReadiness } = require("./audit-adoption-readiness.js");
+const { checkMachineReadableSpec } = require("./audit-spec.js");
+const { checkComponentContracts } = require("./audit-component-contracts.js");
+const { checkPatternContracts } = require("./audit-pattern-contracts.js");
+const { checkTaxonomyBoundaries } = require("./audit-taxonomy-boundaries.js");
+const { checkComponentBehaviorContracts } = require("./audit-component-behavior-contracts.js");
+const { checkComponentModules } = require("./audit-component-modules.js");
+const { checkPackageApiBoundary } = require("./audit-package-api.js");
+const { checkPackageCssNamespace } = require("./audit-package-css-namespace.js");
+const { checkPackageCssContracts } = require("./audit-package-css-contracts.js");
+const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
+const { checkDensityContracts } = require("./audit-density-contracts.js");
+const { checkBreakpointContracts } = require("./audit-breakpoint-contracts.js");
+const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
+const { checkReactContractTriangle } = require("./audit-react-contract-triangle.js");
+const { checkReactCopyContract } = require("./audit-react-copy-contract.js");
+const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
+const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
+const { finishAudit } = require("./audit-result.js");
+
+checkSystemArchitectureGate();
+checkAdoptionReadiness();
+checkMachineReadableSpec();
+checkComponentContracts();
+checkPatternContracts();
+checkTaxonomyBoundaries();
+checkComponentBehaviorContracts();
+checkComponentModules();
+checkPackageApiBoundary();
+checkPackageCssNamespace();
+checkPackageCssContracts();
+checkPlatformAdapters();
+checkDensityContracts();
+checkBreakpointContracts();
+checkReactPrimaryContract();
+checkReactContractTriangle();
+checkReactCopyContract();
+checkAntiDuplicationGovernance();
+checkManualAccessibility();
+
+finishAudit();

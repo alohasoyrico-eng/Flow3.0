@@ -15,6 +15,8 @@ React components that declare callback props must use them in source and must ha
 - Missing callback test assertions: 0
 - Missing callback event params: 0
 - Manual accessibility critical pass: 10/10
+- Required keyboard contracts pass: 10/10
+- Required state semantics contracts pass: 4/4
 - Inventory baseline mismatches: 0
 
 ## Baseline Budget
@@ -67,3 +69,27 @@ Changing these numbers is a contract decision. interactionDebt must stay at 0; c
 ## Missing Callback Event Params
 
 - None
+
+## Required Keyboard Contracts
+
+| Component | Status | Keys | Assertions | Missing keys | Missing assertions |
+| --- | --- | --- | --- | --- | --- |
+| Combobox | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected | None | None |
+| Select | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-active | None | None |
+| CountrySelector | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected | None | None |
+| Menu | pass | ArrowDown, ArrowUp, Escape | aria-expanded | None | None |
+| Dialog | pass | Escape | aria-modal, aria-expanded | None | None |
+| Drawer | pass | Escape | aria-modal, aria-expanded | None | None |
+| Popover | pass | Escape | aria-expanded | None | None |
+| Tooltip | pass | Escape | aria-describedby | None | None |
+| Tabs | pass | ArrowRight, ArrowLeft, Home, End | aria-selected | None | None |
+| TreeView | pass | ArrowDown, ArrowUp, Enter | aria-selected, data-selected | None | None |
+
+## Required State Semantics Contracts
+
+| Component | Status | Assertions | Missing assertions |
+| --- | --- | --- | --- |
+| Button | pass | data-state, aria-busy, button--danger, button--warning | None |
+| Input | pass | data-state, aria-busy, field__icon--loading, success, warning | None |
+| Select | pass | data-active, data-selected, aria-activedescendant, aria-expanded | None |
+| Combobox | pass | data-active, data-selected, aria-activedescendant, aria-expanded | None |

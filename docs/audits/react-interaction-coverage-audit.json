@@ -342,6 +342,12 @@
     "missingEventParams": 0,
     "manualAccessibilityCritical": 10,
     "manualAccessibilityCriticalPass": 10,
+    "requiredKeyboardContracts": 10,
+    "requiredKeyboardContractsPass": 10,
+    "missingRequiredKeyboardContracts": 0,
+    "requiredStateSemanticsContracts": 4,
+    "requiredStateSemanticsContractsPass": 4,
+    "missingRequiredStateSemanticsContracts": 0,
     "reactGovernancePolicyIssues": 0,
     "interactionDebt": 0
   },
@@ -447,6 +453,200 @@
         "onOpenChange"
       ],
       "hasInteractionTestPresence": true
+    }
+  ],
+  "keyboardContracts": [
+    {
+      "component": "Combobox",
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "Enter",
+        "Escape"
+      ],
+      "assertions": [
+        "aria-activedescendant",
+        "aria-expanded",
+        "data-selected"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Select",
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "Enter",
+        "Escape"
+      ],
+      "assertions": [
+        "aria-activedescendant",
+        "aria-expanded",
+        "data-active"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "CountrySelector",
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "Enter",
+        "Escape"
+      ],
+      "assertions": [
+        "aria-activedescendant",
+        "aria-expanded",
+        "data-selected"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Menu",
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "Escape"
+      ],
+      "assertions": [
+        "aria-expanded"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Dialog",
+      "keys": [
+        "Escape"
+      ],
+      "assertions": [
+        "aria-modal",
+        "aria-expanded"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Drawer",
+      "keys": [
+        "Escape"
+      ],
+      "assertions": [
+        "aria-modal",
+        "aria-expanded"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Popover",
+      "keys": [
+        "Escape"
+      ],
+      "assertions": [
+        "aria-expanded"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Tooltip",
+      "keys": [
+        "Escape"
+      ],
+      "assertions": [
+        "aria-describedby"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "Tabs",
+      "keys": [
+        "ArrowRight",
+        "ArrowLeft",
+        "Home",
+        "End"
+      ],
+      "assertions": [
+        "aria-selected"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    },
+    {
+      "component": "TreeView",
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "Enter"
+      ],
+      "assertions": [
+        "aria-selected",
+        "data-selected"
+      ],
+      "covered": true,
+      "missingKeys": [],
+      "missingAssertions": []
+    }
+  ],
+  "stateSemanticsContracts": [
+    {
+      "component": "Button",
+      "assertions": [
+        "data-state",
+        "aria-busy",
+        "button--danger",
+        "button--warning"
+      ],
+      "covered": true,
+      "missingAssertions": []
+    },
+    {
+      "component": "Input",
+      "assertions": [
+        "data-state",
+        "aria-busy",
+        "field__icon--loading",
+        "success",
+        "warning"
+      ],
+      "covered": true,
+      "missingAssertions": []
+    },
+    {
+      "component": "Select",
+      "assertions": [
+        "data-active",
+        "data-selected",
+        "aria-activedescendant",
+        "aria-expanded"
+      ],
+      "covered": true,
+      "missingAssertions": []
+    },
+    {
+      "component": "Combobox",
+      "assertions": [
+        "data-active",
+        "data-selected",
+        "aria-activedescendant",
+        "aria-expanded"
+      ],
+      "covered": true,
+      "missingAssertions": []
     }
   ],
   "components": [

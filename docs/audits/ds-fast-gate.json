@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "ds-fast-gate@1",
+  "generatedAt": "2026-08-18T23:37:32.086Z",
+  "status": "pass",
+  "decision": "Fast DS feedback is green; run validate:flow-core before release.",
+  "checks": [
+    {
+      "id": "ds-qa-topology",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/report-ds-qa-topology.js"
+      ],
+      "owns": "QA lane integrity",
+      "commandLine": "node packages/audit/scripts/report-ds-qa-topology.js",
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 28,
+      "stdoutTail": [
+        "{",
+        "  \"status\": \"pass\",",
+        "  \"levels\": 4,",
+        "  \"issues\": 0,",
+        "  \"errors\": 0,",
+        "  \"json\": \"docs/audits/ds-qa-topology.json\",",
+        "  \"markdown\": \"docs/audits/ds-qa-topology.md\"",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "flow-core-contracts",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:flow-core-gate"
+      ],
+      "owns": "package/spec/token/component/pattern/react contracts",
+      "commandLine": "npm run audit:flow-core-gate",
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1019,
+      "stdoutTail": [
+        "> @alohasoyrico-eng/flow@0.3.0-platform-mvp audit:flow-core-gate",
+        "> node packages/audit/scripts/audit-flow-core-gate.js",
+        "{",
+        "  \"status\": \"pass\",",
+        "  \"errors\": [],",
+        "  \"warnings\": [],",
+        "  \"info\": [],",
+        "  \"inventory\": {}",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "react-production-readiness",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/report-react-production-readiness.js"
+      ],
+      "owns": "React public surface readiness evidence",
+      "commandLine": "node packages/audit/scripts/report-react-production-readiness.js",
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 122,
+      "stdoutTail": [
+        "  \"status\": \"pass\",",
+        "  \"publicReactComponents\": 63,",
+        "  \"readyComponents\": 63,",
+        "  \"partialComponents\": 0,",
+        "  \"missingContracts\": 0,",
+        "  \"missingDirectTestEvidence\": 0,",
+        "  \"reactProductionReadinessHarnessDebt\": 0,",
+        "  \"json\": \"docs/audits/react-production-readiness.json\",",
+        "  \"markdown\": \"docs/audits/react-production-readiness.md\"",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "react-interaction-coverage",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/report-react-interaction-coverage.js"
+      ],
+      "owns": "callback, keyboard, and state semantics evidence",
+      "commandLine": "node packages/audit/scripts/report-react-interaction-coverage.js",
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 65,
+      "stdoutTail": [
+        "  \"fail\": 0,",
+        "  \"missingTestCallbacks\": 0,",
+        "  \"missingEventParams\": 0,",
+        "  \"requiredKeyboardContracts\": 10,",
+        "  \"missingRequiredKeyboardContracts\": 0,",
+        "  \"requiredStateSemanticsContracts\": 4,",
+        "  \"missingRequiredStateSemanticsContracts\": 0,",
+        "  \"json\": \"docs/audits/react-interaction-coverage-audit.json\",",
+        "  \"markdown\": \"docs/audits/react-interaction-coverage-audit.md\"",
+        "}"
+      ],
+      "stderrTail": []
+    }
+  ],
+  "failures": []
+}

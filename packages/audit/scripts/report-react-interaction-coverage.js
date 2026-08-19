@@ -65,6 +65,60 @@ function testCoversCallback(tests, component, callback) {
   return nearComponentThenCallback.test(tests) || nearCallbackThenComponent.test(tests);
 }
 
+const requiredKeyboardContracts = [
+  { component: "Combobox", keys: ["ArrowDown", "ArrowUp", "Enter", "Escape"], assertions: ["aria-activedescendant", "aria-expanded", "data-selected"] },
+  { component: "Select", keys: ["ArrowDown", "ArrowUp", "Enter", "Escape"], assertions: ["aria-activedescendant", "aria-expanded", "data-active"] },
+  { component: "CountrySelector", keys: ["ArrowDown", "ArrowUp", "Enter", "Escape"], assertions: ["aria-activedescendant", "aria-expanded", "data-selected"] },
+  { component: "Menu", keys: ["ArrowDown", "ArrowUp", "Escape"], assertions: ["aria-expanded"] },
+  { component: "Dialog", keys: ["Escape"], assertions: ["aria-modal", "aria-expanded"] },
+  { component: "Drawer", keys: ["Escape"], assertions: ["aria-modal", "aria-expanded"] },
+  { component: "Popover", keys: ["Escape"], assertions: ["aria-expanded"] },
+  { component: "Tooltip", keys: ["Escape"], assertions: ["aria-describedby"] },
+  { component: "Tabs", keys: ["ArrowRight", "ArrowLeft", "Home", "End"], assertions: ["aria-selected"] },
+  { component: "TreeView", keys: ["ArrowDown", "ArrowUp", "Enter"], assertions: ["aria-selected", "data-selected"] },
+];
+
+const requiredStateSemanticsContracts = [
+  { component: "Button", assertions: ["data-state", "aria-busy", "button--danger", "button--warning"] },
+  { component: "Input", assertions: ["data-state", "aria-busy", "field__icon--loading", "success", "warning"] },
+  { component: "Select", assertions: ["data-active", "data-selected", "aria-activedescendant", "aria-expanded"] },
+  { component: "Combobox", assertions: ["data-active", "data-selected", "aria-activedescendant", "aria-expanded"] },
+];
+
+function testCoversKeyboardContract(tests, contract) {
+  const windows = [];
+  const componentPattern = new RegExp(`\\b${contract.component}\\b`, "g");
+  for (const match of tests.matchAll(componentPattern)) {
+    const start = Math.max(0, match.index - 800);
+    const end = Math.min(tests.length, match.index + 5000);
+    windows.push(tests.slice(start, end));
+  }
+  const missingKeys = contract.keys.filter((key) => !windows.some((scoped) => scoped.includes(key)));
+  const missingAssertions = contract.assertions.filter((assertion) => !windows.some((scoped) => scoped.includes(assertion)));
+  return {
+    ...contract,
+    covered: missingKeys.length === 0 && missingAssertions.length === 0,
+    missingKeys,
+    missingAssertions,
+  };
+}
+
+function testCoversStateSemanticsContract(tests, contract) {
+  const windows = [];
+  const componentPattern = new RegExp(`\\b${contract.component}\\b`, "g");
+  for (const match of tests.matchAll(componentPattern)) {
+    const start = Math.max(0, match.index - 800);
+    const end = Math.min(tests.length, match.index + 5000);
+    windows.push(tests.slice(start, end));
+  }
+  const missingAssertions = contract.assertions.filter((assertion) => !windows.some((scoped) => scoped.includes(assertion)));
+  return {
+    ...contract,
+    covered: missingAssertions.length === 0,
+    missingAssertions,
+  };
+}
+
 function createReport() {
   const { expectedInventory, governance } = reactSecondaryExpectedInventory("interaction");
   const criticalPolicy = accessibilityCriticalRequirementsPolicy();
@@ -108,6 +162,10 @@ function createReport() {
     };
   });
   const criticalMissing = manualAccessibilityCritical.filter((component) => !component.present || component.status !== "pass" || !component.hasInteractionTestPresence);
+  const keyboardContracts = requiredKeyboardContracts.map((contract) => testCoversKeyboardContract(tests, contract));
+  const missingKeyboardContracts = keyboardContracts.filter((contract) => !contract.covered);
+  const stateSemanticsContracts = requiredStateSemanticsContracts.map((contract) => testCoversStateSemanticsContract(tests, contract));
+  const missingStateSemanticsContracts = stateSemanticsContracts.filter((contract) => !contract.covered);
   const inventory = {
     components: components.length,
     withCallbacks: components.filter((component) => component.callbacks.length).length,
@@ -118,12 +176,20 @@ function createReport() {
     missingEventParams: components.reduce((total, component) => total + component.missingEventParam.length, 0),
     manualAccessibilityCritical: manualAccessibilityCritical.length,
     manualAccessibilityCriticalPass: manualAccessibilityCritical.filter((component) => component.present && component.status === "pass" && component.hasInteractionTestPresence).length,
+    requiredKeyboardContracts: keyboardContracts.length,
+    requiredKeyboardContractsPass: keyboardContracts.filter((contract) => contract.covered).length,
+    missingRequiredKeyboardContracts: missingKeyboardContracts.length,
+    requiredStateSemanticsContracts: stateSemanticsContracts.length,
+    requiredStateSemanticsContractsPass: stateSemanticsContracts.filter((contract) => contract.covered).length,
+    missingRequiredStateSemanticsContracts: missingStateSemanticsContracts.length,
     reactGovernancePolicyIssues: governance.issues.length + criticalPolicy.governance.issues.length,
   };
   inventory.interactionDebt = inventory.fail
     + inventory.missingTestCallbacks
     + inventory.missingEventParams
     + (inventory.manualAccessibilityCritical - inventory.manualAccessibilityCriticalPass)
+    + inventory.missingRequiredKeyboardContracts
+    + inventory.missingRequiredStateSemanticsContracts
     + inventory.reactGovernancePolicyIssues;
   const baselineMismatches = Object.entries(expectedInventory)
     .filter(([key, expected]) => inventory[key] !== expected)
@@ -146,6 +212,8 @@ function createReport() {
     },
     inventory,
     manualAccessibilityCritical,
+    keyboardContracts,
+    stateSemanticsContracts,
     components,
   };
 }
@@ -173,6 +241,8 @@ function toMarkdown(report) {
     `- Missing callback test assertions: ${report.inventory.missingTestCallbacks}`,
     `- Missing callback event params: ${report.inventory.missingEventParams}`,
     `- Manual accessibility critical pass: ${report.inventory.manualAccessibilityCriticalPass}/${report.inventory.manualAccessibilityCritical}`,
+    `- Required keyboard contracts pass: ${report.inventory.requiredKeyboardContractsPass}/${report.inventory.requiredKeyboardContracts}`,
+    `- Required state semantics contracts pass: ${report.inventory.requiredStateSemanticsContractsPass}/${report.inventory.requiredStateSemanticsContracts}`,
     `- Inventory baseline mismatches: ${report.baseline.mismatches.length}`,
     "",
     "## Baseline Budget",
@@ -234,6 +304,28 @@ function toMarkdown(report) {
     }
   }
 
+  const missingKeyboardContracts = report.keyboardContracts.filter((contract) => !contract.covered);
+  lines.push("", "## Required Keyboard Contracts", "");
+  lines.push("| Component | Status | Keys | Assertions | Missing keys | Missing assertions |");
+  lines.push("| --- | --- | --- | --- | --- | --- |");
+  for (const contract of report.keyboardContracts) {
+    lines.push(`| ${contract.component} | ${contract.covered ? "pass" : "fail"} | ${contract.keys.join(", ")} | ${contract.assertions.join(", ")} | ${contract.missingKeys.join(", ") || "None"} | ${contract.missingAssertions.join(", ") || "None"} |`);
+  }
+  if (missingKeyboardContracts.length) {
+    lines.push("", `Required keyboard contract failures: ${missingKeyboardContracts.map((contract) => contract.component).join(", ")}.`);
+  }
+
+  const missingStateSemanticsContracts = report.stateSemanticsContracts.filter((contract) => !contract.covered);
+  lines.push("", "## Required State Semantics Contracts", "");
+  lines.push("| Component | Status | Assertions | Missing assertions |");
+  lines.push("| --- | --- | --- | --- |");
+  for (const contract of report.stateSemanticsContracts) {
+    lines.push(`| ${contract.component} | ${contract.covered ? "pass" : "fail"} | ${contract.assertions.join(", ")} | ${contract.missingAssertions.join(", ") || "None"} |`);
+  }
+  if (missingStateSemanticsContracts.length) {
+    lines.push("", `Required state semantics contract failures: ${missingStateSemanticsContracts.map((contract) => contract.component).join(", ")}.`);
+  }
+
   return `${lines.join("\n")}\n`;
 }
 
@@ -261,6 +353,14 @@ function checkReactInteractionCoverage() {
   if (criticalMissing.length) {
     add("errors", path.join(root, "packages/react/test/interaction.test.mjs"), 1, `Manual accessibility critical components need passing interaction coverage: ${criticalMissing.map((component) => component.component).join(", ")}.`);
   }
+  const missingKeyboardContracts = report.keyboardContracts.filter((contract) => !contract.covered);
+  if (missingKeyboardContracts.length) {
+    add("errors", path.join(root, "packages/react/test/interaction.test.mjs"), 1, `Required keyboard contracts missing test evidence: ${missingKeyboardContracts.map((contract) => contract.component).join(", ")}.`);
+  }
+  const missingStateSemanticsContracts = report.stateSemanticsContracts.filter((contract) => !contract.covered);
+  if (missingStateSemanticsContracts.length) {
+    add("errors", path.join(root, "packages/react/test/interaction.test.mjs"), 1, `Required state semantics contracts missing test evidence: ${missingStateSemanticsContracts.map((contract) => contract.component).join(", ")}.`);
+  }
 }
 
 function main() {
@@ -286,6 +386,10 @@ function main() {
     fail: report.inventory.fail,
     missingTestCallbacks: report.inventory.missingTestCallbacks,
     missingEventParams: report.inventory.missingEventParams,
+    requiredKeyboardContracts: report.inventory.requiredKeyboardContracts,
+    missingRequiredKeyboardContracts: report.inventory.missingRequiredKeyboardContracts,
+    requiredStateSemanticsContracts: report.inventory.requiredStateSemanticsContracts,
+    missingRequiredStateSemanticsContracts: report.inventory.missingRequiredStateSemanticsContracts,
     json: rel(jsonOutput),
     markdown: rel(markdownOutput),
   }, null, 2));

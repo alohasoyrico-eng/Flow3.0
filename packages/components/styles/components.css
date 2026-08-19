@@ -227,8 +227,13 @@
   --component-option-row-gap: var(--component-space-sm);
   --component-option-row-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
   --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
+  --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 6%, transparent);
+  --component-option-row-active-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
   --component-option-row-selected-weight: var(--component-font-weight-semibold);
+  --component-option-row-disabled-bg: transparent;
+  --component-option-row-disabled-color: var(--component-color-text-muted);
+  --component-option-row-disabled-opacity: var(--component-opacity-disabled);
   --component-option-row-check-size: var(--component-icon-size-sm);
   --component-listbox-gap: var(--component-space-2xs);
   --component-listbox-padding: var(--component-space-xs);
@@ -563,6 +568,8 @@
   --component-field-icon-action-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
   --component-field-icon-action-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));
+  --component-field-placeholder-fg: var(--component-color-text-muted);
+  --component-field-error-helper-fg: var(--component-color-danger);
   --component-country-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
   --component-country-flag-radius: var(--component-radius-pill);
   --component-country-flag-ring: var(--component-depth-border-ring);
@@ -588,6 +595,7 @@
   --comp-input-helper-fg: var(--component-color-text-muted);
   --comp-input-helper-weight: var(--component-font-weight-medium);
   --comp-input-helper-line-height: var(--component-line-height-snug-state);
+  --comp-input-placeholder-fg: var(--component-field-placeholder-fg);
   --comp-input-affix-fg: var(--component-color-text-muted);
   --comp-input-affix-family: var(--component-font-family-mono);
   --comp-input-affix-weight: var(--component-font-weight-semibold);
@@ -610,6 +618,7 @@
   --comp-input-loading-bg: color-mix(in srgb, var(--component-loading-skeleton-surface) 62%, var(--component-color-surface));
   --comp-input-error-border: var(--component-color-danger);
   --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
+  --comp-input-error-helper-fg: var(--component-field-error-helper-fg);
   --comp-input-info-border: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
   --comp-input-info-bg: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface));
   --comp-input-success-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
@@ -751,11 +760,11 @@
   --component-empty-state-icon-size-lg: var(--sys-frame-height-control-lg);
   --comp-checkbox-mark-size-sm: var(--component-inline-size-xs);
   --comp-checkbox-mark-size-md: var(--component-inline-size-sm);
-  --comp-checkbox-mark-size-lg: var(--component-min-text-line);
+  --comp-checkbox-mark-size-lg: var(--component-inline-size-md);
   --comp-checkbox-mark-size-compact: var(--comp-checkbox-mark-size-sm);
   --comp-checkbox-indicator-size-sm: var(--component-icon-size-sm);
   --comp-checkbox-indicator-size-md: var(--component-icon-size-sm-plus);
-  --comp-checkbox-indicator-size-lg: var(--component-icon-size-sm-plus);
+  --comp-checkbox-indicator-size-lg: var(--component-icon-size-md);
   --comp-checkbox-gap-sm: var(--component-space-xs);
   --comp-checkbox-gap-md: var(--component-space-sm);
   --comp-checkbox-gap-lg: var(--component-space-md);
@@ -794,7 +803,7 @@
   --comp-switch-track-padding: var(--component-border-width-indicator);
   --comp-switch-thumb-size-sm: var(--component-inline-size-xs);
   --comp-switch-thumb-size-md: var(--component-inline-size-sm);
-  --comp-switch-thumb-size-lg: var(--component-min-text-line);
+  --comp-switch-thumb-size-lg: var(--component-inline-size-md);
   --comp-switch-thumb-press-inline-sm: var(--component-inline-size-sm);
   --comp-switch-thumb-press-inline-md: var(--component-min-text-line);
   --comp-switch-thumb-press-inline-lg: var(--component-badge-min-size);
@@ -828,7 +837,7 @@
   --comp-switch-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-radio-button-mark-size-sm: var(--component-inline-size-xs);
   --comp-radio-button-mark-size-md: var(--component-inline-size-sm);
-  --comp-radio-button-mark-size-lg: var(--component-min-text-line);
+  --comp-radio-button-mark-size-lg: var(--component-inline-size-md);
   --comp-radio-button-mark-size-compact: var(--comp-radio-button-mark-size-sm);
   --comp-radio-button-indicator-scale: var(--component-ratio-half);
   --comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) * var(--comp-radio-button-indicator-scale));
@@ -1696,6 +1705,7 @@
 }
 
 .button__icon,
+.material-symbol,
 .icon-button__icon,
 .route-summary__icon,
 .card-summary__icon,
@@ -2081,6 +2091,11 @@
   --comp-combobox-option-color: var(--component-color-text);
   --comp-combobox-option-gap: var(--component-option-row-gap);
   --comp-combobox-option-hover-bg: var(--component-option-row-hover-bg);
+  --comp-combobox-option-active-bg: var(--component-option-row-active-bg);
+  --comp-combobox-option-active-ring: var(--component-option-row-active-ring);
+  --comp-combobox-option-disabled-bg: var(--component-option-row-disabled-bg);
+  --comp-combobox-option-disabled-color: var(--component-option-row-disabled-color);
+  --comp-combobox-option-disabled-opacity: var(--component-option-row-disabled-opacity);
   --comp-combobox-option-label-font-size: var(--component-font-size-body);
   --comp-combobox-option-label-font-weight: var(--component-font-weight-semibold);
   --comp-combobox-option-meta-font-size: var(--component-font-size-caption);
@@ -2158,10 +2173,15 @@
     color var(--component-duration-state) var(--component-ease-state);
 }
 
-.combobox__option:hover,
-.combobox__option:focus-visible,
-.combobox__option[data-active="true"] {
+.combobox__option:hover:not([data-disabled="true"]):not([aria-disabled="true"]),
+.combobox__option:focus-visible:not([data-disabled="true"]):not([aria-disabled="true"]) {
   background: var(--comp-combobox-option-hover-bg);
+}
+
+.combobox__option[data-active="true"]:not([data-selected="true"]):not([data-disabled="true"]):not([aria-disabled="true"]) {
+  background: var(--comp-combobox-option-active-bg);
+  outline: var(--component-focus-ring-width) solid var(--comp-combobox-option-active-ring);
+  outline-offset: calc(var(--component-focus-ring-offset) * -1);
 }
 
 .combobox__option[data-selected="true"] {
@@ -2171,6 +2191,14 @@
 
 .combobox__option[data-selected="true"] .combobox__option-label {
   font-weight: var(--comp-combobox-option-selected-weight);
+}
+
+.combobox__option[data-disabled="true"],
+.combobox__option[aria-disabled="true"] {
+  background: var(--comp-combobox-option-disabled-bg);
+  color: var(--comp-combobox-option-disabled-color);
+  cursor: not-allowed;
+  opacity: var(--comp-combobox-option-disabled-opacity);
 }
 
 .combobox__option-label {
@@ -2404,6 +2432,12 @@
   padding: 0;
 }
 
+.field-input::placeholder,
+.input::placeholder {
+  color: var(--comp-input-placeholder-fg);
+  opacity: 1;
+}
+
 .text-area {
   font: inherit;
 }
@@ -2451,7 +2485,7 @@
 .field-control[data-state="error"] .field-control__helper,
 .field[data-state="error"] .field__helper,
 .field[data-state="error"] .field__icon {
-  color: var(--comp-input-error-border);
+  color: var(--comp-input-error-helper-fg);
 }
 
 .field[data-state="info"] .field__icon,
@@ -2578,7 +2612,7 @@
 .choice {
   --comp-choice-current-mark-size: var(--component-inline-size-sm);
   --comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2);
-  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm-plus);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-indicator-variation: var(--component-icon-variation-outline-strong);
   --comp-choice-current-indicator-line-height: var(--component-line-height-none);
   --comp-choice-current-gap: var(--component-space-sm);
@@ -2613,7 +2647,8 @@
 
 .checkbox {
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-md);
-  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-md);
+  --comp-choice-current-indicator-size: var(--comp-checkbox-indicator-size-md);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--comp-checkbox-gap-md);
   --comp-choice-current-padding-block: var(--comp-checkbox-padding-block);
   --comp-choice-current-mark-bg: var(--comp-checkbox-bg);
@@ -2680,13 +2715,15 @@
 
 .choice[data-density="sm"] {
   --comp-choice-current-mark-size: var(--component-inline-size-xs);
-  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm);
+  --comp-choice-current-indicator-size: var(--component-icon-size-sm);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--component-space-xs);
 }
 
 .checkbox[data-density="sm"] {
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-sm);
-  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
+  --comp-choice-current-indicator-size: var(--comp-checkbox-indicator-size-sm);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--comp-checkbox-gap-sm);
   --comp-choice-current-text-gap: var(--comp-checkbox-gap-sm);
 }
@@ -2699,13 +2736,15 @@
 
 .choice[data-density="lg"] {
   --comp-choice-current-mark-size: var(--component-min-text-line);
-  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm-plus);
+  --comp-choice-current-indicator-size: var(--component-icon-size-md);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--component-space-md);
 }
 
 .checkbox[data-density="lg"] {
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-lg);
-  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-lg);
+  --comp-choice-current-indicator-size: var(--comp-checkbox-indicator-size-lg);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--comp-checkbox-gap-lg);
   --comp-choice-current-text-gap: var(--comp-checkbox-gap-lg);
 }
@@ -2718,7 +2757,8 @@
 
 .choice[data-variant="compact"] {
   --comp-choice-current-mark-size: var(--component-inline-size-xs);
-  --comp-choice-current-indicator-font-size: var(--component-icon-size-sm);
+  --comp-choice-current-indicator-size: var(--component-icon-size-sm);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--component-space-xs);
   min-block-size: auto;
   padding-block: 0;
@@ -2726,7 +2766,8 @@
 
 .checkbox[data-variant="compact"] {
   --comp-choice-current-mark-size: var(--comp-checkbox-mark-size-compact);
-  --comp-choice-current-indicator-font-size: var(--comp-checkbox-indicator-size-sm);
+  --comp-choice-current-indicator-size: var(--comp-checkbox-indicator-size-sm);
+  --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--comp-checkbox-gap-sm);
   --comp-choice-current-text-gap: var(--comp-checkbox-gap-sm);
 }
@@ -6986,6 +7027,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-bg: var(--component-surface-transparent);
   --comp-menu-item-fg: var(--component-color-text);
   --comp-menu-item-hover-bg: var(--component-option-row-hover-bg);
+  --comp-menu-item-active-bg: var(--component-option-row-active-bg);
   --comp-menu-item-danger-fg: var(--component-color-danger);
   --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
   --comp-menu-item-disabled-fg: var(--component-color-text-muted);
@@ -10404,8 +10446,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-option-radius: var(--component-option-row-radius);
   --comp-select-option-color: var(--component-color-text);
   --comp-select-option-hover-bg: var(--component-option-row-hover-bg);
+  --comp-select-option-active-bg: var(--component-option-row-active-bg);
+  --comp-select-option-active-ring: var(--component-option-row-active-ring);
   --comp-select-option-selected-bg: var(--component-option-row-selected-bg);
   --comp-select-option-selected-weight: var(--component-option-row-selected-weight);
+  --comp-select-option-disabled-bg: var(--component-option-row-disabled-bg);
+  --comp-select-option-disabled-color: var(--component-option-row-disabled-color);
+  --comp-select-option-disabled-opacity: var(--component-option-row-disabled-opacity);
   --comp-select-option-check-family: var(--component-font-family-icon);
   --comp-select-option-check-size: var(--component-option-row-check-size);
   --comp-select-option-check-weight: var(--component-font-weight-medium);
@@ -10908,18 +10955,23 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   padding: 0 var(--comp-country-selector-option-padding-x);
 }
 
-.select-control__option:hover,
-.select-control__option:focus-visible,
-.select-control__option[data-active="true"],
-.country-selector__option:hover,
-.country-selector__option:focus-visible {
+.select-control__option:hover:not([data-disabled="true"]):not([aria-disabled="true"]),
+.select-control__option:focus-visible:not([data-disabled="true"]):not([aria-disabled="true"]),
+.country-selector__option:hover:not([data-disabled="true"]):not([aria-disabled="true"]),
+.country-selector__option:focus-visible:not([data-disabled="true"]):not([aria-disabled="true"]) {
   background: var(--comp-select-option-hover-bg);
-  outline: var(--component-focus-ring-width) solid var(--comp-select-focus-ring);
+  outline: var(--component-focus-ring-width) solid var(--comp-select-option-active-ring);
   outline-offset: calc(var(--component-focus-ring-offset) * -1);
 }
 
-.country-selector__option:hover,
-.country-selector__option:focus-visible {
+.select-control__option[data-active="true"]:not([data-selected="true"]):not([data-disabled="true"]):not([aria-disabled="true"]) {
+  background: var(--comp-select-option-active-bg);
+  outline: var(--component-focus-ring-width) solid var(--comp-select-option-active-ring);
+  outline-offset: calc(var(--component-focus-ring-offset) * -1);
+}
+
+.country-selector__option:hover:not([data-disabled="true"]):not([aria-disabled="true"]),
+.country-selector__option:focus-visible:not([data-disabled="true"]):not([aria-disabled="true"]) {
   background: var(--comp-country-selector-option-hover-bg);
   outline-color: var(--comp-country-selector-trigger-focus-ring);
 }
@@ -10933,6 +10985,16 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .country-selector__option[data-selected="true"] {
   background: var(--comp-country-selector-option-selected-bg);
   color: var(--comp-country-selector-option-color);
+}
+
+.select-control__option[data-disabled="true"],
+.select-control__option[aria-disabled="true"],
+.country-selector__option[data-disabled="true"],
+.country-selector__option[aria-disabled="true"] {
+  background: var(--comp-select-option-disabled-bg);
+  color: var(--comp-select-option-disabled-color);
+  cursor: not-allowed;
+  opacity: var(--comp-select-option-disabled-opacity);
 }
 
 .country-selector__option-body {
@@ -12642,6 +12704,13 @@ body[data-theme="dark"],
   --component-color-text-muted: var(--sys-color-text-muted);
   --component-color-text-subtle: var(--sys-color-text-subtle);
   --component-color-warning: var(--sys-color-warning);
+  --component-field-placeholder-fg: var(--component-color-text-muted);
+  --component-field-error-helper-fg: var(--sys-energy-dark-status-error);
+  --component-listbox-bg: color-mix(in srgb, var(--component-color-surface-raised) 88%, var(--component-color-surface));
+  --component-listbox-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
+  --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-surface-raised));
+  --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface-raised));
+  --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-surface-raised));
   color-scheme: dark;
 }
 
@@ -12696,12 +12765,18 @@ body[data-theme="dark"],
   --comp-input-surface-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
   --comp-input-surface-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
   --comp-input-surface-fg: var(--component-color-text);
+  --comp-input-label-fg: var(--component-color-text);
   --comp-input-field-fg: var(--component-color-text);
   --comp-input-helper-fg: var(--component-color-text-muted);
+  --comp-input-placeholder-fg: var(--component-color-text-muted);
   --comp-input-affix-fg: var(--component-color-text-muted);
   --comp-input-action-fg: var(--component-color-text-muted);
   --comp-input-icon-fg: var(--component-color-text-muted);
   --comp-input-disabled-bg: color-mix(in srgb, var(--component-color-surface-raised) 62%, transparent);
+  --comp-input-loading-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface-raised));
+  --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface));
+  --comp-input-error-border: color-mix(in srgb, var(--component-color-danger) 78%, var(--component-color-text));
+  --comp-input-error-helper-fg: var(--component-field-error-helper-fg);
 }
 
 [data-theme="dark"] .card {

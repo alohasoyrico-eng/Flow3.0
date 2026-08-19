@@ -74,9 +74,22 @@ try {
       value: "DISABLED",
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
+    assert.equal(view.container.querySelector(".field")?.dataset.state, "disabled");
     await user.click(field);
     await user.keyboard("X");
     assert.equal(field.value, "DISABLED");
+
+    view.rerender(React.createElement(Input, {
+      label: "Vehicle plate",
+      loading: true,
+      value: "SAVING",
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    assert.equal(view.container.querySelector(".field")?.dataset.state, "loading");
+    assert.equal(field.disabled, true);
+    assert.equal(field.getAttribute("aria-busy"), "true");
+    assert.equal(view.container.querySelector(".spinner")?.classList.contains("field__icon--loading"), true);
+    assert.notEqual(view.container.querySelector(".field")?.dataset.state, "disabled");
     await assertNoAxeViolations(view.container);
     cleanup();
   }

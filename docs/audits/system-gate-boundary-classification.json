@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "system-gate-boundary-classification@1",
+  "generatedAt": "2026-08-18T22:53:44.655Z",
+  "status": "action_required",
+  "rules": [
+    "The authoritative Flow package release command is npm run validate:flow-core; npm run validate:system is a compatibility alias to that command.",
+    "Generated reports are never canonical source; they are reproducible evidence only.",
+    "Flow core gates must not require FlowDocs renderers unless the gate is explicitly a consumer gate.",
+    "FlowDocs gates may validate consumption of Flow packages but must not define component API, state, token, or accessibility truth.",
+    "Legacy forensic files can inform decisions but must not block current gates unless promoted to an active contract.",
+    "A combined audit may exist only as an aggregator that reports layer status separately.",
+    "Legacy mixed gates may remain for historical coverage but must be marked non-authoritative for Flow core release readiness."
+  ],
+  "layers": [
+    {
+      "id": "flow-core",
+      "owner": "Flow package source",
+      "purpose": "Validate tokens, specs, package CSS, React source, public exports, runtime install, accessibility, interaction, and component contracts.",
+      "sourceOfTruth": [
+        "packages/tokens/src/**",
+        "packages/tokens/tokens.json",
+        "packages/specs/specs/**",
+        "packages/components/src/**",
+        "packages/components/styles/components.css",
+        "packages/react/src/**",
+        "packages/react/dist/**",
+        "packages/react/test/**"
+      ],
+      "allowedGeneratedEvidence": [
+        "docs/audits/react-production-readiness.json",
+        "docs/audits/react-interaction-coverage-audit.json"
+      ],
+      "scripts": [
+        "audit-ds-release-gate.js",
+        "audit-consumer-install.mjs",
+        "audit-component-css-contracts.js",
+        "audit-package-css-contracts.js",
+        "audit-density-contracts.js",
+        "audit-energy-contracts.js",
+        "audit-voice-contracts.js",
+        "audit-state-contracts.js",
+        "audit-motion-contracts.js",
+        "audit-accessibility-contracts.js",
+        "audit-react-primary-contract.js",
+        "report-react-production-readiness.js",
+        "report-react-interaction-coverage.js"
+      ]
+    },
+    {
+      "id": "flowdocs-consumer",
+      "owner": "FlowDocs app",
+      "purpose": "Validate FlowDocs as a consumer of Flow, not as package source or generated proof.",
+      "sourceOfTruth": [
+        "../FlowDocs/apps/docs/**",
+        "packages/content/content/**",
+        "packages/react/dist/templates/**"
+      ],
+      "allowedGeneratedEvidence": [
+        "../FlowDocs/apps/docs/generated/docs-content.bundle.json"
+      ],
+      "scripts": [
+        "audit-docs-runtime.mjs",
+        "audit-docs-component-demo-ownership.js",
+        "audit-docs-content.js",
+        "audit-template-composition.js",
+        "report-system-phase6-flowdocs-consumer-checkpoint.js"
+      ]
+    },
+    {
+      "id": "generated-reports",
+      "owner": "Audit runner",
+      "purpose": "Store reproducible outputs. These files may be checked for freshness but must not be treated as canonical source.",
+      "sourceOfTruth": [],
+      "allowedGeneratedEvidence": [
+        "docs/audits/component-1to1-quality-matrix.json",
+        "docs/audits/react-production-readiness.json",
+        "docs/audits/react-interaction-coverage-audit.json",
+        "docs/audits/system-debt-ledger.json"
+      ],
+      "scripts": [
+        "report-system-debt-ledger.js",
+        "report-system-audit-contract-governance.js",
+        "report-system-phase4-component-cascade-checkpoint.js"
+      ]
+    },
+    {
+      "id": "legacy-forensics",
+      "owner": "Historical evidence",
+      "purpose": "Preserve prior forensic observations for context only. These files must not gate current readiness without an explicit migration decision.",
+      "sourceOfTruth": [],
+      "allowedGeneratedEvidence": [
+        "docs/forensics/**"
+      ],
+      "scripts": [
+        "report-system-p0-forensic-detail.js",
+        "report-system-p0-owner-decision-matrix.js",
+        "report-system-remediation-matrix.js"
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "layer": "generated-reports",
+      "file": "packages/audit/scripts/audit-integration.js",
+      "severity": "high",
+      "message": "audit-integration uses component-1to1 generated report validation inside the mixed gate."
+    },
+    {
+      "layer": "flowdocs-consumer",
+      "file": "packages/audit/scripts/audit-integration.js",
+      "severity": "high",
+      "message": "audit-integration mixes FlowDocs template composition with Flow core validation."
+    },
+    {
+      "layer": "flowdocs-consumer",
+      "file": "packages/audit/scripts/audit-system-scope.js",
+      "severity": "medium",
+      "message": "audit-system-scope includes FlowDocs demo ownership in the system/core scope."
+    },
+    {
+      "layer": "generated-reports",
+      "file": "docs/audits/component-1to1-quality-matrix.json",
+      "severity": "info",
+      "message": "Generated report exists and must be treated as evidence, not source of truth."
+    },
+    {
+      "layer": "generated-reports",
+      "file": "docs/audits/react-production-readiness.json",
+      "severity": "info",
+      "message": "Generated report exists and must be treated as evidence, not source of truth."
+    },
+    {
+      "layer": "generated-reports",
+      "file": "docs/audits/react-interaction-coverage-audit.json",
+      "severity": "info",
+      "message": "Generated report exists and must be treated as evidence, not source of truth."
+    }
+  ],
+  "nextIteration": {
+    "id": "flowdocs-runtime-inventory",
+    "goal": "Map FlowDocs files as used, generated, stale, orphan, or unknown."
+  }
+}

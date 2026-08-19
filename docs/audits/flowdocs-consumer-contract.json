@@ -1,0 +1,143 @@
+{
+  "generatedAt": "2026-08-18T19:15:28.900Z",
+  "status": "pass",
+  "decision": "flowdocs-consumer-contract-is-currently-satisfied",
+  "consumerContract": {
+    "criticalRoutes": [
+      "#/home",
+      "#/components/button",
+      "#/components/input",
+      "#/components/select",
+      "#/patterns/agent-conversation",
+      "#/templates/agent-workspace",
+      "#/foundations/energy",
+      "#/primitives/color"
+    ],
+    "requiredCommand": "cd ../FlowDocs && npm run validate:docs",
+    "blockingRule": "validate:docs passing is required but not sufficient while LegacyHtmlPageSlot/LegacyHtmlTabSlot remain."
+  },
+  "signals": {
+    "shell": {
+      "importsDocsShellTemplate": true,
+      "usesReactCreateRoot": true,
+      "ownsTopbarProps": true,
+      "ownsSidebarProps": true,
+      "legacyHtmlPageSlotNamed": true,
+      "docsPageSlotInnerHtmlWrites": 3,
+      "documentQuerySelectors": 4,
+      "documentListeners": 1,
+      "bodyDatasetMutations": 8
+    },
+    "app": {
+      "stagingPageMarkup": false,
+      "renderTargetInnerHtmlWrites": 0,
+      "tabPanelInnerHtmlWrites": 0,
+      "legacyHtmlTabSlotNamed": false,
+      "importsLocalRenderers": [
+        "docs-layout",
+        "home-stack-renderers",
+        "reference-layout",
+        "detail-tabs",
+        "gold-component-docs"
+      ]
+    },
+    "shellDecision": {
+      "result": "repair-as-explicit-consumer-adapter",
+      "demolishNow": false,
+      "rationale": [
+        "Flow package primitives/patterns/templates already exist for the shell path.",
+        "The broken part is the adapter layer between FlowDocs legacy string renderers and the Flow React shell.",
+        "Replacing everything now would discard useful content/template work and hide the same boundary problem unless the new shell has stricter contracts.",
+        "Repair is trustworthy only if the legacy DOM mutation path becomes explicitly named and then removed behind gates."
+      ],
+      "repairConditions": [
+        "DocsShellTemplate must expose page background/surface policy as props instead of hardcoding visual policy.",
+        "FlowDocs shell adapter must stop mutating the React-owned page slot with innerHTML, or it must be quarantined behind a named LegacyHtmlPageSlot with a removal gate.",
+        "Topbar search, sidebar navigation, theme, language and grid controls must be driven through Flow props/events, not global querySelector/dataset side effects.",
+        "The old renderShell function must either disappear or become a no-op with an audit that proves it cannot own layout/chrome.",
+        "A consumer shell test must verify keyboard search navigation, sidebar route selection, Escape, focus recovery, action alignment, and mobile nav."
+      ]
+    },
+    "templateDecision": "package-templates-exist-but-flowdocs-pages-are-hybrid"
+  },
+  "checks": [
+    {
+      "id": "flowdocs-validate-script",
+      "title": "FlowDocs has an executable consumer validation script",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "npm run build:docs && npm run typecheck:docs && npm run audit:docs && npm run audit:docs-runtime",
+      "requiredAction": ""
+    },
+    {
+      "id": "docs-shell-template-import",
+      "title": "Docs shell imports generated Flow DocsShellTemplate",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "importsDocsShellTemplate=true; usesReactCreateRoot=true",
+      "requiredAction": ""
+    },
+    {
+      "id": "topbar-sidebar-props",
+      "title": "Topbar and sidebar are supplied through Flow template props",
+      "status": "pass",
+      "severity": "medium",
+      "evidence": "topbarProps=true; sidebarProps=true",
+      "requiredAction": ""
+    },
+    {
+      "id": "legacy-page-slot-quarantined",
+      "title": "React shell page HTML bridge is explicitly quarantined",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "3 innerHTML signal(s); legacyHtmlPageSlotNamed=true",
+      "requiredAction": ""
+    },
+    {
+      "id": "no-app-page-staging-innerhtml",
+      "title": "App router does not stage pages through detached innerHTML",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "0 app.innerHTML writes; stagingPageMarkup=false",
+      "requiredAction": ""
+    },
+    {
+      "id": "legacy-tab-slot-quarantined",
+      "title": "Detail tab HTML bridge is explicitly quarantined",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "0 tab panel innerHTML write(s); legacyHtmlTabSlotNamed=false",
+      "requiredAction": ""
+    },
+    {
+      "id": "content-bundle-source-match",
+      "title": "Docs content bundle matches package source inputs",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "bundleMatchesSource=true",
+      "requiredAction": ""
+    },
+    {
+      "id": "runtime-graph-complete",
+      "title": "Runtime graph has no missing dependencies",
+      "status": "pass",
+      "severity": "high",
+      "evidence": "missingDependencies=0",
+      "requiredAction": ""
+    },
+    {
+      "id": "legacy-cleanup-explicit",
+      "title": "Known legacy cleanup queues are explicit",
+      "status": "pass",
+      "severity": "medium",
+      "evidence": "legacyQuarantineCandidates=49; immediateDeleteCandidates=0; protectedStringReferencedCandidates=16",
+      "requiredAction": ""
+    }
+  ],
+  "summary": {
+    "checks": 9,
+    "pass": 9,
+    "hardFailures": 0,
+    "warnings": 0
+  }
+}

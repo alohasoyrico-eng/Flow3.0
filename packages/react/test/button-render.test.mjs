@@ -145,6 +145,18 @@ assert.match(loadingMarkup, /aria-busy="true"/);
 assert.match(loadingMarkup, /class="spinner/);
 assert.doesNotMatch(loadingMarkup, /Saving loading|Loading/);
 
+const warningMarkup = renderToStaticMarkup(React.createElement(Button, {
+  label: "Review warning",
+  intent: "warning",
+}));
+assert.match(warningMarkup, /class="button button--primary button--warning"/);
+
+const dangerMarkup = renderToStaticMarkup(React.createElement(Button, {
+  label: "Delete route",
+  intent: "danger",
+}));
+assert.match(dangerMarkup, /class="button button--primary button--danger"/);
+
 const fabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton, {
   label: "Add movement",
   icon: "add",
@@ -2797,7 +2809,7 @@ const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
 assert.match(comboboxMarkup, /^<label/);
 assert.match(comboboxMarkup, /class="field"/);
 assert.match(comboboxMarkup, /data-density="sm"/);
-assert.match(comboboxMarkup, /class="combobox"/);
+assert.match(comboboxMarkup, /class="field__control combobox"/);
 assert.match(comboboxMarkup, /data-open="true"/);
 assert.match(comboboxMarkup, /data-combobox-control=""/);
 assert.match(comboboxMarkup, /role="combobox"/);
@@ -2807,11 +2819,12 @@ assert.match(comboboxMarkup, /aria-controls="[^"]+-listbox"/);
 assert.match(comboboxMarkup, /class="field__icon combobox__icon"/);
 assert.match(comboboxMarkup, /class="field-action field__action combobox__clear"/);
 assert.match(comboboxMarkup, /class="select-control__chevron combobox__chevron"/);
-assert.match(comboboxMarkup, /class="select-control__listbox combobox__listbox"/);
+assert.match(comboboxMarkup, /class="combobox__listbox"/);
 assert.match(comboboxMarkup, /role="listbox"/);
-assert.match(comboboxMarkup, /class="select-control__option combobox__option"/);
+assert.match(comboboxMarkup, /class="combobox__option"/);
 assert.match(comboboxMarkup, /aria-selected="true"/);
-assert.match(comboboxMarkup, /class="select-control__option-code combobox__option-meta">Driver<\/span>/);
+assert.match(comboboxMarkup, /data-active="false"/);
+assert.match(comboboxMarkup, /class="combobox__option-meta">Driver<\/span>/);
 assert.match(comboboxMarkup, /class="field__helper"/);
 
 const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {

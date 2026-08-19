@@ -64,12 +64,12 @@
   },
   "testCapabilities": {
     "testingLibraryRender": 228,
-    "fireEvent": 487,
-    "getByRole": 426,
+    "fireEvent": 507,
+    "getByRole": 428,
     "getByLabelText": 19,
-    "keyDown": 40,
-    "escapeKey": 20,
-    "arrowKeys": 19,
+    "keyDown": 58,
+    "escapeKey": 23,
+    "arrowKeys": 31,
     "userEvent": 32,
     "axe": 19
   },
@@ -1891,6 +1891,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
@@ -2491,6 +2492,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
@@ -2654,6 +2656,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/pattern-render.test.mjs"

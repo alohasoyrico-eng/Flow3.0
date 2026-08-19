@@ -33,6 +33,11 @@ function checkDarkModeContrast({ text, packageCssFile }) {
     ["danger text on surface", "--component-color-danger", "--component-color-surface", 4.5],
     ["success text on surface", "--component-color-success", "--component-color-surface", 4.5],
     ["warning text on surface", "--component-color-warning", "--component-color-surface", 3],
+    ["field placeholder on raised surface", "--component-field-placeholder-fg", "--component-color-surface-raised", 4.5],
+    ["field error helper on surface", "--component-field-error-helper-fg", "--component-color-surface", 4.5],
+    ["text on listbox", "--component-color-text", "--component-listbox-bg", 4.5],
+    ["muted text on listbox", "--component-color-text-muted", "--component-listbox-bg", 4.5],
+    ["text on selected option row", "--component-color-text", "--component-option-row-selected-bg", 4.5],
   ];
 
   for (const [label, foregroundToken, backgroundToken, minimum] of pairs) {

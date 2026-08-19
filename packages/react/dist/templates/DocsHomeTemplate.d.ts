@@ -10,6 +10,7 @@ export interface DocsHomeTemplateProps extends FlowDataAttributes {
   title: string;
   description?: string;
   metadata?: ArtifactMetadataBarItem[];
+  heroVisual?: ReactNode;
   coverage?: ReactNode;
   status?: ReactNode;
   children?: ReactNode;

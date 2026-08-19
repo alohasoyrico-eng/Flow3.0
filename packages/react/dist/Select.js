@@ -11,11 +11,15 @@ function normalizeOptions(options) {
     return (Array.isArray(options) ? options : []).filter((option) => (option?.label && option.value !== undefined && option.value !== null && option.value !== ""));
 }
 function firstEnabledIndex(options) {
-    return Math.max(options.findIndex((option) => !option.disabled), 0);
+    const index = options.findIndex((option) => !option.disabled);
+    return index >= 0 ? index : null;
 }
 function nextEnabledIndex(options, currentIndex, direction) {
     if (!options.length)
-        return 0;
+        return null;
+    if (currentIndex === null) {
+        return direction === 1 ? firstEnabledIndex(options) : lastEnabledIndex(options);
+    }
     const startIndex = Math.min(Math.max(currentIndex, 0), options.length - 1);
     for (let offset = 1; offset <= options.length; offset += 1) {
         const index = (startIndex + direction * offset + options.length) % options.length;
@@ -47,10 +51,10 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     const isOpen = open;
     const resolvedState = disabled ? "disabled" : state || "default";
     const isLoading = resolvedState === "loading";
-    const selectedIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : firstEnabledIndex(normalizedOptions);
-    const [activeIndex, setActiveIndex] = useState(selectedIndex);
-    const resolvedActiveIndex = normalizedOptions[activeIndex]?.disabled ? selectedIndex : activeIndex;
-    const activeOption = normalizedOptions[resolvedActiveIndex] ?? null;
+    const selectedIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : null;
+    const [activeIndex, setActiveIndex] = useState(null);
+    const resolvedActiveIndex = activeIndex !== null && !normalizedOptions[activeIndex]?.disabled ? activeIndex : null;
+    const activeOption = resolvedActiveIndex !== null ? normalizedOptions[resolvedActiveIndex] ?? null : null;
     const fieldMessage = resolveFieldMessage({
         controlId: selectId,
         describedBy: rest["aria-describedby"],
@@ -83,7 +87,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
             return;
         setOpen(!open, event);
         if (!open)
-            setActiveIndex(selectedIndex);
+            setActiveIndex(null);
     };
     const handleTriggerKeyDown = (event) => {
         rest.onKeyDown?.(event);
@@ -92,7 +96,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         if (event.key === "ArrowDown" || event.key === "ArrowUp") {
             event.preventDefault();
             const direction = event.key === "ArrowDown" ? 1 : -1;
-            setActiveIndex((index) => (isOpen ? nextEnabledIndex(normalizedOptions, index, direction) : selectedIndex));
+            setActiveIndex((index) => (isOpen ? nextEnabledIndex(normalizedOptions, index, direction) : direction === 1 ? firstEnabledIndex(normalizedOptions) : lastEnabledIndex(normalizedOptions)));
             setOpen(true, event);
         }
         if (event.key === "Home") {
@@ -157,7 +161,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-busy": isLoading ? "true" : undefined,
-        "aria-activedescendant": isOpen && activeOption ? `${selectId}-option-${resolvedActiveIndex}` : selectedOption ? `${selectId}-option-${selectedIndex}` : undefined,
+        "aria-activedescendant": isOpen && activeOption && resolvedActiveIndex !== null ? `${selectId}-option-${resolvedActiveIndex}` : undefined,
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
     }, icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null, selectedLabel ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel) : null, selectedOption?.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null, React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more")), React.createElement("span", {
@@ -170,7 +174,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     }, normalizedOptions.map((option, index) => {
         const optionValue = option.value;
         const isSelected = optionValue === selectedValue;
-        const isActive = index === resolvedActiveIndex;
+        const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex;
         return React.createElement("span", {
             key: optionValue,
             id: `${selectId}-option-${index}`,

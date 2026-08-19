@@ -15,6 +15,7 @@ export interface DocsHomeTemplateProps extends FlowDataAttributes {
   title: string;
   description?: string;
   metadata?: ArtifactMetadataBarItem[];
+  heroVisual?: ReactNode;
   coverage?: ReactNode;
   status?: ReactNode;
   children?: ReactNode;
@@ -36,6 +37,7 @@ export const DocsHomeTemplate = forwardRef<HTMLElement, DocsHomeTemplateProps>(f
   title,
   description,
   metadata = [],
+  heroVisual,
   coverage,
   status,
   children,
@@ -55,7 +57,7 @@ export const DocsHomeTemplate = forwardRef<HTMLElement, DocsHomeTemplateProps>(f
       "data-state": state,
       "data-density": density,
     },
-    React.createElement(DocumentationHero, { title, ...(description ? { description } : {}), density, background: "gradient-grid", "data-flow-slot": "docs-home.hero" }),
+    React.createElement(DocumentationHero, { title, ...(description ? { description } : {}), density, background: "gradient-grid", visual: heroVisual, "data-flow-slot": "docs-home.hero" }),
     React.createElement(Surface, { surfaceRole: "section", density, tone: "default", elevation: "none", "data-flow-slot": "docs-home.main" },
       React.createElement(SectionHeader, { title: "Documentation status", density, headingLevel: 2, "data-flow-slot": "docs-home.status-header" }),
       React.createElement(DocumentationSection, { title: "Coverage", density, "data-flow-slot": "docs-home.coverage" }, coverage),

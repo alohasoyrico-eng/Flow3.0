@@ -290,7 +290,7 @@ function checkInstallDocs(rootPackage) {
       { command: "npm test", pattern: /\bnpm test\b/ },
     ]) {
       if (pattern.test(source)) {
-        add("errors", file, 1, `Release/adoption docs must not recommend obsolete root command ${command}; use validate:system, audit:complete, test:react, or audit:consumer-install.`);
+        add("errors", file, 1, `Release/adoption docs must not recommend obsolete root command ${command}; use validate:flow-core, validate:system, audit:ds-release-gate, test:react, or audit:consumer-install.`);
       }
     }
   }

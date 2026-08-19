@@ -110,7 +110,8 @@ function checkComponentEnergySemantics() {
     const serialized = JSON.stringify(spec);
     if (!serialized.includes("tone") && !serialized.includes("intent") && !serialized.includes("status")) continue;
     const energyCoverage = spec.foundations?.Energy;
-    if (!energyCoverage?.tokens?.some((token) => token.includes("sys.energy") || token.includes("comp."))) {
+    const energyTokens = normalizeTokenList(energyCoverage?.tokens);
+    if (!energyTokens.some((token) => token.includes("sys.energy") || token.includes("comp."))) {
       add("errors", energyContractFile, 1, `${component} exposes semantic tone/status but lacks Energy token coverage.`);
     }
   }
@@ -137,6 +138,13 @@ function checkComponentEnergySemantics() {
       }
     }
   }
+}
+
+function normalizeTokenList(value) {
+  if (Array.isArray(value)) return value.map(String);
+  if (typeof value === "string") return [value];
+  if (value && typeof value === "object") return Object.values(value).flatMap(normalizeTokenList);
+  return [];
 }
 
 function checkEnergyContracts() {

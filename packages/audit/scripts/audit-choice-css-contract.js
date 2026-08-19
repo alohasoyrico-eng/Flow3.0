@@ -48,6 +48,7 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
     snippets: [
       "--comp-choice-current-mark-size: var(--component-inline-size-sm)",
       "--comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2)",
+      "--comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size)",
       "--comp-choice-current-gap: var(--component-space-sm)",
       "gap: var(--comp-choice-current-gap)",
       "padding-block: var(--comp-choice-current-padding-block)",
@@ -69,6 +70,9 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
     [disabledBlock, ["opacity: var(--comp-choice-current-disabled-opacity"], "Choice disabled state must consume Choice current disabled alias."],
   ]) {
     requireIncludes({ block, text, packageCssFile, snippets, message });
+  }
+  if (!text.includes(".button__icon,\n.material-symbol,") || !text.includes("font-family: var(--component-font-family-icon)")) {
+    add("errors", packageCssFile, 1, "Choice material-symbol indicators must be covered by the shared Flow icon font contract.");
   }
 }
 

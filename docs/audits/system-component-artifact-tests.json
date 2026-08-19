@@ -385,7 +385,7 @@
         {
           "status": "pass",
           "component": "Select",
-          "markupLength": 1155,
+          "markupLength": 1244,
           "rootTag": "<span class=\"field flow-artifact-test-hook\" data-artifact-test=\"select\" data-state=\"default\" data-density=\"lg\" role=\"group\" aria-labelledby=\"select-:R0:-label\">",
           "issues": []
         },
@@ -411,7 +411,7 @@
       "id": "combobox",
       "component": "Combobox",
       "factory": "@design-system/react/combobox",
-      "contractProps": 16,
+      "contractProps": 17,
       "requiredProps": [
         "label",
         "options"
@@ -425,7 +425,7 @@
         {
           "status": "pass",
           "component": "Combobox",
-          "markupLength": 1373,
+          "markupLength": 1367,
           "rootTag": "<label class=\"field flow-artifact-test-hook\" data-artifact-test=\"combobox\" data-state=\"default\" data-density=\"lg\">",
           "issues": []
         },
@@ -1990,7 +1990,7 @@
         {
           "status": "pass",
           "component": "PhoneInput",
-          "markupLength": 11735,
+          "markupLength": 11680,
           "rootTag": "<label class=\"field phone-input flow-artifact-test-hook\" data-artifact-test=\"phoneInput\" data-state=\"default\" data-density=\"lg\" data-variant=\"country-code\">",
           "issues": []
         },
@@ -2029,7 +2029,7 @@
         {
           "status": "pass",
           "component": "CountrySelector",
-          "markupLength": 11425,
+          "markupLength": 11370,
           "rootTag": "<span data-artifact-test=\"countrySelector\" class=\"select-control country-selector flow-artifact-test-hook\" data-country-selector=\"\" data-country=\"AR\" data-value=\"AR\" data-open=\"false\" data-density=\"lg\">",
           "issues": []
         },

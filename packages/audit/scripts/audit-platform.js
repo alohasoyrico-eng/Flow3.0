@@ -292,6 +292,7 @@ function checkReleaseAndAdoption() {
   const expectedAuditScripts = {
     "audit:system": "node packages/audit/scripts/audit-system-scope.js",
     "audit:complete": "node packages/audit/scripts/audit-complete.mjs",
+    "audit:ds-release-gate": "node packages/audit/scripts/audit-ds-release-gate.js",
     "audit:consumer-install": "node packages/audit/scripts/audit-consumer-install.mjs",
   };
   for (const [script, command] of Object.entries(expectedAuditScripts)) {
@@ -310,7 +311,8 @@ function checkReleaseAndAdoption() {
     if (packageJson?.scripts?.[script] !== command) add("errors", packageJsonFile, 1, `Root package must expose npm run ${script}.`);
   }
   const expectedValidationScripts = {
-    "validate:system": "npm run build:tokens && npm run build:react && npm run test:react && npm run audit:complete",
+    "validate:flow-core": "npm run build:tokens && npm run build:react && npm run typecheck && npm run test:react && npm run audit:ds-release-gate",
+    "validate:system": "npm run validate:flow-core",
   };
   for (const [script, command] of Object.entries(expectedValidationScripts)) {
     if (packageJson?.scripts?.[script] !== command) {
@@ -328,7 +330,7 @@ function checkReleaseAndAdoption() {
   for (const [file, requiredSnippets] of [
     [readmeFile, ["Design System OS", "npm run validate:system", "Package Map", "MIGRATE_PRODUCT_SCREEN.md"]],
     [changelogFile, [`## ${packageJson?.version}`, "packages/tokens", "packages/components"]],
-    [releaseFile, ["npm run audit:complete", "npm run test:react", "npm run validate:system", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
+    [releaseFile, ["npm run audit:ds-release-gate", "npm run validate:flow-core", "npm run test:react", "npm run validate:system", "Architecture Gate", "CHANGELOG.md", "MIGRATE_PRODUCT_SCREEN.md", "index.html", "fleet-dashboard.html", "driver-mobile.html"]],
     [startGuideFile, ["Build a Prototype", "Change Design System", "What To Edit", "MIGRATE_PRODUCT_SCREEN.md", "npm run validate:system", "fixtures/prototyping.json", "examples/prototyping/index.html"]],
     [migrationGuideFile, ["Migrate A Product Screen Into Design System", "Nothing skips a layer", "packages/specs", "packages/components", "npm run validate:system"]],
     [componentSmokeTestFile, ["componentContracts", "components smoke tests passed"]],

@@ -95,6 +95,99 @@ function checkControlSizeScale(css) {
   }
 
   checkOrderedControlSizeTokens(tokens);
+  checkOrderedComponentDensityAliases(css, tokens);
+}
+
+function checkOrderedComponentDensityAliases(css, tokens) {
+  const resolver = createCssValueResolver(css, tokens);
+  const requiredScales = [
+    {
+      label: "Checkbox mark size",
+      names: ["--comp-checkbox-mark-size-sm", "--comp-checkbox-mark-size-md", "--comp-checkbox-mark-size-lg"],
+    },
+    {
+      label: "RadioButton mark size",
+      names: ["--comp-radio-button-mark-size-sm", "--comp-radio-button-mark-size-md", "--comp-radio-button-mark-size-lg"],
+    },
+    {
+      label: "Switch thumb size",
+      names: ["--comp-switch-thumb-size-sm", "--comp-switch-thumb-size-md", "--comp-switch-thumb-size-lg"],
+    },
+    {
+      label: "Button block size",
+      names: ["--comp-button-size-sm", "--comp-button-size-md", "--comp-button-size-lg"],
+    },
+    {
+      label: "Field control size",
+      names: ["--comp-input-control-size-sm", "--comp-input-control-size-md", "--comp-input-control-size-lg"],
+    },
+    {
+      label: "Select option row size",
+      names: ["--comp-select-option-min-size-sm", "--comp-select-option-min-size-md", "--comp-select-option-min-size-lg"],
+    },
+  ];
+
+  for (const scale of requiredScales) {
+    const values = scale.names.map((name) => resolver(name));
+    if (values.some((value) => !Number.isFinite(value))) {
+      add("errors", packageCssFile, 1, `${scale.label} density aliases must resolve to numeric px values; got ${scale.names.map((name, index) => `${name}=${values[index]}`).join(", ")}.`);
+      continue;
+    }
+    const [sm, md, lg] = values;
+    if (!(sm < md && md < lg)) {
+      add("errors", packageCssFile, 1, `${scale.label} density aliases must be ordered sm < md < lg; got sm=${sm}px, md=${md}px, lg=${lg}px.`);
+    }
+  }
+}
+
+function createCssValueResolver(css, tokens) {
+  const values = new Map();
+  for (const match of css.matchAll(/(--[\w-]+):\s*([^;]+);/g)) {
+    values.set(match[1], match[2].trim());
+  }
+  for (const [name, token] of Object.entries(tokens?.tokens ?? {})) {
+    if (token?.cssVariable && token?.value) values.set(token.cssVariable, String(token.value).trim());
+    if (token?.value) values.set(`--${name}`, String(token.value).trim());
+  }
+
+  function resolve(name, seen = new Set()) {
+    if (seen.has(name)) return Number.NaN;
+    seen.add(name);
+    const raw = values.get(name);
+    if (!raw) return Number.NaN;
+
+    const numeric = raw.match(/^(-?\d+(?:\.\d+)?)px$/);
+    if (numeric) return Number(numeric[1]);
+
+    const rem = raw.match(/^(-?\d+(?:\.\d+)?)rem$/);
+    if (rem) return Number(rem[1]) * 16;
+
+    const varOnly = raw.match(/^var\((--[\w-]+)\)$/);
+    if (varOnly) return resolve(varOnly[1], seen);
+
+    if (raw.startsWith("calc(") && raw.endsWith(")")) {
+      return resolveCalculation(raw.slice(5, -1), seen);
+    }
+
+    return Number.NaN;
+  }
+
+  function resolveCalculation(expression, seen) {
+    let resolved = expression.replace(/var\((--[\w-]+)\)/g, (_, name) => {
+      const value = resolve(name, new Set(seen));
+      return Number.isFinite(value) ? String(value) : "NaN";
+    });
+    resolved = resolved.replace(/(-?\d+(?:\.\d+)?)px\b/g, "$1");
+    if (!/^[\d\s.+\-*/()Na]+$/.test(resolved) || resolved.includes("NaN")) return Number.NaN;
+    try {
+      const result = Function(`"use strict"; return (${resolved});`)();
+      return Number.isFinite(result) ? result : Number.NaN;
+    } catch {
+      return Number.NaN;
+    }
+  }
+
+  return resolve;
 }
 
 function checkOrderedControlSizeTokens(tokens) {

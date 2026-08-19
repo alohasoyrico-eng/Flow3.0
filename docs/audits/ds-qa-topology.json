@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "ds-qa-topology@1",
+  "generatedAt": "2026-08-18T23:37:30.875Z",
+  "status": "pass",
+  "decision": "Flow React QA is split into fast, release, deep, and quarantine lanes; release lanes must stay deterministic and executable.",
+  "rules": [
+    "Fast tests cover critical P0 runtime evidence and must stay cheap enough for frequent local runs.",
+    "Release tests cover the full granular React suite and must exclude unstable legacy monoliths.",
+    "Deep tests may grow beyond release only when they remain deterministic.",
+    "Quarantine tests are explicit debt and cannot be part of validate:flow-core.",
+    "validate:flow-core is the DS release gate and must run test:react:release.",
+    "Performance measurement is explicit via audit:ds-qa-performance and must not be nested inside release gates."
+  ],
+  "levels": [
+    {
+      "level": "fast",
+      "rootCommand": "npm run test:react:fast",
+      "packageCommand": "npm run test:fast --workspace @design-system/react",
+      "intent": "frequent P0 feedback; full fast validation is npm run validate:flow-core:fast"
+    },
+    {
+      "level": "release",
+      "rootCommand": "npm run test:react:release",
+      "packageCommand": "npm run test:release --workspace @design-system/react",
+      "intent": "deterministic release evidence"
+    },
+    {
+      "level": "deep",
+      "rootCommand": "npm run test:react:deep",
+      "packageCommand": "npm run test:deep --workspace @design-system/react",
+      "intent": "stable extended evidence"
+    },
+    {
+      "level": "quarantine",
+      "rootCommand": "npm run test:react:quarantine",
+      "packageCommand": "npm run test:quarantine --workspace @design-system/react",
+      "intent": "known unstable legacy evidence"
+    }
+  ],
+  "issues": []
+}

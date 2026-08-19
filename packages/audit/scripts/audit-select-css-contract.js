@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const { add, lineNumber } = require("./audit-context.js");
 
 function blockFor(blocks, selectorKey, selector) {
@@ -9,7 +11,11 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
   add("errors", packageCssFile, block ? lineNumber(text, block.index) : 1, message);
 }
 
-function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
+function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Select.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Select.js");
+  const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const selectBlock = blockFor(blocks, selectorKey, ".select-control");
 
   requireIncludes({
@@ -31,6 +37,10 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-select-option-padding-x-lg: var(--component-option-row-padding-inline-lg)",
       "--comp-select-option-padding-x: var(--comp-select-option-padding-x-md)",
       "--comp-select-option-radius: var(--component-option-row-radius)",
+      "--comp-select-option-active-ring: var(--component-option-row-active-ring)",
+      "--comp-select-option-disabled-bg: var(--component-option-row-disabled-bg)",
+      "--comp-select-option-disabled-color: var(--component-option-row-disabled-color)",
+      "--comp-select-option-disabled-opacity: var(--component-option-row-disabled-opacity)",
       "--comp-select-loading-bg: color-mix(in srgb, var(--component-color-action) 7%, var(--component-color-surface))",
       "--comp-select-option-check-size: var(--component-option-row-check-size)",
       "--comp-select-option-check-hidden-opacity: var(--component-opacity-hidden)",
@@ -53,8 +63,26 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (!text.includes(".select-control__option[data-selected=\"true\"] .select-control__option-check")) {
     add("errors", packageCssFile, 1, "Select selected options must expose a trailing check affordance.");
   }
+  if (!text.includes(".select-control__option[data-active=\"true\"]:not([data-selected=\"true\"])")) {
+    add("errors", packageCssFile, 1, "Select active option state must be visually separate from selected state.");
+  }
+  if (!text.includes("outline: var(--component-focus-ring-width) solid var(--comp-select-option-active-ring)")) {
+    add("errors", packageCssFile, 1, "Select active/keyboard option ring must consume the shared option active ring role.");
+  }
+  if (!text.includes(".select-control__option[data-disabled=\"true\"") || !text.includes("opacity: var(--comp-select-option-disabled-opacity)")) {
+    add("errors", packageCssFile, 1, "Select disabled options must expose a distinct shared disabled option affordance.");
+  }
   if (!text.includes(".select-control__option {\n  grid-template-columns: minmax(0, 1fr) auto auto;")) {
     add("errors", packageCssFile, 1, "Select options must reserve trailing columns for metadata and selected check geometry.");
+  }
+  if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex")) {
+    add("errors", sourceFile, 1, "Select must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");
+  }
+  if (source.includes(": selectedOption ? `${selectId}-option-${selectedIndex}` : undefined")) {
+    add("errors", sourceFile, 1, "Select aria-activedescendant must not point at selected/default options while the listbox is closed.");
+  }
+  if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && resolvedActiveIndex !== null")) {
+    add("errors", sourceFile, 1, "Select aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
   }
   const smDensityBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-density=\"sm\"]");
   requireIncludes({

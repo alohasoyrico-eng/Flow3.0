@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const { add, lineNumber } = require("./audit-context.js");
 
 function blockFor(blocks, selectorKey, selector) {
@@ -9,7 +11,11 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
   add("errors", packageCssFile, block ? lineNumber(text, block.index) : 1, message);
 }
 
-function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey }) {
+function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Combobox.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Combobox.js");
+  const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const comboboxBlock = blockFor(blocks, selectorKey, ".combobox");
   const chevronBlock = blockFor(blocks, selectorKey, ".combobox__chevron");
   const disabledClearBlock = blockFor(blocks, selectorKey, ".combobox__clear:disabled");
@@ -41,7 +47,11 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-combobox-empty-padding-inline: var(--component-option-row-padding-inline-sm)",
       "--comp-combobox-option-min-size: var(--component-option-row-min-block-size-md)",
       "--comp-combobox-option-padding-x: var(--component-option-row-padding-inline-sm)",
+      "--comp-combobox-option-active-ring: var(--component-option-row-active-ring)",
       "--comp-combobox-option-selected-bg: var(--component-option-row-selected-bg)",
+      "--comp-combobox-option-disabled-bg: var(--component-option-row-disabled-bg)",
+      "--comp-combobox-option-disabled-color: var(--component-option-row-disabled-color)",
+      "--comp-combobox-option-disabled-opacity: var(--component-option-row-disabled-opacity)",
       "--comp-combobox-option-check-family: \"Material Symbols Rounded\"",
       "--comp-combobox-option-check-size: var(--component-option-row-check-size)",
       "--comp-combobox-option-check-hidden-opacity: var(--component-opacity-hidden)",
@@ -145,6 +155,25 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey })
     ],
     message: "Combobox empty state must consume component voice and spacing aliases.",
   });
+  if (text.includes('[data-theme="dark"] .combobox')) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf('[data-theme="dark"] .combobox')), "Combobox dark mode must be handled through shared component listbox/option tokens, not a Combobox-specific dark override.");
+  }
+
+  if (!text.includes(".combobox__option[data-active=\"true\"]:not([data-selected=\"true\"])")) {
+    add("errors", packageCssFile, 1, "Combobox active option state must be visually separate from selected state.");
+  }
+  if (!text.includes("outline: var(--component-focus-ring-width) solid var(--comp-combobox-option-active-ring)")) {
+    add("errors", packageCssFile, 1, "Combobox active/keyboard option ring must consume the shared option active ring role.");
+  }
+  if (!text.includes(".combobox__option[data-disabled=\"true\"") || !text.includes("opacity: var(--comp-combobox-option-disabled-opacity)")) {
+    add("errors", packageCssFile, 1, "Combobox disabled options must expose a distinct shared disabled option affordance.");
+  }
+  if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = activeOption === option") || !source.includes("\"data-active\": String(isActive)")) {
+    add("errors", sourceFile, 1, "Combobox must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");
+  }
+  if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && activeIndex !== null")) {
+    add("errors", sourceFile, 1, "Combobox aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
+  }
 
   if (/--comp-combobox[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
     add("errors", packageCssFile, 1, "Combobox component aliases must not hardcode 2px or 0.125rem frame offsets.");

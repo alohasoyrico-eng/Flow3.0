@@ -40,10 +40,10 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
     const isOpenControlled = openProp !== undefined;
     const [internalOpen, setInternalOpen] = useState(state === "open");
     const open = isOpenControlled ? Boolean(openProp) : internalOpen;
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(null);
     const currentValue = isValueControlled ? value ?? "" : internalValue;
     const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
-    const selectedValue = selectedOption ? optionValue(selectedOption) : currentValue;
+    const selectedValue = selectedOption ? optionValue(selectedOption) : "";
     const isOpen = Boolean(open) && !disabled;
     const controlledSelectionLabel = selectedOption ? optionLabel(selectedOption) : currentValue;
     const displayInputValue = isValueControlled && (!isOpen || (selectedOption && inputValue === "")) ? controlledSelectionLabel : inputValue;
@@ -53,7 +53,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         return !query || haystack.includes(query);
     }), [normalizedOptions, query]);
     const enabledOptions = filteredOptions.filter((option) => !option.disabled);
-    const activeOption = enabledOptions[activeIndex] ?? enabledOptions[0] ?? null;
+    const activeOption = activeIndex === null ? null : enabledOptions[activeIndex] ?? null;
     const resolvedState = normalizedState({ disabled, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
     const isLoading = resolvedState === "loading";
     const resolvedDensity = normalizeFlowDensity(density);
@@ -82,7 +82,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             setInternalValue(nextValue);
         setInputValue(nextLabel);
         setOpen(false, event);
-        setActiveIndex(0);
+        setActiveIndex(null);
         onValueChange?.(nextValue, { label: nextLabel, meta: option.meta ?? "", inputValue: nextLabel }, event);
     };
     const clearValue = (event) => {
@@ -90,7 +90,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             setInternalValue("");
         setInputValue("");
         setOpen(true, event);
-        setActiveIndex(0);
+        setActiveIndex(null);
         onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true }, event);
     };
     const handleInputFocus = (event) => {
@@ -106,16 +106,29 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         if (event.key === "ArrowDown") {
             event.preventDefault();
             setOpen(true, event);
-            setActiveIndex((index) => enabledOptions.length ? Math.min(enabledOptions.length - 1, index + 1) : 0);
+            setActiveIndex((index) => {
+                if (!enabledOptions.length)
+                    return null;
+                if (index === null)
+                    return 0;
+                return Math.min(enabledOptions.length - 1, index + 1);
+            });
         }
         if (event.key === "ArrowUp") {
             event.preventDefault();
             setOpen(true, event);
-            setActiveIndex((index) => enabledOptions.length ? Math.max(0, index - 1) : 0);
+            setActiveIndex((index) => {
+                if (!enabledOptions.length)
+                    return null;
+                if (index === null)
+                    return Math.max(0, enabledOptions.length - 1);
+                return Math.max(0, index - 1);
+            });
         }
         if (event.key === "Enter") {
             event.preventDefault();
-            commitOption(activeOption, event);
+            if (activeOption)
+                commitOption(activeOption, event);
         }
         if (event.key === "Escape") {
             event.preventDefault();
@@ -155,7 +168,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-busy": isLoading ? "true" : undefined,
-        "aria-activedescendant": isOpen && activeOption ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
+        "aria-activedescendant": isOpen && activeOption && activeIndex !== null ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onFocus: handleInputFocus,
         onChange: (event) => {
             const nextValue = event.target.value;
@@ -163,7 +176,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             if (!isValueControlled)
                 setInternalValue(nextValue);
             setOpen(true, event);
-            setActiveIndex(0);
+            setActiveIndex(null);
             onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue }, event);
         },
         onKeyDown: handleInputKeyDown,
@@ -185,6 +198,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
     }, filteredOptions.map((option) => {
         const valueKey = optionValue(option);
         const isSelected = valueKey === selectedValue;
+        const isActive = activeOption === option;
         const index = normalizedOptions.indexOf(option);
         return React.createElement("span", {
             key: valueKey,
@@ -196,6 +210,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             "aria-disabled": option.disabled ? "true" : undefined,
             "data-combobox-option": "",
             "data-selected": String(isSelected),
+            "data-active": String(isActive),
             "data-value": valueKey,
             "data-label": optionLabel(option),
             "data-meta": option.meta || undefined,

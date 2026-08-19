@@ -78,6 +78,25 @@ try {
 
     await user.click(trigger);
     assert.equal(openChanges.at(-1), true);
+    assert.equal(trigger.getAttribute("aria-activedescendant"), null);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-active="true"]').length, 0);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-selected="true"]').length, 0);
+    fireEvent.keyDown(trigger, { key: "Escape" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.equal(view.container.querySelector("[data-select-input]").value, "");
+    await user.click(trigger);
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
+    await waitFor(() => assert.match(trigger.getAttribute("aria-activedescendant") || "", /option-0/));
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-active="true"]').length, 1);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-selected="true"]').length, 0);
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
+    assert.match(trigger.getAttribute("aria-activedescendant") || "", /option-1/);
+    fireEvent.keyDown(trigger, { key: "Enter" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(changes.at(-1), { value: "us", meta: { label: "Fleet US", meta: "US" }, eventType: "keydown" });
+    assert.equal(view.container.querySelector("[data-select-input]").value, "us");
+
+    await user.click(trigger);
     await user.click(view.getByRole("option", { name: /fleet us/i }));
     assert.deepEqual(changes.at(-1), { value: "us", meta: { label: "Fleet US", meta: "US" }, eventType: "click" });
     assert.equal(view.container.querySelector("[data-select-input]").value, "us");
@@ -123,8 +142,16 @@ try {
 
     await user.click(input);
     assert.equal(openChanges.at(-1), true);
+    assert.equal(input.getAttribute("aria-activedescendant"), null);
+    assert.equal(view.container.querySelectorAll('.combobox__option[data-active="true"]').length, 0);
+    assert.equal(view.container.querySelectorAll('.combobox__option[data-selected="true"]').length, 0);
     await user.type(input, "US");
     assert.equal(changes.at(-1).value, "US");
+    assert.equal(input.getAttribute("aria-activedescendant"), null);
+    await user.keyboard("{ArrowDown}");
+    assert.match(input.getAttribute("aria-activedescendant") || "", /option-1/);
+    assert.equal(view.container.querySelectorAll('.combobox__option[data-active="true"]').length, 1);
+    assert.equal(view.container.querySelectorAll('.combobox__option[data-selected="true"]').length, 0);
     await user.keyboard("{Enter}");
     assert.equal(changes.at(-1).value, "us");
     assert.equal(input.value, "Fleet US");
@@ -172,6 +199,20 @@ try {
 
     await user.click(trigger);
     assert.equal(openChanges.at(-1), true);
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
+    const unitedStatesOption = view.getByRole("option", { name: /United States/ });
+    assert.equal(trigger.getAttribute("aria-activedescendant"), unitedStatesOption.id);
+    fireEvent.keyDown(trigger, { key: "ArrowUp" });
+    const mexicoOption = view.getByRole("option", { name: /Mexico/ });
+    assert.equal(trigger.getAttribute("aria-activedescendant"), mexicoOption.id);
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
+    fireEvent.keyDown(trigger, { key: "Enter" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.equal(changes.at(-1).countryCode, "US");
+    assert.equal(unitedStatesOption.getAttribute("data-selected"), "true");
+    assert.equal(trigger.getAttribute("aria-activedescendant"), null);
+    await user.click(trigger);
     await user.click(view.getByRole("option", { name: /United States/ }));
     assert.equal(changes.at(-1).countryCode, "US");
     assert.equal(view.container.querySelector("[data-country-selector]").dataset.country, "US");

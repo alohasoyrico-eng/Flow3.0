@@ -526,7 +526,14 @@ try {
   const comboboxInput = getComboboxRole("combobox", { name: /driver/i });
   fireEvent.focus(comboboxInput);
   assert.deepEqual(comboboxOpenChanges, [{ open: true, eventType: "focus", key: undefined }]);
+  assert.equal(comboboxInput.getAttribute("aria-activedescendant"), null);
   fireEvent.input(comboboxInput, { target: { value: "Ana" } });
+  assert.equal(comboboxInput.getAttribute("aria-activedescendant"), null);
+  assert.equal(
+    document.querySelectorAll("[data-combobox-listbox] [data-combobox-option][data-selected=\"true\"]").length,
+    0,
+    "Combobox text input must not keep or create selected option state.",
+  );
   assert.equal(comboboxChanges.at(-1).value, "Ana");
   assert.equal(comboboxChanges.at(-1).meta.inputValue, "Ana");
   assert.equal(comboboxChanges.at(-1).eventType, "change");
@@ -534,6 +541,24 @@ try {
     { open: true, eventType: "focus", key: undefined },
     { open: true, eventType: "change", key: undefined },
   ]);
+
+  fireEvent.keyDown(comboboxInput, { key: "ArrowDown" });
+  await waitFor(() => assert.match(comboboxInput.getAttribute("aria-activedescendant") || "", /option-0/));
+  fireEvent.keyDown(comboboxInput, { key: "ArrowUp" });
+  await waitFor(() => assert.match(comboboxInput.getAttribute("aria-activedescendant") || "", /option-0/));
+  fireEvent.keyDown(comboboxInput, { key: "Enter" });
+  await waitFor(() => assert.equal(comboboxInput.value, "Ana Sosa"));
+  assert.equal(comboboxChanges.at(-1).value, "ana");
+  assert.deepEqual(comboboxOpenChanges.at(-1), { open: false, eventType: "keydown", key: "Enter" });
+  fireEvent.focus(comboboxInput);
+  await waitFor(() => assert.equal(comboboxInput.getAttribute("aria-expanded"), "true"));
+  fireEvent.keyDown(comboboxInput, { key: "Escape" });
+  await waitFor(() => assert.equal(comboboxInput.getAttribute("aria-expanded"), "false"));
+  assert.equal(comboboxInput.getAttribute("aria-activedescendant"), null);
+  assert.deepEqual(comboboxOpenChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
+
+  fireEvent.click(getComboboxRole("button", { name: /clear driver/i }));
+  await waitFor(() => assert.equal(comboboxInput.value, ""));
 
   fireEvent.click(getComboboxRole("option", { name: /ana sosa/i }));
   await waitFor(() => assert.equal(comboboxInput.value, "Ana Sosa"));
@@ -544,6 +569,11 @@ try {
 
   fireEvent.click(getComboboxRole("button", { name: /clear driver/i }));
   await waitFor(() => assert.equal(comboboxInput.value, ""));
+  assert.equal(
+    document.querySelectorAll("[data-combobox-listbox] [data-combobox-option][data-selected=\"true\"]").length,
+    0,
+    "Combobox clear must remove selected option state and selected check.",
+  );
   assert.equal(comboboxChanges.at(-1).value, "");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
   assert.equal(comboboxChanges.at(-1).eventType, "click");
@@ -1960,6 +1990,12 @@ try {
   assert.equal(mexicoOption.querySelector(".select-control__option-check")?.textContent, "check");
   assert.equal(selectTrigger.getAttribute("aria-activedescendant"), mexicoOption.id);
   assert.equal(mexicoOption.getAttribute("data-active"), "true");
+  fireEvent.keyDown(selectTrigger, { key: "ArrowUp" });
+  assert.equal(selectTrigger.getAttribute("aria-activedescendant"), unitedStatesOption.id);
+  assert.equal(unitedStatesOption.getAttribute("data-active"), "true");
+  fireEvent.keyDown(selectTrigger, { key: "ArrowUp" });
+  assert.equal(selectTrigger.getAttribute("aria-activedescendant"), mexicoOption.id);
+  assert.equal(mexicoOption.getAttribute("data-active"), "true");
   fireEvent.keyDown(selectTrigger, { key: "ArrowDown" });
   assert.equal(selectTrigger.getAttribute("aria-activedescendant"), unitedStatesOption.id);
   assert.equal(unitedStatesOption.getAttribute("data-active"), "true");
@@ -2372,6 +2408,8 @@ try {
 
   fireEvent.keyDown(overviewTab, { key: "ArrowRight" });
   assert.deepEqual(tabChanges, [{ key: "build", eventType: "click" }, { key: "overview", eventType: "keydown" }]);
+  fireEvent.keyDown(buildTab, { key: "Home" });
+  assert.deepEqual(tabChanges.at(-1), { key: "overview", eventType: "keydown" });
   const tabsRoot = getTabsRole("tablist", { name: /component sections/i });
   assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-left"), /px$/);
   assert.match(tabsRoot.style.getPropertyValue("--comp-tabs-indicator-width"), /px$/);

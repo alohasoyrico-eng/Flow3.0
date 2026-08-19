@@ -1,0 +1,154 @@
+{
+  "generatedAt": "2026-08-18T19:15:45.216Z",
+  "status": "blocked",
+  "decision": "repair-flowdocs-before-calling-it-trustworthy",
+  "confidence": "high",
+  "reportInputs": [
+    "gateBoundary",
+    "runtime",
+    "staleAudits",
+    "content",
+    "shell",
+    "demo",
+    "template",
+    "cleanup",
+    "consumer"
+  ],
+  "goNoGo": [
+    {
+      "area": "FlowDocs as current app",
+      "decision": "NO-GO",
+      "reason": "Consumer contract now passes, but LegacyHtmlPageSlot remains active and FlowDocs still has hybrid template/demo debt."
+    },
+    {
+      "area": "Demolish FlowDocs now",
+      "decision": "NO-GO",
+      "reason": "Runtime inventory shows 448 reachable files and useful generated/templates/content work. Demolition would hide boundary problems instead of proving replacement."
+    },
+    {
+      "area": "Repair as explicit Flow consumer adapter",
+      "decision": "GO",
+      "reason": "DocsShellTemplate and generated Flow templates exist; content bundle matches source; cleanup queues and blockers are explicit."
+    },
+    {
+      "area": "Continue component QA in parallel",
+      "decision": "CONDITIONAL-GO",
+      "reason": "Component QA can continue only if FlowDocs debt is not treated as proof of component readiness."
+    }
+  ],
+  "blockers": [
+    {
+      "priority": "P0",
+      "blocker": "React shell still writes legacy page HTML",
+      "evidence": "3 innerHTML signals in docs-shell-react.js",
+      "requiredExit": "Replace with typed React children or explicitly quarantine as LegacyHtmlPageSlot with removal gate."
+    },
+    {
+      "priority": "P1",
+      "blocker": "Top-level gates still mix Flow core and FlowDocs consumer evidence",
+      "evidence": "4 mixed top-level gates; 7 gate rewrite candidates",
+      "requiredExit": "Split Flow core, FlowDocs consumer, content, and forensic/parity gates."
+    },
+    {
+      "priority": "P1",
+      "blocker": "FlowDocs templates remain hybrid",
+      "evidence": "53 local renderer files; 50 HTML boundary files",
+      "requiredExit": "Home, collection, detail, foundation and primitive pages must be owned by Flow templates or explicit legacy slots."
+    }
+  ],
+  "proven": [
+    {
+      "claim": "Content bundle is not stale",
+      "evidence": "bundleMatchesSource=true; 606 source dependencies"
+    },
+    {
+      "claim": "Runtime graph is complete",
+      "evidence": "0 missing dependencies"
+    },
+    {
+      "claim": "FlowDocs imports generated DocsShellTemplate",
+      "evidence": "importsDocsShellTemplate=true; usesReactCreateRoot=true"
+    },
+    {
+      "claim": "Cleanup is bounded",
+      "evidence": "0 delete candidates; 49 quarantine candidates"
+    },
+    {
+      "claim": "Demo boundary is classified",
+      "evidence": "73 risky docs demo files; 0 mixed Flow claim files"
+    },
+    {
+      "claim": "Detail tabs no longer mutate #tabPanel from app.js",
+      "evidence": "0 tab panel innerHTML writes"
+    },
+    {
+      "claim": "Foundation/primitive detail routes use ReferenceDetailTemplate",
+      "evidence": "reachableFiles=453; generated-used=234"
+    },
+    {
+      "claim": "App router no longer stages pages through detached innerHTML",
+      "evidence": "0 app.innerHTML writes; stagingPageMarkup=false"
+    },
+    {
+      "claim": "FlowDocs consumer contract currently passes",
+      "evidence": "9 pass / 0 fail"
+    },
+    {
+      "claim": "Safe delete queue is closed",
+      "evidence": "0 immediate delete candidates; 16 string-referenced candidates protected"
+    }
+  ],
+  "notProven": [
+    "FlowDocs is not yet a trustworthy consumer of Flow end to end.",
+    "Passing validate:docs and the consumer contract is not sufficient while LegacyHtmlPageSlot remains active.",
+    "FlowDocs visual/runtime behavior must not be used as proof of component production readiness.",
+    "The old mixed audits cannot be treated as authoritative system gates."
+  ],
+  "nextPlan": [
+    {
+      "iteration": 11,
+      "name": "Legacy slot quarantine",
+      "outcome": "Rename/mark current page and tab HTML bridges as LegacyHtmlPageSlot and LegacyHtmlTabSlot, with audit-visible expiry."
+    },
+    {
+      "iteration": 12,
+      "name": "Gate split",
+      "outcome": "Separate Flow core, FlowDocs consumer, content source, and forensic/parity gates."
+    },
+    {
+      "iteration": 13,
+      "name": "Home/collection template replacement",
+      "outcome": "DocsHomeTemplate and DocsCollectionTemplate own layout; local renderers only provide typed content data."
+    },
+    {
+      "iteration": 14,
+      "name": "Detail tabs replacement",
+      "outcome": "DocsArtifactDetailTemplate owns tab state/body; remove #tabPanel.innerHTML path."
+    },
+    {
+      "iteration": 15,
+      "name": "Reference template replacement",
+      "outcome": "Foundation/primitive pages move to ReferenceDetailTemplate ownership."
+    },
+    {
+      "iteration": 16,
+      "name": "Router staging removal",
+      "outcome": "Remove detached app.innerHTML page staging so routes pass page content directly into DocsShellTemplate adapter."
+    },
+    {
+      "iteration": 17,
+      "name": "Delete safe orphans",
+      "outcome": "Remove immediate delete candidates after runtime smoke and protect string-referenced non-runtime files."
+    },
+    {
+      "iteration": 18,
+      "name": "Consumer QA gate",
+      "outcome": "Run validate:docs plus critical route smoke for home, components, patterns, templates, foundations and primitives."
+    }
+  ],
+  "currentPlanStatus": {
+    "completedIterations": 17,
+    "currentCheckpoint": "Go/No-Go",
+    "result": "No-Go for trustworthy FlowDocs; iterations 11-17 are repaired, LegacyHtmlPageSlot and hybrid template/demo debt remain blocking."
+  }
+}

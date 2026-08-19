@@ -1,0 +1,300 @@
+{
+  "generatedAt": "2026-08-18T19:15:28.542Z",
+  "status": "action_required",
+  "purpose": "Decide whether the current FlowDocs shell should be repaired, replaced, or treated as a trustworthy Flow consumer.",
+  "decision": {
+    "result": "repair-as-explicit-consumer-adapter",
+    "demolishNow": false,
+    "rationale": [
+      "Flow package primitives/patterns/templates already exist for the shell path.",
+      "The broken part is the adapter layer between FlowDocs legacy string renderers and the Flow React shell.",
+      "Replacing everything now would discard useful content/template work and hide the same boundary problem unless the new shell has stricter contracts.",
+      "Repair is trustworthy only if the legacy DOM mutation path becomes explicitly named and then removed behind gates."
+    ],
+    "repairConditions": [
+      "DocsShellTemplate must expose page background/surface policy as props instead of hardcoding visual policy.",
+      "FlowDocs shell adapter must stop mutating the React-owned page slot with innerHTML, or it must be quarantined behind a named LegacyHtmlPageSlot with a removal gate.",
+      "Topbar search, sidebar navigation, theme, language and grid controls must be driven through Flow props/events, not global querySelector/dataset side effects.",
+      "The old renderShell function must either disappear or become a no-op with an audit that proves it cannot own layout/chrome.",
+      "A consumer shell test must verify keyboard search navigation, sidebar route selection, Escape, focus recovery, action alignment, and mobile nav."
+    ]
+  },
+  "totals": {
+    "innerHtmlWrites": 5,
+    "querySelectors": 17,
+    "addEventListeners": 4,
+    "datasetMutations": 17
+  },
+  "blockingRisks": [
+    {
+      "severity": "high",
+      "file": "../FlowDocs/apps/docs/app.js",
+      "issue": "FlowDocs still renders pages through a temporary DOM/string pipeline before React receives the page slot.",
+      "evidence": "app.js assigns app.innerHTML, extracts pageMarkup, then renderDocsShell injects it into a React slot.",
+      "decisionImpact": "This prevents treating the shell as a clean React/Flow consumer boundary."
+    },
+    {
+      "severity": "high",
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "issue": "DocsPageSlot mutates ref.current.innerHTML inside React.",
+      "evidence": "React owns the shell wrapper but not the child page tree.",
+      "decisionImpact": "Keyboard, focus, event, and hydration behavior can drift from Flow contracts."
+    },
+    {
+      "severity": "medium",
+      "file": "../FlowDocs/apps/docs/shell-controls.js",
+      "issue": "Grid/theme/navigation shell state is coordinated with querySelector, localStorage, and global dataset mutation.",
+      "evidence": "Shell behavior is outside Flow component props/events.",
+      "decisionImpact": "Repair is possible, but only if these controls become Flow shell props/events or an explicit consumer adapter."
+    },
+    {
+      "severity": "medium",
+      "file": "packages/react/src/templates/DocsShellTemplate.ts",
+      "issue": "The package template exists and composes Topbar, Sidebar, Search, DocumentationPageShell and Surface, but still imposes page surface/background policy.",
+      "evidence": "DocsShellTemplate can be the repair target, but its props need to own background/surface/page-slot semantics.",
+      "decisionImpact": "Do not demolish immediately; use it as the system boundary to harden."
+    }
+  ],
+  "shellFiles": [
+    {
+      "file": "../FlowDocs/apps/docs/app.js",
+      "exists": true,
+      "signals": [
+        "inner-html-write",
+        "document-query-control",
+        "global-dataset-state",
+        "hash-router-state",
+        "manual-event-bridge"
+      ],
+      "risks": [
+        "React does not own the page subtree end-to-end.",
+        "Shell behavior depends on DOM selectors outside Flow component APIs.",
+        "State is mirrored through global dataset mutation."
+      ],
+      "evidence": {
+        "innerHtmlWrites": 1,
+        "querySelectors": 2,
+        "addEventListeners": 1,
+        "datasetMutations": 1,
+        "firstInnerHtmlLine": 353,
+        "firstQuerySelectorLine": 23
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-shell-react.js",
+      "exists": true,
+      "signals": [
+        "uses-react-shell-template",
+        "inner-html-write",
+        "document-query-control",
+        "global-dataset-state",
+        "hash-router-state",
+        "manual-event-bridge",
+        "flow-generated-runtime-import",
+        "manual-grid-overlay"
+      ],
+      "risks": [
+        "React does not own the page subtree end-to-end.",
+        "Shell behavior depends on DOM selectors outside Flow component APIs.",
+        "State is mirrored through global dataset mutation.",
+        "Grid overlay is still a local docs behavior, not a Flow shell API."
+      ],
+      "evidence": {
+        "innerHtmlWrites": 3,
+        "querySelectors": 4,
+        "addEventListeners": 1,
+        "datasetMutations": 10,
+        "firstInnerHtmlLine": 47,
+        "firstQuerySelectorLine": 41
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-layout.js",
+      "exists": true,
+      "signals": [
+        "uses-react-shell-template",
+        "legacy-render-shell"
+      ],
+      "risks": [
+        "Legacy shell renderer still participates in page composition."
+      ],
+      "evidence": {
+        "innerHtmlWrites": 0,
+        "querySelectors": 0,
+        "addEventListeners": 0,
+        "datasetMutations": 0,
+        "firstInnerHtmlLine": null,
+        "firstQuerySelectorLine": null
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/docs-chrome.js",
+      "exists": true,
+      "signals": [
+        "document-query-control"
+      ],
+      "risks": [
+        "Shell behavior depends on DOM selectors outside Flow component APIs."
+      ],
+      "evidence": {
+        "innerHtmlWrites": 0,
+        "querySelectors": 3,
+        "addEventListeners": 0,
+        "datasetMutations": 0,
+        "firstInnerHtmlLine": null,
+        "firstQuerySelectorLine": 15
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/shell-controls.js",
+      "exists": true,
+      "signals": [
+        "inner-html-write",
+        "document-query-control",
+        "global-dataset-state",
+        "local-storage-state",
+        "hash-router-state",
+        "manual-event-bridge",
+        "manual-grid-overlay"
+      ],
+      "risks": [
+        "React does not own the page subtree end-to-end.",
+        "Shell behavior depends on DOM selectors outside Flow component APIs.",
+        "State is mirrored through global dataset mutation.",
+        "Grid overlay is still a local docs behavior, not a Flow shell API."
+      ],
+      "evidence": {
+        "innerHtmlWrites": 1,
+        "querySelectors": 8,
+        "addEventListeners": 2,
+        "datasetMutations": 6,
+        "firstInnerHtmlLine": 100,
+        "firstQuerySelectorLine": 4
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/01-shell-01.css",
+      "exists": true,
+      "signals": [
+        "manual-grid-overlay"
+      ],
+      "risks": [
+        "Grid overlay is still a local docs behavior, not a Flow shell API."
+      ],
+      "evidence": {
+        "innerHtmlWrites": 0,
+        "querySelectors": 0,
+        "addEventListeners": 0,
+        "datasetMutations": 0,
+        "firstInnerHtmlLine": null,
+        "firstQuerySelectorLine": null
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/01-shell-02.css",
+      "exists": true,
+      "signals": [],
+      "risks": [],
+      "evidence": {
+        "innerHtmlWrites": 0,
+        "querySelectors": 0,
+        "addEventListeners": 0,
+        "datasetMutations": 0,
+        "firstInnerHtmlLine": null,
+        "firstQuerySelectorLine": null
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/01-shell-react.css",
+      "exists": true,
+      "signals": [],
+      "risks": [],
+      "evidence": {
+        "innerHtmlWrites": 0,
+        "querySelectors": 0,
+        "addEventListeners": 0,
+        "datasetMutations": 0,
+        "firstInnerHtmlLine": null,
+        "firstQuerySelectorLine": null
+      }
+    },
+    {
+      "file": "../FlowDocs/apps/docs/styles/02-doc-layout.css",
+      "exists": true,
+      "signals": [],
+      "risks": [],
+      "evidence": {
+        "innerHtmlWrites": 0,
+        "querySelectors": 0,
+        "addEventListeners": 0,
+        "datasetMutations": 0,
+        "firstInnerHtmlLine": null,
+        "firstQuerySelectorLine": null
+      }
+    }
+  ],
+  "flowTemplateFiles": [
+    {
+      "file": "packages/react/src/templates/DocsShellTemplate.ts",
+      "exists": true,
+      "signals": [
+        "topbar-composed",
+        "sidebar-composed",
+        "search-composed",
+        "documentation-page-shell-composed",
+        "children-slot",
+        "surface-page-wrapper",
+        "hardcoded-light-background-choice"
+      ],
+      "risks": [
+        "Template wraps page content in a Surface, which may conflict with the transparent editorial layout expectation.",
+        "Background policy is hardcoded in the template instead of supplied as a documented shell prop."
+      ]
+    },
+    {
+      "file": "packages/react/src/patterns/Topbar.ts",
+      "exists": true,
+      "signals": [
+        "topbar-composed",
+        "sidebar-composed",
+        "search-composed"
+      ],
+      "risks": []
+    },
+    {
+      "file": "packages/react/src/patterns/Sidebar.ts",
+      "exists": true,
+      "signals": [
+        "sidebar-composed",
+        "surface-page-wrapper"
+      ],
+      "risks": []
+    },
+    {
+      "file": "packages/react/src/patterns/Search.ts",
+      "exists": true,
+      "signals": [
+        "search-composed",
+        "children-slot"
+      ],
+      "risks": []
+    },
+    {
+      "file": "packages/react/src/patterns/DocumentationPageShell.ts",
+      "exists": true,
+      "signals": [
+        "documentation-page-shell-composed",
+        "children-slot",
+        "surface-page-wrapper"
+      ],
+      "risks": [
+        "Template wraps page content in a Surface, which may conflict with the transparent editorial layout expectation."
+      ]
+    }
+  ],
+  "nextIteration": {
+    "id": 6,
+    "name": "Demos Boundary",
+    "goal": "Classify demo/runtime islands so component QA demos and FlowDocs demos do not mask each other's bugs."
+  }
+}

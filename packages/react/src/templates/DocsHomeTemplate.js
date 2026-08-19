@@ -12,7 +12,7 @@ import { SectionHeader } from "../patterns/SectionHeader.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(flowRestProps(rest)).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
 }
-export const DocsHomeTemplate = forwardRef(function DocsHomeTemplate({ title, description, metadata = [], coverage, status, children, density = "md", state = "default", className = "", ...rest }, ref) {
+export const DocsHomeTemplate = forwardRef(function DocsHomeTemplate({ title, description, metadata = [], heroVisual, coverage, status, children, density = "md", state = "default", className = "", ...rest }, ref) {
     return React.createElement("article", {
         ...sanitizeRestProps(rest),
         ref,
@@ -21,6 +21,6 @@ export const DocsHomeTemplate = forwardRef(function DocsHomeTemplate({ title, de
         "data-flow-template": "docs-home-template",
         "data-state": state,
         "data-density": density,
-    }, React.createElement(DocumentationHero, { title, ...(description ? { description } : {}), density, background: "gradient-grid", "data-flow-slot": "docs-home.hero" }), React.createElement(Surface, { surfaceRole: "section", density, tone: "default", elevation: "none", "data-flow-slot": "docs-home.main" }, React.createElement(SectionHeader, { title: "Documentation status", density, headingLevel: 2, "data-flow-slot": "docs-home.status-header" }), React.createElement(DocumentationSection, { title: "Coverage", density, "data-flow-slot": "docs-home.coverage" }, coverage), React.createElement(DocumentationSection, { title: "Status", density, "data-flow-slot": "docs-home.status" }, status), metadata.length ? React.createElement(ArtifactMetadataBar, { items: metadata, density, "data-flow-slot": "docs-home.metadata" }) : null, children));
+    }, React.createElement(DocumentationHero, { title, ...(description ? { description } : {}), density, background: "gradient-grid", visual: heroVisual, "data-flow-slot": "docs-home.hero" }), React.createElement(Surface, { surfaceRole: "section", density, tone: "default", elevation: "none", "data-flow-slot": "docs-home.main" }, React.createElement(SectionHeader, { title: "Documentation status", density, headingLevel: 2, "data-flow-slot": "docs-home.status-header" }), React.createElement(DocumentationSection, { title: "Coverage", density, "data-flow-slot": "docs-home.coverage" }, coverage), React.createElement(DocumentationSection, { title: "Status", density, "data-flow-slot": "docs-home.status" }, status), metadata.length ? React.createElement(ArtifactMetadataBar, { items: metadata, density, "data-flow-slot": "docs-home.metadata" }) : null, children));
 });
 DocsHomeTemplate.displayName = "DocsHomeTemplate";

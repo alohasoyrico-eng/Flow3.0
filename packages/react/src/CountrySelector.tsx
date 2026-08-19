@@ -175,7 +175,7 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
         "aria-expanded": String(open),
         "aria-haspopup": "listbox",
         "aria-controls": `${selectorId}-listbox`,
-        "aria-activedescendant": `${selectorId}-option-${activeIndex}`,
+        "aria-activedescendant": open ? `${selectorId}-option-${activeIndex}` : undefined,
         "aria-label": label,
         "aria-disabled": disabled ? "true" : undefined,
         "aria-invalid": invalid ? "true" : undefined,
@@ -189,7 +189,12 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
           if (disabled) return;
           if (["Enter", " "].includes(event.key)) {
             event.preventDefault();
-            setOpen(!open, event);
+            if (open) {
+              commitOption(activeOption, event);
+              return;
+            }
+            setActiveCountryCode(selectedCountry.country);
+            setOpen(true, event);
           }
           if (event.key === "Escape") {
             event.preventDefault();

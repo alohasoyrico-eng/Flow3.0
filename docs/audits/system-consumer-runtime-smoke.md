@@ -17,7 +17,7 @@ Generated: 2026-08-14
 | Button | 168 |
 | Card | 305 |
 | Input | 326 |
-| Select | 1132 |
+| Select | 1181 |
 | Table | 278 |
 | CodeBlock | 342 |
 | CopyButton | 198 |

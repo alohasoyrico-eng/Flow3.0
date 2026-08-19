@@ -52,6 +52,36 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!text.includes("--comp-button-size-md: var(--component-button-size-md);")) {
     add("errors", packageCssFile, 1, "Button medium size must consume --component-button-size-md.");
   }
+  for (const snippet of [
+    "--component-button-size-sm: var(--sys-frame-height-control-sm);",
+    "--component-button-size-md: var(--component-density-control-height);",
+    "--component-button-size-lg: var(--sys-frame-height-control-lg);",
+    "--comp-button-padding-sm: calc(var(--component-space-md) + var(--component-frame-space-micro));",
+    "--comp-button-padding-md: var(--component-space-lg);",
+    "--comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-frame-space-micro));",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, `Button density must keep monotonic sm/md/lg geometry through Flow tokens: missing ${snippet}`);
+    }
+  }
+  for (const [token, requiredPrefix] of [
+    ["--comp-button-bg-danger-hover", "var(--component-tone-danger-"],
+    ["--comp-button-bg-danger-pressed", "var(--component-tone-danger-"],
+    ["--comp-button-bg-warning-hover", "var(--component-tone-warning-"],
+    ["--comp-button-bg-warning-pressed", "var(--component-tone-warning-"],
+    ["--comp-button-bg-danger-secondary-hover", "var(--component-tone-danger-"],
+    ["--comp-button-bg-danger-secondary-pressed", "var(--component-tone-danger-"],
+  ]) {
+    const match = text.match(new RegExp(`${token}:\\s*([^;]+);`));
+    if (!match || !match[1].trim().startsWith(requiredPrefix)) {
+      add("errors", packageCssFile, match ? lineNumber(text, match.index) : 1, `${token} must stay inside its semantic tone family instead of falling back to action/blue tokens.`);
+    }
+  }
+  const loadingStateBlock = blockFor(blocks, selectorKey, ".button[data-state=\"loading\"]");
+  const loadingUsesDisabledVisualAlias = loadingStateBlock && /--comp-button-disabled-|background:\s*var\(--comp-button-disabled-|color:\s*var\(--comp-button-disabled-/.test(loadingStateBlock.body);
+  if (loadingUsesDisabledVisualAlias) {
+    add("errors", packageCssFile, lineNumber(text, loadingStateBlock.index), "Button loading/busy state must not reuse disabled visual aliases.");
+  }
   if (blockFor(blocks, selectorKey, ".button:focus-visible,.icon-button:focus-visible,.text-area:focus-visible")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".button:focus-visible")), "Button focus must not share a CSS block with IconButton or TextArea.");
   }

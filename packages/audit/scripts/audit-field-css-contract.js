@@ -12,10 +12,14 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const fieldBlock = blockFor(blocks, selectorKey, ".field-control,.field");
   const fieldSurfaceBlock = blockFor(blocks, selectorKey, ".field-control__surface,.field__control");
+  const fieldInputBlock = blockFor(blocks, selectorKey, ".field-input,.input");
+  const fieldPlaceholderBlock = blockFor(blocks, selectorKey, ".field-input::placeholder,.input::placeholder");
   const fieldSmBlock = blockFor(blocks, selectorKey, ".field-control[data-density=\"sm\"],.field[data-density=\"sm\"]");
   const fieldLgBlock = blockFor(blocks, selectorKey, ".field-control[data-density=\"lg\"],.field[data-density=\"lg\"]");
   const fieldIconBlock = blockFor(blocks, selectorKey, ".field__icon");
   const fieldActionBlock = blockFor(blocks, selectorKey, ".field-action");
+  const fieldErrorMessageBlock = blockFor(blocks, selectorKey, ".field-control[data-state=\"error\"] .field-control__helper,.field[data-state=\"error\"] .field__helper,.field[data-state=\"error\"] .field__icon");
+  const darkFieldBlock = blockFor(blocks, selectorKey, "[data-theme=\"dark\"] .field,[data-theme=\"dark\"] .field-control");
   const cardFieldBlock = blockFor(blocks, selectorKey, ".card-number-input,.card-expiry-input,.card-security-code-input");
   const cardControlBlock = blockFor(blocks, selectorKey, ".card-number-input__control,.card-expiry-input__control,.card-security-code-input__control");
   const cardIconBlock = blockFor(blocks, selectorKey, ".card-number-input__icon,.card-expiry-input__icon,.card-security-code-input__icon");
@@ -24,6 +28,47 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
 
   if (!text.includes("--comp-input-control-size: var(--component-density-control-height)")) {
     add("errors", packageCssFile, 1, "Input base control size must inherit from the density cascade.");
+  }
+  for (const snippet of [
+    "--component-field-control-size-sm: var(--sys-frame-height-control-sm);",
+    "--component-field-control-size-md: var(--sys-frame-height-control-md);",
+    "--component-field-control-size-lg: var(--sys-frame-height-control-lg);",
+    "--comp-input-control-size-sm: var(--component-field-control-size-sm);",
+    "--comp-input-control-size-md: var(--component-field-control-size-md);",
+    "--comp-input-control-size-lg: var(--component-field-control-size-lg);",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, `Field/Input density must keep monotonic sm/md/lg geometry through shared field tokens: missing ${snippet}`);
+    }
+  }
+  const loadingSurfaceBlock = blockFor(blocks, selectorKey, ".field-control[data-state=\"loading\"] .field-control__surface,.field[data-state=\"loading\"] .field__control");
+  const disabledSurfaceBlock = blockFor(blocks, selectorKey, ".field-control[data-state=\"disabled\"] .field-control__surface,.field[data-state=\"disabled\"] .field__control");
+  requireIncludes({
+    block: loadingSurfaceBlock,
+    text,
+    packageCssFile,
+    snippets: ["background: var(--comp-input-loading-bg)"],
+    message: "Field/Input loading state must consume a loading surface alias, not the disabled visual alias.",
+  });
+  requireIncludes({
+    block: disabledSurfaceBlock,
+    text,
+    packageCssFile,
+    snippets: ["background: var(--comp-input-disabled-bg)"],
+    message: "Field/Input disabled state must consume the disabled surface alias.",
+  });
+  if (loadingSurfaceBlock && /--comp-input-disabled-|background:\s*var\(--comp-input-disabled-/.test(loadingSurfaceBlock.body)) {
+    add("errors", packageCssFile, lineNumber(text, loadingSurfaceBlock.index), "Field/Input loading state must stay visually distinct from disabled.");
+  }
+  for (const [state, token] of [
+    ["info", "--comp-input-info-bg"],
+    ["success", "--comp-input-success-bg"],
+    ["warning", "--comp-input-warning-bg"],
+    ["error", "--comp-input-error-bg"],
+  ]) {
+    if (!text.includes(`.field[data-state="${state}"] .field__control`) || !text.includes(`background: var(${token})`)) {
+      add("errors", packageCssFile, 1, `Field/Input ${state} state must use its semantic field background alias.`);
+    }
   }
   requireIncludes({
     block: fieldBlock,
@@ -83,6 +128,47 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: ["inline-size: var(--comp-field-icon-action-size)", "min-block-size: var(--comp-field-icon-action-size)"],
     message: "Field actions must consume the current Field action size.",
+  });
+  if (!text.includes("--component-field-placeholder-fg: var(--component-color-text-muted);")) {
+    add("errors", packageCssFile, 1, "Field placeholder color must be exposed as a shared component field token.");
+  }
+  if (!text.includes("--component-field-error-helper-fg: var(--component-color-danger);")) {
+    add("errors", packageCssFile, 1, "Field error helper color must be exposed as a shared component field token.");
+  }
+  requireIncludes({
+    block: fieldInputBlock,
+    text,
+    packageCssFile,
+    snippets: ["color: var(--comp-input-field-fg)"],
+    message: "Field input text must consume the field foreground alias.",
+  });
+  requireIncludes({
+    block: fieldPlaceholderBlock,
+    text,
+    packageCssFile,
+    snippets: ["color: var(--comp-input-placeholder-fg)", "opacity: 1"],
+    message: "Field placeholder must consume the shared placeholder alias instead of browser-native placeholder color.",
+  });
+  requireIncludes({
+    block: fieldErrorMessageBlock,
+    text,
+    packageCssFile,
+    snippets: ["color: var(--comp-input-error-helper-fg)"],
+    message: "Field error helper/icon must consume the semantic error helper alias.",
+  });
+  requireIncludes({
+    block: darkFieldBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface))",
+      "--comp-input-error-border: color-mix(in srgb, var(--component-color-danger) 78%, var(--component-color-text))",
+      "--comp-input-error-helper-fg: var(--component-field-error-helper-fg)",
+      "--comp-input-label-fg: var(--component-color-text)",
+      "--comp-input-placeholder-fg: var(--component-color-text-muted)",
+      "--comp-input-loading-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface-raised))",
+    ],
+    message: "Field dark mode error state must preserve readable helper/icon contrast.",
   });
   requireIncludes({
     block: cardFieldBlock,

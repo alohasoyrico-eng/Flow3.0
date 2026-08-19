@@ -197,6 +197,8 @@ try {
     assert.equal(globalThis.document.activeElement?.textContent, "Archive");
     fireEvent.keyDown(menu, { key: "Home" });
     assert.equal(globalThis.document.activeElement?.textContent, "Edit");
+    fireEvent.keyDown(menu, { key: "ArrowUp" });
+    assert.equal(globalThis.document.activeElement?.textContent, "Archive");
     fireEvent.keyDown(menu, { key: "Escape" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });

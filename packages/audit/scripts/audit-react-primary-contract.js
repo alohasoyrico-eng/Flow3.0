@@ -54,8 +54,11 @@ function checkReactPrimaryContract() {
   checkReactPackageExportInventory(reactPackage);
   checkReactPrimitiveSources({ reactIndex, reactTypesIndex, reactPackage, rootPackage });
 
-  if (!reactPackage?.scripts?.test?.includes("test/ref.test.mjs")) {
-    add("errors", reactPackageFile, 1, "React package test script must run test/ref.test.mjs so ForwardRefExoticComponent is verified at runtime.");
+  if (!reactPackage?.scripts?.["test:release"]?.includes("test/ref.test.mjs")) {
+    add("errors", reactPackageFile, 1, "React package test:release script must run test/ref.test.mjs so ForwardRefExoticComponent is verified at runtime.");
+  }
+  if (reactPackage?.scripts?.test !== "npm run test:release") {
+    add("errors", reactPackageFile, 1, "React package test script must delegate to test:release so the release lane remains the default package test.");
   }
   if (!fs.existsSync(reactRefTestFile)) {
     add("errors", reactRefTestFile, 1, "React package must include a runtime ref forwarding test for all contracted components.");

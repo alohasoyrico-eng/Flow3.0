@@ -233,6 +233,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
+        "aria-busy": resolvedState === "loading" ? "true" : undefined,
         onChange: handleChange,
       }),
       suffix

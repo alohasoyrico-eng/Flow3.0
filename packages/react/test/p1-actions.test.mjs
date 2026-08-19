@@ -56,23 +56,30 @@ try {
     assert.equal(button.dataset.density, "sm");
     await user.click(button);
     assert.deepEqual(clicks, ["click"]);
+    button.focus();
+    await user.keyboard("{Enter}");
+    assert.deepEqual(clicks, ["click", "click"]);
 
     view.rerender(React.createElement(Button, {
       label: "Save route",
       disabled: true,
       onClick: (event) => clicks.push(event.type),
     }));
+    assert.equal(button.dataset.state, "disabled");
     await user.click(button);
-    assert.deepEqual(clicks, ["click"]);
+    assert.deepEqual(clicks, ["click", "click"]);
 
     view.rerender(React.createElement(Button, {
       label: "Save route",
+      intent: "danger",
       loading: true,
       onClick: (event) => clicks.push(event.type),
     }));
+    assert.match(button.className, /button--danger/);
+    assert.equal(button.dataset.state, "loading");
     assert.equal(button.getAttribute("aria-busy"), "true");
     await user.click(button);
-    assert.deepEqual(clicks, ["click"]);
+    assert.deepEqual(clicks, ["click", "click"]);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

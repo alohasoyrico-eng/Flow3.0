@@ -1,6 +1,7 @@
 const {
   add,
   docsAppDir,
+  fs,
   read,
   readJson,
   root,
@@ -18,8 +19,8 @@ function checkTemplateComposition() {
   const catalog = readJson(templatesFile);
   const blueprints = readJson(templateBlueprintsFile)?.templates ?? {};
   const demoSource = read(desktopDemoFile);
-  const shellRendererSource = read(shellRenderersFile);
-  const businessRendererSource = read(businessRenderersFile);
+  const shellRendererSource = readRequiredSource(shellRenderersFile, "Shell pattern renderers");
+  const businessRendererSource = readRequiredSource(businessRenderersFile, "Business pattern renderers");
   const renderers = {
     "fleet-manager-desktop": "fleetManagerDesktopDemo",
     "fleet-dashboard-suite": "dashboardSuiteDemo",
@@ -114,6 +115,12 @@ function checkTemplateComposition() {
   }
   if (/<button(?![^`]*packageDemo)/.test(demoSource)) add("errors", desktopDemoFile, 1, "Desktop template demos must not declare raw custom <button> elements.");
   if (/<button(?![^`]*packageDemo)/.test(businessRendererSource)) add("errors", businessRenderersFile, 1, "Business pattern renderers must not declare raw custom <button> elements.");
+}
+
+function readRequiredSource(file, label) {
+  if (fs.existsSync(file)) return read(file);
+  add("errors", file, 1, `${label} file is missing; template composition audit cannot verify real pattern consumption.`);
+  return "";
 }
 
 function functionSource(source, name) {
