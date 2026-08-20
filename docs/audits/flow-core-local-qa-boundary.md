@@ -1,6 +1,6 @@
 # FlowDocs Demo Boundary
 
-Generated: 2026-08-20T15:54:40.520Z
+Generated: 2026-08-20T15:57:05.538Z
 Status: pass
 
 ## Summary
@@ -14,6 +14,7 @@ Status: pass
 - localQaManualHarnessFiles: 0
 - obsoleteLocalQaFiles: 0
 - nonCanonicalLocalQaFiles: 0
+- nonCanonicalLocalSnapshotFiles: 0
 - localQaComponentIds: button, checkbox, combobox, dialog, floating-action-button, icon-button, input, menu, quick-action, radio-button, select, switch, tabs
 
 ## Rules

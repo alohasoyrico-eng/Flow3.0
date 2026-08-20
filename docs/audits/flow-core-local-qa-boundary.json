@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T15:54:40.520Z",
+  "generatedAt": "2026-08-20T15:57:05.538Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
@@ -35,7 +35,8 @@
     "localQaReactRuntimeFiles": 13,
     "localQaManualHarnessFiles": 0,
     "obsoleteLocalQaFiles": 0,
-    "nonCanonicalLocalQaFiles": 0
+    "nonCanonicalLocalQaFiles": 0,
+    "nonCanonicalLocalSnapshotFiles": 0
   },
   "findings": [
     {
@@ -388,6 +389,7 @@
   ],
   "obsoleteLocalQaFiles": [],
   "nonCanonicalLocalQaFiles": [],
+  "nonCanonicalLocalSnapshotFiles": [],
   "nextIteration": {
     "id": 7,
     "name": "Templates Boundary",

@@ -7,7 +7,8 @@ const root = process.cwd();
 const docsDir = fs.existsSync(path.join(root, "../FlowDocs/apps/docs"))
   ? path.join(root, "../FlowDocs/apps/docs")
   : path.join(root, "apps/docs");
-const localQaDir = path.join(root, "../../local-visual-snapshots/Flow3-component-qa");
+const localSnapshotsDir = path.join(root, "../../local-visual-snapshots");
+const localQaDir = path.join(localSnapshotsDir, "Flow3-component-qa");
 const outputDir = path.join(root, "docs/audits");
 const localQaOnly = process.argv.includes("--local-qa-only");
 const outputJson = path.join(outputDir, localQaOnly ? "flow-core-local-qa-boundary.json" : "flowdocs-demo-boundary.json");
@@ -211,6 +212,10 @@ function buildReport() {
     const relativeParts = path.relative(localQaDir, file).split(path.sep);
     return !(relativeParts.at(-2) === "interactive" && relativeParts.at(-1) === "react-runtime.html");
   }).map((file) => rel(file));
+  const nonCanonicalLocalSnapshotFiles = walk(localSnapshotsDir, (file) => {
+    const relativeParts = path.relative(localSnapshotsDir, file).split(path.sep);
+    return relativeParts[0] !== "Flow3-component-qa";
+  }).map((file) => rel(file));
   const docsRiskFiles = docsDemoFiles.filter((entry) => entry.risks.length);
   const mixedFlowClaims = docsDemoFiles.filter((entry) => entry.signals.includes("declares-flow-source") && entry.risks.length);
   const localVisualOverrideFiles = localQaFiles.filter((entry) => entry.metrics.localVisualOverrides > 0);
@@ -229,6 +234,7 @@ function buildReport() {
     localQaManualHarnessFiles: localManualHarnessFiles.length,
     obsoleteLocalQaFiles: obsoleteLocalQaFiles.length,
     nonCanonicalLocalQaFiles: nonCanonicalLocalQaFiles.length,
+    nonCanonicalLocalSnapshotFiles: nonCanonicalLocalSnapshotFiles.length,
   };
 
   const findings = [
@@ -274,6 +280,12 @@ function buildReport() {
       action: "Regenerate review evidence from package source or the original ZIP when needed; do not keep derived local HTML/PNG snapshots as parallel truth.",
       count: nonCanonicalLocalQaFiles.length,
     }] : []),
+    ...(nonCanonicalLocalSnapshotFiles.length ? [{
+      severity: "high",
+      issue: "local-visual-snapshots contains derived evidence outside the governed Flow3 component QA harness.",
+      action: "Delete stale comparison indexes and ZIP baselines; regenerate from original sources only when the current task needs evidence.",
+      count: nonCanonicalLocalSnapshotFiles.length,
+    }] : []),
   ];
 
   return {
@@ -295,6 +307,7 @@ function buildReport() {
     localQaHarnesses: localQaFiles,
     obsoleteLocalQaFiles,
     nonCanonicalLocalQaFiles,
+    nonCanonicalLocalSnapshotFiles,
     nextIteration: {
       id: 7,
       name: "Templates Boundary",
