@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const { spawnSync } = require("node:child_process");
+const { result } = require("./audit-context.js");
 const { checkSystemArchitectureGate } = require("./audit-architecture-gate.js");
 const { checkAdoptionReadiness } = require("./audit-adoption-readiness.js");
 const { checkMachineReadableSpec } = require("./audit-spec.js");
@@ -23,6 +25,51 @@ const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js"
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { finishAudit } = require("./audit-result.js");
 
+const coreCheckpointChecks = [
+  {
+    id: "phase1-style-dictionary",
+    args: ["packages/audit/scripts/report-system-phase1-style-dictionary-checkpoint.js", "--check"],
+    owns: "Style Dictionary source ownership, reproducible token outputs, generated output governance, and raw token value blocking",
+  },
+  {
+    id: "phase3-foundations-primitives",
+    args: ["packages/audit/scripts/report-system-phase3-foundations-primitives-checkpoint.js", "--check"],
+    owns: "foundation/primitive cascade closure, export contracts, runtime/policy primitive contracts, generated tokens, and source-boundary governance",
+  },
+];
+
+function checkCoreCheckpointReports() {
+  const checks = coreCheckpointChecks.map((check) => {
+    const child = spawnSync("node", check.args, {
+      cwd: process.cwd(),
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    return {
+      ...check,
+      commandLine: ["node", ...check.args].join(" "),
+      status: child.status === 0 ? "pass" : "fail",
+      stdoutTail: String(child.stdout ?? "").split("\n").filter(Boolean).slice(-8),
+      stderrTail: String(child.stderr ?? "").split("\n").filter(Boolean).slice(-8),
+    };
+  });
+  result.inventory.coreCheckpointReports = checks.length;
+  result.inventory.coreCheckpointReportsPassing = checks.filter((check) => check.status === "pass").length;
+  result.info.push({
+    check: "core checkpoint reports",
+    checks: checks.map(({ id, status, commandLine, owns }) => ({ id, status, commandLine, owns })),
+  });
+  for (const check of checks.filter((item) => item.status !== "pass")) {
+    result.errors.push({
+      check: "core checkpoint reports",
+      message: `${check.id} failed`,
+      command: check.commandLine,
+      stdoutTail: check.stdoutTail,
+      stderrTail: check.stderrTail,
+    });
+  }
+}
+
 checkSystemArchitectureGate();
 checkAdoptionReadiness();
 checkMachineReadableSpec();
@@ -44,5 +91,6 @@ checkReactContractTriangle();
 checkReactCopyContract();
 checkAntiDuplicationGovernance();
 checkManualAccessibility();
+checkCoreCheckpointReports();
 
 finishAudit();

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "ds-release-gate@1",
-  "generatedAt": "2026-08-20T05:27:29.228Z",
+  "generatedAt": "2026-08-20T05:29:29.245Z",
   "status": "pass",
   "decision": "Flow core is releasable by package/runtime gates; FlowDocs remains separately audited.",
   "authority": {
@@ -40,7 +40,7 @@
       "commandLine": "node packages/audit/scripts/report-ds-qa-topology.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 43,
+      "durationMs": 34,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -64,16 +64,19 @@
       "commandLine": "npm run audit:flow-core-gate",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 1649,
+      "durationMs": 1510,
       "stdoutTail": [
-        "> @alohasoyrico-eng/flow@0.3.0-platform-mvp audit:flow-core-gate",
-        "> node packages/audit/scripts/audit-flow-core-gate.js",
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"errors\": [],",
-        "  \"warnings\": [],",
-        "  \"info\": [],",
-        "  \"inventory\": {}",
+        "          \"status\": \"pass\",",
+        "          \"commandLine\": \"node packages/audit/scripts/report-system-phase3-foundations-primitives-checkpoint.js --check\",",
+        "          \"owns\": \"foundation/primitive cascade closure, export contracts, runtime/policy primitive contracts, generated tokens, and source-boundary governance\"",
+        "        }",
+        "      ]",
+        "    }",
+        "  ],",
+        "  \"inventory\": {",
+        "    \"coreCheckpointReports\": 2,",
+        "    \"coreCheckpointReportsPassing\": 2",
+        "  }",
         "}"
       ],
       "stderrTail": []
@@ -88,7 +91,7 @@
       "commandLine": "node packages/audit/scripts/report-react-production-readiness.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 194,
+      "durationMs": 156,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -114,7 +117,7 @@
       "commandLine": "node packages/audit/scripts/report-react-interaction-coverage.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 104,
+      "durationMs": 68,
       "stdoutTail": [
         "  \"withCallbacks\": 45,",
         "  \"review\": 0,",
@@ -141,7 +144,7 @@
       "commandLine": "node packages/audit/scripts/report-system-component-artifact-tests.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 344,
+      "durationMs": 270,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -164,7 +167,7 @@
       "commandLine": "node packages/audit/scripts/report-system-component-runtime-audit.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 7607,
+      "durationMs": 7972,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -187,7 +190,7 @@
       "commandLine": "node packages/audit/scripts/report-system-public-runtime-boundary.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 39,
+      "durationMs": 37,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -210,7 +213,7 @@
       "commandLine": "node packages/audit/scripts/report-system-consumer-runtime-smoke.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 3567,
+      "durationMs": 3531,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -234,7 +237,7 @@
       "commandLine": "node packages/audit/scripts/report-system-consumer-css-token-cascade.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 3330,
+      "durationMs": 3624,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -257,7 +260,7 @@
       "commandLine": "node packages/audit/scripts/report-system-consumer-type-smoke.js",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 3439,
+      "durationMs": 3418,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
@@ -280,13 +283,13 @@
       "commandLine": "node packages/audit/scripts/audit-consumer-install.mjs",
       "status": "pass",
       "exitCode": 0,
-      "durationMs": 6008,
+      "durationMs": 6326,
       "stdoutTail": [
         "{",
         "  \"status\": \"pass\",",
         "  \"check\": \"consumer install\",",
         "  \"package\": \"@alohasoyrico-eng/flow\",",
-        "  \"consumerDir\": \"/var/folders/5q/rphkhxfd30gdz11dpmxq7rdc0000gn/T/consumer-install-b6h1dn/consumer\"",
+        "  \"consumerDir\": \"/var/folders/5q/rphkhxfd30gdz11dpmxq7rdc0000gn/T/consumer-install-iBk84k/consumer\"",
         "}"
       ],
       "stderrTail": []
