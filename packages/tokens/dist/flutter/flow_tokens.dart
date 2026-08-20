@@ -604,9 +604,9 @@ class FlowTokens {
   static const String sysFrameButtonPaddingXLg = "var(--ref-frame-space-6)";
   static const String sysFrameButtonPaddingXMd = "var(--ref-frame-space-5)";
   static const String sysFrameButtonPaddingXSm = "var(--ref-frame-space-4)";
-  static const String sysFrameContentActionControlLg = "calc(var(--sys-space-11) * 1.5)";
-  static const String sysFrameContentActionControlMd = "var(--sys-space-9)";
-  static const String sysFrameContentActionControlSm = "var(--sys-space-11)";
+  static const String sysFrameContentActionControlLg = "calc(var(--sys-space-12) + var(--sys-space-xs))";
+  static const String sysFrameContentActionControlMd = "var(--sys-space-11)";
+  static const String sysFrameContentActionControlSm = "var(--sys-space-9)";
   static const String sysFrameContentActionLabelLg = "calc(var(--sys-space-11) * 2.5)";
   static const String sysFrameContentActionLabelMd = "calc(var(--sys-space-11) * 2)";
   static const String sysFrameContentActionLabelSm = "calc(var(--sys-space-11) * 1.75)";
@@ -1758,9 +1758,9 @@ class FlowTokens {
     "sys-frame-button-padding-x-lg": "var(--ref-frame-space-6)",
     "sys-frame-button-padding-x-md": "var(--ref-frame-space-5)",
     "sys-frame-button-padding-x-sm": "var(--ref-frame-space-4)",
-    "sys-frame-content-action-control-lg": "calc(var(--sys-space-11) * 1.5)",
-    "sys-frame-content-action-control-md": "var(--sys-space-9)",
-    "sys-frame-content-action-control-sm": "var(--sys-space-11)",
+    "sys-frame-content-action-control-lg": "calc(var(--sys-space-12) + var(--sys-space-xs))",
+    "sys-frame-content-action-control-md": "var(--sys-space-11)",
+    "sys-frame-content-action-control-sm": "var(--sys-space-9)",
     "sys-frame-content-action-label-lg": "calc(var(--sys-space-11) * 2.5)",
     "sys-frame-content-action-label-md": "calc(var(--sys-space-11) * 2)",
     "sys-frame-content-action-label-sm": "calc(var(--sys-space-11) * 1.75)",

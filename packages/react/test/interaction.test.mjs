@@ -1665,7 +1665,7 @@ try {
 
   fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
   assert.deepEqual(quickActionClicks, ["click"]);
-  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "destructive", state: "default" }, eventType: "click" }]);
+  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "standard", intent: "danger", state: "default" }, eventType: "click" }]);
 
   rerenderQuickAction(React.createElement(QuickAction, {
     label: "Scan card",
@@ -1677,7 +1677,7 @@ try {
 
   fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
   assert.deepEqual(quickActionClicks, ["click"]);
-  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "destructive", state: "default" }, eventType: "click" }]);
+  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "standard", intent: "danger", state: "default" }, eventType: "click" }]);
 
   cleanup();
 

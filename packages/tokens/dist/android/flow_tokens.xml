@@ -604,9 +604,9 @@
   <string name="sys_frame_button_padding_x_lg">var(--ref-frame-space-6)</string>
   <string name="sys_frame_button_padding_x_md">var(--ref-frame-space-5)</string>
   <string name="sys_frame_button_padding_x_sm">var(--ref-frame-space-4)</string>
-  <string name="sys_frame_content_action_control_lg">calc(var(--sys-space-11) * 1.5)</string>
-  <string name="sys_frame_content_action_control_md">var(--sys-space-9)</string>
-  <string name="sys_frame_content_action_control_sm">var(--sys-space-11)</string>
+  <string name="sys_frame_content_action_control_lg">calc(var(--sys-space-12) + var(--sys-space-xs))</string>
+  <string name="sys_frame_content_action_control_md">var(--sys-space-11)</string>
+  <string name="sys_frame_content_action_control_sm">var(--sys-space-9)</string>
   <string name="sys_frame_content_action_label_lg">calc(var(--sys-space-11) * 2.5)</string>
   <string name="sys_frame_content_action_label_md">calc(var(--sys-space-11) * 2)</string>
   <string name="sys_frame_content_action_label_sm">calc(var(--sys-space-11) * 1.75)</string>

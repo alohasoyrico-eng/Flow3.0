@@ -1060,7 +1060,7 @@
     }
   },
   "sys-frame-content-action-control-lg": {
-    "$value": "calc(var(--sys-space-11) * 1.5)",
+    "$value": "calc(var(--sys-space-12) + var(--sys-space-xs))",
     "$type": "dimension",
     "$extensions": {
       "flow": {
@@ -1070,7 +1070,7 @@
     }
   },
   "sys-frame-content-action-control-md": {
-    "$value": "{sys-space-9}",
+    "$value": "{sys-space-11}",
     "$type": "dimension",
     "$extensions": {
       "flow": {
@@ -1080,7 +1080,7 @@
     }
   },
   "sys-frame-content-action-control-sm": {
-    "$value": "{sys-space-11}",
+    "$value": "{sys-space-9}",
     "$type": "dimension",
     "$extensions": {
       "flow": {

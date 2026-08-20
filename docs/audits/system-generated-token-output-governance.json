@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-14T23:44:47.854Z",
+  "generatedAt": "2026-08-20T10:00:46.306Z",
   "scope": "Generated token output edit governance",
   "status": "pass",
   "manifest": "packages/tokens/dist/token-output-manifest.json",
   "totals": {
     "outputs": 9,
     "matchingOutputs": 9,
-    "tokenCount": 1139
+    "tokenCount": 1152
   },
   "inventory": {
     "generatedTokenOutputGovernanceDebt": 0
@@ -25,10 +25,10 @@
       "id": "token-source-matches-manifest",
       "status": "pass",
       "evidence": {
-        "manifestSourceSha": "408ed869ea455cbe0cf246e90a04dcbbae0c621e79e4c4f05f104245e5acdbe3",
-        "actualSourceSha": "408ed869ea455cbe0cf246e90a04dcbbae0c621e79e4c4f05f104245e5acdbe3",
-        "manifestTokenCount": 1139,
-        "actualTokenCount": 1139
+        "manifestSourceSha": "8b45c6eac1fd70d841e959e9032c9d795cc6a08e0644540cc26ac64895133ec5",
+        "actualSourceSha": "8b45c6eac1fd70d841e959e9032c9d795cc6a08e0644540cc26ac64895133ec5",
+        "manifestTokenCount": 1152,
+        "actualTokenCount": 1152
       },
       "failMessage": null
     },
@@ -40,29 +40,29 @@
           {
             "file": "packages/tokens/styles/tokens.css",
             "exists": true,
-            "expectedSha": "60ae82341224bc4b0b19091ee60cfc975cad3989a154e875a799deda5b5a013b",
-            "actualSha": "60ae82341224bc4b0b19091ee60cfc975cad3989a154e875a799deda5b5a013b",
+            "expectedSha": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a",
+            "actualSha": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a",
             "matchesManifest": true
           },
           {
             "file": "packages/tokens/styles/token-contexts.css",
             "exists": true,
-            "expectedSha": "44a2e2f4b575e772bce1cc6d214a98562b9539e99b2055ba4705a77651223f5f",
-            "actualSha": "44a2e2f4b575e772bce1cc6d214a98562b9539e99b2055ba4705a77651223f5f",
+            "expectedSha": "b70c5a2f09d73bd978269f839036f83a7f6d80e1762b33e6b9993a939ddde02e",
+            "actualSha": "b70c5a2f09d73bd978269f839036f83a7f6d80e1762b33e6b9993a939ddde02e",
             "matchesManifest": true
           },
           {
             "file": "packages/tokens/tokens.json",
             "exists": true,
-            "expectedSha": "e99d5dc0e817250a03b79e016989411e8d1f91e7e3fafb1550c43f110da6edae",
-            "actualSha": "e99d5dc0e817250a03b79e016989411e8d1f91e7e3fafb1550c43f110da6edae",
+            "expectedSha": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458",
+            "actualSha": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458",
             "matchesManifest": true
           },
           {
             "file": "packages/tokens/src/generated/tokens.ts",
             "exists": true,
-            "expectedSha": "6adebfeb0e61eb742f98d367872742456d79eaf08cea8ac86094036fad1bca48",
-            "actualSha": "6adebfeb0e61eb742f98d367872742456d79eaf08cea8ac86094036fad1bca48",
+            "expectedSha": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77",
+            "actualSha": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77",
             "matchesManifest": true
           },
           {
@@ -75,22 +75,22 @@
           {
             "file": "packages/tokens/dist/flutter/flow_tokens.dart",
             "exists": true,
-            "expectedSha": "c469bf6de36651ec5def9632f3d7ed3e5e86d88d7e5bf4b7f55345c2a3df33cc",
-            "actualSha": "c469bf6de36651ec5def9632f3d7ed3e5e86d88d7e5bf4b7f55345c2a3df33cc",
+            "expectedSha": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6",
+            "actualSha": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6",
             "matchesManifest": true
           },
           {
             "file": "packages/tokens/dist/android/flow_tokens.xml",
             "exists": true,
-            "expectedSha": "6f11179f087fb6e3ad9a1130c1ebd34b981cd2e7c8cd99832093a8916f9192b2",
-            "actualSha": "6f11179f087fb6e3ad9a1130c1ebd34b981cd2e7c8cd99832093a8916f9192b2",
+            "expectedSha": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b",
+            "actualSha": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b",
             "matchesManifest": true
           },
           {
             "file": "packages/tokens/dist/ios/FlowTokens.swift",
             "exists": true,
-            "expectedSha": "6dc6f93e0b4492360b91723919702bfdd8b5df3260368d87fc7a9977c190ded0",
-            "actualSha": "6dc6f93e0b4492360b91723919702bfdd8b5df3260368d87fc7a9977c190ded0",
+            "expectedSha": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886",
+            "actualSha": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886",
             "matchesManifest": true
           },
           {
@@ -109,29 +109,29 @@
     {
       "file": "packages/tokens/styles/tokens.css",
       "exists": true,
-      "expectedSha": "60ae82341224bc4b0b19091ee60cfc975cad3989a154e875a799deda5b5a013b",
-      "actualSha": "60ae82341224bc4b0b19091ee60cfc975cad3989a154e875a799deda5b5a013b",
+      "expectedSha": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a",
+      "actualSha": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a",
       "matchesManifest": true
     },
     {
       "file": "packages/tokens/styles/token-contexts.css",
       "exists": true,
-      "expectedSha": "44a2e2f4b575e772bce1cc6d214a98562b9539e99b2055ba4705a77651223f5f",
-      "actualSha": "44a2e2f4b575e772bce1cc6d214a98562b9539e99b2055ba4705a77651223f5f",
+      "expectedSha": "b70c5a2f09d73bd978269f839036f83a7f6d80e1762b33e6b9993a939ddde02e",
+      "actualSha": "b70c5a2f09d73bd978269f839036f83a7f6d80e1762b33e6b9993a939ddde02e",
       "matchesManifest": true
     },
     {
       "file": "packages/tokens/tokens.json",
       "exists": true,
-      "expectedSha": "e99d5dc0e817250a03b79e016989411e8d1f91e7e3fafb1550c43f110da6edae",
-      "actualSha": "e99d5dc0e817250a03b79e016989411e8d1f91e7e3fafb1550c43f110da6edae",
+      "expectedSha": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458",
+      "actualSha": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458",
       "matchesManifest": true
     },
     {
       "file": "packages/tokens/src/generated/tokens.ts",
       "exists": true,
-      "expectedSha": "6adebfeb0e61eb742f98d367872742456d79eaf08cea8ac86094036fad1bca48",
-      "actualSha": "6adebfeb0e61eb742f98d367872742456d79eaf08cea8ac86094036fad1bca48",
+      "expectedSha": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77",
+      "actualSha": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77",
       "matchesManifest": true
     },
     {
@@ -144,22 +144,22 @@
     {
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",
       "exists": true,
-      "expectedSha": "c469bf6de36651ec5def9632f3d7ed3e5e86d88d7e5bf4b7f55345c2a3df33cc",
-      "actualSha": "c469bf6de36651ec5def9632f3d7ed3e5e86d88d7e5bf4b7f55345c2a3df33cc",
+      "expectedSha": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6",
+      "actualSha": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6",
       "matchesManifest": true
     },
     {
       "file": "packages/tokens/dist/android/flow_tokens.xml",
       "exists": true,
-      "expectedSha": "6f11179f087fb6e3ad9a1130c1ebd34b981cd2e7c8cd99832093a8916f9192b2",
-      "actualSha": "6f11179f087fb6e3ad9a1130c1ebd34b981cd2e7c8cd99832093a8916f9192b2",
+      "expectedSha": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b",
+      "actualSha": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b",
       "matchesManifest": true
     },
     {
       "file": "packages/tokens/dist/ios/FlowTokens.swift",
       "exists": true,
-      "expectedSha": "6dc6f93e0b4492360b91723919702bfdd8b5df3260368d87fc7a9977c190ded0",
-      "actualSha": "6dc6f93e0b4492360b91723919702bfdd8b5df3260368d87fc7a9977c190ded0",
+      "expectedSha": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886",
+      "actualSha": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886",
       "matchesManifest": true
     },
     {

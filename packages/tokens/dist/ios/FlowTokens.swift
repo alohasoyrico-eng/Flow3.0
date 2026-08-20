@@ -603,9 +603,9 @@ public enum FlowTokens {
   public static let sysFrameButtonPaddingXLg = "var(--ref-frame-space-6)"
   public static let sysFrameButtonPaddingXMd = "var(--ref-frame-space-5)"
   public static let sysFrameButtonPaddingXSm = "var(--ref-frame-space-4)"
-  public static let sysFrameContentActionControlLg = "calc(var(--sys-space-11) * 1.5)"
-  public static let sysFrameContentActionControlMd = "var(--sys-space-9)"
-  public static let sysFrameContentActionControlSm = "var(--sys-space-11)"
+  public static let sysFrameContentActionControlLg = "calc(var(--sys-space-12) + var(--sys-space-xs))"
+  public static let sysFrameContentActionControlMd = "var(--sys-space-11)"
+  public static let sysFrameContentActionControlSm = "var(--sys-space-9)"
   public static let sysFrameContentActionLabelLg = "calc(var(--sys-space-11) * 2.5)"
   public static let sysFrameContentActionLabelMd = "calc(var(--sys-space-11) * 2)"
   public static let sysFrameContentActionLabelSm = "calc(var(--sys-space-11) * 1.75)"
@@ -1757,9 +1757,9 @@ public enum FlowTokens {
     "sys-frame-button-padding-x-lg": "var(--ref-frame-space-6)",
     "sys-frame-button-padding-x-md": "var(--ref-frame-space-5)",
     "sys-frame-button-padding-x-sm": "var(--ref-frame-space-4)",
-    "sys-frame-content-action-control-lg": "calc(var(--sys-space-11) * 1.5)",
-    "sys-frame-content-action-control-md": "var(--sys-space-9)",
-    "sys-frame-content-action-control-sm": "var(--sys-space-11)",
+    "sys-frame-content-action-control-lg": "calc(var(--sys-space-12) + var(--sys-space-xs))",
+    "sys-frame-content-action-control-md": "var(--sys-space-11)",
+    "sys-frame-content-action-control-sm": "var(--sys-space-9)",
     "sys-frame-content-action-label-lg": "calc(var(--sys-space-11) * 2.5)",
     "sys-frame-content-action-label-md": "calc(var(--sys-space-11) * 2)",
     "sys-frame-content-action-label-sm": "calc(var(--sys-space-11) * 1.75)",

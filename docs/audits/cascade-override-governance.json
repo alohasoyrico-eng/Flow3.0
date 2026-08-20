@@ -4,13 +4,13 @@
   "principle": "Cascade overrides must be owned by the layer that defines the contract: tokens/theme in Style Dictionary token contexts, foundations/primitives in token or primitive sources, component-local aliases in component CSS, and docs/templates only through public Flow APIs.",
   "inventory": {
     "filesScanned": 1764,
-    "findings": 1150,
+    "findings": 1153,
     "overrideDebt": 0,
     "errors": 0,
     "warnings": 0,
     "byLayer": {
       "system-docs": 66,
-      "component-css": 675,
+      "component-css": 678,
       "react-component-source": 17,
       "pattern-source": 70,
       "token-output": 242,
@@ -18,7 +18,7 @@
     },
     "byType": {
       "source-variable-override": 66,
-      "css-variable-override": 997,
+      "css-variable-override": 1000,
       "inline-style": 87
     },
     "byDomain": {
@@ -31,7 +31,7 @@
       "elevation-depth": 14,
       "surface": 1,
       "state": 8,
-      "action-appearance": 82,
+      "action-appearance": 85,
       "field-control": 69,
       "choice-control": 69,
       "density": 50,
@@ -46,7 +46,7 @@
     },
     "byDomainKind": {
       "foundation": 782,
-      "primitive": 349,
+      "primitive": 352,
       "unknown": 19
     },
     "debtByDomain": {},
@@ -12112,7 +12112,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-label-width",
+      "variable": "--comp-quick-action-icon-font-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12129,7 +12129,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-label-size",
+      "variable": "--comp-quick-action-label-width",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12146,7 +12146,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-min-block-size",
+      "variable": "--comp-quick-action-label-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12163,7 +12163,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-min-inline-size",
+      "variable": "--comp-quick-action-min-block-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12175,12 +12175,12 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12813,
-      "selector": ".quick-action[data-density=\"lg\"]",
+      "line": 12810,
+      "selector": ".quick-action[data-density=\"sm\"]",
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-icon-size",
+      "variable": "--comp-quick-action-min-inline-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12197,7 +12197,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-label-width",
+      "variable": "--comp-quick-action-icon-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12214,7 +12214,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-label-size",
+      "variable": "--comp-quick-action-icon-font-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12231,7 +12231,7 @@
       "contexts": [
         "density"
       ],
-      "variable": "--comp-quick-action-min-block-size",
+      "variable": "--comp-quick-action-label-width",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12248,41 +12248,41 @@
       "contexts": [
         "density"
       ],
+      "variable": "--comp-quick-action-label-size",
+      "scope": "component-local",
+      "domain": "action-appearance",
+      "domainKind": "primitive",
+      "owner": "action primitive",
+      "reason": "Contextual variable definition captured for cascade review."
+    },
+    {
+      "type": "css-variable-override",
+      "severity": "info",
+      "layer": "component-css",
+      "file": "packages/components/styles/components.css",
+      "line": 12818,
+      "selector": ".quick-action[data-density=\"lg\"]",
+      "contexts": [
+        "density"
+      ],
+      "variable": "--comp-quick-action-min-block-size",
+      "scope": "component-local",
+      "domain": "action-appearance",
+      "domainKind": "primitive",
+      "owner": "action primitive",
+      "reason": "Contextual variable definition captured for cascade review."
+    },
+    {
+      "type": "css-variable-override",
+      "severity": "info",
+      "layer": "component-css",
+      "file": "packages/components/styles/components.css",
+      "line": 12819,
+      "selector": ".quick-action[data-density=\"lg\"]",
+      "contexts": [
+        "density"
+      ],
       "variable": "--comp-quick-action-min-inline-size",
-      "scope": "component-local",
-      "domain": "action-appearance",
-      "domainKind": "primitive",
-      "owner": "action primitive",
-      "reason": "Contextual variable definition captured for cascade review."
-    },
-    {
-      "type": "css-variable-override",
-      "severity": "info",
-      "layer": "component-css",
-      "file": "packages/components/styles/components.css",
-      "line": 12821,
-      "selector": ".quick-action[data-variant=\"compact\"]",
-      "contexts": [
-        "variant"
-      ],
-      "variable": "--comp-quick-action-icon-size",
-      "scope": "component-local",
-      "domain": "action-appearance",
-      "domainKind": "primitive",
-      "owner": "action primitive",
-      "reason": "Contextual variable definition captured for cascade review."
-    },
-    {
-      "type": "css-variable-override",
-      "severity": "info",
-      "layer": "component-css",
-      "file": "packages/components/styles/components.css",
-      "line": 12822,
-      "selector": ".quick-action[data-variant=\"compact\"]",
-      "contexts": [
-        "variant"
-      ],
-      "variable": "--comp-quick-action-label-width",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12299,7 +12299,7 @@
       "contexts": [
         "variant"
       ],
-      "variable": "--comp-quick-action-label-size",
+      "variable": "--comp-quick-action-icon-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12316,7 +12316,7 @@
       "contexts": [
         "variant"
       ],
-      "variable": "--comp-quick-action-min-block-size",
+      "variable": "--comp-quick-action-icon-font-size",
       "scope": "component-local",
       "domain": "action-appearance",
       "domainKind": "primitive",
@@ -12333,6 +12333,57 @@
       "contexts": [
         "variant"
       ],
+      "variable": "--comp-quick-action-label-width",
+      "scope": "component-local",
+      "domain": "action-appearance",
+      "domainKind": "primitive",
+      "owner": "action primitive",
+      "reason": "Contextual variable definition captured for cascade review."
+    },
+    {
+      "type": "css-variable-override",
+      "severity": "info",
+      "layer": "component-css",
+      "file": "packages/components/styles/components.css",
+      "line": 12826,
+      "selector": ".quick-action[data-variant=\"compact\"]",
+      "contexts": [
+        "variant"
+      ],
+      "variable": "--comp-quick-action-label-size",
+      "scope": "component-local",
+      "domain": "action-appearance",
+      "domainKind": "primitive",
+      "owner": "action primitive",
+      "reason": "Contextual variable definition captured for cascade review."
+    },
+    {
+      "type": "css-variable-override",
+      "severity": "info",
+      "layer": "component-css",
+      "file": "packages/components/styles/components.css",
+      "line": 12827,
+      "selector": ".quick-action[data-variant=\"compact\"]",
+      "contexts": [
+        "variant"
+      ],
+      "variable": "--comp-quick-action-min-block-size",
+      "scope": "component-local",
+      "domain": "action-appearance",
+      "domainKind": "primitive",
+      "owner": "action primitive",
+      "reason": "Contextual variable definition captured for cascade review."
+    },
+    {
+      "type": "css-variable-override",
+      "severity": "info",
+      "layer": "component-css",
+      "file": "packages/components/styles/components.css",
+      "line": 12828,
+      "selector": ".quick-action[data-variant=\"compact\"]",
+      "contexts": [
+        "variant"
+      ],
       "variable": "--comp-quick-action-min-inline-size",
       "scope": "component-local",
       "domain": "action-appearance",
@@ -12345,7 +12396,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12829,
+      "line": 12832,
       "selector": ".quick-action[data-variant=\"wide\"]",
       "contexts": [
         "variant"
@@ -12362,7 +12413,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12830,
+      "line": 12833,
       "selector": ".quick-action[data-variant=\"wide\"]",
       "contexts": [
         "variant"
@@ -12379,7 +12430,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12963,
+      "line": 12966,
       "selector": "[data-flow-pattern=\"sidebar\"] > [data-flow-slot=\"groups\"]",
       "contexts": [
         "base"
@@ -12396,7 +12447,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12964,
+      "line": 12967,
       "selector": "[data-flow-pattern=\"sidebar\"] > [data-flow-slot=\"groups\"]",
       "contexts": [
         "base"
@@ -12413,7 +12464,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12965,
+      "line": 12968,
       "selector": "[data-flow-pattern=\"sidebar\"] > [data-flow-slot=\"groups\"]",
       "contexts": [
         "base"
@@ -12430,7 +12481,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12965,
+      "line": 12968,
       "selector": "[data-flow-pattern=\"sidebar\"] > [data-flow-slot=\"groups\"]",
       "contexts": [
         "base"
@@ -12447,7 +12498,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 12967,
+      "line": 12970,
       "selector": "[data-flow-pattern=\"sidebar\"] > [data-flow-slot=\"groups\"]",
       "contexts": [
         "base"
@@ -12464,7 +12515,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 13049,
+      "line": 13052,
       "selector": "[data-flow-template=\"docs-shell-template\"] [data-flow-slot=\"page\"].surface[data-surface-role=\"canvas\"], [data-flow-template=\"docs-artifact-detail-template\"] [class~=\"docs-artifact-detail-template__intro\"]",
       "contexts": [
         "base"
@@ -12481,7 +12532,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 13054,
+      "line": 13057,
       "selector": "[data-flow-template=\"docs-artifact-detail-template\"] [class~=\"docs-artifact-detail-template__intro\"]",
       "contexts": [
         "base"
@@ -12498,7 +12549,7 @@
       "severity": "info",
       "layer": "component-css",
       "file": "packages/components/styles/components.css",
-      "line": 13099,
+      "line": 13102,
       "selector": "[data-flow-template=\"docs-artifact-detail-template\"] [class~=\"docs-artifact-detail-template__hero\"][data-documentation-hero-background=\"none\"], .documentation-section[data-doc-template=\"component-detail\"]",
       "contexts": [
         "base"

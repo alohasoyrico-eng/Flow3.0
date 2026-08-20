@@ -12764,7 +12764,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-quick-action-control-padding: var(--component-frame-space-none);
   --comp-quick-action-full-width: var(--component-inline-size-full);
   --comp-quick-action-icon-display: var(--component-display-inline-flex);
-  --comp-quick-action-icon-font-size: var(--component-font-size-icon-md);
+  --comp-quick-action-icon-font-size: var(--component-density-icon-size-md);
   --comp-quick-action-icon-justify: var(--component-justify-center);
   --comp-quick-action-hover-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
   --comp-quick-action-hover-border: color-mix(in srgb, var(--component-color-action) 36%, var(--component-color-border));
@@ -12804,6 +12804,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .quick-action[data-density="sm"] {
   --comp-quick-action-icon-size: var(--component-action-control-size-sm);
+  --comp-quick-action-icon-font-size: var(--component-density-icon-size-sm);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-sm);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
@@ -12812,6 +12813,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .quick-action[data-density="lg"] {
   --comp-quick-action-icon-size: var(--component-action-control-size-lg);
+  --comp-quick-action-icon-font-size: var(--component-density-icon-size-lg);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-lg);
   --comp-quick-action-label-size: var(--component-font-size-label);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-lg);
@@ -12820,6 +12822,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .quick-action[data-variant="compact"] {
   --comp-quick-action-icon-size: var(--component-action-control-size-sm);
+  --comp-quick-action-icon-font-size: var(--component-density-icon-size-sm);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-sm);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);

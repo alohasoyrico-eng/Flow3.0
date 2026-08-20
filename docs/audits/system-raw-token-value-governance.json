@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T18:56:40.214Z",
+  "generatedAt": "2026-08-20T10:01:36.526Z",
   "scope": "Raw token value governance for public Flow source",
   "status": "pass",
   "scannedScopes": [
@@ -350,6 +350,10 @@
     "packages/react/src/index.d.ts",
     "packages/react/src/index.js",
     "packages/react/src/index.ts",
+    "packages/react/src/internal/field-message.js",
+    "packages/react/src/internal/field-message.ts",
+    "packages/react/src/internal/focus.js",
+    "packages/react/src/internal/focus.ts",
     "packages/react/src/internal/props.d.ts",
     "packages/react/src/internal/props.js",
     "packages/react/src/internal/props.ts",
@@ -656,7 +660,7 @@
     "packages/tokens/src/primitives/typography.ts"
   ],
   "totals": {
-    "files": 645,
+    "files": 649,
     "violations": 0,
     "rules": 8
   },
