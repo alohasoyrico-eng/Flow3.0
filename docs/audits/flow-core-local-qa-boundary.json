@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T10:28:23.874Z",
+  "generatedAt": "2026-08-20T10:31:09.031Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
@@ -67,9 +67,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 5,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/manifest.json",
@@ -83,9 +85,11 @@
         "localStyleBlocks": 0,
         "flowCssLinks": 0,
         "keyboardTerms": 0,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/checkbox-2026-08-18/interactive/checkbox-flow-current.html",
@@ -106,9 +110,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 4,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/combobox-2026-08-17/interactive/combobox-flow-current.html",
@@ -129,9 +135,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 9,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/dialog-flow-current.html",
@@ -152,9 +160,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 6,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/floating-action-button-2026-08-20/interactive/floating-action-button-flow-current.html",
@@ -175,9 +185,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
         "keyboardTerms": 3,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/icon-button-2026-08-20/interactive/icon-button-flow-current.html",
@@ -198,9 +210,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 3,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/input-flow-current.html",
@@ -221,9 +235,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 4,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/menu-2026-08-18/interactive/menu-flow-current.html",
@@ -244,9 +260,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 11,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/quick-action-2026-08-20/interactive/quick-action-flow-current.html",
@@ -267,9 +285,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
         "keyboardTerms": 3,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/radio-button-2026-08-18/interactive/radio-button-flow-current.html",
@@ -290,9 +310,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 5,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/select-flow-current.html",
@@ -313,9 +335,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 13,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/switch-2026-08-18/interactive/switch-flow-current.html",
@@ -335,9 +359,11 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 0,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
     },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tabs-2026-08-18/interactive/tabs-flow-current.html",
@@ -348,7 +374,8 @@
         "uses-flow-component-css",
         "has-theme-control",
         "keyboard-observation-harness",
-        "local-harness-css"
+        "local-harness-css",
+        "dynamic-css-custom-property-plumbing"
       ],
       "risks": [
         "Harness CSS can affect visual reading; do not use as component source truth.",
@@ -358,9 +385,20 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 2,
         "keyboardTerms": 16,
-        "localVisualOverrides": 0
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 2
       },
-      "visualOverrides": []
+      "visualOverrides": [],
+      "dynamicStylePlumbing": [
+        {
+          "kind": "dynamic-css-custom-property",
+          "value": "--comp-tabs-indicator-left"
+        },
+        {
+          "kind": "dynamic-css-custom-property",
+          "value": "--comp-tabs-indicator-width"
+        }
+      ]
     }
   ],
   "nextIteration": {

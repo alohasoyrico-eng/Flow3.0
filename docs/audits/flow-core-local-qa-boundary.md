@@ -1,6 +1,6 @@
 # FlowDocs Demo Boundary
 
-Generated: 2026-08-20T10:28:23.874Z
+Generated: 2026-08-20T10:31:09.031Z
 Status: pass
 
 ## Summary
@@ -49,7 +49,7 @@ Status: pass
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/radio-button-2026-08-18/interactive/radio-button-flow-current.html | radio-button | uses-flow-token-css, uses-flow-component-css, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth.; Harness may not prove React runtime unless runtime import is explicit. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/select-flow-current.html | select | uses-flow-token-css, uses-flow-component-css, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth.; Harness may not prove React runtime unless runtime import is explicit. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/switch-2026-08-18/interactive/switch-flow-current.html | switch | uses-flow-token-css, uses-flow-component-css, has-theme-control, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth.; Harness may not prove React runtime unless runtime import is explicit. |
-| /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tabs-2026-08-18/interactive/tabs-flow-current.html | tabs | uses-flow-token-css, uses-flow-component-css, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth.; Harness may not prove React runtime unless runtime import is explicit. |
+| /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tabs-2026-08-18/interactive/tabs-flow-current.html | tabs | uses-flow-token-css, uses-flow-component-css, has-theme-control, keyboard-observation-harness, local-harness-css, dynamic-css-custom-property-plumbing | Harness CSS can affect visual reading; do not use as component source truth.; Harness may not prove React runtime unless runtime import is explicit. |
 
 ## Next Iteration
 

@@ -65,7 +65,33 @@ function localQaVisualOverrides(source) {
       value: match[0].trim().replace(/\s+/g, " "),
     });
   }
+  for (const match of source.matchAll(/\bstyle\s*=\s*["'][^"']+["']/g)) {
+    findings.push({
+      kind: "inline-style-attribute",
+      value: match[0].trim().replace(/\s+/g, " "),
+    });
+  }
+  for (const match of source.matchAll(/\.style\.([A-Za-z][\w-]*)\s*=/g)) {
+    findings.push({
+      kind: "style-property-mutation",
+      value: match[0].trim(),
+    });
+  }
+  for (const match of source.matchAll(/setAttribute\(\s*["']style["']/g)) {
+    findings.push({
+      kind: "style-attribute-mutation",
+      value: match[0].trim(),
+    });
+  }
   return findings;
+}
+
+function localQaDynamicStylePlumbing(source) {
+  return [...source.matchAll(/\.style\.setProperty\(\s*["'](--(?:comp|component)-[\w-]+)["']/g)]
+    .map((match) => ({
+      kind: "dynamic-css-custom-property",
+      value: match[1],
+    }));
 }
 
 function classifyDocsDemoFile(file) {
@@ -129,6 +155,7 @@ function classifyLocalQaFile(file) {
   const component = relativeParts[0]?.replace(/-\d{4}-\d{2}-\d{2}$/, "") ?? "unknown";
   const signals = [];
   const visualOverrides = localQaVisualOverrides(source);
+  const dynamicStylePlumbing = localQaDynamicStylePlumbing(source);
   if (/packages\/tokens\/styles\/tokens\.css/.test(source)) signals.push("uses-flow-token-css");
   if (/packages\/components\/styles\/components\.css/.test(source)) signals.push("uses-flow-component-css");
   if (/packages\/react\/src|packages\/react\/dist|generated\/react/.test(source)) signals.push("uses-flow-react-runtime");
@@ -136,6 +163,7 @@ function classifyLocalQaFile(file) {
   if (/keydown|Arrow|Enter|Escape|Tab/.test(source)) signals.push("keyboard-observation-harness");
   if (/<style>/.test(source)) signals.push("local-harness-css");
   if (visualOverrides.length) signals.push("local-component-visual-override");
+  if (dynamicStylePlumbing.length) signals.push("dynamic-css-custom-property-plumbing");
   return {
     file,
     component,
@@ -151,8 +179,10 @@ function classifyLocalQaFile(file) {
       flowCssLinks: count(source, /packages\/(?:tokens|components)\/styles/g),
       keyboardTerms: count(source, /Arrow|Enter|Escape|keydown|keyup|Tab/g),
       localVisualOverrides: visualOverrides.length,
+      dynamicStylePlumbing: dynamicStylePlumbing.length,
     },
     visualOverrides: visualOverrides.slice(0, 20),
+    dynamicStylePlumbing: dynamicStylePlumbing.slice(0, 20),
   };
 }
 

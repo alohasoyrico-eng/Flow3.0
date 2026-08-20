@@ -7,7 +7,7 @@ Flow core cascade overrides must be owned by the DS layer that defines the contr
 ## Inventory
 
 - Files scanned: 1523
-- Findings: 1007
+- Findings: 1011
 - Override debt: 0
 - Errors: 0
 - Warnings: 0

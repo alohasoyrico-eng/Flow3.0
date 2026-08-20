@@ -171,6 +171,15 @@ function isAllowedDynamicStyle(styleContext) {
   return entries.length > 0 && entries.every((key) => key.startsWith("--"));
 }
 
+function styleMutationProperty(text) {
+  const setProperty = text.match(/\.style\.setProperty\(\s*["'`]([^"'`]+)["'`]/);
+  if (setProperty) return setProperty[1];
+  const directProperty = text.match(/\.style\.([A-Za-z][\w-]*)\s*=/);
+  if (directProperty) return directProperty[1];
+  if (/setAttribute\(\s*["'`]style["'`]/.test(text)) return "style";
+  return null;
+}
+
 function selectorContext(selector) {
   const contexts = [];
   if (/\bdata-theme\b|data-contrast\b|prefers-color-scheme/.test(selector)) contexts.push("theme");
@@ -395,6 +404,31 @@ function scanSourceFile(file, source) {
             : allowedDynamicStyle
               ? "Inline style is limited to dynamic CSS custom properties that feed governed component CSS."
               : "Inline style defines visual policy outside CSS/tokens and bypasses the Flow cascade.",
+      });
+    }
+    const mutatedStyleProperty = styleMutationProperty(text);
+    if (mutatedStyleProperty) {
+      const customProperty = mutatedStyleProperty.startsWith("--");
+      const severity = generated || customProperty
+        ? "info"
+        : ["react-component-source", "component-source", "primitive-source"].includes(layer)
+          ? "error"
+          : ["pattern-source", "flowdocs"].includes(layer)
+            ? "warning"
+            : "info";
+      findings.push({
+        type: "style-mutation",
+        severity,
+        layer,
+        file: rel(file),
+        line,
+        property: mutatedStyleProperty,
+        ...domainFor({ variable: customProperty ? mutatedStyleProperty : "", source: text }),
+        reason: generated
+          ? "Generated style mutation mirrors source; review source ownership if it affects cascade."
+          : customProperty
+            ? "Style mutation is limited to dynamic CSS custom properties that feed governed component CSS."
+            : "Style mutation writes visual policy outside CSS/tokens and bypasses the Flow cascade.",
       });
     }
     for (const declaration of text.matchAll(/(["'`])(--(?:ref|sys|component|comp|docs|flowdocs)-[\w-]+)\s*:/g)) {

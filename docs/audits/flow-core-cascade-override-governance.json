@@ -5,19 +5,20 @@
   "principle": "Flow core cascade overrides must be owned by the DS layer that defines the contract: tokens/theme in Style Dictionary token contexts, foundations/primitives in token or primitive sources, component-local aliases in component CSS, and React source only through dynamic CSS custom properties.",
   "inventory": {
     "filesScanned": 1523,
-    "findings": 1007,
+    "findings": 1011,
     "overrideDebt": 0,
     "errors": 0,
     "warnings": 0,
     "byLayer": {
       "component-css": 678,
-      "react-component-source": 17,
+      "react-component-source": 21,
       "pattern-source": 70,
       "token-output": 242
     },
     "byType": {
       "css-variable-override": 920,
-      "inline-style": 87
+      "inline-style": 87,
+      "style-mutation": 4
     },
     "byDomain": {
       "color-theme": 330,
@@ -31,10 +32,10 @@
       "choice-control": 69,
       "density": 50,
       "typography": 21,
-      "frame-control-geometry": 25,
+      "frame-control-geometry": 27,
       "iconography": 53,
       "content-surface": 115,
-      "unknown": 10,
+      "unknown": 12,
       "option-listbox": 12,
       "motion": 18,
       "asset-rendering": 2,
@@ -43,9 +44,9 @@
       "focus": 13
     },
     "byDomainKind": {
-      "foundation": 645,
+      "foundation": 647,
       "primitive": 352,
-      "unknown": 10
+      "unknown": 12
     },
     "debtByDomain": {},
     "debtByDomainKind": {},
@@ -11865,6 +11866,54 @@
       "domainKind": "foundation",
       "owner": "accessibility/focus primitive",
       "reason": "Inline style is limited to dynamic CSS custom properties that feed governed component CSS."
+    },
+    {
+      "type": "style-mutation",
+      "severity": "info",
+      "layer": "react-component-source",
+      "file": "packages/react/src/Tabs.js",
+      "line": 45,
+      "property": "--comp-tabs-indicator-left",
+      "domain": "unknown",
+      "domainKind": "unknown",
+      "owner": "unassigned",
+      "reason": "Generated style mutation mirrors source; review source ownership if it affects cascade."
+    },
+    {
+      "type": "style-mutation",
+      "severity": "info",
+      "layer": "react-component-source",
+      "file": "packages/react/src/Tabs.js",
+      "line": 46,
+      "property": "--comp-tabs-indicator-width",
+      "domain": "frame-control-geometry",
+      "domainKind": "foundation",
+      "owner": "control-frame primitive",
+      "reason": "Generated style mutation mirrors source; review source ownership if it affects cascade."
+    },
+    {
+      "type": "style-mutation",
+      "severity": "info",
+      "layer": "react-component-source",
+      "file": "packages/react/src/Tabs.tsx",
+      "line": 98,
+      "property": "--comp-tabs-indicator-left",
+      "domain": "unknown",
+      "domainKind": "unknown",
+      "owner": "unassigned",
+      "reason": "Style mutation is limited to dynamic CSS custom properties that feed governed component CSS."
+    },
+    {
+      "type": "style-mutation",
+      "severity": "info",
+      "layer": "react-component-source",
+      "file": "packages/react/src/Tabs.tsx",
+      "line": 99,
+      "property": "--comp-tabs-indicator-width",
+      "domain": "frame-control-geometry",
+      "domainKind": "foundation",
+      "owner": "control-frame primitive",
+      "reason": "Style mutation is limited to dynamic CSS custom properties that feed governed component CSS."
     },
     {
       "type": "inline-style",
