@@ -1,8 +1,8 @@
 {
   "schemaVersion": "0.1.0",
   "updatedAt": "2026-08-19",
-  "scope": "priority components touched in the 1:1 review; active scope: combobox, checkbox, radio-button, switch",
-  "status": "partial",
+  "scope": "priority components touched in the 1:1 review; no active component scope is currently blocked",
+  "status": "pass",
   "rule": "A component can be pass only when all 13 steps are pass and current evidence exists, including light and dark visual QA, keyboard behavior, density order, icon scale, and demo/manual verification. Historical pass evidence is downgraded when a newer 1:1 review finds unresolved bugs.",
   "relatedAudits": [
     "docs/audits/component-variant-pattern-boundary-matrix.json"

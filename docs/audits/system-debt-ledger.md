@@ -6,33 +6,33 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 ## Inventory
 
-- Reports scanned: 179
-- Category mappings: 170
+- Reports scanned: 182
+- Category mappings: 173
 - System debt governance issues: 0
 - Stale category mappings: 0
-- Reports with debt metrics: 179
-- Debt metrics: 220
+- Reports with debt metrics: 182
+- Debt metrics: 223
 - Categories: 9
 - Category minimums: 9
 - Category principles: 9
 - Category minimum debt: 0
-- Status debt: 10
-- Non-pass reports: 10
+- Status debt: 9
+- Non-pass reports: 9
 - Categories missing minimums: 0
 - Unexpected category minimums: 0
 - Categories missing principles: 0
 - Unexpected category principles: 0
-- Categories with debt: 2
+- Categories with debt: 1
 - Undercovered strategic categories: 0
 - Uncategorized reports: 0
 - Unexpected categories: 0
 - Missing strategic categories: 0
 - Empty strategic categories: 0
 - Non-numeric debt metrics: 0
-- Total numeric debt: 17
-- Category debt: 17
+- Total numeric debt: 12
+- Category debt: 12
 - Category coverage debt: 0
-- System debt: 27
+- System debt: 21
 
 ## Categories
 
@@ -40,10 +40,10 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | anti-duplication | One visual or conceptual source per system concept. | 4 | 1 | 0 | 4 | 0 |
 | cascade | Component styling must cascade from exported system contracts. | 15 | 4 | 0 | 16 | 0 |
-| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 19 | 2 | 0 | 20 | 11 |
+| docs-system-boundary | FlowDocs must consume Flow instead of owning system behavior. | 20 | 2 | 0 | 21 | 12 |
 | foundations-primitives | Foundations and primitives must be exportable beyond CSS. | 40 | 1 | 0 | 42 | 0 |
 | patterns | Patterns must compose components through governed contracts before template promotion. | 22 | 1 | 0 | 44 | 0 |
-| quality | Component coverage must prove production readiness, not just presence. | 30 | 1 | 0 | 36 | 6 |
+| quality | Component coverage must prove production readiness, not just presence. | 32 | 1 | 0 | 38 | 0 |
 | react-primary | React must be the primary implementation with real contracts. | 46 | 10 | 0 | 53 | 0 |
 | taxonomy | Components, primitives, patterns, and templates must stay separated. | 1 | 1 | 0 | 1 | 0 |
 | templates | Templates must compose governed patterns and components instead of owning parallel product UI. | 2 | 1 | 0 | 4 | 0 |
@@ -52,7 +52,6 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 
 | Report | Status |
 | --- | --- |
-| component-1to1-quality-matrix.json | partial |
 | flowdocs-content-source-of-truth.json | action_required |
 | flowdocs-demo-boundary.json | action_required |
 | flowdocs-legacy-slot-quarantine.json | action_required |
@@ -99,10 +98,12 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | --- | --- | --- | --- |
 | anti-duplication-coverage.json | anti-duplication | pass | antiDuplicationDebt: 0 |
 | button-current-light-dark-review.json | quality | pass | buttonCurrentReviewDebt: 0 |
-| component-1to1-quality-matrix.json | quality | partial | qualityDebt: 5 |
+| choice-current-local-review.json | quality | pass | choiceCurrentLocalReviewDebt: 0 |
+| component-1to1-quality-matrix.json | quality | pass | qualityDebt: 0 |
 | component-css-contract-coverage.json | cascade | pass | cssContractDebt: 0 |
 | component-state-visual-governance.json | quality | pass | componentStateVisualDebt: 0<br>componentStateVisualReviewDebt: 0<br>blockerDebt: 0<br>reviewDebt: 0 |
 | component-visual-cascade-audit.json | cascade | pass | visualCascadeDebt: 0 |
+| control-frame-adoption-inventory.json | quality | pass | normalizedReportDebt: 0 |
 | docs-component-demo-ownership.json | docs-system-boundary | pass | docsDemoOwnershipDebt: 0 |
 | docs-documentation-component-contracts-bootstrap.json | docs-system-boundary | pass | docsDocumentationComponentContractsBootstrapDebt: 0 |
 | docs-documentation-pattern-contracts-bootstrap.json | docs-system-boundary | pass | docsDocumentationPatternContractsBootstrapDebt: 0 |
@@ -195,6 +196,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | react-template-interaction-governance-audit.json | react-primary | pass | reactTemplateInteractionGovernanceDebt: 0 |
 | react-template-runtime-governance-audit.json | react-primary | pass | reactTemplateRuntimeGovernanceDebt: 0<br>gapsDebt: 0 |
 | react-template-visual-governance-audit.json | react-primary | pass | reactTemplateVisualGovernanceDebt: 0<br>gapsDebt: 0 |
+| select-current-light-dark-review.json | quality | pass | normalizedReportDebt: 0 |
 | shell-pattern-contract-governance-audit.json | patterns | pass | shellPatternContractDebt: 0 |
 | system-audit-contract-governance.json | quality | pass | auditContractGovernanceDebt: 0 |
 | system-baseline-master.json | quality | pass | systemBaselineMasterDebt: 0 |
@@ -210,7 +212,7 @@ Every audit report must expose numeric actionable debt, and the aggregate system
 | system-consumer-runtime-smoke.json | quality | pass | consumerRuntimeSmokeDebt: 0 |
 | system-consumer-type-smoke.json | quality | pass | consumerTypeSmokeDebt: 0 |
 | system-gate-boundary-classification.json | quality | pass | boundaryClassificationDebt: 0 |
-| system-gate-split.json | quality | action_required | gateSplitDebt: 1 |
+| system-gate-split.json | docs-system-boundary | action_required | gateSplitDebt: 1 |
 | system-generated-token-output-governance.json | foundations-primitives | pass | generatedTokenOutputGovernanceDebt: 0 |
 | system-master-remediation-plan.json | quality | pass | systemMasterRemediationPlanDebt: 0 |
 | system-p0-primitive-runtime-matrix.json | foundations-primitives | pass | primitiveRuntimeMatrixDebt: 0 |

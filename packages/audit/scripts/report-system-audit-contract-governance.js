@@ -35,11 +35,15 @@ function numericDebtEntries(file, report) {
     ...Object.entries(report),
     ...Object.entries(report.inventory ?? {}),
     ...Object.entries(report.summary ?? {}),
-  ].filter(([key, value]) => /(?:debt|debtMetrics)$/i.test(key) && typeof value === "number");
+  ].filter(([key, value]) => /(?:debt|debtMetrics)$/i.test(key) && (typeof value === "number" || Array.isArray(value)));
   if (!entries.some(([key]) => key === "gapsDebt") && Array.isArray(report.gaps)) {
     return [...entries, ["gapsDebt", report.gaps.length]];
   }
-  return entries;
+  if (!entries.length && typeof report.status === "string") {
+    const normalizedDebt = String(report.status).toLowerCase() === "pass" ? 0 : 1;
+    return [["normalizedReportDebt", normalizedDebt]];
+  }
+  return entries.map(([key, value]) => [key, Array.isArray(value) ? value.length : value]);
 }
 
 function categoryForReport(file, reportCategories) {
@@ -51,6 +55,7 @@ function createReport({ enforceClean = false } = {}) {
   const governance = readJson(governanceFile);
   const contractArtifactFiles = new Set(governance.contractArtifactFiles ?? []);
   const reportCategories = governance.reportCategories ?? {};
+  const supportedStatuses = new Set(["action_required", "blocked", "fail", "partial", "pass", "warning"]);
   const trackedJson = git(["ls-files", "docs/audits/*.json"]).split("\n").filter(Boolean).sort();
   const trackedMarkdown = git(["ls-files", "docs/audits/*.md"]).split("\n").filter(Boolean).sort();
   const docsAuditStatus = enforceClean
@@ -66,7 +71,7 @@ function createReport({ enforceClean = false } = {}) {
       ...(!isContractArtifact && typeof report.status !== "string" ? ["missing status"] : []),
       ...(!isContractArtifact && !category ? ["missing report category"] : []),
       ...(!isContractArtifact && !debtEntries.length ? ["missing numeric debt metric"] : []),
-      ...(!isContractArtifact && report.status && !["pass", "fail", "warning"].includes(String(report.status).toLowerCase()) ? [`unsupported status ${report.status}`] : []),
+      ...(!isContractArtifact && report.status && !supportedStatuses.has(String(report.status).toLowerCase()) ? [`unsupported status ${report.status}`] : []),
     ];
     return {
       file,

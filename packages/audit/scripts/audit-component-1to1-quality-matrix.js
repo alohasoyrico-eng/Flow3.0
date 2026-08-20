@@ -145,6 +145,16 @@ function checkComponent1to1QualityMatrix() {
     }
   }
 
+  const expectedMatrixStatus = expectedSummary.qualityDebt === 0 && currentReviewScope.size === 0 ? "pass" : "partial";
+  if (matrix.status !== expectedMatrixStatus) {
+    add(
+      "errors",
+      matrixFile,
+      1,
+      `Component 1:1 quality matrix status must be ${expectedMatrixStatus} when qualityDebt is ${expectedSummary.qualityDebt} and currentReview.scope has ${currentReviewScope.size} item(s).`,
+    );
+  }
+
   if (partialCount || failCount) {
     add("warnings", matrixFile, 1, `Component 1:1 quality matrix is not closed: ${partialCount} partial, ${failCount} fail.`);
   }

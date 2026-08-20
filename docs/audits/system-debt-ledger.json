@@ -3,39 +3,35 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 179,
-    "categoryMappings": 170,
+    "reports": 182,
+    "categoryMappings": 173,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 179,
-    "debtMetrics": 220,
+    "reportsWithDebtMetrics": 182,
+    "debtMetrics": 223,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
     "categoryMinimumDebt": 0,
-    "statusDebt": 10,
-    "nonPassReports": 10,
+    "statusDebt": 9,
+    "nonPassReports": 9,
     "categoriesMissingMinimums": 0,
     "unexpectedCategoryMinimums": 0,
     "categoriesMissingPrinciples": 0,
     "unexpectedCategoryPrinciples": 0,
-    "categoriesWithDebt": 2,
+    "categoriesWithDebt": 1,
     "undercoveredStrategicCategories": 0,
     "uncategorizedReports": 0,
     "unexpectedCategories": 0,
     "missingStrategicCategories": 0,
     "emptyStrategicCategories": 0,
     "nonNumericDebtMetrics": 0,
-    "totalDebt": 17,
-    "categoryDebt": 17,
+    "totalDebt": 12,
+    "categoryDebt": 12,
     "categoryCoverageDebt": 0,
-    "systemDebt": 27
+    "systemDebt": 21
   },
   "nonPassReports": [
-    {
-      "report": "component-1to1-quality-matrix.json",
-      "status": "partial"
-    },
     {
       "report": "flowdocs-content-source-of-truth.json",
       "status": "action_required"
@@ -108,11 +104,11 @@
     {
       "category": "docs-system-boundary",
       "principle": "FlowDocs must consume Flow instead of owning system behavior.",
-      "reports": 19,
+      "reports": 20,
       "minimumReports": 2,
       "coverageGap": 0,
-      "debtMetrics": 20,
-      "totalDebt": 11
+      "debtMetrics": 21,
+      "totalDebt": 12
     },
     {
       "category": "foundations-primitives",
@@ -135,11 +131,11 @@
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 30,
+      "reports": 32,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 36,
-      "totalDebt": 6
+      "debtMetrics": 38,
+      "totalDebt": 0
     },
     {
       "category": "react-primary",
@@ -199,16 +195,30 @@
       ]
     },
     {
+      "file": "choice-current-local-review.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "choice-current-local-review.json",
+          "scope": "summary",
+          "metric": "choiceCurrentLocalReviewDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "component-1to1-quality-matrix.json",
       "category": "quality",
-      "status": "partial",
+      "status": "pass",
       "debtEntries": [
         {
           "report": "component-1to1-quality-matrix.json",
           "scope": "summary",
           "metric": "qualityDebt",
-          "value": 5,
-          "numericValue": 5
+          "value": 0,
+          "numericValue": 0
         }
       ]
     },
@@ -270,6 +280,20 @@
           "report": "component-visual-cascade-audit.json",
           "scope": "inventory",
           "metric": "visualCascadeDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "control-frame-adoption-inventory.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "control-frame-adoption-inventory.json",
+          "scope": "normalized",
+          "metric": "normalizedReportDebt",
           "value": 0,
           "numericValue": 0
         }
@@ -1683,6 +1707,20 @@
       ]
     },
     {
+      "file": "select-current-light-dark-review.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "select-current-light-dark-review.json",
+          "scope": "normalized",
+          "metric": "normalizedReportDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
       "file": "shell-pattern-contract-governance-audit.json",
       "category": "patterns",
       "status": "pass",
@@ -1901,7 +1939,7 @@
     },
     {
       "file": "system-gate-split.json",
-      "category": "quality",
+      "category": "docs-system-boundary",
       "status": "action_required",
       "debtEntries": [
         {

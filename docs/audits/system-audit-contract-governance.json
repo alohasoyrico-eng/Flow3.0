@@ -4,10 +4,10 @@
   "audit": "system audit contract governance",
   "principle": "Audit outputs are evidence, not narrative ledgers: every gate report must have status, category, numeric debt, and stable check mode; Markdown is allowed only as a JSON-backed human rendering.",
   "inventory": {
-    "trackedJsonReports": 162,
-    "gateReports": 162,
+    "trackedJsonReports": 183,
+    "gateReports": 183,
     "contractArtifacts": 0,
-    "markdownReports": 154,
+    "markdownReports": 175,
     "orphanMarkdownReports": 0,
     "dirtyDocsAuditEntries": 0,
     "reportsMissingCategory": 0,
@@ -24,6 +24,32 @@
       "debtMetrics": [
         {
           "key": "antiDuplicationDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/button-current-light-dark-review.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "buttonCurrentReviewDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/choice-current-local-review.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "choiceCurrentLocalReviewDebt",
           "value": 0
         }
       ],
@@ -100,6 +126,19 @@
       "debtMetrics": [
         {
           "key": "visualCascadeDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/control-frame-adoption-inventory.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
           "value": 0
         }
       ],
@@ -197,6 +236,58 @@
       "issues": []
     },
     {
+      "file": "docs/audits/ds-fast-gate.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-qa-performance.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-qa-topology.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-release-gate.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
       "file": "docs/audits/email-channel-governance-audit.json",
       "kind": "gate-report",
       "category": "patterns",
@@ -249,6 +340,58 @@
       "issues": []
     },
     {
+      "file": "docs/audits/flowdocs-consumer-contract.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-content-source-of-truth.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-demo-boundary.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-legacy-slot-quarantine.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
+        }
+      ],
+      "issues": []
+    },
+    {
       "file": "docs/audits/flowdocs-p0-shell-cleanup-evidence.json",
       "kind": "gate-report",
       "category": "docs-system-boundary",
@@ -257,6 +400,84 @@
         {
           "key": "flowDocsP0ShellCleanupDebt",
           "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-runtime-inventory.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "runtimeInventoryDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-safe-cleanup-plan.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "protectedRuntimeDebt",
+          "value": 4
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-shell-decision.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-stale-audit-classification.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-template-boundary.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-trustworthy-checkpoint.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "blocked",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 1
         }
       ],
       "issues": []
@@ -429,6 +650,19 @@
       "debtMetrics": [
         {
           "key": "gapsDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/input-current-light-dark-review.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "inputCurrentReviewDebt",
           "value": 0
         }
       ],
@@ -1179,6 +1413,19 @@
       "issues": []
     },
     {
+      "file": "docs/audits/select-current-light-dark-review.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "normalizedReportDebt",
+          "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
       "file": "docs/audits/shell-pattern-contract-governance-audit.json",
       "kind": "gate-report",
       "category": "patterns",
@@ -1368,15 +1615,15 @@
       "file": "docs/audits/system-debt-ledger.json",
       "kind": "gate-report",
       "category": "quality",
-      "status": "pass",
+      "status": "fail",
       "debtMetrics": [
         {
           "key": "reportsWithDebtMetrics",
-          "value": 161
+          "value": 182
         },
         {
           "key": "debtMetrics",
-          "value": 202
+          "value": 223
         },
         {
           "key": "categoryMinimumDebt",
@@ -1384,11 +1631,11 @@
         },
         {
           "key": "statusDebt",
-          "value": 0
+          "value": 9
         },
         {
           "key": "categoriesWithDebt",
-          "value": 0
+          "value": 1
         },
         {
           "key": "nonNumericDebtMetrics",
@@ -1396,11 +1643,11 @@
         },
         {
           "key": "totalDebt",
-          "value": 0
+          "value": 12
         },
         {
           "key": "categoryDebt",
-          "value": 0
+          "value": 12
         },
         {
           "key": "categoryCoverageDebt",
@@ -1408,7 +1655,33 @@
         },
         {
           "key": "systemDebt",
+          "value": 21
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-gate-boundary-classification.json",
+      "kind": "gate-report",
+      "category": "quality",
+      "status": "pass",
+      "debtMetrics": [
+        {
+          "key": "boundaryClassificationDebt",
           "value": 0
+        }
+      ],
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-gate-split.json",
+      "kind": "gate-report",
+      "category": "docs-system-boundary",
+      "status": "action_required",
+      "debtMetrics": [
+        {
+          "key": "gateSplitDebt",
+          "value": 1
         }
       ],
       "issues": []
@@ -2351,6 +2624,18 @@
       "issues": []
     },
     {
+      "file": "docs/audits/button-current-light-dark-review.md",
+      "jsonPair": "docs/audits/button-current-light-dark-review.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/choice-current-local-review.md",
+      "jsonPair": "docs/audits/choice-current-local-review.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
       "file": "docs/audits/component-css-contract-coverage.md",
       "jsonPair": "docs/audits/component-css-contract-coverage.json",
       "status": "pass",
@@ -2369,6 +2654,12 @@
       "issues": []
     },
     {
+      "file": "docs/audits/control-frame-adoption-inventory.md",
+      "jsonPair": "docs/audits/control-frame-adoption-inventory.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
       "file": "docs/audits/docs-component-demo-ownership.md",
       "jsonPair": "docs/audits/docs-component-demo-ownership.json",
       "status": "pass",
@@ -2377,6 +2668,30 @@
     {
       "file": "docs/audits/docs-system-boundary-audit.md",
       "jsonPair": "docs/audits/docs-system-boundary-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-fast-gate.md",
+      "jsonPair": "docs/audits/ds-fast-gate.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-qa-performance.md",
+      "jsonPair": "docs/audits/ds-qa-performance.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-qa-topology.md",
+      "jsonPair": "docs/audits/ds-qa-topology.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/ds-release-gate.md",
+      "jsonPair": "docs/audits/ds-release-gate.json",
       "status": "pass",
       "issues": []
     },
@@ -2399,8 +2714,68 @@
       "issues": []
     },
     {
+      "file": "docs/audits/flowdocs-consumer-contract.md",
+      "jsonPair": "docs/audits/flowdocs-consumer-contract.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-content-source-of-truth.md",
+      "jsonPair": "docs/audits/flowdocs-content-source-of-truth.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-demo-boundary.md",
+      "jsonPair": "docs/audits/flowdocs-demo-boundary.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-legacy-slot-quarantine.md",
+      "jsonPair": "docs/audits/flowdocs-legacy-slot-quarantine.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
       "file": "docs/audits/flowdocs-p0-shell-cleanup-evidence.md",
       "jsonPair": "docs/audits/flowdocs-p0-shell-cleanup-evidence.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-runtime-inventory.md",
+      "jsonPair": "docs/audits/flowdocs-runtime-inventory.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-safe-cleanup-plan.md",
+      "jsonPair": "docs/audits/flowdocs-safe-cleanup-plan.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-shell-decision.md",
+      "jsonPair": "docs/audits/flowdocs-shell-decision.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-stale-audit-classification.md",
+      "jsonPair": "docs/audits/flowdocs-stale-audit-classification.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-template-boundary.md",
+      "jsonPair": "docs/audits/flowdocs-template-boundary.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/flowdocs-trustworthy-checkpoint.md",
+      "jsonPair": "docs/audits/flowdocs-trustworthy-checkpoint.json",
       "status": "pass",
       "issues": []
     },
@@ -2473,6 +2848,12 @@
     {
       "file": "docs/audits/foundation-voice-cascade-audit.md",
       "jsonPair": "docs/audits/foundation-voice-cascade-audit.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/input-current-light-dark-review.md",
+      "jsonPair": "docs/audits/input-current-light-dark-review.json",
       "status": "pass",
       "issues": []
     },
@@ -2789,6 +3170,12 @@
       "issues": []
     },
     {
+      "file": "docs/audits/select-current-light-dark-review.md",
+      "jsonPair": "docs/audits/select-current-light-dark-review.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
       "file": "docs/audits/shell-pattern-contract-governance-audit.md",
       "jsonPair": "docs/audits/shell-pattern-contract-governance-audit.json",
       "status": "pass",
@@ -2875,6 +3262,18 @@
     {
       "file": "docs/audits/system-debt-ledger.md",
       "jsonPair": "docs/audits/system-debt-ledger.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-gate-boundary-classification.md",
+      "jsonPair": "docs/audits/system-gate-boundary-classification.json",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "file": "docs/audits/system-gate-split.md",
+      "jsonPair": "docs/audits/system-gate-split.json",
       "status": "pass",
       "issues": []
     },

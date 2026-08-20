@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "choice-current-local-review@1",
+  "status": "pass",
+  "audit": "choice current local review",
+  "scope": [
+    "checkbox",
+    "radio-button",
+    "switch",
+    "combobox"
+  ],
+  "summary": {
+    "choiceCurrentLocalReviewDebt": 0,
+    "componentsReviewed": 4
+  },
+  "evidence": {
+    "humanReadableReport": "docs/audits/choice-current-local-review.md",
+    "flowCoreGate": "npm run audit:flow-core-gate",
+    "choiceFrameRuntime": "npm run audit:choice-frame-runtime",
+    "optionListboxRuntime": "npm run audit:option-listbox-runtime"
+  },
+  "decisions": [
+    "Checkbox label alignment and density/icon issues are closed by runtime evidence.",
+    "Radio-button alignment, selected/rest dot behavior, and dark-mode rest ring issues are closed by runtime evidence.",
+    "Switch geometry, off/on thumb position, and motion contract are closed by runtime evidence.",
+    "Combobox keyboard behavior, clear behavior, option geometry, active/selected color parity, and dark-mode option legibility are closed by runtime evidence."
+  ]
+}
