@@ -300,9 +300,17 @@ try {
       onValueChange: (key, event) => changes.push({ key, eventType: event.type }),
     }));
     const overview = view.getByRole("tab", { name: /overview/i });
+    const design = view.getByRole("tab", { name: /design/i });
     const build = view.getByRole("tab", { name: /build/i });
 
     assert.equal(overview.getAttribute("aria-selected"), "true");
+    assert.equal(design.disabled, true);
+    assert.equal(design.getAttribute("aria-selected"), "false");
+    const beforeDisabledClick = changes.length;
+    await user.click(design);
+    assert.equal(changes.length, beforeDisabledClick);
+    assert.equal(overview.getAttribute("aria-selected"), "true");
+
     await user.click(build);
     await waitFor(() => assert.equal(build.getAttribute("aria-selected"), "true"));
     assert.deepEqual(changes.at(-1), { key: "build", eventType: "click" });
