@@ -1,0 +1,3075 @@
+{
+  "status": "inventory",
+  "purpose": "Inventory the public state/variant vocabulary exposed by component contracts before enforcing taxonomy changes in the existing Flow gates.",
+  "source": "packages/components/src/contracts.js",
+  "totalComponents": 62,
+  "componentsWithPublicVocabulary": 62,
+  "familyCounts": {
+    "navigation": 6,
+    "motion-feedback": 2,
+    "domain-event": 1,
+    "display-status": 4,
+    "domain-auth": 1,
+    "actions": 5,
+    "surface-display": 1,
+    "fields-payment": 4,
+    "domain-payment": 1,
+    "data-display": 4,
+    "domain-chat": 3,
+    "choices": 3,
+    "documentation-code": 1,
+    "fields": 8,
+    "fields-date": 2,
+    "overlays": 5,
+    "feedback": 7,
+    "domain-fleet": 3,
+    "progress-feedback": 1
+  },
+  "propCounts": {
+    "variant": 42,
+    "state": 56,
+    "tone": 15,
+    "intent": 1,
+    "density": 62,
+    "size": 0,
+    "selected": 6,
+    "disabled": 36,
+    "loading": 12
+  },
+  "reviewFlagCounts": {
+    "disabled-state-without-disabled-prop": 18,
+    "loading-state-without-loading-prop": 5,
+    "selected-state-without-selected-prop": 4,
+    "action-variant-tonal-review": 1
+  },
+  "flaggedComponents": [
+    {
+      "slug": "accordion",
+      "family": "navigation",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "animated-moment",
+      "family": "motion-feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "audit-event",
+      "family": "domain-event",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "avatar",
+      "family": "display-status",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "badge",
+      "family": "display-status",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "biometric-prompt",
+      "family": "domain-auth",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "chart-panel",
+      "family": "data-display",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "chat-composer",
+      "family": "domain-chat",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "chat-message",
+      "family": "domain-chat",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "slug": "chat-thread",
+      "family": "domain-chat",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "slug": "combobox",
+      "family": "fields",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "slug": "date-picker",
+      "family": "fields-date",
+      "flags": [
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "slug": "date-range-picker",
+      "family": "fields-date",
+      "flags": [
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "slug": "error-panel",
+      "family": "feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "icon-button",
+      "family": "actions",
+      "flags": [
+        "action-variant-tonal-review"
+      ]
+    },
+    {
+      "slug": "inline-validation",
+      "family": "feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "list",
+      "family": "data-display",
+      "flags": [
+        "disabled-state-without-disabled-prop",
+        "loading-state-without-loading-prop",
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "slug": "motion-boundary",
+      "family": "motion-feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "progress-indicator",
+      "family": "feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "segmented-control",
+      "family": "navigation",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "select",
+      "family": "fields",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "slug": "skeleton",
+      "family": "feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "spinner",
+      "family": "feedback",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "table",
+      "family": "data-display",
+      "flags": [
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "slug": "tabs",
+      "family": "navigation",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "tree-view",
+      "family": "navigation",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "accordion",
+      "slug": "accordion",
+      "family": "navigation",
+      "element": "div",
+      "variants": [
+        "single",
+        "multiple"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "closed",
+        "open",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"single\" | \"multiple\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "animatedMoment",
+      "slug": "animated-moment",
+      "family": "motion-feedback",
+      "element": "div",
+      "variants": [
+        "success",
+        "empty",
+        "loading",
+        "celebration"
+      ],
+      "intents": [
+        "feedback"
+      ],
+      "states": [
+        "idle",
+        "playing",
+        "paused",
+        "complete",
+        "reduced-motion",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "AnimatedMomentVariant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "AnimatedMomentState",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "auditEvent",
+      "slug": "audit-event",
+      "family": "domain-event",
+      "element": "article",
+      "variants": [
+        "standard"
+      ],
+      "intents": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "action"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "verified",
+        "warning",
+        "critical",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"verified\" | \"warning\" | \"critical\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\" | \"action\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "avatar",
+      "slug": "avatar",
+      "family": "display-status",
+      "element": "span",
+      "variants": [
+        "initials",
+        "image",
+        "status"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "online",
+        "busy",
+        "offline",
+        "disabled",
+        "unknown"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "AvatarState",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "badge",
+      "slug": "badge",
+      "family": "display-status",
+      "element": "span",
+      "variants": [
+        "count",
+        "dot",
+        "status",
+        "icon"
+      ],
+      "intents": [
+        "info",
+        "success",
+        "warning",
+        "danger",
+        "neutral",
+        "accent"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "overflow",
+        "hidden",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"count\" | \"dot\" | \"status\" | \"icon\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"overflow\" | \"hidden\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\" | \"accent\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "biometricPrompt",
+      "slug": "biometric-prompt",
+      "family": "domain-auth",
+      "element": "section",
+      "variants": [
+        "fingerprint",
+        "face",
+        "passcode",
+        "fallback"
+      ],
+      "intents": [
+        "authentication"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "authenticating",
+        "success",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"fingerprint\" | \"face\" | \"passcode\" | \"fallback\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "BiometricPromptState",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "breadcrumbs",
+      "slug": "breadcrumbs",
+      "family": "navigation",
+      "element": "nav",
+      "variants": [
+        "standard",
+        "compact",
+        "overflow",
+        "mobile"
+      ],
+      "intents": [
+        "navigation"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "collapsed",
+        "current",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"compact\" | \"overflow\" | \"mobile\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"collapsed\" | \"current\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "button",
+      "slug": "button",
+      "family": "actions",
+      "element": "button",
+      "variants": [
+        "primary",
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
+      ],
+      "intents": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "disabled",
+        "loading"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"disabled\" | \"loading\"",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\"default\" | \"danger\" | \"warning\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "card",
+      "slug": "card",
+      "family": "surface-display",
+      "element": "article",
+      "variants": [
+        "default",
+        "minimal",
+        "elevated",
+        "ghost"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "loading",
+        "error",
+        "disabled",
+        "muted",
+        "interactive"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"minimal\" | \"elevated\" | \"ghost\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"loading\" | \"error\" | \"disabled\" | \"muted\" | \"interactive\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "cardExpiryInput",
+      "slug": "card-expiry-input",
+      "family": "fields-payment",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "filled",
+        "valid",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"filled\" | \"valid\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "cardNumberInput",
+      "slug": "card-number-input",
+      "family": "fields-payment",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "filled",
+        "valid",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"filled\" | \"valid\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "cardSecurityCodeInput",
+      "slug": "card-security-code-input",
+      "family": "fields-payment",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "filled",
+        "valid",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"filled\" | \"valid\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "cardSummary",
+      "slug": "card-summary",
+      "family": "domain-payment",
+      "element": "article",
+      "variants": [
+        "physical",
+        "virtual",
+        "compact",
+        "limit"
+      ],
+      "intents": [
+        "summary"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "active",
+        "warning",
+        "frozen",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"physical\" | \"virtual\" | \"compact\" | \"limit\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"active\" | \"warning\" | \"frozen\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "chartPanel",
+      "slug": "chart-panel",
+      "family": "data-display",
+      "element": "article",
+      "variants": [
+        "sparkline",
+        "bars",
+        "line",
+        "area",
+        "donut",
+        "pareto",
+        "bullet",
+        "comparison",
+        "compact"
+      ],
+      "intents": [
+        "info"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "hover",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"sparkline\" | \"bars\" | \"line\" | \"area\" | \"donut\" | \"pareto\" | \"bullet\" | \"comparison\" | \"compact\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"focus\" | \"hover\" | \"warning\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"warning\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "chatComposer",
+      "slug": "chat-composer",
+      "family": "domain-chat",
+      "element": "div",
+      "variants": [
+        "basic",
+        "with-attachment",
+        "sending"
+      ],
+      "intents": [
+        "message-entry"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "filled",
+        "sending",
+        "disabled",
+        "error"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"focus\" | \"filled\" | \"sending\" | \"disabled\" | \"error\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "chatMessage",
+      "slug": "chat-message",
+      "family": "domain-chat",
+      "element": "article",
+      "variants": [
+        "user",
+        "agent",
+        "system",
+        "assistant"
+      ],
+      "intents": [
+        "message"
+      ],
+      "states": [
+        "default",
+        "sending",
+        "sent",
+        "delivered",
+        "failed",
+        "loading"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"sending\" | \"sent\" | \"delivered\" | \"failed\" | \"loading\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "id": "chatThread",
+      "slug": "chat-thread",
+      "family": "domain-chat",
+      "element": "div",
+      "variants": [
+        "message-list",
+        "empty",
+        "error",
+        "handoff",
+        "offline"
+      ],
+      "intents": [
+        "conversation"
+      ],
+      "states": [
+        "default",
+        "loading",
+        "empty",
+        "error",
+        "handoff",
+        "offline"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"loading\" | \"empty\" | \"error\" | \"handoff\" | \"offline\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "id": "checkbox",
+      "slug": "checkbox",
+      "family": "choices",
+      "element": "label",
+      "variants": [
+        "default",
+        "descriptive",
+        "select-all",
+        "compact"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "unchecked",
+        "checked",
+        "indeterminate",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"descriptive\" | \"select-all\" | \"compact\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"unchecked\" | \"checked\" | \"indeterminate\" | \"focus\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "chip",
+      "slug": "chip",
+      "family": "display-status",
+      "element": "span | button",
+      "variants": [
+        "filter",
+        "input",
+        "suggestion",
+        "assist"
+      ],
+      "intents": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "focus",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "ChipVariant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "ChipState",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"default\" | \"danger\" | \"warning\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "codeBlock",
+      "slug": "code-block",
+      "family": "documentation-code",
+      "element": "figure",
+      "variants": [
+        "block",
+        "inline-group",
+        "specimen"
+      ],
+      "intents": [
+        "reference"
+      ],
+      "states": [
+        "default",
+        "wrapped",
+        "scrollable",
+        "with-header",
+        "with-copy",
+        "copied",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"block\" | \"inline-group\" | \"specimen\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"wrapped\" | \"scrollable\" | \"with-header\" | \"with-copy\" | \"copied\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "codeInput",
+      "slug": "code-input",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "sms",
+        "otp",
+        "approval",
+        "masked",
+        "compact"
+      ],
+      "intents": [
+        "security"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "complete",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"sms\" | \"otp\" | \"approval\" | \"masked\" | \"compact\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"complete\" | \"warning\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "combobox",
+      "slug": "combobox",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "open",
+        "focus",
+        "filled",
+        "empty",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "id": "copyButton",
+      "slug": "copy-button",
+      "family": "actions",
+      "element": "button",
+      "variants": [
+        "text",
+        "icon",
+        "inline"
+      ],
+      "intents": [
+        "copy"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "copied",
+        "error",
+        "disabled",
+        "loading"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"text\" | \"icon\" | \"inline\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"copied\" | \"error\" | \"disabled\" | \"loading\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "countrySelector",
+      "slug": "country-selector",
+      "family": "fields",
+      "element": "span",
+      "variants": [
+        "default",
+        "inline"
+      ],
+      "intents": [
+        "selection"
+      ],
+      "states": [
+        "default",
+        "open",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "datePicker",
+      "slug": "date-picker",
+      "family": "fields-date",
+      "element": "div",
+      "variants": [
+        "calendar"
+      ],
+      "intents": [
+        "input"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"warning\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "id": "dateRangePicker",
+      "slug": "date-range-picker",
+      "family": "fields-date",
+      "element": "div",
+      "variants": [
+        "calendar-range"
+      ],
+      "intents": [
+        "input"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"warning\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "id": "dialog",
+      "slug": "dialog",
+      "family": "overlays",
+      "element": "div",
+      "variants": [
+        "confirmation",
+        "destructive",
+        "form",
+        "review",
+        "success"
+      ],
+      "intents": [
+        "neutral",
+        "info",
+        "success",
+        "danger"
+      ],
+      "states": [
+        "open",
+        "focus",
+        "closing",
+        "default",
+        "closed"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"confirmation\" | \"destructive\" | \"form\" | \"review\" | \"success\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"open\" | \"focus\" | \"closing\" | \"default\" | \"closed\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "drawer",
+      "slug": "drawer",
+      "family": "overlays",
+      "element": "div",
+      "variants": [
+        "side-sheet",
+        "filter",
+        "detail",
+        "edit",
+        "review"
+      ],
+      "intents": [
+        "neutral",
+        "info",
+        "danger"
+      ],
+      "states": [
+        "closed",
+        "default",
+        "open",
+        "focus",
+        "closing"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"side-sheet\" | \"filter\" | \"detail\" | \"edit\" | \"review\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"closed\" | \"default\" | \"open\" | \"focus\" | \"closing\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "emptyState",
+      "slug": "empty-state",
+      "family": "feedback",
+      "element": "section",
+      "variants": [
+        "first-use",
+        "search-empty",
+        "permission",
+        "error",
+        "maintenance"
+      ],
+      "intents": [
+        "neutral"
+      ],
+      "states": [
+        "default",
+        "action",
+        "search-empty",
+        "permission",
+        "loading",
+        "error"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"first-use\" | \"search-empty\" | \"permission\" | \"error\" | \"maintenance\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"action\" | \"search-empty\" | \"permission\" | \"loading\" | \"error\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "errorPanel",
+      "slug": "error-panel",
+      "family": "feedback",
+      "element": "section",
+      "variants": [
+        "inline",
+        "panel",
+        "blocking",
+        "empty-recovery"
+      ],
+      "intents": [
+        "warning",
+        "error",
+        "critical"
+      ],
+      "states": [
+        "default",
+        "warning",
+        "error",
+        "critical",
+        "loading",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"inline\" | \"panel\" | \"blocking\" | \"empty-recovery\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"warning\" | \"error\" | \"critical\" | \"loading\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"warning\" | \"error\" | \"critical\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "floatingActionButton",
+      "slug": "floating-action-button",
+      "family": "actions",
+      "element": "button",
+      "variants": [
+        "primary",
+        "extended",
+        "mini"
+      ],
+      "intents": [
+        "primary"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "loading",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"primary\" | \"extended\" | \"mini\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "iconButton",
+      "slug": "icon-button",
+      "family": "actions",
+      "element": "button",
+      "variants": [
+        "ghost",
+        "tonal",
+        "primary"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "badged",
+        "focus",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"ghost\" | \"tonal\" | \"primary\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "action-variant-tonal-review"
+      ]
+    },
+    {
+      "id": "inlineValidation",
+      "slug": "inline-validation",
+      "family": "feedback",
+      "element": "div",
+      "variants": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "intents": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "states": [
+        "default",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"info\" | \"success\" | \"warning\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "input",
+      "slug": "input",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "text",
+        "email",
+        "password",
+        "number",
+        "currency",
+        "unit",
+        "search"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "filled",
+        "info",
+        "success",
+        "warning",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"text\" | \"email\" | \"password\" | \"number\" | \"currency\" | \"unit\" | \"search\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"focus\" | \"filled\" | \"info\" | \"success\" | \"warning\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "inputAmount",
+      "slug": "input-amount",
+      "family": "fields-payment",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "filled",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "kpiTile",
+      "slug": "kpi-tile",
+      "family": "data-display",
+      "element": "article",
+      "variants": [
+        "standard",
+        "delta",
+        "threshold",
+        "sparkline",
+        "drill-in"
+      ],
+      "intents": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "loading",
+        "risk",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"delta\" | \"threshold\" | \"sparkline\" | \"drill-in\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"loading\" | \"risk\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "list",
+      "slug": "list",
+      "family": "data-display",
+      "element": "ul",
+      "variants": [
+        "standard",
+        "compact",
+        "action",
+        "status",
+        "media"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "selected",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"compact\" | \"action\" | \"status\" | \"media\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"selected\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop",
+        "loading-state-without-loading-prop",
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "id": "menu",
+      "slug": "menu",
+      "family": "overlays",
+      "element": "span",
+      "variants": [
+        "actions",
+        "grouped",
+        "selection",
+        "danger",
+        "icon-trigger",
+        "avatar-trigger"
+      ],
+      "intents": [
+        "neutral",
+        "danger"
+      ],
+      "states": [
+        "default",
+        "closed",
+        "open",
+        "focus",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"actions\" | \"grouped\" | \"selection\" | \"danger\" | \"icon-trigger\" | \"avatar-trigger\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"closed\" | \"open\" | \"focus\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "motionBoundary",
+      "slug": "motion-boundary",
+      "family": "motion-feedback",
+      "element": "div",
+      "variants": [
+        "fade",
+        "slide",
+        "collapse",
+        "route"
+      ],
+      "intents": [
+        "motion"
+      ],
+      "states": [
+        "idle",
+        "entering",
+        "active",
+        "exiting",
+        "reduced-motion",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "MotionBoundaryVariant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "MotionBoundaryState",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "movementRow",
+      "slug": "movement-row",
+      "family": "domain-fleet",
+      "element": "button",
+      "variants": [
+        "standard",
+        "refund",
+        "declined",
+        "compact"
+      ],
+      "intents": [
+        "row-action"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "pending",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"refund\" | \"declined\" | \"compact\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"pending\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "pagination",
+      "slug": "pagination",
+      "family": "navigation",
+      "element": "nav",
+      "variants": [
+        "numbered"
+      ],
+      "intents": [
+        "navigation"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "numbered",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "phoneInput",
+      "slug": "phone-input",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "country-code",
+        "compact",
+        "otp-handoff",
+        "readonly"
+      ],
+      "intents": [
+        "input"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "valid",
+        "warning",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"country-code\" | \"compact\" | \"otp-handoff\" | \"readonly\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"valid\" | \"warning\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "popover",
+      "slug": "popover",
+      "family": "overlays",
+      "element": "span",
+      "variants": [
+        "information",
+        "action",
+        "form",
+        "metric"
+      ],
+      "intents": [
+        "contextual"
+      ],
+      "states": [
+        "default",
+        "closed",
+        "open",
+        "hover",
+        "focus",
+        "warning",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"information\" | \"action\" | \"form\" | \"metric\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"closed\" | \"open\" | \"hover\" | \"focus\" | \"warning\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "progressIndicator",
+      "slug": "progress-indicator",
+      "family": "feedback",
+      "element": "div",
+      "variants": [
+        "linear",
+        "indeterminate"
+      ],
+      "intents": [
+        "accent",
+        "success",
+        "warning",
+        "danger",
+        "ink"
+      ],
+      "states": [
+        "default",
+        "active",
+        "indeterminate",
+        "paused",
+        "complete",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"active\" | \"indeterminate\" | \"paused\" | \"complete\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"accent\" | \"success\" | \"warning\" | \"danger\" | \"ink\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "quickAction",
+      "slug": "quick-action",
+      "family": "actions",
+      "element": "div",
+      "variants": [
+        "standard",
+        "destructive",
+        "compact",
+        "wide"
+      ],
+      "intents": [
+        "action"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "loading",
+        "warning",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"destructive\" | \"compact\" | \"wide\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"warning\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "radioButton",
+      "slug": "radio-button",
+      "family": "choices",
+      "element": "label",
+      "variants": [
+        "default",
+        "descriptive",
+        "compact",
+        "critical"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "unselected",
+        "selected",
+        "focus",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"descriptive\" | \"compact\" | \"critical\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"unselected\" | \"selected\" | \"focus\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "routeSummary",
+      "slug": "route-summary",
+      "family": "domain-fleet",
+      "element": "article",
+      "variants": [
+        "standard",
+        "compact",
+        "compare",
+        "policy"
+      ],
+      "intents": [
+        "info",
+        "warning"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "warning",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"compact\" | \"compare\" | \"policy\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"warning\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"warning\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "segmentedControl",
+      "slug": "segmented-control",
+      "family": "navigation",
+      "element": "div",
+      "variants": [
+        "outlined",
+        "toolbar",
+        "compact",
+        "icon-only"
+      ],
+      "intents": [
+        "selection"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "warning",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"outlined\" | \"toolbar\" | \"compact\" | \"icon-only\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "select",
+      "slug": "select",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "default",
+        "inline"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "open",
+        "focus",
+        "filled",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"inline\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"open\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "loading-state-without-loading-prop"
+      ]
+    },
+    {
+      "id": "skeleton",
+      "slug": "skeleton",
+      "family": "feedback",
+      "element": "div",
+      "variants": [
+        "text",
+        "title",
+        "circle",
+        "card",
+        "pill",
+        "row",
+        "media",
+        "chart",
+        "table"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "loading",
+        "stale",
+        "paused",
+        "loaded",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"text\" | \"title\" | \"circle\" | \"card\" | \"pill\" | \"row\" | \"media\" | \"chart\" | \"table\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"loading\" | \"stale\" | \"paused\" | \"loaded\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "slider",
+      "slug": "slider",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "continuous",
+        "stepped",
+        "bounded",
+        "threshold",
+        "paired-value"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "dragging",
+        "disabled",
+        "error",
+        "complete"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"continuous\" | \"stepped\" | \"bounded\" | \"threshold\" | \"paired-value\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"focus\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "spinner",
+      "slug": "spinner",
+      "family": "feedback",
+      "element": "span",
+      "variants": [
+        "circular"
+      ],
+      "intents": [
+        "accent",
+        "ink",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "states": [
+        "default",
+        "loading",
+        "decorative",
+        "subtle",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"loading\" | \"decorative\" | \"subtle\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"accent\" | \"ink\" | \"success\" | \"warning\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "stationPin",
+      "slug": "station-pin",
+      "family": "domain-fleet",
+      "element": "button",
+      "variants": [
+        "fuel",
+        "ev",
+        "service",
+        "cluster"
+      ],
+      "intents": [
+        "map"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "unavailable",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"fuel\" | \"ev\" | \"service\" | \"cluster\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"unavailable\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "stepper",
+      "slug": "stepper",
+      "family": "progress-feedback",
+      "element": "ol",
+      "variants": [
+        "horizontal",
+        "vertical"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "pending",
+        "active",
+        "complete"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "switch",
+      "slug": "switch",
+      "family": "choices",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "off",
+        "on",
+        "focus",
+        "pressed",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"off\" | \"on\" | \"focus\" | \"pressed\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "table",
+      "slug": "table",
+      "family": "data-display",
+      "element": "div",
+      "variants": [
+        "standard",
+        "dense",
+        "sortable",
+        "selectable",
+        "expandable"
+      ],
+      "intents": [
+        "data"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "selected",
+        "sorted",
+        "expanded"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"standard\" | \"dense\" | \"sortable\" | \"selectable\" | \"expandable\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"sorted\" | \"expanded\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "selected-state-without-selected-prop"
+      ]
+    },
+    {
+      "id": "tabs",
+      "slug": "tabs",
+      "family": "navigation",
+      "element": "div",
+      "variants": [
+        "default",
+        "underline"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "selected",
+        "focus",
+        "overflow",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"underline\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "id": "tag",
+      "slug": "tag",
+      "family": "display-status",
+      "element": "span | button",
+      "variants": [
+        "metadata",
+        "status",
+        "platform",
+        "link"
+      ],
+      "intents": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "pressed",
+        "focus",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "TagVariant",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "TagState",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "textArea",
+      "slug": "text-area",
+      "family": "fields",
+      "element": "label",
+      "variants": [
+        "default"
+      ],
+      "intents": [
+        "default"
+      ],
+      "states": [
+        "default",
+        "focus",
+        "filled",
+        "loading",
+        "error",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "toast",
+      "slug": "toast",
+      "family": "feedback",
+      "element": "article",
+      "variants": [
+        "status",
+        "progress",
+        "warning",
+        "recovery",
+        "undo"
+      ],
+      "intents": [
+        "neutral",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "states": [
+        "default",
+        "visible",
+        "action",
+        "stacked",
+        "exiting"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"status\" | \"progress\" | \"warning\" | \"recovery\" | \"undo\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"visible\" | \"action\" | \"stacked\" | \"exiting\"",
+          "required": false
+        },
+        {
+          "name": "tone",
+          "type": "\"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "tooltip",
+      "slug": "tooltip",
+      "family": "overlays",
+      "element": "span",
+      "variants": [
+        "default",
+        "icon-help",
+        "metric",
+        "disabled-help"
+      ],
+      "intents": [
+        "neutral",
+        "info"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "open",
+        "disabled",
+        "dismissed"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "variant",
+          "type": "\"default\" | \"icon-help\" | \"metric\" | \"disabled-help\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"open\" | \"disabled\" | \"dismissed\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "required": false
+        }
+      ],
+      "reviewFlags": []
+    },
+    {
+      "id": "treeView",
+      "slug": "tree-view",
+      "family": "navigation",
+      "element": "ul",
+      "variants": [
+        "standard"
+      ],
+      "intents": [
+        "navigation",
+        "selection"
+      ],
+      "states": [
+        "default",
+        "hover",
+        "focus",
+        "expanded",
+        "selected",
+        "disabled"
+      ],
+      "publicVocabulary": [
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"expanded\" | \"selected\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "density",
+          "type": "\"sm\" | \"md\" | \"lg\"",
+          "required": false
+        }
+      ],
+      "reviewFlags": [
+        "disabled-state-without-disabled-prop"
+      ]
+    }
+  ]
+}
