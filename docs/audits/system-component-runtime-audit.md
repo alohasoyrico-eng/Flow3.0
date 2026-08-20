@@ -11,18 +11,35 @@ Every public component must pass runtime rendering, CSS contract, visual cascade
 - Runtime audited components: 62
 - Passing runtime components: 62
 - Failing runtime components: 0
-- Source reports: 5
-- Passing source reports: 5
+- Source reports: 6
+- Passing source reports: 6
 - Source report issues: 0
+- Runtime checks: 4
+- Passing runtime checks: 4
+- Runtime check issues: 0
 - Component runtime debt: 0
 
 ## Source Reports
 
 - artifactTests: docs/audits/system-component-artifact-tests.json
+- controlFrame: docs/audits/control-frame-adoption-inventory.json
 - cssContract: docs/audits/component-css-contract-coverage.json
 - visualCascade: docs/audits/component-visual-cascade-audit.json
 - styleGovernance: docs/audits/react-style-governance-audit.json
 - primaryCoverage: docs/audits/react-primary-coverage-audit.json
+
+## Runtime Checks
+
+| Check | Status | Command | Owns |
+| --- | --- | --- | --- |
+| control-frame-density-runtime | pass | `node packages/audit/scripts/audit-control-frame-density-runtime.mjs` | exact rendered control frame heights, border-box sizing, and action-vs-field radius roles |
+| choice-frame-runtime | pass | `node packages/audit/scripts/audit-choice-frame-runtime.mjs` | checkbox, radio, switch, slider density geometry, mark/icon scaling, motion, and light/dark choice legibility |
+| icon-button-runtime | pass | `node packages/audit/scripts/audit-icon-button-runtime.mjs` | IconButton density sizing, icon scale, keyboard activation, and light/dark legibility |
+| option-listbox-runtime | pass | `node packages/audit/scripts/audit-option-listbox-runtime.mjs` | shared select, combobox, and menu option/listbox geometry, selection, active, disabled, and contrast behavior |
+
+## Runtime Check Issues
+
+- None
 
 ## Component Runtime Matrix
 

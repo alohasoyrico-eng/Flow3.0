@@ -10,17 +10,17 @@ This gate is authoritative for Flow Design System core release readiness. It mus
 
 | Check | Status | Command | Owns | Duration ms |
 | --- | --- | --- | --- | ---: |
-| ds-qa-topology | pass | node packages/audit/scripts/report-ds-qa-topology.js | fast/release/deep/quarantine QA lanes and release test boundary | 27 |
-| flow-core-contracts | pass | npm run audit:flow-core-gate | architecture, package API, CSS namespace/contracts, tokens, specs, React primary contracts, accessibility policy | 1094 |
-| react-production-readiness | pass | node packages/audit/scripts/report-react-production-readiness.js | public React component inventory, contracts, exports, test evidence, readiness status | 128 |
-| react-interaction-coverage | pass | node packages/audit/scripts/report-react-interaction-coverage.js | callbacks, event parameters, required keyboard behavior, required state semantics | 65 |
-| component-artifact-tests | pass | node packages/audit/scripts/report-system-component-artifact-tests.js | per-component artifact test coverage | 236 |
-| component-runtime | pass | node packages/audit/scripts/report-system-component-runtime-audit.js | component runtime evidence independent from FlowDocs pages | 45 |
-| public-runtime-boundary | pass | node packages/audit/scripts/report-system-public-runtime-boundary.js | public runtime artifact boundary | 37 |
-| consumer-runtime-smoke | pass | node packages/audit/scripts/report-system-consumer-runtime-smoke.js | clean consumer app React render smoke | 2881 |
-| consumer-css-token-cascade | pass | node packages/audit/scripts/report-system-consumer-css-token-cascade.js | clean consumer CSS and token cascade | 2684 |
-| consumer-type-smoke | pass | node packages/audit/scripts/report-system-consumer-type-smoke.js | clean consumer TypeScript/import smoke | 2719 |
-| consumer-install | pass | node packages/audit/scripts/audit-consumer-install.mjs | installable package boundary in an isolated consumer | 4889 |
+| ds-qa-topology | pass | node packages/audit/scripts/report-ds-qa-topology.js | fast/release/deep/quarantine QA lanes and release test boundary | 43 |
+| flow-core-contracts | pass | npm run audit:flow-core-gate | architecture, package API, CSS namespace/contracts, tokens, specs, React primary contracts, accessibility policy | 1649 |
+| react-production-readiness | pass | node packages/audit/scripts/report-react-production-readiness.js | public React component inventory, contracts, exports, test evidence, readiness status | 194 |
+| react-interaction-coverage | pass | node packages/audit/scripts/report-react-interaction-coverage.js | callbacks, event parameters, required keyboard behavior, required state semantics | 104 |
+| component-artifact-tests | pass | node packages/audit/scripts/report-system-component-artifact-tests.js | per-component artifact test coverage | 344 |
+| component-runtime | pass | node packages/audit/scripts/report-system-component-runtime-audit.js | component runtime evidence independent from FlowDocs pages | 7607 |
+| public-runtime-boundary | pass | node packages/audit/scripts/report-system-public-runtime-boundary.js | public runtime artifact boundary | 39 |
+| consumer-runtime-smoke | pass | node packages/audit/scripts/report-system-consumer-runtime-smoke.js | clean consumer app React render smoke | 3567 |
+| consumer-css-token-cascade | pass | node packages/audit/scripts/report-system-consumer-css-token-cascade.js | clean consumer CSS and token cascade | 3330 |
+| consumer-type-smoke | pass | node packages/audit/scripts/report-system-consumer-type-smoke.js | clean consumer TypeScript/import smoke | 3439 |
+| consumer-install | pass | node packages/audit/scripts/audit-consumer-install.mjs | installable package boundary in an isolated consumer | 6008 |
 
 ## FlowDocs Boundary
 

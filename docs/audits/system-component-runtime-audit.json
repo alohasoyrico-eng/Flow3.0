@@ -5,6 +5,7 @@
   "principle": "Every public component must pass runtime rendering, CSS contract, visual cascade, style governance, and primary React coverage as one auditable boundary.",
   "sourceReports": {
     "artifactTests": "docs/audits/system-component-artifact-tests.json",
+    "controlFrame": "docs/audits/control-frame-adoption-inventory.json",
     "cssContract": "docs/audits/component-css-contract-coverage.json",
     "visualCascade": "docs/audits/component-visual-cascade-audit.json",
     "styleGovernance": "docs/audits/react-style-governance-audit.json",
@@ -15,12 +16,122 @@
     "runtimeAuditedComponents": 62,
     "passingRuntimeComponents": 62,
     "failingRuntimeComponents": 0,
-    "sourceReports": 5,
-    "passingSourceReports": 5,
+    "sourceReports": 6,
+    "passingSourceReports": 6,
     "sourceReportIssues": 0,
+    "runtimeChecks": 4,
+    "passingRuntimeChecks": 4,
+    "runtimeCheckIssues": 0,
     "componentRuntimeDebt": 0
   },
   "sourceReportIssues": [],
+  "runtimeChecks": [
+    {
+      "id": "control-frame-density-runtime",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/audit-control-frame-density-runtime.mjs"
+      ],
+      "owns": "exact rendered control frame heights, border-box sizing, and action-vs-field radius roles",
+      "commandLine": "node packages/audit/scripts/audit-control-frame-density-runtime.mjs",
+      "status": "pass",
+      "exitCode": 0,
+      "stdoutTail": [
+        "      \"boxSizing\": \"border-box\"",
+        "    },",
+        "    {",
+        "      \"component\": \"dateRangePicker\",",
+        "      \"density\": \"lg\",",
+        "      \"height\": 52,",
+        "      \"radius\": \"16px\",",
+        "      \"boxSizing\": \"border-box\"",
+        "    }",
+        "  ],",
+        "  \"errors\": []",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "choice-frame-runtime",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/audit-choice-frame-runtime.mjs"
+      ],
+      "owns": "checkbox, radio, switch, slider density geometry, mark/icon scaling, motion, and light/dark choice legibility",
+      "commandLine": "node packages/audit/scripts/audit-choice-frame-runtime.mjs",
+      "status": "pass",
+      "exitCode": 0,
+      "stdoutTail": [
+        "      \"component\": \"slider\",",
+        "      \"theme\": \"dark\",",
+        "      \"density\": \"lg\",",
+        "      \"touch\": 48,",
+        "      \"track\": 10,",
+        "      \"thumb\": 34,",
+        "      \"controlBoxSizing\": \"border-box\",",
+        "      \"thumbBoxSizing\": \"border-box\"",
+        "    }",
+        "  ],",
+        "  \"errors\": []",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "icon-button-runtime",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/audit-icon-button-runtime.mjs"
+      ],
+      "owns": "IconButton density sizing, icon scale, keyboard activation, and light/dark legibility",
+      "commandLine": "node packages/audit/scripts/audit-icon-button-runtime.mjs",
+      "status": "pass",
+      "exitCode": 0,
+      "stdoutTail": [
+        "    },",
+        "    {",
+        "      \"density\": \"md\",",
+        "      \"scale\": 0.96",
+        "    },",
+        "    {",
+        "      \"density\": \"lg\",",
+        "      \"scale\": 0.96",
+        "    }",
+        "  ],",
+        "  \"errors\": []",
+        "}"
+      ],
+      "stderrTail": []
+    },
+    {
+      "id": "option-listbox-runtime",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/audit-option-listbox-runtime.mjs"
+      ],
+      "owns": "shared select, combobox, and menu option/listbox geometry, selection, active, disabled, and contrast behavior",
+      "commandLine": "node packages/audit/scripts/audit-option-listbox-runtime.mjs",
+      "status": "pass",
+      "exitCode": 0,
+      "stdoutTail": [
+        "      \"paddingInlineStart\": 24,",
+        "      \"paddingInlineEnd\": 24,",
+        "      \"borderRadius\": 14,",
+        "      \"backgroundColor\": \"color(srgb 0.972549 0.980392 0.988235 / 0.08)\",",
+        "      \"color\": \"rgb(203, 213, 225)\",",
+        "      \"opacity\": 1,",
+        "      \"outlineStyle\": \"none\",",
+        "      \"outlineWidth\": 3",
+        "    }",
+        "  ],",
+        "  \"errors\": []",
+        "}"
+      ],
+      "stderrTail": []
+    }
+  ],
+  "runtimeCheckIssues": [],
   "components": [
     {
       "id": "button",

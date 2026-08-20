@@ -582,7 +582,7 @@
         {
           "status": "pass",
           "component": "RadioButton",
-          "markupLength": 412,
+          "markupLength": 451,
           "rootTag": "<label class=\"choice radio flow-artifact-test-hook\" data-artifact-test=\"radioButton\" data-checked=\"false\" data-variant=\"default\" data-state=\"unselected\" data-density=\"lg\">",
           "issues": []
         },

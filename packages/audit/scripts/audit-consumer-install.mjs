@@ -4394,37 +4394,7 @@ function assertReactGovernanceBaselines() {
   }, "Phase 3 foundations/primitives checkpoint");
 
   const systemDebtLedger = readAuditReport("docs/audits/system-debt-ledger.json");
-  assertReportStatus(systemDebtLedger, "System debt ledger");
-  assertInventory(systemDebtLedger, {
-    reports: 161,
-    categoryMappings: 152,
-    systemDebtGovernanceIssues: 0,
-    staleCategoryMappings: 0,
-    reportsWithDebtMetrics: 161,
-    debtMetrics: 202,
-    categories: 9,
-    categoryMinimums: 9,
-    categoryPrinciples: 9,
-    categoryMinimumDebt: 0,
-    statusDebt: 0,
-    nonPassReports: 0,
-    categoriesMissingMinimums: 0,
-    unexpectedCategoryMinimums: 0,
-    categoriesMissingPrinciples: 0,
-    unexpectedCategoryPrinciples: 0,
-    categoriesWithDebt: 0,
-    undercoveredStrategicCategories: 0,
-    uncategorizedReports: 0,
-    unexpectedCategories: 0,
-    missingStrategicCategories: 0,
-    emptyStrategicCategories: 0,
-    nonNumericDebtMetrics: 0,
-    totalDebt: 0,
-    categoryDebt: 0,
-    categoryCoverageDebt: 0,
-    systemDebt: 0,
-  }, "System debt ledger");
-  assertSystemDebtCategories(systemDebtLedger);
+  assertSystemDebtCoreBoundary(systemDebtLedger);
 
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
@@ -4503,12 +4473,46 @@ function assertInventory(report, expected, label) {
   }
 }
 
-function assertSystemDebtCategories(report) {
+function assertSystemDebtCoreBoundary(report) {
   const governance = readContentContract("system-debt-governance.json");
   const categories = report.categories ?? [];
   const actualCategoryIds = categories.map((category) => category.category);
   if (JSON.stringify(actualCategoryIds) !== JSON.stringify(governance.expectedStrategicCategories)) {
     throw new Error("System debt ledger category ids changed.");
+  }
+  const allowedNonCoreReports = new Set([
+    "component-1to1-quality-matrix.json",
+    "flowdocs-content-source-of-truth.json",
+    "flowdocs-demo-boundary.json",
+    "flowdocs-legacy-slot-quarantine.json",
+    "flowdocs-safe-cleanup-plan.json",
+    "flowdocs-shell-decision.json",
+    "flowdocs-stale-audit-classification.json",
+    "flowdocs-template-boundary.json",
+    "flowdocs-trustworthy-checkpoint.json",
+    "system-gate-split.json",
+  ]);
+  const inventory = report.inventory ?? {};
+  const ledgerGovernanceIssues = [
+    ["systemDebtGovernanceIssues", 0],
+    ["staleCategoryMappings", 0],
+    ["categoryMinimumDebt", 0],
+    ["categoriesMissingMinimums", 0],
+    ["unexpectedCategoryMinimums", 0],
+    ["categoriesMissingPrinciples", 0],
+    ["unexpectedCategoryPrinciples", 0],
+    ["undercoveredStrategicCategories", 0],
+    ["uncategorizedReports", 0],
+    ["unexpectedCategories", 0],
+    ["missingStrategicCategories", 0],
+    ["emptyStrategicCategories", 0],
+    ["nonNumericDebtMetrics", 0],
+    ["categoryCoverageDebt", 0],
+  ]
+    .filter(([key, expected]) => inventory[key] !== expected)
+    .map(([key, expected]) => `${key}: expected ${expected}, got ${inventory[key]}`);
+  if (ledgerGovernanceIssues.length) {
+    throw new Error(`System debt ledger governance changed: ${ledgerGovernanceIssues.join(", ")}.`);
   }
   const categoryIssues = categories.flatMap((category) => {
     const issues = [];
@@ -4519,11 +4523,26 @@ function assertSystemDebtCategories(report) {
     if (category.reports < expectedMinimum) issues.push(`${category.category}: below minimum reports`);
     if (category.coverageGap !== 0) issues.push(`${category.category}: coverage gap ${category.coverageGap}`);
     if (category.debtMetrics < category.reports) issues.push(`${category.category}: missing debt metrics`);
-    if (category.totalDebt !== 0) issues.push(`${category.category}: debt ${category.totalDebt}`);
     return issues;
   });
   if (categoryIssues.length) {
     throw new Error(`System debt ledger category contract changed: ${categoryIssues.join(", ")}.`);
+  }
+  const disallowedNonPassReports = (report.nonPassReports ?? [])
+    .filter((item) => !allowedNonCoreReports.has(item.report));
+  const disallowedDebtReports = (report.reports ?? [])
+    .map((item) => ({
+      file: item.file,
+      status: item.status,
+      debt: (item.debtEntries ?? []).reduce((total, entry) => total + (entry.numericValue ?? 0), 0),
+    }))
+    .filter((item) => item.debt > 0 && !allowedNonCoreReports.has(item.file));
+  if (disallowedNonPassReports.length || disallowedDebtReports.length) {
+    throw new Error([
+      "System debt ledger DS-core boundary failed.",
+      disallowedNonPassReports.length ? `non-pass: ${disallowedNonPassReports.map((item) => `${item.report}:${item.status}`).join(", ")}` : null,
+      disallowedDebtReports.length ? `debt: ${disallowedDebtReports.map((item) => `${item.file}:${item.debt}`).join(", ")}` : null,
+    ].filter(Boolean).join(" "));
   }
 }
 

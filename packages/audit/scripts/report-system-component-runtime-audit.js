@@ -5,6 +5,7 @@ const {
   path,
   root,
 } = require("./audit-context.js");
+const { spawnSync } = require("node:child_process");
 
 const checkMode = process.argv.includes("--check");
 const outputDir = path.join(root, "docs/audits");
@@ -13,11 +14,39 @@ const markdownOutput = path.join(outputDir, "system-component-runtime-audit.md")
 
 const sourceReports = {
   artifactTests: "docs/audits/system-component-artifact-tests.json",
+  controlFrame: "docs/audits/control-frame-adoption-inventory.json",
   cssContract: "docs/audits/component-css-contract-coverage.json",
   visualCascade: "docs/audits/component-visual-cascade-audit.json",
   styleGovernance: "docs/audits/react-style-governance-audit.json",
   primaryCoverage: "docs/audits/react-primary-coverage-audit.json",
 };
+
+const runtimeChecks = [
+  {
+    id: "control-frame-density-runtime",
+    command: "node",
+    args: ["packages/audit/scripts/audit-control-frame-density-runtime.mjs"],
+    owns: "exact rendered control frame heights, border-box sizing, and action-vs-field radius roles",
+  },
+  {
+    id: "choice-frame-runtime",
+    command: "node",
+    args: ["packages/audit/scripts/audit-choice-frame-runtime.mjs"],
+    owns: "checkbox, radio, switch, slider density geometry, mark/icon scaling, motion, and light/dark choice legibility",
+  },
+  {
+    id: "icon-button-runtime",
+    command: "node",
+    args: ["packages/audit/scripts/audit-icon-button-runtime.mjs"],
+    owns: "IconButton density sizing, icon scale, keyboard activation, and light/dark legibility",
+  },
+  {
+    id: "option-listbox-runtime",
+    command: "node",
+    args: ["packages/audit/scripts/audit-option-listbox-runtime.mjs"],
+    owns: "shared select, combobox, and menu option/listbox geometry, selection, active, disabled, and contrast behavior",
+  },
+];
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
@@ -38,6 +67,24 @@ function indexBy(rows, getKey) {
 
 function statusIsPass(value) {
   return String(value ?? "").toLowerCase() === "pass";
+}
+
+function runRuntimeCheck(check) {
+  const child = spawnSync(check.command, check.args, {
+    cwd: root,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  const stdout = String(child.stdout ?? "");
+  const stderr = String(child.stderr ?? "");
+  return {
+    ...check,
+    commandLine: [check.command, ...check.args].join(" "),
+    status: child.status === 0 ? "pass" : "fail",
+    exitCode: child.status,
+    stdoutTail: stdout.split("\n").filter(Boolean).slice(-12),
+    stderrTail: stderr.split("\n").filter(Boolean).slice(-12),
+  };
 }
 
 function createReport() {
@@ -98,6 +145,10 @@ function createReport() {
   const sourceReportIssues = Object.entries(reports).flatMap(([key, report]) => (
     statusIsPass(report.status) ? [] : [`${key} status is ${report.status ?? "unknown"}`]
   ));
+  const runtimeResults = runtimeChecks.map(runRuntimeCheck);
+  const runtimeCheckIssues = runtimeResults
+    .filter((check) => !statusIsPass(check.status))
+    .map((check) => `${check.id} status is ${check.status}`);
 
   const inventory = {
     components: components.length,
@@ -107,10 +158,14 @@ function createReport() {
     sourceReports: Object.keys(sourceReports).length,
     passingSourceReports: Object.values(reports).filter((report) => statusIsPass(report.status)).length,
     sourceReportIssues: sourceReportIssues.length,
+    runtimeChecks: runtimeResults.length,
+    passingRuntimeChecks: runtimeResults.filter((check) => statusIsPass(check.status)).length,
+    runtimeCheckIssues: runtimeCheckIssues.length,
     componentRuntimeDebt: 0,
   };
   inventory.componentRuntimeDebt = inventory.failingRuntimeComponents
     + inventory.sourceReportIssues
+    + inventory.runtimeCheckIssues
     + Math.max(0, inventory.components - inventory.runtimeAuditedComponents);
 
   return {
@@ -121,6 +176,8 @@ function createReport() {
     sourceReports,
     inventory,
     sourceReportIssues,
+    runtimeChecks: runtimeResults,
+    runtimeCheckIssues,
     components,
   };
 }
@@ -144,11 +201,24 @@ function toMarkdown(report) {
     `- Source reports: ${report.inventory.sourceReports}`,
     `- Passing source reports: ${report.inventory.passingSourceReports}`,
     `- Source report issues: ${report.inventory.sourceReportIssues}`,
+    `- Runtime checks: ${report.inventory.runtimeChecks}`,
+    `- Passing runtime checks: ${report.inventory.passingRuntimeChecks}`,
+    `- Runtime check issues: ${report.inventory.runtimeCheckIssues}`,
     `- Component runtime debt: ${report.inventory.componentRuntimeDebt}`,
     "",
     "## Source Reports",
     "",
     ...Object.entries(report.sourceReports).map(([key, file]) => `- ${key}: ${file}`),
+    "",
+    "## Runtime Checks",
+    "",
+    "| Check | Status | Command | Owns |",
+    "| --- | --- | --- | --- |",
+    ...report.runtimeChecks.map((check) => `| ${check.id} | ${check.status} | \`${check.commandLine}\` | ${check.owns} |`),
+    "",
+    "## Runtime Check Issues",
+    "",
+    ...(report.runtimeCheckIssues.length ? report.runtimeCheckIssues.map((issue) => `- ${issue}`) : ["- None"]),
     "",
     "## Component Runtime Matrix",
     "",
