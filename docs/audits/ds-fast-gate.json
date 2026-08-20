@@ -27,6 +27,18 @@
       "exitCode": 0
     },
     {
+      "id": "flow-core-cascade-overrides",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:flow-core-cascade-overrides"
+      ],
+      "owns": "DS core hardcoded style, inline visual policy, and cascade ownership",
+      "commandLine": "npm run audit:flow-core-cascade-overrides",
+      "status": "pass",
+      "exitCode": 0
+    },
+    {
       "id": "control-frame-runtime",
       "command": "npm",
       "args": [

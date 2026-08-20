@@ -23,6 +23,12 @@ const checks = [
     owns: "package/spec/token/component/pattern/react contracts",
   },
   {
+    id: "flow-core-cascade-overrides",
+    command: "npm",
+    args: ["run", "audit:flow-core-cascade-overrides"],
+    owns: "DS core hardcoded style, inline visual policy, and cascade ownership",
+  },
+  {
     id: "control-frame-runtime",
     command: "npm",
     args: ["run", "audit:control-frame-runtime"],

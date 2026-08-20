@@ -6,8 +6,7 @@ const { add, lineNumber } = require("./audit-context.js");
 
 const root = process.cwd();
 const outputDir = path.join(root, "docs/audits");
-const jsonOutput = path.join(outputDir, "cascade-override-governance.json");
-const markdownOutput = path.join(outputDir, "cascade-override-governance.md");
+const flowCoreOnly = process.argv.includes("--flow-core-only");
 const ownershipFile = path.join(root, "packages/audit/contracts/foundation-primitive-ownership.json");
 const ownership = JSON.parse(fs.readFileSync(ownershipFile, "utf8"));
 const ownershipDomains = [...ownership.foundationDomains, ...ownership.primitiveDomains];
@@ -86,7 +85,7 @@ const foundationPolicyRules = [
   },
 ];
 
-const scanRoots = [
+const flowCoreScanRoots = [
   "style-dictionary.config.mjs",
   "packages/tokens/src",
   "packages/tokens/styles",
@@ -95,6 +94,9 @@ const scanRoots = [
   "packages/react/src",
   "packages/specs",
   "packages/content",
+].map((entry) => path.resolve(root, entry));
+const allScanRoots = [
+  ...flowCoreScanRoots,
   "docs",
   "../FlowDocs/apps/docs",
 ].map((entry) => path.resolve(root, entry));
@@ -160,6 +162,13 @@ function isEmailChannelInlinePattern(file, source) {
   const relative = rel(file);
   return relative.startsWith("packages/react/src/patterns/EmailTemplateLayout.")
     && /emailTokenValues|sys-email-|EmailTemplateLayout/.test(source);
+}
+
+function isAllowedDynamicStyle(styleContext) {
+  const bodyMatch = styleContext.match(/style\s*:\s*\{([\s\S]*?)(?:\}\s*(?:satisfies|as|,|\)|$))/);
+  const body = bodyMatch?.[1] ?? styleContext;
+  const entries = [...body.matchAll(/(["']?)([A-Za-z_][\w-]*|--[\w-]+)\1\s*:/g)].map((match) => match[2]);
+  return entries.length > 0 && entries.every((key) => key.startsWith("--"));
 }
 
 function selectorContext(selector) {
@@ -363,8 +372,15 @@ function scanSourceFile(file, source) {
   lines.forEach((text, index) => {
     const line = index + 1;
     if (/(?:^|[^\w-])style\s*[:=]\s*\{/.test(text) || /(?:^|[^\w-])style=\{/.test(text) || /(?:^|[^\w-])style="/.test(text)) {
-      const severity = generated || emailChannelInlinePattern ? "info" : ["pattern-source", "flowdocs"].includes(layer) ? "warning" : "info";
       const styleContext = lines.slice(index, index + 8).join(" ");
+      const allowedDynamicStyle = isAllowedDynamicStyle(styleContext);
+      const severity = generated || emailChannelInlinePattern || allowedDynamicStyle
+        ? "info"
+        : ["react-component-source", "component-source", "primitive-source"].includes(layer)
+          ? "error"
+          : ["pattern-source", "flowdocs"].includes(layer)
+            ? "warning"
+            : "info";
       findings.push({
         type: "inline-style",
         severity,
@@ -376,7 +392,9 @@ function scanSourceFile(file, source) {
           ? "Generated inline style mirrors source; review source ownership if it affects cascade."
           : emailChannelInlinePattern
             ? "Email channel markup requires email-safe inline styles backed by generated sys-email tokens."
-          : "Inline style can bypass token/component cascade; verify it is dynamic data, not visual policy.",
+            : allowedDynamicStyle
+              ? "Inline style is limited to dynamic CSS custom properties that feed governed component CSS."
+              : "Inline style defines visual policy outside CSS/tokens and bypasses the Flow cascade.",
       });
     }
     for (const declaration of text.matchAll(/(["'`])(--(?:ref|sys|component|comp|docs|flowdocs)-[\w-]+)\s*:/g)) {
@@ -410,7 +428,9 @@ function scanSourceFile(file, source) {
   return findings;
 }
 
-function createReport() {
+function createReport(options = {}) {
+  const scope = options.scope ?? (flowCoreOnly ? "flow-core" : "all");
+  const scanRoots = scope === "flow-core" ? flowCoreScanRoots : allScanRoots;
   const files = [...new Set(scanRoots.flatMap(listFiles))].sort();
   const findings = [];
   for (const file of files) {
@@ -462,8 +482,11 @@ function createReport() {
 
   return {
     schemaVersion: "cascade-override-governance@1",
+    scope,
     status: errors.length || unassignedDebt.length ? "fail" : warnings.length ? "warning" : "pass",
-    principle: "Cascade overrides must be owned by the layer that defines the contract: tokens/theme in Style Dictionary token contexts, foundations/primitives in token or primitive sources, component-local aliases in component CSS, and docs/templates only through public Flow APIs.",
+    principle: scope === "flow-core"
+      ? "Flow core cascade overrides must be owned by the DS layer that defines the contract: tokens/theme in Style Dictionary token contexts, foundations/primitives in token or primitive sources, component-local aliases in component CSS, and React source only through dynamic CSS custom properties."
+      : "Cascade overrides must be owned by the layer that defines the contract: tokens/theme in Style Dictionary token contexts, foundations/primitives in token or primitive sources, component-local aliases in component CSS, and docs/templates only through public Flow APIs.",
     inventory: {
       filesScanned: files.length,
       findings: findings.length,
@@ -565,14 +588,23 @@ function renderMarkdown(report) {
   ].join("\n");
 }
 
+function outputFilesForScope(scope) {
+  const baseName = scope === "flow-core" ? "flow-core-cascade-override-governance" : "cascade-override-governance";
+  return {
+    jsonOutput: path.join(outputDir, `${baseName}.json`),
+    markdownOutput: path.join(outputDir, `${baseName}.md`),
+  };
+}
+
 function writeReport(report) {
+  const { jsonOutput, markdownOutput } = outputFilesForScope(report.scope);
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(jsonOutput, `${JSON.stringify(report, null, 2)}\n`);
   fs.writeFileSync(markdownOutput, renderMarkdown(report));
 }
 
-function checkCascadeOverrideGovernance() {
-  const report = createReport();
+function checkCascadeOverrideGovernance(options = {}) {
+  const report = createReport({ scope: options.scope ?? "flow-core" });
   writeReport(report);
   for (const finding of report.findings.filter((item) => item.severity === "error")) {
     add("errors", path.join(root, finding.file), finding.line, `${finding.type}: ${finding.reason}${finding.variable ? ` (${finding.variable})` : ""}`);
@@ -582,6 +614,7 @@ function checkCascadeOverrideGovernance() {
 if (require.main === module) {
   const report = createReport();
   writeReport(report);
+  const { jsonOutput, markdownOutput } = outputFilesForScope(report.scope);
   console.log(JSON.stringify({
     status: report.status,
     overrideDebt: report.inventory.overrideDebt,

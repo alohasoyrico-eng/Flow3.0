@@ -12,6 +12,7 @@ This gate is for frequent local/PR feedback. It intentionally excludes consumer 
 | --- | --- | --- | --- |
 | ds-qa-topology | pass | node packages/audit/scripts/report-ds-qa-topology.js | QA lane integrity |
 | flow-core-contracts | pass | npm run audit:flow-core-gate | package/spec/token/component/pattern/react contracts |
+| flow-core-cascade-overrides | pass | npm run audit:flow-core-cascade-overrides | DS core hardcoded style, inline visual policy, and cascade ownership |
 | control-frame-runtime | pass | npm run audit:control-frame-runtime | rendered field/action/navigation frame density geometry |
 | choice-frame-runtime | pass | npm run audit:choice-frame-runtime | rendered choice mark/icon density and light/dark geometry |
 | icon-button-runtime | pass | npm run audit:icon-button-runtime | rendered icon action target/icon density geometry |
