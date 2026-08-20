@@ -74,15 +74,15 @@ Changing these numbers is a contract decision. interactionDebt must stay at 0; c
 
 | Component | Status | Keys | Assertions | Missing keys | Missing assertions |
 | --- | --- | --- | --- | --- | --- |
-| Combobox | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected | None | None |
-| Select | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-active | None | None |
-| CountrySelector | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected | None | None |
-| Menu | pass | ArrowDown, ArrowUp, Home, End, Enter, Escape | aria-expanded, activeElement | None | None |
-| Dialog | pass | Escape | aria-modal, aria-expanded | None | None |
-| Drawer | pass | Escape | aria-modal, aria-expanded | None | None |
-| Popover | pass | Escape | aria-expanded | None | None |
+| Combobox | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected, disabled | None | None |
+| Select | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-active, disabled | None | None |
+| CountrySelector | pass | ArrowDown, ArrowUp, Enter, Escape | aria-activedescendant, aria-expanded, data-selected, disabled | None | None |
+| Menu | pass | ArrowDown, ArrowUp, Home, End, Enter, Escape | aria-expanded, activeElement, focus | None | None |
+| Dialog | pass | Escape | aria-modal, aria-expanded, activeElement | None | None |
+| Drawer | pass | Escape | aria-modal, aria-expanded, activeElement | None | None |
+| Popover | pass | Escape, Tab | aria-expanded, focus | None | None |
 | Tooltip | pass | Escape | aria-describedby | None | None |
-| Tabs | pass | ArrowRight, ArrowLeft, Home, End | aria-selected | None | None |
+| Tabs | pass | ArrowRight, ArrowLeft, Home, End | aria-selected, disabled | None | None |
 | TreeView | pass | ArrowDown, ArrowUp, Enter | aria-selected, data-selected | None | None |
 
 ## Required State Semantics Contracts

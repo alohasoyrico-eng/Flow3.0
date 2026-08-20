@@ -467,7 +467,8 @@
       "assertions": [
         "aria-activedescendant",
         "aria-expanded",
-        "data-selected"
+        "data-selected",
+        "disabled"
       ],
       "covered": true,
       "missingKeys": [],
@@ -484,7 +485,8 @@
       "assertions": [
         "aria-activedescendant",
         "aria-expanded",
-        "data-active"
+        "data-active",
+        "disabled"
       ],
       "covered": true,
       "missingKeys": [],
@@ -501,7 +503,8 @@
       "assertions": [
         "aria-activedescendant",
         "aria-expanded",
-        "data-selected"
+        "data-selected",
+        "disabled"
       ],
       "covered": true,
       "missingKeys": [],
@@ -519,7 +522,8 @@
       ],
       "assertions": [
         "aria-expanded",
-        "activeElement"
+        "activeElement",
+        "focus"
       ],
       "covered": true,
       "missingKeys": [],
@@ -532,7 +536,8 @@
       ],
       "assertions": [
         "aria-modal",
-        "aria-expanded"
+        "aria-expanded",
+        "activeElement"
       ],
       "covered": true,
       "missingKeys": [],
@@ -545,7 +550,8 @@
       ],
       "assertions": [
         "aria-modal",
-        "aria-expanded"
+        "aria-expanded",
+        "activeElement"
       ],
       "covered": true,
       "missingKeys": [],
@@ -554,10 +560,12 @@
     {
       "component": "Popover",
       "keys": [
-        "Escape"
+        "Escape",
+        "Tab"
       ],
       "assertions": [
-        "aria-expanded"
+        "aria-expanded",
+        "focus"
       ],
       "covered": true,
       "missingKeys": [],
@@ -584,7 +592,8 @@
         "End"
       ],
       "assertions": [
-        "aria-selected"
+        "aria-selected",
+        "disabled"
       ],
       "covered": true,
       "missingKeys": [],

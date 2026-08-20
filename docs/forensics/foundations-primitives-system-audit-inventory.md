@@ -115,13 +115,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 8: **Focus and keyboard runtime boundary**.
+Iteration 9: **Release gate consolidation and handoff**.
 
 Tasks:
 
-- Confirm focus-visible and keyboard navigation are runtime-checked for controls, choices, tabs, and overlay/listbox families.
-- Keep component-level keyboard bugs inside React production tests or existing runtime checks.
-- Avoid adding new FlowDocs-driven gates to the DS fast path.
+- Confirm this foundations/primitives remediation block has no stale reports, no dirty state, and no hidden FlowDocs dependency in the DS fast path.
+- Run the final fast validation and report remaining debt boundaries.
+- Decide whether to return to component 1:1 QA or expand into full release validation.
 
 ## Iteration 2 Result
 
@@ -251,3 +251,25 @@ Observed gate status:
 | direct package state contract | pass | State token ownership and package-scope state contract |
 | `report-primitive-disabled-cascade.js --check` | pass | disabled aliases, no raw opacity, no opacity-only disabled rules |
 | `audit:flow-core-gate` | pass | state, disabled, focus package accessibility, motion, density, TS, React, and checkpoints |
+
+## Iteration 8 Result
+
+Focus and keyboard runtime evidence was tightened inside the existing React interaction coverage gate.
+
+Changes made:
+
+- `report-react-interaction-coverage` now requires focus/disabled assertions in the existing required keyboard contracts.
+- Combobox, Select, and CountrySelector contracts now require disabled evidence in addition to arrow/enter/escape and active descendant state.
+- Menu now requires focus evidence with arrow/home/end/enter/escape behavior.
+- Dialog and Drawer now require active element evidence alongside escape and modal state.
+- Popover now requires Tab behavior plus focus evidence.
+- Tabs now requires disabled evidence alongside roving keyboard state.
+
+No new audit lane was created. The strengthened report is already consumed by `audit:ds-fast-gate` as `react-interaction-coverage`.
+
+Observed gate status:
+
+| Gate | Status | Main contract |
+| --- | --- | --- |
+| `report-react-interaction-coverage.js --check` | pass | 10/10 keyboard contracts and 4/4 state semantics contracts |
+| `audit:ds-fast-gate` | pass | strengthened interaction coverage plus runtime geometry checks |
