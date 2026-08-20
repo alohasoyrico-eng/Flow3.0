@@ -2719,7 +2719,8 @@
   --comp-choice-current-press-scale: var(--component-scale-press);
   --comp-choice-current-text-gap: var(--component-space-sm);
   --comp-choice-current-disabled-opacity: var(--component-disabled-readable-opacity);
-  align-items: center;
+  align-items: start;
+  display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--comp-choice-current-gap);
   padding-block: var(--comp-choice-current-padding-block);
@@ -13047,6 +13048,35 @@ body[data-theme="dark"],
   --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface));
   --comp-input-error-border: color-mix(in srgb, var(--component-color-danger) 78%, var(--component-color-text));
   --comp-input-error-helper-fg: var(--component-field-error-helper-fg);
+}
+
+[data-theme="dark"] .checkbox {
+  --comp-checkbox-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
+  --comp-checkbox-border: color-mix(in srgb, var(--component-color-text) 32%, var(--component-color-border));
+  --comp-checkbox-hover-border: color-mix(in srgb, var(--component-color-action) 52%, var(--component-color-border-strong));
+  --comp-checkbox-checked-bg: var(--component-color-action-indicator);
+  --comp-checkbox-checked-border: color-mix(in srgb, var(--component-color-action-indicator) 82%, var(--component-color-text));
+  --comp-checkbox-indicator-fg: var(--component-color-action-indicator-text);
+  --comp-checkbox-description-fg: var(--component-color-text-muted);
+}
+
+[data-theme="dark"] .radio {
+  --comp-radio-button-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
+  --comp-radio-button-border: color-mix(in srgb, var(--component-color-text) 34%, var(--component-color-border));
+  --comp-radio-button-rest-shadow: inset 0 0 0 var(--component-border-width) color-mix(in srgb, var(--component-color-text) 18%, transparent);
+  --comp-radio-button-hover-border: color-mix(in srgb, var(--component-color-action) 52%, var(--component-color-border-strong));
+  --comp-radio-button-selected-bg: color-mix(in srgb, var(--component-color-action-indicator) 22%, var(--component-color-surface-raised));
+  --comp-radio-button-selected-border: color-mix(in srgb, var(--component-color-action-indicator) 84%, var(--component-color-text));
+  --comp-radio-button-selected-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-action-indicator) 34%, transparent);
+  --comp-radio-button-dot-bg: var(--component-color-action-indicator);
+  --comp-radio-button-description-fg: var(--component-color-text-muted);
+}
+
+[data-theme="dark"] .switch {
+  --comp-switch-track-bg: color-mix(in srgb, var(--component-color-text) 20%, var(--component-color-border));
+  --comp-switch-track-on-bg: var(--component-color-action-indicator);
+  --comp-switch-thumb-bg: var(--component-color-action-indicator-text);
+  --comp-switch-description-fg: var(--component-color-text-muted);
 }
 
 [data-theme="dark"] .card {

@@ -655,7 +655,7 @@
     },
     {
       "id": "checkbox",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -665,10 +665,10 @@
         "states-variants": "pass",
         "interaction-logic": "pass",
         "motion": "pass",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "needs-current-local-review",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -688,19 +688,18 @@
         "packages/specs/specs/unison-system/artifacts/components/checkbox.json",
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-choice-css-contract.js",
+        "packages/audit/scripts/audit-choice-frame-runtime.mjs",
+        "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-basic.test.mjs",
         "commit 5c264331"
       ],
-      "openIssues": [
-        "Checkbox indicator/icon scale was corrected systemically to the 16/20/24 density scale, but current visual QA must confirm alignment and dark-mode contrast.",
-        "Label vertical alignment was manually flagged and must be verified against the current demo before pass."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Checkbox Group remains separate because it owns group validation, select-all orchestration, and multi-row relationships."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "currentReviewCommit": "709c5401"
     },
     {
       "id": "chip",
@@ -804,13 +803,13 @@
         "packages/components/src/components/fields.js",
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-combobox-css-contract.js",
+        "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-advanced.test.mjs",
         "commit 5c264331"
       ],
       "openIssues": [
-        "Manual QA found active vs selected confusion, clear action visibility before selection, and keyboard close/commit gaps during the review; React tests now cover key paths, but current interactive demo evidence must be recorded.",
-        "Dark-mode legibility and selected/active color consistency with Select/Menu remain current-review debt until verified."
+        "Scoped local demo verification confirms ArrowDown, Enter, Escape, single selected option, and clear behavior; dark-mode legibility and selected/active color consistency with Select/Menu remain current-review debt until verified."
       ],
       "inventoryEscalations": [
         "Select Input in the ZIP is now covered by Combobox.",
@@ -1659,7 +1658,7 @@
     {
       "id": "radio-button",
       "name": "Radio Button",
-      "status": "partial",
+      "status": "pass",
       "platformPriority": "cross-platform",
       "auditedAt": "2026-07-21",
       "steps": {
@@ -1668,13 +1667,13 @@
         "package-source": "pass",
         "docs-source": "pass",
         "foundations-primitives": "pass",
-        "states-variants": "partial",
+        "states-variants": "pass",
         "interaction-logic": "pass",
-        "motion": "partial",
+        "motion": "pass",
         "density-layout": "pass",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "needs-current-local-review",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -1694,6 +1693,8 @@
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-radio-button-css-contract.js",
         "packages/audit/scripts/audit-choice-css-contract.js",
+        "packages/audit/scripts/audit-choice-frame-runtime.mjs",
+        "docs/audits/choice-current-local-review.md",
         "packages/react/src/RadioButton.tsx",
         "packages/react/test/p0-forms-basic.test.mjs",
         "commit 5c264331"
@@ -1703,10 +1704,7 @@
         "All docs demos are package-sourced and hydrated for real selection behavior."
       ],
       "lastReviewAt": "2026-08-19",
-      "openIssues": [
-        "Manual QA repeatedly found the unselected circle/dark-mode contrast hard to perceive; fixes were added but require current visual confirmation before pass.",
-        "Radio selected indicator/dot and motion must be verified in light/dark and sm/md/lg."
-      ],
+      "openIssues": [],
       "currentReviewCommit": "5c264331"
     },
     {
@@ -2055,12 +2053,14 @@
         "apps/docs/choice-demo-interactions.js",
         "packages/components/src/contracts.js",
         "packages/audit/scripts/audit-switch-css-contract.js",
+        "packages/audit/scripts/audit-choice-frame-runtime.mjs",
+        "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-basic.test.mjs",
         "commit 5c264331"
       ],
       "openIssues": [
-        "Manual QA flagged md/lg geometry and thumb proportions; audit coverage exists, but current demo verification must be recorded before pass."
+        "Switch md/lg geometry and thumb proportions are now recorded through choice-frame runtime; motion still requires human visual confirmation before pass."
       ],
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "5c264331"
@@ -2341,20 +2341,17 @@
   ],
   "summary": {
     "total": 56,
-    "pass": 52,
-    "partial": 4,
+    "pass": 54,
+    "partial": 2,
     "fail": 0,
-    "qualityDebt": 4
+    "qualityDebt": 2
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
     "updatedAt": "2026-08-19",
     "sourceCommit": "5c264331 Harden component interaction and density contracts",
     "scope": [
-      "select",
       "combobox",
-      "checkbox",
-      "radio-button",
       "switch"
     ],
     "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."

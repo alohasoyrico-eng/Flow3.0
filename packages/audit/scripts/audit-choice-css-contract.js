@@ -50,7 +50,8 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2)",
       "--comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size)",
       "--comp-choice-current-gap: var(--component-space-sm)",
-      "align-items: center",
+      "align-items: start",
+      "display: grid",
       "gap: var(--comp-choice-current-gap)",
       "padding-block: var(--comp-choice-current-padding-block)",
     ],
@@ -82,6 +83,22 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, "Checkbox selected state must use the shared action indicator color pair for dark-mode legibility.");
+    }
+  }
+  for (const snippet of [
+    "[data-theme=\"dark\"] .checkbox",
+    "--comp-checkbox-bg: color-mix(in srgb, var(--component-color-surface-raised)",
+    "--comp-checkbox-border: color-mix(in srgb, var(--component-color-text)",
+    "[data-theme=\"dark\"] .radio",
+    "--comp-radio-button-bg: color-mix(in srgb, var(--component-color-surface-raised)",
+    "--comp-radio-button-rest-shadow: inset 0 0 0 var(--component-border-width) color-mix(in srgb, var(--component-color-text)",
+    "--comp-radio-button-selected-bg: color-mix(in srgb, var(--component-color-action-indicator)",
+    "[data-theme=\"dark\"] .switch",
+    "--comp-switch-track-bg: color-mix(in srgb, var(--component-color-text)",
+    "--comp-switch-thumb-bg: var(--component-color-action-indicator-text)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "Choice family must keep systemic dark-mode overrides for checkbox, radio-button, and switch instead of inheriting light root variables.");
     }
   }
 }
