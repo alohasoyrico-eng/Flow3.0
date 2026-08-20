@@ -1150,7 +1150,7 @@
         "Search, Switch, and multi-option controls stay outside Icon Button even when they use compact controls in a toolbar."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "pending"
+      "currentReviewCommit": "811a600f"
     },
     {
       "id": "inline-validation",
