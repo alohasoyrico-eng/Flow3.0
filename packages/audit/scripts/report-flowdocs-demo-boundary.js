@@ -156,9 +156,12 @@ function classifyLocalQaFile(file) {
   const signals = [];
   const visualOverrides = localQaVisualOverrides(source);
   const dynamicStylePlumbing = localQaDynamicStylePlumbing(source);
+  const provesReactRuntime = /data-flow-react-runtime=["']true["']/.test(source)
+    || (/createRoot\s*\(/.test(source) && /react-dom\/client/.test(source) && /packages\/react\/dist/.test(source));
   if (/packages\/tokens\/styles\/tokens\.css/.test(source)) signals.push("uses-flow-token-css");
   if (/packages\/components\/styles\/components\.css/.test(source)) signals.push("uses-flow-component-css");
-  if (/packages\/react\/src|packages\/react\/dist|generated\/react/.test(source)) signals.push("uses-flow-react-runtime");
+  if (provesReactRuntime) signals.push("uses-flow-react-runtime");
+  else if (/packages\/react\/src|packages\/react\/dist|generated\/react/.test(source)) signals.push("mentions-flow-react-source");
   if (/data-theme|aria-pressed/.test(source)) signals.push("has-theme-control");
   if (/keydown|Arrow|Enter|Escape|Tab/.test(source)) signals.push("keyboard-observation-harness");
   if (/<style>/.test(source)) signals.push("local-harness-css");
@@ -180,6 +183,7 @@ function classifyLocalQaFile(file) {
       keyboardTerms: count(source, /Arrow|Enter|Escape|keydown|keyup|Tab/g),
       localVisualOverrides: visualOverrides.length,
       dynamicStylePlumbing: dynamicStylePlumbing.length,
+      reactRuntimeProof: provesReactRuntime ? 1 : 0,
     },
     visualOverrides: visualOverrides.slice(0, 20),
     dynamicStylePlumbing: dynamicStylePlumbing.slice(0, 20),
@@ -194,10 +198,12 @@ function buildReport() {
     ) && !file.includes(`${path.sep}generated${path.sep}`);
   }).map(classifyDocsDemoFile);
 
-  const localQaFiles = walk(localQaDir, (file) => /flow-current\.html$|manifest\.json$/.test(file)).map(classifyLocalQaFile);
+  const localQaFiles = walk(localQaDir, (file) => /flow-(?:current|react)\.html$|manifest\.json$/.test(file)).map(classifyLocalQaFile);
   const docsRiskFiles = docsDemoFiles.filter((entry) => entry.risks.length);
   const mixedFlowClaims = docsDemoFiles.filter((entry) => entry.signals.includes("declares-flow-source") && entry.risks.length);
   const localVisualOverrideFiles = localQaFiles.filter((entry) => entry.metrics.localVisualOverrides > 0);
+  const localReactRuntimeFiles = localQaFiles.filter((entry) => entry.metrics.reactRuntimeProof > 0);
+  const localManualHarnessFiles = localQaFiles.filter((entry) => entry.metrics.reactRuntimeProof === 0);
   const localComponents = [...new Set(localQaFiles.map((entry) => entry.component))].sort();
 
   const summary = {
@@ -207,6 +213,8 @@ function buildReport() {
     localQaFiles: localQaFiles.length,
     localQaComponents: localComponents.length,
     localQaComponentIds: localComponents,
+    localQaReactRuntimeFiles: localReactRuntimeFiles.length,
+    localQaManualHarnessFiles: localManualHarnessFiles.length,
   };
 
   const findings = [
@@ -250,6 +258,7 @@ function buildReport() {
     rules: [
       "Package-owned React tests define component behavior truth.",
       "Local component QA harnesses are human review tools and must stay outside the repo.",
+      "Local React runtime harnesses must declare data-flow-react-runtime=\"true\" and be served over HTTP, because browser ESM imports are blocked from file://.",
       "FlowDocs demos may demonstrate composition but must not own component logic, keyboard semantics, or state truth.",
       "Any docs demo wrapper that adds state or interaction must be labelled as an adapter, not proof that the component works.",
       "Pattern/template demos can compose components, but component-level defects must be fixed in package source and package tests first.",

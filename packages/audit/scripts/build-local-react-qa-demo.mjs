@@ -1,0 +1,732 @@
+#!/usr/bin/env node
+
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(scriptDir, "../../..");
+const workspaceRoot = path.resolve(repoRoot, "../..");
+const localQaRoot = path.join(workspaceRoot, "local-visual-snapshots/Flow3-component-qa");
+
+const requestedComponent = process.argv.find((arg) => arg.startsWith("--component="))?.split("=")[1] ?? "floating-action-button";
+
+const components = {
+  button: {
+    title: "Button",
+    directory: "button-2026-08-17",
+    html: "button-flow-react.html",
+    module: "Button.js",
+    exportName: "Button",
+    buildId: "button-react-runtime-1",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes de accion"),
+          e("div", { className: "audit-row" },
+            action({ label: "Primary", variant: "primary" }),
+            action({ label: "Secondary", variant: "secondary" }),
+            action({ label: "Tertiary", variant: "tertiary" }),
+            action({ label: "Outlined", variant: "outlined" }),
+            action({ label: "Ghost", variant: "ghost" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Intents"),
+          e("div", { className: "audit-row" },
+            action({ label: "Danger", intent: "danger" }),
+            action({ label: "Warning", intent: "warning" }),
+            action({ label: "Secondary danger", variant: "secondary", intent: "danger" }),
+            action({ label: "Secondary warning", variant: "secondary", intent: "warning" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-row" },
+            action({ label: "Small", density: "sm" }),
+            action({ label: "Medium", density: "md" }),
+            action({ label: "Large", density: "lg" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-row" },
+            action({ label: "Hover", state: "hover" }),
+            action({ label: "Focus", state: "focus" }),
+            action({ label: "Pressed", state: "pressed" }),
+            action({ label: "Saving", loading: true }),
+            e(Component, { label: "Disabled", disabled: true, onClick: onAction("Disabled") })
+          )
+        )`,
+  },
+  "icon-button": {
+    title: "IconButton",
+    directory: "icon-button-2026-08-20",
+    html: "icon-button-flow-react.html",
+    module: "IconButton.js",
+    exportName: "IconButton",
+    buildId: "icon-button-react-runtime-1",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes de accion"),
+          e("div", { className: "audit-row" },
+            action({ label: "Primary add", icon: "add", variant: "primary" }),
+            action({ label: "Secondary edit", icon: "edit", variant: "secondary" }),
+            action({ label: "Tertiary search", icon: "search", variant: "tertiary" }),
+            action({ label: "Outlined more", icon: "more_vert", variant: "outlined" }),
+            action({ label: "Ghost close", icon: "close", variant: "ghost" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-row" },
+            action({ label: "Small icon", icon: "add", density: "sm" }),
+            action({ label: "Medium icon", icon: "add", density: "md" }),
+            action({ label: "Large icon", icon: "add", density: "lg" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados publicos"),
+          e("div", { className: "audit-row" },
+            action({ label: "Selected", icon: "check", selected: true }),
+            action({ label: "Badge", icon: "notifications", badge: true }),
+            e(Component, { label: "Disabled", icon: "block", disabled: true, onClick: onAction("Disabled") })
+          )
+        )`,
+  },
+  "floating-action-button": {
+    title: "FloatingActionButton",
+    directory: "floating-action-button-2026-08-20",
+    html: "floating-action-button-flow-react.html",
+    module: "FloatingActionButton.js",
+    exportName: "FloatingActionButton",
+    buildId: "fab-react-runtime-1",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes de accion"),
+          e("div", { className: "audit-row" },
+            action({ label: "Create route primary", icon: "add", variant: "primary" }),
+            action({ label: "Create route secondary", icon: "add", variant: "secondary" }),
+            action({ label: "Create route tertiary", icon: "add", variant: "tertiary" }),
+            action({ label: "Create route outlined", icon: "add", variant: "outlined" }),
+            action({ label: "Create route ghost", icon: "add", variant: "ghost" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Intents"),
+          e("div", { className: "audit-row" },
+            action({ label: "Danger action", icon: "delete", intent: "danger" }),
+            action({ label: "Warning action", icon: "warning", intent: "warning" }),
+            action({ label: "Secondary danger action", icon: "delete", variant: "secondary", intent: "danger" }),
+            action({ label: "Secondary warning action", icon: "warning", variant: "secondary", intent: "warning" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-row" },
+            action({ label: "Small create", icon: "add", density: "sm" }),
+            action({ label: "Medium create", icon: "add", density: "md" }),
+            action({ label: "Large create", icon: "add", density: "lg" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-row" },
+            action({ label: "Hover state", icon: "touch_app", state: "hover" }),
+            action({ label: "Focus state", icon: "center_focus_strong", state: "focus" }),
+            action({ label: "Pressed state", icon: "ads_click", state: "pressed" }),
+            action({ label: "Saving", icon: "save", loading: true }),
+            e(Component, { label: "Disabled create", icon: "block", disabled: true, onClick: onAction("Disabled create") })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Extended"),
+          e("div", { className: "audit-row" },
+            action({ label: "Create route", icon: "add", extended: true }),
+            action({ label: "Delete route", icon: "delete", extended: true, intent: "danger" }),
+            action({ label: "Review warning", icon: "warning", extended: true, intent: "warning" })
+          )
+        )`,
+  },
+  "quick-action": {
+    title: "QuickAction",
+    directory: "quick-action-2026-08-20",
+    html: "quick-action-flow-react.html",
+    module: "QuickAction.js",
+    exportName: "QuickAction",
+    buildId: "quick-action-react-runtime-1",
+    eventPropName: "onAction",
+    actionHandler: "(...args) => onAction(props.label)(args.at(-1)?.type ? args.at(-1) : { type: 'action' })",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes publicas"),
+          e("div", { className: "audit-row" },
+            action({ label: "Scan", icon: "qr_code", variant: "standard" }),
+            action({ label: "Compact", icon: "bolt", variant: "compact" }),
+            action({ label: "Wide action", icon: "route", variant: "wide" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Intents"),
+          e("div", { className: "audit-row" },
+            action({ label: "Default", icon: "add", intent: "default" }),
+            action({ label: "Danger", icon: "delete", intent: "danger" }),
+            action({ label: "Warning", icon: "warning", intent: "warning" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-row" },
+            action({ label: "Small", icon: "add", density: "sm" }),
+            action({ label: "Medium", icon: "add", density: "md" }),
+            action({ label: "Large", icon: "add", density: "lg" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-row" },
+            action({ label: "Hover", icon: "touch_app", state: "hover" }),
+            action({ label: "Focus", icon: "center_focus_strong", state: "focus" }),
+            action({ label: "Pressed", icon: "ads_click", state: "pressed" }),
+            action({ label: "Loading", icon: "save", loading: true }),
+            e(Component, { label: "Disabled", icon: "block", disabled: true, onAction: onAction("Disabled") })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Badge"),
+          e("div", { className: "audit-row" },
+            action({ label: "Notifications", icon: "notifications", badge: "3" }),
+            action({ label: "Danger badge", icon: "report", badge: "!", intent: "danger" })
+          )
+        )`,
+  },
+  input: {
+    title: "Input",
+    directory: "input-2026-08-17",
+    html: "input-flow-react.html",
+    module: "Input.js",
+    exportName: "Input",
+    buildId: "input-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
+    actionSelector: "input[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Text", placeholder: "Driver name", variant: "text" })),
+            e("div", { className: "audit-card" }, action({ label: "Email", placeholder: "driver@flow.test", variant: "email" })),
+            e("div", { className: "audit-card" }, action({ label: "Search", placeholder: "Search driver", variant: "search", icon: "search" })),
+            e("div", { className: "audit-card" }, action({ label: "Currency", value: "1234.50", variant: "currency", prefix: "$" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", placeholder: "sm", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", placeholder: "md", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", placeholder: "lg", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Success", state: "success", helper: "Saved" })),
+            e("div", { className: "audit-card" }, action({ label: "Warning", state: "warning", helper: "Review format" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", error: "Required field" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "Disabled value", "data-runtime-action": "true" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", loading: true, value: "Loading" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Password"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Password", value: "secret", variant: "password", revealable: true, revealLabel: "Show password", hideLabel: "Hide password" }))
+          )
+        )`,
+  },
+  select: {
+    title: "Select",
+    directory: "select-2026-08-17",
+    html: "select-flow-react.html",
+    module: "Select.js",
+    exportName: "Select",
+    buildId: "select-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.label)(event)",
+    actionSelector: "button[data-runtime-action]",
+    supportPreamble: `const options = [
+      { label: "Priority", value: "priority", meta: "Ops" },
+      { label: "Driver", value: "driver", meta: "People", disabled: true },
+      { label: "Dispatch", value: "dispatch", meta: "Team" },
+      { label: "Route", value: "route", meta: "Fleet" }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Interactivo"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Default select", options, value: "priority", helper: "ArrowDown/ArrowUp skip disabled options." })),
+            e("div", { className: "audit-card" }, action({ label: "Open select", options, value: "dispatch", state: "open" })),
+            e("div", { className: "audit-card" }, action({ label: "Inline select", options, value: "route", variant: "inline" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", options, value: "priority", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", options, value: "priority", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", options, value: "priority", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Loading", options, loading: true })),
+            e("div", { className: "audit-card" }, action({ label: "Error", options, state: "error", helper: "Selection required" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", options, value: "priority", disabled: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  combobox: {
+    title: "Combobox",
+    directory: "combobox-2026-08-17",
+    html: "combobox-flow-react.html",
+    module: "Combobox.js",
+    exportName: "Combobox",
+    buildId: "combobox-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + (meta.label || value))(event)",
+    actionSelector: "input[data-runtime-action]",
+    supportPreamble: `const options = [
+      { label: "Ana Sosa", value: "ana", meta: "Driver" },
+      { label: "Luis Perez", value: "luis", meta: "Dispatch" },
+      { label: "Maria Torres", value: "maria", meta: "Ops" },
+      { label: "Disabled Driver", value: "disabled", meta: "Blocked", disabled: true }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Interactivo"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Driver", options, placeholder: "Search driver", clearSelectionLabel: "Clear selection", emptyText: "No results" })),
+            e("div", { className: "audit-card" }, action({ label: "Selected driver", options, value: "luis", clearSelectionLabel: "Clear selection" })),
+            e("div", { className: "audit-card" }, action({ label: "Open driver", options, state: "open", clearSelectionLabel: "Clear selection" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small driver", options, value: "ana", density: "sm", clearSelectionLabel: "Clear selection" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium driver", options, value: "ana", density: "md", clearSelectionLabel: "Clear selection" })),
+            e("div", { className: "audit-card" }, action({ label: "Large driver", options, value: "ana", density: "lg", clearSelectionLabel: "Clear selection" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Loading", options, loading: true, loadingText: "Loading drivers" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", options, state: "error", helper: "Select a driver" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", options, value: "ana", disabled: true, clearSelectionLabel: "Clear selection", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  checkbox: {
+    title: "Checkbox",
+    directory: "checkbox-2026-08-18",
+    html: "checkbox-flow-react.html",
+    module: "Checkbox.js",
+    exportName: "Checkbox",
+    buildId: "checkbox-react-runtime-1",
+    eventPropName: "onCheckedChange",
+    actionHandler: "(checked, meta, event) => onAction(props.label + '=' + checked)(event)",
+    actionSelector: "input[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Default", value: "default" })),
+            e("div", { className: "audit-card" }, action({ label: "Descriptive", description: "Description text", variant: "descriptive", value: "descriptive" })),
+            e("div", { className: "audit-card" }, action({ label: "Select all", description: "3 of 8 selected", variant: "select-all", indeterminate: true, value: "select-all" })),
+            e("div", { className: "audit-card" }, action({ label: "Compact", variant: "compact", value: "compact" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", checked: true, value: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", checked: true, value: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", checked: true, value: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Checked", checked: true, value: "checked" })),
+            e("div", { className: "audit-card" }, action({ label: "Focus", state: "focus", value: "focus" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", error: "Required", value: "error" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, checked: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "radio-button": {
+    title: "RadioButton",
+    directory: "radio-button-2026-08-18",
+    html: "radio-button-flow-react.html",
+    module: "RadioButton.js",
+    exportName: "RadioButton",
+    buildId: "radio-button-react-runtime-1",
+    eventPropName: "onCheckedChange",
+    actionHandler: "(checked, meta, event) => onAction(props.label + '=' + checked)(event)",
+    actionSelector: "input[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Default", name: "radio-variant", value: "default" })),
+            e("div", { className: "audit-card" }, action({ label: "Descriptive", description: "Description text", variant: "descriptive", name: "radio-variant", value: "descriptive" })),
+            e("div", { className: "audit-card" }, action({ label: "Compact", variant: "compact", name: "radio-variant", value: "compact" })),
+            e("div", { className: "audit-card" }, action({ label: "Critical", variant: "critical", name: "radio-variant", value: "critical" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", checked: true, name: "radio-density-sm", value: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", checked: true, name: "radio-density-md", value: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", checked: true, name: "radio-density-lg", value: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Selected", checked: true, name: "radio-state", value: "selected" })),
+            e("div", { className: "audit-card" }, action({ label: "Focus", state: "focus", name: "radio-state", value: "focus" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", error: "Choose one", name: "radio-state", value: "error" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, checked: true, name: "radio-state-disabled", value: "disabled", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  switch: {
+    title: "Switch",
+    directory: "switch-2026-08-18",
+    html: "switch-flow-react.html",
+    module: "Switch.js",
+    exportName: "Switch",
+    buildId: "switch-react-runtime-1",
+    eventPropName: "onCheckedChange",
+    actionHandler: "(checked, meta, event) => onAction(props.label + '=' + checked)(event)",
+    actionSelector: "input[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Off", name: "switch-off" })),
+            e("div", { className: "audit-card" }, action({ label: "On", checked: true, name: "switch-on" })),
+            e("div", { className: "audit-card" }, action({ label: "Focus", state: "focus", name: "switch-focus" })),
+            e("div", { className: "audit-card" }, action({ label: "Pressed", state: "pressed", name: "switch-pressed" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", error: "Required", name: "switch-error" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, checked: true, name: "switch-disabled", "data-runtime-action": "true" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", checked: true, name: "switch-sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", checked: true, name: "switch-md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", checked: true, name: "switch-lg" }))
+          )
+        )`,
+  },
+  tabs: {
+    title: "Tabs",
+    directory: "tabs-2026-08-18",
+    html: "tabs-flow-react.html",
+    module: "Tabs.js",
+    exportName: "Tabs",
+    buildId: "tabs-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(key, event) => onAction(props.label + '=' + key)(event)",
+    actionSelector: "button[data-tabs-item]:not(:disabled)",
+    supportPreamble: `const tabItems = [
+      { key: "overview", label: "Overview", icon: "dashboard" },
+      { key: "details", label: "Details", badge: { label: "2" } },
+      { key: "disabled", label: "Disabled", disabled: true },
+      { key: "settings", label: "Settings", icon: "settings" }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Default tabs", items: tabItems, selectedKey: "overview" })),
+            e("div", { className: "audit-card" }, action({ label: "Underline tabs", items: tabItems, selectedKey: "details", variant: "underline" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small tabs", items: tabItems, selectedKey: "overview", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium tabs", items: tabItems, selectedKey: "overview", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large tabs", items: tabItems, selectedKey: "overview", density: "lg" }))
+          )
+        )`,
+  },
+  menu: {
+    title: "Menu",
+    directory: "menu-2026-08-18",
+    html: "menu-flow-react.html",
+    module: "Menu.js",
+    exportName: "Menu",
+    buildId: "menu-react-runtime-1",
+    eventPropName: "onSelect",
+    actionHandler: "(item, event) => onAction(props.triggerLabel + '=' + item.label)(event)",
+    actionSelector: "[data-menu-trigger]:not(:disabled)",
+    supportPreamble: `const menuItems = [
+      { key: "edit", label: "Editar", icon: "edit" },
+      { key: "duplicate", label: "Duplicar", icon: "content_copy" },
+      "divider",
+      { key: "archive", label: "Archive disabled", disabled: true },
+      { key: "delete", label: "Eliminar", icon: "delete", tone: "danger" }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Acciones", label: "Actions menu", items: menuItems, variant: "actions" })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "More actions", label: "Icon menu", items: menuItems, variant: "icon-trigger", align: "end" })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Avatar actions", label: "Avatar menu", items: menuItems, variant: "avatar-trigger", avatarName: "Rico" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Small", label: "Small menu", items: menuItems, density: "sm" })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Medium", label: "Medium menu", items: menuItems, density: "md" })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Large", label: "Large menu", items: menuItems, density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Open", label: "Open menu", items: menuItems, state: "open" })),
+            e("div", { className: "audit-card" }, e(Component, { triggerLabel: "Disabled", label: "Disabled menu", items: menuItems, disabled: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  dialog: {
+    title: "Dialog",
+    directory: "dialog-2026-08-19",
+    html: "dialog-flow-react.html",
+    module: "Dialog.js",
+    exportName: "Dialog",
+    buildId: "dialog-react-runtime-1",
+    eventPropName: "onAction",
+    actionHandler: "(key, event) => onAction(props.label + '=' + key)(event)",
+    actionSelector: "[data-overlay-open]:not(:disabled)",
+    supportPreamble: `const fields = [
+      { label: "Driver", name: "driver", value: "Ana Sosa", state: "filled" },
+      { label: "Reason", name: "reason", placeholder: "Reason", helper: "Required before confirming" }
+    ];
+    const actions = [
+      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "confirm", label: "Confirm", variant: "primary" }
+    ];
+    const destructiveActions = [
+      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "delete", label: "Delete", variant: "danger" }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Confirmation", description: "Confirm this route change.", triggerLabel: "Open confirmation", closeLabel: "Close dialog", actions })),
+            e("div", { className: "audit-card" }, action({ label: "Destructive", description: "This action cannot be undone.", triggerLabel: "Open destructive", closeLabel: "Close dialog", variant: "destructive", tone: "danger", actions: destructiveActions })),
+            e("div", { className: "audit-card" }, action({ label: "Success", description: "The operation finished.", triggerLabel: "Open success", closeLabel: "Close dialog", variant: "success", actions }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Form / review"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Form dialog", description: "Review fields before saving.", triggerLabel: "Open form", closeLabel: "Close dialog", variant: "form", fields, actions })),
+            e("div", { className: "audit-card" }, action({ label: "Review dialog", description: "Validate the final payload.", triggerLabel: "Open review", closeLabel: "Close dialog", variant: "review", fields, actions }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades / estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small dialog", triggerLabel: "Open small", closeLabel: "Close dialog", density: "sm", actions })),
+            e("div", { className: "audit-card" }, action({ label: "Medium dialog", triggerLabel: "Open medium", closeLabel: "Close dialog", density: "md", actions })),
+            e("div", { className: "audit-card" }, action({ label: "Large dialog", triggerLabel: "Open large", closeLabel: "Close dialog", density: "lg", actions })),
+            e("div", { className: "audit-card" }, action({ label: "Default state", description: "Opens through the trigger for interaction testing.", triggerLabel: "Open default state", closeLabel: "Close dialog", state: "default", actions }))
+          )
+        )`,
+  },
+};
+
+const requestedComponents = requestedComponent === "all-actions"
+  ? ["button", "icon-button", "floating-action-button", "quick-action"]
+  : requestedComponent === "all-fields"
+    ? ["input", "select", "combobox"]
+  : requestedComponent === "all-choice-nav"
+    ? ["checkbox", "radio-button", "switch", "tabs", "menu"]
+  : requestedComponent === "all-overlays"
+    ? ["dialog"]
+  : [requestedComponent];
+
+const invalidComponent = requestedComponents.find((component) => !components[component]);
+if (invalidComponent) {
+  console.error(`Unsupported component: ${invalidComponent}`);
+  process.exit(1);
+}
+
+const outputs = [];
+
+for (const component of requestedComponents) {
+const config = components[component];
+const outDir = path.join(localQaRoot, config.directory, "interactive");
+fs.mkdirSync(outDir, { recursive: true });
+
+const relToRepo = path.relative(outDir, repoRoot).replaceAll(path.sep, "/");
+const reactShim = `const React = globalThis.React;\nif (!React) throw new Error("React UMD was not loaded");\nexport default React;\nexport const Children = React.Children;\nexport const Fragment = React.Fragment;\nexport const StrictMode = React.StrictMode;\nexport const cloneElement = React.cloneElement;\nexport const createContext = React.createContext;\nexport const createElement = React.createElement;\nexport const forwardRef = React.forwardRef;\nexport const isValidElement = React.isValidElement;\nexport const memo = React.memo;\nexport const useCallback = React.useCallback;\nexport const useEffect = React.useEffect;\nexport const useId = React.useId;\nexport const useMemo = React.useMemo;\nexport const useRef = React.useRef;\nexport const useState = React.useState;\n`;
+const reactDomClientShim = `const ReactDOM = globalThis.ReactDOM;\nif (!ReactDOM) throw new Error("ReactDOM UMD was not loaded");\nexport const createRoot = ReactDOM.createRoot;\nexport default { createRoot };\n`;
+
+fs.writeFileSync(path.join(outDir, "react-shim.mjs"), reactShim);
+fs.writeFileSync(path.join(outDir, "react-dom-client-shim.mjs"), reactDomClientShim);
+
+const html = `<!doctype html>
+<html lang="es" data-theme="light" data-flow-react-runtime="true" data-flow-react-source="packages/react/dist/${config.module}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flow ${config.title} React Runtime QA</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="${relToRepo}/../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded.css">
+  <link rel="stylesheet" href="${relToRepo}/packages/tokens/styles/tokens.css?v=${config.buildId}">
+  <link rel="stylesheet" href="${relToRepo}/packages/tokens/styles/token-contexts.css?v=${config.buildId}">
+  <link rel="stylesheet" href="${relToRepo}/packages/components/styles/components.css?v=${config.buildId}">
+  <style>
+    body {
+      margin: 0;
+      background: var(--component-color-surface-raised);
+      color: var(--component-color-text);
+      font-family: var(--component-font-family-body);
+    }
+
+    .audit-shell {
+      display: grid;
+      gap: var(--component-space-lg);
+      padding: var(--component-space-xl);
+    }
+
+    .audit-section {
+      display: grid;
+      gap: var(--component-space-md);
+    }
+
+    .audit-toolbar,
+    .audit-row {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--component-space-md);
+    }
+
+    .audit-grid {
+      display: grid;
+      gap: var(--component-space-md);
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+
+    .audit-card {
+      align-items: center;
+      border: var(--component-border-width) solid var(--component-color-border);
+      border-radius: var(--component-radius-md);
+      display: grid;
+      gap: var(--component-space-md);
+      min-block-size: 11rem;
+      padding: var(--component-space-lg);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h2 {
+      color: var(--component-color-text-muted);
+      font-size: var(--component-font-size-label);
+      text-transform: uppercase;
+    }
+
+    .audit-log {
+      border: var(--component-border-width) solid var(--component-color-border);
+      border-radius: var(--component-radius-sm);
+      color: var(--component-color-text-muted);
+      font-family: var(--component-font-family-mono);
+      min-block-size: 3rem;
+      padding: var(--component-space-sm);
+    }
+  </style>
+  <script src="${relToRepo}/node_modules/react/umd/react.development.js"></script>
+  <script src="${relToRepo}/node_modules/react-dom/umd/react-dom.development.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "./react-shim.mjs",
+        "react-dom/client": "./react-dom-client-shim.mjs",
+        "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main id="root"></main>
+  <script type="module">
+    import React from "react";
+    import { createRoot } from "react-dom/client";
+    import { ${config.exportName} as Component } from "${relToRepo}/packages/react/dist/${config.module}";
+
+    const e = React.createElement;
+    const log = [];
+    const onAction = (label) => (event) => {
+      log.push(label + ":" + event.type);
+      document.querySelector("[data-audit-log]").textContent = log.slice(-6).join(" | ");
+    };
+    ${config.supportPreamble ?? ""}
+
+    const action = (props) => e(Component, {
+      ...props,
+      "data-runtime-action": "true",
+      ${config.eventPropName ?? "onClick"}: ${config.actionHandler ?? "onAction(props.label)"},
+    });
+
+    function Demo() {
+      const [theme, setTheme] = React.useState("light");
+      React.useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+      }, [theme]);
+
+      return e("div", { className: "audit-shell" },
+        e("section", { className: "audit-section" },
+          e("h1", null, "${config.title}"),
+          e("p", null, "Demo React real: importa packages/react/dist, monta createRoot y conserva CSS/tokens de Flow. Build: ${config.buildId}."),
+          e("div", { className: "audit-toolbar" },
+            e("button", { className: "button button--secondary", type: "button", "aria-pressed": theme === "light", onClick: () => setTheme("light") }, "Light"),
+            e("button", { className: "button button--secondary", type: "button", "aria-pressed": theme === "dark", onClick: () => setTheme("dark") }, "Dark")
+          )
+        ),
+        ${config.demoBody},
+        e("section", { className: "audit-section" },
+          e("h2", null, "Runtime log"),
+          e("div", { className: "audit-log", "data-audit-log": "" }, "Click, Enter o Space sobre un ${config.title} interactivo.")
+        )
+      );
+    }
+
+    createRoot(document.getElementById("root")).render(e(Demo));
+  </script>
+</body>
+</html>
+`;
+
+const htmlPath = path.join(outDir, config.html);
+fs.writeFileSync(htmlPath, html);
+outputs.push({
+  status: "written",
+  component,
+  html: htmlPath,
+  runtime: true,
+});
+}
+
+console.log(JSON.stringify(outputs.length === 1 ? outputs[0] : {
+  status: "written",
+  count: outputs.length,
+  outputs,
+}, null, 2));

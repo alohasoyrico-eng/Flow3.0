@@ -739,6 +739,7 @@
     "audit:icon-button-runtime": "node packages/audit/scripts/audit-icon-button-runtime.mjs",
     "audit:option-listbox-runtime": "node packages/audit/scripts/audit-option-listbox-runtime.mjs",
     "audit:local-qa-harness-boundary": "node packages/audit/scripts/report-flowdocs-demo-boundary.js --local-qa-only",
+    "build:local-react-qa-demo": "node packages/audit/scripts/build-local-react-qa-demo.mjs",
     "audit:control-frame-inventory": "node packages/audit/scripts/report-control-frame-adoption-inventory.js --check",
     "report:control-frame-inventory": "node packages/audit/scripts/report-control-frame-adoption-inventory.js",
     "audit:flowdocs-consumer-gate": "node packages/audit/scripts/audit-flowdocs-consumer-gate.js",
