@@ -6,6 +6,11 @@ const allowedReactEffects = {
     reasons: ["DOM-only indeterminate input property"],
     snippets: ["inputRef.current.indeterminate = currentIndeterminate"],
   },
+  CountrySelector: {
+    count: 1,
+    reasons: ["outside click closes an open listbox"],
+    snippets: ["document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
+  },
   DatePicker: {
     count: 2,
     reasons: ["calendar viewport follows controlled selected date", "outside click closes an open panel"],

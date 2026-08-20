@@ -64,12 +64,12 @@
   },
   "testCapabilities": {
     "testingLibraryRender": 230,
-    "fireEvent": 509,
-    "getByRole": 433,
+    "fireEvent": 511,
+    "getByRole": 434,
     "getByLabelText": 19,
-    "keyDown": 60,
+    "keyDown": 62,
     "escapeKey": 23,
-    "arrowKeys": 33,
+    "arrowKeys": 34,
     "userEvent": 32,
     "axe": 19
   },

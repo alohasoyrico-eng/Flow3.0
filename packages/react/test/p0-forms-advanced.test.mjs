@@ -71,13 +71,13 @@ try {
       helper: "Choose a fleet",
       name: "fleet",
       options: selectOptions,
-      onOpenChange: (open) => openChanges.push(open),
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     const trigger = view.getByRole("combobox", { name: /fleet/i });
 
     await user.click(trigger);
-    assert.equal(openChanges.at(-1), true);
+    assert.deepEqual(openChanges.at(-1), { open: true, eventType: "click", key: undefined });
     assert.equal(trigger.getAttribute("aria-activedescendant"), null);
     assert.equal(view.container.querySelectorAll('.select-control__option[data-active="true"]').length, 0);
     assert.equal(view.container.querySelectorAll('.select-control__option[data-selected="true"]').length, 0);
@@ -117,7 +117,7 @@ try {
       label: "Fleet",
       options: selectOptions,
       disabled: true,
-      onOpenChange: (open) => openChanges.push(open),
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
     }));
     const before = openChanges.length;
     await user.click(trigger);
@@ -167,13 +167,13 @@ try {
       placeholder: "Search depots",
       clearSelectionLabel: "Clear depot",
       options: selectOptions,
-      onOpenChange: (open) => openChanges.push(open),
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     const input = view.getByRole("combobox", { name: /depot/i });
 
     await user.click(input);
-    assert.equal(openChanges.at(-1), true);
+    assert.deepEqual(openChanges.at(-1), { open: true, eventType: "focus", key: undefined });
     assert.equal(input.getAttribute("aria-activedescendant"), null);
     assert.equal(view.container.querySelectorAll('.combobox__option[data-active="true"]').length, 0);
     assert.equal(view.container.querySelectorAll('.combobox__option[data-selected="true"]').length, 0);
@@ -208,7 +208,7 @@ try {
       label: "Depot",
       options: selectOptions,
       disabled: true,
-      onOpenChange: (open) => openChanges.push(open),
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
     }));
     const before = openChanges.length;
     await user.click(input);
@@ -253,20 +253,36 @@ try {
     const user = createUser();
     const changes = [];
     const openChanges = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside country selector";
+    globalThis.document.body.appendChild(outsideButton);
     const view = render(React.createElement(CountrySelector, {
       label: "Country code",
       countries,
-      onOpenChange: (open) => openChanges.push(open),
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
       onValueChange: (countryCode, country, event) => changes.push({ countryCode, country, eventType: event.type }),
     }));
     const trigger = view.getByRole("combobox", { name: /country code/i });
 
     await user.click(trigger);
-    assert.equal(openChanges.at(-1), true);
+    assert.deepEqual(openChanges.at(-1), { open: true, eventType: "click", key: undefined });
     assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
     fireEvent.keyDown(trigger, { key: "ArrowDown" });
     const unitedStatesOption = view.getByRole("option", { name: /United States/ });
     assert.equal(trigger.getAttribute("aria-activedescendant"), unitedStatesOption.id);
+    fireEvent.keyDown(view.getByRole("searchbox", { name: /country code search/i }), { key: "Tab" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    fireEvent.keyDown(trigger, { key: "ArrowDown" });
     fireEvent.keyDown(trigger, { key: "ArrowUp" });
     const mexicoOption = view.getByRole("option", { name: /Mexico/ });
     assert.equal(trigger.getAttribute("aria-activedescendant"), mexicoOption.id);
@@ -297,12 +313,13 @@ try {
       label: "Country code",
       countries,
       disabled: true,
-      onOpenChange: (open) => openChanges.push(open),
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
     }));
     const before = openChanges.length;
     await user.click(trigger);
     assert.equal(openChanges.length, before);
     await assertNoAxeViolations(view.container);
+    outsideButton.remove();
     cleanup();
   }
 

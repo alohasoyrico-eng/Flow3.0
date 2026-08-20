@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useMemo, useState, } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useRef, useState, } from "react";
 import { countryFlagAssetPath, normalizeCountryCallingCodeOptions, resolveCountryCallingCodeOption, } from "#flow/components";
 import { countrySelectorPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
@@ -32,6 +32,7 @@ function countryResolverInput(countryValue) {
 export const CountrySelector = forwardRef(function CountrySelector({ label, value, country, countries, disabled = false, invalid = false, density, inline = false, searchable = true, searchPlaceholder = "", emptyText, open: openProp, className = "", onValueChange, onOpenChange, id, ...rest }, ref) {
     const generatedId = useId();
     const selectorId = id ?? `country-selector-${generatedId}`;
+    const rootRef = useRef(null);
     const options = useMemo(() => normalizeCountryCallingCodeOptions(countries), [countries]);
     const isValueControlled = country !== undefined || value !== undefined;
     const initialCountry = resolveCountryCallingCodeOption(countryResolverInput(country ?? value), options);
@@ -48,8 +49,13 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
     const activeIndex = Math.max(options.findIndex((option) => option.country === activeOption?.country), 0);
     const resolvedState = disabled ? "disabled" : invalid ? "error" : "default";
     const resolvedDensity = normalizeFlowDensity(density);
-    if (!label)
-        return null;
+    const setRootRef = (node) => {
+        rootRef.current = node;
+        if (typeof ref === "function")
+            ref(node);
+        else if (ref)
+            ref.current = node;
+    };
     const setOpen = (nextOpen, event) => {
         if (disabled)
             return;
@@ -58,6 +64,20 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
             setInternalOpen(normalizedOpen);
         onOpenChange?.(normalizedOpen, event);
     };
+    useEffect(() => {
+        if (!open || disabled)
+            return undefined;
+        const onDocumentMouseDown = (event) => {
+            const target = event.target instanceof Node ? event.target : null;
+            if (!target || rootRef.current?.contains(target))
+                return;
+            setOpen(false, event);
+        };
+        document.addEventListener("mousedown", onDocumentMouseDown);
+        return () => document.removeEventListener("mousedown", onDocumentMouseDown);
+    }, [open, disabled]);
+    if (!label)
+        return null;
     const commitOption = (option, event) => {
         if (!option || disabled)
             return;
@@ -76,7 +96,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
     };
     return React.createElement("span", {
         ...flowRestProps(rest),
-        ref,
+        ref: setRootRef,
         className: ["select-control", inline ? "select-control--inline" : "", "country-selector", className].filter(Boolean).join(" "),
         "data-country-selector": "",
         "data-country": selectedCountry.country,
@@ -84,6 +104,10 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
         "data-open": String(open),
         ...flowDensityProps(resolvedDensity),
         ...flowStateProps(resolvedState === "default" ? undefined : resolvedState),
+        onKeyDown: (event) => {
+            if (event.key === "Tab" && open)
+                setOpen(false, event);
+        },
     }, React.createElement("span", {
         className: "select-control__trigger country-selector__trigger",
         "data-country-selector-trigger": "",
