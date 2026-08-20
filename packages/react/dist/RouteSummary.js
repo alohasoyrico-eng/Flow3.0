@@ -7,7 +7,7 @@ const validVariants = new Set(["standard", "compact", "compare", "policy"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "warning", "disabled"]);
 const validTones = new Set(["neutral", "info", "warning"]);
 const validButtonVariants = new Set(["primary", "secondary", "tertiary", "outlined", "ghost"]);
-const validIconButtonVariants = new Set(["ghost", "tonal", "primary", "accent"]);
+const validIconButtonVariants = new Set(["ghost", "tonal", "primary"]);
 function isValidRouteAction(action, compact) {
     if (!action)
         return false;

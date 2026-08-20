@@ -58,7 +58,7 @@ const validVariants = new Set<RouteSummaryVariant>(["standard", "compact", "comp
 const validStates = new Set<RouteSummaryState>(["default", "hover", "focus", "selected", "warning", "disabled"]);
 const validTones = new Set<RouteSummaryTone>(["neutral", "info", "warning"]);
 const validButtonVariants = new Set<ButtonVariant>(["primary", "secondary", "tertiary", "outlined", "ghost"]);
-const validIconButtonVariants = new Set<IconButtonVariant>(["ghost", "tonal", "primary", "accent"]);
+const validIconButtonVariants = new Set<IconButtonVariant>(["ghost", "tonal", "primary"]);
 
 function isValidRouteAction(action: RouteSummaryAction | undefined, compact: boolean): action is RouteSummaryAction & { key: string; label: string } {
   if (!action) return false;

@@ -101,6 +101,9 @@ try {
     assert.equal(button.dataset.density, "lg");
     await user.click(button);
     assert.deepEqual(clicks, ["click"]);
+    button.focus();
+    await user.keyboard("{Enter}");
+    assert.deepEqual(clicks, ["click", "click"]);
 
     view.rerender(React.createElement(IconButton, {
       label: "Toggle density",
@@ -109,7 +112,15 @@ try {
       onClick: (event) => clicks.push(event.type),
     }));
     await user.click(button);
-    assert.deepEqual(clicks, ["click"]);
+    assert.deepEqual(clicks, ["click", "click"]);
+
+    view.rerender(React.createElement(IconButton, {
+      label: "Toggle density",
+      icon: "grid_view",
+      variant: "accent",
+    }));
+    assert.match(button.className, /icon-button--ghost/);
+    assert.doesNotMatch(button.className, /icon-button--accent/);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

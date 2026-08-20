@@ -88,10 +88,10 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
     [".icon-button:hover:not(:disabled)", ["background: var(--comp-icon-button-hover-bg)", "border-color: var(--comp-icon-button-hover-border)", "transform: var(--comp-icon-button-hover-transform)"], "IconButton hover must consume hover aliases."],
     [".icon-button:active:not(:disabled)", ["transform: var(--comp-icon-button-press-transform)"], "IconButton active must consume press alias."],
     [".icon-button--tonal", ["background: var(--comp-icon-button-tonal-bg)"], "IconButton tonal variant must consume tonal alias."],
-    [".icon-button--primary,.icon-button--accent", ["border-color: var(--comp-icon-button-primary-border)", "background: var(--comp-icon-button-primary-bg)", "color: var(--comp-icon-button-primary-fg)"], "IconButton primary/accent variants must consume action aliases."],
-    [".icon-button--primary:hover:not(:disabled),.icon-button--accent:hover:not(:disabled)", ["background: var(--comp-icon-button-primary-hover-bg)", "border-color: var(--comp-icon-button-primary-border)"], "IconButton primary/accent hover must consume hover aliases."],
+    [".icon-button--primary", ["border-color: var(--comp-icon-button-primary-border)", "background: var(--comp-icon-button-primary-bg)", "color: var(--comp-icon-button-primary-fg)"], "IconButton primary variant must consume action aliases."],
+    [".icon-button--primary:hover:not(:disabled)", ["background: var(--comp-icon-button-primary-hover-bg)", "border-color: var(--comp-icon-button-primary-border)"], "IconButton primary hover must consume hover aliases."],
     [".icon-button[aria-pressed=\"true\"]", ["border-color: var(--comp-icon-button-selected-border)", "color: var(--comp-icon-button-selected-fg)"], "IconButton selected state must consume selected aliases."],
-    [".icon-button--primary[aria-pressed=\"true\"],.icon-button--accent[aria-pressed=\"true\"]", ["color: var(--comp-icon-button-selected-primary-fg)"], "IconButton selected primary/accent must consume selected foreground alias."],
+    [".icon-button--primary[aria-pressed=\"true\"]", ["color: var(--comp-icon-button-selected-primary-fg)"], "IconButton selected primary must consume selected foreground alias."],
     [".icon-button[aria-pressed=\"true\"] .icon-button__icon", ["font-variation-settings: var(--comp-icon-button-selected-icon-variation)"], "IconButton selected icon must consume iconography alias."],
   ]) {
     requireIncludes({ block: blockFor(blocks, selectorKey, selector), text, packageCssFile, snippets, message });

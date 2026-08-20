@@ -4,8 +4,9 @@
  */
 import React, { forwardRef } from "react";
 import { iconButtonPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowDensityProps, flowRestProps, normalizeFlowDensity, normalizeFlowValue } from "./internal/props.js";
 const allowedTypes = new Set(["button", "submit", "reset"]);
+const allowedVariants = new Set(["ghost", "tonal", "primary"]);
 function iconButtonClassName({ variant = "ghost", className = "" } = {}) {
     return ["icon-button", `icon-button--${variant}`, className].filter(Boolean).join(" ");
 }
@@ -14,11 +15,12 @@ export const IconButton = forwardRef(function IconButton({ ariaLabel, label, ico
     if (!resolvedLabel)
         return null;
     const resolvedDensity = normalizeFlowDensity(density);
+    const resolvedVariant = normalizeFlowValue(variant, allowedVariants, "ghost");
     return React.createElement("button", {
         ...flowRestProps(rest),
         ref,
         type: allowedTypes.has(type) ? type : "button",
-        className: iconButtonClassName({ variant, className }),
+        className: iconButtonClassName({ variant: resolvedVariant, className }),
         disabled,
         "aria-label": resolvedLabel,
         "aria-pressed": selected ? "true" : undefined,

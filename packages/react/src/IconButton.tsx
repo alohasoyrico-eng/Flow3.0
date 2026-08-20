@@ -1,10 +1,10 @@
 import React, { forwardRef } from "react";
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
 import { iconButtonPlatformContract } from "@design-system/components/platforms";
-import { flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
+import { flowDensityProps, flowRestProps, normalizeFlowDensity, normalizeFlowValue } from "./internal/props.js";
 import type { FlowDataAttributes } from "./internal/props.js";
 
-export type IconButtonVariant = "ghost" | "tonal" | "primary" | "accent";
+export type IconButtonVariant = "ghost" | "tonal" | "primary";
 export type IconButtonDensity = "sm" | "md" | "lg";
 export type IconButtonType = "button" | "submit" | "reset";
 
@@ -28,6 +28,7 @@ export interface IconButtonComponent extends ForwardRefExoticComponent<IconButto
 }
 
 const allowedTypes = new Set<IconButtonType>(["button", "submit", "reset"]);
+const allowedVariants = new Set<IconButtonVariant>(["ghost", "tonal", "primary"]);
 
 function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {
   return ["icon-button", `icon-button--${variant}`, className].filter(Boolean).join(" ");
@@ -49,6 +50,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
   const resolvedLabel = ariaLabel ?? label;
   if (!resolvedLabel) return null;
   const resolvedDensity = normalizeFlowDensity(density);
+  const resolvedVariant = normalizeFlowValue(variant, allowedVariants, "ghost");
 
   return React.createElement(
     "button",
@@ -56,7 +58,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
       ...flowRestProps(rest),
       ref,
       type: allowedTypes.has(type) ? type : "button",
-      className: iconButtonClassName({ variant, className }),
+      className: iconButtonClassName({ variant: resolvedVariant, className }),
       disabled,
       "aria-label": resolvedLabel,
       "aria-pressed": selected ? "true" : undefined,

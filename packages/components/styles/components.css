@@ -2016,15 +2016,13 @@
   background: var(--comp-icon-button-tonal-bg);
 }
 
-.icon-button--primary,
-.icon-button--accent {
+.icon-button--primary {
   border-color: var(--comp-icon-button-primary-border);
   background: var(--comp-icon-button-primary-bg);
   color: var(--comp-icon-button-primary-fg);
 }
 
-.icon-button--primary:hover:not(:disabled),
-.icon-button--accent:hover:not(:disabled) {
+.icon-button--primary:hover:not(:disabled) {
   background: var(--comp-icon-button-primary-hover-bg);
   border-color: var(--comp-icon-button-primary-border);
 }
@@ -2034,8 +2032,7 @@
   color: var(--comp-icon-button-selected-fg);
 }
 
-.icon-button--primary[aria-pressed="true"],
-.icon-button--accent[aria-pressed="true"] {
+.icon-button--primary[aria-pressed="true"] {
   color: var(--comp-icon-button-selected-primary-fg);
 }
 
