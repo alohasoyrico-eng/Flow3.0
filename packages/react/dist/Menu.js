@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { menuPlatformContract } from "#flow/platforms";
 import { Avatar } from "./Avatar.js";
 import { Button } from "./Button.js";
@@ -39,8 +39,6 @@ export const Menu = forwardRef(function Menu({ triggerLabel, items, open: openPr
     const resolvedAlign = align === "end" ? "end" : "start";
     const resolvedItems = Array.isArray(items) ? items.filter((item) => isSeparator(item) || (hasStableItemKey(item) && item.label)) : [];
     const hasVisibleItems = resolvedItems.some((item) => !isSeparator(item));
-    if (!triggerLabel || !hasVisibleItems)
-        return null;
     const setOpen = (nextOpen, { restoreFocus = false, focusFirst = false, event } = {}) => {
         if (isDisabled)
             return;
@@ -55,6 +53,24 @@ export const Menu = forwardRef(function Menu({ triggerLabel, items, open: openPr
         if (focusFirst)
             requestAnimationFrame(() => enabledItems(panelRef.current)[0]?.focus());
     };
+    useEffect(() => {
+        if (!isOpen || isDisabled)
+            return undefined;
+        const onDocumentMouseDown = (event) => {
+            const target = event.target instanceof Node ? event.target : null;
+            if (!target)
+                return;
+            if (triggerRef.current?.contains(target))
+                return;
+            if (panelRef.current?.contains(target))
+                return;
+            setOpen(false, { event });
+        };
+        document.addEventListener("mousedown", onDocumentMouseDown);
+        return () => document.removeEventListener("mousedown", onDocumentMouseDown);
+    }, [isOpen, isDisabled]);
+    if (!triggerLabel || !hasVisibleItems)
+        return null;
     const moveItem = (event, direction) => {
         const enabled = enabledItems(panelRef.current);
         if (!enabled.length)
@@ -81,6 +97,8 @@ export const Menu = forwardRef(function Menu({ triggerLabel, items, open: openPr
             event.preventDefault();
             setOpen(false, { restoreFocus: true, event });
         }
+        else if (event.key === "Tab")
+            setOpen(false, { event });
     };
     const triggerProps = {
         ref: triggerRef,

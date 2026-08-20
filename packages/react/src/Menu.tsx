@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { menuPlatformContract } from "@design-system/components/platforms";
 import { Avatar } from "./Avatar.js";
@@ -13,7 +13,7 @@ export type MenuDensity = "sm" | "md" | "lg";
 export type MenuState = "default" | "closed" | "open" | "focus" | "disabled";
 export type MenuAlign = "start" | "end";
 export type MenuItemTone = "danger";
-export type MenuOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
+export type MenuOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement> | globalThis.MouseEvent;
 
 export interface MenuItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   label: string;
@@ -107,8 +107,6 @@ export const Menu = forwardRef<HTMLSpanElement, MenuProps>(function Menu({
   const resolvedItems = Array.isArray(items) ? items.filter((item) => isSeparator(item) || (hasStableItemKey(item) && item.label)) : [];
   const hasVisibleItems = resolvedItems.some((item) => !isSeparator(item));
 
-  if (!triggerLabel || !hasVisibleItems) return null;
-
   const setOpen = (nextOpen: boolean, { restoreFocus = false, focusFirst = false, event }: SetOpenOptions = {}) => {
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
@@ -118,6 +116,22 @@ export const Menu = forwardRef<HTMLSpanElement, MenuProps>(function Menu({
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
     if (focusFirst) requestAnimationFrame(() => enabledItems(panelRef.current)[0]?.focus());
   };
+
+  useEffect(() => {
+    if (!isOpen || isDisabled) return undefined;
+    const onDocumentMouseDown = (event: globalThis.MouseEvent) => {
+      const target = event.target instanceof Node ? event.target : null;
+      if (!target) return;
+      if (triggerRef.current?.contains(target)) return;
+      if (panelRef.current?.contains(target)) return;
+      setOpen(false, { event });
+    };
+    document.addEventListener("mousedown", onDocumentMouseDown);
+    return () => document.removeEventListener("mousedown", onDocumentMouseDown);
+  }, [isOpen, isDisabled]);
+
+  if (!triggerLabel || !hasVisibleItems) return null;
+
   const moveItem = (event: KeyboardEvent<HTMLDivElement>, direction: number) => {
     const enabled = enabledItems(panelRef.current);
     if (!enabled.length) return;
@@ -135,6 +149,7 @@ export const Menu = forwardRef<HTMLSpanElement, MenuProps>(function Menu({
       enabled[enabled.length - 1]?.focus();
     }
     else if (event.key === "Escape") { event.preventDefault(); setOpen(false, { restoreFocus: true, event }); }
+    else if (event.key === "Tab") setOpen(false, { event });
   };
   const triggerProps = {
     ref: triggerRef,

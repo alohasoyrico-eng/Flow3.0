@@ -22,6 +22,11 @@ const allowedReactEffects = {
       "document.addEventListener(\"mousedown\", onPointerDown);",
     ],
   },
+  Menu: {
+    count: 1,
+    reasons: ["outside click closes an open panel"],
+    snippets: ["document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
+  },
   Tabs: {
     count: 1,
     reasons: ["indicator geometry follows measured tab layout"],

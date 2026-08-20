@@ -196,6 +196,9 @@ try {
     const user = createUser();
     const openChanges = [];
     const selections = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside menu";
+    globalThis.document.body.appendChild(outsideButton);
     const view = render(React.createElement(Menu, {
       label: "Row actions",
       triggerLabel: "Actions",
@@ -223,6 +226,12 @@ try {
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
 
     await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+
+    await user.click(trigger);
     await user.click(view.getByRole("menuitem", { name: /archive/i }));
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(selections.at(-1), { key: "archive", eventType: "click" });
@@ -234,6 +243,13 @@ try {
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(selections.at(-1), { key: "edit", eventType: "click" });
     assert.equal(globalThis.document.activeElement, trigger);
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    view.getByRole("menuitem", { name: /edit/i }).focus();
+    await user.tab();
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
 
     view.rerender(React.createElement(Menu, {
       label: "Row actions",
@@ -250,6 +266,7 @@ try {
     assert.equal(openChanges.at(-1).open, false);
     assert.equal(trigger.getAttribute("aria-expanded"), "true");
     await assertNoAxeViolations(view.container);
+    outsideButton.remove();
     cleanup();
   }
 
