@@ -24,6 +24,7 @@ const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js
 const { checkReactContractTriangle } = require("./audit-react-contract-triangle.js");
 const { checkReactCopyContract } = require("./audit-react-copy-contract.js");
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
+const { checkAccessibilityContracts } = require("./audit-accessibility-contracts.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
 const { finishAudit } = require("./audit-result.js");
 
@@ -94,6 +95,7 @@ checkReactPrimaryContract();
 checkReactContractTriangle();
 checkReactCopyContract();
 checkAntiDuplicationGovernance();
+checkAccessibilityContracts({ scope: "package" });
 checkManualAccessibility();
 checkCoreCheckpointReports();
 

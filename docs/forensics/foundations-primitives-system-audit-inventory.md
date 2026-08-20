@@ -115,13 +115,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 6: **Dark mode and contrast contract**.
+Iteration 7: **State, disabled, and focus contract**.
 
 Tasks:
 
-- Confirm foreground/background contrast for interactive, disabled, selected, and helper/status text in light and dark mode.
-- Keep evidence in the existing foundation/primitive accessibility and color gates.
-- Fold any rendered contrast checks into the existing fast gate instead of adding a parallel audit lane.
+- Confirm disabled, selected, active, hover, focus, and keyboard-visible states do not collapse into the same visual cue.
+- Keep disabled readable without opacity-only affordances.
+- Fold state/focus evidence into existing primitive disabled/state/runtime gates only.
 
 ## Iteration 2 Result
 
@@ -208,3 +208,25 @@ Observed gate status:
 | --- | --- | --- |
 | direct motion contract check | pass | component motion roles plus ZIP-to-system motion mapping |
 | `audit:flow-core-gate` | pass | motion checks included with phase 1 and phase 3 checkpoints |
+
+## Iteration 6 Result
+
+Dark mode and package accessibility proof are now separated correctly:
+
+- `audit-dark-mode-css-contract` already runs through `checkPackageCssContracts`, so it is part of `audit:flow-core-gate`.
+- The dark-mode contrast check resolves component foreground/background pairs from token and component CSS aliases.
+- `audit-accessibility-contracts` now supports `scope: "package"` so the DS core gate can validate package-owned accessibility tokens and package focus contracts without being blocked by legacy FlowDocs gold demos.
+- `audit:flow-core-gate` now runs `checkAccessibilityContracts({ scope: "package" })`.
+
+Important boundary:
+
+- The full `checkAccessibilityContracts()` still fails against FlowDocs `gold-*` demos because those docs sources do not expose several rendered accessibility semantics.
+- That is FlowDocs migration debt, not DS package core debt. It should not block `validate:flow-core:fast`, but it remains visible in the full system audit path.
+
+Observed gate status:
+
+| Gate | Status | Main contract |
+| --- | --- | --- |
+| direct dark-mode contrast check | pass | token-resolved light/dark contrast pairs for package CSS |
+| direct package accessibility check | pass | accessibility token ownership plus package focus contract |
+| `audit:flow-core-gate` | pass | dark mode, package accessibility, motion, density, TS, React, and checkpoint gates |

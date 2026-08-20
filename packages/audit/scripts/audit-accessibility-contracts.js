@@ -104,8 +104,10 @@ function checkComponentSemantics() {
   }
 }
 
-function checkFocusContracts() {
-  const componentStyleFiles = docsStyleModuleFiles.filter((item) => /\/(?:04|05)[a-z0-9-]*\.css$/.test(item));
+function checkFocusContracts({ includeDocsStyleModules = true } = {}) {
+  const componentStyleFiles = includeDocsStyleModules
+    ? docsStyleModuleFiles.filter((item) => /\/(?:04|05)[a-z0-9-]*\.css$/.test(item))
+    : [];
   const packageCssFile = path.join(root, "packages/components/styles/components.css");
   const packageCss = fs.existsSync(packageCssFile) ? read(packageCssFile) : "";
   for (const component of goldComponents) {
@@ -143,10 +145,10 @@ function checkAccessibilityTokenOwnership() {
   }
 }
 
-function checkAccessibilityContracts() {
+function checkAccessibilityContracts({ scope = "system" } = {}) {
   checkAccessibilityTokenOwnership();
-  checkComponentSemantics();
-  checkFocusContracts();
+  if (scope !== "package") checkComponentSemantics();
+  checkFocusContracts({ includeDocsStyleModules: scope !== "package" });
 }
 
 module.exports = { checkAccessibilityContracts };
