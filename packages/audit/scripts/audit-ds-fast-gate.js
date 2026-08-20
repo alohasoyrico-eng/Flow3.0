@@ -47,6 +47,12 @@ const checks = [
     owns: "rendered select/combobox/menu option row geometry and states",
   },
   {
+    id: "local-qa-harness-boundary",
+    command: "npm",
+    args: ["run", "audit:local-qa-harness-boundary"],
+    owns: "local component QA demos cannot override Flow component internals",
+  },
+  {
     id: "react-production-readiness",
     command: "node",
     args: ["packages/audit/scripts/report-react-production-readiness.js"],

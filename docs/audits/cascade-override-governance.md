@@ -6,7 +6,7 @@ Cascade overrides must be owned by the layer that defines the contract: tokens/t
 
 ## Inventory
 
-- Files scanned: 1764
+- Files scanned: 1765
 - Findings: 1153
 - Override debt: 0
 - Errors: 0

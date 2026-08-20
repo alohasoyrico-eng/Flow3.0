@@ -16,6 +16,7 @@ This gate is for frequent local/PR feedback. It intentionally excludes consumer 
 | choice-frame-runtime | pass | npm run audit:choice-frame-runtime | rendered choice mark/icon density and light/dark geometry |
 | icon-button-runtime | pass | npm run audit:icon-button-runtime | rendered icon action target/icon density geometry |
 | option-listbox-runtime | pass | npm run audit:option-listbox-runtime | rendered select/combobox/menu option row geometry and states |
+| local-qa-harness-boundary | pass | npm run audit:local-qa-harness-boundary | local component QA demos cannot override Flow component internals |
 | react-production-readiness | pass | node packages/audit/scripts/report-react-production-readiness.js | React public surface readiness evidence |
 | react-interaction-coverage | pass | node packages/audit/scripts/report-react-interaction-coverage.js | callback, keyboard, and state semantics evidence |
 | state-variant-public-vocabulary | pass | node packages/audit/scripts/report-state-variant-public-vocabulary.js | canonical public state/variant/tone/intent vocabulary inventory |

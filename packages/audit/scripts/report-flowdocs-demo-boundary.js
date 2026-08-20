@@ -9,8 +9,9 @@ const docsDir = fs.existsSync(path.join(root, "../FlowDocs/apps/docs"))
   : path.join(root, "apps/docs");
 const localQaDir = path.join(root, "../../local-visual-snapshots/Flow3-component-qa");
 const outputDir = path.join(root, "docs/audits");
-const outputJson = path.join(outputDir, "flowdocs-demo-boundary.json");
-const outputMd = path.join(outputDir, "flowdocs-demo-boundary.md");
+const localQaOnly = process.argv.includes("--local-qa-only");
+const outputJson = path.join(outputDir, localQaOnly ? "flow-core-local-qa-boundary.json" : "flowdocs-demo-boundary.json");
+const outputMd = path.join(outputDir, localQaOnly ? "flow-core-local-qa-boundary.md" : "flowdocs-demo-boundary.md");
 
 function read(file) {
   return fs.existsSync(file) ? fs.readFileSync(file, "utf8") : "";
@@ -33,6 +34,38 @@ function walk(dir, predicate = () => true) {
 
 function count(source, pattern) {
   return [...source.matchAll(pattern)].length;
+}
+
+function styleBlocks(source) {
+  return [...source.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((match) => match[1] ?? "");
+}
+
+function localQaVisualOverrides(source) {
+  const css = styleBlocks(source).join("\n");
+  const findings = [];
+  const componentInternalSelector = /(?:^|[,{]\s*)(?:[^{}\n]*\s)?\.(?:button|icon-button|fab|quick-action|dialog|field|select-control|combobox|menu|checkbox|radio|switch|tabs)(?:__[a-z0-9-]+|--[a-z0-9-]+|\[[^\]]+\]|:[a-z-]+|\s+[.#]?[a-z0-9_-]*__)/gim;
+  const componentLocalToken = /--comp-[a-z0-9-]+\s*:/g;
+  const themeComponentOverride = /\[data-theme=["']dark["'][^{]*(?:\.(?:button|icon-button|fab|quick-action|dialog|field|select-control|combobox|menu|checkbox|radio|switch|tabs))/gim;
+
+  for (const match of css.matchAll(componentInternalSelector)) {
+    findings.push({
+      kind: "component-internal-selector",
+      value: match[0].trim().replace(/\s+/g, " "),
+    });
+  }
+  for (const match of css.matchAll(componentLocalToken)) {
+    findings.push({
+      kind: "component-local-token-definition",
+      value: match[0].trim(),
+    });
+  }
+  for (const match of css.matchAll(themeComponentOverride)) {
+    findings.push({
+      kind: "demo-dark-component-override",
+      value: match[0].trim().replace(/\s+/g, " "),
+    });
+  }
+  return findings;
 }
 
 function classifyDocsDemoFile(file) {
@@ -95,12 +128,14 @@ function classifyLocalQaFile(file) {
   const relativeParts = path.relative(localQaDir, file).split(path.sep);
   const component = relativeParts[0]?.replace(/-\d{4}-\d{2}-\d{2}$/, "") ?? "unknown";
   const signals = [];
+  const visualOverrides = localQaVisualOverrides(source);
   if (/packages\/tokens\/styles\/tokens\.css/.test(source)) signals.push("uses-flow-token-css");
   if (/packages\/components\/styles\/components\.css/.test(source)) signals.push("uses-flow-component-css");
   if (/packages\/react\/src|packages\/react\/dist|generated\/react/.test(source)) signals.push("uses-flow-react-runtime");
   if (/data-theme|aria-pressed/.test(source)) signals.push("has-theme-control");
   if (/keydown|Arrow|Enter|Escape|Tab/.test(source)) signals.push("keyboard-observation-harness");
   if (/<style>/.test(source)) signals.push("local-harness-css");
+  if (visualOverrides.length) signals.push("local-component-visual-override");
   return {
     file,
     component,
@@ -109,17 +144,20 @@ function classifyLocalQaFile(file) {
     risks: [
       signals.includes("local-harness-css") ? "Harness CSS can affect visual reading; do not use as component source truth." : null,
       !signals.includes("uses-flow-react-runtime") ? "Harness may not prove React runtime unless runtime import is explicit." : null,
+      visualOverrides.length ? "Harness CSS is touching Flow component internals or component-local visual tokens." : null,
     ].filter(Boolean),
     metrics: {
       localStyleBlocks: count(source, /<style>/g),
       flowCssLinks: count(source, /packages\/(?:tokens|components)\/styles/g),
       keyboardTerms: count(source, /Arrow|Enter|Escape|keydown|keyup|Tab/g),
+      localVisualOverrides: visualOverrides.length,
     },
+    visualOverrides: visualOverrides.slice(0, 20),
   };
 }
 
 function buildReport() {
-  const docsDemoFiles = walk(docsDir, (file) => {
+  const docsDemoFiles = localQaOnly ? [] : walk(docsDir, (file) => {
     const name = path.basename(file);
     return /\.(js)$/.test(file) && (
       /demo|Demo|island|Island|interactions|gold-.*-docs|react-component-islands|component-demo/.test(name)
@@ -129,6 +167,7 @@ function buildReport() {
   const localQaFiles = walk(localQaDir, (file) => /flow-current\.html$|manifest\.json$/.test(file)).map(classifyLocalQaFile);
   const docsRiskFiles = docsDemoFiles.filter((entry) => entry.risks.length);
   const mixedFlowClaims = docsDemoFiles.filter((entry) => entry.signals.includes("declares-flow-source") && entry.risks.length);
+  const localVisualOverrideFiles = localQaFiles.filter((entry) => entry.metrics.localVisualOverrides > 0);
   const localComponents = [...new Set(localQaFiles.map((entry) => entry.component))].sort();
 
   const summary = {
@@ -165,10 +204,17 @@ function buildReport() {
       action: "Keep them local and out of repo; use them for human inspection, not as component source truth.",
       count: localQaFiles.filter((entry) => entry.signals.includes("local-harness-css")).length,
     }] : []),
+    ...(localVisualOverrideFiles.length ? [{
+      severity: "high",
+      issue: "Local QA harness CSS touches Flow component internals or component-local visual tokens.",
+      action: "Move styling into Flow component CSS/tokens or rename the rule to a harness-only selector that cannot affect component internals.",
+      count: localVisualOverrideFiles.length,
+    }] : []),
   ];
 
   return {
     generatedAt: new Date().toISOString(),
+    mode: localQaOnly ? "flow-core-local-qa-only" : "flowdocs-and-local-qa",
     status: findings.some((finding) => finding.severity === "high") ? "action_required" : "pass",
     purpose: "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
     rules: [
@@ -260,3 +306,7 @@ console.log(JSON.stringify({
     markdown: rel(outputMd),
   },
 }, null, 2));
+
+if (localQaOnly && report.status !== "pass") {
+  process.exitCode = 1;
+}

@@ -75,6 +75,18 @@
       "exitCode": 0
     },
     {
+      "id": "local-qa-harness-boundary",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:local-qa-harness-boundary"
+      ],
+      "owns": "local component QA demos cannot override Flow component internals",
+      "commandLine": "npm run audit:local-qa-harness-boundary",
+      "status": "pass",
+      "exitCode": 0
+    },
+    {
       "id": "react-production-readiness",
       "command": "node",
       "args": [
