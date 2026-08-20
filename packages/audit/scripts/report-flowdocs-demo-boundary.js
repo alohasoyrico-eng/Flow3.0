@@ -207,6 +207,10 @@ function buildReport() {
       || name === "react-shim.mjs"
       || name === "react-dom-client-shim.mjs";
   }).map((file) => rel(file));
+  const nonCanonicalLocalQaFiles = walk(localQaDir, (file) => {
+    const relativeParts = path.relative(localQaDir, file).split(path.sep);
+    return !(relativeParts.at(-2) === "interactive" && relativeParts.at(-1) === "react-runtime.html");
+  }).map((file) => rel(file));
   const docsRiskFiles = docsDemoFiles.filter((entry) => entry.risks.length);
   const mixedFlowClaims = docsDemoFiles.filter((entry) => entry.signals.includes("declares-flow-source") && entry.risks.length);
   const localVisualOverrideFiles = localQaFiles.filter((entry) => entry.metrics.localVisualOverrides > 0);
@@ -224,6 +228,7 @@ function buildReport() {
     localQaReactRuntimeFiles: localReactRuntimeFiles.length,
     localQaManualHarnessFiles: localManualHarnessFiles.length,
     obsoleteLocalQaFiles: obsoleteLocalQaFiles.length,
+    nonCanonicalLocalQaFiles: nonCanonicalLocalQaFiles.length,
   };
 
   const findings = [
@@ -263,6 +268,12 @@ function buildReport() {
       action: "Delete flow-current, flow-react, per-folder React shims, and loose manifests; react-runtime.html is the only component runtime demo entrypoint.",
       count: obsoleteLocalQaFiles.length,
     }] : []),
+    ...(nonCanonicalLocalQaFiles.length ? [{
+      severity: "high",
+      issue: "Local QA contains files outside the canonical interactive/react-runtime.html entrypoint.",
+      action: "Regenerate review evidence from package source or the original ZIP when needed; do not keep derived local HTML/PNG snapshots as parallel truth.",
+      count: nonCanonicalLocalQaFiles.length,
+    }] : []),
   ];
 
   return {
@@ -283,6 +294,7 @@ function buildReport() {
     flowdocsDemos: docsDemoFiles,
     localQaHarnesses: localQaFiles,
     obsoleteLocalQaFiles,
+    nonCanonicalLocalQaFiles,
     nextIteration: {
       id: 7,
       name: "Templates Boundary",
