@@ -154,10 +154,21 @@ try {
 
     view.rerender(React.createElement(FloatingActionButton, {
       label: "Create card",
+      variant: "secondary",
+      intent: "danger",
+      onClick: (event) => clicks.push(event.type),
+    }));
+    assert.equal(button.dataset.variant, "secondary");
+    assert.equal(button.dataset.intent, "danger");
+
+    view.rerender(React.createElement(FloatingActionButton, {
+      label: "Create card",
       variant: "accent",
+      intent: "destructive",
       onClick: (event) => clicks.push(event.type),
     }));
     assert.equal(button.dataset.variant, "primary");
+    assert.equal(button.dataset.intent, "default");
     await assertNoAxeViolations(view.container);
     cleanup();
   }

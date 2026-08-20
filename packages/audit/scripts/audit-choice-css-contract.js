@@ -12,10 +12,14 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
+  const repoRoot = root || process.cwd();
   const checkboxSourceFile = path.join(root || process.cwd(), "packages/react/src/Checkbox.js");
   const radioSourceFile = path.join(root || process.cwd(), "packages/react/src/RadioButton.js");
+  const tokenContextsCssFile = path.join(repoRoot, "packages/tokens/styles/token-contexts.css");
   const checkboxSource = fs.existsSync(checkboxSourceFile) ? fs.readFileSync(checkboxSourceFile, "utf8") : "";
   const radioSource = fs.existsSync(radioSourceFile) ? fs.readFileSync(radioSourceFile, "utf8") : "";
+  const tokenContexts = fs.existsSync(tokenContextsCssFile) ? fs.readFileSync(tokenContextsCssFile, "utf8") : "";
+  const publicCascadeText = `${text}\n${tokenContexts}`;
   const choiceBlock = blockFor(blocks, selectorKey, ".choice");
   const markBlock = blockFor(blocks, selectorKey, ".choice__mark");
   const indicatorBlock = blockFor(blocks, selectorKey, ".choice__indicator");
@@ -97,8 +101,8 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
     "--comp-switch-track-bg: color-mix(in srgb, var(--component-color-text)",
     "--comp-switch-thumb-bg: var(--component-color-action-indicator-text)",
   ]) {
-    if (!text.includes(snippet)) {
-      add("errors", packageCssFile, 1, "Choice family must keep systemic dark-mode overrides for checkbox, radio-button, and switch instead of inheriting light root variables.");
+    if (!publicCascadeText.includes(snippet)) {
+      add("errors", tokenContextsCssFile, 1, "Choice family must keep systemic dark-mode overrides for checkbox, radio-button, and switch in the public token/component cascade instead of inheriting light root variables.");
     }
   }
 }

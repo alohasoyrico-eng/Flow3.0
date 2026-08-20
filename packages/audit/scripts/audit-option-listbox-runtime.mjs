@@ -7,6 +7,8 @@ import { pathToFileURL } from "node:url";
 import { chromium } from "playwright";
 
 const root = process.cwd();
+const tokensCssFile = path.join(root, "packages/tokens/styles/tokens.css");
+const tokenContextsCssFile = path.join(root, "packages/tokens/styles/token-contexts.css");
 const cssFile = path.join(root, "packages/components/styles/components.css");
 const browserCandidates = [
   process.env.FLOW_RUNTIME_BROWSER_EXECUTABLE,
@@ -20,11 +22,15 @@ function browserLaunchOptions() {
 }
 
 function html() {
+  const tokensHref = pathToFileURL(tokensCssFile).href;
+  const tokenContextsHref = pathToFileURL(tokenContextsCssFile).href;
   const cssHref = pathToFileURL(cssFile).href;
   return `<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="${tokensHref}">
+    <link rel="stylesheet" href="${tokenContextsHref}">
     <link rel="stylesheet" href="${cssHref}">
     <style>
       body { margin: 0; padding: 24px; background: white; color: #172033; font-family: system-ui, sans-serif; }

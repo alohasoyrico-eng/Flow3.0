@@ -90,7 +90,7 @@ export const componentContracts = {
         element: "button",
         purpose: "Trigger a compact icon-only utility with a fixed circular hit area, required accessible label, optional badge, and selected state only for true toggles.",
         variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
-        intents: ["default"],
+        intents: ["default", "danger", "warning"],
         states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled"],
         props: [
             { name: "ariaLabel", type: "string", required: true },
@@ -1120,14 +1120,15 @@ export const componentContracts = {
     floatingActionButton: {
         factory: "@design-system/react/floating-action-button",
         element: "button",
-        purpose: "Expose a prominent local primary action with icon-only or extended label treatment.",
-        variants: ["primary", "extended", "mini"],
-        intents: ["primary"],
+        purpose: "Expose one prominent contextual action with action hierarchy variants and optional extended label treatment.",
+        variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
+        intents: ["default"],
         states: ["default", "hover", "focus", "pressed", "loading", "disabled"],
         props: [
             { name: "label", type: "string", required: true },
             { name: "icon", type: "string", required: false },
-            { name: "variant", type: "\"primary\" | \"extended\" | \"mini\"", required: false },
+            { name: "variant", type: "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"", required: false },
+            { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
             { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"disabled\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "extended", type: "boolean", required: false },
@@ -1138,6 +1139,7 @@ export const componentContracts = {
         accessibility: [
             "Always expose an accessible action label.",
             "Use extended label when the icon is not universally clear.",
+            "Keep action hierarchy variants aligned with Button and Icon Button.",
             "Do not use FAB for multiple competing actions."
         ]
     },

@@ -40,6 +40,7 @@
   --component-pointer-events-none: none;
   --component-text-decoration-none: none;
   --component-focus-ring: var(--sys-focus-ring);
+  --component-outline-none: 0;
   --component-surface-contrast-min: var(--sys-accessibility-contrast-surface);
   --component-focus-ring-width: var(--sys-frame-border-indicator);
   --component-focus-ring-offset: var(--sys-focus-ring-offset);
@@ -213,6 +214,50 @@
   --component-action-min-inline-size-lg: var(--sys-frame-content-action-min-inline-lg);
   --component-action-min-block-size-md: var(--sys-frame-content-action-min-block-md);
   --component-action-min-block-size-lg: var(--sys-frame-content-action-min-block-lg);
+  --component-action-bg-primary: var(--component-color-action);
+  --component-action-fg-primary: var(--component-color-action-text);
+  --component-action-bg-primary-hover: var(--component-color-action-hover);
+  --component-action-bg-primary-pressed: var(--component-tone-action-bg-pressed);
+  --component-action-bg-secondary: var(--component-color-surface);
+  --component-action-border-secondary: var(--component-color-text);
+  --component-action-fg-secondary: var(--component-color-text);
+  --component-action-bg-secondary-hover: var(--component-color-surface-raised);
+  --component-action-bg-secondary-pressed: var(--component-tone-action-surface-pressed);
+  --component-action-border-secondary-hover: var(--component-tone-action-border-hover);
+  --component-action-border-secondary-pressed: var(--component-tone-action-border-pressed);
+  --component-action-bg-tertiary: var(--component-color-surface-raised);
+  --component-action-border-tertiary: var(--component-border-transparent);
+  --component-action-fg-tertiary: var(--component-color-text);
+  --component-action-bg-tertiary-hover: var(--component-color-surface);
+  --component-action-bg-tertiary-pressed: var(--component-tone-action-subtle-bg-pressed);
+  --component-action-border-tertiary-hover: var(--component-tone-action-subtle-border-hover);
+  --component-action-border-tertiary-pressed: var(--component-tone-action-subtle-border-pressed);
+  --component-action-bg-outlined: var(--component-color-surface);
+  --component-action-border-outlined: var(--component-color-border);
+  --component-action-fg-outlined: var(--component-color-text);
+  --component-action-border-outlined-hover: var(--component-tone-action-border-hover);
+  --component-action-bg-outlined-pressed: var(--component-tone-action-subtle-bg-pressed);
+  --component-action-border-outlined-pressed: var(--component-tone-action-border-pressed);
+  --component-action-bg-ghost: var(--component-surface-transparent);
+  --component-action-border-ghost: var(--component-border-transparent);
+  --component-action-fg-ghost: var(--component-color-text);
+  --component-action-bg-ghost-hover: var(--component-color-surface-raised);
+  --component-action-bg-ghost-pressed: var(--component-tone-action-surface-pressed);
+  --component-action-bg-danger: var(--component-color-danger);
+  --component-action-fg-danger: var(--component-color-action-text);
+  --component-action-bg-danger-hover: var(--component-tone-danger-bg-hover);
+  --component-action-bg-danger-pressed: var(--component-tone-danger-bg-pressed);
+  --component-action-bg-warning: var(--component-color-warning);
+  --component-action-fg-warning: var(--component-energy-status-warning-foreground);
+  --component-action-bg-warning-hover: var(--component-tone-warning-bg-hover);
+  --component-action-bg-warning-pressed: var(--component-tone-warning-bg-pressed);
+  --component-action-bg-danger-secondary: var(--component-color-surface);
+  --component-action-border-danger-secondary: var(--component-color-danger);
+  --component-action-fg-danger-secondary: var(--component-color-danger);
+  --component-action-bg-danger-secondary-hover: var(--component-tone-danger-surface-hover);
+  --component-action-bg-danger-secondary-pressed: var(--component-tone-danger-surface-pressed);
+  --component-action-border-danger-secondary-hover: var(--component-tone-danger-border-hover);
+  --component-action-border-danger-secondary-pressed: var(--component-tone-danger-border-pressed);
   --component-card-chip-block-size-sm: var(--sys-frame-content-card-chip-block-sm);
   --component-card-chip-block-size-md: var(--sys-frame-content-card-chip-block-md);
   --component-card-chip-block-size-lg: var(--sys-frame-content-card-chip-block-lg);
@@ -980,9 +1025,11 @@
   --comp-floating-action-button-padding-x: var(--component-density-control-padding-x);
   --comp-floating-action-button-gap: var(--component-space-sm);
   --comp-floating-action-button-radius: var(--component-radius-pill);
-  --comp-floating-action-button-bg: var(--component-color-action);
-  --comp-floating-action-button-bg-hover: var(--component-color-action-hover);
-  --comp-floating-action-button-text: var(--component-color-action-text);
+  --comp-floating-action-button-bg: var(--component-action-bg-primary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-primary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-primary-pressed);
+  --comp-floating-action-button-border-color: var(--component-action-border-ghost);
+  --comp-floating-action-button-text: var(--component-action-fg-primary);
   --comp-floating-action-button-shadow: var(--component-depth-raised);
   --comp-floating-action-button-shadow-hover: var(--component-depth-raised-strong);
   --comp-floating-action-button-font-weight: var(--component-font-weight-extrabold);
@@ -994,7 +1041,11 @@
   --comp-floating-action-button-focus-width: var(--component-focus-ring-width);
   --comp-floating-action-button-focus-color: var(--component-color-focus);
   --comp-floating-action-button-focus-offset: var(--component-focus-ring-offset);
+  --comp-floating-action-button-disabled-bg: var(--component-disabled-bg);
+  --comp-floating-action-button-disabled-border: var(--component-disabled-border);
+  --comp-floating-action-button-disabled-text: var(--component-disabled-text);
   --comp-floating-action-button-disabled-opacity: var(--component-disabled-readable-opacity);
+  --comp-floating-action-button-disabled-shadow: var(--component-depth-none);
   --component-error-panel-icon-size: var(--component-list-icon-box-size);
   --component-error-panel-icon-size-sm: var(--component-list-icon-box-size-sm);
   --component-error-panel-icon-size-lg: var(--component-list-icon-box-size-lg);
@@ -1559,50 +1610,50 @@
   --comp-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-button-spinner-tone: currentColor;
   --comp-button-icon-color: currentColor;
-  --comp-button-bg-primary: var(--component-color-action);
-  --comp-button-fg-primary: var(--component-color-action-text);
-  --comp-button-bg-primary-hover: var(--component-color-action-hover);
-  --comp-button-bg-primary-pressed: var(--component-tone-action-bg-pressed);
-  --comp-button-bg-secondary: var(--component-color-surface);
-  --comp-button-border-secondary: var(--component-color-text);
-  --comp-button-fg-secondary: var(--component-color-text);
-  --comp-button-bg-secondary-hover: var(--component-color-surface-raised);
-  --comp-button-bg-secondary-pressed: var(--component-tone-action-surface-pressed);
-  --comp-button-border-secondary-hover: var(--component-tone-action-border-hover);
-  --comp-button-border-secondary-pressed: var(--component-tone-action-border-pressed);
-  --comp-button-bg-danger: var(--component-color-danger);
-  --comp-button-fg-danger: var(--component-color-action-text);
-  --comp-button-bg-danger-hover: var(--component-tone-danger-bg-hover);
-  --comp-button-bg-danger-pressed: var(--component-tone-danger-bg-pressed);
-  --comp-button-bg-tertiary: var(--component-color-surface-raised);
-  --comp-button-border-tertiary: var(--component-border-transparent);
-  --comp-button-fg-tertiary: var(--component-color-text);
-  --comp-button-bg-tertiary-hover: var(--component-color-surface);
-  --comp-button-bg-tertiary-pressed: var(--component-tone-action-subtle-bg-pressed);
-  --comp-button-border-tertiary-hover: var(--component-tone-action-subtle-border-hover);
-  --comp-button-border-tertiary-pressed: var(--component-tone-action-subtle-border-pressed);
-  --comp-button-bg-outlined: var(--component-color-surface);
-  --comp-button-border-outlined: var(--component-color-border);
-  --comp-button-fg-outlined: var(--component-color-text);
-  --comp-button-border-outlined-hover: var(--component-tone-action-border-hover);
-  --comp-button-bg-outlined-pressed: var(--component-tone-action-subtle-bg-pressed);
-  --comp-button-border-outlined-pressed: var(--component-tone-action-border-pressed);
-  --comp-button-bg-ghost: var(--component-surface-transparent);
-  --comp-button-border-ghost: var(--component-border-transparent);
-  --comp-button-fg-ghost: var(--component-color-text);
-  --comp-button-bg-ghost-hover: var(--component-color-surface-raised);
-  --comp-button-bg-ghost-pressed: var(--component-tone-action-surface-pressed);
-  --comp-button-bg-warning: var(--component-color-warning);
-  --comp-button-fg-warning: var(--component-energy-status-warning-foreground);
-  --comp-button-bg-warning-hover: var(--component-tone-warning-bg-hover);
-  --comp-button-bg-warning-pressed: var(--component-tone-warning-bg-pressed);
-  --comp-button-bg-danger-secondary: var(--component-color-surface);
-  --comp-button-border-danger-secondary: var(--component-color-danger);
-  --comp-button-fg-danger-secondary: var(--component-color-danger);
-  --comp-button-bg-danger-secondary-hover: var(--component-tone-danger-surface-hover);
-  --comp-button-bg-danger-secondary-pressed: var(--component-tone-danger-surface-pressed);
-  --comp-button-border-danger-secondary-hover: var(--component-tone-danger-border-hover);
-  --comp-button-border-danger-secondary-pressed: var(--component-tone-danger-border-pressed);
+  --comp-button-bg-primary: var(--component-action-bg-primary);
+  --comp-button-fg-primary: var(--component-action-fg-primary);
+  --comp-button-bg-primary-hover: var(--component-action-bg-primary-hover);
+  --comp-button-bg-primary-pressed: var(--component-action-bg-primary-pressed);
+  --comp-button-bg-secondary: var(--component-action-bg-secondary);
+  --comp-button-border-secondary: var(--component-action-border-secondary);
+  --comp-button-fg-secondary: var(--component-action-fg-secondary);
+  --comp-button-bg-secondary-hover: var(--component-action-bg-secondary-hover);
+  --comp-button-bg-secondary-pressed: var(--component-action-bg-secondary-pressed);
+  --comp-button-border-secondary-hover: var(--component-action-border-secondary-hover);
+  --comp-button-border-secondary-pressed: var(--component-action-border-secondary-pressed);
+  --comp-button-bg-danger: var(--component-action-bg-danger);
+  --comp-button-fg-danger: var(--component-action-fg-danger);
+  --comp-button-bg-danger-hover: var(--component-action-bg-danger-hover);
+  --comp-button-bg-danger-pressed: var(--component-action-bg-danger-pressed);
+  --comp-button-bg-tertiary: var(--component-action-bg-tertiary);
+  --comp-button-border-tertiary: var(--component-action-border-tertiary);
+  --comp-button-fg-tertiary: var(--component-action-fg-tertiary);
+  --comp-button-bg-tertiary-hover: var(--component-action-bg-tertiary-hover);
+  --comp-button-bg-tertiary-pressed: var(--component-action-bg-tertiary-pressed);
+  --comp-button-border-tertiary-hover: var(--component-action-border-tertiary-hover);
+  --comp-button-border-tertiary-pressed: var(--component-action-border-tertiary-pressed);
+  --comp-button-bg-outlined: var(--component-action-bg-outlined);
+  --comp-button-border-outlined: var(--component-action-border-outlined);
+  --comp-button-fg-outlined: var(--component-action-fg-outlined);
+  --comp-button-border-outlined-hover: var(--component-action-border-outlined-hover);
+  --comp-button-bg-outlined-pressed: var(--component-action-bg-outlined-pressed);
+  --comp-button-border-outlined-pressed: var(--component-action-border-outlined-pressed);
+  --comp-button-bg-ghost: var(--component-action-bg-ghost);
+  --comp-button-border-ghost: var(--component-action-border-ghost);
+  --comp-button-fg-ghost: var(--component-action-fg-ghost);
+  --comp-button-bg-ghost-hover: var(--component-action-bg-ghost-hover);
+  --comp-button-bg-ghost-pressed: var(--component-action-bg-ghost-pressed);
+  --comp-button-bg-warning: var(--component-action-bg-warning);
+  --comp-button-fg-warning: var(--component-action-fg-warning);
+  --comp-button-bg-warning-hover: var(--component-action-bg-warning-hover);
+  --comp-button-bg-warning-pressed: var(--component-action-bg-warning-pressed);
+  --comp-button-bg-danger-secondary: var(--component-action-bg-danger-secondary);
+  --comp-button-border-danger-secondary: var(--component-action-border-danger-secondary);
+  --comp-button-fg-danger-secondary: var(--component-action-fg-danger-secondary);
+  --comp-button-bg-danger-secondary-hover: var(--component-action-bg-danger-secondary-hover);
+  --comp-button-bg-danger-secondary-pressed: var(--component-action-bg-danger-secondary-pressed);
+  --comp-button-border-danger-secondary-hover: var(--component-action-border-danger-secondary-hover);
+  --comp-button-border-danger-secondary-pressed: var(--component-action-border-danger-secondary-pressed);
   align-items: var(--comp-button-align);
   border: var(--comp-button-border);
   border-radius: var(--comp-button-radius);
@@ -1934,11 +1985,11 @@
   --comp-icon-button-align: var(--component-align-center);
   --comp-icon-button-current-size: var(--comp-icon-button-size);
   --comp-icon-button-current-icon-size: var(--comp-icon-button-icon-size);
-  --comp-icon-button-bg: var(--component-surface-transparent);
-  --comp-icon-button-border-color: var(--component-color-border);
+  --comp-icon-button-bg: var(--component-action-bg-ghost);
+  --comp-icon-button-border-color: var(--component-action-border-ghost);
   --comp-icon-button-border: var(--component-border-width) solid var(--comp-icon-button-border-color);
   --comp-icon-button-radius: var(--component-radius-pill);
-  --comp-icon-button-fg: var(--component-color-text);
+  --comp-icon-button-fg: var(--component-action-fg-ghost);
   --comp-icon-button-cursor: var(--component-cursor-pointer);
   --comp-icon-button-display: var(--component-display-inline-flex);
   --comp-icon-button-flex: var(--component-flex-none);
@@ -1946,18 +1997,26 @@
   --comp-icon-button-padding: var(--component-frame-space-none);
   --comp-icon-button-position: var(--component-position-relative);
   --comp-icon-button-transition: background-color var(--component-duration-state) var(--component-ease-state), border-color var(--component-duration-state) var(--component-ease-state), box-shadow var(--component-duration-state) var(--component-ease-state), color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
-  --comp-icon-button-hover-bg: var(--component-color-surface-raised);
-  --comp-icon-button-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
+  --comp-icon-button-hover-bg: var(--component-action-bg-ghost-hover);
+  --comp-icon-button-hover-border: var(--component-action-border-outlined-hover);
   --comp-icon-button-hover-transform: scale(var(--comp-icon-button-hover-scale));
   --comp-icon-button-press-transform: scale(var(--comp-icon-button-press-scale));
-  --comp-icon-button-secondary-bg: var(--component-color-surface);
-  --comp-icon-button-primary-border: var(--component-border-transparent);
-  --comp-icon-button-primary-bg: var(--component-color-action);
-  --comp-icon-button-primary-fg: var(--component-color-action-text);
-  --comp-icon-button-primary-hover-bg: var(--component-color-action-hover);
-  --comp-icon-button-selected-border: var(--component-color-action);
-  --comp-icon-button-selected-fg: var(--component-color-action);
-  --comp-icon-button-selected-primary-fg: var(--component-color-action-text);
+  --comp-icon-button-secondary-bg: var(--component-action-bg-secondary);
+  --comp-icon-button-secondary-border: var(--component-action-border-secondary);
+  --comp-icon-button-secondary-fg: var(--component-action-fg-secondary);
+  --comp-icon-button-tertiary-bg: var(--component-action-bg-tertiary);
+  --comp-icon-button-tertiary-border: var(--component-action-border-tertiary);
+  --comp-icon-button-tertiary-fg: var(--component-action-fg-tertiary);
+  --comp-icon-button-outlined-bg: var(--component-action-bg-outlined);
+  --comp-icon-button-outlined-border: var(--component-action-border-outlined);
+  --comp-icon-button-outlined-fg: var(--component-action-fg-outlined);
+  --comp-icon-button-primary-border: var(--component-action-border-ghost);
+  --comp-icon-button-primary-bg: var(--component-action-bg-primary);
+  --comp-icon-button-primary-fg: var(--component-action-fg-primary);
+  --comp-icon-button-primary-hover-bg: var(--component-action-bg-primary-hover);
+  --comp-icon-button-selected-border: var(--component-action-bg-primary);
+  --comp-icon-button-selected-fg: var(--component-action-bg-primary);
+  --comp-icon-button-selected-primary-fg: var(--component-action-fg-primary);
   --comp-icon-button-selected-icon-variation: var(--component-icon-variation-filled-strong);
   --comp-icon-button-icon-fg: currentColor;
   --comp-icon-button-focus-ring: var(--component-focus-ring);
@@ -2013,16 +2072,20 @@
 
 .icon-button--secondary {
   background: var(--comp-icon-button-secondary-bg);
+  border-color: var(--comp-icon-button-secondary-border);
+  color: var(--comp-icon-button-secondary-fg);
 }
 
 .icon-button--tertiary {
-  background: transparent;
-  border-color: transparent;
+  background: var(--comp-icon-button-tertiary-bg);
+  border-color: var(--comp-icon-button-tertiary-border);
+  color: var(--comp-icon-button-tertiary-fg);
 }
 
 .icon-button--outlined {
-  background: transparent;
-  border-color: var(--comp-icon-button-border);
+  background: var(--comp-icon-button-outlined-bg);
+  border-color: var(--comp-icon-button-outlined-border);
+  color: var(--comp-icon-button-outlined-fg);
 }
 
 .icon-button--primary {
@@ -2514,7 +2577,7 @@
   inline-size: 100%;
   min-block-size: var(--component-min-text-line);
   min-inline-size: 0;
-  outline: none;
+  outline: var(--component-outline-none);
   padding: 0;
 }
 
@@ -3361,19 +3424,6 @@
   --comp-badge-fg: var(--comp-badge-fg-warning);
 }
 
-body[data-contrast="quiet"] .badge[data-tone="info"],
-body[data-contrast="quiet"] .badge[data-tone="accent"] {
-  --comp-badge-fg: color-mix(in srgb, var(--component-color-action) 46%, var(--component-color-text));
-}
-
-body[data-contrast="quiet"] .badge[data-tone="danger"] {
-  --comp-badge-fg: color-mix(in srgb, var(--component-color-danger) 46%, var(--component-color-text));
-}
-
-body[data-contrast="quiet"] .badge[data-tone="success"] {
-  --comp-badge-fg: color-mix(in srgb, var(--component-color-success) 46%, var(--component-color-text));
-}
-
 .badge[data-variant="dot"] {
   block-size: var(--component-badge-dot-size);
   gap: 0;
@@ -3508,7 +3558,7 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
 }
 
 .tag[data-variant="link"] {
-  text-decoration: none;
+  text-decoration: var(--component-text-decoration-none);
 }
 
 .tag[data-tone="info"] {
@@ -3533,22 +3583,6 @@ body[data-contrast="quiet"] .badge[data-tone="success"] {
   --comp-tag-bg: var(--comp-tag-bg-danger);
   --comp-tag-border: var(--comp-tag-border-danger);
   --comp-tag-fg: var(--comp-tag-fg-danger);
-}
-
-body[data-contrast="quiet"] .tag[data-tone="info"] {
-  --comp-tag-fg: color-mix(in srgb, var(--component-color-action) 46%, var(--component-color-text));
-}
-
-body[data-contrast="quiet"] .tag[data-tone="success"] {
-  --comp-tag-fg: color-mix(in srgb, var(--component-color-success) 46%, var(--component-color-text));
-}
-
-body[data-contrast="quiet"] .tag[data-tone="warning"] {
-  --comp-tag-fg: color-mix(in srgb, var(--component-color-warning) 52%, var(--component-color-text));
-}
-
-body[data-contrast="quiet"] .tag[data-tone="danger"] {
-  --comp-tag-fg: color-mix(in srgb, var(--component-color-danger) 46%, var(--component-color-text));
 }
 
 .chip {
@@ -4309,8 +4343,8 @@ button.tag:disabled,
 .toast .toast__action {
   min-block-size: var(--comp-toast-action-size);
   padding-inline: var(--comp-toast-action-padding-inline);
-  background: transparent;
-  border-color: transparent;
+  background: var(--component-surface-transparent);
+  border-color: var(--component-border-transparent);
   color: var(--comp-toast-action-fg);
   white-space: nowrap;
 }
@@ -4733,7 +4767,7 @@ button.tag:disabled,
 
 .progress__meter {
   appearance: none;
-  background: transparent;
+  background: var(--component-surface-transparent);
   border-radius: inherit;
   border: 0;
   block-size: 100%;
@@ -4743,7 +4777,7 @@ button.tag:disabled,
 }
 
 .progress__meter::-webkit-progress-bar {
-  background: transparent;
+  background: var(--component-surface-transparent);
   border-radius: inherit;
 }
 
@@ -5686,7 +5720,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   min-block-size: var(--comp-kpi-tile-min-block-size);
   padding: var(--comp-kpi-tile-padding);
   position: relative;
-  text-decoration: none;
+  text-decoration: var(--component-text-decoration-none);
   transition: var(--comp-kpi-tile-transition);
 }
 
@@ -5865,6 +5899,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   align-items: var(--comp-floating-action-button-align);
   background: var(--comp-floating-action-button-bg);
   border: var(--comp-floating-action-button-border);
+  border-color: var(--comp-floating-action-button-border-color);
   border-radius: var(--comp-floating-action-button-radius);
   block-size: var(--comp-floating-action-button-size);
   box-sizing: border-box;
@@ -5894,10 +5929,75 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
 }
 
-.fab[data-variant="mini"] {
-  --comp-floating-action-button-size: var(--comp-floating-action-button-mini-size);
-  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
-  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-collapsed-padding-x);
+.fab[data-variant="secondary"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-secondary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-secondary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-secondary-pressed);
+  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-secondary);
+  --comp-floating-action-button-border-color: var(--component-action-border-secondary);
+  --comp-floating-action-button-shadow: var(--component-depth-raised-soft);
+  --comp-floating-action-button-text: var(--component-action-fg-secondary);
+}
+
+.fab[data-variant="tertiary"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-tertiary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-tertiary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-tertiary-pressed);
+  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-tertiary);
+  --comp-floating-action-button-border-color: var(--component-action-border-tertiary);
+  --comp-floating-action-button-shadow: var(--component-depth-low);
+  --comp-floating-action-button-text: var(--component-action-fg-tertiary);
+}
+
+.fab[data-variant="outlined"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-outlined);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-outlined);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-outlined-pressed);
+  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-outlined);
+  --comp-floating-action-button-border-color: var(--component-action-border-outlined);
+  --comp-floating-action-button-shadow: var(--component-depth-none);
+  --comp-floating-action-button-text: var(--component-action-fg-outlined);
+}
+
+.fab[data-variant="ghost"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-ghost);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-ghost-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-ghost-pressed);
+  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-ghost);
+  --comp-floating-action-button-border-color: var(--component-action-border-ghost);
+  --comp-floating-action-button-shadow: var(--component-depth-none);
+  --comp-floating-action-button-shadow-hover: var(--component-depth-none);
+  --comp-floating-action-button-text: var(--component-action-fg-ghost);
+}
+
+.fab[data-intent="danger"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-danger);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-danger-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-pressed);
+  --comp-floating-action-button-text: var(--component-action-fg-danger);
+}
+
+.fab[data-intent="warning"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-warning);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-pressed);
+  --comp-floating-action-button-text: var(--component-action-fg-warning);
+}
+
+.fab[data-intent="danger"][data-variant="secondary"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-danger-secondary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-danger-secondary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-secondary-pressed);
+  --comp-floating-action-button-border-color: var(--component-action-border-danger-secondary);
+  --comp-floating-action-button-text: var(--component-action-fg-danger-secondary);
+}
+
+.fab[data-intent="danger"][data-variant="outlined"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-danger-secondary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-danger-secondary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-secondary-pressed);
+  --comp-floating-action-button-border-color: var(--component-action-border-danger-secondary);
+  --comp-floating-action-button-text: var(--component-action-fg-danger-secondary);
 }
 
 .fab:hover:not(:disabled) {
@@ -5907,6 +6007,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab:active:not(:disabled) {
+  background: var(--comp-floating-action-button-bg-pressed);
   transform: var(--comp-floating-action-button-active-transform);
 }
 
@@ -5916,6 +6017,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .fab[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-floating-action-button-bg-pressed);
   transform: var(--comp-floating-action-button-press-transform);
 }
 
@@ -5937,9 +6039,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   outline-offset: var(--comp-floating-action-button-focus-offset);
 }
 
-.fab:disabled {
+.fab:disabled:not([data-state="loading"]) {
+  background: var(--comp-floating-action-button-disabled-bg);
+  border: var(--component-border-width) solid var(--comp-floating-action-button-disabled-border);
+  box-shadow: var(--comp-floating-action-button-disabled-shadow);
+  color: var(--comp-floating-action-button-disabled-text);
   cursor: var(--comp-floating-action-button-disabled-cursor);
   opacity: var(--comp-floating-action-button-disabled-opacity);
+}
+
+.fab[data-state="loading"] {
+  cursor: var(--component-loading-busy-cursor);
 }
 
 .breadcrumbs {
@@ -6770,8 +6880,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-variant="minimal"] {
   --comp-card-current-gap: var(--comp-card-minimal-gap);
-  background: transparent;
-  border-color: transparent;
+  background: var(--component-surface-transparent);
+  border-color: var(--component-border-transparent);
   box-shadow: none;
 }
 
@@ -6782,7 +6892,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-variant="minimal"] .card__icon {
   align-self: start;
-  background: transparent;
+  background: var(--component-surface-transparent);
   color: var(--comp-card-minimal-icon-fg);
   font-size: var(--comp-card-minimal-icon-size);
   inline-size: var(--comp-card-minimal-icon-size);
@@ -7677,7 +7787,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__sort {
   align-items: center;
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   color: inherit;
   cursor: pointer;
@@ -7725,7 +7835,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__expander {
   align-items: center;
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   color: var(--comp-table-expander-fg);
   cursor: pointer;
@@ -8008,7 +8118,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .biometric-prompt[data-state="authenticating"] .biometric-prompt__icon::after {
   animation: spinner-spin var(--comp-biometric-prompt-motion-loop-duration) var(--comp-biometric-prompt-motion-linear) infinite;
   border: var(--comp-biometric-prompt-ring-border-width) solid var(--comp-biometric-prompt-ring-border-color);
-  border-block-start-color: transparent;
+  border-block-start-color: var(--component-surface-transparent);
   border-radius: var(--comp-biometric-prompt-icon-radius);
   content: "";
   inset: var(--comp-biometric-prompt-ring-inset);
@@ -8084,7 +8194,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-motion-duration: var(--component-duration-medium);
   --comp-tree-view-motion-ease: var(--component-ease-move);
   --comp-tree-view-chevron-ease: var(--component-ease-press);
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   border-radius: 0;
   box-shadow: none;
@@ -8110,14 +8220,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-tree-view-icon-size: var(--comp-tree-view-icon-size-lg);
 }
 
-body[data-contrast="quiet"] .tree-view {
-  --comp-tree-view-selected-text: color-mix(in srgb, var(--component-color-action) 55%, var(--component-color-text));
-}
-
 .tree-view__control,
 .button.tree-view__control,
 .tree-view .button.tree-view__control {
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: var(--comp-tree-view-control-border-width) solid transparent;
   border-radius: var(--comp-tree-view-control-radius);
   box-sizing: border-box;
@@ -8930,13 +9036,6 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .inline-validation[data-state="error"] { --comp-inline-validation-tone: var(--comp-inline-validation-danger); }
 .inline-validation[data-state="disabled"] { --comp-inline-validation-tone: var(--comp-inline-validation-disabled); }
 
-body[data-contrast="quiet"] .inline-validation {
-  --comp-inline-validation-info: color-mix(in srgb, var(--component-color-action) 55%, var(--component-color-text));
-  --comp-inline-validation-success: color-mix(in srgb, var(--component-color-success) 55%, var(--component-color-text));
-  --comp-inline-validation-warning: color-mix(in srgb, var(--component-color-warning) 55%, var(--component-color-text));
-  --comp-inline-validation-danger: color-mix(in srgb, var(--component-energy-status-error) 55%, var(--component-color-text));
-}
-
 .inline-validation .field {
   inline-size: var(--comp-inline-validation-field-width);
 }
@@ -9543,7 +9642,7 @@ body[data-contrast="quiet"] .inline-validation {
 }
 
 .route-summary[data-variant="compact"] .route-summary__icon {
-  background: transparent;
+  background: var(--component-surface-transparent);
   block-size: auto;
   border-radius: 0;
   color: var(--comp-route-summary-tone);
@@ -9801,9 +9900,9 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .chart-panel__hit-dot {
-  fill: transparent;
+  fill: var(--component-surface-transparent);
   outline: var(--comp-chart-panel-outline-reset);
-  stroke: transparent;
+  stroke: var(--component-surface-transparent);
 }
 
 .chart-panel__grid-line {
@@ -9966,7 +10065,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__comparison-group {
   align-items: end;
-  background: transparent;
+  background: var(--component-surface-transparent);
   block-size: 100%;
   border-radius: var(--component-radius-sm);
   display: inline-flex;
@@ -10258,11 +10357,6 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-station-pin-marker-fg: var(--component-map-pin-cluster-foreground);
 }
 
-body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
-  --comp-station-pin-fg: var(--component-color-surface);
-  --comp-station-pin-marker-fg: var(--component-color-surface);
-}
-
 .station-pin:hover,
 .station-pin[data-state="hover"] {
   border-color: var(--comp-station-pin-hover-border);
@@ -10434,10 +10528,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .code-input .code-input__input {
   appearance: none;
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
-  color: transparent;
-  caret-color: transparent;
+  color: var(--component-surface-transparent);
+  caret-color: var(--component-surface-transparent);
   font-size: var(--comp-code-input-input-font-size);
   inset: 0;
   opacity: var(--component-input-ghost-opacity);
@@ -10888,7 +10982,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control--inline .select-control__trigger,
 .country-selector.select-control--inline .country-selector__trigger,
 .phone-input__country-trigger {
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   box-sizing: border-box;
   color: var(--comp-country-selector-inline-trigger-color);
@@ -11592,7 +11686,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__input {
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   block-size: var(--component-control-min-size);
   inline-size: var(--component-control-min-size);
@@ -11645,7 +11739,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .date-picker__nav {
   align-items: center;
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   border-radius: var(--component-radius-pill);
   color: var(--comp-date-picker-muted-fg);
@@ -11690,7 +11784,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 }
 
 .date-picker__day {
-  background: transparent;
+  background: var(--component-surface-transparent);
   block-size: var(--comp-date-picker-day-size);
   border: 0;
   border-radius: var(--component-radius-pill);
@@ -12929,174 +13023,6 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background-repeat: no-repeat;
   isolation: isolate;
   position: relative;
-}
-
-:root[data-theme="dark"],
-body[data-theme="dark"],
-[data-theme="dark"] {
-  --sys-energy-surface-primary: var(--sys-energy-dark-surface-primary);
-  --sys-energy-surface-secondary: var(--sys-energy-dark-surface-secondary);
-  --sys-energy-surface-tertiary: var(--sys-energy-dark-surface-tertiary);
-  --sys-energy-surface-sunken: var(--sys-energy-dark-surface-secondary);
-  --sys-energy-text-primary: var(--sys-energy-dark-text-primary);
-  --sys-energy-text-secondary: var(--sys-energy-dark-text-secondary);
-  --sys-energy-text-tertiary: var(--sys-energy-dark-text-tertiary);
-  --sys-energy-border-default: var(--sys-energy-dark-border-default);
-  --sys-energy-border-strong: var(--sys-energy-dark-border-strong);
-  --sys-color-border: var(--sys-energy-border-default);
-  --sys-color-border-strong: var(--sys-energy-border-strong);
-  --sys-color-danger: var(--sys-energy-dark-status-error);
-  --sys-color-success: var(--sys-energy-dark-status-success);
-  --sys-color-surface: var(--sys-energy-surface-primary);
-  --sys-color-surface-muted: var(--sys-energy-surface-sunken);
-  --sys-color-surface-raised: var(--sys-energy-surface-tertiary);
-  --sys-color-text: var(--sys-energy-text-primary);
-  --sys-color-text-muted: var(--sys-energy-text-secondary);
-  --sys-color-text-subtle: var(--sys-energy-text-tertiary);
-  --sys-color-warning: var(--sys-energy-dark-status-warning);
-  --component-color-bg: var(--sys-energy-surface-primary);
-  --component-color-action-indicator: var(--ref-energy-blue-200);
-  --component-color-action-indicator-text: var(--component-color-surface);
-  --component-color-action-text: var(--sys-color-action-text);
-  --component-color-border: var(--sys-color-border);
-  --component-color-border-strong: var(--sys-color-border-strong);
-  --component-color-danger: var(--sys-color-danger);
-  --component-color-surface: var(--sys-color-surface);
-  --component-color-surface-muted: var(--sys-color-surface-muted);
-  --component-color-surface-raised: var(--sys-color-surface-raised);
-  --component-color-surface-sunken: var(--sys-energy-surface-sunken);
-  --component-color-success: var(--sys-color-success);
-  --component-color-text: var(--sys-color-text);
-  --component-color-text-muted: var(--sys-color-text-muted);
-  --component-color-text-subtle: var(--sys-color-text-subtle);
-  --component-color-warning: var(--sys-color-warning);
-  --component-field-placeholder-fg: var(--component-color-text-muted);
-  --component-field-error-helper-fg: var(--sys-energy-dark-status-error);
-  --component-overlay-panel-bg: color-mix(in srgb, var(--component-color-surface-raised) 88%, var(--component-color-surface));
-  --component-overlay-panel-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
-  --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-surface-raised));
-  --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface-raised));
-  --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-surface-raised));
-  --component-option-row-color: var(--component-color-text);
-  --component-option-row-selected-color: var(--component-color-text);
-  --component-option-row-disabled-bg: color-mix(in srgb, var(--component-color-text) 8%, transparent);
-  --component-option-row-disabled-color: var(--component-color-text-subtle);
-  --component-option-row-disabled-opacity: var(--component-opacity-visible);
-  color-scheme: dark;
-}
-
-[data-theme="dark"] .badge {
-  --comp-badge-bg: color-mix(in srgb, var(--component-color-surface-raised) 74%, transparent);
-  --comp-badge-border: color-mix(in srgb, var(--component-color-border-strong) 76%, transparent);
-  --comp-badge-fg: var(--component-color-text-muted);
-}
-
-[data-theme="dark"] .badge[data-tone="info"],
-[data-theme="dark"] .badge[data-tone="accent"] {
-  --comp-badge-bg: color-mix(in srgb, var(--component-color-action) 26%, var(--component-color-surface));
-  --comp-badge-border: color-mix(in srgb, var(--component-color-action) 48%, var(--component-color-border));
-  --comp-badge-fg: var(--component-color-text);
-}
-
-[data-theme="dark"] .badge[data-tone="danger"] {
-  --comp-badge-bg: color-mix(in srgb, var(--component-color-danger) 20%, var(--component-color-surface));
-  --comp-badge-border: color-mix(in srgb, var(--component-color-danger) 48%, var(--component-color-border));
-  --comp-badge-fg: var(--component-color-text);
-}
-
-[data-theme="dark"] .badge[data-tone="success"] {
-  --comp-badge-bg: color-mix(in srgb, var(--component-color-success) 20%, var(--component-color-surface));
-  --comp-badge-border: color-mix(in srgb, var(--component-color-success) 48%, var(--component-color-border));
-  --comp-badge-fg: var(--component-color-text);
-}
-
-[data-theme="dark"] .badge[data-tone="warning"] {
-  --comp-badge-bg: color-mix(in srgb, var(--component-color-warning) 22%, var(--component-color-surface));
-  --comp-badge-border: color-mix(in srgb, var(--component-color-warning) 50%, var(--component-color-border));
-  --comp-badge-fg: var(--component-color-text);
-}
-
-[data-theme="dark"] .button {
-  --comp-button-bg-secondary: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
-  --comp-button-border-secondary: color-mix(in srgb, var(--component-color-text) 54%, var(--component-color-border));
-  --comp-button-fg-secondary: var(--component-color-text);
-  --comp-button-bg-secondary-hover: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-surface-raised));
-  --comp-button-bg-tertiary: color-mix(in srgb, var(--component-color-surface-raised) 78%, transparent);
-  --comp-button-fg-tertiary: var(--component-color-text);
-  --comp-button-bg-tertiary-hover: color-mix(in srgb, var(--component-color-action) 16%, var(--component-color-surface-raised));
-  --comp-button-bg-outlined: var(--component-surface-transparent);
-  --comp-button-border-outlined: color-mix(in srgb, var(--component-color-text) 36%, var(--component-color-border));
-  --comp-button-fg-outlined: var(--component-color-text);
-  --comp-button-bg-ghost-hover: color-mix(in srgb, var(--component-color-text) 10%, transparent);
-  --comp-button-bg-danger-secondary: var(--component-tone-danger-surface-pressed);
-}
-
-[data-theme="dark"] .field,
-[data-theme="dark"] .field-control {
-  --comp-input-surface-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
-  --comp-input-surface-border: color-mix(in srgb, var(--component-color-text) 28%, var(--component-color-border));
-  --comp-input-surface-fg: var(--component-color-text);
-  --comp-input-label-fg: var(--component-color-text);
-  --comp-input-field-fg: var(--component-color-text);
-  --comp-input-helper-fg: var(--component-color-text-muted);
-  --comp-input-placeholder-fg: var(--component-color-text-muted);
-  --comp-input-affix-fg: var(--component-color-text-muted);
-  --comp-input-action-fg: var(--component-color-text-muted);
-  --comp-input-icon-fg: var(--component-color-text-muted);
-  --comp-input-icon-loading-fg: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-text));
-  --comp-input-disabled-bg: color-mix(in srgb, var(--component-color-surface-raised) 62%, transparent);
-  --comp-input-loading-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface-raised));
-  --comp-input-info-bg: color-mix(in srgb, var(--component-color-action) 16%, var(--component-color-surface));
-  --comp-input-info-border: color-mix(in srgb, var(--component-color-action) 70%, var(--component-color-text));
-  --comp-input-success-bg: color-mix(in srgb, var(--component-color-success) 18%, var(--component-color-surface));
-  --comp-input-success-border: color-mix(in srgb, var(--component-color-success) 70%, var(--component-color-text));
-  --comp-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 16%, var(--component-color-surface));
-  --comp-input-warning-border: color-mix(in srgb, var(--component-color-warning) 72%, var(--component-color-text));
-  --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 64%, var(--component-color-text));
-  --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface));
-  --comp-input-error-border: color-mix(in srgb, var(--component-color-danger) 78%, var(--component-color-text));
-  --comp-input-error-helper-fg: var(--component-field-error-helper-fg);
-}
-
-[data-theme="dark"] .checkbox {
-  --comp-checkbox-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
-  --comp-checkbox-border: color-mix(in srgb, var(--component-color-text) 32%, var(--component-color-border));
-  --comp-checkbox-hover-border: color-mix(in srgb, var(--component-color-action) 52%, var(--component-color-border-strong));
-  --comp-checkbox-checked-bg: var(--component-color-action-indicator);
-  --comp-checkbox-checked-border: color-mix(in srgb, var(--component-color-action-indicator) 82%, var(--component-color-text));
-  --comp-checkbox-indicator-fg: var(--component-color-action-indicator-text);
-  --comp-checkbox-description-fg: var(--component-color-text-muted);
-}
-
-[data-theme="dark"] .radio {
-  --comp-radio-button-bg: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
-  --comp-radio-button-border: color-mix(in srgb, var(--component-color-text) 34%, var(--component-color-border));
-  --comp-radio-button-rest-shadow: inset 0 0 0 var(--component-border-width) color-mix(in srgb, var(--component-color-text) 18%, transparent);
-  --comp-radio-button-hover-border: color-mix(in srgb, var(--component-color-action) 52%, var(--component-color-border-strong));
-  --comp-radio-button-selected-bg: color-mix(in srgb, var(--component-color-action-indicator) 22%, var(--component-color-surface-raised));
-  --comp-radio-button-selected-border: color-mix(in srgb, var(--component-color-action-indicator) 84%, var(--component-color-text));
-  --comp-radio-button-selected-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-action-indicator) 34%, transparent);
-  --comp-radio-button-dot-bg: var(--component-color-action-indicator);
-  --comp-radio-button-description-fg: var(--component-color-text-muted);
-}
-
-[data-theme="dark"] .switch {
-  --comp-switch-track-bg: color-mix(in srgb, var(--component-color-text) 20%, var(--component-color-border));
-  --comp-switch-track-on-bg: var(--component-color-action-indicator);
-  --comp-switch-thumb-bg: var(--component-color-action-indicator-text);
-  --comp-switch-description-fg: var(--component-color-text-muted);
-}
-
-[data-theme="dark"] .card {
-  --comp-card-status-bg: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-surface));
-  --comp-card-status-border: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-border));
-  --comp-card-status-fg: var(--component-color-text);
-  --comp-card-compact-status-bg: color-mix(in srgb, var(--component-color-surface-raised) 82%, var(--component-color-surface));
-  --comp-card-compact-status-border: color-mix(in srgb, var(--component-color-text) 24%, var(--component-color-border));
-  --comp-card-compact-status-fg: var(--component-color-text-muted);
-  --comp-card-stats-status-neutral-bg: color-mix(in srgb, var(--component-color-surface-raised) 82%, var(--component-color-surface));
-  --comp-card-stats-status-neutral-border: color-mix(in srgb, var(--component-color-text) 24%, var(--component-color-border));
-  --comp-card-stats-status-neutral-fg: var(--component-color-text-muted);
 }
 
 [data-flow-template="docs-shell-template"]::before {

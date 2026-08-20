@@ -14,7 +14,7 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 - variant: 42
 - state: 56
 - tone: 14
-- intent: 2
+- intent: 3
 - density: 62
 - size: 0
 - selected: 6
@@ -60,8 +60,8 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | drawer | overlays | side-sheet, filter, detail, edit, review | neutral, info, danger | closed, default, open, focus, closing | variant, state, tone, density | - |
 | empty-state | feedback | first-use, search-empty, permission, error, maintenance | neutral | default, action, search-empty, permission, loading, error | variant, state, density | - |
 | error-panel | feedback | inline, panel, blocking, empty-recovery | warning, error, critical | default, warning, error, critical, loading, disabled | variant, state, tone, density | - |
-| floating-action-button | actions | primary, extended, mini | primary | default, hover, focus, pressed, loading, disabled | variant, state, density, disabled, loading | - |
-| icon-button | actions | primary, secondary, tertiary, outlined, ghost | default | default, hover, pressed, selected, badged, focus, disabled | variant, density, selected, disabled | - |
+| floating-action-button | actions | primary, secondary, tertiary, outlined, ghost | default | default, hover, focus, pressed, loading, disabled | variant, state, intent, density, disabled, loading | - |
+| icon-button | actions | primary, secondary, tertiary, outlined, ghost | default, danger, warning | default, hover, pressed, selected, badged, focus, disabled | variant, density, selected, disabled | - |
 | inline-validation | feedback | info, success, warning, error | info, success, warning, error | default, info, success, warning, error, disabled | state, density | - |
 | input | fields | text, email, password, number, currency, unit, search | default | default, focus, filled, info, success, warning, loading, error, disabled | variant, state, density, disabled, loading | - |
 | input-amount | fields-payment | default | default | default, filled, loading, error, disabled | state, density, disabled, loading | - |

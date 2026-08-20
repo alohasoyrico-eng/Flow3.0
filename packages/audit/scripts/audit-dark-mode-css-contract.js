@@ -2,6 +2,7 @@ const { path, read, add, lineNumber } = require("./audit-context.js");
 
 const repoRoot = process.cwd();
 const tokensCssFile = path.join(repoRoot, "packages/tokens/styles/tokens.css");
+const tokenContextsCssFile = path.join(repoRoot, "packages/tokens/styles/token-contexts.css");
 
 function checkDarkModeCssContract({ text, packageCssFile }) {
   const docsShellDarkComponentSelector = /\[data-flow-template="docs-shell-template"\]\[data-theme="dark"\]\s+(?:\.(?:button|badge|field|field-control|card)\b)/g;
@@ -13,14 +14,41 @@ function checkDarkModeCssContract({ text, packageCssFile }) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf('[data-flow-template="docs-shell-template"][data-theme="dark"] {')), "Dark mode system and component aliases must be exposed through the public [data-theme=\"dark\"] contract, not only through DocsShell.");
   }
 
+  const tokenContexts = read(tokenContextsCssFile);
+  const darkThemeBlock = tokenContexts.match(/:root\[data-theme="dark"\],[\s\S]*?\n}/)?.[0] ?? "";
+  for (const snippet of [
+    ":root[data-theme=\"dark\"],",
+    "body[data-theme=\"dark\"],",
+    "[data-theme=\"dark\"] {",
+    "--component-action-bg-secondary:",
+    "--component-action-bg-tertiary:",
+    "--component-action-bg-outlined:",
+    "--component-action-bg-ghost-hover:",
+    "--component-action-bg-danger-secondary:",
+  ]) {
+    if (!tokenContexts.includes(snippet)) {
+      add("errors", tokenContextsCssFile, 1, `Dark action appearance must be emitted by token contexts, not components.css: missing ${snippet}`);
+    }
+  }
+  if (!darkThemeBlock.includes("--component-action-bg-secondary:")) {
+    add("errors", tokenContextsCssFile, 1, "Token contexts must expose dark theme action appearance roles in the public [data-theme=\"dark\"] contract.");
+  }
+  const componentActionDarkOverride = /\[data-theme="dark"\][^{]*\{[^}]*--component-action-/g;
+  for (const match of text.matchAll(componentActionDarkOverride)) {
+    add("errors", packageCssFile, lineNumber(text, match.index), "Action appearance dark mode must be owned by packages/tokens/styles/token-contexts.css, not components.css.");
+  }
+
   checkDarkModeContrast({ text, packageCssFile });
 }
 
 function checkDarkModeContrast({ text, packageCssFile }) {
   const variables = new Map();
+  const tokenContexts = read(tokenContextsCssFile);
+  const darkThemeBlock = tokenContexts.match(/:root\[data-theme="dark"\],[\s\S]*?\n}/)?.[0] ?? "";
   collectVariables(variables, read(tokensCssFile));
   collectVariables(variables, text.match(/:root\s*{[\s\S]*?\n}/)?.[0] ?? "");
   collectVariables(variables, text.match(/:root\[data-theme="dark"\],[\s\S]*?\n}/)?.[0] ?? "");
+  collectVariables(variables, darkThemeBlock);
 
   const pairs = [
     ["text on surface", "--component-color-text", "--component-color-surface", 4.5],

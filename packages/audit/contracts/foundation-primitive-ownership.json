@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "foundation-primitive-ownership@1",
+  "principle": "Foundations own raw design decisions, primitives translate those decisions into reusable structural roles, and components consume public roles without redefining foundation policy in local contexts.",
+  "blockingSystemLayers": [
+    "token-source",
+    "token-generator",
+    "token-output",
+    "component-css",
+    "component-source",
+    "primitive-source",
+    "react-component-source"
+  ],
+  "foundationDomains": [
+    {
+      "id": "color-theme",
+      "owner": "tokens/style-dictionary",
+      "patterns": ["color", "backgroundcolor", "energy", "theme", "contrast", "bg", "fg", "text", "danger", "warning", "success", "info", "action"]
+    },
+    {
+      "id": "typography",
+      "owner": "voice/text primitive",
+      "patterns": ["voice", "font", "fontsize", "fontweight", "fontfamily", "lineheight", "type", "typography", "line-height", "letter", "label"]
+    },
+    {
+      "id": "spacing",
+      "owner": "frame/spacing primitive",
+      "patterns": ["space", "spacing", "gap", "padding", "margin", "inset", "height"]
+    },
+    {
+      "id": "radius",
+      "owner": "radius/frame primitive",
+      "patterns": ["radius", "borderradius", "rounded"]
+    },
+    {
+      "id": "elevation-depth",
+      "owner": "depth/surface primitive",
+      "patterns": ["depth", "elevation", "shadow", "overlay-panel-depth", "halo"]
+    },
+    {
+      "id": "motion",
+      "owner": "momentum/motion primitive",
+      "patterns": ["motion", "duration", "ease", "transition", "animation", "transform", "scale"]
+    },
+    {
+      "id": "density",
+      "owner": "density primitive",
+      "patterns": ["density"]
+    },
+    {
+      "id": "focus",
+      "owner": "accessibility/focus primitive",
+      "patterns": ["focus", "ring"]
+    },
+    {
+      "id": "breakpoints-responsive",
+      "owner": "breakpoint/frame primitive",
+      "patterns": ["breakpoint", "grid", "responsive", "columns", "gutter"]
+    },
+    {
+      "id": "surface",
+      "owner": "surface primitive",
+      "patterns": ["surface", "panel", "card", "canvas"]
+    },
+    {
+      "id": "iconography",
+      "owner": "iconography/symbol primitive",
+      "patterns": ["icon", "symbol", "glyph", "check", "marker"]
+    },
+    {
+      "id": "frame-control-geometry",
+      "owner": "control-frame primitive",
+      "patterns": ["frame", "control", "size", "height", "width", "block", "inline"]
+    },
+    {
+      "id": "state",
+      "owner": "state primitive",
+      "patterns": ["state", "disabled", "loading", "selected", "active", "hover", "pressed", "error", "valid"]
+    },
+    {
+      "id": "overlay-layer",
+      "owner": "overlay/layer primitive",
+      "patterns": ["overlay", "layer", "popover", "dialog", "drawer", "listbox", "menu", "z-index"]
+    }
+  ],
+  "primitiveDomains": [
+    {
+      "id": "action-appearance",
+      "owner": "action primitive",
+      "patterns": ["action", "button", "fab", "quick-action"]
+    },
+    {
+      "id": "field-control",
+      "owner": "field primitive",
+      "patterns": ["field", "input", "select", "combobox", "placeholder", "helper", "affix"]
+    },
+    {
+      "id": "choice-control",
+      "owner": "choice primitive",
+      "patterns": ["checkbox", "radio", "switch", "choice"]
+    },
+    {
+      "id": "option-listbox",
+      "owner": "option/listbox primitive",
+      "patterns": ["option", "listbox", "menu-item"]
+    },
+    {
+      "id": "content-surface",
+      "owner": "surface/card primitive",
+      "patterns": ["surface", "card", "section", "panel"]
+    },
+    {
+      "id": "asset-rendering",
+      "owner": "asset primitives",
+      "patterns": ["illustration", "animation-asset", "chart", "map", "flag", "library-source"]
+    }
+  ]
+}

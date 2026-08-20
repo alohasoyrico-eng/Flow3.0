@@ -19,7 +19,14 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   const rootBlock = blockFor(blocks, selectorKey, ".fab");
   const smBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"lg\"]");
-  const miniBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"mini\"]");
+  const secondaryBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"secondary\"]");
+  const tertiaryBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"tertiary\"]");
+  const outlinedBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"outlined\"]");
+  const ghostBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"ghost\"]");
+  const dangerBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"]");
+  const warningBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"]");
+  const dangerSecondaryBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"][data-variant=\"secondary\"]");
+  const dangerOutlinedBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"][data-variant=\"outlined\"]");
   const hoverBlock = blockFor(blocks, selectorKey, ".fab:hover:not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".fab:active:not(:disabled)");
   const stateHoverBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"hover\"]:not(:disabled)");
@@ -28,7 +35,8 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   const iconBlock = blockFor(blocks, selectorKey, ".fab__icon");
   const focusBlock = blockFor(blocks, selectorKey, ".fab:focus-visible");
   const stateFocusBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"focus\"]");
-  const disabledBlock = blockFor(blocks, selectorKey, ".fab:disabled");
+  const disabledBlock = blockFor(blocks, selectorKey, ".fab:disabled:not([data-state=\"loading\"])");
+  const loadingBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"loading\"]");
 
   if (
     !source.includes("forwardRef") ||
@@ -45,17 +53,34 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   if (!source.includes("const canInteract = Boolean(rest.onClick || resolvedType === \"submit\" || resolvedType === \"reset\");") || !source.includes("disabled: resolvedState === \"disabled\" || resolvedState === \"loading\" || !canInteract")) {
     add("errors", sourceFile, 1, "FloatingActionButton must keep inert and loading actions disabled.");
   }
+  if (!source.includes("export type FloatingActionButtonVariant = \"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"") || source.includes("\"extended\" | \"mini\"")) {
+    add("errors", sourceFile, 1, "FloatingActionButton variant must describe action hierarchy only; extended label treatment is owned by the extended prop.");
+  }
+  if (!source.includes("export type FloatingActionButtonIntent = \"default\" | \"danger\" | \"warning\"") || !source.includes("\"data-intent\": resolvedIntent")) {
+    add("errors", sourceFile, 1, "FloatingActionButton must expose default, danger, and warning action intents through data-intent.");
+  }
   if (!source.includes("React.createElement(Spinner") || !source.includes("decorative: true")) {
     add("errors", sourceFile, 1, "FloatingActionButton loading state must compose Spinner through React.");
   }
   if (text.includes("--fab-size") || text.includes("--fab-icon-size") || text.includes("--fab-padding")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--fab-")), "FloatingActionButton must not use short local --fab-* aliases; use the component token namespace.");
   }
+  for (const block of [rootBlock, secondaryBlock, tertiaryBlock, outlinedBlock, ghostBlock, dangerBlock, warningBlock, dangerSecondaryBlock, dangerOutlinedBlock].filter(Boolean)) {
+    if (block.body.includes("--comp-button-")) {
+      add("errors", packageCssFile, lineNumber(text, block.index), "FloatingActionButton must not consume Button-local --comp-button-* aliases; use shared component roles or FAB aliases.");
+    }
+  }
   for (const [snippet, message] of [
     ["--component-fab-size-lg: var(--sys-space-16);", "FloatingActionButton large frame must stay on the 64px system space scale."],
     ["--comp-floating-action-button-icon-size-sm: var(--component-density-icon-size-sm);", "FloatingActionButton sm icon must consume density icon sm."],
     ["--comp-floating-action-button-icon-size-md: var(--component-density-icon-size-md);", "FloatingActionButton md icon must consume density icon md."],
     ["--comp-floating-action-button-icon-size-lg: var(--component-density-icon-size-lg);", "FloatingActionButton lg icon must consume density icon lg."],
+    ["--comp-floating-action-button-bg: var(--component-action-bg-primary);", "FloatingActionButton default background must consume shared action appearance roles."],
+    ["--comp-floating-action-button-bg-hover: var(--component-action-bg-primary-hover);", "FloatingActionButton default hover must consume shared action appearance roles."],
+    ["--comp-floating-action-button-border-color: var(--component-action-border-ghost);", "FloatingActionButton border color must declare a named default component role."],
+    ["--comp-floating-action-button-text: var(--component-action-fg-primary);", "FloatingActionButton foreground must consume shared action appearance roles."],
+    ["--comp-floating-action-button-disabled-bg: var(--component-disabled-bg);", "FloatingActionButton disabled state must consume shared disabled background."],
+    ["--comp-floating-action-button-disabled-text: var(--component-disabled-text);", "FloatingActionButton disabled state must consume shared disabled text."],
   ]) {
     if (!text.includes(snippet)) add("errors", packageCssFile, 1, message);
   }
@@ -75,6 +100,7 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
       "--comp-floating-action-button-disabled-cursor: var(--component-cursor-not-allowed)",
       "align-items: var(--comp-floating-action-button-align)",
       "border: var(--comp-floating-action-button-border)",
+      "border-color: var(--comp-floating-action-button-border-color)",
       "block-size: var(--comp-floating-action-button-size)",
       "box-sizing: border-box",
       "cursor: var(--comp-floating-action-button-cursor)",
@@ -104,17 +130,56 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
       message,
     });
   }
-  requireIncludes({
-    block: miniBlock,
-    text,
-    packageCssFile,
-    snippets: [
-      "--comp-floating-action-button-size: var(--comp-floating-action-button-mini-size)",
-      "--comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm)",
-      "--comp-floating-action-button-padding-x: var(--comp-floating-action-button-collapsed-padding-x)",
-    ],
-    message: "FloatingActionButton mini variant must set size, icon, and padding aliases.",
-  });
+  for (const [block, variant] of [
+    [secondaryBlock, "secondary"],
+    [tertiaryBlock, "tertiary"],
+    [outlinedBlock, "outlined"],
+    [ghostBlock, "ghost"],
+  ]) {
+    requireIncludes({
+      block,
+      text,
+      packageCssFile,
+      snippets: [
+        "--comp-floating-action-button-bg:",
+        "--comp-floating-action-button-bg-hover:",
+        "--comp-floating-action-button-bg-pressed:",
+        "--comp-floating-action-button-border:",
+        "--comp-floating-action-button-text:",
+      ],
+      message: `FloatingActionButton ${variant} variant must consume action hierarchy aliases.`,
+    });
+  }
+  for (const [block, intent] of [
+    [dangerBlock, "danger"],
+    [warningBlock, "warning"],
+  ]) {
+    requireIncludes({
+      block,
+      text,
+      packageCssFile,
+      snippets: [
+        "--comp-floating-action-button-bg:",
+        "--comp-floating-action-button-bg-hover:",
+        "--comp-floating-action-button-bg-pressed:",
+        "--comp-floating-action-button-text:",
+      ],
+      message: `FloatingActionButton ${intent} intent must consume action intent aliases.`,
+    });
+  }
+  for (const [block, variant] of [[dangerSecondaryBlock, "secondary"], [dangerOutlinedBlock, "outlined"]]) {
+    requireIncludes({
+      block,
+      text,
+      packageCssFile,
+      snippets: [
+        "--comp-floating-action-button-bg: var(--component-action-bg-danger-secondary)",
+        "--comp-floating-action-button-border-color: var(--component-action-border-danger-secondary)",
+        "--comp-floating-action-button-text: var(--component-action-fg-danger-secondary)",
+      ],
+      message: `FloatingActionButton ${variant} danger intent must stay surface-based instead of solid danger.`,
+    });
+  }
   requireIncludes({
     block: hoverBlock,
     text,
@@ -130,7 +195,10 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
     block: activeBlock,
     text,
     packageCssFile,
-    snippets: ["transform: var(--comp-floating-action-button-active-transform)"],
+    snippets: [
+      "background: var(--comp-floating-action-button-bg-pressed)",
+      "transform: var(--comp-floating-action-button-active-transform)",
+    ],
     message: "FloatingActionButton active state must consume active transform alias.",
   });
   requireIncludes({
@@ -147,7 +215,10 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
     block: statePressedBlock,
     text,
     packageCssFile,
-    snippets: ["transform: var(--comp-floating-action-button-press-transform)"],
+    snippets: [
+      "background: var(--comp-floating-action-button-bg-pressed)",
+      "transform: var(--comp-floating-action-button-press-transform)",
+    ],
     message: "FloatingActionButton forced pressed state must consume press alias.",
   });
   requireIncludes({
@@ -184,10 +255,21 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
     text,
     packageCssFile,
     snippets: [
+      "background: var(--comp-floating-action-button-disabled-bg)",
+      "border: var(--component-border-width) solid var(--comp-floating-action-button-disabled-border)",
+      "box-shadow: var(--comp-floating-action-button-disabled-shadow)",
+      "color: var(--comp-floating-action-button-disabled-text)",
       "cursor: var(--comp-floating-action-button-disabled-cursor)",
       "opacity: var(--comp-floating-action-button-disabled-opacity)",
     ],
     message: "FloatingActionButton disabled state must consume disabled aliases.",
+  });
+  requireIncludes({
+    block: loadingBlock,
+    text,
+    packageCssFile,
+    snippets: ["cursor: var(--component-loading-busy-cursor)"],
+    message: "FloatingActionButton loading state must keep busy cursor distinct from disabled styling.",
   });
 }
 

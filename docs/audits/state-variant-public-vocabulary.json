@@ -31,7 +31,7 @@
     "variant": 42,
     "state": 56,
     "tone": 14,
-    "intent": 2,
+    "intent": 3,
     "density": 62,
     "size": 0,
     "selected": 6,
@@ -1391,11 +1391,13 @@
       "element": "button",
       "variants": [
         "primary",
-        "extended",
-        "mini"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "intents": [
-        "primary"
+        "default"
       ],
       "states": [
         "default",
@@ -1408,12 +1410,17 @@
       "publicVocabulary": [
         {
           "name": "variant",
-          "type": "\"primary\" | \"extended\" | \"mini\"",
+          "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"",
           "required": false
         },
         {
           "name": "state",
           "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"disabled\"",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\"default\" | \"danger\" | \"warning\"",
           "required": false
         },
         {
@@ -1447,7 +1454,9 @@
         "ghost"
       ],
       "intents": [
-        "default"
+        "default",
+        "danger",
+        "warning"
       ],
       "states": [
         "default",

@@ -786,6 +786,7 @@
     "audit:react-publication-boundary": "node packages/audit/scripts/report-system-react-publication-boundary.js",
     "audit:consumer-runtime-smoke": "node packages/audit/scripts/report-system-consumer-runtime-smoke.js",
     "audit:consumer-css-token-cascade": "node packages/audit/scripts/report-system-consumer-css-token-cascade.js",
+    "audit:cascade-overrides": "node packages/audit/scripts/report-cascade-override-governance.js --check",
     "audit:consumer-type-smoke": "node packages/audit/scripts/report-system-consumer-type-smoke.js",
     "audit:consumer-boundary-checkpoint": "node packages/audit/scripts/report-system-consumer-boundary-checkpoint.js",
     "audit:component-artifact-tests": "node packages/audit/scripts/report-system-component-artifact-tests.js",

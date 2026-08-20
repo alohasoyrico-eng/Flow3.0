@@ -27,6 +27,7 @@ const { checkReactCopyContract } = require("./audit-react-copy-contract.js");
 const { checkAntiDuplicationGovernance } = require("./audit-anti-duplication.js");
 const { checkAccessibilityContracts } = require("./audit-accessibility-contracts.js");
 const { checkManualAccessibility } = require("./audit-manual-accessibility.js");
+const { checkCascadeOverrideGovernance } = require("./report-cascade-override-governance.js");
 const { finishAudit } = require("./audit-result.js");
 
 const coreCheckpointChecks = [
@@ -99,6 +100,7 @@ checkReactCopyContract();
 checkAntiDuplicationGovernance();
 checkAccessibilityContracts({ scope: "package" });
 checkManualAccessibility();
+checkCascadeOverrideGovernance();
 checkCoreCheckpointReports();
 
 finishAudit();

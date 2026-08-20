@@ -75,12 +75,25 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
     }
   }
   for (const [token, requiredPrefix] of [
-    ["--comp-button-bg-danger-hover", "var(--component-tone-danger-"],
-    ["--comp-button-bg-danger-pressed", "var(--component-tone-danger-"],
-    ["--comp-button-bg-warning-hover", "var(--component-tone-warning-"],
-    ["--comp-button-bg-warning-pressed", "var(--component-tone-warning-"],
-    ["--comp-button-bg-danger-secondary-hover", "var(--component-tone-danger-"],
-    ["--comp-button-bg-danger-secondary-pressed", "var(--component-tone-danger-"],
+    ["--comp-button-bg-danger-hover", "var(--component-action-bg-danger-hover"],
+    ["--comp-button-bg-danger-pressed", "var(--component-action-bg-danger-pressed"],
+    ["--comp-button-bg-warning-hover", "var(--component-action-bg-warning-hover"],
+    ["--comp-button-bg-warning-pressed", "var(--component-action-bg-warning-pressed"],
+    ["--comp-button-bg-danger-secondary-hover", "var(--component-action-bg-danger-secondary-hover"],
+    ["--comp-button-bg-danger-secondary-pressed", "var(--component-action-bg-danger-secondary-pressed"],
+  ]) {
+    const match = text.match(new RegExp(`${token}:\\s*([^;]+);`));
+    if (!match || !match[1].trim().startsWith(requiredPrefix)) {
+      add("errors", packageCssFile, match ? lineNumber(text, match.index) : 1, `${token} must consume the shared action appearance role instead of raw color/tone tokens.`);
+    }
+  }
+  for (const [token, requiredPrefix] of [
+    ["--component-action-bg-danger-hover", "var(--component-tone-danger-"],
+    ["--component-action-bg-danger-pressed", "var(--component-tone-danger-"],
+    ["--component-action-bg-warning-hover", "var(--component-tone-warning-"],
+    ["--component-action-bg-warning-pressed", "var(--component-tone-warning-"],
+    ["--component-action-bg-danger-secondary-hover", "var(--component-tone-danger-"],
+    ["--component-action-bg-danger-secondary-pressed", "var(--component-tone-danger-"],
   ]) {
     const match = text.match(new RegExp(`${token}:\\s*([^;]+);`));
     if (!match || !match[1].trim().startsWith(requiredPrefix)) {

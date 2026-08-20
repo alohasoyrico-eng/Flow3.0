@@ -92,6 +92,7 @@ const expectedAuditFiles = new Set([
   "audit-demo-layout-contracts.js",
   "audit-density-contracts.js",
   "audit-dark-mode-css-contract.js",
+  "report-cascade-override-governance.js",
   "audit-dialog-css-contract.js",
   "audit-docs-component-demo-ownership.js",
   "audit-docs-content.js",

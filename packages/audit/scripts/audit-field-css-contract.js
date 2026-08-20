@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const { add, lineNumber } = require("./audit-context.js");
 
 function blockFor(blocks, selectorKey, selector) {
@@ -10,6 +12,9 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
+  const tokenContextsCssFile = path.join(process.cwd(), "packages/tokens/styles/token-contexts.css");
+  const tokenContexts = fs.existsSync(tokenContextsCssFile) ? fs.readFileSync(tokenContextsCssFile, "utf8") : "";
+  const publicCascadeText = `${text}\n${tokenContexts}`;
   const fieldBlock = blockFor(blocks, selectorKey, ".field-control,.field");
   const fieldSurfaceBlock = blockFor(blocks, selectorKey, ".field-control__surface,.field__control");
   const fieldInputBlock = blockFor(blocks, selectorKey, ".field-input,.input");
@@ -19,7 +24,7 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const fieldIconBlock = blockFor(blocks, selectorKey, ".field__icon");
   const fieldActionBlock = blockFor(blocks, selectorKey, ".field-action");
   const fieldErrorMessageBlock = blockFor(blocks, selectorKey, ".field-control[data-state=\"error\"] .field-control__helper,.field[data-state=\"error\"] .field__helper,.field[data-state=\"error\"] .field__icon");
-  const darkFieldBlock = blockFor(blocks, selectorKey, "[data-theme=\"dark\"] .field,[data-theme=\"dark\"] .field-control");
+  const darkFieldBlock = { body: publicCascadeText, index: 0 };
   const cardFieldBlock = blockFor(blocks, selectorKey, ".card-number-input,.card-expiry-input,.card-security-code-input");
   const cardControlBlock = blockFor(blocks, selectorKey, ".card-number-input__control,.card-expiry-input__control,.card-security-code-input__control");
   const cardIconBlock = blockFor(blocks, selectorKey, ".card-number-input__icon,.card-expiry-input__icon,.card-security-code-input__icon");

@@ -46,6 +46,18 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
   if (blockFor(blocks, selectorKey, ".icon-button:focus-visible,.text-area:focus-visible")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".icon-button:focus-visible")), "IconButton focus must not share a CSS block with TextArea.");
   }
+  for (const snippet of [
+    "--comp-icon-button-bg: var(--component-action-bg-ghost);",
+    "--comp-icon-button-fg: var(--component-action-fg-ghost);",
+    "--comp-icon-button-secondary-bg: var(--component-action-bg-secondary);",
+    "--comp-icon-button-tertiary-bg: var(--component-action-bg-tertiary);",
+    "--comp-icon-button-outlined-bg: var(--component-action-bg-outlined);",
+    "--comp-icon-button-primary-bg: var(--component-action-bg-primary);",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, `IconButton action variants must consume shared action appearance roles: missing ${snippet}`);
+    }
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -87,9 +99,9 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
   for (const [selector, snippets, message] of [
     [".icon-button:hover:not(:disabled)", ["background: var(--comp-icon-button-hover-bg)", "border-color: var(--comp-icon-button-hover-border)", "transform: var(--comp-icon-button-hover-transform)"], "IconButton hover must consume hover aliases."],
     [".icon-button:active:not(:disabled)", ["transform: var(--comp-icon-button-press-transform)"], "IconButton active must consume press alias."],
-    [".icon-button--secondary", ["background: var(--comp-icon-button-secondary-bg)"], "IconButton secondary variant must consume secondary alias."],
-    [".icon-button--tertiary", ["background: transparent", "border-color: transparent"], "IconButton tertiary variant must stay visually quiet."],
-    [".icon-button--outlined", ["background: transparent", "border-color: var(--comp-icon-button-border)"], "IconButton outlined variant must consume border alias."],
+    [".icon-button--secondary", ["background: var(--comp-icon-button-secondary-bg)", "border-color: var(--comp-icon-button-secondary-border)", "color: var(--comp-icon-button-secondary-fg)"], "IconButton secondary variant must consume secondary aliases."],
+    [".icon-button--tertiary", ["background: var(--comp-icon-button-tertiary-bg)", "border-color: var(--comp-icon-button-tertiary-border)", "color: var(--comp-icon-button-tertiary-fg)"], "IconButton tertiary variant must consume tertiary aliases."],
+    [".icon-button--outlined", ["background: var(--comp-icon-button-outlined-bg)", "border-color: var(--comp-icon-button-outlined-border)", "color: var(--comp-icon-button-outlined-fg)"], "IconButton outlined variant must consume outlined aliases."],
     [".icon-button--primary", ["border-color: var(--comp-icon-button-primary-border)", "background: var(--comp-icon-button-primary-bg)", "color: var(--comp-icon-button-primary-fg)"], "IconButton primary variant must consume action aliases."],
     [".icon-button--primary:hover:not(:disabled)", ["background: var(--comp-icon-button-primary-hover-bg)", "border-color: var(--comp-icon-button-primary-border)"], "IconButton primary hover must consume hover aliases."],
     [".icon-button[aria-pressed=\"true\"]", ["border-color: var(--comp-icon-button-selected-border)", "color: var(--comp-icon-button-selected-fg)"], "IconButton selected state must consume selected aliases."],

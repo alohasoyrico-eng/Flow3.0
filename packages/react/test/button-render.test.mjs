@@ -160,15 +160,18 @@ assert.match(dangerMarkup, /class="button button--primary button--danger"/);
 const fabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton, {
   label: "Add movement",
   icon: "add",
-  variant: "extended",
+  variant: "secondary",
+  intent: "danger",
   density: "lg",
+  extended: true,
   onClick: () => {},
 }));
 assert.match(fabMarkup, /^<button/);
 assert.match(fabMarkup, /class="fab"/);
 assert.doesNotMatch(fabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /disabled/);
 assert.match(fabMarkup, /aria-label="Add movement"/);
-assert.match(fabMarkup, /data-variant="extended"/);
+assert.match(fabMarkup, /data-variant="secondary"/);
+assert.match(fabMarkup, /data-intent="danger"/);
 assert.match(fabMarkup, /data-density="lg"/);
 assert.match(fabMarkup, /data-extended="true"/);
 assert.match(fabMarkup, /class="fab__icon"/);

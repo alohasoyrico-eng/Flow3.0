@@ -6,17 +6,19 @@ import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
-const validVariants = new Set(["primary", "extended", "mini"]);
+const validVariants = new Set(["primary", "secondary", "tertiary", "outlined", "ghost"]);
+const validIntents = new Set(["default", "danger", "warning"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
 const validTypes = new Set(["button", "submit", "reset"]);
-export const FloatingActionButton = forwardRef(function FloatingActionButton({ label, icon = "add", variant = "primary", state = "default", density, extended = false, loading = false, disabled = false, type = "button", className = "", ...rest }, ref) {
+export const FloatingActionButton = forwardRef(function FloatingActionButton({ label, icon = "add", variant = "primary", intent = "default", state = "default", density, extended = false, loading = false, disabled = false, type = "button", className = "", ...rest }, ref) {
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "primary");
+    const resolvedIntent = normalizeFlowValue(intent, validIntents, "default");
     const resolvedState = loading || state === "loading" ? "loading" : disabled || state === "disabled" ? "disabled" : normalizeFlowValue(state, validStates, "default");
     const resolvedDensity = normalizeFlowDensity(density);
     const resolvedLabel = label;
     const resolvedType = validTypes.has(type) ? type : "button";
     const canInteract = Boolean(rest.onClick || resolvedType === "submit" || resolvedType === "reset");
-    const isExtended = Boolean(extended) || resolvedVariant === "extended";
+    const isExtended = Boolean(extended);
     if (!resolvedLabel)
         return null;
     return React.createElement("button", {
@@ -28,6 +30,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({ l
         "aria-label": resolvedLabel,
         "aria-busy": resolvedState === "loading" ? "true" : undefined,
         ...flowVariantProps(resolvedVariant),
+        "data-intent": resolvedIntent,
         ...flowStateProps(resolvedState),
         ...flowDensityProps(resolvedDensity),
         "data-extended": String(isExtended),
