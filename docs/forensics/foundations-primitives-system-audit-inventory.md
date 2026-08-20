@@ -1,6 +1,6 @@
 # Foundations/Primitives System Audit Inventory
 
-Status: **iteration 1 complete**
+Status: **iteration 2 complete**
 
 This inventory starts the foundations/primitives remediation block after P0 component readiness work. It does not create a new audit lane. It consolidates the existing token, primitive, runtime, and gate evidence so the next iterations can fix systemic contracts instead of patching one component at a time.
 
@@ -42,6 +42,7 @@ The DS has real foundation/primitive ownership and active gates. The remaining r
 | Source-boundary violations | 0 | `docs/audits/system-phase3-foundations-primitives-checkpoint.md` |
 | ControlFrame covered components | 23 | `docs/audits/control-frame-adoption-inventory.md` |
 | ControlFrame unresolved debt | 0 | `docs/audits/control-frame-adoption-inventory.md` |
+| Runtime frame checks in fast gate | 4 | `packages/audit/scripts/audit-ds-fast-gate.js` |
 
 ## Foundation Contract Map
 
@@ -94,7 +95,7 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 | Risk | Why It Matters | Existing Evidence | Next Iteration |
 | --- | --- | --- | --- |
-| Runtime geometry coverage is narrower than token reports | Token pass did not stop md/lg and padding bugs from appearing in demos | control/choice/listbox runtime scripts exist | Iteration 2 |
+| Runtime geometry coverage is narrower than token reports | Token pass did not stop md/lg and padding bugs from appearing in demos | control/choice/listbox/icon-button runtime scripts are now in `audit:ds-fast-gate` | Iteration 2 complete |
 | Radius roles are not yet documented as family acceptance criteria | Button and input/select should not have identical shape | radius primitive pass | Iteration 3 |
 | Icon scale is still prone to component-local drift | Checkbox/radio exposed mark/icon scaling debt | choice runtime script, iconography reports | Iteration 4 |
 | Motion roles are semantically under-specified for fields vs actions | Input motion discussion exposed unclear acceptance | momentum/motion reports, input motion matrix | Iteration 5 |
@@ -112,11 +113,32 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 2: **Density + frame contract**.
+Iteration 3: **Radius + surface contract**.
 
 Tasks:
 
-- Run and inspect `audit:control-frame-runtime`, `audit:choice-frame-runtime`, `audit:option-listbox-runtime`, and `report:control-frame-inventory`.
-- Identify whether expected frame measures cover all component families affected by the md/lg bug.
-- Update only existing runtime checks or existing inventory if a family is missing.
-- Do not change component CSS until the missing family/rule is proven.
+- Confirm family-specific radius roles for actions, fields, choices, listbox rows, overlays, and surfaces.
+- Keep button/icon-button pill radius separate from input/select/combobox field radius.
+- Verify whether surface/container radius rules are already represented in existing primitive and component CSS contracts.
+- Fold any missing radius/surface proof into existing gates only.
+
+## Iteration 2 Result
+
+Density and frame runtime checks now run through `audit:ds-fast-gate`, which is already part of `npm run validate:flow-core:fast`.
+
+Checks folded into the fast gate:
+
+- `audit:control-frame-runtime`: verifies rendered `36/44/52` control frame heights, `border-box`, and action-vs-field radius separation.
+- `audit:choice-frame-runtime`: verifies checkbox/radio/switch/slider geometry, mark/icon scaling, alignment, motion-bearing transitions, and light/dark choice legibility.
+- `audit:icon-button-runtime`: verifies icon action `36/44/52` frame and `16/20/24` icon scale.
+- `audit:option-listbox-runtime`: verifies select/combobox/menu option row geometry, active/selected/disabled states, and light/dark listbox color consistency.
+
+Observed runtime status before wiring:
+
+| Runtime check | Status | Main contract |
+| --- | --- | --- |
+| `audit:control-frame-runtime` | pass | control frame `36/44/52`, `border-box`, role radius separation |
+| `audit:choice-frame-runtime` | pass | choice marks/icons and switch/slider density geometry |
+| `audit:icon-button-runtime` | pass | icon action frame and icon scale |
+| `audit:option-listbox-runtime` | pass | option/listbox rows, state color, disabled visibility |
+| `report:control-frame-inventory` | pass | 62 components classified, 23 control-frame covered, 0 unresolved debt |

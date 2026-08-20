@@ -23,6 +23,30 @@ const checks = [
     owns: "package/spec/token/component/pattern/react contracts",
   },
   {
+    id: "control-frame-runtime",
+    command: "npm",
+    args: ["run", "audit:control-frame-runtime"],
+    owns: "rendered field/action/navigation frame density geometry",
+  },
+  {
+    id: "choice-frame-runtime",
+    command: "npm",
+    args: ["run", "audit:choice-frame-runtime"],
+    owns: "rendered choice mark/icon density and light/dark geometry",
+  },
+  {
+    id: "icon-button-runtime",
+    command: "npm",
+    args: ["run", "audit:icon-button-runtime"],
+    owns: "rendered icon action target/icon density geometry",
+  },
+  {
+    id: "option-listbox-runtime",
+    command: "npm",
+    args: ["run", "audit:option-listbox-runtime"],
+    owns: "rendered select/combobox/menu option row geometry and states",
+  },
+  {
     id: "react-production-readiness",
     command: "node",
     args: ["packages/audit/scripts/report-react-production-readiness.js"],
@@ -65,7 +89,7 @@ Status: **${report.status}**
 
 Decision: **${report.decision}**
 
-This gate is for frequent local/PR feedback. It intentionally excludes consumer install, clean-app smoke, deep runtime reports, FlowDocs, visual parity, and quarantine tests.
+This gate is for frequent local/PR feedback. It intentionally excludes consumer install, clean-app smoke, FlowDocs, visual parity, and quarantine tests. It includes the bounded runtime checks that protect shared component geometry.
 
 ## Checks
 

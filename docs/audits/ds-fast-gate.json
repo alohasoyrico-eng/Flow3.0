@@ -27,6 +27,54 @@
       "exitCode": 0
     },
     {
+      "id": "control-frame-runtime",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:control-frame-runtime"
+      ],
+      "owns": "rendered field/action/navigation frame density geometry",
+      "commandLine": "npm run audit:control-frame-runtime",
+      "status": "pass",
+      "exitCode": 0
+    },
+    {
+      "id": "choice-frame-runtime",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:choice-frame-runtime"
+      ],
+      "owns": "rendered choice mark/icon density and light/dark geometry",
+      "commandLine": "npm run audit:choice-frame-runtime",
+      "status": "pass",
+      "exitCode": 0
+    },
+    {
+      "id": "icon-button-runtime",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:icon-button-runtime"
+      ],
+      "owns": "rendered icon action target/icon density geometry",
+      "commandLine": "npm run audit:icon-button-runtime",
+      "status": "pass",
+      "exitCode": 0
+    },
+    {
+      "id": "option-listbox-runtime",
+      "command": "npm",
+      "args": [
+        "run",
+        "audit:option-listbox-runtime"
+      ],
+      "owns": "rendered select/combobox/menu option row geometry and states",
+      "commandLine": "npm run audit:option-listbox-runtime",
+      "status": "pass",
+      "exitCode": 0
+    },
+    {
       "id": "react-production-readiness",
       "command": "node",
       "args": [
