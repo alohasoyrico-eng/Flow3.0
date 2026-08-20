@@ -180,7 +180,7 @@ try {
           key: "close",
           label: "Close route",
           icon: "close",
-          variant: "tonal",
+          variant: "legacy-hierarchy",
           onAction: (key, action, event) => actions.push({ key, label: action.label, eventType: event.type }),
         },
       ],

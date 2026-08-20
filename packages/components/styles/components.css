@@ -1950,7 +1950,7 @@
   --comp-icon-button-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
   --comp-icon-button-hover-transform: scale(var(--comp-icon-button-hover-scale));
   --comp-icon-button-press-transform: scale(var(--comp-icon-button-press-scale));
-  --comp-icon-button-tonal-bg: var(--component-color-surface);
+  --comp-icon-button-secondary-bg: var(--component-color-surface);
   --comp-icon-button-primary-border: var(--component-border-transparent);
   --comp-icon-button-primary-bg: var(--component-color-action);
   --comp-icon-button-primary-fg: var(--component-color-action-text);
@@ -2012,7 +2012,7 @@
 }
 
 .icon-button--secondary {
-  background: var(--comp-icon-button-tonal-bg);
+  background: var(--comp-icon-button-secondary-bg);
 }
 
 .icon-button--tertiary {

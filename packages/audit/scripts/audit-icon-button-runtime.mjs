@@ -43,8 +43,14 @@ function html() {
             <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="${theme} ghost ${density}">
               <span class="icon-button__icon" aria-hidden="true">more_horiz</span>
             </button>
-            <button class="icon-button icon-button--tonal" data-density="${density}" aria-label="${theme} tonal ${density}">
+            <button class="icon-button icon-button--secondary" data-density="${density}" aria-label="${theme} secondary ${density}">
               <span class="icon-button__icon" aria-hidden="true">grid_view</span>
+            </button>
+            <button class="icon-button icon-button--tertiary" data-density="${density}" aria-label="${theme} tertiary ${density}">
+              <span class="icon-button__icon" aria-hidden="true">edit</span>
+            </button>
+            <button class="icon-button icon-button--outlined" data-density="${density}" aria-label="${theme} outlined ${density}">
+              <span class="icon-button__icon" aria-hidden="true">language</span>
             </button>
             <button class="icon-button icon-button--primary" data-density="${density}" aria-label="${theme} primary ${density}">
               <span class="icon-button__icon" aria-hidden="true">check</span>

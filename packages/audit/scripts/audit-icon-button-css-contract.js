@@ -87,7 +87,7 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
   for (const [selector, snippets, message] of [
     [".icon-button:hover:not(:disabled)", ["background: var(--comp-icon-button-hover-bg)", "border-color: var(--comp-icon-button-hover-border)", "transform: var(--comp-icon-button-hover-transform)"], "IconButton hover must consume hover aliases."],
     [".icon-button:active:not(:disabled)", ["transform: var(--comp-icon-button-press-transform)"], "IconButton active must consume press alias."],
-    [".icon-button--secondary", ["background: var(--comp-icon-button-tonal-bg)"], "IconButton secondary variant must consume tonal alias."],
+    [".icon-button--secondary", ["background: var(--comp-icon-button-secondary-bg)"], "IconButton secondary variant must consume secondary alias."],
     [".icon-button--tertiary", ["background: transparent", "border-color: transparent"], "IconButton tertiary variant must stay visually quiet."],
     [".icon-button--outlined", ["background: transparent", "border-color: var(--comp-icon-button-border)"], "IconButton outlined variant must consume border alias."],
     [".icon-button--primary", ["border-color: var(--comp-icon-button-primary-border)", "background: var(--comp-icon-button-primary-bg)", "color: var(--comp-icon-button-primary-fg)"], "IconButton primary variant must consume action aliases."],
