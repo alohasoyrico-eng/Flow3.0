@@ -63,13 +63,13 @@
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 228,
-    "fireEvent": 507,
-    "getByRole": 431,
+    "testingLibraryRender": 230,
+    "fireEvent": 509,
+    "getByRole": 433,
     "getByLabelText": 19,
-    "keyDown": 58,
+    "keyDown": 60,
     "escapeKey": 23,
-    "arrowKeys": 31,
+    "arrowKeys": 33,
     "userEvent": 32,
     "axe": 19
   },

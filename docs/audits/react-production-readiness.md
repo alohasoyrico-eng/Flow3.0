@@ -21,13 +21,13 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 228
-- fireEvent calls: 507
-- getByRole calls: 431
+- Testing Library render calls: 230
+- fireEvent calls: 509
+- getByRole calls: 433
 - getByLabelText calls: 19
-- keyDown calls: 58
+- keyDown calls: 60
 - Escape key checks: 23
-- Arrow key checks: 31
+- Arrow key checks: 33
 - user-event usage: 32
 - axe usage: 19
 

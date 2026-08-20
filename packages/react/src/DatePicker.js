@@ -48,6 +48,9 @@ function dateCells(viewDate) {
         cells.push(null);
     return cells;
 }
+function enabledDateButtons(panel, selector) {
+    return [...(panel?.querySelectorAll?.(`${selector}:not(:disabled)`) ?? [])];
+}
 function resolveDatePickerState({ disabled = false, error = "", invalid = false, state, value = "", } = {}) {
     if (disabled)
         return "disabled";
@@ -67,6 +70,7 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
     const monthId = `${controlId}-month`;
     const rootRef = useRef(null);
     const controlRef = useRef(null);
+    const panelRef = useRef(null);
     const isValueControlled = value !== undefined;
     const [internalValue, setInternalValue] = useState(value ?? "");
     const selectedValue = isValueControlled ? value ?? "" : internalValue;
@@ -84,6 +88,15 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
     });
     const todayValue = useMemo(() => dateIso(new Date()), []);
     const cells = useMemo(() => dateCells(viewDate), [viewDate]);
+    const enabledDateValues = cells
+        .filter((cell) => Boolean(cell))
+        .map((cell) => dateIso(cell))
+        .filter((isoValue) => !((min && isoValue < min) || (max && isoValue > max)));
+    const activeDateValue = enabledDateValues.includes(selectedValue)
+        ? selectedValue
+        : enabledDateValues.includes(todayValue)
+            ? todayValue
+            : enabledDateValues[0] ?? "";
     const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
     const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
     useEffect(() => {
@@ -104,13 +117,33 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
     const resolvedDensity = normalizeFlowDensity(density);
     if (!label)
         return null;
-    const setOpen = (nextOpen, restoreFocus = false, event) => {
+    const focusActiveDate = () => {
+        if (!activeDateValue)
+            return;
+        requestAnimationFrame(() => {
+            panelRef.current?.querySelector(`[data-date-picker-day="${activeDateValue}"]`)?.focus();
+        });
+    };
+    const setOpen = (nextOpen, restoreFocus = false, event, focusActive = false) => {
         const normalizedOpen = Boolean(nextOpen);
         if (!isOpenControlled)
             setInternalOpen(normalizedOpen);
         onOpenChange?.(normalizedOpen, event);
         if (restoreFocus)
             requestAnimationFrame(() => controlRef.current?.focus());
+        if (normalizedOpen && focusActive)
+            focusActiveDate();
+    };
+    const moveDateFocus = (event, delta) => {
+        const enabled = enabledDateButtons(panelRef.current, "[data-date-picker-day]");
+        if (!enabled.length)
+            return;
+        const active = event.target;
+        const index = enabled.indexOf(active);
+        if (index < 0)
+            return;
+        event.preventDefault();
+        enabled[(index + delta + enabled.length) % enabled.length]?.focus();
     };
     const commitValue = (nextValue, event) => {
         if (!isValueControlled)
@@ -126,7 +159,7 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
         rest.onClick?.(event);
         if (event.defaultPrevented || disabled)
             return;
-        setOpen(!open, false, event);
+        setOpen(!open, false, event, !open);
     };
     const handleTriggerKeyDown = (event) => {
         rest.onKeyDown?.(event);
@@ -138,7 +171,7 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
         }
         if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
             event.preventDefault();
-            setOpen(true, false, event);
+            setOpen(true, false, event, true);
         }
     };
     const dayButtons = cells.map((cell, index) => {
@@ -163,6 +196,7 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
             "aria-current": isoValue === todayValue ? "date" : undefined,
             "aria-label": formatDateLongLabel(isoValue, locale),
             "aria-pressed": String(isoValue === selectedValue),
+            tabIndex: isoValue === activeDateValue ? 0 : -1,
             onClick: (event) => {
                 if (!isDisabled)
                     commitValue(isoValue, event);
@@ -229,6 +263,7 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
         },
     }), React.createElement("div", {
         className: "date-picker__panel",
+        ref: panelRef,
         id: panelId,
         hidden: !open,
         "data-date-picker-panel": "",
@@ -237,10 +272,25 @@ export const DatePicker = forwardRef(function DatePicker({ label, value, placeho
         "aria-label": calendarLabel || undefined,
         "aria-labelledby": calendarLabel ? undefined : label ? `${controlId}-label` : undefined,
         onKeyDown: (event) => {
-            if (event.key !== "Escape")
-                return;
-            event.preventDefault();
-            setOpen(false, true, event);
+            if (event.key === "Escape") {
+                event.preventDefault();
+                setOpen(false, true, event);
+            }
+            else if (event.key === "Tab") {
+                setOpen(false, false, event);
+            }
+            else if (event.key === "ArrowRight") {
+                moveDateFocus(event, 1);
+            }
+            else if (event.key === "ArrowLeft") {
+                moveDateFocus(event, -1);
+            }
+            else if (event.key === "ArrowDown") {
+                moveDateFocus(event, 7);
+            }
+            else if (event.key === "ArrowUp") {
+                moveDateFocus(event, -7);
+            }
         },
     }, React.createElement("div", { className: "date-picker__header" }, previousMonthLabel ? React.createElement("button", {
         type: "button",

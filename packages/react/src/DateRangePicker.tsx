@@ -108,6 +108,10 @@ function dateCells(viewDate: Date): Array<Date | null> {
   return cells;
 }
 
+function enabledDateButtons(panel: HTMLElement | null, selector: string): HTMLButtonElement[] {
+  return [...(panel?.querySelectorAll?.<HTMLButtonElement>(`${selector}:not(:disabled)`) ?? [])];
+}
+
 function resolveDateRangePickerState({
   disabled = false,
   error = "",
@@ -170,6 +174,7 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
   const monthId = `${controlId}-month`;
   const rootRef = useRef<HTMLDivElement | null>(null);
   const controlRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
   const isValueControlled = value !== undefined || from !== undefined || to !== undefined;
   const initialFrom = from ?? value?.from ?? "";
   const initialTo = to ?? value?.to ?? "";
@@ -189,6 +194,15 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
   });
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
+  const enabledDateValues = cells
+    .filter((cell): cell is Date => Boolean(cell))
+    .map((cell) => dateIso(cell));
+  const preferredDateValue = range.to || range.from;
+  const activeDateValue = enabledDateValues.includes(preferredDateValue)
+    ? preferredDateValue
+    : enabledDateValues.includes(todayValue)
+      ? todayValue
+      : enabledDateValues[0] ?? "";
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
   const presetOptions = Array.isArray(presetItems)
     ? presetItems.filter((preset) => preset?.key !== undefined && preset.key !== null && preset.key !== "" && preset?.label && Number.isFinite(Number(preset.days)))
@@ -215,11 +229,29 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
 
   if (!label) return null;
 
-  const setOpen = (nextOpen: boolean, restoreFocus = false, event?: DateRangePickerOpenChangeEvent): void => {
+  const focusActiveDate = (): void => {
+    if (!activeDateValue) return;
+    requestAnimationFrame(() => {
+      panelRef.current?.querySelector<HTMLButtonElement>(`[data-date-range-picker-day="${activeDateValue}"]`)?.focus();
+    });
+  };
+
+  const setOpen = (nextOpen: boolean, restoreFocus = false, event?: DateRangePickerOpenChangeEvent, focusActive = false): void => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
+    if (normalizedOpen && focusActive) focusActiveDate();
+  };
+
+  const moveDateFocus = (event: KeyboardEvent<HTMLElement>, delta: number): void => {
+    const enabled = enabledDateButtons(panelRef.current, "[data-date-range-picker-day]");
+    if (!enabled.length) return;
+    const active = event.target as HTMLButtonElement;
+    const index = enabled.indexOf(active);
+    if (index < 0) return;
+    event.preventDefault();
+    enabled[(index + delta + enabled.length) % enabled.length]?.focus();
   };
 
   const commitRange = (nextRange: ResolvedDateRange, close = false, event: DateRangePickerValueChangeEvent): void => {
@@ -254,7 +286,7 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
   const handleTriggerClick = (event: MouseEvent<HTMLButtonElement>): void => {
     rest.onClick?.(event);
     if (event.defaultPrevented || disabled) return;
-    setOpen(!open, false, event);
+    setOpen(!open, false, event, !open);
   };
   const handleTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
     rest.onKeyDown?.(event);
@@ -265,7 +297,7 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
     }
     if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setOpen(true, false, event);
+      setOpen(true, false, event, true);
     }
   };
 
@@ -294,6 +326,7 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
       "aria-current": isoValue === todayValue ? "date" : undefined,
       "aria-label": formatDateLongLabel(isoValue, locale),
       "aria-pressed": String(isFrom || isTo),
+      tabIndex: isoValue === activeDateValue ? 0 : -1,
       onClick: (event: MouseEvent<HTMLButtonElement>) => selectDate(isoValue, event),
       onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => {
         if (event.key === "Enter" || event.key === " ") {
@@ -373,6 +406,7 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
       "div",
       {
         className: "date-picker__panel date-range-picker__panel",
+        ref: panelRef,
         id: panelId,
         hidden: !open,
         "data-date-range-picker-panel": "",
@@ -381,9 +415,20 @@ export const DateRangePicker = forwardRef<HTMLButtonElement, DateRangePickerProp
         "aria-label": calendarLabel || undefined,
         "aria-labelledby": calendarLabel ? undefined : label ? `${controlId}-label` : undefined,
         onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
-          if (event.key !== "Escape") return;
-          event.preventDefault();
-          setOpen(false, true, event);
+          if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false, true, event);
+          } else if (event.key === "Tab") {
+            setOpen(false, false, event);
+          } else if (event.key === "ArrowRight") {
+            moveDateFocus(event, 1);
+          } else if (event.key === "ArrowLeft") {
+            moveDateFocus(event, -1);
+          } else if (event.key === "ArrowDown") {
+            moveDateFocus(event, 7);
+          } else if (event.key === "ArrowUp") {
+            moveDateFocus(event, -7);
+          }
         },
       },
       showPresets

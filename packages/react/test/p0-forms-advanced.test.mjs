@@ -128,6 +128,38 @@ try {
 
   {
     const user = createUser();
+    const openChanges = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside date picker";
+    globalThis.document.body.appendChild(outsideButton);
+    const view = render(React.createElement(DatePicker, {
+      label: "Service date",
+      value: "2026-01-15",
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
+    }));
+    const trigger = view.getByRole("button", { name: /service date/i });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await waitFor(() => assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-picker-day="2026-01-15"]')));
+    assert.equal(view.container.querySelectorAll('[data-date-picker-day]:not([tabindex="-1"])').length, 1);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowRight" });
+    assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-picker-day="2026-01-16"]'));
+    await user.tab();
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+    outsideButton.remove();
+    cleanup();
+  }
+
+  {
+    const user = createUser();
     const changes = [];
     const openChanges = [];
     const view = render(React.createElement(Combobox, {
@@ -182,6 +214,38 @@ try {
     await user.click(input);
     assert.equal(openChanges.length, before);
     await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const user = createUser();
+    const openChanges = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside date range picker";
+    globalThis.document.body.appendChild(outsideButton);
+    const view = render(React.createElement(DateRangePicker, {
+      label: "Billing window",
+      value: { from: "2026-02-10", to: "" },
+      onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
+    }));
+    const trigger = view.getByRole("button", { name: /billing window/i });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await waitFor(() => assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-range-picker-day="2026-02-10"]')));
+    assert.equal(view.container.querySelectorAll('[data-date-range-picker-day]:not([tabindex="-1"])').length, 1);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowDown" });
+    assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-range-picker-day="2026-02-17"]'));
+    await user.tab();
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+    outsideButton.remove();
     cleanup();
   }
 

@@ -102,6 +102,10 @@ function dateCells(viewDate: Date): Array<Date | null> {
   return cells;
 }
 
+function enabledDateButtons(panel: HTMLElement | null, selector: string): HTMLButtonElement[] {
+  return [...(panel?.querySelectorAll?.<HTMLButtonElement>(`${selector}:not(:disabled)`) ?? [])];
+}
+
 function resolveDatePickerState({
   disabled = false,
   error = "",
@@ -155,6 +159,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const monthId = `${controlId}-month`;
   const rootRef = useRef<HTMLDivElement | null>(null);
   const controlRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
   const isValueControlled = value !== undefined;
   const [internalValue, setInternalValue] = useState<string>(value ?? "");
   const selectedValue = isValueControlled ? value ?? "" : internalValue;
@@ -172,6 +177,15 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   });
   const todayValue = useMemo(() => dateIso(new Date()), []);
   const cells = useMemo(() => dateCells(viewDate), [viewDate]);
+  const enabledDateValues = cells
+    .filter((cell): cell is Date => Boolean(cell))
+    .map((cell) => dateIso(cell))
+    .filter((isoValue) => !((min && isoValue < min) || (max && isoValue > max)));
+  const activeDateValue = enabledDateValues.includes(selectedValue)
+    ? selectedValue
+    : enabledDateValues.includes(todayValue)
+      ? todayValue
+      : enabledDateValues[0] ?? "";
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
   const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
 
@@ -192,11 +206,29 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
 
   if (!label) return null;
 
-  const setOpen = (nextOpen: boolean, restoreFocus = false, event?: DatePickerOpenChangeEvent): void => {
+  const focusActiveDate = (): void => {
+    if (!activeDateValue) return;
+    requestAnimationFrame(() => {
+      panelRef.current?.querySelector<HTMLButtonElement>(`[data-date-picker-day="${activeDateValue}"]`)?.focus();
+    });
+  };
+
+  const setOpen = (nextOpen: boolean, restoreFocus = false, event?: DatePickerOpenChangeEvent, focusActive = false): void => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
+    if (normalizedOpen && focusActive) focusActiveDate();
+  };
+
+  const moveDateFocus = (event: KeyboardEvent<HTMLElement>, delta: number): void => {
+    const enabled = enabledDateButtons(panelRef.current, "[data-date-picker-day]");
+    if (!enabled.length) return;
+    const active = event.target as HTMLButtonElement;
+    const index = enabled.indexOf(active);
+    if (index < 0) return;
+    event.preventDefault();
+    enabled[(index + delta + enabled.length) % enabled.length]?.focus();
   };
 
   const commitValue = (nextValue: string, event: DatePickerValueChangeEvent): void => {
@@ -212,7 +244,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const handleTriggerClick = (event: MouseEvent<HTMLButtonElement>): void => {
     rest.onClick?.(event);
     if (event.defaultPrevented || disabled) return;
-    setOpen(!open, false, event);
+    setOpen(!open, false, event, !open);
   };
   const handleTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
     rest.onKeyDown?.(event);
@@ -223,7 +255,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     }
     if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setOpen(true, false, event);
+      setOpen(true, false, event, true);
     }
   };
 
@@ -249,6 +281,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
       "aria-current": isoValue === todayValue ? "date" : undefined,
       "aria-label": formatDateLongLabel(isoValue, locale),
       "aria-pressed": String(isoValue === selectedValue),
+      tabIndex: isoValue === activeDateValue ? 0 : -1,
       onClick: (event: MouseEvent<HTMLButtonElement>) => {
         if (!isDisabled) commitValue(isoValue, event);
       },
@@ -322,6 +355,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
       "div",
       {
         className: "date-picker__panel",
+        ref: panelRef,
         id: panelId,
         hidden: !open,
         "data-date-picker-panel": "",
@@ -330,9 +364,20 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
         "aria-label": calendarLabel || undefined,
         "aria-labelledby": calendarLabel ? undefined : label ? `${controlId}-label` : undefined,
         onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => {
-          if (event.key !== "Escape") return;
-          event.preventDefault();
-          setOpen(false, true, event);
+          if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false, true, event);
+          } else if (event.key === "Tab") {
+            setOpen(false, false, event);
+          } else if (event.key === "ArrowRight") {
+            moveDateFocus(event, 1);
+          } else if (event.key === "ArrowLeft") {
+            moveDateFocus(event, -1);
+          } else if (event.key === "ArrowDown") {
+            moveDateFocus(event, 7);
+          } else if (event.key === "ArrowUp") {
+            moveDateFocus(event, -7);
+          }
         },
       },
       React.createElement(
