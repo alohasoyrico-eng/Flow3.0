@@ -12813,6 +12813,11 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-quick-action-control-shadow: var(--component-depth-low-soft);
   --comp-quick-action-control-fg: var(--component-color-action);
   --comp-quick-action-control-padding: var(--component-frame-space-none);
+  --comp-quick-action-disabled-bg: var(--component-color-disabled-bg);
+  --comp-quick-action-disabled-border: var(--component-color-disabled-border);
+  --comp-quick-action-disabled-cursor: var(--component-cursor-not-allowed);
+  --comp-quick-action-disabled-fg: var(--component-color-disabled-fg);
+  --comp-quick-action-disabled-opacity: var(--component-opacity-disabled);
   --comp-quick-action-full-width: var(--component-inline-size-full);
   --comp-quick-action-icon-display: var(--component-display-inline-flex);
   --comp-quick-action-icon-font-size: var(--component-density-icon-size-md);
@@ -12946,6 +12951,11 @@ body[data-contrast="quiet"] .route-summary__icon {
   color: var(--comp-quick-action-warning-fg);
 }
 
+.quick-action[data-intent="warning"] .quick-action__control {
+  background: var(--comp-quick-action-warning-bg);
+  color: var(--comp-quick-action-warning-fg);
+}
+
 .quick-action[data-intent="danger"] .quick-action__control {
   background: var(--comp-quick-action-danger-bg);
   color: var(--comp-quick-action-danger-fg);
@@ -12956,7 +12966,25 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .quick-action[data-state="loading"] .quick-action__control {
-  color: var(--comp-quick-action-control-fg);
+  background: var(--comp-quick-action-disabled-bg);
+  border-color: var(--comp-quick-action-disabled-border);
+  color: var(--comp-quick-action-disabled-fg);
+  cursor: var(--comp-quick-action-disabled-cursor);
+  opacity: var(--comp-quick-action-disabled-opacity);
+  transform: none;
+}
+
+.quick-action[data-state="disabled"] .quick-action__control {
+  background: var(--comp-quick-action-disabled-bg);
+  border-color: var(--comp-quick-action-disabled-border);
+  color: var(--comp-quick-action-disabled-fg);
+  cursor: var(--comp-quick-action-disabled-cursor);
+  opacity: var(--comp-quick-action-disabled-opacity);
+  transform: none;
+}
+
+.quick-action[data-state="disabled"] .quick-action__label {
+  color: var(--comp-quick-action-disabled-fg);
 }
 
 .quick-action__label {

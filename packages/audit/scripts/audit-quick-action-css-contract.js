@@ -12,7 +12,10 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
-  const sourceFile = path.join(root || process.cwd(), "packages/react/src/QuickAction.js");
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/QuickAction.tsx");
+  const jsSourceFile = path.join(sourceRoot, "packages/react/src/QuickAction.js");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : jsSourceFile;
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".quick-action");
   const densitySmBlock = blockFor(blocks, selectorKey, ".quick-action[data-density=\"sm\"]");
@@ -26,11 +29,17 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
   const loadingBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"loading\"]");
   const loadingControlBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"loading\"] .quick-action__control");
   const warningBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"warning\"] .quick-action__control");
+  const warningIntentBlock = blocks.find((block) => block.selector.includes(".quick-action[data-intent=\"warning\"] .quick-action__control"));
   const dangerIntentBlock = blockFor(blocks, selectorKey, ".quick-action[data-intent=\"danger\"] .quick-action__control");
+  const disabledControlBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"disabled\"] .quick-action__control");
+  const disabledLabelBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"disabled\"] .quick-action__label");
   const labelBlock = blockFor(blocks, selectorKey, ".quick-action__label");
 
-  if (!source.includes("React.createElement(Badge") || !source.includes("React.createElement(Spinner")) {
+  if (!source.includes("Badge") || !source.includes("Spinner")) {
     add("errors", sourceFile, 1, "QuickAction must compose Badge and Spinner instead of duplicating count/loading visuals.");
+  }
+  if (!source.includes("\"warning\"") || !source.includes("\"data-intent\"")) {
+    add("errors", sourceFile, 1, "QuickAction must expose governed warning intent through data-intent.");
   }
   const localActionSize = /--comp-quick-action-(?:label-width|min-block-size|min-inline-size):\s*calc\(var\(--component-control-min-size\)[^;]+;/.exec(text);
   if (localActionSize) {
@@ -68,6 +77,11 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-quick-action-control-cursor: var(--component-cursor-pointer)",
       "--comp-quick-action-control-display: var(--component-display-inline-flex)",
       "--comp-quick-action-control-padding: var(--component-frame-space-none)",
+      "--comp-quick-action-disabled-bg: var(--component-color-disabled-bg)",
+      "--comp-quick-action-disabled-border: var(--component-color-disabled-border)",
+      "--comp-quick-action-disabled-cursor: var(--component-cursor-not-allowed)",
+      "--comp-quick-action-disabled-fg: var(--component-color-disabled-fg)",
+      "--comp-quick-action-disabled-opacity: var(--component-opacity-disabled)",
       "--comp-quick-action-label-display: var(--component-display-block)",
       "background: var(--comp-quick-action-bg)",
       "border: var(--comp-quick-action-border-width)",
@@ -203,8 +217,15 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     block: loadingControlBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-quick-action-control-fg)"],
-    message: "QuickAction loading control must preserve control foreground alias.",
+    snippets: [
+      "background: var(--comp-quick-action-disabled-bg)",
+      "border-color: var(--comp-quick-action-disabled-border)",
+      "color: var(--comp-quick-action-disabled-fg)",
+      "cursor: var(--comp-quick-action-disabled-cursor)",
+      "opacity: var(--comp-quick-action-disabled-opacity)",
+      "transform: none",
+    ],
+    message: "QuickAction loading control must consume blocked-state aliases.",
   });
   requireIncludes({
     block: warningBlock,
@@ -214,11 +235,39 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     message: "QuickAction warning state must consume warning aliases.",
   });
   requireIncludes({
+    block: warningIntentBlock,
+    text,
+    packageCssFile,
+    snippets: ["background: var(--comp-quick-action-warning-bg)", "color: var(--comp-quick-action-warning-fg)"],
+    message: "QuickAction warning intent must consume warning aliases.",
+  });
+  requireIncludes({
     block: dangerIntentBlock,
     text,
     packageCssFile,
     snippets: ["background: var(--comp-quick-action-danger-bg)", "color: var(--comp-quick-action-danger-fg)"],
     message: "QuickAction danger intent must consume danger aliases.",
+  });
+  requireIncludes({
+    block: disabledControlBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "background: var(--comp-quick-action-disabled-bg)",
+      "border-color: var(--comp-quick-action-disabled-border)",
+      "color: var(--comp-quick-action-disabled-fg)",
+      "cursor: var(--comp-quick-action-disabled-cursor)",
+      "opacity: var(--comp-quick-action-disabled-opacity)",
+      "transform: none",
+    ],
+    message: "QuickAction disabled control must consume blocked-state aliases.",
+  });
+  requireIncludes({
+    block: disabledLabelBlock,
+    text,
+    packageCssFile,
+    snippets: ["color: var(--comp-quick-action-disabled-fg)"],
+    message: "QuickAction disabled label must consume blocked-state aliases.",
   });
   requireIncludes({
     block: labelBlock,
