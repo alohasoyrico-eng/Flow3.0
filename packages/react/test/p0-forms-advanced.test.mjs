@@ -546,11 +546,18 @@ try {
       onComplete: (value, meta, event) => completions.push({ value, meta, eventType: event.type }),
     }));
     const input = view.getByRole("textbox", { name: /security code/i });
+    const root = view.container.querySelector(".code-input");
 
     await user.type(input, "12ab345");
     assert.equal(input.value, "1234");
     assert.equal(changes.at(-1).meta.complete, true);
     assert.equal(completions.at(-1).value, "1234");
+    assert.equal(root.dataset.state, "complete");
+    assert.equal(root.dataset.focused, "true");
+    assert.equal(view.container.querySelectorAll('.code-input__slot[data-filled="true"]').length, 4);
+    assert.equal(view.container.querySelectorAll('.code-input__slot[data-active="true"]').length, 1);
+    fireEvent.blur(input);
+    assert.equal(root.dataset.focused, "false");
 
     view.rerender(React.createElement(CodeInput, {
       label: "Security code",
@@ -562,6 +569,19 @@ try {
     fireEvent.change(input, { target: { value: "1111" } });
     assert.equal(changes.at(-1).value, "1111");
     assert.equal(input.value, "9999");
+
+    view.rerender(React.createElement(CodeInput, {
+      label: "Security code",
+      length: 4,
+      value: "12",
+      error: "Invalid security code",
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    await waitFor(() => assert.equal(input.value, "12"));
+    const error = view.getByText("Invalid security code");
+    assert.equal(root.dataset.state, "error");
+    assert.equal(input.getAttribute("aria-invalid"), "true");
+    assert.equal(error.getAttribute("role"), "alert");
 
     view.rerender(React.createElement(CodeInput, {
       label: "Security code",
