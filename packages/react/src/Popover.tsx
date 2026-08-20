@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { popoverPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
@@ -11,7 +11,7 @@ export type PopoverVariant = "information" | "action" | "form" | "metric";
 export type PopoverState = "default" | "closed" | "open" | "hover" | "focus" | "warning" | "disabled";
 export type PopoverPlacement = "top" | "right" | "bottom" | "left";
 export type PopoverDensity = "sm" | "md" | "lg";
-export type PopoverOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
+export type PopoverOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement> | globalThis.MouseEvent;
 
 export interface PopoverAction {
   key?: string;
@@ -93,6 +93,7 @@ export const Popover = forwardRef<HTMLSpanElement, PopoverProps>(function Popove
 }, ref) {
   const reactId = useId();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLElement | null>(null);
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "information");
   const resolvedPlacement = normalizeFlowValue(placement, validPlacements, "bottom");
   const resolvedDensity = normalizeFlowDensity(density);
@@ -111,8 +112,6 @@ export const Popover = forwardRef<HTMLSpanElement, PopoverProps>(function Popove
   const hasTrigger = Boolean(triggerLabel);
   const hasField = Boolean(field?.label);
 
-  if (!triggerLabel || !title) return null;
-
   const setOpen = (nextOpen: boolean, { restoreFocus = false, event }: SetOpenOptions = {}) => {
     if (isDisabled) return;
     const normalizedOpen = Boolean(nextOpen);
@@ -122,10 +121,27 @@ export const Popover = forwardRef<HTMLSpanElement, PopoverProps>(function Popove
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
+  useEffect(() => {
+    if (!isOpen || isDisabled) return undefined;
+    const onDocumentMouseDown = (event: globalThis.MouseEvent) => {
+      const target = event.target instanceof Node ? event.target : null;
+      if (!target) return;
+      if (triggerRef.current?.contains(target)) return;
+      if (panelRef.current?.contains(target)) return;
+      setOpen(false, { event });
+    };
+    document.addEventListener("mousedown", onDocumentMouseDown);
+    return () => document.removeEventListener("mousedown", onDocumentMouseDown);
+  }, [isOpen, isDisabled]);
+
+  if (!triggerLabel || !title) return null;
+
   const closeFromKeyboard = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key !== "Escape") return;
-    event.preventDefault();
-    setOpen(false, { restoreFocus: true, event });
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false, { restoreFocus: true, event });
+    }
+    if (event.key === "Tab") setOpen(false, { event });
   };
 
   return React.createElement(
@@ -160,6 +176,7 @@ export const Popover = forwardRef<HTMLSpanElement, PopoverProps>(function Popove
     React.createElement(
       "section",
       {
+        ref: panelRef,
         className: "popover__panel",
         hidden: !isOpen,
         id: panelId,

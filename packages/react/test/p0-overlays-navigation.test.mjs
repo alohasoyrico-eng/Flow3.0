@@ -154,11 +154,14 @@ try {
     const user = createUser();
     const openChanges = [];
     const actions = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside popover";
+    globalThis.document.body.appendChild(outsideButton);
     const view = render(React.createElement(Popover, {
       triggerLabel: "Open filters",
       title: "Filter routes",
       description: "Adjust visible routes.",
-      actions: [{ key: "apply", label: "Apply" }],
+      actions: [{ key: "cancel", label: "Cancel" }, { key: "apply", label: "Apply" }],
       onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
       onAction: (key, event) => actions.push({ key, eventType: event.type }),
     }));
@@ -170,6 +173,19 @@ try {
     fireEvent.keyDown(view.getByRole("dialog", { name: /filter routes/i }), { key: "Escape" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    view.getByRole("button", { name: /cancel/i }).focus();
+    await user.tab();
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
 
     await user.click(trigger);
     await user.click(view.getByRole("button", { name: /apply/i }));
@@ -189,6 +205,7 @@ try {
     assert.equal(openChanges.at(-1).open, true);
     assert.equal(trigger.getAttribute("aria-expanded"), "false");
     await assertNoAxeViolations(view.container);
+    outsideButton.remove();
     cleanup();
   }
 

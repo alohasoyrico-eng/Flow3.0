@@ -2,7 +2,7 @@
  * Do not edit this compatibility runtime directly.
  * Authored source of truth is the paired .ts/.tsx file.
  */
-import React, { forwardRef, useId, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useId, useRef, useState } from "react";
 import { popoverPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { Input } from "./Input.js";
@@ -21,6 +21,7 @@ function buttonVariantForAction(action) {
 export const Popover = forwardRef(function Popover({ triggerLabel, title, description, id, open: openProp, variant = "information", state = "default", placement = "bottom", density, fullWidth = false, disabled = false, actions, field, onOpenChange, onAction, className = "", ...rest }, ref) {
     const reactId = useId();
     const triggerRef = useRef(null);
+    const panelRef = useRef(null);
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "information");
     const resolvedPlacement = normalizeFlowValue(placement, validPlacements, "bottom");
     const resolvedDensity = normalizeFlowDensity(density);
@@ -38,8 +39,6 @@ export const Popover = forwardRef(function Popover({ triggerLabel, title, descri
     const isDisabled = disabled || resolvedInteractionState === "disabled";
     const hasTrigger = Boolean(triggerLabel);
     const hasField = Boolean(field?.label);
-    if (!triggerLabel || !title)
-        return null;
     const setOpen = (nextOpen, { restoreFocus = false, event } = {}) => {
         if (isDisabled)
             return;
@@ -52,11 +51,31 @@ export const Popover = forwardRef(function Popover({ triggerLabel, title, descri
         if (restoreFocus)
             requestAnimationFrame(() => triggerRef.current?.focus());
     };
+    useEffect(() => {
+        if (!isOpen || isDisabled)
+            return undefined;
+        const onDocumentMouseDown = (event) => {
+            const target = event.target instanceof Node ? event.target : null;
+            if (!target)
+                return;
+            if (triggerRef.current?.contains(target))
+                return;
+            if (panelRef.current?.contains(target))
+                return;
+            setOpen(false, { event });
+        };
+        document.addEventListener("mousedown", onDocumentMouseDown);
+        return () => document.removeEventListener("mousedown", onDocumentMouseDown);
+    }, [isOpen, isDisabled]);
+    if (!triggerLabel || !title)
+        return null;
     const closeFromKeyboard = (event) => {
-        if (event.key !== "Escape")
-            return;
-        event.preventDefault();
-        setOpen(false, { restoreFocus: true, event });
+        if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false, { restoreFocus: true, event });
+        }
+        if (event.key === "Tab")
+            setOpen(false, { event });
     };
     return React.createElement("span", {
         ...flowRestProps(rest),
@@ -84,6 +103,7 @@ export const Popover = forwardRef(function Popover({ triggerLabel, title, descri
         onClick: (event) => setOpen(!isOpen, { event }),
         onKeyDown: closeFromKeyboard,
     }) : null, React.createElement("section", {
+        ref: panelRef,
         className: "popover__panel",
         hidden: !isOpen,
         id: panelId,

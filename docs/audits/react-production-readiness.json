@@ -65,7 +65,7 @@
   "testCapabilities": {
     "testingLibraryRender": 228,
     "fireEvent": 507,
-    "getByRole": 430,
+    "getByRole": 431,
     "getByLabelText": 19,
     "keyDown": 58,
     "escapeKey": 23,
