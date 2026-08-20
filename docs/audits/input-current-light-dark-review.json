@@ -4,7 +4,7 @@
   "status": "pass",
   "generatedAt": "2026-08-19T00:00:00.000-06:00",
   "source": {
-    "harness": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/input-flow-current.html?fresh=input-dark-fix-2",
+    "harness": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/react-runtime.html",
     "packageCss": "packages/components/styles/components.css",
     "reactSource": "packages/react/src/Input.tsx",
     "fieldMessageResolver": "packages/react/src/internal/field-message.ts",

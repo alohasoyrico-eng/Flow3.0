@@ -4,7 +4,7 @@
   "status": "pass",
   "generatedAt": "2026-08-19T00:00:00.000-06:00",
   "source": {
-    "harness": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/button-flow-current.html?fresh=button-close-qa-2",
+    "harness": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/react-runtime.html",
     "packageCss": "packages/components/styles/components.css",
     "reactTests": "packages/react/test/p1-actions.test.mjs",
     "cssContract": "packages/audit/scripts/audit-button-css-contract.js"

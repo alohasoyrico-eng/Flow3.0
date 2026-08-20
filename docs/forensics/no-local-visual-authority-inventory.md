@@ -97,7 +97,7 @@ There are 19 matches for inline style or `<style>` usage inside local component 
 
 Important classification:
 
-- `interactive/*-flow-current.html` files need harness CSS for page layout, review sections, theme controls, and interaction instructions.
+- `interactive/react-runtime.html` files need harness CSS for page layout, review sections, theme controls, and interaction instructions.
 - They must not define or override component classes such as `.button`, `.field`, `.select-control`, `.combobox`, `.menu`, `.checkbox`, `.radio`, `.switch`, `.tabs`, or their descendants unless the override is explicitly marked as test instrumentation and cannot affect visual review.
 - Old ZIP/reference HTML can contain inline styles because it is evidence, not Flow implementation. Those files should be excluded from DS implementation gates but not confused with current Flow demos.
 
