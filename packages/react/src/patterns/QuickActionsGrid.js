@@ -72,17 +72,17 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
             : actionDisabled
                 ? "disabled"
                 : action.state ?? "default";
-        const tone = action.intent === "danger" || action.tone === "danger" ? "danger" : "neutral";
+        const intent = action.intent === "danger" || action.tone === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
         return React.createElement("div", { key, "data-action-key": key }, React.createElement(QuickAction, {
             label: action.label,
             icon: action.icon,
             badge: action.badge,
-            variant: action.variant ?? (tone === "danger" ? "destructive" : "standard"),
+            variant: action.variant ?? "standard",
+            intent,
             state: actionState,
             density: action.density ?? density,
             loading: resolvedState === "loading" || action.loading,
             disabled: actionDisabled,
-            tone,
             onAction: (meta, event) => {
                 action.onAction?.(meta, event);
                 onAction?.(key, action, event);

@@ -196,13 +196,13 @@ function reviewFlags(slug, family, contract) {
   if (props.has("variant") && !variants.length) {
     flags.push("variant-prop-without-contract-variants");
   }
-  if (states.includes("disabled") && !props.has("disabled")) {
+  if (states.includes("disabled") && !props.has("disabled") && !hasStateSource(rule, props, "disabled")) {
     flags.push("disabled-state-without-disabled-prop");
   }
-  if (states.includes("loading") && !props.has("loading") && !["feedback", "motion-feedback", "progress-feedback"].includes(family)) {
+  if (states.includes("loading") && !props.has("loading") && !hasStateSource(rule, props, "loading") && !["feedback", "motion-feedback", "progress-feedback"].includes(family)) {
     flags.push("loading-state-without-loading-prop");
   }
-  if (states.includes("selected") && !props.has("selected") && !["navigation", "choices", "fields", "overlays"].includes(family)) {
+  if (states.includes("selected") && !props.has("selected") && !hasStateSource(rule, props, "selected") && !["navigation", "choices", "fields", "overlays"].includes(family)) {
     flags.push("selected-state-without-selected-prop");
   }
   if (props.has("size") && props.has("density")) {
@@ -216,6 +216,10 @@ function reviewFlags(slug, family, contract) {
   }
 
   return flags;
+}
+
+function hasStateSource(rule, props, state) {
+  return (rule?.stateSourceProps?.[state] ?? []).some((name) => props.has(name));
 }
 
 function priorityFor(slug) {

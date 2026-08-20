@@ -2011,8 +2011,18 @@
   transform: var(--comp-icon-button-press-transform);
 }
 
-.icon-button--tonal {
+.icon-button--secondary {
   background: var(--comp-icon-button-tonal-bg);
+}
+
+.icon-button--tertiary {
+  background: transparent;
+  border-color: transparent;
+}
+
+.icon-button--outlined {
+  background: transparent;
+  border-color: var(--comp-icon-button-border);
 }
 
 .icon-button--primary {
@@ -12788,7 +12798,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   color: var(--comp-quick-action-warning-fg);
 }
 
-.quick-action[data-variant="destructive"] .quick-action__control {
+.quick-action[data-intent="danger"] .quick-action__control {
   background: var(--comp-quick-action-danger-bg);
   color: var(--comp-quick-action-danger-fg);
 }

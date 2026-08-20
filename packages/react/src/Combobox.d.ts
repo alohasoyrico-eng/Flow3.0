@@ -44,6 +44,7 @@ export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
   emptyText?: string;
   loadingText?: string;
   disabled?: boolean;
+  loading?: boolean;
   density?: ComboboxDensity;
   state?: ComboboxState;
   open?: boolean;

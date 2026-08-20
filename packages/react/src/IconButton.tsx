@@ -4,7 +4,7 @@ import { iconButtonPlatformContract } from "@design-system/components/platforms"
 import { flowDensityProps, flowRestProps, normalizeFlowDensity, normalizeFlowValue } from "./internal/props.js";
 import type { FlowDataAttributes } from "./internal/props.js";
 
-export type IconButtonVariant = "ghost" | "tonal" | "primary";
+export type IconButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
 export type IconButtonDensity = "sm" | "md" | "lg";
 export type IconButtonType = "button" | "submit" | "reset";
 
@@ -28,7 +28,7 @@ export interface IconButtonComponent extends ForwardRefExoticComponent<IconButto
 }
 
 const allowedTypes = new Set<IconButtonType>(["button", "submit", "reset"]);
-const allowedVariants = new Set<IconButtonVariant>(["ghost", "tonal", "primary"]);
+const allowedVariants = new Set<IconButtonVariant>(["primary", "secondary", "tertiary", "outlined", "ghost"]);
 
 function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {
   return ["icon-button", `icon-button--${variant}`, className].filter(Boolean).join(" ");

@@ -197,13 +197,14 @@ const quickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, 
   label: "Freeze",
   icon: "lock",
   badge: "2",
-  variant: "destructive",
+  intent: "danger",
   state: "warning",
   density: "sm",
   onAction: () => {},
 }));
 assert.match(quickActionMarkup, /class="quick-action"/);
-assert.match(quickActionMarkup, /data-variant="destructive"/);
+assert.match(quickActionMarkup, /data-variant="standard"/);
+assert.match(quickActionMarkup, /data-intent="danger"/);
 assert.match(quickActionMarkup, /data-state="warning"/);
 assert.match(quickActionMarkup, /data-density="sm"/);
 assert.match(quickActionMarkup, /class="quick-action__control"/);
@@ -2144,13 +2145,13 @@ React.createElement(Button, { ref, label: "Ref" });
 const iconButtonMarkup = renderToStaticMarkup(React.createElement(IconButton, {
   ariaLabel: "Open notifications",
   icon: "notifications",
-  variant: "tonal",
+  variant: "secondary",
   density: "lg",
   selected: true,
   badge: true,
 }));
 
-assert.match(iconButtonMarkup, /class="icon-button icon-button--tonal"/);
+assert.match(iconButtonMarkup, /class="icon-button icon-button--secondary"/);
 assert.match(iconButtonMarkup, /aria-label="Open notifications"/);
 assert.match(iconButtonMarkup, /aria-pressed="true"/);
 assert.match(iconButtonMarkup, /data-density="lg"/);

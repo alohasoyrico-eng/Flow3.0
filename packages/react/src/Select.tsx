@@ -52,6 +52,7 @@ export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   value?: string;
   name?: string;
   disabled?: boolean;
+  loading?: boolean;
   density?: SelectDensity;
   variant?: SelectVariant;
   state?: SelectState;
@@ -110,6 +111,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   value,
   name = "",
   disabled = false,
+  loading = false,
   density,
   variant = "default",
   state = "default",
@@ -133,7 +135,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   const selectedValue = selectedOption ? selectedOption.value : "";
   const selectedLabel = selectedOption ? selectedOption.label : "";
   const isOpen = open;
-  const resolvedState = disabled ? "disabled" : state || "default";
+  const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : state || "default";
   const isLoading = resolvedState === "loading";
   const selectedIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : null;
   const [activeIndex, setActiveIndex] = useState<number | null>(null);

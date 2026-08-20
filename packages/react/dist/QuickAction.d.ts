@@ -7,14 +7,16 @@ import type {
 import type { FlowDataAttributes } from "./internal/props.js";
 import type { quickActionPlatformContract } from "#flow/platforms";
 
-export type QuickActionVariant = "standard" | "destructive" | "compact" | "wide";
+export type QuickActionVariant = "standard" | "compact" | "wide";
 export type QuickActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
 export type QuickActionDensity = "sm" | "md" | "lg";
 export type QuickActionTone = "neutral" | "danger";
+export type QuickActionIntent = "default" | "danger" | "warning";
 
 export interface QuickActionMeta {
   label: string;
   variant: QuickActionVariant;
+  intent: QuickActionIntent;
   state: QuickActionState;
 }
 
@@ -24,6 +26,7 @@ export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   badge?: string;
   variant?: QuickActionVariant;
   state?: QuickActionState;
+  intent?: QuickActionIntent;
   density?: QuickActionDensity;
   loading?: boolean;
   disabled?: boolean;

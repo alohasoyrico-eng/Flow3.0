@@ -65,6 +65,7 @@ export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
   emptyText?: string;
   loadingText?: string;
   disabled?: boolean;
+  loading?: boolean;
   density?: ComboboxDensity;
   state?: ComboboxState;
   open?: boolean;
@@ -97,16 +98,19 @@ function normalizeOptions(options: ComboboxOption[] | undefined): ComboboxOption
 
 function normalizedState({
   disabled,
+  loading,
   state,
   currentValue,
   visibleCount,
 }: {
   disabled: boolean;
+  loading: boolean;
   state?: ComboboxState | undefined;
   currentValue: string;
   visibleCount: number;
 }): ComboboxState {
   if (disabled) return "disabled";
+  if (loading) return "loading";
   if (state === "error") return "error";
   if (state === "loading") return "loading";
   if (state === "open" || state === "focus") return state;
@@ -127,6 +131,7 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
   emptyText,
   loadingText = "Loading results",
   disabled = false,
+  loading = false,
   density,
   state,
   open: openProp,
@@ -164,7 +169,7 @@ export const Combobox = forwardRef<HTMLInputElement, ComboboxProps>(function Com
   );
   const enabledOptions = filteredOptions.filter((option) => !option.disabled);
   const activeOption = activeIndex === null ? null : enabledOptions[activeIndex] ?? null;
-  const resolvedState = normalizedState({ disabled, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
+  const resolvedState = normalizedState({ disabled, loading, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
   const isLoading = resolvedState === "loading";
   const resolvedDensity = normalizeFlowDensity(density);
   const fieldMessage = resolveFieldMessage({

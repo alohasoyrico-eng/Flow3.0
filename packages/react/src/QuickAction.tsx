@@ -7,15 +7,17 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
-export type QuickActionVariant = "standard" | "destructive" | "compact" | "wide";
+export type QuickActionVariant = "standard" | "compact" | "wide";
 export type QuickActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
 export type QuickActionDensity = FlowDensity;
 export type QuickActionTone = "neutral" | "danger";
+export type QuickActionIntent = "default" | "danger" | "warning";
 export type QuickActionType = "button" | "submit" | "reset";
 
 export interface QuickActionMeta {
   label: string;
   variant: QuickActionVariant;
+  intent: QuickActionIntent;
   state: QuickActionState;
 }
 
@@ -25,6 +27,7 @@ export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   badge?: string;
   variant?: QuickActionVariant;
   state?: QuickActionState;
+  intent?: QuickActionIntent;
   density?: QuickActionDensity;
   loading?: boolean;
   disabled?: boolean;
@@ -38,8 +41,9 @@ export interface QuickActionComponent extends ForwardRefExoticComponent<QuickAct
   platformContract: typeof quickActionPlatformContract;
 }
 
-const validVariants = new Set<QuickActionVariant>(["standard", "destructive", "compact", "wide"]);
+const validVariants = new Set<QuickActionVariant>(["standard", "compact", "wide"]);
 const validStates = new Set<QuickActionState>(["default", "hover", "focus", "pressed", "loading", "warning", "disabled"]);
+const validIntents = new Set<QuickActionIntent>(["default", "danger", "warning"]);
 const validTypes = new Set<QuickActionType>(["button", "submit", "reset"]);
 
 export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(function QuickAction({
@@ -48,6 +52,7 @@ export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(funct
   badge = "",
   variant,
   state = "default",
+  intent,
   density,
   loading = false,
   tone = "neutral",
@@ -58,7 +63,8 @@ export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(funct
   ...rest
 }, ref) {
   const resolvedLabel = label;
-  const resolvedVariant: QuickActionVariant = variant && validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
+  const resolvedVariant: QuickActionVariant = variant && validVariants.has(variant) ? variant : "standard";
+  const resolvedIntent: QuickActionIntent = intent && validIntents.has(intent) ? intent : tone === "danger" ? "danger" : state === "warning" ? "warning" : "default";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedType = validTypes.has(type) ? type : "button";
@@ -74,6 +80,7 @@ export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(funct
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
+      "data-intent": resolvedIntent,
     },
     React.createElement(
       "button",
@@ -89,7 +96,7 @@ export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(funct
           if (blocked) return;
           rest.onClick?.(event);
           if (event.defaultPrevented) return;
-          onAction?.({ label: resolvedLabel, variant: resolvedVariant, state: resolvedState }, event);
+          onAction?.({ label: resolvedLabel, variant: resolvedVariant, intent: resolvedIntent, state: resolvedState }, event);
         },
       },
       React.createElement(

@@ -3,12 +3,14 @@ import { quickActionPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps, flowDataProps } from "./internal/props.js";
-const validVariants = new Set(["standard", "destructive", "compact", "wide"]);
+const validVariants = new Set(["standard", "compact", "wide"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "warning", "disabled"]);
+const validIntents = new Set(["default", "danger", "warning"]);
 const validTypes = new Set(["button", "submit", "reset"]);
-export const QuickAction = forwardRef(function QuickAction({ label, icon = "", badge = "", variant, state = "default", density, loading = false, tone = "neutral", disabled = false, type = "button", onAction, className = "", ...rest }, ref) {
+export const QuickAction = forwardRef(function QuickAction({ label, icon = "", badge = "", variant, state = "default", intent, density, loading = false, tone = "neutral", disabled = false, type = "button", onAction, className = "", ...rest }, ref) {
     const resolvedLabel = label;
-    const resolvedVariant = variant && validVariants.has(variant) ? variant : tone === "danger" ? "destructive" : "standard";
+    const resolvedVariant = variant && validVariants.has(variant) ? variant : "standard";
+    const resolvedIntent = intent && validIntents.has(intent) ? intent : tone === "danger" ? "danger" : state === "warning" ? "warning" : "default";
     const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
     const resolvedDensity = normalizeFlowDensity(density);
     const resolvedType = validTypes.has(type) ? type : "button";
@@ -22,6 +24,7 @@ export const QuickAction = forwardRef(function QuickAction({ label, icon = "", b
         ...flowVariantProps(resolvedVariant),
         ...flowStateProps(resolvedState),
         ...flowDensityProps(resolvedDensity),
+        "data-intent": resolvedIntent,
     }, React.createElement("button", {
         ...flowRestProps(rest),
         ref,
@@ -36,7 +39,7 @@ export const QuickAction = forwardRef(function QuickAction({ label, icon = "", b
             rest.onClick?.(event);
             if (event.defaultPrevented)
                 return;
-            onAction?.({ label: resolvedLabel, variant: resolvedVariant, state: resolvedState }, event);
+            onAction?.({ label: resolvedLabel, variant: resolvedVariant, intent: resolvedIntent, state: resolvedState }, event);
         },
     }, React.createElement("span", { className: "quick-action__icon", "aria-hidden": "true" }, resolvedState === "loading"
         ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true })

@@ -35,7 +35,7 @@ function lastEnabledIndex(options) {
     }
     return firstEnabledIndex(options);
 }
-export const Select = forwardRef(function Select({ label, helper = "", icon = "", options, optionsLabel, value, name = "", disabled = false, density, variant = "default", state = "default", open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
+export const Select = forwardRef(function Select({ label, helper = "", icon = "", options, optionsLabel, value, name = "", disabled = false, loading = false, density, variant = "default", state = "default", open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const selectId = id ?? `select-${generatedId}`;
     const normalizedOptions = normalizeOptions(options);
@@ -49,7 +49,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     const selectedValue = selectedOption ? selectedOption.value : "";
     const selectedLabel = selectedOption ? selectedOption.label : "";
     const isOpen = open;
-    const resolvedState = disabled ? "disabled" : state || "default";
+    const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : state || "default";
     const isLoading = resolvedState === "loading";
     const selectedIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : null;
     const [activeIndex, setActiveIndex] = useState(null);

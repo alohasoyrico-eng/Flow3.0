@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } f
 import { iconButtonPlatformContract } from "#flow/platforms";
 import type { FlowDataAttributes } from "./internal/props.js";
 
-export type IconButtonVariant = "ghost" | "tonal" | "primary";
+export type IconButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
 export type IconButtonDensity = "sm" | "md" | "lg";
 export type IconButtonType = "button" | "submit" | "reset";
 

@@ -64,19 +64,19 @@ export const SwipeActions = forwardRef(function SwipeActions({ label = "Swipe ac
         onSelect: row?.onSelect,
     }), normalizedActions.map((action, index) => {
         const key = actionKey(action, index);
-        const tone = action.intent === "danger" || action.tone === "danger" ? "danger" : "neutral";
+        const intent = action.intent === "danger" || action.tone === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
         const actionDisabled = isDisabled || action.disabled;
         const actionState = actionDisabled ? "disabled" : action.loading ? "loading" : actionsVisible ? "pressed" : "default";
         return React.createElement("div", { key, "data-swipe-action-key": key, "data-visible": actionsVisible ? "true" : "false" }, React.createElement(QuickAction, {
             label: action.label,
             icon: action.icon,
             badge: action.badge,
-            variant: action.variant ?? (tone === "danger" ? "destructive" : "compact"),
+            variant: action.variant ?? "compact",
+            intent,
             state: actionState,
             density: action.density ?? density,
             loading: action.loading,
             disabled: actionDisabled,
-            tone,
             onAction: (meta, event) => {
                 action.onAction?.(meta, event);
                 onAction?.(key, action, event);

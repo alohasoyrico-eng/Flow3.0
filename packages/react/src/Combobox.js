@@ -19,9 +19,11 @@ function selectedOptionFor(options, value) {
 function normalizeOptions(options) {
     return (Array.isArray(options) ? options : []).filter((option) => (option?.label && option.value !== undefined && option.value !== null && option.value !== ""));
 }
-function normalizedState({ disabled, state, currentValue, visibleCount, }) {
+function normalizedState({ disabled, loading, state, currentValue, visibleCount, }) {
     if (disabled)
         return "disabled";
+    if (loading)
+        return "loading";
     if (state === "error")
         return "error";
     if (state === "loading")
@@ -32,7 +34,7 @@ function normalizedState({ disabled, state, currentValue, visibleCount, }) {
         return "empty";
     return state ?? (currentValue ? "filled" : "default");
 }
-export const Combobox = forwardRef(function Combobox({ label, helper = "", icon = "search", options, optionsLabel, clearSelectionLabel, value, name = "", placeholder = "", emptyText, loadingText = "Loading results", disabled = false, density, state, open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
+export const Combobox = forwardRef(function Combobox({ label, helper = "", icon = "search", options, optionsLabel, clearSelectionLabel, value, name = "", placeholder = "", emptyText, loadingText = "Loading results", disabled = false, loading = false, density, state, open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const comboboxId = id ?? `combobox-${generatedId}`;
     const normalizedOptions = useMemo(() => normalizeOptions(options), [options]);
@@ -58,7 +60,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
     }), [normalizedOptions, query]);
     const enabledOptions = filteredOptions.filter((option) => !option.disabled);
     const activeOption = activeIndex === null ? null : enabledOptions[activeIndex] ?? null;
-    const resolvedState = normalizedState({ disabled, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
+    const resolvedState = normalizedState({ disabled, loading, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
     const isLoading = resolvedState === "loading";
     const resolvedDensity = normalizeFlowDensity(density);
     const fieldMessage = resolveFieldMessage({

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { iconButtonPlatformContract } from "#flow/platforms";
 import { flowDensityProps, flowRestProps, normalizeFlowDensity, normalizeFlowValue } from "./internal/props.js";
 const allowedTypes = new Set(["button", "submit", "reset"]);
-const allowedVariants = new Set(["ghost", "tonal", "primary"]);
+const allowedVariants = new Set(["primary", "secondary", "tertiary", "outlined", "ghost"]);
 function iconButtonClassName({ variant = "ghost", className = "" } = {}) {
     return ["icon-button", `icon-button--${variant}`, className].filter(Boolean).join(" ");
 }

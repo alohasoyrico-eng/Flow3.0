@@ -30,31 +30,19 @@
   "propCounts": {
     "variant": 42,
     "state": 56,
-    "tone": 15,
-    "intent": 1,
+    "tone": 14,
+    "intent": 2,
     "density": 62,
     "size": 0,
     "selected": 6,
     "disabled": 36,
-    "loading": 12
+    "loading": 14
   },
   "reviewFlagCounts": {
-    "disabled-state-without-disabled-prop": 18,
-    "loading-state-without-loading-prop": 5,
-    "selected-state-without-selected-prop": 4,
-    "variant-tonal-requires-review": 1,
-    "public-prop-tone-outside-family-taxonomy": 1,
-    "public-prop-tone-requires-review": 1,
-    "variant-destructive-requires-review": 1
+    "disabled-state-without-disabled-prop": 14,
+    "loading-state-without-loading-prop": 2
   },
   "flaggedComponents": [
-    {
-      "slug": "accordion",
-      "family": "navigation",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
     {
       "slug": "animated-moment",
       "family": "motion-feedback",
@@ -119,27 +107,6 @@
       ]
     },
     {
-      "slug": "combobox",
-      "family": "fields",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ]
-    },
-    {
-      "slug": "date-picker",
-      "family": "fields-date",
-      "flags": [
-        "selected-state-without-selected-prop"
-      ]
-    },
-    {
-      "slug": "date-range-picker",
-      "family": "fields-date",
-      "flags": [
-        "selected-state-without-selected-prop"
-      ]
-    },
-    {
       "slug": "error-panel",
       "family": "feedback",
       "flags": [
@@ -147,26 +114,10 @@
       ]
     },
     {
-      "slug": "icon-button",
-      "family": "actions",
-      "flags": [
-        "variant-tonal-requires-review"
-      ]
-    },
-    {
       "slug": "inline-validation",
       "family": "feedback",
       "flags": [
         "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "list",
-      "family": "data-display",
-      "flags": [
-        "disabled-state-without-disabled-prop",
-        "loading-state-without-loading-prop",
-        "selected-state-without-selected-prop"
       ]
     },
     {
@@ -184,29 +135,6 @@
       ]
     },
     {
-      "slug": "quick-action",
-      "family": "actions",
-      "flags": [
-        "public-prop-tone-outside-family-taxonomy",
-        "public-prop-tone-requires-review",
-        "variant-destructive-requires-review"
-      ]
-    },
-    {
-      "slug": "segmented-control",
-      "family": "navigation",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "select",
-      "family": "fields",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ]
-    },
-    {
       "slug": "skeleton",
       "family": "feedback",
       "flags": [
@@ -221,20 +149,6 @@
       ]
     },
     {
-      "slug": "table",
-      "family": "data-display",
-      "flags": [
-        "selected-state-without-selected-prop"
-      ]
-    },
-    {
-      "slug": "tabs",
-      "family": "navigation",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
       "slug": "tree-view",
       "family": "navigation",
       "flags": [
@@ -244,60 +158,6 @@
   ],
   "remediationQueue": [
     {
-      "slug": "combobox",
-      "family": "fields",
-      "priority": "P0",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ],
-      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
-    },
-    {
-      "slug": "date-picker",
-      "family": "fields-date",
-      "priority": "P0",
-      "flags": [
-        "selected-state-without-selected-prop"
-      ],
-      "remediation": "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model."
-    },
-    {
-      "slug": "date-range-picker",
-      "family": "fields-date",
-      "priority": "P0",
-      "flags": [
-        "selected-state-without-selected-prop"
-      ],
-      "remediation": "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model."
-    },
-    {
-      "slug": "select",
-      "family": "fields",
-      "priority": "P0",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ],
-      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
-    },
-    {
-      "slug": "tabs",
-      "family": "navigation",
-      "priority": "P0",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "accordion",
-      "family": "navigation",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
       "slug": "error-panel",
       "family": "feedback",
       "priority": "P1",
@@ -305,15 +165,6 @@
         "disabled-state-without-disabled-prop"
       ],
       "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "icon-button",
-      "family": "actions",
-      "priority": "P1",
-      "flags": [
-        "variant-tonal-requires-review"
-      ],
-      "remediation": "Normalize public API taxonomy or document a formal family exception before component work continues."
     },
     {
       "slug": "inline-validation",
@@ -325,17 +176,6 @@
       "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
     },
     {
-      "slug": "list",
-      "family": "data-display",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop",
-        "loading-state-without-loading-prop",
-        "selected-state-without-selected-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
       "slug": "progress-indicator",
       "family": "feedback",
       "priority": "P1",
@@ -343,35 +183,6 @@
         "disabled-state-without-disabled-prop"
       ],
       "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "quick-action",
-      "family": "actions",
-      "priority": "P1",
-      "flags": [
-        "public-prop-tone-outside-family-taxonomy",
-        "public-prop-tone-requires-review",
-        "variant-destructive-requires-review"
-      ],
-      "remediation": "Normalize public API taxonomy or document a formal family exception before component work continues."
-    },
-    {
-      "slug": "segmented-control",
-      "family": "navigation",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "table",
-      "family": "data-display",
-      "priority": "P1",
-      "flags": [
-        "selected-state-without-selected-prop"
-      ],
-      "remediation": "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model."
     },
     {
       "slug": "tree-view",
@@ -521,9 +332,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "animatedMoment",
@@ -1495,11 +1304,14 @@
           "name": "disabled",
           "type": "boolean",
           "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
         }
       ],
-      "reviewFlags": [
-        "loading-state-without-loading-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "copyButton",
@@ -1623,9 +1435,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "selected-state-without-selected-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "dateRangePicker",
@@ -1664,9 +1474,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "selected-state-without-selected-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "dialog",
@@ -1913,9 +1721,11 @@
       "family": "actions",
       "element": "button",
       "variants": [
-        "ghost",
-        "tonal",
-        "primary"
+        "primary",
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "intents": [
         "default"
@@ -1932,7 +1742,7 @@
       "publicVocabulary": [
         {
           "name": "variant",
-          "type": "\"ghost\" | \"tonal\" | \"primary\"",
+          "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"",
           "required": false
         },
         {
@@ -1951,9 +1761,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "variant-tonal-requires-review"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "inlineValidation",
@@ -2202,11 +2010,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop",
-        "loading-state-without-loading-prop",
-        "selected-state-without-selected-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "menu",
@@ -2534,12 +2338,13 @@
       "element": "div",
       "variants": [
         "standard",
-        "destructive",
         "compact",
         "wide"
       ],
       "intents": [
-        "action"
+        "default",
+        "danger",
+        "warning"
       ],
       "states": [
         "default",
@@ -2553,7 +2358,7 @@
       "publicVocabulary": [
         {
           "name": "variant",
-          "type": "\"standard\" | \"destructive\" | \"compact\" | \"wide\"",
+          "type": "\"standard\" | \"compact\" | \"wide\"",
           "required": false
         },
         {
@@ -2562,8 +2367,8 @@
           "required": false
         },
         {
-          "name": "tone",
-          "type": "\"neutral\" | \"danger\"",
+          "name": "intent",
+          "type": "\"default\" | \"danger\" | \"warning\"",
           "required": false
         },
         {
@@ -2582,11 +2387,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "public-prop-tone-outside-family-taxonomy",
-        "public-prop-tone-requires-review",
-        "variant-destructive-requires-review"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "radioButton",
@@ -2724,9 +2525,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "select",
@@ -2769,11 +2568,14 @@
           "name": "disabled",
           "type": "boolean",
           "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
         }
       ],
-      "reviewFlags": [
-        "loading-state-without-loading-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "skeleton",
@@ -3068,9 +2870,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "selected-state-without-selected-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "tabs",
@@ -3104,9 +2904,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "tag",

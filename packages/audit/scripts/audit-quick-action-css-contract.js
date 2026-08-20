@@ -26,7 +26,7 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
   const loadingBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"loading\"]");
   const loadingControlBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"loading\"] .quick-action__control");
   const warningBlock = blockFor(blocks, selectorKey, ".quick-action[data-state=\"warning\"] .quick-action__control");
-  const destructiveBlock = blockFor(blocks, selectorKey, ".quick-action[data-variant=\"destructive\"] .quick-action__control");
+  const dangerIntentBlock = blockFor(blocks, selectorKey, ".quick-action[data-intent=\"danger\"] .quick-action__control");
   const labelBlock = blockFor(blocks, selectorKey, ".quick-action__label");
 
   if (!source.includes("React.createElement(Badge") || !source.includes("React.createElement(Spinner")) {
@@ -209,11 +209,11 @@ function checkQuickActionCssContract({ text, blocks, packageCssFile, selectorKey
     message: "QuickAction warning state must consume warning aliases.",
   });
   requireIncludes({
-    block: destructiveBlock,
+    block: dangerIntentBlock,
     text,
     packageCssFile,
     snippets: ["background: var(--comp-quick-action-danger-bg)", "color: var(--comp-quick-action-danger-fg)"],
-    message: "QuickAction destructive variant must consume danger aliases.",
+    message: "QuickAction danger intent must consume danger aliases.",
   });
   requireIncludes({
     block: labelBlock,

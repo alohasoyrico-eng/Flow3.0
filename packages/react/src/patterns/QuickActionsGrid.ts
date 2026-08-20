@@ -17,12 +17,12 @@ import type { SearchProps } from "./Search.js";
 export type QuickActionsGridState = "default" | "loading" | "disabled" | "permission-blocked" | "confirming" | "completed" | "error";
 export type QuickActionsGridDensity = "sm" | "md" | "lg";
 
-export interface QuickActionsGridAction extends Omit<QuickActionProps, "onAction"> {
+export interface QuickActionsGridAction extends Omit<QuickActionProps, "onAction" | "intent"> {
   key?: string;
   status?: Partial<BadgeProps> & { label: string };
   tooltip?: Partial<TooltipProps> & { content: string };
   permissionBlocked?: boolean;
-  intent?: "default" | "danger";
+  intent?: "default" | "danger" | "warning";
   onAction?: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -148,7 +148,7 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
         : actionDisabled
           ? "disabled"
           : action.state ?? "default";
-      const tone = action.intent === "danger" || action.tone === "danger" ? "danger" : "neutral";
+      const intent = action.intent === "danger" || action.tone === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
 
       return React.createElement(
         "div",
@@ -157,12 +157,12 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
           label: action.label,
           icon: action.icon,
           badge: action.badge,
-          variant: action.variant ?? (tone === "danger" ? "destructive" : "standard"),
+          variant: action.variant ?? "standard",
+          intent,
           state: actionState,
           density: action.density ?? density,
           loading: resolvedState === "loading" || action.loading,
           disabled: actionDisabled,
-          tone,
           onAction: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => {
             action.onAction?.(meta, event);
             onAction?.(key, action, event);

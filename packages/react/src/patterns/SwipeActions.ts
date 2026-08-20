@@ -7,7 +7,7 @@ import type { DialogProps } from "../Dialog.js";
 import { MovementRow } from "../MovementRow.js";
 import type { MovementRowProps } from "../MovementRow.js";
 import { QuickAction } from "../QuickAction.js";
-import type { QuickActionMeta, QuickActionProps, QuickActionState, QuickActionTone } from "../QuickAction.js";
+import type { QuickActionMeta, QuickActionProps, QuickActionState } from "../QuickAction.js";
 import { Toast } from "../Toast.js";
 import type { ToastProps } from "../Toast.js";
 import type { FlowDataAttributes } from "../internal/props.js";
@@ -15,7 +15,7 @@ import type { FlowDataAttributes } from "../internal/props.js";
 export type SwipeActionsState = "closed" | "revealed" | "threshold" | "committed" | "confirming" | "disabled" | "reduced-motion";
 export type SwipeActionsDensity = "sm" | "md" | "lg";
 
-export interface SwipeAction extends Omit<QuickActionProps, "onAction"> {
+export interface SwipeAction extends Omit<QuickActionProps, "onAction" | "intent"> {
   key?: string;
   fallbackLabel?: string;
   fallbackVariant?: ButtonProps["variant"];
@@ -152,7 +152,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
     } as ComponentProps<typeof MovementRow>),
     normalizedActions.map((action, index) => {
       const key = actionKey(action, index);
-      const tone: QuickActionTone = action.intent === "danger" || action.tone === "danger" ? "danger" : "neutral";
+      const intent = action.intent === "danger" || action.tone === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
       const actionDisabled = isDisabled || action.disabled;
       const actionState: QuickActionState = actionDisabled ? "disabled" : action.loading ? "loading" : actionsVisible ? "pressed" : "default";
 
@@ -163,12 +163,12 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
           label: action.label,
           icon: action.icon,
           badge: action.badge,
-          variant: action.variant ?? (tone === "danger" ? "destructive" : "compact"),
+          variant: action.variant ?? "compact",
+          intent,
           state: actionState,
           density: action.density ?? density,
           loading: action.loading,
           disabled: actionDisabled,
-          tone,
           onAction: (meta, event) => {
             action.onAction?.(meta, event);
             onAction?.(key, action, event);
