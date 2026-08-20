@@ -21,7 +21,9 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const lgBlock = blockFor(blocks, selectorKey, ".button[data-density=\"lg\"]");
   const fullWidthBlock = blockFor(blocks, selectorKey, ".button[data-full-width=\"true\"]");
   const focusBlock = blockFor(blocks, selectorKey, ".button:focus-visible");
+  const focusStateBlock = blockFor(blocks, selectorKey, ".button[data-state=\"focus\"]");
   const hoverBlock = blockFor(blocks, selectorKey, ".button:hover:not(:disabled)");
+  const hoverStateBlock = blockFor(blocks, selectorKey, ".button[data-state=\"hover\"]:not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".button:active:not(:disabled)");
   const disabledBlock = blockFor(blocks, selectorKey, ".button:disabled:not([data-state=\"loading\"])");
   const loadingBlock = blockFor(blocks, selectorKey, ".button[data-state=\"loading\"]");
@@ -173,11 +175,25 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
     message: "Button focus-visible state must consume Button accessibility aliases.",
   });
   requireIncludes({
+    block: focusStateBlock,
+    text,
+    packageCssFile,
+    snippets: ["outline: var(--comp-button-focus-ring)", "outline-offset: var(--comp-button-focus-offset)"],
+    message: "Button controlled focus state must consume Button accessibility aliases.",
+  });
+  requireIncludes({
     block: hoverBlock,
     text,
     packageCssFile,
     snippets: ["box-shadow: var(--comp-button-hover-shadow)", "transform: var(--comp-button-hover-transform)"],
     message: "Button hover state must consume Button depth and motion aliases.",
+  });
+  requireIncludes({
+    block: hoverStateBlock,
+    text,
+    packageCssFile,
+    snippets: ["box-shadow: var(--comp-button-hover-shadow)", "transform: var(--comp-button-hover-transform)"],
+    message: "Button controlled hover state must consume Button depth and motion aliases.",
   });
   requireIncludes({
     block: activeBlock,

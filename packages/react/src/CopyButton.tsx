@@ -143,6 +143,7 @@ export const CopyButton = forwardRef<HTMLButtonElement, CopyButtonProps>(functio
     ...commonProps,
     label: labelText ?? accessibleName,
     variant: resolvedVariant === "inline" ? "tertiary" : "secondary",
+    state: resolvedState === "copied" || resolvedState === "error" ? "default" : resolvedState,
     ...(resolvedDensity !== undefined ? { density: resolvedDensity } : {}),
     loading: resolvedState === "loading",
   });

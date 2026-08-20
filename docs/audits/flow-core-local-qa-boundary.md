@@ -1,6 +1,6 @@
 # FlowDocs Demo Boundary
 
-Generated: 2026-08-20T18:13:32.434Z
+Generated: 2026-08-20T18:21:55.604Z
 Status: pass
 
 ## Summary
@@ -8,14 +8,14 @@ Status: pass
 - flowdocsDemoFiles: 0
 - flowdocsDemoRiskFiles: 0
 - mixedFlowClaimFiles: 0
-- localQaFiles: 13
-- localQaComponents: 13
-- localQaReactRuntimeFiles: 13
+- localQaFiles: 14
+- localQaComponents: 14
+- localQaReactRuntimeFiles: 14
 - localQaManualHarnessFiles: 0
 - obsoleteLocalQaFiles: 0
 - nonCanonicalLocalQaFiles: 0
 - nonCanonicalLocalSnapshotFiles: 0
-- localQaComponentIds: button, checkbox, combobox, dialog, floating-action-button, icon-button, input, menu, quick-action, radio-button, select, switch, tabs
+- localQaComponentIds: button, checkbox, combobox, copy-button, dialog, floating-action-button, icon-button, input, menu, quick-action, radio-button, select, switch, tabs
 
 ## Rules
 
@@ -30,7 +30,7 @@ Status: pass
 
 | Severity | Issue | Count | Action |
 | --- | --- | ---: | --- |
-| medium | Local QA harnesses include their own layout CSS. | 13 | Keep them local and out of repo; use them for human inspection, not as component source truth. |
+| medium | Local QA harnesses include their own layout CSS. | 14 | Keep them local and out of repo; use them for human inspection, not as component source truth. |
 
 ## FlowDocs Demo Classifications
 
@@ -44,6 +44,7 @@ Status: pass
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/react-runtime.html | button | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/checkbox-2026-08-18/interactive/react-runtime.html | checkbox | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/combobox-2026-08-17/interactive/react-runtime.html | combobox | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
+| /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/copy-button-2026-08-20/interactive/react-runtime.html | copy-button | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html | dialog | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/floating-action-button-2026-08-20/interactive/react-runtime.html | floating-action-button | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/icon-button-2026-08-20/interactive/react-runtime.html | icon-button | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |

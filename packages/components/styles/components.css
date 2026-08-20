@@ -1717,7 +1717,17 @@
   outline-offset: var(--comp-button-focus-offset);
 }
 
+.button[data-state="focus"] {
+  outline: var(--comp-button-focus-ring);
+  outline-offset: var(--comp-button-focus-offset);
+}
+
 .button:hover:not(:disabled) {
+  box-shadow: var(--comp-button-hover-shadow);
+  transform: var(--comp-button-hover-transform);
+}
+
+.button[data-state="hover"]:not(:disabled) {
   box-shadow: var(--comp-button-hover-shadow);
   transform: var(--comp-button-hover-transform);
 }
@@ -1872,6 +1882,10 @@
   background: var(--comp-button-bg-primary-hover);
 }
 
+.button--primary[data-state="hover"]:not(:disabled) {
+  background: var(--comp-button-bg-primary-hover);
+}
+
 .button--primary:active:not(:disabled),
 .button--primary[data-state="pressed"]:not(:disabled) {
   background: var(--comp-button-bg-primary-pressed);
@@ -1884,6 +1898,11 @@
 }
 
 .button--secondary:hover:not(:disabled) {
+  background: var(--comp-button-bg-secondary-hover);
+  border-color: var(--comp-button-border-secondary-hover);
+}
+
+.button--secondary[data-state="hover"]:not(:disabled) {
   background: var(--comp-button-bg-secondary-hover);
   border-color: var(--comp-button-border-secondary-hover);
 }
@@ -1903,6 +1922,10 @@
   background: var(--comp-button-bg-danger-hover);
 }
 
+.button--danger.button--primary[data-state="hover"]:not(:disabled) {
+  background: var(--comp-button-bg-danger-hover);
+}
+
 .button--danger.button--primary:active:not(:disabled),
 .button--danger.button--primary[data-state="pressed"]:not(:disabled) {
   background: var(--comp-button-bg-danger-pressed);
@@ -1915,6 +1938,11 @@
 }
 
 .button--tertiary:hover:not(:disabled) {
+  background: var(--comp-button-bg-tertiary-hover);
+  border-color: var(--comp-button-border-tertiary-hover);
+}
+
+.button--tertiary[data-state="hover"]:not(:disabled) {
   background: var(--comp-button-bg-tertiary-hover);
   border-color: var(--comp-button-border-tertiary-hover);
 }
@@ -1935,6 +1963,10 @@
   border-color: var(--comp-button-border-outlined-hover);
 }
 
+.button--outlined[data-state="hover"]:not(:disabled) {
+  border-color: var(--comp-button-border-outlined-hover);
+}
+
 .button--outlined:active:not(:disabled),
 .button--outlined[data-state="pressed"]:not(:disabled) {
   background: var(--comp-button-bg-outlined-pressed);
@@ -1951,6 +1983,10 @@
   background: var(--comp-button-bg-ghost-hover);
 }
 
+.button--ghost[data-state="hover"]:not(:disabled) {
+  background: var(--comp-button-bg-ghost-hover);
+}
+
 .button--ghost:active:not(:disabled),
 .button--ghost[data-state="pressed"]:not(:disabled) {
   background: var(--comp-button-bg-ghost-pressed);
@@ -1962,6 +1998,10 @@
 }
 
 .button--warning.button--primary:hover:not(:disabled) {
+  background: var(--comp-button-bg-warning-hover);
+}
+
+.button--warning.button--primary[data-state="hover"]:not(:disabled) {
   background: var(--comp-button-bg-warning-hover);
 }
 
@@ -1983,6 +2023,12 @@
   border-color: var(--comp-button-border-danger-secondary-hover);
 }
 
+.button--danger.button--secondary[data-state="hover"]:not(:disabled),
+.button--danger.button--outlined[data-state="hover"]:not(:disabled) {
+  background: var(--comp-button-bg-danger-secondary-hover);
+  border-color: var(--comp-button-border-danger-secondary-hover);
+}
+
 .button--danger.button--secondary:active:not(:disabled),
 .button--danger.button--outlined:active:not(:disabled),
 .button--danger.button--secondary[data-state="pressed"]:not(:disabled),
@@ -2000,6 +2046,12 @@
 
 .button--warning.button--secondary:hover:not(:disabled),
 .button--warning.button--outlined:hover:not(:disabled) {
+  background: var(--comp-button-bg-warning-secondary-hover);
+  border-color: var(--comp-button-border-warning-secondary-hover);
+}
+
+.button--warning.button--secondary[data-state="hover"]:not(:disabled),
+.button--warning.button--outlined[data-state="hover"]:not(:disabled) {
   background: var(--comp-button-bg-warning-secondary-hover);
   border-color: var(--comp-button-border-warning-secondary-hover);
 }
