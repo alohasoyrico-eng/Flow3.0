@@ -65,7 +65,7 @@
       "reviewIfPublicProps": ["tone", "intent", "size", "loading"],
       "stateSourceProps": {
         "selected": ["value", "activeId", "current", "items"],
-        "disabled": ["disabled", "items"]
+        "disabled": ["state", "disabled", "items", "nodes"]
       }
     },
     "overlays": {
@@ -80,12 +80,20 @@
     "feedback": {
       "allowedPublicProps": ["variant", "state", "tone", "density", "disabled", "loading"],
       "preferredVariantRole": "feedback anatomy",
-      "reviewIfPublicProps": ["intent", "size", "selected"]
+      "reviewIfPublicProps": ["intent", "size", "selected"],
+      "stateSourceProps": {
+        "disabled": ["state", "disabled"],
+        "loading": ["state", "loading"]
+      }
     },
     "display-status": {
       "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled"],
       "preferredVariantRole": "display anatomy",
-      "reviewIfPublicProps": ["intent", "size", "loading"]
+      "reviewIfPublicProps": ["intent", "size", "loading"],
+      "stateSourceProps": {
+        "selected": ["state", "selected"],
+        "disabled": ["state", "disabled"]
+      }
     },
     "data-display": {
       "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled", "loading"],
@@ -93,7 +101,7 @@
       "reviewIfPublicProps": ["intent", "size"],
       "stateSourceProps": {
         "selected": ["selected", "selection", "items", "rows"],
-        "disabled": ["disabled", "items", "rows"],
+        "disabled": ["state", "disabled", "items", "rows"],
         "loading": ["loading", "items", "rows"]
       }
     },
@@ -105,12 +113,21 @@
     "domain": {
       "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled", "loading"],
       "preferredVariantRole": "domain anatomy",
-      "reviewIfPublicProps": ["intent", "size"]
+      "reviewIfPublicProps": ["intent", "size"],
+      "stateSourceProps": {
+        "selected": ["state", "selected", "items", "messages"],
+        "disabled": ["state", "disabled", "items", "messages"],
+        "loading": ["state", "loading", "sending", "messages"]
+      }
     },
     "motion-feedback": {
       "allowedPublicProps": ["variant", "state", "density", "disabled"],
       "preferredVariantRole": "motion role",
-      "reviewIfPublicProps": ["tone", "intent", "size", "selected", "loading"]
+      "reviewIfPublicProps": ["tone", "intent", "size", "selected", "loading"],
+      "stateSourceProps": {
+        "disabled": ["state", "disabled", "reducedMotion"],
+        "loading": ["state"]
+      }
     },
     "progress-feedback": {
       "allowedPublicProps": ["variant", "state", "tone", "density"],

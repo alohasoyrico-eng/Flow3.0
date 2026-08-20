@@ -38,270 +38,9 @@
     "disabled": 36,
     "loading": 14
   },
-  "reviewFlagCounts": {
-    "disabled-state-without-disabled-prop": 14,
-    "loading-state-without-loading-prop": 2
-  },
-  "flaggedComponents": [
-    {
-      "slug": "animated-moment",
-      "family": "motion-feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "audit-event",
-      "family": "domain-event",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "avatar",
-      "family": "display-status",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "badge",
-      "family": "display-status",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "biometric-prompt",
-      "family": "domain-auth",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "chart-panel",
-      "family": "data-display",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "chat-composer",
-      "family": "domain-chat",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "chat-message",
-      "family": "domain-chat",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ]
-    },
-    {
-      "slug": "chat-thread",
-      "family": "domain-chat",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ]
-    },
-    {
-      "slug": "error-panel",
-      "family": "feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "inline-validation",
-      "family": "feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "motion-boundary",
-      "family": "motion-feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "progress-indicator",
-      "family": "feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "skeleton",
-      "family": "feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "spinner",
-      "family": "feedback",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    },
-    {
-      "slug": "tree-view",
-      "family": "navigation",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ]
-    }
-  ],
-  "remediationQueue": [
-    {
-      "slug": "error-panel",
-      "family": "feedback",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "inline-validation",
-      "family": "feedback",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "progress-indicator",
-      "family": "feedback",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "tree-view",
-      "family": "navigation",
-      "priority": "P1",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "animated-moment",
-      "family": "motion-feedback",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "audit-event",
-      "family": "domain-event",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "avatar",
-      "family": "display-status",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "badge",
-      "family": "display-status",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "biometric-prompt",
-      "family": "domain-auth",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "chart-panel",
-      "family": "data-display",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "chat-composer",
-      "family": "domain-chat",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "chat-message",
-      "family": "domain-chat",
-      "priority": "P2",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ],
-      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
-    },
-    {
-      "slug": "chat-thread",
-      "family": "domain-chat",
-      "priority": "P2",
-      "flags": [
-        "loading-state-without-loading-prop"
-      ],
-      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
-    },
-    {
-      "slug": "motion-boundary",
-      "family": "motion-feedback",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "skeleton",
-      "family": "feedback",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    },
-    {
-      "slug": "spinner",
-      "family": "feedback",
-      "priority": "P2",
-      "flags": [
-        "disabled-state-without-disabled-prop"
-      ],
-      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
-    }
-  ],
+  "reviewFlagCounts": {},
+  "flaggedComponents": [],
+  "remediationQueue": [],
   "components": [
     {
       "id": "accordion",
@@ -373,9 +112,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "auditEvent",
@@ -419,9 +156,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "avatar",
@@ -456,9 +191,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "badge",
@@ -509,9 +242,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "biometricPrompt",
@@ -553,9 +284,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "breadcrumbs",
@@ -946,9 +675,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "chatComposer",
@@ -983,9 +710,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "chatMessage",
@@ -1026,9 +751,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "loading-state-without-loading-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "chatThread",
@@ -1065,9 +788,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "loading-state-without-loading-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "checkbox",
@@ -1661,9 +1382,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "floatingActionButton",
@@ -1800,9 +1519,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "input",
@@ -2099,9 +1816,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "movementRow",
@@ -2327,9 +2042,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "quickAction",
@@ -2621,9 +2334,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "slider",
@@ -2711,9 +2422,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     },
     {
       "id": "stationPin",
@@ -3132,9 +2841,7 @@
           "required": false
         }
       ],
-      "reviewFlags": [
-        "disabled-state-without-disabled-prop"
-      ]
+      "reviewFlags": []
     }
   ]
 }
