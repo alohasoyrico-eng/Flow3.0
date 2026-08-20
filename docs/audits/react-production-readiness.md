@@ -21,9 +21,9 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 230
-- fireEvent calls: 512
-- getByRole calls: 436
+- Testing Library render calls: 231
+- fireEvent calls: 517
+- getByRole calls: 437
 - getByLabelText calls: 19
 - keyDown calls: 63
 - Escape key checks: 23
@@ -89,7 +89,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |
 | select | Select | P0 | forms | ready | yes | 21 | None | None |
 | skeleton | Skeleton | P2 | feedback | ready | yes | 3 | None | None |
-| slider | Slider | P0 | forms | ready | yes | 3 | None | None |
+| slider | Slider | P0 | forms | ready | yes | 4 | None | None |
 | spinner | Spinner | P2 | feedback | ready | yes | 6 | None | None |
 | station-pin | StationPin | P2 | domain-fleet | ready | yes | 4 | None | None |
 | stepper | Stepper | P1 | progress-feedback | ready | yes | 3 | None | None |

@@ -63,9 +63,9 @@
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 230,
-    "fireEvent": 512,
-    "getByRole": 436,
+    "testingLibraryRender": 231,
+    "fireEvent": 517,
+    "getByRole": 437,
     "getByLabelText": 19,
     "keyDown": 63,
     "escapeKey": 23,
@@ -2607,6 +2607,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs"
         ]
       },

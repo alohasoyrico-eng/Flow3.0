@@ -34,6 +34,7 @@ const {
   DateRangePicker,
   PhoneInput,
   Select,
+  Slider,
 } = await import("../dist/index.js");
 
 async function assertNoAxeViolations(container) {
@@ -453,6 +454,84 @@ try {
     assert.equal(changes.length, before);
     await assertNoAxeViolations(view.container);
     outsideButton.remove();
+    cleanup();
+  }
+
+  {
+    const changes = [];
+    const view = render(React.createElement(Slider, {
+      label: "Search radius",
+      min: 0,
+      max: 20,
+      step: 2,
+      name: "radius",
+      unit: " km",
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    const slider = view.getByRole("slider", { name: /search radius/i });
+    const root = view.container.querySelector(".slider");
+
+    fireEvent.change(slider, { target: { value: "12" } });
+    await waitFor(() => assert.equal(slider.value, "12"));
+    assert.equal(root.dataset.value, "12");
+    assert.equal(root.style.getPropertyValue("--comp-slider-percent"), "60%");
+    assert.equal(view.container.querySelector("[data-slider-output]")?.nodeName, "OUTPUT");
+    assert.deepEqual(changes.at(-1), {
+      value: 12,
+      meta: { name: "radius", min: 0, max: 20, step: 2, unit: " km" },
+      eventType: "change",
+    });
+
+    fireEvent.pointerDown(slider);
+    assert.equal(root.dataset.state, "dragging");
+    assert.equal(root.dataset.dragging, "true");
+    fireEvent.pointerUp(slider);
+    await waitFor(() => assert.notEqual(root.dataset.state, "dragging"));
+
+    view.rerender(React.createElement(Slider, {
+      label: "Search radius",
+      value: 8,
+      min: 0,
+      max: 20,
+      step: 2,
+      name: "radius",
+      unit: " km",
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    await waitFor(() => assert.equal(slider.value, "8"));
+    fireEvent.change(slider, { target: { value: "16" } });
+    assert.deepEqual(changes.at(-1), {
+      value: 16,
+      meta: { name: "radius", min: 0, max: 20, step: 2, unit: " km" },
+      eventType: "change",
+    });
+    await waitFor(() => assert.equal(slider.value, "8"));
+
+    view.rerender(React.createElement(Slider, {
+      label: "Search radius",
+      value: 99,
+      min: 0,
+      max: 20,
+      step: 2,
+      unit: " km",
+    }));
+    await waitFor(() => assert.equal(slider.value, "20"));
+    assert.equal(root.dataset.value, "20");
+    assert.equal(slider.getAttribute("aria-valuetext"), "20 km");
+
+    view.rerender(React.createElement(Slider, {
+      label: "Search radius",
+      min: 0,
+      max: 20,
+      disabled: true,
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    const before = changes.length;
+    assert.equal(slider.disabled, true);
+    assert.equal(root.dataset.state, "disabled");
+    fireEvent.change(slider, { target: { value: "14" } });
+    assert.equal(changes.length, before);
+    await assertNoAxeViolations(view.container);
     cleanup();
   }
 
