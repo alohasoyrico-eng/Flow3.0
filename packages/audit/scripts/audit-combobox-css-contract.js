@@ -16,6 +16,7 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
   const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Combobox.tsx");
   const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Combobox.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
+  const fieldControlBlock = blockFor(blocks, selectorKey, ".field-control__surface,.field__control");
   const comboboxBlock = blockFor(blocks, selectorKey, ".combobox");
   const chevronBlock = blockFor(blocks, selectorKey, ".combobox__chevron");
   const disabledClearBlock = blockFor(blocks, selectorKey, ".combobox__clear:disabled");
@@ -28,6 +29,18 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
   const loadingBlock = blockFor(blocks, selectorKey, ".combobox__loading");
   const emptyBlock = blockFor(blocks, selectorKey, ".combobox__empty") ?? blockFor(blocks, selectorKey, ".combobox__loading,.combobox__empty");
 
+  requireIncludes({
+    block: fieldControlBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "block-size: var(--comp-field-control-size)",
+      "min-block-size: var(--comp-field-control-size)",
+      "box-sizing: border-box",
+      "border-radius: var(--component-control-frame-radius-field)",
+    ],
+    message: "Combobox input frame must inherit the shared Field ControlFrame geometry through .field__control.",
+  });
   requireIncludes({
     block: comboboxBlock,
     text,
@@ -99,6 +112,7 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
       "background: var(--comp-combobox-listbox-bg)",
       "border: var(--component-border-width) solid var(--comp-combobox-listbox-border)",
       "border-radius: var(--comp-combobox-listbox-radius)",
+      "box-sizing: border-box",
       "box-shadow: var(--comp-combobox-listbox-depth)",
       "display: grid",
       "inset-block-start: calc(100% + var(--comp-combobox-listbox-offset))",
@@ -127,6 +141,7 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
       "min-block-size: var(--comp-combobox-option-min-size)",
       "padding: 0 var(--comp-combobox-option-padding-x)",
       "display: grid",
+      "box-sizing: border-box",
     ],
     message: "Combobox options must own row geometry and reserve trailing columns for metadata and selected check geometry.",
   });
@@ -192,6 +207,9 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
   }
   if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && activeIndex !== null")) {
     add("errors", sourceFile, 1, "Combobox aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
+  }
+  if (!source.includes("className: \"field__control combobox\"")) {
+    add("errors", sourceFile, 1, "Combobox must compose the shared Field control surface instead of defining a local input frame.");
   }
 
   const smDensityBlock = blockFor(blocks, selectorKey, ".combobox[data-density=\"sm\"]");

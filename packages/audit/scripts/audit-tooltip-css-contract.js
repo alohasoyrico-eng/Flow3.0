@@ -13,6 +13,8 @@ function checkTooltipCssContract({ text, blocks, packageCssFile, selectorKey }) 
   const rootBlock = blockFor(blocks, selectorKey, ".tooltip");
   const smBlock = blockFor(blocks, selectorKey, ".tooltip[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".tooltip[data-density=\"lg\"]");
+  const triggerBlock = blockFor(blocks, selectorKey, ".tooltip__trigger");
+  const bubbleBlock = blockFor(blocks, selectorKey, ".tooltip__bubble");
   const openBlock = blockFor(blocks, selectorKey, ".tooltip:hover .tooltip__bubble,.tooltip:focus-within .tooltip__bubble,.tooltip[data-open=\"true\"] .tooltip__bubble");
   const leftOpenBlock = blockFor(blocks, selectorKey, ".tooltip[data-placement=\"left\"]:hover .tooltip__bubble,.tooltip[data-placement=\"left\"]:focus-within .tooltip__bubble,.tooltip[data-placement=\"left\"][data-open=\"true\"] .tooltip__bubble");
   const rightOpenBlock = blockFor(blocks, selectorKey, ".tooltip[data-placement=\"right\"]:hover .tooltip__bubble,.tooltip[data-placement=\"right\"]:focus-within .tooltip__bubble,.tooltip[data-placement=\"right\"][data-open=\"true\"] .tooltip__bubble");
@@ -35,6 +37,8 @@ function checkTooltipCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-tooltip-bubble-min-inline-sm:",
       "--comp-tooltip-bubble-min-inline-md:",
       "--comp-tooltip-bubble-min-inline-lg:",
+      "--comp-tooltip-bubble-depth: var(--component-depth-tooltip)",
+      "--comp-tooltip-bubble-z-index: var(--component-overlay-panel-z-index)",
       "--comp-tooltip-scale-closed: var(--component-scale-enter)",
       "--comp-tooltip-scale-open: var(--component-scale-none)",
       "--comp-tooltip-open-transform-y:",
@@ -71,6 +75,24 @@ function checkTooltipCssContract({ text, blocks, packageCssFile, selectorKey }) 
   ]) {
     requireIncludes({ block, text, packageCssFile, snippets: [snippet], message });
   }
+  requireIncludes({
+    block: triggerBlock,
+    text,
+    packageCssFile,
+    snippets: ["box-sizing: border-box", "min-block-size: var(--comp-tooltip-trigger-min-block)"],
+    message: "Tooltip trigger must keep exact inline-trigger frame behavior through border-box sizing.",
+  });
+  requireIncludes({
+    block: bubbleBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "box-shadow: var(--comp-tooltip-bubble-depth)",
+      "box-sizing: border-box",
+      "z-index: var(--comp-tooltip-bubble-z-index)",
+    ],
+    message: "Tooltip bubble must consume governed bubble depth/z-index aliases and border-box sizing.",
+  });
 
   for (const stale of ["--button-size-", "--button-padding-", "scale(1)", "0.92", "13.75rem", "12rem", "15rem"]) {
     if (rootBlock?.body.includes(stale) || smBlock?.body.includes(stale) || lgBlock?.body.includes(stale) || openBlock?.body.includes(stale) || leftOpenBlock?.body.includes(stale) || rightOpenBlock?.body.includes(stale)) {

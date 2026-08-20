@@ -51,6 +51,7 @@ function checkPopoverCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "animation: popover-enter var(--comp-popover-enter-duration) var(--comp-popover-enter-ease) both",
       "background: var(--comp-popover-panel-bg)",
       "border: var(--comp-popover-panel-border-width) solid var(--comp-popover-panel-border)",
+      "box-sizing: border-box",
       "box-shadow: var(--comp-popover-panel-depth)",
       "color: var(--comp-popover-panel-fg)",
       "z-index: var(--comp-popover-panel-z-index)",

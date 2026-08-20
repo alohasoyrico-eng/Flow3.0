@@ -80,12 +80,18 @@ function checkDensityContracts() {
 function checkControlSizeScale(css) {
   const tokens = JSON.parse(read(tokensFile));
   const required = [
-    ["--component-button-size-sm: var(--component-icon-button-size-sm);", "Button sm size must use the shared action trigger sm height."],
-    ["--component-button-size-md: var(--component-icon-button-size-md);", "Button md size must use the shared action trigger md height."],
-    ["--component-button-size-lg: var(--component-icon-button-size-lg);", "Button lg size must use the shared action trigger lg height."],
-    ["--component-field-control-size-sm: var(--component-button-size-sm);", "Field/Input sm size must share the action sm size."],
-    ["--component-field-control-size-md: var(--component-button-size-md);", "Field/Input md size must share the action md size."],
-    ["--component-field-control-size-lg: var(--component-button-size-lg);", "Field/Input lg size must share the action lg size."],
+    ["--component-control-frame-size-sm: var(--sys-space-9);", "ControlFrame sm size must define the shared rendered control height."],
+    ["--component-control-frame-size-md: var(--component-control-min-size);", "ControlFrame md size must define the shared rendered control height."],
+    ["--component-control-frame-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));", "ControlFrame lg size must define the shared rendered control height."],
+    ["--component-button-size-sm: var(--component-control-frame-size-sm);", "Button sm size must consume ControlFrame sm height directly."],
+    ["--component-button-size-md: var(--component-control-frame-size-md);", "Button md size must consume ControlFrame md height directly."],
+    ["--component-button-size-lg: var(--component-control-frame-size-lg);", "Button lg size must consume ControlFrame lg height directly."],
+    ["--component-icon-button-size-sm: var(--component-control-frame-size-sm);", "IconButton sm size must consume ControlFrame sm height directly."],
+    ["--component-icon-button-size-md: var(--component-control-frame-size-md);", "IconButton md size must consume ControlFrame md height directly."],
+    ["--component-icon-button-size-lg: var(--component-control-frame-size-lg);", "IconButton lg size must consume ControlFrame lg height directly."],
+    ["--component-field-control-size-sm: var(--component-control-frame-size-sm);", "Field/Input sm size must consume ControlFrame sm height directly."],
+    ["--component-field-control-size-md: var(--component-control-frame-size-md);", "Field/Input md size must consume ControlFrame md height directly."],
+    ["--component-field-control-size-lg: var(--component-control-frame-size-lg);", "Field/Input lg size must consume ControlFrame lg height directly."],
     ["--comp-input-control-size: var(--comp-input-control-size-md);", "Input inherited md size must stay on the field md cascade."],
     ["--comp-select-control-size: var(--comp-select-control-size-md);", "Select inherited md size must stay on the field md cascade."],
   ];

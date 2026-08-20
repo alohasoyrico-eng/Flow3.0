@@ -30,13 +30,20 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     add("errors", packageCssFile, 1, "Input base control size must default to the field md size, not the global density control height.");
   }
   for (const snippet of [
-    "--component-field-control-size-sm: var(--component-button-size-sm);",
-    "--component-field-control-size-md: var(--component-button-size-md);",
-    "--component-field-control-size-lg: var(--component-button-size-lg);",
+    "--component-control-frame-size-sm: var(--sys-space-9);",
+    "--component-control-frame-size-md: var(--component-control-min-size);",
+    "--component-control-frame-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));",
+    "--component-control-frame-radius-field: var(--component-radius-control);",
+    "--component-field-control-size-sm: var(--component-control-frame-size-sm);",
+    "--component-field-control-size-md: var(--component-control-frame-size-md);",
+    "--component-field-control-size-lg: var(--component-control-frame-size-lg);",
     "--comp-input-control-size-sm: var(--component-field-control-size-sm);",
     "--comp-input-control-size-md: var(--component-field-control-size-md);",
     "--comp-input-control-size-lg: var(--component-field-control-size-lg);",
     "--comp-input-control-size: var(--comp-input-control-size-md);",
+    "--comp-input-font-size-sm: var(--component-control-frame-font-size-sm);",
+    "--comp-input-font-size-md: var(--component-control-frame-font-size-md);",
+    "--comp-input-font-size-lg: var(--component-control-frame-font-size-lg);",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, `Field/Input density must keep monotonic sm/md/lg geometry through shared field tokens: missing ${snippet}`);
@@ -89,6 +96,9 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "gap: var(--comp-input-gap)",
+      "border-radius: var(--component-control-frame-radius-field)",
+      "box-sizing: border-box",
+      "block-size: var(--comp-field-control-size)",
       "min-block-size: var(--comp-field-control-size)",
       "padding: 0 var(--comp-input-padding-x)",
     ],
@@ -102,6 +112,8 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-field-control-size: var(--comp-input-control-size-sm)",
       "--comp-field-icon-size: var(--comp-input-icon-size-sm)",
       "--comp-field-icon-action-size: var(--comp-input-action-size-sm)",
+      "--comp-input-font-size: var(--comp-input-font-size-sm)",
+      "--comp-input-padding-x: var(--comp-input-padding-x-sm)",
     ],
     message: "Field sm density must cascade through Input size aliases.",
   });
@@ -113,6 +125,8 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-field-control-size: var(--comp-input-control-size-lg)",
       "--comp-field-icon-size: var(--comp-input-icon-size-lg)",
       "--comp-field-icon-action-size: var(--comp-input-action-size-lg)",
+      "--comp-input-font-size: var(--comp-input-font-size-lg)",
+      "--comp-input-padding-x: var(--comp-input-padding-x-lg)",
     ],
     message: "Field lg density must cascade through Input size aliases.",
   });
@@ -140,8 +154,8 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: fieldInputBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-input-field-fg)"],
-    message: "Field input text must consume the field foreground alias.",
+    snippets: ["color: var(--comp-input-field-fg)", "font-size: var(--comp-input-font-size)"],
+    message: "Field input text must consume the field foreground and current density font-size aliases.",
   });
   requireIncludes({
     block: fieldPlaceholderBlock,

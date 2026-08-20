@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const { add, lineNumber } = require("./audit-context.js");
 
 function blockFor(blocks, selectorKey, selector) {
@@ -9,7 +11,11 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
   add("errors", packageCssFile, block ? lineNumber(text, block.index) : 1, message);
 }
 
-function checkToastCssContract({ text, blocks, packageCssFile, selectorKey }) {
+function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Toast.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Toast.js");
+  const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".toast");
   const smBlock = blockFor(blocks, selectorKey, ".toast[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".toast[data-density=\"lg\"]");
@@ -97,6 +103,19 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey }) {
   }
   if (/--comp-toast-inline-size-(?:sm|md|lg):\s*min\(100%,\s*calc\(var\(--sys-frame-content-dialog/.test(text)) {
     add("errors", packageCssFile, 1, "Toast density widths must route through component-owned inline-size aliases.");
+  }
+  for (const snippet of [
+    "import { Button } from \"./Button.js\";",
+    "import { IconButton } from \"./IconButton.js\";",
+    "React.createElement(Button",
+    "React.createElement(IconButton",
+  ]) {
+    if (!source.includes(snippet)) {
+      add("errors", sourceFile, 1, `Toast actions must compose existing Flow action components: missing ${snippet}`);
+    }
+  }
+  if (source.includes("toast__button") || source.includes("toast__icon-button")) {
+    add("errors", sourceFile, 1, "Toast must not reintroduce local action button components; compose Button/IconButton.");
   }
 }
 

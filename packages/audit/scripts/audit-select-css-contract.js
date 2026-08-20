@@ -17,13 +17,28 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Select.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const selectBlock = blockFor(blocks, selectorKey, ".select-control");
+  const selectTriggerBlock = blockFor(blocks, selectorKey, ".select-control__trigger,.country-selector__trigger,.phone-input__country-trigger");
 
   requireIncludes({
     block: selectBlock,
     text,
     packageCssFile,
     snippets: [
-      "--comp-select-padding-end: calc(var(--component-space-lg) - var(--component-frame-space-micro))",
+      "--comp-select-control-size-md: var(--component-field-control-size-md)",
+      "--comp-select-control-size-sm: var(--component-field-control-size-sm)",
+      "--comp-select-control-size-lg: var(--component-field-control-size-lg)",
+      "--comp-select-padding-start-sm: var(--component-control-frame-padding-field-sm)",
+      "--comp-select-padding-start-md: var(--component-control-frame-padding-field-md)",
+      "--comp-select-padding-start-lg: var(--component-control-frame-padding-field-lg)",
+      "--comp-select-padding-start: var(--comp-select-padding-start-md)",
+      "--comp-select-padding-end-sm: calc(var(--component-control-frame-padding-field-sm) - var(--component-frame-space-micro))",
+      "--comp-select-padding-end-md: calc(var(--component-control-frame-padding-field-md) - var(--component-frame-space-micro))",
+      "--comp-select-padding-end-lg: calc(var(--component-control-frame-padding-field-lg) - var(--component-frame-space-micro))",
+      "--comp-select-padding-end: var(--comp-select-padding-end-md)",
+      "--comp-select-font-size-sm: var(--component-control-frame-font-size-sm)",
+      "--comp-select-font-size-md: var(--component-control-frame-font-size-md)",
+      "--comp-select-font-size-lg: var(--component-control-frame-font-size-lg)",
+      "--comp-select-font-size: var(--comp-select-font-size-md)",
       "--comp-select-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro))",
       "--comp-select-listbox-padding: var(--component-listbox-padding)",
       "--comp-select-listbox-radius: var(--component-listbox-radius)",
@@ -55,6 +70,19 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (/--comp-select[^:]*:\s*calc\([^;]*(?:2px|0\.125rem)/.test(text)) {
     add("errors", packageCssFile, 1, "Select component aliases must not hardcode 2px or 0.125rem frame offsets.");
   }
+  requireIncludes({
+    block: selectTriggerBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "border-radius: var(--component-control-frame-radius-field)",
+      "block-size: var(--comp-select-current-control-size)",
+      "box-sizing: border-box",
+      "font-size: var(--comp-select-font-size)",
+      "line-height: var(--component-line-height-none)",
+    ],
+    message: "Select trigger must render the exact ControlFrame field geometry; min-height alone is not enough.",
+  });
   const rawOptionHeight = text.match(/--comp-select-option-min-size:\s*calc\(var\(--component-control-min-size\)[^;]+/);
   if (rawOptionHeight) {
     add("errors", packageCssFile, lineNumber(text, rawOptionHeight.index), "Select option height must flow through shared Frame option roles instead of local control-size calculations.");
@@ -103,6 +131,9 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
     text,
     packageCssFile,
     snippets: [
+      "--comp-select-font-size: var(--comp-select-font-size-sm)",
+      "--comp-select-padding-start: var(--comp-select-padding-start-sm)",
+      "--comp-select-padding-end: var(--comp-select-padding-end-sm)",
       "--comp-select-option-min-size: var(--comp-select-option-min-size-sm)",
       "--comp-select-option-padding-x: var(--comp-select-option-padding-x-sm)",
       "--comp-select-option-check-size: var(--comp-select-option-check-size-sm)",
@@ -115,6 +146,9 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
     text,
     packageCssFile,
     snippets: [
+      "--comp-select-font-size: var(--comp-select-font-size-lg)",
+      "--comp-select-padding-start: var(--comp-select-padding-start-lg)",
+      "--comp-select-padding-end: var(--comp-select-padding-end-lg)",
       "--comp-select-option-min-size: var(--comp-select-option-min-size-lg)",
       "--comp-select-option-padding-x: var(--comp-select-option-padding-x-lg)",
       "--comp-select-option-check-size: var(--comp-select-option-check-size-lg)",

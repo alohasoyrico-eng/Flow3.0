@@ -14,6 +14,7 @@ function checkCheckboxCssContract({ text, blocks, packageCssFile, selectorKey })
   const checkboxSmBlock = blockFor(blocks, selectorKey, ".checkbox[data-density=\"sm\"]");
   const checkboxLgBlock = blockFor(blocks, selectorKey, ".checkbox[data-density=\"lg\"]");
   const checkedCheckboxBlock = blockFor(blocks, selectorKey, ".checkbox .choice__input:checked + .choice__mark");
+  const markBlock = blockFor(blocks, selectorKey, ".choice__mark");
 
   requireIncludes({
     block: checkboxBlock,
@@ -61,6 +62,13 @@ function checkCheckboxCssContract({ text, blocks, packageCssFile, selectorKey })
       "border-color: var(--comp-choice-current-mark-checked-border)",
     ],
     message: "Checkbox checked mark must consume Choice current aliases.",
+  });
+  requireIncludes({
+    block: markBlock,
+    text,
+    packageCssFile,
+    snippets: ["box-sizing: border-box"],
+    message: "Choice mark must use border-box so checkbox/radio density sizes include borders.",
   });
 
   const rawCheckboxSize = text.match(/--comp-checkbox-(?:mark-size|gap)[^:]*:\s*(?:[0-9.]+px|[0-9.]+rem)/);

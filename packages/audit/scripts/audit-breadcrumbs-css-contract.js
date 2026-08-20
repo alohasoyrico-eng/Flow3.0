@@ -44,9 +44,9 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
   if (/\.breadcrumbs ol,\s*\.pagination\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".breadcrumbs ol")), "Breadcrumbs must not share its root list layout block with Pagination.");
   }
-  const localTargetSize = /--comp-breadcrumbs-target-block:\s*var\(--component-control-min-size\)/.exec(text);
+  const localTargetSize = /--comp-breadcrumbs-target-block:\s*var\(--component-(control-min-size|a11y-touch-target-min|navigation-target-size-lg)\)/.exec(text);
   if (localTargetSize) {
-    add("errors", packageCssFile, lineNumber(text, localTargetSize.index), "Breadcrumbs target size must consume navigation target roles instead of the generic control min size.");
+    add("errors", packageCssFile, lineNumber(text, localTargetSize.index), "Breadcrumbs target size must consume ControlFrame navigation aliases instead of local size aliases.");
   }
 
   requireIncludes({
@@ -59,7 +59,17 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-breadcrumbs-list-wrap: var(--component-flex-wrap-wrap)",
       "--comp-breadcrumbs-item-display: var(--component-display-inline-flex)",
       "--comp-breadcrumbs-target-display: var(--component-display-inline-flex)",
-      "--comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg)",
+      "--comp-breadcrumbs-target-block-sm: var(--component-control-frame-size-sm)",
+      "--comp-breadcrumbs-target-block-md: var(--component-control-frame-size-md)",
+      "--comp-breadcrumbs-target-block-lg: var(--component-control-frame-size-lg)",
+      "--comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-md)",
+      "--comp-breadcrumbs-target-padding-inline-sm: var(--component-control-frame-padding-navigation-sm)",
+      "--comp-breadcrumbs-target-padding-inline-md: var(--component-control-frame-padding-navigation-md)",
+      "--comp-breadcrumbs-target-padding-inline-lg: var(--component-control-frame-padding-navigation-lg)",
+      "--comp-breadcrumbs-target-radius: var(--component-control-frame-radius-navigation)",
+      "--comp-breadcrumbs-font-size-sm: var(--component-control-frame-font-size-sm)",
+      "--comp-breadcrumbs-font-size-md: var(--component-control-frame-font-size-md)",
+      "--comp-breadcrumbs-font-size-lg: var(--component-control-frame-font-size-lg)",
       "--comp-breadcrumbs-width: var(--component-inline-size-fit-content)",
       "--comp-breadcrumbs-full-width: var(--component-inline-size-full)",
       "color: var(--comp-breadcrumbs-target-fg)",
@@ -107,13 +117,14 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
     snippets: [
       "align-items: var(--comp-breadcrumbs-target-align)",
       "border-radius: var(--comp-breadcrumbs-target-radius)",
+      "block-size: var(--comp-breadcrumbs-target-block)",
+      "box-sizing: border-box",
       "color: var(--comp-breadcrumbs-target-fg)",
       "display: var(--comp-breadcrumbs-target-display)",
       "font-size: var(--comp-breadcrumbs-font-size)",
       "font-weight: var(--comp-breadcrumbs-target-weight)",
       "justify-content: var(--comp-breadcrumbs-target-justify)",
       "line-height: var(--comp-breadcrumbs-target-line-height)",
-      "min-block-size: var(--comp-breadcrumbs-target-block)",
       "min-inline-size: var(--comp-breadcrumbs-target-block)",
       "padding-inline: var(--comp-breadcrumbs-target-padding-inline)",
       "text-decoration: var(--comp-breadcrumbs-target-decoration)",
@@ -172,7 +183,11 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       block,
       text,
       packageCssFile,
-      snippets: ["--comp-breadcrumbs-target-block:", "--comp-breadcrumbs-target-padding-inline:", "--comp-breadcrumbs-font-size:"],
+      snippets: [
+        "--comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-",
+        "--comp-breadcrumbs-target-padding-inline: var(--comp-breadcrumbs-target-padding-inline-",
+        "--comp-breadcrumbs-font-size: var(--comp-breadcrumbs-font-size-",
+      ],
       message,
     });
   }
@@ -180,8 +195,8 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
     block: densityLgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg)"],
-    message: "Breadcrumbs mobile/large density must consume the large navigation target role.",
+    snippets: ["--comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-lg)"],
+    message: "Breadcrumbs mobile/large density must consume the large ControlFrame navigation target role.",
   });
   requireIncludes({
     block: stateFocusBlock,

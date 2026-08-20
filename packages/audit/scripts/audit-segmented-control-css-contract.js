@@ -66,14 +66,14 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
   if (localItemSize) {
     add("errors", packageCssFile, lineNumber(text, localItemSize.index), "SegmentedControl item target must consume inline trigger roles instead of the generic control min size.");
   }
-  const localDensityItemSize = /--comp-segmented-control-item-min-block-(?:sm|lg):\s*(?:var\(--sys-space-9\)|calc\(var\(--sys-frame-height-control-sm\)\s*\+\s*var\(--sys-space-xs\)\));/.exec(text);
+  const localDensityItemSize = /--comp-segmented-control-item-min-block-(?:sm|md|lg):\s*(?:var\(--component-segmented-control-item-min-block|var\(--sys-space-9\)|calc\(var\(--sys-frame-height-control-sm\)\s*\+\s*var\(--sys-space-xs\)\));/.exec(text);
   if (localDensityItemSize) {
-    add("errors", packageCssFile, lineNumber(text, localDensityItemSize.index), "SegmentedControl density item targets must route through --component-segmented-control-item-min-block-* aliases.");
+    add("errors", packageCssFile, lineNumber(text, localDensityItemSize.index), "SegmentedControl density item targets must route through ControlFrame action size aliases.");
   }
-  for (const density of ["sm", "lg"]) {
-    const componentAlias = `--comp-segmented-control-item-min-block-${density}: var(--component-segmented-control-item-min-block-${density});`;
+  for (const density of ["sm", "md", "lg"]) {
+    const componentAlias = `--comp-segmented-control-item-min-block-${density}: var(--component-control-frame-size-${density});`;
     if (!text.includes(componentAlias)) {
-      add("errors", packageCssFile, 1, `SegmentedControl ${density} item target must consume --component-segmented-control-item-min-block-${density}.`);
+      add("errors", packageCssFile, 1, `SegmentedControl ${density} item target must consume --component-control-frame-size-${density}.`);
     }
   }
 
@@ -88,7 +88,14 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
       "--comp-segmented-control-indicator-selected-transform: var(--component-transform-scale-rest)",
       "--comp-segmented-control-item-align: var(--component-align-center)",
       "--comp-segmented-control-item-display: var(--component-display-inline-flex)",
-      "--comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md)",
+      "--comp-segmented-control-item-min-block-sm: var(--component-control-frame-size-sm)",
+      "--comp-segmented-control-item-min-block-md: var(--component-control-frame-size-md)",
+      "--comp-segmented-control-item-min-block-lg: var(--component-control-frame-size-lg)",
+      "--comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-md)",
+      "--comp-segmented-control-item-padding-inline-sm: var(--component-control-frame-padding-action-sm)",
+      "--comp-segmented-control-item-padding-inline-md: var(--component-control-frame-padding-action-md)",
+      "--comp-segmented-control-item-padding-inline-lg: var(--component-control-frame-padding-action-lg)",
+      "--comp-segmented-control-radius: var(--component-control-frame-radius-action)",
       "--comp-segmented-control-icon-selected-variation: var(--component-icon-variation-filled-strong)",
       "--comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size))",
       "--comp-segmented-control-visually-hidden-size: var(--component-visually-hidden-size)",
@@ -99,21 +106,33 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
     ],
     message: "SegmentedControl root must own and consume aliases for frame, layout, indicator, item, icon, density, and accessibility.",
   });
-  for (const [block, message] of [
-    [toolbarBlock, "SegmentedControl toolbar variant must set item size, padding, icon size, bg, and width aliases."],
-    [compactBlock, "SegmentedControl compact variant must set item size, padding, icon size, and width aliases."],
-    [densitySmBlock, "SegmentedControl small density must set item size, padding, and icon aliases."],
-    [densityLgBlock, "SegmentedControl large density must set item size, padding, and icon aliases."],
+  for (const [block, snippets, message] of [
+    [
+      toolbarBlock,
+      ["--comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm)", "--comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-sm)", "--comp-segmented-control-icon-size: var(--component-density-icon-size-sm)"],
+      "SegmentedControl toolbar variant must set item size, padding, icon size, bg, and width aliases from ControlFrame.",
+    ],
+    [
+      compactBlock,
+      ["--comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm)", "--comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-sm)", "--comp-segmented-control-icon-size: var(--component-density-icon-size-sm)"],
+      "SegmentedControl compact variant must set item size, padding, icon size, and width aliases from ControlFrame.",
+    ],
+    [
+      densitySmBlock,
+      ["--comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm)", "--comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-sm)", "--comp-segmented-control-icon-size: var(--component-density-icon-size-sm)"],
+      "SegmentedControl small density must set item size, padding, and icon aliases from ControlFrame.",
+    ],
+    [
+      densityLgBlock,
+      ["--comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-lg)", "--comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-lg)", "--comp-segmented-control-icon-size: var(--component-density-icon-size-lg)"],
+      "SegmentedControl large density must set item size, padding, and icon aliases from ControlFrame.",
+    ],
   ]) {
     requireIncludes({
       block,
       text,
       packageCssFile,
-      snippets: [
-        "--comp-segmented-control-item-min-block:",
-        "--comp-segmented-control-item-padding-inline:",
-        "--comp-segmented-control-icon-size:",
-      ],
+      snippets,
       message,
     });
   }
@@ -140,6 +159,8 @@ function checkSegmentedControlCssContract({ text, blocks, packageCssFile, select
       "display: var(--comp-segmented-control-item-display)",
       "flex: var(--comp-segmented-control-item-flex)",
       "justify-content: var(--comp-segmented-control-item-justify)",
+      "block-size: var(--comp-segmented-control-item-min-block)",
+      "box-sizing: border-box",
       "min-inline-size: var(--comp-segmented-control-item-min-inline)",
       "z-index: var(--comp-segmented-control-item-z)",
     ],

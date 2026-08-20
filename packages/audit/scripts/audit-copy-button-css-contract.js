@@ -15,6 +15,11 @@ function checkCopyButtonCssContract({ text, blocks, packageCssFile }) {
       add("errors", packageCssFile, lineNumber(text, root.index), `Copy Button CSS missing ${required}.`);
     }
   }
+  for (const forbidden of ["block-size:", "min-block-size:", "min-height:", "padding:", "border-radius:"]) {
+    if (root.body.includes(forbidden)) {
+      add("errors", packageCssFile, lineNumber(text, root.index), `Copy Button must not own frame geometry (${forbidden}); it composes Button/IconButton.`);
+    }
+  }
 }
 
 module.exports = { checkCopyButtonCssContract };

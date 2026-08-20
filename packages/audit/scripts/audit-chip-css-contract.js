@@ -43,8 +43,12 @@ function checkChipCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: buttonChipBlock,
     text,
     packageCssFile,
-    snippets: ["min-block-size: var(--comp-chip-interactive-min-block-size)"],
-    message: "Interactive Chip block size must consume the Chip interaction alias.",
+    snippets: [
+      "block-size: var(--comp-chip-interactive-min-block-size)",
+      "box-sizing: border-box",
+      "min-block-size: var(--comp-chip-interactive-min-block-size)",
+    ],
+    message: "Interactive Chip block size must consume the Chip interaction alias as an exact border-box frame.",
   });
   for (const [block, message] of [
     [hoverButtonBlock, "Interactive Chip hover state must consume Chip aliases."],

@@ -19,6 +19,7 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const trackOnlyBlock = blockFor(blocks, selectorKey, ".slider__track");
   const fillBlock = blockFor(blocks, selectorKey, ".slider__fill");
   const thumbBlock = blockFor(blocks, selectorKey, ".slider__thumb");
+  const controlBlock = blockFor(blocks, selectorKey, ".slider__control");
   const inputBlock = blockFor(blocks, selectorKey, ".slider__input");
   const inputFocusBlock = blockFor(blocks, selectorKey, ".slider__input:focus-visible");
   const inputActiveBlock = blockFor(blocks, selectorKey, ".slider__input:active");
@@ -103,11 +104,19 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     message: "Slider fill must consume the Slider fill color alias and percentage contract.",
   });
   requireIncludes({
+    block: controlBlock,
+    text,
+    packageCssFile,
+    snippets: ["block-size: var(--comp-slider-touch-size)", "box-sizing: border-box"],
+    message: "Slider control must keep the touch frame exact through border-box sizing.",
+  });
+  requireIncludes({
     block: thumbBlock,
     text,
     packageCssFile,
     snippets: [
       "background: var(--comp-slider-thumb-bg)",
+      "box-sizing: border-box",
       "box-shadow: var(--comp-slider-thumb-halo), var(--comp-slider-thumb-depth)",
       "inset-inline-start: var(--comp-slider-percent)",
       "transform: var(--comp-slider-thumb-transform)",

@@ -70,6 +70,7 @@ function checkTreeViewCssContract({ text, blocks, packageCssFile, selectorKey })
       "min-block-size: var(--comp-tree-view-control-min-block)",
       "border: var(--comp-tree-view-control-border-width) solid transparent",
       "border-radius: var(--comp-tree-view-control-radius)",
+      "box-sizing: border-box",
       "font-weight: var(--comp-tree-view-control-weight)",
       "padding-inline: var(--comp-tree-view-control-padding-inline)",
     ],

@@ -38,6 +38,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "border: var(--comp-drawer-panel-border-width) solid var(--comp-drawer-panel-border)",
+      "box-sizing: border-box",
       "animation: drawer-enter var(--comp-drawer-enter-duration) var(--comp-drawer-enter-ease)",
       "gap: var(--comp-drawer-panel-gap)",
       "inline-size: min(var(--comp-drawer-panel-inline), 92vw)",

@@ -38,6 +38,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "border: var(--comp-dialog-panel-border-width) solid var(--comp-dialog-panel-border)",
+      "box-sizing: border-box",
       "animation: dialog-enter var(--comp-dialog-enter-duration) var(--comp-dialog-enter-ease) both",
       "gap: var(--comp-dialog-panel-gap)",
       "padding: var(--comp-dialog-panel-padding)",

@@ -83,8 +83,11 @@ function checkStepperCssContract({ text, blocks, packageCssFile, selectorKey }) 
     packageCssFile,
     snippets: [
       "background: var(--comp-stepper-marker-bg)",
+      "block-size: var(--comp-stepper-marker-size)",
       "border: var(--comp-stepper-marker-border-width) solid var(--comp-stepper-marker-border)",
+      "box-sizing: border-box",
       "font-family: var(--comp-stepper-marker-font-family)",
+      "inline-size: var(--comp-stepper-marker-size)",
       "transition: var(--comp-stepper-marker-transition)",
     ],
     message: "Stepper marker must consume Stepper marker frame, voice, and motion aliases.",

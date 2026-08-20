@@ -56,14 +56,19 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--component-button-size-md: var(--component-density-control-height);") >= 0 ? text.indexOf("--component-button-size-md: var(--component-density-control-height);") : text.indexOf("--comp-button-size: var(--component-density-control-height);")), "Button medium geometry must not fall back to the global density control height; md must be the Button-owned 44px scale.");
   }
   for (const snippet of [
-    "--component-button-size-sm: var(--component-icon-button-size-sm);",
-    "--component-button-size-md: var(--component-icon-button-size-md);",
-    "--component-button-size-lg: var(--component-icon-button-size-lg);",
+    "--component-control-frame-radius-action: var(--component-radius-pill);",
+    "--component-button-size-sm: var(--component-control-frame-size-sm);",
+    "--component-button-size-md: var(--component-control-frame-size-md);",
+    "--component-button-size-lg: var(--component-control-frame-size-lg);",
     "--comp-button-size: var(--component-button-size-md);",
-    "--comp-button-padding-sm: var(--component-space-lg);",
-    "--comp-button-padding-md: var(--component-density-control-padding-x);",
-    "--comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-space-xs));",
+    "--comp-button-padding-sm: var(--component-control-frame-padding-action-sm);",
+    "--comp-button-padding-md: var(--component-control-frame-padding-action-md);",
+    "--comp-button-padding-lg: var(--component-control-frame-padding-action-lg);",
     "--comp-button-padding: var(--comp-button-padding-md);",
+    "--comp-button-font-size-sm: var(--component-control-frame-font-size-sm);",
+    "--comp-button-font-size-md: var(--component-control-frame-font-size-md);",
+    "--comp-button-font-size-lg: var(--component-control-frame-font-size-lg);",
+    "--comp-button-radius: var(--component-control-frame-radius-action);",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, `Button density must keep monotonic sm/md/lg geometry through Flow tokens: missing ${snippet}`);
@@ -115,6 +120,7 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "font-size: var(--comp-button-current-font-size)",
       "font-weight: var(--comp-button-font-weight)",
       "gap: var(--comp-button-gap)",
+      "block-size: var(--comp-button-current-size)",
       "min-block-size: var(--comp-button-current-size)",
       "min-height: var(--comp-button-current-size)",
       "padding: 0 var(--comp-button-current-padding)",

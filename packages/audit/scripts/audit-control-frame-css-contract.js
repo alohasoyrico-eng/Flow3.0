@@ -1,0 +1,47 @@
+const { path, root, read, add, lineNumber } = require("./audit-context.js");
+
+const packageCssFile = path.join(root, "packages/components/styles/components.css");
+
+function checkControlFrameCssContract() {
+  const css = read(packageCssFile);
+  const required = [
+    ["--component-control-frame-size-sm: var(--sys-space-9);", "ControlFrame sm must own the shared rendered control height."],
+    ["--component-control-frame-size-md: var(--component-control-min-size);", "ControlFrame md must own the shared rendered control height."],
+    ["--component-control-frame-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));", "ControlFrame lg must own the shared rendered control height."],
+    ["--component-control-frame-font-size-sm: var(--component-font-size-small);", "ControlFrame sm must own shared control typography."],
+    ["--component-control-frame-font-size-md: var(--component-font-size-label);", "ControlFrame md must own shared control typography."],
+    ["--component-control-frame-font-size-lg: var(--component-font-size-body);", "ControlFrame lg must own shared control typography."],
+    ["--component-control-frame-radius-action: var(--component-radius-pill);", "Action controls must keep their own radius role."],
+    ["--component-control-frame-radius-field: var(--component-radius-control);", "Field controls must keep their own radius role."],
+    ["--component-control-frame-radius-navigation: var(--component-radius-sm);", "Navigation controls must keep their own radius role."],
+    ["--component-button-size-sm: var(--component-control-frame-size-sm);", "Button sm must consume ControlFrame directly."],
+    ["--component-button-size-md: var(--component-control-frame-size-md);", "Button md must consume ControlFrame directly."],
+    ["--component-button-size-lg: var(--component-control-frame-size-lg);", "Button lg must consume ControlFrame directly."],
+    ["--component-field-control-size-sm: var(--component-control-frame-size-sm);", "Field sm must consume ControlFrame directly."],
+    ["--component-field-control-size-md: var(--component-control-frame-size-md);", "Field md must consume ControlFrame directly."],
+    ["--component-field-control-size-lg: var(--component-control-frame-size-lg);", "Field lg must consume ControlFrame directly."],
+    ["--comp-button-radius: var(--component-control-frame-radius-action);", "Button must use the action radius role."],
+    ["border-radius: var(--component-control-frame-radius-field);", "Field and Select must use the field radius role."],
+    ["block-size: var(--comp-button-current-size);", "Button must render exact frame height, not only min-height."],
+    ["block-size: var(--comp-field-control-size);", "Input/Field must render exact frame height, not only min-height."],
+    ["block-size: var(--comp-select-current-control-size);", "Select must render exact frame height, not only min-height."],
+    ["block-size: var(--comp-breadcrumbs-target-block);", "Breadcrumbs targets must render exact navigation frame height, not only min-height."],
+    ["box-sizing: border-box;", "Control frame consumers must include border in rendered size."],
+  ];
+
+  for (const [snippet, message] of required) {
+    const index = css.indexOf(snippet);
+    if (index < 0) add("errors", packageCssFile, 1, `${message} Missing: ${snippet}`);
+  }
+
+  for (const stale of [
+    "--component-field-control-size-sm: var(--component-button-size-sm);",
+    "--component-field-control-size-md: var(--component-button-size-md);",
+    "--component-field-control-size-lg: var(--component-button-size-lg);",
+  ]) {
+    const index = css.indexOf(stale);
+    if (index >= 0) add("errors", packageCssFile, lineNumber(css, index), `Field controls must not be coupled to Button aliases. Use ControlFrame instead: ${stale}`);
+  }
+}
+
+module.exports = { checkControlFrameCssContract };

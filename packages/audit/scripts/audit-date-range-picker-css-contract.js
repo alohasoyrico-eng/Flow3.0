@@ -36,6 +36,8 @@ function checkDateRangePickerCssContract({ text, blocks, packageCssFile, selecto
     packageCssFile,
     snippets: [
       "border: var(--component-border-width) solid var(--comp-date-range-picker-preset-border)",
+      "block-size: var(--comp-date-range-picker-preset-min-block-size)",
+      "box-sizing: border-box",
       "font-size: var(--comp-date-range-picker-preset-font-size)",
       "transform var(--comp-date-range-picker-motion-press-duration) var(--comp-date-range-picker-motion-press)",
     ],

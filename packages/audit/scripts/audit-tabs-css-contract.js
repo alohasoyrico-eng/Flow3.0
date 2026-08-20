@@ -62,6 +62,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
   if (localTabTarget) {
     add("errors", packageCssFile, lineNumber(text, localTabTarget.index), "Tabs tab targets must consume navigation target roles instead of the generic control min size.");
   }
+  if (/--comp-tabs-tab-min-block:\s*calc\(var\(--component-density-control-height\)/.test(text)) {
+    add("errors", packageCssFile, 1, "Tabs density must consume ControlFrame action sizes instead of local density-control-height math.");
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -71,8 +74,19 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "--comp-tabs-bg: var(--component-energy-surface-sunken)",
       "--comp-tabs-tab-bg-selected: var(--component-energy-surface-primary)",
       "--comp-tabs-indicator-transition: var(--component-transition-tabs-indicator)",
-      "--comp-tabs-tab-min-block: var(--component-navigation-target-size-lg)",
-      "--comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg)",
+      "--comp-tabs-radius: var(--component-control-frame-radius-action)",
+      "--comp-tabs-tab-radius: var(--component-control-frame-radius-action)",
+      "--comp-tabs-tab-font-size-sm: var(--component-control-frame-font-size-sm)",
+      "--comp-tabs-tab-font-size-md: var(--component-control-frame-font-size-md)",
+      "--comp-tabs-tab-font-size-lg: var(--component-control-frame-font-size-lg)",
+      "--comp-tabs-tab-min-block-sm: var(--component-control-frame-size-sm)",
+      "--comp-tabs-tab-min-block-md: var(--component-control-frame-size-md)",
+      "--comp-tabs-tab-min-block-lg: var(--component-control-frame-size-lg)",
+      "--comp-tabs-tab-min-block: var(--comp-tabs-tab-min-block-md)",
+      "--comp-tabs-tab-min-inline: var(--component-control-frame-size-md)",
+      "--comp-tabs-tab-padding-inline-sm: var(--component-control-frame-padding-action-sm)",
+      "--comp-tabs-tab-padding-inline-md: var(--component-control-frame-padding-action-md)",
+      "--comp-tabs-tab-padding-inline-lg: var(--component-control-frame-padding-action-lg)",
       "--comp-tabs-disabled-fg: var(--component-disabled-text)",
       "--comp-tabs-disabled-cursor: var(--component-disabled-cursor)",
       "--comp-tabs-disabled-opacity: var(--component-disabled-readable-opacity)",
@@ -113,6 +127,8 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "color: var(--comp-tabs-tab-fg)",
       "font-size: var(--comp-tabs-tab-font-size)",
       "font-weight: var(--comp-tabs-tab-font-weight)",
+      "block-size: var(--comp-tabs-tab-min-block)",
+      "box-sizing: border-box",
       "min-block-size: var(--comp-tabs-tab-min-block)",
       "min-height: var(--comp-tabs-tab-min-block)",
       "padding: 0 var(--comp-tabs-tab-padding-inline)",
@@ -213,19 +229,31 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
     ],
     message: "Tabs underline tabs must consume underline tab aliases.",
   });
-  for (const [block, message] of [
-    [densitySmBlock, "Tabs small density must set tab size, padding, and font aliases."],
-    [densityLgBlock, "Tabs large density must set tab size, padding, and font aliases."],
+  for (const [block, snippets, message] of [
+    [
+      densitySmBlock,
+      [
+        "--comp-tabs-tab-min-block: var(--comp-tabs-tab-min-block-sm)",
+        "--comp-tabs-tab-padding-inline: var(--comp-tabs-tab-padding-inline-sm)",
+        "--comp-tabs-tab-font-size: var(--comp-tabs-tab-font-size-sm)",
+      ],
+      "Tabs small density must set tab size, padding, and font aliases from ControlFrame.",
+    ],
+    [
+      densityLgBlock,
+      [
+        "--comp-tabs-tab-min-block: var(--comp-tabs-tab-min-block-lg)",
+        "--comp-tabs-tab-padding-inline: var(--comp-tabs-tab-padding-inline-lg)",
+        "--comp-tabs-tab-font-size: var(--comp-tabs-tab-font-size-lg)",
+      ],
+      "Tabs large density must set tab size, padding, and font aliases from ControlFrame.",
+    ],
   ]) {
     requireIncludes({
       block,
       text,
       packageCssFile,
-      snippets: [
-        "--comp-tabs-tab-min-block:",
-        "--comp-tabs-tab-padding-inline:",
-        "--comp-tabs-tab-font-size:",
-      ],
+      snippets,
       message,
     });
   }

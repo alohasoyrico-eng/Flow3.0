@@ -65,7 +65,10 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
     packageCssFile,
     snippets: [
       "background: var(--comp-biometric-prompt-icon-bg)",
+      "block-size: var(--comp-biometric-prompt-icon-size)",
+      "box-sizing: border-box",
       "font-size: var(--comp-biometric-prompt-icon-font-size)",
+      "inline-size: var(--comp-biometric-prompt-icon-size)",
       "min-block-size: var(--comp-biometric-prompt-icon-size)",
       "min-inline-size: var(--comp-biometric-prompt-icon-size)",
     ],

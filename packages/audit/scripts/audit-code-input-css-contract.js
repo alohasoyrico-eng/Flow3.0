@@ -73,6 +73,7 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
     snippets: [
       "font-size: var(--comp-code-input-current-slot-font-size)",
       "block-size: var(--comp-code-input-current-slot-block-size)",
+      "box-sizing: border-box",
       "flex: 1 1 var(--comp-code-input-current-slot-inline-size)",
       "inline-size: var(--comp-code-input-current-slot-inline-size)",
       "min-block-size: var(--comp-code-input-current-slot-block-size)",

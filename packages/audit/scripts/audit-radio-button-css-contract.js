@@ -15,6 +15,7 @@ function checkRadioButtonCssContract({ text, blocks, packageCssFile, selectorKey
   const radioLgBlock = blockFor(blocks, selectorKey, ".radio[data-density=\"lg\"]");
   const radioIndicatorBlock = blockFor(blocks, selectorKey, ".radio .choice__indicator");
   const radioMarkBlock = blockFor(blocks, selectorKey, ".radio .choice__mark");
+  const sharedMarkBlock = blockFor(blocks, selectorKey, ".choice__mark");
 
   if (text.includes("--comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) *")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-radio-button-indicator-size: calc(var(--comp-choice-current-mark-size) *")), "RadioButton indicator sizes must not use CSS calc multiplication; browsers can invalidate the dot size.");
@@ -77,6 +78,13 @@ function checkRadioButtonCssContract({ text, blocks, packageCssFile, selectorKey
       "box-shadow: var(--comp-radio-button-rest-shadow)",
     ],
     message: "Radio rest mark must expose a visible base circle before selection.",
+  });
+  requireIncludes({
+    block: sharedMarkBlock,
+    text,
+    packageCssFile,
+    snippets: ["box-sizing: border-box"],
+    message: "Choice mark must use border-box so RadioButton mark density sizes include borders.",
   });
   const checkedIndicatorSelectors = [
     ".radio .choice__input:checked + .choice__mark .choice__indicator",

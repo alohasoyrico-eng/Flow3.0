@@ -52,6 +52,25 @@
   --component-radius-md-plus-half-sm: calc(var(--component-radius-md) + var(--component-radius-sm) / 2);
   --component-radius-md-emphasis: calc(var(--component-radius-md) * 1.5);
   --component-radius-none: 0;
+  --component-control-frame-size-sm: var(--sys-space-9);
+  --component-control-frame-size-md: var(--component-control-min-size);
+  --component-control-frame-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));
+  --component-control-frame-font-size-sm: var(--component-font-size-small);
+  --component-control-frame-font-size-md: var(--component-font-size-label);
+  --component-control-frame-font-size-lg: var(--component-font-size-body);
+  --component-control-frame-padding-action-sm: var(--component-space-lg);
+  --component-control-frame-padding-action-md: var(--component-density-control-padding-x);
+  --component-control-frame-padding-action-lg: calc(var(--component-space-xl) + var(--component-space-xs));
+  --component-control-frame-padding-field-sm: var(--component-space-lg);
+  --component-control-frame-padding-field-md: var(--component-space-lg);
+  --component-control-frame-padding-field-lg: var(--component-space-lg);
+  --component-control-frame-padding-navigation-sm: var(--component-space-xs);
+  --component-control-frame-padding-navigation-md: var(--component-space-xs);
+  --component-control-frame-padding-navigation-lg: var(--component-space-sm);
+  --component-control-frame-radius-action: var(--component-radius-pill);
+  --component-control-frame-radius-field: var(--component-radius-control);
+  --component-control-frame-radius-icon: var(--component-radius-pill);
+  --component-control-frame-radius-navigation: var(--component-radius-sm);
   --component-ratio-half: var(--sys-frame-ratio-half);
   --component-ratio-square: 1;
   --component-field-gap: var(--sys-frame-gap-element);
@@ -227,7 +246,7 @@
   --component-option-row-padding-inline-md: var(--component-space-xl);
   --component-option-row-padding-inline-lg: calc(var(--component-space-xl) + var(--component-space-sm));
   --component-option-row-gap: var(--component-space-sm);
-  --component-option-row-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
+  --component-option-row-radius: calc(var(--component-control-frame-radius-field) - var(--component-frame-space-micro));
   --component-option-row-color: var(--component-color-text);
   --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
   --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 6%, transparent);
@@ -246,7 +265,7 @@
   --component-overlay-panel-border: var(--component-color-border);
   --component-overlay-panel-depth: var(--component-depth-popover);
   --component-overlay-panel-offset: var(--component-space-xs);
-  --component-overlay-panel-radius: var(--component-radius-control);
+  --component-overlay-panel-radius: var(--component-control-frame-radius-field);
   --component-overlay-panel-z-index: var(--component-z-overlay);
   --component-listbox-gap: var(--component-space-2xs);
   --component-listbox-padding: var(--component-space-sm);
@@ -578,9 +597,9 @@
   --component-depth-frost-text: 0 var(--sys-frame-border-thin) var(--sys-space-xl) color-mix(in srgb, var(--sys-color-text) 30%, transparent);
   --component-transition-tabs-indicator: left var(--component-duration-base) var(--component-ease-state), width var(--component-duration-base) var(--component-ease-state);
   --component-gradient-stepper-marker-active: linear-gradient(145deg, color-mix(in srgb, var(--component-color-action) 78%, var(--component-color-surface)) 0%, var(--component-color-action) 62%, color-mix(in srgb, var(--component-color-action) 84%, var(--component-color-text)) 100%);
-  --component-field-control-size-sm: var(--component-button-size-sm);
-  --component-field-control-size-md: var(--component-button-size-md);
-  --component-field-control-size-lg: var(--component-button-size-lg);
+  --component-field-control-size-sm: var(--component-control-frame-size-sm);
+  --component-field-control-size-md: var(--component-control-frame-size-md);
+  --component-field-control-size-lg: var(--component-control-frame-size-lg);
   --component-field-icon-action-size-sm: calc(var(--component-control-min-size) - var(--sys-space-xl));
   --component-field-icon-action-size-md: calc(var(--component-control-min-size) - var(--sys-space-lg));
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));
@@ -602,7 +621,14 @@
   --comp-input-action-size-lg: var(--component-field-icon-action-size-lg);
   --comp-input-action-size: calc(var(--component-density-control-height) - var(--component-space-lg));
   --comp-input-gap: var(--component-field-gap);
-  --comp-input-padding-x: var(--component-space-lg);
+  --comp-input-padding-x-sm: var(--component-control-frame-padding-field-sm);
+  --comp-input-padding-x-md: var(--component-control-frame-padding-field-md);
+  --comp-input-padding-x-lg: var(--component-control-frame-padding-field-lg);
+  --comp-input-padding-x: var(--comp-input-padding-x-md);
+  --comp-input-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-input-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-input-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-input-font-size: var(--comp-input-font-size-md);
   --comp-input-label-fg: var(--component-color-text);
   --comp-input-label-weight: var(--component-font-weight-semibold);
   --comp-input-surface-bg: var(--component-color-surface);
@@ -1257,16 +1283,16 @@
   --component-card-icon-size-lg: calc(var(--component-control-min-size) - var(--sys-space-sm));
   --component-station-pin-pointer-size: calc(var(--sys-space-sm) - var(--component-frame-space-micro));
   --component-phone-compact-control-size: var(--component-field-control-size-sm);
-  --component-date-picker-control-size-sm: var(--sys-space-9);
-  --component-date-picker-control-size-lg: calc(var(--sys-frame-height-control-sm) + var(--sys-space-xs));
+  --component-date-picker-control-size-sm: var(--component-field-control-size-sm);
+  --component-date-picker-control-size-lg: var(--component-field-control-size-lg);
   --component-date-picker-day-size-sm: var(--component-field-icon-action-size-md);
   --component-date-picker-day-size-lg: var(--component-list-icon-box-size);
-  --component-icon-button-size-sm: var(--sys-space-9);
-  --component-icon-button-size-md: var(--component-control-min-size);
-  --component-icon-button-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));
-  --component-button-size-sm: var(--component-icon-button-size-sm);
-  --component-button-size-md: var(--component-icon-button-size-md);
-  --component-button-size-lg: var(--component-icon-button-size-lg);
+  --component-icon-button-size-sm: var(--component-control-frame-size-sm);
+  --component-icon-button-size-md: var(--component-control-frame-size-md);
+  --component-icon-button-size-lg: var(--component-control-frame-size-lg);
+  --component-button-size-sm: var(--component-control-frame-size-sm);
+  --component-button-size-md: var(--component-control-frame-size-md);
+  --component-button-size-lg: var(--component-control-frame-size-lg);
   --component-segmented-control-item-min-block-sm: var(--component-button-size-sm);
   --component-segmented-control-item-min-block-lg: var(--component-button-size-lg);
   --comp-icon-button-size-sm: var(--component-icon-button-size-sm);
@@ -1284,15 +1310,18 @@
   --comp-button-size-md: var(--component-button-size-md);
   --comp-button-size-lg: var(--component-button-size-lg);
   --comp-button-size: var(--component-button-size-md);
-  --comp-button-padding-sm: var(--component-space-lg);
-  --comp-button-padding-md: var(--component-density-control-padding-x);
-  --comp-button-padding-lg: calc(var(--component-space-xl) + var(--component-space-xs));
+  --comp-button-padding-sm: var(--component-control-frame-padding-action-sm);
+  --comp-button-padding-md: var(--component-control-frame-padding-action-md);
+  --comp-button-padding-lg: var(--component-control-frame-padding-action-lg);
   --comp-button-padding: var(--comp-button-padding-md);
   --comp-button-icon-size-sm: var(--component-density-icon-size-sm);
   --comp-button-icon-size-md: var(--component-density-icon-size-md);
   --comp-button-icon-size-lg: var(--component-density-icon-size-lg);
   --comp-button-icon-size: var(--component-density-icon-size-md);
-  --comp-button-font-size: var(--component-font-size-label);
+  --comp-button-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-button-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-button-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-button-font-size: var(--comp-button-font-size-md);
   --comp-copy-button-feedback-gap: var(--component-space-xs);
   --comp-copy-button-feedback-opacity: var(--component-opacity-visible);
   --comp-copy-button-error-color: var(--component-color-danger);
@@ -1511,7 +1540,7 @@
   --comp-button-current-font-size: var(--comp-button-font-size);
   --comp-button-border-color: var(--component-border-transparent);
   --comp-button-border: var(--component-border-width) solid var(--comp-button-border-color);
-  --comp-button-radius: var(--component-radius-pill);
+  --comp-button-radius: var(--component-control-frame-radius-action);
   --comp-button-cursor: var(--component-cursor-pointer);
   --comp-button-display: var(--component-display-inline-flex);
   --comp-button-font-weight: var(--component-font-weight-bold);
@@ -1583,6 +1612,7 @@
   font-size: var(--comp-button-current-font-size);
   font-weight: var(--comp-button-font-weight);
   gap: var(--comp-button-gap);
+  block-size: var(--comp-button-current-size);
   justify-content: var(--comp-button-justify);
   min-block-size: var(--comp-button-current-size);
   min-height: var(--comp-button-current-size);
@@ -1594,14 +1624,14 @@
   --comp-button-current-size: var(--comp-button-size-sm);
   --comp-button-current-padding: var(--comp-button-padding-sm);
   --comp-button-current-icon-size: var(--comp-button-icon-size-sm);
-  --comp-button-current-font-size: var(--component-font-size-small);
+  --comp-button-current-font-size: var(--comp-button-font-size-sm);
 }
 
 .button[data-density="lg"] {
   --comp-button-current-size: var(--comp-button-size-lg);
   --comp-button-current-padding: var(--comp-button-padding-lg);
   --comp-button-current-icon-size: var(--comp-button-icon-size-lg);
-  --comp-button-current-font-size: var(--component-font-size-body);
+  --comp-button-current-font-size: var(--comp-button-font-size-lg);
 }
 
 .button[data-full-width="true"] {
@@ -2063,7 +2093,9 @@
   align-items: center;
   background: var(--comp-input-surface-bg);
   border: var(--component-border-width) solid var(--comp-input-surface-border);
-  border-radius: var(--component-radius-control);
+  border-radius: var(--component-control-frame-radius-field);
+  box-sizing: border-box;
+  block-size: var(--comp-field-control-size);
   color: var(--comp-input-surface-fg);
   display: flex;
   gap: var(--comp-input-gap);
@@ -2177,6 +2209,7 @@
   background: var(--comp-combobox-listbox-bg);
   border: var(--component-border-width) solid var(--comp-combobox-listbox-border);
   border-radius: var(--comp-combobox-listbox-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-combobox-listbox-depth);
   display: grid;
   gap: var(--comp-combobox-listbox-gap);
@@ -2203,6 +2236,7 @@
 .combobox__option {
   align-items: center;
   border-radius: var(--comp-combobox-option-radius);
+  box-sizing: border-box;
   color: var(--comp-combobox-option-color);
   cursor: pointer;
   display: grid;
@@ -2318,6 +2352,8 @@
   --comp-field-control-size: var(--comp-input-control-size-sm);
   --comp-field-icon-size: var(--comp-input-icon-size-sm);
   --comp-field-icon-action-size: var(--comp-input-action-size-sm);
+  --comp-input-font-size: var(--comp-input-font-size-sm);
+  --comp-input-padding-x: var(--comp-input-padding-x-sm);
 }
 
 .field-control[data-density="lg"],
@@ -2325,6 +2361,8 @@
   --comp-field-control-size: var(--comp-input-control-size-lg);
   --comp-field-icon-size: var(--comp-input-icon-size-lg);
   --comp-field-icon-action-size: var(--comp-input-action-size-lg);
+  --comp-input-font-size: var(--comp-input-font-size-lg);
+  --comp-input-padding-x: var(--comp-input-padding-x-lg);
 }
 
 .field__icon {
@@ -2465,7 +2503,7 @@
   color: var(--comp-input-field-fg);
   flex: 1 1 auto;
   font: inherit;
-  font-size: var(--component-font-size-label);
+  font-size: var(--comp-input-font-size);
   font-weight: var(--comp-input-field-weight);
   inline-size: 100%;
   min-block-size: var(--component-min-text-line);
@@ -2839,6 +2877,7 @@
   align-items: center;
   background: var(--comp-choice-current-mark-bg);
   border: var(--component-border-width) solid var(--comp-choice-current-mark-border);
+  box-sizing: border-box;
   display: inline-flex;
   block-size: var(--comp-choice-current-mark-size);
   inline-size: var(--comp-choice-current-mark-size);
@@ -3132,6 +3171,7 @@
   align-items: center;
   background: var(--comp-switch-current-track-bg);
   border-radius: var(--comp-switch-radius);
+  box-sizing: border-box;
   display: inline-flex;
   inline-size: var(--comp-switch-current-track-width);
   min-block-size: var(--comp-switch-current-track-block);
@@ -3146,6 +3186,7 @@
   background: var(--comp-switch-current-thumb-bg);
   border-radius: var(--comp-switch-radius);
   block-size: var(--comp-switch-current-thumb-size);
+  box-sizing: border-box;
   box-shadow: var(--comp-switch-current-thumb-shadow);
   inline-size: var(--comp-switch-current-thumb-size);
   transition:
@@ -3597,6 +3638,8 @@ button.tag {
 }
 
 button.chip {
+  block-size: var(--comp-chip-interactive-min-block-size);
+  box-sizing: border-box;
   min-block-size: var(--comp-chip-interactive-min-block-size);
 }
 
@@ -3684,7 +3727,7 @@ button.tag:disabled,
   --comp-tabs-border-width: var(--component-border-width);
   --comp-tabs-border-color: color-mix(in srgb, var(--component-color-border) 76%, transparent);
   --comp-tabs-border: var(--comp-tabs-border-width) solid var(--comp-tabs-border-color);
-  --comp-tabs-radius: var(--component-radius-pill);
+  --comp-tabs-radius: var(--component-control-frame-radius-action);
   --comp-tabs-display: var(--component-display-inline-flex);
   --comp-tabs-gap: var(--component-space-xs);
   --comp-tabs-isolation: var(--component-isolation-isolate);
@@ -3694,7 +3737,7 @@ button.tag:disabled,
   --comp-tabs-indicator-bg: var(--comp-tabs-tab-bg-selected);
   --comp-tabs-indicator-border-color: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-border));
   --comp-tabs-indicator-border: var(--comp-tabs-border-width) solid var(--comp-tabs-indicator-border-color);
-  --comp-tabs-indicator-radius: var(--component-radius-pill);
+  --comp-tabs-indicator-radius: var(--component-control-frame-radius-action);
   --comp-tabs-indicator-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-action) 7%, transparent), var(--component-depth-raised-soft);
   --comp-tabs-indicator-content: "";
   --comp-tabs-indicator-inset-block: var(--component-space-xs);
@@ -3707,18 +3750,27 @@ button.tag:disabled,
   --comp-tabs-tab-align: var(--component-align-center);
   --comp-tabs-tab-bg: var(--component-surface-transparent);
   --comp-tabs-tab-border: var(--component-border-none);
-  --comp-tabs-tab-radius: var(--component-radius-pill);
+  --comp-tabs-tab-radius: var(--component-control-frame-radius-action);
   --comp-tabs-tab-fg: var(--component-color-text-muted);
   --comp-tabs-tab-cursor: var(--component-cursor-pointer);
   --comp-tabs-tab-display: var(--component-display-inline-flex);
   --comp-tabs-tab-font: var(--component-font-family-inherit);
-  --comp-tabs-tab-font-size: var(--component-font-size-label);
+  --comp-tabs-tab-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-tabs-tab-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-tabs-tab-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-tabs-tab-font-size: var(--comp-tabs-tab-font-size-md);
   --comp-tabs-tab-font-weight: var(--component-font-weight-semibold);
   --comp-tabs-tab-gap: var(--component-space-xs);
   --comp-tabs-tab-justify: var(--component-justify-center);
-  --comp-tabs-tab-min-block: var(--component-navigation-target-size-lg);
-  --comp-tabs-tab-min-inline: var(--component-navigation-target-size-lg);
-  --comp-tabs-tab-padding-inline: var(--component-space-lg);
+  --comp-tabs-tab-min-block-sm: var(--component-control-frame-size-sm);
+  --comp-tabs-tab-min-block-md: var(--component-control-frame-size-md);
+  --comp-tabs-tab-min-block-lg: var(--component-control-frame-size-lg);
+  --comp-tabs-tab-min-block: var(--comp-tabs-tab-min-block-md);
+  --comp-tabs-tab-min-inline: var(--component-control-frame-size-md);
+  --comp-tabs-tab-padding-inline-sm: var(--component-control-frame-padding-action-sm);
+  --comp-tabs-tab-padding-inline-md: var(--component-control-frame-padding-action-md);
+  --comp-tabs-tab-padding-inline-lg: var(--component-control-frame-padding-action-lg);
+  --comp-tabs-tab-padding-inline: var(--comp-tabs-tab-padding-inline-md);
   --comp-tabs-tab-position: var(--component-position-relative);
   --comp-tabs-tab-transition: color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-tabs-tab-z: var(--component-z-raised);
@@ -3786,6 +3838,8 @@ button.tag:disabled,
   font-weight: var(--comp-tabs-tab-font-weight);
   gap: var(--comp-tabs-tab-gap);
   justify-content: var(--comp-tabs-tab-justify);
+  block-size: var(--comp-tabs-tab-min-block);
+  box-sizing: border-box;
   min-block-size: var(--comp-tabs-tab-min-block);
   min-height: var(--comp-tabs-tab-min-block);
   min-inline-size: var(--comp-tabs-tab-min-inline);
@@ -3852,15 +3906,15 @@ button.tag:disabled,
 }
 
 .tabs[data-density="sm"] {
-  --comp-tabs-tab-min-block: calc(var(--component-density-control-height) - var(--component-space-3));
-  --comp-tabs-tab-padding-inline: var(--component-space-md);
-  --comp-tabs-tab-font-size: var(--component-font-size-caption);
+  --comp-tabs-tab-min-block: var(--comp-tabs-tab-min-block-sm);
+  --comp-tabs-tab-padding-inline: var(--comp-tabs-tab-padding-inline-sm);
+  --comp-tabs-tab-font-size: var(--comp-tabs-tab-font-size-sm);
 }
 
 .tabs[data-density="lg"] {
-  --comp-tabs-tab-min-block: calc(var(--component-density-control-height) + var(--component-space-sm));
-  --comp-tabs-tab-padding-inline: var(--component-space-xl);
-  --comp-tabs-tab-font-size: var(--component-font-size-body);
+  --comp-tabs-tab-min-block: var(--comp-tabs-tab-min-block-lg);
+  --comp-tabs-tab-padding-inline: var(--comp-tabs-tab-padding-inline-lg);
+  --comp-tabs-tab-font-size: var(--comp-tabs-tab-font-size-lg);
 }
 
 .tabs__tab:focus-visible {
@@ -3876,6 +3930,7 @@ button.tag:disabled,
 .tooltip {
   --comp-tooltip-bubble-bg: var(--component-energy-text-primary);
   --comp-tooltip-bubble-fg: var(--component-energy-surface-primary);
+  --comp-tooltip-bubble-depth: var(--component-depth-tooltip);
   --comp-tooltip-focus-color: var(--component-color-focus);
   --comp-tooltip-trigger-bg: var(--component-color-surface);
   --comp-tooltip-trigger-border: var(--component-color-border);
@@ -3912,6 +3967,7 @@ button.tag:disabled,
   --comp-tooltip-bubble-font-size: var(--comp-tooltip-bubble-font-size-md);
   --comp-tooltip-bubble-min-inline: var(--comp-tooltip-bubble-min-inline-md);
   --comp-tooltip-bubble-radius: var(--component-radius-surface);
+  --comp-tooltip-bubble-z-index: var(--component-overlay-panel-z-index);
   --comp-tooltip-bubble-weight: var(--component-font-weight-medium);
   --comp-tooltip-bubble-placement-gap: var(--component-frame-gap-element);
   --comp-tooltip-bubble-viewport-gap: var(--component-frame-gap-component-lg);
@@ -3933,6 +3989,7 @@ button.tag:disabled,
   background: var(--comp-tooltip-trigger-bg);
   border: var(--component-border-width) solid var(--comp-tooltip-trigger-border);
   border-radius: var(--component-radius-pill);
+  box-sizing: border-box;
   color: var(--comp-tooltip-trigger-fg);
   cursor: help;
   font: inherit;
@@ -3980,7 +4037,8 @@ button.tag:disabled,
 .tooltip__bubble {
   background: var(--comp-tooltip-bubble-bg);
   border-radius: var(--comp-tooltip-bubble-radius);
-  box-shadow: var(--component-depth-tooltip);
+  box-shadow: var(--comp-tooltip-bubble-depth);
+  box-sizing: border-box;
   color: var(--comp-tooltip-bubble-fg);
   display: block;
   font-size: var(--comp-tooltip-bubble-font-size);
@@ -4002,7 +4060,7 @@ button.tag:disabled,
   visibility: hidden;
   white-space: normal;
   overflow-wrap: break-word;
-  z-index: var(--component-z-dropdown);
+  z-index: var(--comp-tooltip-bubble-z-index);
 }
 
 .tooltip__bubble::before {
@@ -4970,6 +5028,7 @@ button.tag:disabled,
 .slider__control {
   align-items: center;
   block-size: var(--comp-slider-touch-size);
+  box-sizing: border-box;
   display: flex;
   position: relative;
 }
@@ -5000,6 +5059,7 @@ button.tag:disabled,
   block-size: var(--comp-slider-thumb-size);
   border: var(--comp-slider-thumb-border-width) solid var(--comp-slider-state-color);
   border-radius: var(--comp-slider-thumb-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-slider-thumb-halo), var(--comp-slider-thumb-depth);
   inline-size: var(--comp-slider-thumb-size);
   inset-block-start: 50%;
@@ -5797,6 +5857,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-floating-action-button-bg);
   border: var(--comp-floating-action-button-border);
   border-radius: var(--comp-floating-action-button-radius);
+  block-size: var(--comp-floating-action-button-size);
+  box-sizing: border-box;
   box-shadow: var(--comp-floating-action-button-shadow);
   color: var(--comp-floating-action-button-text);
   cursor: var(--comp-floating-action-button-cursor);
@@ -5894,10 +5956,19 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-target-display: var(--component-display-inline-flex);
   --comp-breadcrumbs-target-justify: var(--component-justify-center);
   --comp-breadcrumbs-target-decoration: var(--component-text-decoration-none);
-  --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
-  --comp-breadcrumbs-target-padding-inline: var(--component-space-xs);
-  --comp-breadcrumbs-target-radius: var(--component-radius-sm);
-  --comp-breadcrumbs-font-size: var(--component-font-size-small);
+  --comp-breadcrumbs-target-block-sm: var(--component-control-frame-size-sm);
+  --comp-breadcrumbs-target-block-md: var(--component-control-frame-size-md);
+  --comp-breadcrumbs-target-block-lg: var(--component-control-frame-size-lg);
+  --comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-md);
+  --comp-breadcrumbs-target-padding-inline-sm: var(--component-control-frame-padding-navigation-sm);
+  --comp-breadcrumbs-target-padding-inline-md: var(--component-control-frame-padding-navigation-md);
+  --comp-breadcrumbs-target-padding-inline-lg: var(--component-control-frame-padding-navigation-lg);
+  --comp-breadcrumbs-target-padding-inline: var(--comp-breadcrumbs-target-padding-inline-md);
+  --comp-breadcrumbs-target-radius: var(--component-control-frame-radius-navigation);
+  --comp-breadcrumbs-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-breadcrumbs-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-breadcrumbs-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-breadcrumbs-font-size: var(--comp-breadcrumbs-font-size-md);
   --comp-breadcrumbs-target-fg: var(--component-color-text-muted);
   --comp-breadcrumbs-target-weight: var(--component-font-weight-extrabold);
   --comp-breadcrumbs-target-line-height: var(--component-line-height-tight);
@@ -5950,6 +6021,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .breadcrumbs__target {
   align-items: var(--comp-breadcrumbs-target-align);
   border-radius: var(--comp-breadcrumbs-target-radius);
+  block-size: var(--comp-breadcrumbs-target-block);
+  box-sizing: border-box;
   color: var(--comp-breadcrumbs-target-fg);
   display: var(--comp-breadcrumbs-target-display);
   font-size: var(--comp-breadcrumbs-font-size);
@@ -5996,16 +6069,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .breadcrumbs[data-variant="compact"],
 .breadcrumbs[data-density="sm"] {
-  --comp-breadcrumbs-target-block: var(--component-a11y-touch-target-min);
-  --comp-breadcrumbs-target-padding-inline: var(--component-space-xs);
-  --comp-breadcrumbs-font-size: var(--component-font-size-caption);
+  --comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-sm);
+  --comp-breadcrumbs-target-padding-inline: var(--comp-breadcrumbs-target-padding-inline-sm);
+  --comp-breadcrumbs-font-size: var(--comp-breadcrumbs-font-size-sm);
 }
 
 .breadcrumbs[data-variant="mobile"],
 .breadcrumbs[data-density="lg"] {
-  --comp-breadcrumbs-target-block: var(--component-navigation-target-size-lg);
-  --comp-breadcrumbs-target-padding-inline: var(--component-space-sm);
-  --comp-breadcrumbs-font-size: var(--component-font-size-label);
+  --comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-lg);
+  --comp-breadcrumbs-target-padding-inline: var(--comp-breadcrumbs-target-padding-inline-lg);
+  --comp-breadcrumbs-font-size: var(--comp-breadcrumbs-font-size-lg);
 }
 
 .breadcrumbs[data-state="focus"] a.breadcrumbs__target:first-of-type {
@@ -6032,18 +6105,25 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-button-display: var(--component-display-inline-flex);
   --comp-pagination-button-justify: var(--component-justify-center);
   --comp-pagination-current-cursor: var(--component-cursor-default);
-  --comp-pagination-size: var(--component-navigation-target-size-md);
-  --comp-pagination-size-sm: var(--component-navigation-target-size-sm);
-  --comp-pagination-size-lg: var(--component-navigation-target-size-lg);
+  --comp-pagination-size-sm: var(--component-control-frame-size-sm);
+  --comp-pagination-size-md: var(--component-control-frame-size-md);
+  --comp-pagination-size-lg: var(--component-control-frame-size-lg);
+  --comp-pagination-size: var(--comp-pagination-size-md);
   --comp-pagination-gap: var(--component-space-xs);
-  --comp-pagination-radius: var(--component-radius-pill);
+  --comp-pagination-radius: var(--component-control-frame-radius-action);
   --comp-pagination-cursor: var(--component-cursor-pointer);
   --comp-pagination-disabled-cursor: var(--component-cursor-default);
   --comp-pagination-fg: var(--component-color-text-subtle);
   --comp-pagination-font-family: var(--component-font-family-mono);
-  --comp-pagination-font-size: var(--component-font-size-small);
+  --comp-pagination-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-pagination-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-pagination-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-pagination-font-size: var(--comp-pagination-font-size-md);
   --comp-pagination-font-weight: var(--component-font-weight-semibold);
-  --comp-pagination-padding-inline: var(--component-space-sm);
+  --comp-pagination-padding-inline-sm: var(--component-control-frame-padding-action-sm);
+  --comp-pagination-padding-inline-md: var(--component-control-frame-padding-action-md);
+  --comp-pagination-padding-inline-lg: var(--component-control-frame-padding-action-lg);
+  --comp-pagination-padding-inline: var(--comp-pagination-padding-inline-md);
   --comp-pagination-hover-bg: var(--component-color-surface-muted);
   --comp-pagination-hover-fg: var(--component-color-text);
   --comp-pagination-focus-width: var(--component-focus-ring-width);
@@ -6090,6 +6170,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-size: var(--comp-pagination-font-size);
   font-weight: var(--comp-pagination-font-weight);
   justify-content: var(--comp-pagination-button-justify);
+  block-size: var(--comp-pagination-size);
+  box-sizing: border-box;
   min-block-size: var(--comp-pagination-size);
   min-inline-size: var(--comp-pagination-size);
   padding-inline: var(--comp-pagination-padding-inline);
@@ -6153,13 +6235,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .pagination[data-density="sm"] {
   --comp-pagination-size: var(--comp-pagination-size-sm);
   --comp-pagination-gap: var(--component-focus-ring-offset);
-  --comp-pagination-padding-inline: var(--component-space-xs);
+  --comp-pagination-font-size: var(--comp-pagination-font-size-sm);
+  --comp-pagination-padding-inline: var(--comp-pagination-padding-inline-sm);
 }
 
 .pagination[data-density="lg"] {
   --comp-pagination-size: var(--comp-pagination-size-lg);
   --comp-pagination-gap: var(--component-space-sm);
-  --comp-pagination-padding-inline: var(--component-space-md);
+  --comp-pagination-font-size: var(--comp-pagination-font-size-lg);
+  --comp-pagination-padding-inline: var(--comp-pagination-padding-inline-lg);
 }
 
 @keyframes pagination-current-enter {
@@ -6980,6 +7064,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-dialog-panel-bg);
   border: var(--comp-dialog-panel-border-width) solid var(--comp-dialog-panel-border);
   border-radius: var(--comp-dialog-panel-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-dialog-panel-depth);
   color: var(--comp-dialog-panel-color);
   animation: dialog-enter var(--comp-dialog-enter-duration) var(--comp-dialog-enter-ease) both;
@@ -7106,16 +7191,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .menu {
   --comp-menu-gap: var(--component-space-xs);
-  --comp-menu-panel-bg: var(--component-color-surface);
+  --comp-menu-panel-bg: var(--component-listbox-bg);
   --comp-menu-panel-border-width: var(--component-border-width);
-  --comp-menu-panel-border: var(--component-color-border);
+  --comp-menu-panel-border: var(--component-listbox-border);
   --comp-menu-panel-fg: var(--component-color-text);
   --comp-menu-panel-min-inline: var(--component-menu-panel-min-inline-md);
   --comp-menu-panel-padding: var(--component-listbox-padding);
   --comp-menu-panel-radius: var(--component-listbox-radius);
-  --comp-menu-panel-depth: var(--component-depth-popover);
+  --comp-menu-panel-depth: var(--component-listbox-depth);
   --comp-menu-panel-offset: var(--component-listbox-offset);
-  --comp-menu-panel-z-index: var(--component-z-overlay);
+  --comp-menu-panel-z-index: var(--component-overlay-panel-z-index);
   --comp-menu-panel-gap: var(--component-listbox-gap);
   --comp-menu-item-bg: var(--component-surface-transparent);
   --comp-menu-item-fg: var(--component-option-row-color);
@@ -7204,6 +7289,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-menu-panel-bg);
   border: var(--comp-menu-panel-border-width) solid var(--comp-menu-panel-border);
   border-radius: var(--comp-menu-panel-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-menu-panel-depth);
   color: var(--comp-menu-panel-fg);
   display: grid;
@@ -7264,6 +7350,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-menu-item-bg);
   border: 0;
   border-radius: var(--comp-menu-item-radius);
+  box-sizing: border-box;
   color: var(--comp-menu-item-fg);
   cursor: pointer;
   display: grid;
@@ -7356,6 +7443,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-drawer-panel-bg);
   border: var(--comp-drawer-panel-border-width) solid var(--comp-drawer-panel-border);
   border-radius: var(--comp-drawer-panel-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-drawer-panel-depth);
   color: var(--comp-drawer-panel-color);
   animation: drawer-enter var(--comp-drawer-enter-duration) var(--comp-drawer-enter-ease);
@@ -7848,9 +7936,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .biometric-prompt__icon {
   background: var(--comp-biometric-prompt-icon-bg);
+  block-size: var(--comp-biometric-prompt-icon-size);
   border-radius: var(--comp-biometric-prompt-icon-radius);
+  box-sizing: border-box;
   color: var(--comp-biometric-prompt-icon-fg);
   font-size: var(--comp-biometric-prompt-icon-font-size);
+  inline-size: var(--comp-biometric-prompt-icon-size);
   min-block-size: var(--comp-biometric-prompt-icon-size);
   min-inline-size: var(--comp-biometric-prompt-icon-size);
   position: relative;
@@ -8022,6 +8113,7 @@ body[data-contrast="quiet"] .tree-view {
   background: transparent;
   border: var(--comp-tree-view-control-border-width) solid transparent;
   border-radius: var(--comp-tree-view-control-radius);
+  box-sizing: border-box;
   box-shadow: none;
   color: var(--comp-tree-view-control-text);
   font-weight: var(--comp-tree-view-control-weight);
@@ -9056,14 +9148,17 @@ body[data-contrast="quiet"] .inline-validation {
 .stepper__marker {
   align-items: center;
   background: var(--comp-stepper-marker-bg);
+  block-size: var(--comp-stepper-marker-size);
   border: var(--comp-stepper-marker-border-width) solid var(--comp-stepper-marker-border);
   border-radius: var(--comp-stepper-marker-radius);
+  box-sizing: border-box;
   color: var(--comp-stepper-marker-fg);
   display: inline-flex;
   flex: none;
   font-family: var(--comp-stepper-marker-font-family);
   font-size: var(--comp-stepper-marker-font-size);
   font-weight: var(--comp-stepper-marker-font-weight);
+  inline-size: var(--comp-stepper-marker-size);
   justify-content: center;
   min-block-size: var(--comp-stepper-marker-size);
   min-inline-size: var(--comp-stepper-marker-size);
@@ -10359,6 +10454,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-code-input-bg);
   border: var(--component-border-width) solid var(--comp-code-input-border);
   border-radius: var(--comp-code-input-radius);
+  box-sizing: border-box;
   color: var(--comp-code-input-fg);
   display: inline-flex;
   font-family: var(--comp-code-input-font-family);
@@ -10506,9 +10602,19 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-icon-size-lg: var(--component-density-icon-size-lg);
   --comp-select-icon-size: var(--component-density-icon-size-md);
   --comp-select-gap: var(--component-field-gap);
-  --comp-select-padding-start: var(--component-space-lg);
-  --comp-select-padding-end: calc(var(--component-space-lg) - var(--component-frame-space-micro));
+  --comp-select-padding-start-sm: var(--component-control-frame-padding-field-sm);
+  --comp-select-padding-start-md: var(--component-control-frame-padding-field-md);
+  --comp-select-padding-start-lg: var(--component-control-frame-padding-field-lg);
+  --comp-select-padding-start: var(--comp-select-padding-start-md);
+  --comp-select-padding-end-sm: calc(var(--component-control-frame-padding-field-sm) - var(--component-frame-space-micro));
+  --comp-select-padding-end-md: calc(var(--component-control-frame-padding-field-md) - var(--component-frame-space-micro));
+  --comp-select-padding-end-lg: calc(var(--component-control-frame-padding-field-lg) - var(--component-frame-space-micro));
+  --comp-select-padding-end: var(--comp-select-padding-end-md);
   --comp-select-inline-padding-end: var(--component-space-sm);
+  --comp-select-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-select-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-select-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-select-font-size: var(--comp-select-font-size-md);
   --comp-select-bg: var(--component-color-surface);
   --comp-select-border: var(--component-color-border);
   --comp-select-fg: var(--component-color-text);
@@ -10592,7 +10698,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-country-selector-trigger-gap: var(--comp-select-gap);
   --comp-country-selector-trigger-padding-start: var(--comp-select-padding-start);
   --comp-country-selector-trigger-padding-end: var(--comp-select-padding-end);
-  --comp-country-selector-trigger-font-size: var(--component-font-size-label);
+  --comp-country-selector-trigger-font-size: var(--comp-select-font-size);
   --comp-country-selector-inline-trigger-bg: var(--component-surface-transparent);
   --comp-country-selector-inline-trigger-border: var(--component-border-transparent);
   --comp-country-selector-inline-trigger-color: var(--component-color-text-muted);
@@ -10659,6 +10765,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control[data-density="sm"] {
   --comp-select-current-control-size: var(--comp-select-control-size-sm);
   --comp-select-current-icon-size: var(--comp-select-icon-size-sm);
+  --comp-select-font-size: var(--comp-select-font-size-sm);
+  --comp-select-padding-start: var(--comp-select-padding-start-sm);
+  --comp-select-padding-end: var(--comp-select-padding-end-sm);
   --comp-select-option-min-size: var(--comp-select-option-min-size-sm);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-sm);
   --comp-select-option-check-size: var(--comp-select-option-check-size-sm);
@@ -10667,6 +10776,9 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control[data-density="lg"] {
   --comp-select-current-control-size: var(--comp-select-control-size-lg);
   --comp-select-current-icon-size: var(--comp-select-icon-size-lg);
+  --comp-select-font-size: var(--comp-select-font-size-lg);
+  --comp-select-padding-start: var(--comp-select-padding-start-lg);
+  --comp-select-padding-end: var(--comp-select-padding-end-lg);
   --comp-select-option-min-size: var(--comp-select-option-min-size-lg);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-lg);
   --comp-select-option-check-size: var(--comp-select-option-check-size-lg);
@@ -10727,13 +10839,18 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   align-items: center;
   background: var(--comp-select-bg);
   border: var(--component-border-width) solid var(--comp-select-border);
-  border-radius: var(--component-radius-control);
+  border-radius: var(--component-control-frame-radius-field);
+  block-size: var(--comp-select-current-control-size);
+  box-sizing: border-box;
   color: var(--comp-select-fg);
   cursor: pointer;
   display: inline-flex;
   gap: var(--comp-select-gap);
   grid-area: 1 / 1;
-  font: inherit;
+  font-family: inherit;
+  font-size: var(--comp-select-font-size);
+  font-weight: inherit;
+  line-height: var(--component-line-height-none);
   inline-size: 100%;
   justify-content: space-between;
   min-block-size: var(--comp-select-current-control-size);
@@ -10752,9 +10869,11 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-country-selector-trigger-bg);
   border-color: var(--comp-country-selector-trigger-border);
   border-radius: var(--comp-country-selector-trigger-radius);
+  box-sizing: border-box;
   color: var(--comp-country-selector-trigger-color);
   font-size: var(--comp-country-selector-trigger-font-size);
   gap: var(--comp-country-selector-trigger-gap);
+  block-size: var(--comp-country-selector-control-size);
   min-block-size: var(--comp-country-selector-control-size);
   padding: 0 var(--comp-country-selector-trigger-padding-end) 0 var(--comp-country-selector-trigger-padding-start);
 }
@@ -10764,8 +10883,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .phone-input__country-trigger {
   background: transparent;
   border: 0;
+  box-sizing: border-box;
   color: var(--comp-country-selector-inline-trigger-color);
   gap: var(--comp-country-selector-inline-trigger-gap);
+  block-size: var(--comp-country-selector-inline-trigger-size);
   inline-size: max-content;
   justify-content: flex-start;
   min-block-size: var(--comp-country-selector-inline-trigger-size);
@@ -10826,7 +10947,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   display: inline-flex;
   flex: 1 1 auto;
   gap: var(--component-space-xs);
-  font-size: var(--component-font-size-label);
+  font-size: inherit;
   font-weight: var(--component-font-weight-medium);
   min-inline-size: 0;
   overflow: hidden;
@@ -11022,6 +11143,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-country-selector-search-bg);
   border: var(--component-border-width) solid var(--comp-country-selector-search-border);
   border-radius: var(--comp-country-selector-search-radius);
+  box-sizing: border-box;
   color: var(--comp-country-selector-search-color);
   font: inherit;
   font-size: var(--comp-country-selector-search-font-size);
@@ -11046,6 +11168,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .phone-input__country-option {
   align-items: center;
   border-radius: var(--comp-select-option-radius);
+  box-sizing: border-box;
   color: var(--comp-select-option-color);
   cursor: pointer;
   display: grid;
@@ -11339,7 +11462,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-date-picker-focus-color: var(--component-color-focus);
   --comp-date-picker-danger: var(--component-color-danger);
   --comp-date-picker-warning: var(--component-color-warning);
-  --comp-date-picker-control-size: var(--component-density-control-height);
+  --comp-date-picker-control-size: var(--component-field-control-size-md);
   --comp-date-picker-control-gap: calc(var(--component-space-sm) + var(--component-frame-space-micro));
   --comp-date-picker-control-padding-inline: var(--component-space-lg);
   --comp-date-picker-control-hover-border: color-mix(in srgb, var(--comp-date-picker-action) 24%, var(--comp-date-picker-border));
@@ -11381,8 +11504,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .date-picker__control {
   align-items: center;
   background: var(--comp-date-picker-bg);
+  block-size: var(--comp-date-picker-control-size);
   border: var(--component-border-width) solid var(--comp-date-picker-border);
   border-radius: var(--comp-date-picker-radius);
+  box-sizing: border-box;
   color: var(--comp-date-picker-fg);
   cursor: pointer;
   display: flex;
@@ -11559,13 +11684,17 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .date-picker__day {
   background: transparent;
+  block-size: var(--comp-date-picker-day-size);
   border: 0;
   border-radius: var(--component-radius-pill);
+  box-sizing: border-box;
   color: var(--comp-date-picker-fg);
   cursor: pointer;
   font: inherit;
   font-size: var(--comp-date-picker-day-font-size);
+  inline-size: var(--comp-date-picker-day-size);
   min-block-size: var(--comp-date-picker-day-size);
+  min-inline-size: var(--comp-date-picker-day-size);
   transition:
     background-color var(--component-duration-instant) var(--component-ease-state),
     color var(--component-duration-instant) var(--component-ease-state),
@@ -11642,8 +11771,10 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .date-range-picker__preset {
   background: var(--comp-date-range-picker-preset-bg);
+  block-size: var(--comp-date-range-picker-preset-min-block-size);
   border: var(--component-border-width) solid var(--comp-date-range-picker-preset-border);
   border-radius: var(--comp-date-range-picker-preset-radius);
+  box-sizing: border-box;
   color: var(--comp-date-range-picker-preset-fg);
   cursor: pointer;
   font: inherit;
@@ -11700,15 +11831,19 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-segmented-control-display: var(--component-display-inline-flex);
   --comp-segmented-control-gap: var(--component-frame-space-none);
   --comp-segmented-control-position: var(--component-position-relative);
-  --comp-segmented-control-item-min-block-sm: var(--component-segmented-control-item-min-block-sm);
-  --comp-segmented-control-item-min-block-lg: var(--component-segmented-control-item-min-block-lg);
-  --comp-segmented-control-item-min-block: var(--component-inline-trigger-min-block-size-md);
-  --comp-segmented-control-item-padding-inline: var(--component-space-md);
-  --comp-segmented-control-icon-size: var(--component-icon-size-sm);
+  --comp-segmented-control-item-min-block-sm: var(--component-control-frame-size-sm);
+  --comp-segmented-control-item-min-block-md: var(--component-control-frame-size-md);
+  --comp-segmented-control-item-min-block-lg: var(--component-control-frame-size-lg);
+  --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-md);
+  --comp-segmented-control-item-padding-inline-sm: var(--component-control-frame-padding-action-sm);
+  --comp-segmented-control-item-padding-inline-md: var(--component-control-frame-padding-action-md);
+  --comp-segmented-control-item-padding-inline-lg: var(--component-control-frame-padding-action-lg);
+  --comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-md);
+  --comp-segmented-control-icon-size: var(--component-density-icon-size-md);
   --comp-segmented-control-bg: var(--component-color-surface);
   --comp-segmented-control-border: var(--component-color-border);
   --comp-segmented-control-border-width: calc(var(--component-border-width) * 2);
-  --comp-segmented-control-radius: var(--component-radius-sm);
+  --comp-segmented-control-radius: var(--component-control-frame-radius-action);
   --comp-segmented-control-inner-radius: calc(var(--comp-segmented-control-radius) - var(--component-frame-space-micro));
   --comp-segmented-control-inline-size: min(100%, var(--component-segmented-control-inline-size));
   --comp-segmented-control-padding: calc(var(--component-space-xs) / 2);
@@ -11774,29 +11909,29 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 
 .segmented-control[data-variant="toolbar"] {
   --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
-  --comp-segmented-control-item-padding-inline: var(--component-space-sm);
-  --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
+  --comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-sm);
+  --comp-segmented-control-icon-size: var(--component-density-icon-size-sm);
   --comp-segmented-control-bg: color-mix(in srgb, var(--component-color-surface) 76%, var(--component-color-border));
   --comp-segmented-control-inline-size: var(--component-inline-size-auto);
 }
 
 .segmented-control[data-variant="compact"] {
   --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
-  --comp-segmented-control-item-padding-inline: var(--component-space-sm);
-  --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
+  --comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-sm);
+  --comp-segmented-control-icon-size: var(--component-density-icon-size-sm);
   --comp-segmented-control-inline-size: min(100%, var(--component-content-size-md));
 }
 
 .segmented-control[data-density="sm"] {
   --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-sm);
-  --comp-segmented-control-item-padding-inline: var(--component-space-sm);
-  --comp-segmented-control-icon-size: var(--component-font-size-title-sm);
+  --comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-sm);
+  --comp-segmented-control-icon-size: var(--component-density-icon-size-sm);
 }
 
 .segmented-control[data-density="lg"] {
   --comp-segmented-control-item-min-block: var(--comp-segmented-control-item-min-block-lg);
-  --comp-segmented-control-item-padding-inline: var(--component-space-lg);
-  --comp-segmented-control-icon-size: var(--component-font-size-title-md);
+  --comp-segmented-control-item-padding-inline: var(--comp-segmented-control-item-padding-inline-lg);
+  --comp-segmented-control-icon-size: var(--component-density-icon-size-lg);
 }
 
 .segmented-control__indicator {
@@ -11825,6 +11960,8 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   flex: var(--comp-segmented-control-item-flex);
   gap: var(--comp-segmented-control-item-gap);
   justify-content: var(--comp-segmented-control-item-justify);
+  block-size: var(--comp-segmented-control-item-min-block);
+  box-sizing: border-box;
   min-inline-size: var(--comp-segmented-control-item-min-inline);
   position: var(--comp-segmented-control-item-position);
   z-index: var(--comp-segmented-control-item-z);
@@ -11954,6 +12091,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-popover-panel-bg);
   border: var(--comp-popover-panel-border-width) solid var(--comp-popover-panel-border);
   border-radius: var(--comp-popover-panel-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-popover-panel-depth);
   color: var(--comp-popover-panel-fg);
   display: grid;
@@ -12601,10 +12739,13 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   background: var(--comp-quick-action-control-bg);
   border: var(--comp-quick-action-control-border-width) solid var(--comp-quick-action-control-border);
   border-radius: var(--comp-quick-action-control-radius);
+  block-size: var(--comp-quick-action-icon-size);
+  box-sizing: border-box;
   box-shadow: var(--comp-quick-action-control-shadow);
   color: var(--comp-quick-action-control-fg);
   cursor: var(--comp-quick-action-control-cursor);
   display: var(--comp-quick-action-control-display);
+  inline-size: var(--comp-quick-action-icon-size);
   justify-content: var(--comp-quick-action-control-justify);
   min-block-size: var(--comp-quick-action-icon-size);
   min-inline-size: var(--comp-quick-action-icon-size);

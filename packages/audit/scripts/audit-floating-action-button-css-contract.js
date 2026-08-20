@@ -67,6 +67,8 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
       "--comp-floating-action-button-disabled-cursor: var(--component-cursor-not-allowed)",
       "align-items: var(--comp-floating-action-button-align)",
       "border: var(--comp-floating-action-button-border)",
+      "block-size: var(--comp-floating-action-button-size)",
+      "box-sizing: border-box",
       "cursor: var(--comp-floating-action-button-cursor)",
       "display: var(--comp-floating-action-button-display)",
       "inline-size: var(--comp-floating-action-button-inline-size)",
