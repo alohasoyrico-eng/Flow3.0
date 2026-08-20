@@ -27,6 +27,8 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   const warningBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"]");
   const dangerSecondaryBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"][data-variant=\"secondary\"]");
   const dangerOutlinedBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"][data-variant=\"outlined\"]");
+  const warningSecondaryBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"][data-variant=\"secondary\"]");
+  const warningOutlinedBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"][data-variant=\"outlined\"]");
   const hoverBlock = blockFor(blocks, selectorKey, ".fab:hover:not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".fab:active:not(:disabled)");
   const stateHoverBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"hover\"]:not(:disabled)");
@@ -65,7 +67,7 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   if (text.includes("--fab-size") || text.includes("--fab-icon-size") || text.includes("--fab-padding")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--fab-")), "FloatingActionButton must not use short local --fab-* aliases; use the component token namespace.");
   }
-  for (const block of [rootBlock, secondaryBlock, tertiaryBlock, outlinedBlock, ghostBlock, dangerBlock, warningBlock, dangerSecondaryBlock, dangerOutlinedBlock].filter(Boolean)) {
+  for (const block of [rootBlock, secondaryBlock, tertiaryBlock, outlinedBlock, ghostBlock, dangerBlock, warningBlock, dangerSecondaryBlock, dangerOutlinedBlock, warningSecondaryBlock, warningOutlinedBlock].filter(Boolean)) {
     if (block.body.includes("--comp-button-")) {
       add("errors", packageCssFile, lineNumber(text, block.index), "FloatingActionButton must not consume Button-local --comp-button-* aliases; use shared component roles or FAB aliases.");
     }
@@ -178,6 +180,19 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
         "--comp-floating-action-button-text: var(--component-action-fg-danger-secondary)",
       ],
       message: `FloatingActionButton ${variant} danger intent must stay surface-based instead of solid danger.`,
+    });
+  }
+  for (const [block, variant] of [[warningSecondaryBlock, "secondary"], [warningOutlinedBlock, "outlined"]]) {
+    requireIncludes({
+      block,
+      text,
+      packageCssFile,
+      snippets: [
+        "--comp-floating-action-button-bg: var(--component-action-bg-warning-secondary)",
+        "--comp-floating-action-button-border-color: var(--component-action-border-warning-secondary)",
+        "--comp-floating-action-button-text: var(--component-action-fg-warning-secondary)",
+      ],
+      message: `FloatingActionButton ${variant} warning intent must stay surface-based instead of solid warning.`,
     });
   }
   requireIncludes({

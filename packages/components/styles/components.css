@@ -258,6 +258,13 @@
   --component-action-bg-danger-secondary-pressed: var(--component-tone-danger-surface-pressed);
   --component-action-border-danger-secondary-hover: var(--component-tone-danger-border-hover);
   --component-action-border-danger-secondary-pressed: var(--component-tone-danger-border-pressed);
+  --component-action-bg-warning-secondary: var(--component-color-surface);
+  --component-action-border-warning-secondary: var(--component-color-warning);
+  --component-action-fg-warning-secondary: var(--component-action-fg-warning);
+  --component-action-bg-warning-secondary-hover: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface));
+  --component-action-bg-warning-secondary-pressed: color-mix(in srgb, var(--component-color-warning) 22%, var(--component-color-surface));
+  --component-action-border-warning-secondary-hover: color-mix(in srgb, var(--component-color-warning) 64%, var(--component-color-border));
+  --component-action-border-warning-secondary-pressed: color-mix(in srgb, var(--component-color-warning) 78%, var(--component-color-border));
   --component-card-chip-block-size-sm: var(--sys-frame-content-card-chip-block-sm);
   --component-card-chip-block-size-md: var(--sys-frame-content-card-chip-block-md);
   --component-card-chip-block-size-lg: var(--sys-frame-content-card-chip-block-lg);
@@ -1654,6 +1661,13 @@
   --comp-button-bg-danger-secondary-pressed: var(--component-action-bg-danger-secondary-pressed);
   --comp-button-border-danger-secondary-hover: var(--component-action-border-danger-secondary-hover);
   --comp-button-border-danger-secondary-pressed: var(--component-action-border-danger-secondary-pressed);
+  --comp-button-bg-warning-secondary: var(--component-action-bg-warning-secondary);
+  --comp-button-border-warning-secondary: var(--component-action-border-warning-secondary);
+  --comp-button-fg-warning-secondary: var(--component-action-fg-warning-secondary);
+  --comp-button-bg-warning-secondary-hover: var(--component-action-bg-warning-secondary-hover);
+  --comp-button-bg-warning-secondary-pressed: var(--component-action-bg-warning-secondary-pressed);
+  --comp-button-border-warning-secondary-hover: var(--component-action-border-warning-secondary-hover);
+  --comp-button-border-warning-secondary-pressed: var(--component-action-border-warning-secondary-pressed);
   align-items: var(--comp-button-align);
   border: var(--comp-button-border);
   border-radius: var(--comp-button-radius);
@@ -1975,6 +1989,27 @@
 .button--danger.button--outlined[data-state="pressed"]:not(:disabled) {
   background: var(--comp-button-bg-danger-secondary-pressed);
   border-color: var(--comp-button-border-danger-secondary-pressed);
+}
+
+.button--warning.button--secondary,
+.button--warning.button--outlined {
+  background: var(--comp-button-bg-warning-secondary);
+  border-color: var(--comp-button-border-warning-secondary);
+  color: var(--comp-button-fg-warning-secondary);
+}
+
+.button--warning.button--secondary:hover:not(:disabled),
+.button--warning.button--outlined:hover:not(:disabled) {
+  background: var(--comp-button-bg-warning-secondary-hover);
+  border-color: var(--comp-button-border-warning-secondary-hover);
+}
+
+.button--warning.button--secondary:active:not(:disabled),
+.button--warning.button--outlined:active:not(:disabled),
+.button--warning.button--secondary[data-state="pressed"]:not(:disabled),
+.button--warning.button--outlined[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-button-bg-warning-secondary-pressed);
+  border-color: var(--comp-button-border-warning-secondary-pressed);
 }
 
 .button[data-state="pressed"]:not(:disabled) {
@@ -5998,6 +6033,22 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-secondary-pressed);
   --comp-floating-action-button-border-color: var(--component-action-border-danger-secondary);
   --comp-floating-action-button-text: var(--component-action-fg-danger-secondary);
+}
+
+.fab[data-intent="warning"][data-variant="secondary"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-warning-secondary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-secondary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-secondary-pressed);
+  --comp-floating-action-button-border-color: var(--component-action-border-warning-secondary);
+  --comp-floating-action-button-text: var(--component-action-fg-warning-secondary);
+}
+
+.fab[data-intent="warning"][data-variant="outlined"] {
+  --comp-floating-action-button-bg: var(--component-action-bg-warning-secondary);
+  --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-secondary-hover);
+  --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-secondary-pressed);
+  --comp-floating-action-button-border-color: var(--component-action-border-warning-secondary);
+  --comp-floating-action-button-text: var(--component-action-fg-warning-secondary);
 }
 
 .fab:hover:not(:disabled) {

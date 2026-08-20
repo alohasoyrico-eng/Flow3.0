@@ -90,7 +90,7 @@ export const componentContracts = {
         element: "button",
         purpose: "Trigger a compact icon-only utility with a fixed circular hit area, required accessible label, optional badge, and selected state only for true toggles.",
         variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
-        intents: ["default", "danger", "warning"],
+        intents: ["default"],
         states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled"],
         props: [
             { name: "ariaLabel", type: "string", required: true },
@@ -1122,7 +1122,7 @@ export const componentContracts = {
         element: "button",
         purpose: "Expose one prominent contextual action with action hierarchy variants and optional extended label treatment.",
         variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
-        intents: ["default"],
+        intents: ["default", "danger", "warning"],
         states: ["default", "hover", "focus", "pressed", "loading", "disabled"],
         props: [
             { name: "label", type: "string", required: true },

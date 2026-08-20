@@ -1397,7 +1397,9 @@
         "ghost"
       ],
       "intents": [
-        "default"
+        "default",
+        "danger",
+        "warning"
       ],
       "states": [
         "default",
@@ -1454,9 +1456,7 @@
         "ghost"
       ],
       "intents": [
-        "default",
-        "danger",
-        "warning"
+        "default"
       ],
       "states": [
         "default",
