@@ -598,6 +598,7 @@ try {
   }
 
   {
+    const user = createUser();
     const changes = [];
     const view = render(React.createElement(CardNumberInput, {
       label: "Card number",
@@ -605,12 +606,23 @@ try {
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     const input = view.getByRole("textbox", { name: /card number/i });
+    const root = view.container.querySelector(".card-number-input");
 
     fireEvent.change(input, { target: { value: "4111111111111111" } });
     assert.equal(input.value, "4111 1111 1111 1111");
     assert.equal(changes.at(-1).value, "4111111111111111");
     assert.equal(changes.at(-1).meta.brand, "Visa");
     assert.equal(changes.at(-1).meta.validity, "valid");
+    assert.equal(root.dataset.state, "valid");
+    assert.equal(root.dataset.brand, "Visa");
+    assert.equal(root.dataset.validity, "valid");
+
+    fireEvent.change(input, { target: { value: "4111111111111112" } });
+    const invalidNumber = view.getByText("Invalid card number");
+    assert.equal(root.dataset.state, "error");
+    assert.equal(root.dataset.validity, "invalid");
+    assert.equal(input.getAttribute("aria-invalid"), "true");
+    assert.equal(invalidNumber.getAttribute("role"), "alert");
 
     view.rerender(React.createElement(CardNumberInput, {
       label: "Card number",
@@ -621,11 +633,25 @@ try {
     fireEvent.change(input, { target: { value: "4111111111111111" } });
     assert.equal(changes.at(-1).value, "4111111111111111");
     assert.equal(input.value, "5555 5555 5555 4444");
+
+    view.rerender(React.createElement(CardNumberInput, {
+      label: "Card number",
+      value: "5555555555554444",
+      loading: true,
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    const beforeLoading = changes.length;
+    assert.equal(input.disabled, true);
+    assert.equal(root.dataset.state, "loading");
+    await user.click(input);
+    await user.keyboard("4111111111111111");
+    assert.equal(changes.length, beforeLoading);
     await assertNoAxeViolations(view.container);
     cleanup();
   }
 
   {
+    const user = createUser();
     const changes = [];
     const view = render(React.createElement(CardExpiryInput, {
       label: "Expiry date",
@@ -634,21 +660,64 @@ try {
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     const input = view.getByRole("textbox", { name: /expiry date/i });
+    const root = view.container.querySelector(".card-expiry-input");
 
     fireEvent.change(input, { target: { value: "1299" } });
     assert.equal(input.value, "12/99");
     assert.equal(changes.at(-1).value, "12/99");
     assert.equal(changes.at(-1).meta.validity, "valid");
+    assert.equal(changes.at(-1).meta.month, "12");
+    assert.equal(changes.at(-1).meta.year, "99");
+    assert.equal(root.dataset.state, "valid");
+    assert.equal(root.dataset.validity, "valid");
 
     view.rerender(React.createElement(CardExpiryInput, {
       label: "Expiry date",
       value: "0126",
+      validationMessage: "Invalid expiry",
+      expiredMessage: "Expired",
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     await waitFor(() => assert.equal(input.value, "01/26"));
     fireEvent.change(input, { target: { value: "1399" } });
     assert.equal(changes.at(-1).meta.validity, "invalid");
     assert.equal(input.value, "01/26");
+
+    view.rerender(React.createElement(CardExpiryInput, {
+      label: "Expiry date",
+      value: "1326",
+      validationMessage: "Invalid expiry",
+      expiredMessage: "Expired",
+    }));
+    await waitFor(() => assert.equal(input.value, "13/26"));
+    const invalidExpiry = view.getByText("Invalid expiry");
+    assert.equal(root.dataset.state, "error");
+    assert.equal(root.dataset.validity, "invalid");
+    assert.equal(input.getAttribute("aria-invalid"), "true");
+    assert.equal(invalidExpiry.getAttribute("role"), "alert");
+
+    view.rerender(React.createElement(CardExpiryInput, {
+      label: "Expiry date",
+      value: "0120",
+      validationMessage: "Invalid expiry",
+      expiredMessage: "Expired",
+    }));
+    await waitFor(() => assert.equal(input.value, "01/20"));
+    assert.equal(view.getByText("Expired").getAttribute("role"), "alert");
+    assert.equal(root.dataset.validity, "expired");
+
+    view.rerender(React.createElement(CardExpiryInput, {
+      label: "Expiry date",
+      value: "1299",
+      loading: true,
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    const beforeLoading = changes.length;
+    assert.equal(input.disabled, true);
+    assert.equal(root.dataset.state, "loading");
+    await user.click(input);
+    await user.keyboard("1129");
+    assert.equal(changes.length, beforeLoading);
     await assertNoAxeViolations(view.container);
     cleanup();
   }
@@ -666,24 +735,64 @@ try {
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     const input = view.getByLabelText(/^Security code$/i);
+    const root = view.container.querySelector(".card-security-code-input");
 
     fireEvent.change(input, { target: { value: "12345" } });
     assert.equal(input.value, "1234");
     assert.equal(changes.at(-1).meta.complete, true);
+    assert.equal(changes.at(-1).meta.expectedLength, 4);
+    assert.equal(root.dataset.state, "valid");
+    assert.equal(root.dataset.validity, "valid");
+    assert.equal(root.dataset.length, "4");
     assert.equal(input.type, "password");
     await user.click(view.getByRole("button", { name: /show security code/i }));
     assert.equal(revealChanges.at(-1), true);
     assert.equal(input.type, "text");
+    assert.equal(view.getByRole("button", { name: /hide security code/i }).getAttribute("aria-pressed"), "true");
 
     view.rerender(React.createElement(CardSecurityCodeInput, {
       label: "Security code",
       value: "999",
+      revealed: false,
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     await waitFor(() => assert.equal(input.value, "999"));
     fireEvent.change(input, { target: { value: "111" } });
     assert.equal(changes.at(-1).value, "111");
     assert.equal(input.value, "999");
+
+    view.rerender(React.createElement(CardSecurityCodeInput, {
+      label: "Security code",
+      value: "12",
+      error: "Invalid security code",
+      revealLabel: "Show security code",
+      hideLabel: "Hide security code",
+    }));
+    await waitFor(() => assert.equal(input.value, "12"));
+    const securityError = view.getByText("Invalid security code");
+    assert.equal(root.dataset.state, "error");
+    assert.equal(input.getAttribute("aria-invalid"), "true");
+    assert.equal(securityError.getAttribute("role"), "alert");
+
+    view.rerender(React.createElement(CardSecurityCodeInput, {
+      label: "Security code",
+      value: "999",
+      loading: true,
+      revealed: false,
+      revealLabel: "Show security code",
+      hideLabel: "Hide security code",
+      onRevealChange: (revealed) => revealChanges.push(revealed),
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    const beforeLoading = changes.length;
+    const revealButton = view.getByRole("button", { name: /show security code/i });
+    assert.equal(input.disabled, true);
+    assert.equal(revealButton.disabled, true);
+    assert.equal(root.dataset.state, "loading");
+    await user.click(revealButton);
+    await user.click(input);
+    await user.keyboard("111");
+    assert.equal(changes.length, beforeLoading);
     await assertNoAxeViolations(view.container);
     cleanup();
   }
