@@ -1,6 +1,6 @@
 # Foundations/Primitives System Audit Inventory
 
-Status: **iteration 2 complete**
+Status: **iteration 3 complete**
 
 This inventory starts the foundations/primitives remediation block after P0 component readiness work. It does not create a new audit lane. It consolidates the existing token, primitive, runtime, and gate evidence so the next iterations can fix systemic contracts instead of patching one component at a time.
 
@@ -43,6 +43,7 @@ The DS has real foundation/primitive ownership and active gates. The remaining r
 | ControlFrame covered components | 23 | `docs/audits/control-frame-adoption-inventory.md` |
 | ControlFrame unresolved debt | 0 | `docs/audits/control-frame-adoption-inventory.md` |
 | Runtime frame checks in fast gate | 4 | `packages/audit/scripts/audit-ds-fast-gate.js` |
+| Radius/surface role asserts in core gate | 8 | `packages/audit/scripts/audit-control-frame-css-contract.js` |
 
 ## Foundation Contract Map
 
@@ -96,7 +97,7 @@ Do not create a separate gate unless an existing one cannot express the rule.
 | Risk | Why It Matters | Existing Evidence | Next Iteration |
 | --- | --- | --- | --- |
 | Runtime geometry coverage is narrower than token reports | Token pass did not stop md/lg and padding bugs from appearing in demos | control/choice/listbox/icon-button runtime scripts are now in `audit:ds-fast-gate` | Iteration 2 complete |
-| Radius roles are not yet documented as family acceptance criteria | Button and input/select should not have identical shape | radius primitive pass | Iteration 3 |
+| Radius roles are not yet documented as family acceptance criteria | Button and input/select should not have identical shape | radius primitive pass; role asserts are now in `audit:flow-core-gate` | Iteration 3 complete |
 | Icon scale is still prone to component-local drift | Checkbox/radio exposed mark/icon scaling debt | choice runtime script, iconography reports | Iteration 4 |
 | Motion roles are semantically under-specified for fields vs actions | Input motion discussion exposed unclear acceptance | momentum/motion reports, input motion matrix | Iteration 5 |
 | Dark mode and contrast need runtime-style assurance | User observed legibility failures after light/dark demos | dark mode CSS audit, axe excludes color contrast in jsdom | Iteration 6 |
@@ -113,14 +114,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 3: **Radius + surface contract**.
+Iteration 4: **Icon scale contract**.
 
 Tasks:
 
-- Confirm family-specific radius roles for actions, fields, choices, listbox rows, overlays, and surfaces.
-- Keep button/icon-button pill radius separate from input/select/combobox field radius.
-- Verify whether surface/container radius rules are already represented in existing primitive and component CSS contracts.
-- Fold any missing radius/surface proof into existing gates only.
+- Verify that `16/20/24` density icon scale is enforced across icon-bearing controls, choices, listbox checks, field actions, and status/action affordances.
+- Confirm Material Symbols remain the governed icon implementation unless a component has an explicit exception.
+- Fold missing proof into existing iconography/runtime gates only.
 
 ## Iteration 2 Result
 
@@ -142,3 +142,24 @@ Observed runtime status before wiring:
 | `audit:icon-button-runtime` | pass | icon action frame and icon scale |
 | `audit:option-listbox-runtime` | pass | option/listbox rows, state color, disabled visibility |
 | `report:control-frame-inventory` | pass | 62 components classified, 23 control-frame covered, 0 unresolved debt |
+
+## Iteration 3 Result
+
+Radius and surface role proof now lives inside the existing `audit:flow-core-gate` path through `audit-control-frame-css-contract`.
+
+No component CSS was changed. The iteration made already-existing system roles mandatory:
+
+- action controls keep `--component-control-frame-radius-action`.
+- field controls keep `--component-control-frame-radius-field`.
+- navigation controls keep `--component-control-frame-radius-navigation`.
+- structural surfaces keep `--component-radius-surface`.
+- canvas Surface explicitly removes object radius.
+- inline Surface uses control radius rather than panel radius.
+- overlay/listbox panels share the overlay panel radius role.
+- option rows derive from the field radius role instead of using a one-off curve.
+
+Observed gate status:
+
+| Gate | Status | Main contract |
+| --- | --- | --- |
+| `audit:flow-core-gate` | pass | radius/surface role assertions plus phase 1 and phase 3 checkpoints |
