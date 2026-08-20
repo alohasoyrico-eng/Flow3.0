@@ -9,7 +9,7 @@ const {
   root,
 } = require("./audit-context.js");
 
-const stateContractFile = path.join(root, "docs/audits/state-quality-contract.json");
+const stateContractFile = path.join(root, "packages/audit/contracts/state-quality-contract.json");
 const tokenCssFile = resolveBoundaryPath("#design-system/tokens-css", "packages/tokens/styles/tokens.css");
 
 function normalize(value) {
@@ -87,10 +87,15 @@ function checkStateCss() {
   }
 }
 
-function checkStateContracts() {
+function checkStateContracts({ scope = "system" } = {}) {
   const contract = readJson(stateContractFile);
   if (!contract?.requiredOrderRules?.length || !contract?.requiredDemoRules?.length) {
     add("errors", stateContractFile, 1, "State quality contract must declare order and demo rules.");
+  }
+
+  if (scope === "package") {
+    checkStateCss();
+    return;
   }
 
   const spec = readSpec()?.artifacts?.components ?? {};

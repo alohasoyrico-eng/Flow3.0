@@ -115,13 +115,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 7: **State, disabled, and focus contract**.
+Iteration 8: **Focus and keyboard runtime boundary**.
 
 Tasks:
 
-- Confirm disabled, selected, active, hover, focus, and keyboard-visible states do not collapse into the same visual cue.
-- Keep disabled readable without opacity-only affordances.
-- Fold state/focus evidence into existing primitive disabled/state/runtime gates only.
+- Confirm focus-visible and keyboard navigation are runtime-checked for controls, choices, tabs, and overlay/listbox families.
+- Keep component-level keyboard bugs inside React production tests or existing runtime checks.
+- Avoid adding new FlowDocs-driven gates to the DS fast path.
 
 ## Iteration 2 Result
 
@@ -230,3 +230,24 @@ Observed gate status:
 | direct dark-mode contrast check | pass | token-resolved light/dark contrast pairs for package CSS |
 | direct package accessibility check | pass | accessibility token ownership plus package focus contract |
 | `audit:flow-core-gate` | pass | dark mode, package accessibility, motion, density, TS, React, and checkpoint gates |
+
+## Iteration 7 Result
+
+State and disabled proof now protects the package path without depending on missing docs-side evidence.
+
+Changes made:
+
+- `state-quality-contract` moved to source-controlled audit contracts at `packages/audit/contracts/state-quality-contract.json`.
+- `audit-state-contracts` now supports `scope: "package"` and validates package-owned State tokens without requiring FlowDocs demo state coverage.
+- `audit:flow-core-gate` now runs `checkStateContracts({ scope: "package" })`.
+- `primitive-disabled-cascade-audit` was regenerated from the current CSS and restored to pass.
+- Tabs disabled badges no longer rely on opacity-only affordance. They now consume disabled surface, border, and text tokens with visible opacity.
+- `audit-tabs-css-contract` now enforces that readable disabled badge contract instead of the old "dim badge" rule.
+
+Observed gate status:
+
+| Gate | Status | Main contract |
+| --- | --- | --- |
+| direct package state contract | pass | State token ownership and package-scope state contract |
+| `report-primitive-disabled-cascade.js --check` | pass | disabled aliases, no raw opacity, no opacity-only disabled rules |
+| `audit:flow-core-gate` | pass | state, disabled, focus package accessibility, motion, density, TS, React, and checkpoints |

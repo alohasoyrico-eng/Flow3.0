@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "flow-state-quality-contract@1",
+  "purpose": "Define shared state precedence and demo coverage rules so component states do not collapse into ambiguous visual or behavioral cues.",
+  "requiredOrderRules": [
+    "disabled has highest precedence when present",
+    "focus has higher precedence than hover",
+    "error has higher precedence than hover",
+    "default is the lowest fallback unless an explicit terminal fallback exists",
+    "terminal fallbacks end in closed or unknown when declared"
+  ],
+  "requiredDemoRules": [
+    "declared component states must be represented in state demos",
+    "state demos must not invent undeclared component states"
+  ],
+  "packageScope": {
+    "requiredTokens": [
+      "--ref-state-opacity-disabled",
+      "--ref-state-overlay-hover",
+      "--ref-state-focus-ring-width",
+      "--ref-state-precedence-disabled",
+      "--sys-state-disabled-opacity",
+      "--sys-state-hover-overlay",
+      "--sys-state-pressed-overlay",
+      "--sys-state-selected-overlay",
+      "--sys-state-focus-ring",
+      "--sys-state-loading-spin"
+    ]
+  }
+}

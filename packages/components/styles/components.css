@@ -3867,7 +3867,10 @@ button.tag:disabled,
 }
 
 .tabs__tab:disabled .badge {
-  opacity: var(--component-opacity-disabled);
+  --comp-badge-bg: var(--component-disabled-bg);
+  --comp-badge-border: var(--component-disabled-border);
+  --comp-badge-fg: var(--component-disabled-text);
+  opacity: var(--component-opacity-visible);
 }
 
 .tabs__tab:hover:not([aria-selected="true"]):not(:disabled) {

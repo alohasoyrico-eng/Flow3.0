@@ -166,8 +166,13 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
     block: disabledBadgeBlock,
     text,
     packageCssFile,
-    snippets: ["opacity: var(--component-opacity-disabled)"],
-    message: "Tabs disabled badges must dim with the disabled tab.",
+    snippets: [
+      "--comp-badge-bg: var(--component-disabled-bg)",
+      "--comp-badge-border: var(--component-disabled-border)",
+      "--comp-badge-fg: var(--component-disabled-text)",
+      "opacity: var(--component-opacity-visible)",
+    ],
+    message: "Tabs disabled badges must use readable disabled surface, border, and text tokens instead of opacity-only affordance.",
   });
   requireIncludes({
     block: hoverBlock,

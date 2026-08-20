@@ -10,8 +10,8 @@ Disabled consumes State, Tone, Accessibility, and Energy, then exposes a narrow 
 ## Signals
 - Token aliases: 8/8
 - Component bridge aliases: 9/9
-- Component disabled selectors: 130
-- Component disabled token uses: 81
+- Component disabled selectors: 146
+- Component disabled token uses: 86
 - Docs disabled token uses: 0
 - Direct State disabled uses outside foundations: 0
 - Raw disabled opacity values: 0
