@@ -65,6 +65,14 @@ export const Dialog = forwardRef(function Dialog({ label, description, triggerLa
     const hasTrigger = Boolean(triggerLabel);
     const sourceFields = Array.isArray(fields) ? fields : [];
     const visibleFields = sourceFields.filter((field) => field?.label && hasStableFieldName(field));
+    const focusInitialElement = () => {
+        if (closeRef.current) {
+            closeRef.current?.focus();
+            return;
+        }
+        const target = focusableElements(panelRef.current)[0] ?? panelRef.current;
+        target?.focus();
+    };
     const setOpen = (nextOpen, { restoreFocus = false, event } = {}) => {
         const normalizedOpen = Boolean(nextOpen);
         if (!isOpenControlled)
@@ -73,7 +81,7 @@ export const Dialog = forwardRef(function Dialog({ label, description, triggerLa
             setInteractionState(normalizedOpen ? "open" : "closed");
         onOpenChange?.(normalizedOpen, event);
         if (normalizedOpen)
-            requestAnimationFrame(() => closeRef.current?.focus());
+            requestAnimationFrame(focusInitialElement);
         if (restoreFocus)
             requestAnimationFrame(() => triggerRef.current?.focus());
     };

@@ -99,6 +99,29 @@ try {
 
   {
     const user = createUser();
+    const view = render(React.createElement(Dialog, {
+      label: "Approve dispatch",
+      description: "Confirm the route assignment.",
+      triggerLabel: "Open approval",
+      actions: [{ key: "cancel", label: "Cancel" }, { key: "approve", label: "Approve" }],
+    }));
+    const trigger = view.getByRole("button", { name: /open approval/i });
+
+    await user.click(trigger);
+    const dialog = view.getByRole("dialog", { name: /approve dispatch/i });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await waitFor(() => assert.equal(dialog.contains(globalThis.document.activeElement), true));
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Cancel");
+
+    fireEvent.keyDown(dialog, { key: "Escape" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    await waitFor(() => assert.equal(globalThis.document.activeElement, trigger));
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const user = createUser();
     const openChanges = [];
     const actions = [];
     const view = render(React.createElement(Drawer, {

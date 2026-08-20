@@ -145,12 +145,21 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog({
   const sourceFields = Array.isArray(fields) ? fields : [];
   const visibleFields = sourceFields.filter((field) => field?.label && hasStableFieldName(field));
 
+  const focusInitialElement = () => {
+    if (closeRef.current) {
+      closeRef.current?.focus();
+      return;
+    }
+    const target = focusableElements(panelRef.current)[0] ?? panelRef.current;
+    target?.focus();
+  };
+
   const setOpen = (nextOpen: boolean, { restoreFocus = false, event }: SetOpenOptions = {}) => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
     if (!isOpenControlled) setInteractionState(normalizedOpen ? "open" : "closed");
     onOpenChange?.(normalizedOpen, event);
-    if (normalizedOpen) requestAnimationFrame(() => closeRef.current?.focus());
+    if (normalizedOpen) requestAnimationFrame(focusInitialElement);
     if (restoreFocus) requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
