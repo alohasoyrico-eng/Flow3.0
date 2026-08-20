@@ -12,7 +12,9 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 }
 
 function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
-  const sourceFile = path.join(root || process.cwd(), "packages/react/src/FloatingActionButton.js");
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/FloatingActionButton.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/FloatingActionButton.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".fab");
   const smBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"sm\"]");
@@ -48,6 +50,14 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   }
   if (text.includes("--fab-size") || text.includes("--fab-icon-size") || text.includes("--fab-padding")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--fab-")), "FloatingActionButton must not use short local --fab-* aliases; use the component token namespace.");
+  }
+  for (const [snippet, message] of [
+    ["--component-fab-size-lg: var(--sys-space-16);", "FloatingActionButton large frame must stay on the 64px system space scale."],
+    ["--comp-floating-action-button-icon-size-sm: var(--component-density-icon-size-sm);", "FloatingActionButton sm icon must consume density icon sm."],
+    ["--comp-floating-action-button-icon-size-md: var(--component-density-icon-size-md);", "FloatingActionButton md icon must consume density icon md."],
+    ["--comp-floating-action-button-icon-size-lg: var(--component-density-icon-size-lg);", "FloatingActionButton lg icon must consume density icon lg."],
+  ]) {
+    if (!text.includes(snippet)) add("errors", packageCssFile, 1, message);
   }
 
   requireIncludes({
