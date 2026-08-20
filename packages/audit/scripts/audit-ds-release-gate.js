@@ -91,7 +91,6 @@ function readJson(file) {
 }
 
 function runCheck(check) {
-  const startedAt = Date.now();
   const child = spawnSync(check.command, check.args, {
     cwd: root,
     encoding: "utf8",
@@ -99,20 +98,22 @@ function runCheck(check) {
   });
   const stdout = String(child.stdout ?? "");
   const stderr = String(child.stderr ?? "");
+  const status = child.status === 0 ? "pass" : "fail";
   return {
     ...check,
     commandLine: [check.command, ...check.args].join(" "),
-    status: child.status === 0 ? "pass" : "fail",
+    status,
     exitCode: child.status,
-    durationMs: Date.now() - startedAt,
-    stdoutTail: stdout.split("\n").filter(Boolean).slice(-12),
-    stderrTail: stderr.split("\n").filter(Boolean).slice(-12),
+    ...(status === "pass" ? {} : {
+      stdoutTail: stdout.split("\n").filter(Boolean).slice(-12),
+      stderrTail: stderr.split("\n").filter(Boolean).slice(-12),
+    }),
   };
 }
 
 function renderMarkdown(report) {
   const rows = report.checks.map((check) => (
-    `| ${check.id} | ${check.status} | ${check.commandLine} | ${check.owns} | ${check.durationMs} |`
+    `| ${check.id} | ${check.status} | ${check.commandLine} | ${check.owns} |`
   ));
   const forbiddenRows = report.flowdocsBoundary.forbiddenTargetFindings.map((item) => (
     `| ${item.check} | ${item.target} |`
@@ -128,8 +129,8 @@ This gate is authoritative for Flow Design System core release readiness. It mus
 
 ## Checks
 
-| Check | Status | Command | Owns | Duration ms |
-| --- | --- | --- | --- | ---: |
+| Check | Status | Command | Owns |
+| --- | --- | --- | --- |
 ${rows.join("\n")}
 
 ## FlowDocs Boundary
@@ -187,7 +188,6 @@ function main() {
   const status = failures.length || forbiddenTargetFindings.length || testBoundaryFailures.length ? "fail" : "pass";
   const report = {
     schemaVersion: "ds-release-gate@1",
-    generatedAt: new Date().toISOString(),
     status,
     decision: status === "pass"
       ? "Flow core is releasable by package/runtime gates; FlowDocs remains separately audited."

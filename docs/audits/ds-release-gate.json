@@ -1,6 +1,5 @@
 {
   "schemaVersion": "ds-release-gate@1",
-  "generatedAt": "2026-08-20T05:29:29.245Z",
   "status": "pass",
   "decision": "Flow core is releasable by package/runtime gates; FlowDocs remains separately audited.",
   "authority": {
@@ -39,19 +38,7 @@
       "owns": "fast/release/deep/quarantine QA lanes and release test boundary",
       "commandLine": "node packages/audit/scripts/report-ds-qa-topology.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 34,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"levels\": 4,",
-        "  \"issues\": 0,",
-        "  \"errors\": 0,",
-        "  \"json\": \"docs/audits/ds-qa-topology.json\",",
-        "  \"markdown\": \"docs/audits/ds-qa-topology.md\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "flow-core-contracts",
@@ -63,23 +50,7 @@
       "owns": "architecture, package API, CSS namespace/contracts, tokens, specs, React primary contracts, accessibility policy",
       "commandLine": "npm run audit:flow-core-gate",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 1510,
-      "stdoutTail": [
-        "          \"status\": \"pass\",",
-        "          \"commandLine\": \"node packages/audit/scripts/report-system-phase3-foundations-primitives-checkpoint.js --check\",",
-        "          \"owns\": \"foundation/primitive cascade closure, export contracts, runtime/policy primitive contracts, generated tokens, and source-boundary governance\"",
-        "        }",
-        "      ]",
-        "    }",
-        "  ],",
-        "  \"inventory\": {",
-        "    \"coreCheckpointReports\": 2,",
-        "    \"coreCheckpointReportsPassing\": 2",
-        "  }",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "react-production-readiness",
@@ -90,22 +61,7 @@
       "owns": "public React component inventory, contracts, exports, test evidence, readiness status",
       "commandLine": "node packages/audit/scripts/report-react-production-readiness.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 156,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"publicReactComponents\": 63,",
-        "  \"readyComponents\": 63,",
-        "  \"partialComponents\": 0,",
-        "  \"missingContracts\": 0,",
-        "  \"missingDirectTestEvidence\": 0,",
-        "  \"reactProductionReadinessHarnessDebt\": 0,",
-        "  \"json\": \"docs/audits/react-production-readiness.json\",",
-        "  \"markdown\": \"docs/audits/react-production-readiness.md\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "react-interaction-coverage",
@@ -116,23 +72,7 @@
       "owns": "callbacks, event parameters, required keyboard behavior, required state semantics",
       "commandLine": "node packages/audit/scripts/report-react-interaction-coverage.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 68,
-      "stdoutTail": [
-        "  \"withCallbacks\": 45,",
-        "  \"review\": 0,",
-        "  \"fail\": 0,",
-        "  \"missingTestCallbacks\": 0,",
-        "  \"missingEventParams\": 0,",
-        "  \"requiredKeyboardContracts\": 10,",
-        "  \"missingRequiredKeyboardContracts\": 0,",
-        "  \"requiredStateSemanticsContracts\": 4,",
-        "  \"missingRequiredStateSemanticsContracts\": 0,",
-        "  \"json\": \"docs/audits/react-interaction-coverage-audit.json\",",
-        "  \"markdown\": \"docs/audits/react-interaction-coverage-audit.md\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "component-artifact-tests",
@@ -143,19 +83,7 @@
       "owns": "per-component artifact test coverage",
       "commandLine": "node packages/audit/scripts/report-system-component-artifact-tests.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 270,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"testedComponents\": 62,",
-        "  \"passingComponents\": 62,",
-        "  \"componentArtifactTestDebt\": 0,",
-        "  \"json\": \"docs/audits/system-component-artifact-tests.json\",",
-        "  \"markdown\": \"docs/audits/system-component-artifact-tests.md\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "component-runtime",
@@ -166,19 +94,7 @@
       "owns": "component runtime evidence independent from FlowDocs pages",
       "commandLine": "node packages/audit/scripts/report-system-component-runtime-audit.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 7972,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"components\": 62,",
-        "  \"passingRuntimeComponents\": 62,",
-        "  \"componentRuntimeDebt\": 0,",
-        "  \"json\": \"docs/audits/system-component-runtime-audit.json\",",
-        "  \"markdown\": \"docs/audits/system-component-runtime-audit.md\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "public-runtime-boundary",
@@ -189,19 +105,7 @@
       "owns": "public runtime artifact boundary",
       "commandLine": "node packages/audit/scripts/report-system-public-runtime-boundary.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 37,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"runtimeArtifacts\": 151,",
-        "  \"passingRuntimeArtifacts\": 151,",
-        "  \"publicRuntimeBoundaryDebt\": 0,",
-        "  \"json\": \"docs/audits/system-public-runtime-boundary.json\",",
-        "  \"markdown\": \"docs/audits/system-public-runtime-boundary.md\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "consumer-runtime-smoke",
@@ -212,20 +116,7 @@
       "owns": "clean consumer app React render smoke",
       "commandLine": "node packages/audit/scripts/report-system-consumer-runtime-smoke.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 3531,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"renderedArtifacts\": 20,",
-        "  \"consumerRuntimeSmokeDebt\": 0,",
-        "  \"outputs\": [",
-        "    \"docs/audits/system-consumer-runtime-smoke.json\",",
-        "    \"docs/audits/system-consumer-runtime-smoke.md\"",
-        "  ]",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "consumer-css-token-cascade",
@@ -236,19 +127,7 @@
       "owns": "clean consumer CSS and token cascade",
       "commandLine": "node packages/audit/scripts/report-system-consumer-css-token-cascade.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 3624,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"consumerCssTokenCascadeDebt\": 0,",
-        "  \"outputs\": [",
-        "    \"docs/audits/system-consumer-css-token-cascade.json\",",
-        "    \"docs/audits/system-consumer-css-token-cascade.md\"",
-        "  ]",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "consumer-type-smoke",
@@ -259,19 +138,7 @@
       "owns": "clean consumer TypeScript/import smoke",
       "commandLine": "node packages/audit/scripts/report-system-consumer-type-smoke.js",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 3418,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"consumerTypeSmokeDebt\": 0,",
-        "  \"outputs\": [",
-        "    \"docs/audits/system-consumer-type-smoke.json\",",
-        "    \"docs/audits/system-consumer-type-smoke.md\"",
-        "  ]",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     },
     {
       "id": "consumer-install",
@@ -282,17 +149,7 @@
       "owns": "installable package boundary in an isolated consumer",
       "commandLine": "node packages/audit/scripts/audit-consumer-install.mjs",
       "status": "pass",
-      "exitCode": 0,
-      "durationMs": 6326,
-      "stdoutTail": [
-        "{",
-        "  \"status\": \"pass\",",
-        "  \"check\": \"consumer install\",",
-        "  \"package\": \"@alohasoyrico-eng/flow\",",
-        "  \"consumerDir\": \"/var/folders/5q/rphkhxfd30gdz11dpmxq7rdc0000gn/T/consumer-install-iBk84k/consumer\"",
-        "}"
-      ],
-      "stderrTail": []
+      "exitCode": 0
     }
   ],
   "failures": [],

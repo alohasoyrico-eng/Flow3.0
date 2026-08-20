@@ -118,7 +118,6 @@ function createReport() {
 
   const report = {
     schemaVersion: "ds-qa-topology@1",
-    generatedAt: new Date().toISOString(),
     status: issues.some((issue) => issue.severity === "error") ? "fail" : "pass",
     decision: "Flow React QA is split into fast, release, deep, and quarantine lanes; release lanes must stay deterministic and executable.",
     rules: [
