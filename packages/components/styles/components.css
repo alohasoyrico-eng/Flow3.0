@@ -639,7 +639,7 @@
   --comp-input-success-bg: color-mix(in srgb, var(--component-color-success) 8%, var(--component-color-surface));
   --comp-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 9%, var(--component-color-surface));
   --comp-input-warning-border: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
-  --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 72%, var(--component-color-text));
+  --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-text));
   --comp-input-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-input-disabled-bg: var(--component-disabled-bg);
   --comp-input-open-opacity: var(--component-opacity-visible);
@@ -12884,8 +12884,16 @@ body[data-theme="dark"],
   --comp-input-affix-fg: var(--component-color-text-muted);
   --comp-input-action-fg: var(--component-color-text-muted);
   --comp-input-icon-fg: var(--component-color-text-muted);
+  --comp-input-icon-loading-fg: color-mix(in srgb, var(--component-color-action) 42%, var(--component-color-text));
   --comp-input-disabled-bg: color-mix(in srgb, var(--component-color-surface-raised) 62%, transparent);
   --comp-input-loading-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface-raised));
+  --comp-input-info-bg: color-mix(in srgb, var(--component-color-action) 16%, var(--component-color-surface));
+  --comp-input-info-border: color-mix(in srgb, var(--component-color-action) 70%, var(--component-color-text));
+  --comp-input-success-bg: color-mix(in srgb, var(--component-color-success) 18%, var(--component-color-surface));
+  --comp-input-success-border: color-mix(in srgb, var(--component-color-success) 70%, var(--component-color-text));
+  --comp-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 16%, var(--component-color-surface));
+  --comp-input-warning-border: color-mix(in srgb, var(--component-color-warning) 72%, var(--component-color-text));
+  --comp-input-warning-helper-fg: color-mix(in srgb, var(--component-color-warning) 64%, var(--component-color-text));
   --comp-input-error-bg: color-mix(in srgb, var(--component-color-danger) 18%, var(--component-color-surface));
   --comp-input-error-border: color-mix(in srgb, var(--component-color-danger) 78%, var(--component-color-text));
   --comp-input-error-helper-fg: var(--component-field-error-helper-fg);

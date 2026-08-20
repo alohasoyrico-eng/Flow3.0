@@ -3,12 +3,12 @@
   "audit": "system debt ledger",
   "principle": "Every audit report must expose numeric actionable debt, and the aggregate system debt must stay at 0 before Flow is considered product-ready.",
   "inventory": {
-    "reports": 178,
-    "categoryMappings": 169,
+    "reports": 179,
+    "categoryMappings": 170,
     "systemDebtGovernanceIssues": 0,
     "staleCategoryMappings": 0,
-    "reportsWithDebtMetrics": 178,
-    "debtMetrics": 219,
+    "reportsWithDebtMetrics": 179,
+    "debtMetrics": 220,
     "categories": 9,
     "categoryMinimums": 9,
     "categoryPrinciples": 9,
@@ -26,10 +26,10 @@
     "missingStrategicCategories": 0,
     "emptyStrategicCategories": 0,
     "nonNumericDebtMetrics": 0,
-    "totalDebt": 18,
-    "categoryDebt": 18,
+    "totalDebt": 17,
+    "categoryDebt": 17,
     "categoryCoverageDebt": 0,
-    "systemDebt": 28
+    "systemDebt": 27
   },
   "nonPassReports": [
     {
@@ -135,11 +135,11 @@
     {
       "category": "quality",
       "principle": "Component coverage must prove production readiness, not just presence.",
-      "reports": 29,
+      "reports": 30,
       "minimumReports": 1,
       "coverageGap": 0,
-      "debtMetrics": 35,
-      "totalDebt": 7
+      "debtMetrics": 36,
+      "totalDebt": 6
     },
     {
       "category": "react-primary",
@@ -207,8 +207,8 @@
           "report": "component-1to1-quality-matrix.json",
           "scope": "summary",
           "metric": "qualityDebt",
-          "value": 6,
-          "numericValue": 6
+          "value": 5,
+          "numericValue": 5
         }
       ]
     },
@@ -823,6 +823,20 @@
           "report": "foundation-voice-cascade-audit.json",
           "scope": "topLevel",
           "metric": "gapsDebt",
+          "value": 0,
+          "numericValue": 0
+        }
+      ]
+    },
+    {
+      "file": "input-current-light-dark-review.json",
+      "category": "quality",
+      "status": "pass",
+      "debtEntries": [
+        {
+          "report": "input-current-light-dark-review.json",
+          "scope": "topLevel",
+          "metric": "inputCurrentReviewDebt",
           "value": 0,
           "numericValue": 0
         }

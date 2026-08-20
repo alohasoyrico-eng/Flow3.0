@@ -203,6 +203,7 @@
     "system-raw-token-value-decision-matrix.json": "foundations-primitives",
     "system-p0-primitive-runtime-matrix.json": "foundations-primitives",
     "system-p0-token-foundation-classification.json": "foundations-primitives",
-    "system-typescript-public-surface.json": "react-primary"
+    "system-typescript-public-surface.json": "react-primary",
+    "input-current-light-dark-review.json": "quality"
   }
 }

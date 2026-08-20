@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "component-current-review@1",
+  "component": "input",
+  "status": "pass",
+  "generatedAt": "2026-08-19T00:00:00.000-06:00",
+  "source": {
+    "harness": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/input-flow-current.html?fresh=input-dark-fix-2",
+    "packageCss": "packages/components/styles/components.css",
+    "reactSource": "packages/react/src/Input.tsx",
+    "fieldMessageResolver": "packages/react/src/internal/field-message.ts",
+    "inlineValidationSource": "packages/react/src/InlineValidation.tsx",
+    "fieldCssContract": "packages/audit/scripts/audit-field-css-contract.js",
+    "inputMotionCssContract": "packages/audit/scripts/audit-input-motion-css-contract.js"
+  },
+  "checks": [
+    {
+      "id": "field-density-contract",
+      "status": "pass",
+      "evidence": "Input/Field density tokens resolve sm/md/lg to 36/44/52 min-block-size via component field aliases; rendered size is monotonic at 42/46/54 including content-box border/text effects."
+    },
+    {
+      "id": "field-message-a11y",
+      "status": "pass",
+      "evidence": "Success and warning helper messages stay valid/status; error alone sets aria-invalid=true and role=alert; loading sets aria-busy=true and disabled."
+    },
+    {
+      "id": "reveal-action",
+      "status": "pass",
+      "evidence": "Password reveal action responds to keyboard activation and updates aria-pressed, label, and input type."
+    },
+    {
+      "id": "input-motion-contract",
+      "status": "pass",
+      "evidence": "Base Input text entry does not use Button-style transform/keyframe motion; helper/status/InlineValidation motion is tokenized and reduced-motion covered."
+    },
+    {
+      "id": "dark-semantic-states",
+      "status": "pass",
+      "evidence": "Dark aliases now cover info, success, warning, error, loading, and disabled states instead of only error/loading/disabled."
+    },
+    {
+      "id": "light-dark-legibility",
+      "status": "pass",
+      "evidence": "Measured input/helper/icon contrast is >= 4.56 across semantic field states in light and dark review."
+    }
+  ],
+  "measurements": {
+    "density": [
+      {
+        "density": "sm",
+        "token": "36px",
+        "minBlockSize": "36px",
+        "renderedBlockSize": 42
+      },
+      {
+        "density": "md",
+        "token": "44px",
+        "minBlockSize": "44px",
+        "renderedBlockSize": 46
+      },
+      {
+        "density": "lg",
+        "token": "calc(48px + 4px)",
+        "minBlockSize": "52px",
+        "renderedBlockSize": 54
+      }
+    ],
+    "aria": [
+      {
+        "state": "default",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": ""
+      },
+      {
+        "state": "filled",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": ""
+      },
+      {
+        "state": "focus",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": ""
+      },
+      {
+        "state": "info",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": ""
+      },
+      {
+        "state": "success",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": "status"
+      },
+      {
+        "state": "warning",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": "status"
+      },
+      {
+        "state": "error",
+        "invalid": "true",
+        "busy": "not busy",
+        "disabled": false,
+        "helperRole": "alert"
+      },
+      {
+        "state": "loading",
+        "invalid": "valid",
+        "busy": "true",
+        "disabled": true,
+        "helperRole": ""
+      },
+      {
+        "state": "disabled",
+        "invalid": "valid",
+        "busy": "not busy",
+        "disabled": true,
+        "helperRole": ""
+      }
+    ],
+    "contrastMinimums": {
+      "light": {
+        "input": 10.39,
+        "helper": 5,
+        "icon": 4.95
+      },
+      "dark": {
+        "input": 11.53,
+        "helper": 4.56,
+        "icon": 4.7,
+        "loadingIcon": 6.75
+      }
+    }
+  },
+  "openIssues": [],
+  "inputCurrentReviewDebt": 0
+}

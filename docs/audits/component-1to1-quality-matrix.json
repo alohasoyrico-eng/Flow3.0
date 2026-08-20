@@ -1180,7 +1180,7 @@
     },
     {
       "id": "input",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1189,34 +1189,32 @@
         "foundations-primitives": "pass",
         "states-variants": "pass",
         "interaction-logic": "pass",
-        "motion": "partial",
+        "motion": "pass",
         "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "partial",
-        "visual-qa": "needs-current-local-review",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
-        "docs/audits/input-zip-parity.md",
-        "docs/audits/input-1to1-quality-audit.json",
-        "docs/audits/input-1to1-design-qa.png",
-        "docs/audits/input-1to1-mobile-design-qa.png",
-        "docs/audits/input-dark-mode-audit.png",
-        "docs/audits/component-motion-role-audit.json",
-        "packages/components/test/smoke.test.mjs",
-        "docs/forensics/input-motion-context-matrix.md",
+        "docs/audits/input-current-light-dark-review.json",
+        "docs/audits/input-current-light-dark-review.md",
+        "packages/react/src/Input.tsx",
+        "packages/react/src/internal/field-message.ts",
+        "packages/react/src/InlineValidation.tsx",
+        "packages/components/src/platforms/input.ts",
+        "packages/components/styles/components.css",
+        "packages/components/src/contracts.js",
         "packages/audit/scripts/audit-field-css-contract.js",
-        "packages/audit/scripts/audit-dark-mode-css-contract.js",
+        "packages/audit/scripts/audit-input-motion-css-contract.js",
+        "packages/audit/scripts/audit-package-css-contracts.js",
         "packages/react/test/p0-forms-basic.test.mjs",
-        "commit 5c264331"
+        "packages/react/test/button-render.test.mjs"
       ],
-      "openIssues": [
-        "Input motion contexts were analyzed but not fully promoted into a production interaction contract.",
-        "Dark-mode contrast/legibility concerns require current component-level QA evidence.",
-        "InlineValidation composition is now the intended systematic path for helper/error/warning/success messaging, but the matrix must prove usage by input-family demos before pass."
-      ],
+      "openIssues": [],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "currentReviewCommit": "bd954d05",
+      "decision": "Input is closed for current review: Field/Input density is monotonic through shared aliases, helper/a11y semantics distinguish info/success/warning/error/loading/disabled, InlineValidation remains the systematic validation composition path, base input motion avoids Button-style transforms, and dark semantic field states now measure >= 4.56 contrast after adding governed dark aliases."
     },
     {
       "id": "kpi-tile",
@@ -2340,17 +2338,16 @@
   ],
   "summary": {
     "total": 56,
-    "pass": 50,
-    "partial": 6,
+    "pass": 51,
+    "partial": 5,
     "fail": 0,
-    "qualityDebt": 6
+    "qualityDebt": 5
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
     "updatedAt": "2026-08-19",
     "sourceCommit": "5c264331 Harden component interaction and density contracts",
     "scope": [
-      "input",
       "select",
       "combobox",
       "checkbox",
