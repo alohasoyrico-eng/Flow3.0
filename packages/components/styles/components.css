@@ -7369,11 +7369,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu__item:hover,
-.menu__item:focus-visible {
+.menu__item:focus-visible,
+.menu__item[data-active="true"] {
   background: var(--comp-menu-item-hover-bg);
 }
 
 .menu__item:focus-visible {
+  outline: var(--component-focus-ring-width) solid var(--comp-menu-item-active-ring);
+  outline-offset: calc(var(--component-focus-ring-offset) * -1);
+}
+
+.menu__item[data-active="true"] {
   outline: var(--component-focus-ring-width) solid var(--comp-menu-item-active-ring);
   outline-offset: calc(var(--component-focus-ring-offset) * -1);
 }
@@ -12971,6 +12977,8 @@ body[data-theme="dark"],
   --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-surface-raised));
   --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface-raised));
   --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-surface-raised));
+  --component-option-row-color: var(--component-color-text);
+  --component-option-row-selected-color: var(--component-color-text);
   --component-option-row-disabled-bg: color-mix(in srgb, var(--component-color-text) 8%, transparent);
   --component-option-row-disabled-color: var(--component-color-text-subtle);
   --component-option-row-disabled-opacity: var(--component-opacity-visible);

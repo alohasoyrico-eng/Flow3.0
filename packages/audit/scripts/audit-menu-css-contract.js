@@ -17,6 +17,7 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const itemBlock = blockFor(blocks, selectorKey, ".menu__item");
   const itemHoverBlock = blockFor(blocks, selectorKey, ".menu__item:hover");
   const itemFocusBlock = blockFor(blocks, selectorKey, ".menu__item:focus-visible");
+  const itemActiveBlock = blockFor(blocks, selectorKey, ".menu__item[data-active=\"true\"]");
   const itemDangerBlock = blockFor(blocks, selectorKey, ".menu__item[data-tone=\"danger\"]");
   const itemDisabledBlock = blockFor(blocks, selectorKey, ".menu__item:disabled");
   const iconBlock = blockFor(blocks, selectorKey, ".menu__item-icon");
@@ -169,6 +170,16 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "outline-offset: calc(var(--component-focus-ring-offset) * -1)",
     ],
     message: "Menu item focus must consume the shared option-row active ring instead of leaking the global button focus outline.",
+  });
+  requireIncludes({
+    block: itemActiveBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "outline: var(--component-focus-ring-width) solid var(--comp-menu-item-active-ring)",
+      "outline-offset: calc(var(--component-focus-ring-offset) * -1)",
+    ],
+    message: "Menu item active keyboard state must consume the same shared option-row active ring as focus-visible.",
   });
   requireIncludes({
     block: itemDangerBlock,

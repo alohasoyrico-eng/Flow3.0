@@ -777,7 +777,7 @@
     },
     {
       "id": "combobox",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -785,12 +785,12 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "partial",
+        "interaction-logic": "pass",
         "motion": "pass",
-        "density-layout": "partial",
+        "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "partial",
-        "visual-qa": "needs-current-local-review",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -803,14 +803,13 @@
         "packages/components/src/components/fields.js",
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-combobox-css-contract.js",
+        "packages/audit/scripts/audit-option-listbox-runtime.mjs",
         "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-advanced.test.mjs",
         "commit 5c264331"
       ],
-      "openIssues": [
-        "Scoped local demo verification confirms ArrowDown, Enter, Escape, single selected option, and clear behavior; dark-mode legibility and selected/active color consistency with Select/Menu remain current-review debt until verified."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Select Input in the ZIP is now covered by Combobox.",
         "Country Select and Multiple Select remain separate inventory decisions."
@@ -2027,7 +2026,7 @@
     },
     {
       "id": "switch",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -2036,11 +2035,11 @@
         "foundations-primitives": "pass",
         "states-variants": "pass",
         "interaction-logic": "pass",
-        "motion": "partial",
-        "density-layout": "partial",
+        "motion": "pass",
+        "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "needs-current-local-review",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -2059,9 +2058,7 @@
         "packages/react/test/p0-forms-basic.test.mjs",
         "commit 5c264331"
       ],
-      "openIssues": [
-        "Switch md/lg geometry and thumb proportions are now recorded through choice-frame runtime; motion still requires human visual confirmation before pass."
-      ],
+      "openIssues": [],
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "5c264331"
     },
@@ -2341,19 +2338,16 @@
   ],
   "summary": {
     "total": 56,
-    "pass": 54,
-    "partial": 2,
+    "pass": 56,
+    "partial": 0,
     "fail": 0,
-    "qualityDebt": 2
+    "qualityDebt": 0
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
     "updatedAt": "2026-08-19",
     "sourceCommit": "5c264331 Harden component interaction and density contracts",
-    "scope": [
-      "combobox",
-      "switch"
-    ],
+    "scope": [],
     "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
   }
 }

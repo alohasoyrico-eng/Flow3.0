@@ -57,6 +57,11 @@ function html() {
           <span class="switch__track"><span class="switch__thumb"></span></span>
           <span class="switch__text"><span class="switch__label">Switch ${density}</span></span>
         </label>
+        <label class="switch" data-density="${density}" data-checked="false">
+          <input class="switch__input" type="checkbox" role="switch" aria-label="Switch off ${theme} ${density}">
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__text"><span class="switch__label">Switch off ${density}</span></span>
+        </label>
         <label class="slider" data-density="${density}" style="--comp-slider-percent: 50%;">
           <span class="slider__meta"><span class="slider__label">Slider ${density}</span><span class="slider__value">50</span></span>
           <span class="slider__control">
@@ -105,6 +110,7 @@ const results = await page.evaluate(() => {
       fontSize: Math.round(parseFloat(style.fontSize) * 100) / 100,
       opacity: Math.round(parseFloat(style.opacity) * 100) / 100,
       transform: style.transform,
+      transitionProperty: style.transitionProperty,
     };
   };
   const transformScale = (value) => {
@@ -113,12 +119,20 @@ const results = await page.evaluate(() => {
     if (!matrix) return null;
     return Math.round(parseFloat(matrix[1]) * 100) / 100;
   };
+  const transformX = (value) => {
+    if (!value || value === "none") return 0;
+    const matrix = value.match(/^matrix\(([^)]+)\)$/);
+    if (!matrix) return null;
+    const parts = matrix[1].split(",").map((part) => parseFloat(part.trim()));
+    return Math.round((parts[4] || 0) * 100) / 100;
+  };
   return ["light", "dark"].flatMap((theme) => ["sm", "md", "lg"].flatMap((density) => {
     const root = document.querySelector(`[data-theme="${theme}"]`);
     const checkbox = root.querySelector(`.checkbox[data-density="${density}"]`);
     const radio = root.querySelector(`.radio[data-density="${density}"]`);
     const radioRest = root.querySelector(`.radio[data-density="${density}"][data-state="rest"]`);
-    const switchRoot = root.querySelector(`.switch[data-density="${density}"]`);
+    const switchRoot = root.querySelector(`.switch[data-density="${density}"][data-checked="true"]`);
+    const switchOffRoot = root.querySelector(`.switch[data-density="${density}"][data-checked="false"]`);
     const slider = root.querySelector(`.slider[data-density="${density}"]`);
     const checkboxMark = rectOf(checkbox.querySelector(".choice__mark"));
     const checkboxIndicator = rectOf(checkbox.querySelector(".choice__indicator"));
@@ -131,6 +145,8 @@ const results = await page.evaluate(() => {
     const radioRestLabel = rectOf(radioRest.querySelector(".choice__label"));
     const switchTrack = rectOf(switchRoot.querySelector(".switch__track"));
     const switchThumb = rectOf(switchRoot.querySelector(".switch__thumb"));
+    const switchOffTrack = rectOf(switchOffRoot.querySelector(".switch__track"));
+    const switchOffThumb = rectOf(switchOffRoot.querySelector(".switch__thumb"));
     const sliderControl = rectOf(slider.querySelector(".slider__control"));
     const sliderTrack = rectOf(slider.querySelector(".slider__track"));
     const sliderThumb = rectOf(slider.querySelector(".slider__thumb"));
@@ -161,7 +177,32 @@ const results = await page.evaluate(() => {
         markBoxSizing: radioRestMark.boxSizing,
         markTopDelta: Math.abs(radioRestMark.top - radioRestLabel.top),
       },
-      { component: "switch", theme, density, trackWidth: switchTrack.width, trackHeight: switchTrack.height, thumb: switchThumb.height, trackBoxSizing: switchTrack.boxSizing, thumbBoxSizing: switchThumb.boxSizing },
+      {
+        component: "switch",
+        theme,
+        density,
+        trackWidth: switchTrack.width,
+        trackHeight: switchTrack.height,
+        thumb: switchThumb.height,
+        thumbTranslateX: transformX(switchThumb.transform),
+        thumbTransitionProperty: switchThumb.transitionProperty,
+        trackTransitionProperty: switchTrack.transitionProperty,
+        trackBoxSizing: switchTrack.boxSizing,
+        thumbBoxSizing: switchThumb.boxSizing,
+      },
+      {
+        component: "switchOff",
+        theme,
+        density,
+        trackWidth: switchOffTrack.width,
+        trackHeight: switchOffTrack.height,
+        thumb: switchOffThumb.height,
+        thumbTranslateX: transformX(switchOffThumb.transform),
+        thumbTransitionProperty: switchOffThumb.transitionProperty,
+        trackTransitionProperty: switchOffTrack.transitionProperty,
+        trackBoxSizing: switchOffTrack.boxSizing,
+        thumbBoxSizing: switchOffThumb.boxSizing,
+      },
       { component: "slider", theme, density, touch: sliderControl.height, track: sliderTrack.height, thumb: sliderThumb.height, controlBoxSizing: sliderControl.boxSizing, thumbBoxSizing: sliderThumb.boxSizing },
     ];
   }));
@@ -200,6 +241,20 @@ for (const result of results) {
     if (!(result.thumb < result.trackWidth && result.thumb <= result.trackHeight)) {
       errors.push(`switch ${result.theme} ${result.density} thumb must fit inside track; got thumb ${result.thumb}px, track ${result.trackWidth}x${result.trackHeight}px.`);
     }
+    if (!(result.thumbTranslateX > 0)) {
+      errors.push(`switch ${result.theme} ${result.density} checked thumb must move horizontally; got translateX ${result.thumbTranslateX}.`);
+    }
+    if (!result.thumbTransitionProperty.includes("transform") || !result.trackTransitionProperty.includes("transform")) {
+      errors.push(`switch ${result.theme} ${result.density} track and thumb must transition transform for motion.`);
+    }
+  }
+  if (result.component === "switchOff") {
+    if (result.trackBoxSizing !== "border-box" || result.thumbBoxSizing !== "border-box") {
+      errors.push(`switchOff ${result.theme} ${result.density} track/thumb must use border-box; got ${result.trackBoxSizing}/${result.thumbBoxSizing}.`);
+    }
+    if (result.thumbTranslateX !== 0) {
+      errors.push(`switchOff ${result.theme} ${result.density} unchecked thumb must rest at translateX 0; got ${result.thumbTranslateX}.`);
+    }
   }
   if (result.component === "slider") {
     if (result.controlBoxSizing !== "border-box" || result.thumbBoxSizing !== "border-box") {
@@ -216,6 +271,8 @@ assertIncreasing(results, "radioButton", "mark", errors);
 assertIncreasing(results, "radioButtonRest", "mark", errors);
 assertIncreasing(results, "switch", "trackWidth", errors);
 assertIncreasing(results, "switch", "thumb", errors);
+assertIncreasing(results, "switchOff", "trackWidth", errors);
+assertIncreasing(results, "switchOff", "thumb", errors);
 assertIncreasing(results, "slider", "touch", errors);
 assertIncreasing(results, "slider", "thumb", errors);
 

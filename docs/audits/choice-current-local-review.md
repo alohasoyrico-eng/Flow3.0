@@ -7,7 +7,8 @@ Scope: checkbox, radio-button, switch, combobox local interactive demos.
 ## Evidence
 
 - `npm run audit:flow-core-gate`: pass.
-- `npm run audit:choice-frame-runtime`: pass, including light/dark rendered mark/label top alignment, radio rest ring, selected dot scale, and unchecked dot hiding.
+- `npm run audit:choice-frame-runtime`: pass, including light/dark rendered mark/label top alignment, radio rest ring, selected dot scale, unchecked dot hiding, and switch off/on thumb motion.
+- `npm run audit:option-listbox-runtime`: pass, including light/dark option-row parity across Select, Combobox, and Menu.
 - Local demos read `Flow3.0/packages/components/styles/components.css`.
 
 ## Checkbox
@@ -49,8 +50,11 @@ Decision: radio-button current alignment, density, selected/rest dot behavior, a
   - md track 48x28, thumb 20.
   - lg track 60x36, thumb 24.
   - track and thumb use `box-sizing: border-box`.
+  - checked thumb translates horizontally in sm/md/lg for light/dark.
+  - unchecked thumb rests at translateX 0 in sm/md/lg for light/dark.
+  - track and thumb transition `transform`.
 
-Open: switch still needs human visual confirmation for motion.
+Decision: switch geometry, off/on thumb position, and motion contract are closed by runtime evidence.
 
 ## Combobox
 
@@ -63,4 +67,10 @@ Open: switch still needs human visual confirmation for motion.
   - Escape closes without changing the committed value.
   - Clear removes the value and disables the clear action.
 - The earlier "multiple selected options" reading came from querying every listbox in the exhaustive demo at once, including static density examples.
-- Combobox remains partial in the 1:1 matrix because dark-mode selected/active color consistency with Select/Menu still needs current visual confirmation.
+- `audit:option-listbox-runtime` verifies Combobox option-row parity with Select and Menu:
+  - rest rows share 64px height, 24px horizontal padding, and 14px radius.
+  - active and selected Combobox backgrounds match Select in light/dark.
+  - dark option-row foreground resolves to light text.
+  - disabled options stay legible through color, not opacity.
+
+Decision: combobox keyboard behavior, clear behavior, option geometry, active/selected color parity, and dark-mode option legibility are closed by runtime evidence.
