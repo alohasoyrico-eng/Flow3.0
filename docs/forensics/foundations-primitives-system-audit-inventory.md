@@ -115,13 +115,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 9: **Release gate consolidation and handoff**.
+Next block: **Return to component 1:1 QA**.
 
 Tasks:
 
-- Confirm this foundations/primitives remediation block has no stale reports, no dirty state, and no hidden FlowDocs dependency in the DS fast path.
-- Run the final fast validation and report remaining debt boundaries.
-- Decide whether to return to component 1:1 QA or expand into full release validation.
+- Continue with the component priority plan only after the DS fast path stays green.
+- Keep any FlowDocs migration debt outside the DS core gate unless it directly affects package consumption.
+- Use the strengthened gates as the stop condition before each component commit.
 
 ## Iteration 2 Result
 
@@ -273,3 +273,42 @@ Observed gate status:
 | --- | --- | --- |
 | `report-react-interaction-coverage.js --check` | pass | 10/10 keyboard contracts and 4/4 state semantics contracts |
 | `audit:ds-fast-gate` | pass | strengthened interaction coverage plus runtime geometry checks |
+
+## Iteration 9 Result
+
+The foundations/primitives remediation block is closed for the DS fast path.
+
+Final validation:
+
+- `report-react-interaction-coverage.js --check`: pass.
+- `report-primitive-disabled-cascade.js --check`: pass.
+- `audit:flow-core-gate`: pass.
+- `npm run validate:flow-core:fast`: pass.
+- `audit:ds-fast-gate`: 8/8 pass.
+- Dirty state before documentation handoff: clean.
+
+What is now protected in the DS fast path:
+
+- Style Dictionary/token output generation.
+- React build and TypeScript.
+- P0 React forms, overlays, navigation, callbacks, state, keyboard, focus, and axe smoke.
+- Package CSS ownership and dark-mode contrast.
+- Density/frame runtime geometry.
+- Choice mark/icon runtime geometry and light/dark legibility.
+- Icon action frame and icon scale.
+- Option/listbox geometry and state color.
+- Motion role contracts.
+- Package accessibility token/focus contracts.
+- Package state contracts.
+- Disabled primitive cascade with no opacity-only disabled rules.
+
+Remaining debt boundary:
+
+- Full FlowDocs accessibility/gold-demo semantics still belong to the FlowDocs migration lane.
+- Full visual parity, component-by-component editorial polish, and ZIP comparison remain outside this foundations/primitives block.
+- Release validation beyond the fast path still requires the broader release gate when preparing a release.
+
+Decision:
+
+- Return to component 1:1 QA with the strengthened DS gates as the guardrail.
+- Do not reopen FlowDocs cleanup unless a component/package contract depends on it directly.
