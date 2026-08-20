@@ -3,9 +3,9 @@
   "generatedAt": "2026-08-14",
   "status": "pass",
   "inventory": {
-    "packedFiles": 1374,
-    "tokenCssBytes": 65886,
-    "componentCssBytes": 590428,
+    "packedFiles": 1375,
+    "tokenCssBytes": 65902,
+    "componentCssBytes": 586929,
     "tokenMarkers": 4,
     "componentAliasMarkers": 6,
     "componentRootMarkers": 6,

@@ -17,6 +17,7 @@ This gate is authoritative for Flow Design System core release readiness. It mus
 | component-artifact-tests | pass | node packages/audit/scripts/report-system-component-artifact-tests.js | per-component artifact test coverage |
 | component-runtime | pass | node packages/audit/scripts/report-system-component-runtime-audit.js | component runtime evidence independent from FlowDocs pages |
 | public-runtime-boundary | pass | node packages/audit/scripts/report-system-public-runtime-boundary.js | public runtime artifact boundary |
+| local-qa-harness-boundary | pass | npm run audit:local-qa-harness-boundary | local component QA demos and local visual snapshots cannot become parallel source truth |
 | consumer-runtime-smoke | pass | node packages/audit/scripts/report-system-consumer-runtime-smoke.js | clean consumer app React render smoke |
 | consumer-css-token-cascade | pass | node packages/audit/scripts/report-system-consumer-css-token-cascade.js | clean consumer CSS and token cascade |
 | consumer-type-smoke | pass | node packages/audit/scripts/report-system-consumer-type-smoke.js | clean consumer TypeScript/import smoke |

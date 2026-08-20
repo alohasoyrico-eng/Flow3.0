@@ -5,7 +5,7 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- Packed files: 1374
+- Packed files: 1375
 - Resolved exports: 16
 - Rendered artifacts: 20
 - Consumer runtime smoke debt: 0
@@ -29,11 +29,11 @@ Generated: 2026-08-14
 | DemoPreviewFrame | 778 |
 | ArtifactMetadataBar | 842 |
 | OnThisPageNav | 497 |
-| DocsShellTemplate | 5551 |
+| DocsShellTemplate | 5565 |
 | DocsHomeTemplate | 4515 |
 | ComponentDetailTemplate | 4294 |
 | PatternDetailTemplate | 5998 |
-| FleetDashboardSuite | 13646 |
+| FleetDashboardSuite | 13660 |
 
 ## Policy
 

@@ -4388,7 +4388,7 @@ function assertReactGovernanceBaselines() {
     generatedTokenOutputs: 9,
     matchingGeneratedTokenOutputs: 9,
     rawTokenValueViolations: 0,
-    sourceBoundaryFilesScanned: 680,
+    sourceBoundaryFilesScanned: 682,
     sourceBoundaryViolations: 0,
     phase3FoundationsPrimitivesDebt: 0,
   }, "Phase 3 foundations/primitives checkpoint");

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T15:57:05.538Z",
+  "generatedAt": "2026-08-20T16:01:51.813Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",

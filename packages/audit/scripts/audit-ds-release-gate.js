@@ -53,6 +53,12 @@ const checks = [
     owns: "public runtime artifact boundary",
   },
   {
+    id: "local-qa-harness-boundary",
+    command: "npm",
+    args: ["run", "audit:local-qa-harness-boundary"],
+    owns: "local component QA demos and local visual snapshots cannot become parallel source truth",
+  },
+  {
     id: "consumer-runtime-smoke",
     command: "node",
     args: ["packages/audit/scripts/report-system-consumer-runtime-smoke.js"],

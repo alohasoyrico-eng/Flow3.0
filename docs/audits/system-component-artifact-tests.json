@@ -371,7 +371,7 @@
       "id": "select",
       "component": "Select",
       "factory": "@design-system/react/select",
-      "contractProps": 14,
+      "contractProps": 15,
       "requiredProps": [
         "label",
         "options"
@@ -411,7 +411,7 @@
       "id": "combobox",
       "component": "Combobox",
       "factory": "@design-system/react/combobox",
-      "contractProps": 17,
+      "contractProps": 18,
       "requiredProps": [
         "label",
         "options"
@@ -1125,7 +1125,7 @@
         {
           "status": "pass",
           "component": "Dialog",
-          "markupLength": 520,
+          "markupLength": 534,
           "rootTag": "<div data-artifact-test=\"dialog\" class=\"dialog dialog--neutral flow-artifact-test-hook\" data-open=\"true\" data-variant=\"confirmation\" data-state=\"open\" data-tone=\"neutral\" data-density=\"lg\">",
           "issues": []
         },
@@ -1204,7 +1204,7 @@
         {
           "status": "pass",
           "component": "Drawer",
-          "markupLength": 518,
+          "markupLength": 532,
           "rootTag": "<div data-artifact-test=\"drawer\" class=\"drawer drawer--neutral flow-artifact-test-hook\" data-variant=\"side-sheet\" data-state=\"open\" data-tone=\"neutral\" data-density=\"lg\" data-open=\"true\" data-side=\"right\">",
           "issues": []
         },
@@ -1544,7 +1544,7 @@
       "id": "floatingActionButton",
       "component": "FloatingActionButton",
       "factory": "@design-system/react/floating-action-button",
-      "contractProps": 9,
+      "contractProps": 10,
       "requiredProps": [
         "label"
       ],
@@ -1557,8 +1557,8 @@
         {
           "status": "pass",
           "component": "FloatingActionButton",
-          "markupLength": 281,
-          "rootTag": "<button data-artifact-test=\"floatingActionButton\" type=\"button\" class=\"fab flow-artifact-test-hook\" disabled=\"\" aria-label=\"Reference\" data-variant=\"primary\" data-state=\"default\" data-density=\"lg\" data-extended=\"false\">",
+          "markupLength": 303,
+          "rootTag": "<button data-artifact-test=\"floatingActionButton\" type=\"button\" class=\"fab flow-artifact-test-hook\" disabled=\"\" aria-label=\"Reference\" data-variant=\"primary\" data-intent=\"default\" data-state=\"default\" data-density=\"lg\" data-extended=\"false\">",
           "issues": []
         },
         {
@@ -2067,7 +2067,7 @@
         {
           "status": "pass",
           "component": "DatePicker",
-          "markupLength": 7172,
+          "markupLength": 7605,
           "rootTag": "<div class=\"field date-picker flow-artifact-test-hook\" data-artifact-test=\"datePicker\" data-state=\"default\" data-density=\"lg\" data-open=\"false\">",
           "issues": []
         },
@@ -2106,7 +2106,7 @@
         {
           "status": "pass",
           "component": "DateRangePicker",
-          "markupLength": 8501,
+          "markupLength": 8934,
           "rootTag": "<div class=\"field date-picker date-range-picker flow-artifact-test-hook\" data-artifact-test=\"dateRangePicker\" data-state=\"default\" data-density=\"lg\" data-open=\"false\" data-from=\"\" data-to=\"\">",
           "issues": []
         },
@@ -2413,8 +2413,8 @@
         {
           "status": "pass",
           "component": "QuickAction",
-          "markupLength": 390,
-          "rootTag": "<div class=\"quick-action flow-artifact-test-hook\" data-artifact-test=\"quickAction\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\">",
+          "markupLength": 412,
+          "rootTag": "<div class=\"quick-action flow-artifact-test-hook\" data-artifact-test=\"quickAction\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\" data-intent=\"default\">",
           "issues": []
         },
         {

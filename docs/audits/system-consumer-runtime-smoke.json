@@ -3,7 +3,7 @@
   "generatedAt": "2026-08-14",
   "status": "pass",
   "inventory": {
-    "packedFiles": 1374,
+    "packedFiles": 1375,
     "resolvedExports": 16,
     "renderedArtifacts": 20,
     "consumerRuntimeSmokeDebt": 0
@@ -71,7 +71,7 @@
     },
     {
       "name": "DocsShellTemplate",
-      "markupLength": 5551
+      "markupLength": 5565
     },
     {
       "name": "DocsHomeTemplate",
@@ -87,7 +87,7 @@
     },
     {
       "name": "FleetDashboardSuite",
-      "markupLength": 13646
+      "markupLength": 13660
     }
   ],
   "policy": {
