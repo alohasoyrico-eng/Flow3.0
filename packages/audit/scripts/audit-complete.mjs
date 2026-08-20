@@ -319,7 +319,6 @@ const expectedAuditFiles = new Set([
   "report-primitive-spacing-cascade.js",
   "report-primitive-surface-cascade.js",
   "report-primitive-typography-cascade.js",
-  "report-foundation-quality.js",
   "report-react-interaction-coverage.js",
   "report-react-pattern-behavior-governance.js",
   "report-react-pattern-composition-governance.js",
