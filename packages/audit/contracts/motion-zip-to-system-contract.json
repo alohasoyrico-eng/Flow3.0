@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "flow-motion-zip-to-system-contract@1",
+  "purpose": "Map the original editorial motion language into Flow foundation and component roles without depending on FlowDocs-generated evidence.",
+  "systemMapping": {
+    "touchedControls": {
+      "duration": "--component-duration-press",
+      "easing": "--component-ease-press",
+      "uses": [
+        "button press feedback",
+        "icon button press feedback",
+        "field action press feedback"
+      ]
+    },
+    "appearingSurfaces": {
+      "duration": "--component-duration-enter",
+      "easing": "--component-ease-enter",
+      "uses": [
+        "menu panel entrance",
+        "combobox listbox entrance",
+        "select listbox entrance"
+      ]
+    },
+    "movingStructure": {
+      "duration": "--component-duration-state",
+      "easing": "--component-ease-state",
+      "uses": [
+        "tabs indicator movement",
+        "chevron rotation",
+        "selected option state movement"
+      ]
+    },
+    "continuousFeedback": {
+      "duration": "--component-duration-loading-spin",
+      "easing": "--component-ease-linear",
+      "uses": [
+        "button loading spinner",
+        "select loading spinner",
+        "progress/loading loops"
+      ]
+    }
+  }
+}

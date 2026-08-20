@@ -115,13 +115,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 5: **Motion contract**.
+Iteration 6: **Dark mode and contrast contract**.
 
 Tasks:
 
-- Confirm motion roles for action press, field focus/error, overlay/listbox open, loading, and reduced-motion behavior.
-- Keep field controls stable unless a specific motion role justifies movement.
-- Fold missing proof into existing motion, component runtime, or P0 interaction gates only.
+- Confirm foreground/background contrast for interactive, disabled, selected, and helper/status text in light and dark mode.
+- Keep evidence in the existing foundation/primitive accessibility and color gates.
+- Fold any rendered contrast checks into the existing fast gate instead of adding a parallel audit lane.
 
 ## Iteration 2 Result
 
@@ -182,3 +182,29 @@ Observed gate status:
 | Gate | Status | Main contract |
 | --- | --- | --- |
 | `report-primitive-iconography-cascade.js` | pass | 17/17 component bridge aliases, 33/33 scale contract checks |
+
+## Iteration 5 Result
+
+Motion proof is now part of the existing core gate instead of living as missing generated evidence under `docs/audits`.
+
+Changes made:
+
+- `audit-motion-contracts` now reads the source contract from `packages/audit/contracts/motion-zip-to-system-contract.json`.
+- `audit-component-motion-role-coverage` now reads the source contract from `packages/audit/contracts/component-motion-role-contract.json`.
+- `audit-motion-contracts` audits Design System component CSS directly instead of using FlowDocs style modules as the motion boundary.
+- `audit:flow-core-gate` now runs both motion checks.
+
+The motion role contract covers the reviewed priority families without pretending every component owns every role:
+
+- Button and IconButton: state and press.
+- Spinner and Select loading: continuous/loading.
+- Field family: state, validation enter, and field-action press.
+- Select, Combobox, and Menu: trigger/item state plus overlay/listbox enter.
+- Choice controls and Tabs: state transitions.
+
+Observed gate status:
+
+| Gate | Status | Main contract |
+| --- | --- | --- |
+| direct motion contract check | pass | component motion roles plus ZIP-to-system motion mapping |
+| `audit:flow-core-gate` | pass | motion checks included with phase 1 and phase 3 checkpoints |

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "flow-component-motion-role-contract@1",
+  "purpose": "Validate priority component motion by semantic role so motion fixes scale through foundations/primitives instead of local component patches.",
+  "components": [
+    {
+      "id": "button",
+      "selectors": [".button"],
+      "requiredRoles": ["state", "press"],
+      "covers": ["state transition", "press feedback"]
+    },
+    {
+      "id": "icon-button",
+      "selectors": [".icon-button"],
+      "requiredRoles": ["state", "press"],
+      "covers": ["state transition", "press feedback"]
+    },
+    {
+      "id": "spinner",
+      "selectors": [".spinner"],
+      "requiredRoles": ["continuous", "loading"],
+      "covers": ["loading spin cycle", "loading rhythm feedback"]
+    },
+    {
+      "id": "field-family",
+      "selectors": [".field", ".field-control", ".field-action", ".inline-validation", ".code-input"],
+      "requiredRoles": ["state", "enter", "press"],
+      "covers": ["field state", "validation entrance", "field action press"]
+    },
+    {
+      "id": "select",
+      "selectors": [".select-control"],
+      "requiredRoles": ["state", "enter", "continuous"],
+      "covers": ["trigger state", "listbox entrance", "loading feedback"]
+    },
+    {
+      "id": "combobox",
+      "selectors": [".combobox"],
+      "requiredRoles": ["state", "enter"],
+      "covers": ["field state", "listbox entrance"]
+    },
+    {
+      "id": "menu",
+      "selectors": [".menu"],
+      "requiredRoles": ["state", "enter"],
+      "covers": ["menu item state", "menu panel entrance"]
+    },
+    {
+      "id": "choice-controls",
+      "selectors": [".choice", ".switch", ".slider"],
+      "requiredRoles": ["state"],
+      "covers": ["choice control state transitions"]
+    },
+    {
+      "id": "tabs",
+      "selectors": [".tabs"],
+      "requiredRoles": ["state"],
+      "covers": ["tab state and indicator transition"]
+    }
+  ]
+}

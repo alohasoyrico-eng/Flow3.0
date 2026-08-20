@@ -8,7 +8,7 @@ const {
 } = require("./audit-context.js");
 
 const packageCssFile = path.join(root, "packages/components/styles/components.css");
-const motionRoleContractFile = path.join(root, "docs/audits/component-motion-role-contract.json");
+const motionRoleContractFile = path.join(root, "packages/audit/contracts/component-motion-role-contract.json");
 
 const roleTokens = {
   state: ["--component-ease-state", "--component-duration-state"],

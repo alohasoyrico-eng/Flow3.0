@@ -17,6 +17,8 @@ const { checkControlFrameCssContract } = require("./audit-control-frame-css-cont
 const { checkTokenCssValueContract } = require("./audit-token-css-value-contract.js");
 const { checkPlatformAdapters } = require("./audit-platform-adapters.js");
 const { checkDensityContracts } = require("./audit-density-contracts.js");
+const { checkMotionContracts } = require("./audit-motion-contracts.js");
+const { checkPriorityComponentMotionRoles } = require("./audit-component-motion-role-coverage.js");
 const { checkBreakpointContracts } = require("./audit-breakpoint-contracts.js");
 const { checkReactPrimaryContract } = require("./audit-react-primary-contract.js");
 const { checkReactContractTriangle } = require("./audit-react-contract-triangle.js");
@@ -85,6 +87,8 @@ checkControlFrameCssContract();
 checkTokenCssValueContract();
 checkPlatformAdapters();
 checkDensityContracts();
+checkMotionContracts();
+checkPriorityComponentMotionRoles();
 checkBreakpointContracts();
 checkReactPrimaryContract();
 checkReactContractTriangle();

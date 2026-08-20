@@ -8,13 +8,15 @@ const {
   root,
 } = require("./audit-context.js");
 
-const motionContractFile = path.join(root, "docs/audits/motion-zip-to-system-contract.json");
+const motionContractFile = path.join(root, "packages/audit/contracts/motion-zip-to-system-contract.json");
 const systemMomentumFile = resolveBoundaryPath("#design-system/tokens-css", "packages/tokens/styles/tokens.css");
-const componentMotionFiles = docsStyleModuleFiles.filter((file) => /\/(?:04|05)[a-z0-9-]*\.css$/.test(file));
+const componentCssFile = resolveBoundaryPath("#design-system/components-css", "packages/components/styles/components.css");
+const componentMotionFiles = [componentCssFile];
 
 function lineHasRawMotionValue(line) {
   if (/linear-gradient/.test(line)) return false;
-  const withoutTokens = line.replace(/var\([^)]*\)/g, "");
+  const withoutCustomPropertyName = line.replace(/^\s*--[a-z0-9-]+\s*:/, "");
+  const withoutTokens = withoutCustomPropertyName.replace(/var\([^)]*\)/g, "");
   return /\b\d+(?:\.\d+)?m?s\b|\bcubic-bezier\(|\bease(?:-in|-out|-in-out)?\b|\blinear\b/.test(withoutTokens);
 }
 
@@ -60,7 +62,9 @@ function checkZipMotionMapping() {
 }
 
 function checkComponentMotionTokens() {
-  const globalReducedMotion = docsStyleModuleFiles.some((file) => /prefers-reduced-motion:\s*reduce/.test(read(file)));
+  const globalReducedMotion = [...componentMotionFiles, ...docsStyleModuleFiles].some((file) =>
+    /prefers-reduced-motion:\s*reduce/.test(read(file))
+  );
   for (const file of componentMotionFiles) {
     const text = read(file);
     const lines = text.split("\n");
