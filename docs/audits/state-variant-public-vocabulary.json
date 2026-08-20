@@ -242,6 +242,255 @@
       ]
     }
   ],
+  "remediationQueue": [
+    {
+      "slug": "combobox",
+      "family": "fields",
+      "priority": "P0",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ],
+      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
+    },
+    {
+      "slug": "date-picker",
+      "family": "fields-date",
+      "priority": "P0",
+      "flags": [
+        "selected-state-without-selected-prop"
+      ],
+      "remediation": "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model."
+    },
+    {
+      "slug": "date-range-picker",
+      "family": "fields-date",
+      "priority": "P0",
+      "flags": [
+        "selected-state-without-selected-prop"
+      ],
+      "remediation": "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model."
+    },
+    {
+      "slug": "select",
+      "family": "fields",
+      "priority": "P0",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ],
+      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
+    },
+    {
+      "slug": "tabs",
+      "family": "navigation",
+      "priority": "P0",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "accordion",
+      "family": "navigation",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "error-panel",
+      "family": "feedback",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "icon-button",
+      "family": "actions",
+      "priority": "P1",
+      "flags": [
+        "variant-tonal-requires-review"
+      ],
+      "remediation": "Normalize public API taxonomy or document a formal family exception before component work continues."
+    },
+    {
+      "slug": "inline-validation",
+      "family": "feedback",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "list",
+      "family": "data-display",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop",
+        "loading-state-without-loading-prop",
+        "selected-state-without-selected-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "progress-indicator",
+      "family": "feedback",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "quick-action",
+      "family": "actions",
+      "priority": "P1",
+      "flags": [
+        "public-prop-tone-outside-family-taxonomy",
+        "public-prop-tone-requires-review",
+        "variant-destructive-requires-review"
+      ],
+      "remediation": "Normalize public API taxonomy or document a formal family exception before component work continues."
+    },
+    {
+      "slug": "segmented-control",
+      "family": "navigation",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "table",
+      "family": "data-display",
+      "priority": "P1",
+      "flags": [
+        "selected-state-without-selected-prop"
+      ],
+      "remediation": "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model."
+    },
+    {
+      "slug": "tree-view",
+      "family": "navigation",
+      "priority": "P1",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "animated-moment",
+      "family": "motion-feedback",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "audit-event",
+      "family": "domain-event",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "avatar",
+      "family": "display-status",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "badge",
+      "family": "display-status",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "biometric-prompt",
+      "family": "domain-auth",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "chart-panel",
+      "family": "data-display",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "chat-composer",
+      "family": "domain-chat",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "chat-message",
+      "family": "domain-chat",
+      "priority": "P2",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ],
+      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
+    },
+    {
+      "slug": "chat-thread",
+      "family": "domain-chat",
+      "priority": "P2",
+      "flags": [
+        "loading-state-without-loading-prop"
+      ],
+      "remediation": "Declare loading state source and expose loading when the component instance owns pending behavior."
+    },
+    {
+      "slug": "motion-boundary",
+      "family": "motion-feedback",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "skeleton",
+      "family": "feedback",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    },
+    {
+      "slug": "spinner",
+      "family": "feedback",
+      "priority": "P2",
+      "flags": [
+        "disabled-state-without-disabled-prop"
+      ],
+      "remediation": "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle."
+    }
+  ],
   "components": [
     {
       "id": "accordion",

@@ -30,6 +30,35 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 - public-prop-tone-requires-review: 1
 - variant-destructive-requires-review: 1
 
+## Remediation Queue
+- **P0 combobox** (fields): loading-state-without-loading-prop. Declare loading state source and expose loading when the component instance owns pending behavior.
+- **P0 date-picker** (fields-date): selected-state-without-selected-prop. Declare selected state source as public prop, controlled value, item/row data, or navigation selection model.
+- **P0 date-range-picker** (fields-date): selected-state-without-selected-prop. Declare selected state source as public prop, controlled value, item/row data, or navigation selection model.
+- **P0 select** (fields): loading-state-without-loading-prop. Declare loading state source and expose loading when the component instance owns pending behavior.
+- **P0 tabs** (navigation): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 accordion** (navigation): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 error-panel** (feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 icon-button** (actions): variant-tonal-requires-review. Normalize public API taxonomy or document a formal family exception before component work continues.
+- **P1 inline-validation** (feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 list** (data-display): disabled-state-without-disabled-prop, loading-state-without-loading-prop, selected-state-without-selected-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 progress-indicator** (feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 quick-action** (actions): public-prop-tone-outside-family-taxonomy, public-prop-tone-requires-review, variant-destructive-requires-review. Normalize public API taxonomy or document a formal family exception before component work continues.
+- **P1 segmented-control** (navigation): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P1 table** (data-display): selected-state-without-selected-prop. Declare selected state source as public prop, controlled value, item/row data, or navigation selection model.
+- **P1 tree-view** (navigation): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 animated-moment** (motion-feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 audit-event** (domain-event): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 avatar** (display-status): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 badge** (display-status): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 biometric-prompt** (domain-auth): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 chart-panel** (data-display): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 chat-composer** (domain-chat): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 chat-message** (domain-chat): loading-state-without-loading-prop. Declare loading state source and expose loading when the component instance owns pending behavior.
+- **P2 chat-thread** (domain-chat): loading-state-without-loading-prop. Declare loading state source and expose loading when the component instance owns pending behavior.
+- **P2 motion-boundary** (motion-feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 skeleton** (feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+- **P2 spinner** (feedback): disabled-state-without-disabled-prop. Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.
+
 ## Components
 | Component | Family | Variants | Intents | States | Public vocabulary | Review flags |
 | --- | --- | --- | --- | --- | --- | --- |

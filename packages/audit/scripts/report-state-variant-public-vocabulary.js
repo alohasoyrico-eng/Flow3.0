@@ -26,6 +26,50 @@ const vocabularyProps = [
   "loading",
 ];
 
+const componentPriority = {
+  p0: new Set([
+    "button",
+    "input",
+    "select",
+    "combobox",
+    "checkbox",
+    "radio-button",
+    "switch",
+    "tabs",
+    "menu",
+    "popover",
+    "dialog",
+    "drawer",
+    "date-picker",
+    "date-range-picker",
+    "phone-input",
+    "code-input",
+  ]),
+  p1: new Set([
+    "icon-button",
+    "floating-action-button",
+    "quick-action",
+    "copy-button",
+    "text-area",
+    "country-selector",
+    "card-number-input",
+    "card-expiry-input",
+    "card-security-code-input",
+    "segmented-control",
+    "pagination",
+    "tree-view",
+    "accordion",
+    "table",
+    "list",
+    "toast",
+    "tooltip",
+    "inline-validation",
+    "error-panel",
+    "empty-state",
+    "progress-indicator",
+  ]),
+};
+
 const familyBySlug = {
   accordion: "navigation",
   "animated-moment": "motion-feedback",
@@ -174,6 +218,30 @@ function reviewFlags(slug, family, contract) {
   return flags;
 }
 
+function priorityFor(slug) {
+  if (componentPriority.p0.has(slug)) return "P0";
+  if (componentPriority.p1.has(slug)) return "P1";
+  return "P2";
+}
+
+function remediationFor(row) {
+  const flags = row.reviewFlags;
+  if (!flags.length) return "No remediation from this taxonomy pass.";
+  if (flags.some((flag) => flag.includes("outside-family-taxonomy") || flag.includes("variant-"))) {
+    return "Normalize public API taxonomy or document a formal family exception before component work continues.";
+  }
+  if (flags.some((flag) => flag.startsWith("disabled-state-without"))) {
+    return "Declare disabled state source as public prop, item data, controlled value, or primitive lifecycle.";
+  }
+  if (flags.some((flag) => flag.startsWith("loading-state-without"))) {
+    return "Declare loading state source and expose loading when the component instance owns pending behavior.";
+  }
+  if (flags.some((flag) => flag.startsWith("selected-state-without"))) {
+    return "Declare selected state source as public prop, controlled value, item/row data, or navigation selection model.";
+  }
+  return "Review taxonomy flag and decide contract remediation or explicit exception.";
+}
+
 function taxonomyRule(family) {
   const taxonomy = taxonomyRule.contract ??= readJson(taxonomyFile);
   return taxonomy.familyRules?.[family]
@@ -206,6 +274,16 @@ const rows = Object.entries(contracts).map(([id, contract]) => {
 }).sort((a, b) => a.slug.localeCompare(b.slug));
 
 const flaggedRows = rows.filter((row) => row.reviewFlags.length);
+const remediationQueue = flaggedRows.map((row) => ({
+  slug: row.slug,
+  family: row.family,
+  priority: priorityFor(row.slug),
+  flags: row.reviewFlags,
+  remediation: remediationFor(row),
+})).sort((a, b) => {
+  const order = { P0: 0, P1: 1, P2: 2 };
+  return order[a.priority] - order[b.priority] || a.slug.localeCompare(b.slug);
+});
 const propCounts = Object.fromEntries(
   vocabularyProps.map((prop) => [
     prop,
@@ -232,6 +310,7 @@ const report = {
     family: row.family,
     flags: row.reviewFlags,
   })),
+  remediationQueue,
   components: rows,
 };
 
@@ -258,6 +337,11 @@ const markdown = [
   "## Review Flags",
   ...(Object.keys(report.reviewFlagCounts).length
     ? Object.entries(report.reviewFlagCounts).map(([flag, count]) => `- ${flag}: ${count}`)
+    : ["- None"]),
+  "",
+  "## Remediation Queue",
+  ...(remediationQueue.length
+    ? remediationQueue.map((item) => `- **${item.priority} ${item.slug}** (${item.family}): ${item.flags.join(", ")}. ${item.remediation}`)
     : ["- None"]),
   "",
   "## Components",
