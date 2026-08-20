@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-13T13:30:34.217Z",
+  "generatedAt": "2026-08-20T15:51:01.809Z",
   "scope": "Token ownership matrix for Style Dictionary phase 1",
   "status": "pass",
   "ownershipDebt": 0,
   "totals": {
     "sourceFiles": 36,
-    "sourceTokens": 1131,
+    "sourceTokens": 1152,
     "requiredSourceFamilies": 30,
     "requiredOutputs": 7,
     "matchingOutputs": 7
@@ -40,8 +40,8 @@
       "id": "source-manifest-current",
       "status": "PASS",
       "evidence": {
-        "manifestTotal": 1131,
-        "currentTotal": 1131
+        "manifestTotal": 1152,
+        "currentTotal": 1152
       },
       "failMessage": null
     },
@@ -111,7 +111,7 @@
       "owner": "Flow foundation token source",
       "file": "packages/tokens/source/foundations/energy.tokens.json",
       "exists": true,
-      "tokenCount": 108,
+      "tokenCount": 119,
       "status": "PASS"
     },
     {
@@ -210,7 +210,7 @@
       "owner": "Flow primitive token source",
       "file": "packages/tokens/source/primitives/color.tokens.json",
       "exists": true,
-      "tokenCount": 15,
+      "tokenCount": 24,
       "status": "PASS"
     },
     {
@@ -228,7 +228,7 @@
       "owner": "Flow primitive token source",
       "file": "packages/tokens/source/primitives/disabled.tokens.json",
       "exists": true,
-      "tokenCount": 8,
+      "tokenCount": 9,
       "status": "PASS"
     },
     {
@@ -364,8 +364,8 @@
       "owner": "Style Dictionary build output",
       "source": "packages/tokens/source/**/*.tokens.json",
       "exists": true,
-      "manifestSha": "c504ed96b96c4fa8580ce892d7d4d924554aa12ba78a1ccefd2cac14fb893887",
-      "actualSha": "c504ed96b96c4fa8580ce892d7d4d924554aa12ba78a1ccefd2cac14fb893887",
+      "manifestSha": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a",
+      "actualSha": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a",
       "matchesManifest": true,
       "hasGeneratedHeader": true,
       "status": "PASS"
@@ -375,8 +375,8 @@
       "owner": "Style Dictionary build output",
       "source": "packages/tokens/source/**/*.tokens.json",
       "exists": true,
-      "manifestSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
-      "actualSha": "d015fa39fcad51596899a3d27b49cfffe4e401bc927ec43610dbe3d399f93042",
+      "manifestSha": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458",
+      "actualSha": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458",
       "matchesManifest": true,
       "hasGeneratedHeader": true,
       "status": "PASS"
@@ -386,8 +386,8 @@
       "owner": "Style Dictionary build output",
       "source": "packages/tokens/source/**/*.tokens.json",
       "exists": true,
-      "manifestSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
-      "actualSha": "66f5f3b7c375b5af397f547ceea4120b632b31ae71032ce9d8842e97fbcc535f",
+      "manifestSha": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77",
+      "actualSha": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77",
       "matchesManifest": true,
       "hasGeneratedHeader": true,
       "status": "PASS"
@@ -397,8 +397,8 @@
       "owner": "Style Dictionary build output",
       "source": "packages/tokens/source/**/*.tokens.json",
       "exists": true,
-      "manifestSha": "8db882019ea6ca79fb5dc1387d9a8a0dbc8778e3c085e1e782b9b52be1486802",
-      "actualSha": "8db882019ea6ca79fb5dc1387d9a8a0dbc8778e3c085e1e782b9b52be1486802",
+      "manifestSha": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6",
+      "actualSha": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6",
       "matchesManifest": true,
       "hasGeneratedHeader": true,
       "status": "PASS"
@@ -408,8 +408,8 @@
       "owner": "Style Dictionary build output",
       "source": "packages/tokens/source/**/*.tokens.json",
       "exists": true,
-      "manifestSha": "e2ef3a1643e99cb7e4377ff0b72f46d8cc262f06ba144a370fc6fab2eb32b4e8",
-      "actualSha": "e2ef3a1643e99cb7e4377ff0b72f46d8cc262f06ba144a370fc6fab2eb32b4e8",
+      "manifestSha": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b",
+      "actualSha": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b",
       "matchesManifest": true,
       "hasGeneratedHeader": true,
       "status": "PASS"
@@ -419,8 +419,8 @@
       "owner": "Style Dictionary build output",
       "source": "packages/tokens/source/**/*.tokens.json",
       "exists": true,
-      "manifestSha": "83229bb170c0498fd9b3e221b7f71adfaad94c05826de81769a5fb2fd7275e1f",
-      "actualSha": "83229bb170c0498fd9b3e221b7f71adfaad94c05826de81769a5fb2fd7275e1f",
+      "manifestSha": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886",
+      "actualSha": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886",
       "matchesManifest": true,
       "hasGeneratedHeader": true,
       "status": "PASS"

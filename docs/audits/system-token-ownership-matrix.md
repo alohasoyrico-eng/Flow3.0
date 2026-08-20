@@ -7,7 +7,7 @@ This report defines token ownership for phase 1: family token JSON files are sou
 ## Totals
 
 - Source files: 36
-- Source tokens: 1131
+- Source tokens: 1152
 - Required source families: 30
 - Required outputs: 7
 - Matching outputs: 7
@@ -20,7 +20,7 @@ This report defines token ownership for phase 1: family token JSON files are sou
 | `required-source-families-owned` | PASS | `{"missingRequiredSources":[]}` |
 | `no-legacy-flat-source` | PASS | `{"file":"packages/tokens/source/flow.tokens.json","exists":false}` |
 | `no-unowned-token-source-files` | PASS | `{"unownedSourceFiles":[]}` |
-| `source-manifest-current` | PASS | `{"manifestTotal":1131,"currentTotal":1131}` |
+| `source-manifest-current` | PASS | `{"manifestTotal":1152,"currentTotal":1152}` |
 | `style-dictionary-build-script-owned` | PASS | `{"buildScript":"node scripts/build-tokens.mjs"}` |
 | `output-manifest-present` | PASS | `{"file":"packages/tokens/dist/token-output-manifest.json","exists":true}` |
 | `required-outputs-match-manifest` | PASS | `{"failingOutputs":[]}` |
@@ -32,7 +32,7 @@ This report defines token ownership for phase 1: family token JSON files are sou
 | --- | --- | --- | ---: | --- |
 | foundation | accessibility | PASS | 26 | `packages/tokens/source/foundations/accessibility.tokens.json` |
 | foundation | depth | PASS | 37 | `packages/tokens/source/foundations/depth.tokens.json` |
-| foundation | energy | PASS | 108 | `packages/tokens/source/foundations/energy.tokens.json` |
+| foundation | energy | PASS | 119 | `packages/tokens/source/foundations/energy.tokens.json` |
 | foundation | frame | PASS | 262 | `packages/tokens/source/foundations/frame.tokens.json` |
 | foundation | growth | PASS | 9 | `packages/tokens/source/foundations/growth.tokens.json` |
 | foundation | iconography | PASS | 24 | `packages/tokens/source/foundations/iconography.tokens.json` |
@@ -43,9 +43,9 @@ This report defines token ownership for phase 1: family token JSON files are sou
 | foundation | voice | PASS | 160 | `packages/tokens/source/foundations/voice.tokens.json` |
 | primitive | breakpoints | PASS | 5 | `packages/tokens/source/primitives/breakpoints.tokens.json` |
 | primitive | charts | PASS | 19 | `packages/tokens/source/primitives/charts.tokens.json` |
-| primitive | color | PASS | 15 | `packages/tokens/source/primitives/color.tokens.json` |
+| primitive | color | PASS | 24 | `packages/tokens/source/primitives/color.tokens.json` |
 | primitive | density | PASS | 24 | `packages/tokens/source/primitives/density.tokens.json` |
-| primitive | disabled | PASS | 8 | `packages/tokens/source/primitives/disabled.tokens.json` |
+| primitive | disabled | PASS | 9 | `packages/tokens/source/primitives/disabled.tokens.json` |
 | primitive | duration | PASS | 17 | `packages/tokens/source/primitives/duration.tokens.json` |
 | primitive | elevation | PASS | 13 | `packages/tokens/source/primitives/elevation.tokens.json` |
 | primitive | email-channel | PASS | 53 | `packages/tokens/source/primitives/email-channel.tokens.json` |

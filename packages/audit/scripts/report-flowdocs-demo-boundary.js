@@ -198,7 +198,15 @@ function buildReport() {
     ) && !file.includes(`${path.sep}generated${path.sep}`);
   }).map(classifyDocsDemoFile);
 
-  const localQaFiles = walk(localQaDir, (file) => /flow-(?:current|react)\.html$|manifest\.json$/.test(file)).map(classifyLocalQaFile);
+  const localQaFiles = walk(localQaDir, (file) => /react-runtime\.html$/.test(file)).map(classifyLocalQaFile);
+  const obsoleteLocalQaFiles = walk(localQaDir, (file) => {
+    const name = path.basename(file);
+    return /flow-(?:current|react)\.html$/.test(name)
+      || /^.+-flow-(?:current|react)\.html$/.test(name)
+      || name === "manifest.json"
+      || name === "react-shim.mjs"
+      || name === "react-dom-client-shim.mjs";
+  }).map((file) => rel(file));
   const docsRiskFiles = docsDemoFiles.filter((entry) => entry.risks.length);
   const mixedFlowClaims = docsDemoFiles.filter((entry) => entry.signals.includes("declares-flow-source") && entry.risks.length);
   const localVisualOverrideFiles = localQaFiles.filter((entry) => entry.metrics.localVisualOverrides > 0);
@@ -215,6 +223,7 @@ function buildReport() {
     localQaComponentIds: localComponents,
     localQaReactRuntimeFiles: localReactRuntimeFiles.length,
     localQaManualHarnessFiles: localManualHarnessFiles.length,
+    obsoleteLocalQaFiles: obsoleteLocalQaFiles.length,
   };
 
   const findings = [
@@ -248,6 +257,12 @@ function buildReport() {
       action: "Move styling into Flow component CSS/tokens or rename the rule to a harness-only selector that cannot affect component internals.",
       count: localVisualOverrideFiles.length,
     }] : []),
+    ...(obsoleteLocalQaFiles.length ? [{
+      severity: "high",
+      issue: "Local QA still contains obsolete manual or duplicate runtime files.",
+      action: "Delete flow-current, flow-react, per-folder React shims, and loose manifests; react-runtime.html is the only component runtime demo entrypoint.",
+      count: obsoleteLocalQaFiles.length,
+    }] : []),
   ];
 
   return {
@@ -267,6 +282,7 @@ function buildReport() {
     findings,
     flowdocsDemos: docsDemoFiles,
     localQaHarnesses: localQaFiles,
+    obsoleteLocalQaFiles,
     nextIteration: {
       id: 7,
       name: "Templates Boundary",

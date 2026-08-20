@@ -8,6 +8,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "../../..");
 const workspaceRoot = path.resolve(repoRoot, "../..");
 const localQaRoot = path.join(workspaceRoot, "local-visual-snapshots/Flow3-component-qa");
+const runtimeHtml = "react-runtime.html";
 
 const requestedComponent = process.argv.find((arg) => arg.startsWith("--component="))?.split("=")[1] ?? "floating-action-button";
 
@@ -15,7 +16,6 @@ const components = {
   button: {
     title: "Button",
     directory: "button-2026-08-17",
-    html: "button-flow-react.html",
     module: "Button.js",
     exportName: "Button",
     buildId: "button-react-runtime-1",
@@ -60,7 +60,6 @@ const components = {
   "icon-button": {
     title: "IconButton",
     directory: "icon-button-2026-08-20",
-    html: "icon-button-flow-react.html",
     module: "IconButton.js",
     exportName: "IconButton",
     buildId: "icon-button-react-runtime-1",
@@ -94,7 +93,6 @@ const components = {
   "floating-action-button": {
     title: "FloatingActionButton",
     directory: "floating-action-button-2026-08-20",
-    html: "floating-action-button-flow-react.html",
     module: "FloatingActionButton.js",
     exportName: "FloatingActionButton",
     buildId: "fab-react-runtime-1",
@@ -147,7 +145,6 @@ const components = {
   "quick-action": {
     title: "QuickAction",
     directory: "quick-action-2026-08-20",
-    html: "quick-action-flow-react.html",
     module: "QuickAction.js",
     exportName: "QuickAction",
     buildId: "quick-action-react-runtime-1",
@@ -198,7 +195,6 @@ const components = {
   input: {
     title: "Input",
     directory: "input-2026-08-17",
-    html: "input-flow-react.html",
     module: "Input.js",
     exportName: "Input",
     buildId: "input-react-runtime-1",
@@ -242,7 +238,6 @@ const components = {
   select: {
     title: "Select",
     directory: "select-2026-08-17",
-    html: "select-flow-react.html",
     module: "Select.js",
     exportName: "Select",
     buildId: "select-react-runtime-1",
@@ -283,7 +278,6 @@ const components = {
   combobox: {
     title: "Combobox",
     directory: "combobox-2026-08-17",
-    html: "combobox-flow-react.html",
     module: "Combobox.js",
     exportName: "Combobox",
     buildId: "combobox-react-runtime-1",
@@ -324,7 +318,6 @@ const components = {
   checkbox: {
     title: "Checkbox",
     directory: "checkbox-2026-08-18",
-    html: "checkbox-flow-react.html",
     module: "Checkbox.js",
     exportName: "Checkbox",
     buildId: "checkbox-react-runtime-1",
@@ -361,7 +354,6 @@ const components = {
   "radio-button": {
     title: "RadioButton",
     directory: "radio-button-2026-08-18",
-    html: "radio-button-flow-react.html",
     module: "RadioButton.js",
     exportName: "RadioButton",
     buildId: "radio-button-react-runtime-1",
@@ -398,7 +390,6 @@ const components = {
   switch: {
     title: "Switch",
     directory: "switch-2026-08-18",
-    html: "switch-flow-react.html",
     module: "Switch.js",
     exportName: "Switch",
     buildId: "switch-react-runtime-1",
@@ -428,7 +419,6 @@ const components = {
   tabs: {
     title: "Tabs",
     directory: "tabs-2026-08-18",
-    html: "tabs-flow-react.html",
     module: "Tabs.js",
     exportName: "Tabs",
     buildId: "tabs-react-runtime-1",
@@ -460,7 +450,6 @@ const components = {
   menu: {
     title: "Menu",
     directory: "menu-2026-08-18",
-    html: "menu-flow-react.html",
     module: "Menu.js",
     exportName: "Menu",
     buildId: "menu-react-runtime-1",
@@ -501,7 +490,6 @@ const components = {
   dialog: {
     title: "Dialog",
     directory: "dialog-2026-08-19",
-    html: "dialog-flow-react.html",
     module: "Dialog.js",
     exportName: "Dialog",
     buildId: "dialog-react-runtime-1",
@@ -555,6 +543,8 @@ const requestedComponents = requestedComponent === "all-actions"
     ? ["checkbox", "radio-button", "switch", "tabs", "menu"]
   : requestedComponent === "all-overlays"
     ? ["dialog"]
+  : requestedComponent === "all"
+    ? Object.keys(components)
   : [requestedComponent];
 
 const invalidComponent = requestedComponents.find((component) => !components[component]);
@@ -571,11 +561,6 @@ const outDir = path.join(localQaRoot, config.directory, "interactive");
 fs.mkdirSync(outDir, { recursive: true });
 
 const relToRepo = path.relative(outDir, repoRoot).replaceAll(path.sep, "/");
-const reactShim = `const React = globalThis.React;\nif (!React) throw new Error("React UMD was not loaded");\nexport default React;\nexport const Children = React.Children;\nexport const Fragment = React.Fragment;\nexport const StrictMode = React.StrictMode;\nexport const cloneElement = React.cloneElement;\nexport const createContext = React.createContext;\nexport const createElement = React.createElement;\nexport const forwardRef = React.forwardRef;\nexport const isValidElement = React.isValidElement;\nexport const memo = React.memo;\nexport const useCallback = React.useCallback;\nexport const useEffect = React.useEffect;\nexport const useId = React.useId;\nexport const useMemo = React.useMemo;\nexport const useRef = React.useRef;\nexport const useState = React.useState;\n`;
-const reactDomClientShim = `const ReactDOM = globalThis.ReactDOM;\nif (!ReactDOM) throw new Error("ReactDOM UMD was not loaded");\nexport const createRoot = ReactDOM.createRoot;\nexport default { createRoot };\n`;
-
-fs.writeFileSync(path.join(outDir, "react-shim.mjs"), reactShim);
-fs.writeFileSync(path.join(outDir, "react-dom-client-shim.mjs"), reactDomClientShim);
 
 const html = `<!doctype html>
 <html lang="es" data-theme="light" data-flow-react-runtime="true" data-flow-react-source="packages/react/dist/${config.module}">
@@ -658,8 +643,8 @@ const html = `<!doctype html>
   <script type="importmap">
     {
       "imports": {
-        "react": "./react-shim.mjs",
-        "react-dom/client": "./react-dom-client-shim.mjs",
+        "react": "${relToRepo}/packages/audit/local-react-qa/react-shim.mjs",
+        "react-dom/client": "${relToRepo}/packages/audit/local-react-qa/react-dom-client-shim.mjs",
         "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js"
       }
     }
@@ -715,7 +700,7 @@ const html = `<!doctype html>
 </html>
 `;
 
-const htmlPath = path.join(outDir, config.html);
+const htmlPath = path.join(outDir, runtimeHtml);
 fs.writeFileSync(htmlPath, html);
 outputs.push({
   status: "written",
