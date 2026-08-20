@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "0.1.0",
+  "component": "select",
+  "reviewedAt": "2026-08-19",
+  "status": "pass",
+  "scope": "current local interactive QA for Select after shared option-row remediation",
+  "changedSystemRoles": [
+    "--component-option-row-color",
+    "--component-option-row-selected-color",
+    "--component-option-row-disabled-bg",
+    "--component-option-row-disabled-color",
+    "--component-option-row-disabled-opacity"
+  ],
+  "sharedConsumers": [
+    "select",
+    "combobox",
+    "menu"
+  ],
+  "keyboard": {
+    "light": {
+      "arrowDownFirstActive": "Mexico",
+      "arrowDownSecondActive": "United States",
+      "disabledOptionSkipped": true,
+      "enterCommitted": "United States",
+      "escapeClosedAndClearedActiveDescendant": true
+    },
+    "dark": {
+      "arrowDownFirstActive": "Mexico",
+      "arrowDownSecondActive": "United States",
+      "disabledOptionSkipped": true,
+      "enterCommitted": "United States",
+      "escapeClosedAndClearedActiveDescendant": true
+    }
+  },
+  "density": [
+    {
+      "density": "sm",
+      "triggerHeight": 38,
+      "optionHeight": 50.96,
+      "optionPaddingInline": 16,
+      "checkSize": 16
+    },
+    {
+      "density": "md",
+      "triggerHeight": 44,
+      "optionHeight": 62.72,
+      "optionPaddingInline": 24,
+      "checkSize": 20
+    },
+    {
+      "density": "lg",
+      "triggerHeight": 52,
+      "optionHeight": 74.48,
+      "optionPaddingInline": 32,
+      "checkSize": 24
+    }
+  ],
+  "colorEvidence": {
+    "light": {
+      "optionText": "#1e293b",
+      "disabledText": "#475569",
+      "disabledOpacity": 1,
+      "normalContrastOnPanel": 14.63,
+      "disabledContrastOnPanel": 7.58
+    },
+    "dark": {
+      "optionText": "#f8fafc",
+      "disabledText": "#cbd5e1",
+      "disabledOpacity": 1,
+      "panelApprox": "rgb(28, 39, 57)",
+      "normalContrastOnPanel": ">= 10",
+      "disabledContrastOnPanel": ">= 8"
+    }
+  },
+  "validation": [
+    "node packages/audit/scripts/audit-select-css-contract.js",
+    "node packages/audit/scripts/audit-combobox-css-contract.js",
+    "node packages/audit/scripts/audit-menu-css-contract.js",
+    "node packages/audit/scripts/audit-dark-mode-css-contract.js",
+    "npm run test:fast --workspace @design-system/react"
+  ],
+  "notes": [
+    "The bug was not isolated to Select; shared option-row disabled state depended on opacity-only affordance and now exposes explicit bg/color/opacity roles.",
+    "The demo script keyboard behavior skips disabled options, commits with Enter, closes with Escape, and clears aria-activedescendant on close.",
+    "Select remains bounded: Combobox, Country Select, and Multiple Select stay outside base Select scope."
+  ]
+}

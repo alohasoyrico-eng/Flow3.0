@@ -228,14 +228,16 @@
   --component-option-row-padding-inline-lg: calc(var(--component-space-xl) + var(--component-space-sm));
   --component-option-row-gap: var(--component-space-sm);
   --component-option-row-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
+  --component-option-row-color: var(--component-color-text);
   --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 9%, transparent);
   --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 6%, transparent);
   --component-option-row-active-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
   --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
+  --component-option-row-selected-color: var(--component-color-text);
   --component-option-row-selected-weight: var(--component-font-weight-semibold);
-  --component-option-row-disabled-bg: transparent;
+  --component-option-row-disabled-bg: color-mix(in srgb, var(--component-color-text-muted) 8%, transparent);
   --component-option-row-disabled-color: var(--component-color-text-muted);
-  --component-option-row-disabled-opacity: var(--component-opacity-disabled);
+  --component-option-row-disabled-opacity: var(--component-opacity-visible);
   --component-option-row-check-size-sm: var(--component-density-icon-size-sm);
   --component-option-row-check-size-md: var(--component-density-icon-size-md);
   --component-option-row-check-size-lg: var(--component-density-icon-size-lg);
@@ -2106,7 +2108,7 @@
   --comp-combobox-empty-font-weight: var(--component-font-weight-semibold);
   --comp-combobox-empty-padding-block: var(--component-space-md);
   --comp-combobox-empty-padding-inline: var(--component-option-row-padding-inline-sm);
-  --comp-combobox-option-color: var(--component-color-text);
+  --comp-combobox-option-color: var(--component-option-row-color);
   --comp-combobox-option-gap: var(--component-option-row-gap);
   --comp-combobox-option-hover-bg: var(--component-option-row-hover-bg);
   --comp-combobox-option-active-bg: var(--component-option-row-active-bg);
@@ -2129,6 +2131,7 @@
   --comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-md);
   --comp-combobox-option-radius: var(--component-option-row-radius);
   --comp-combobox-option-selected-bg: var(--component-option-row-selected-bg);
+  --comp-combobox-option-selected-color: var(--component-option-row-selected-color);
   --comp-combobox-option-selected-weight: var(--component-option-row-selected-weight);
   --comp-combobox-option-check-family: "Material Symbols Rounded";
   --comp-combobox-option-check-size-sm: var(--component-option-row-check-size-sm);
@@ -2225,7 +2228,7 @@
 
 .combobox__option[data-selected="true"] {
   background: var(--comp-combobox-option-selected-bg);
-  color: var(--comp-combobox-option-color);
+  color: var(--comp-combobox-option-selected-color);
 }
 
 .combobox__option[data-selected="true"] .combobox__option-label {
@@ -7115,14 +7118,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-panel-z-index: var(--component-z-overlay);
   --comp-menu-panel-gap: var(--component-listbox-gap);
   --comp-menu-item-bg: var(--component-surface-transparent);
-  --comp-menu-item-fg: var(--component-color-text);
+  --comp-menu-item-fg: var(--component-option-row-color);
   --comp-menu-item-hover-bg: var(--component-option-row-hover-bg);
   --comp-menu-item-active-bg: var(--component-option-row-active-bg);
   --comp-menu-item-active-ring: var(--component-option-row-active-ring);
   --comp-menu-item-danger-fg: var(--component-color-danger);
   --comp-menu-item-danger-hover-bg: color-mix(in srgb, var(--component-color-danger) 10%, var(--component-color-surface));
-  --comp-menu-item-disabled-fg: var(--component-color-text-muted);
-  --comp-menu-item-disabled-opacity: var(--component-opacity-disabled);
+  --comp-menu-item-disabled-bg: var(--component-option-row-disabled-bg);
+  --comp-menu-item-disabled-fg: var(--component-option-row-disabled-color);
+  --comp-menu-item-disabled-opacity: var(--component-option-row-disabled-opacity);
   --comp-menu-item-height-sm: var(--component-option-row-min-block-size-sm);
   --comp-menu-item-height-md: var(--component-option-row-min-block-size-md);
   --comp-menu-item-height-lg: var(--component-option-row-min-block-size-lg);
@@ -7300,6 +7304,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .menu__item:disabled {
+  background: var(--comp-menu-item-disabled-bg);
   color: var(--comp-menu-item-disabled-fg);
   cursor: not-allowed;
   opacity: var(--comp-menu-item-disabled-opacity);
@@ -10549,11 +10554,12 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
   --comp-select-option-padding-x-lg: var(--component-option-row-padding-inline-lg);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-md);
   --comp-select-option-radius: var(--component-option-row-radius);
-  --comp-select-option-color: var(--component-color-text);
+  --comp-select-option-color: var(--component-option-row-color);
   --comp-select-option-hover-bg: var(--component-option-row-hover-bg);
   --comp-select-option-active-bg: var(--component-option-row-active-bg);
   --comp-select-option-active-ring: var(--component-option-row-active-ring);
   --comp-select-option-selected-bg: var(--component-option-row-selected-bg);
+  --comp-select-option-selected-color: var(--component-option-row-selected-color);
   --comp-select-option-selected-weight: var(--component-option-row-selected-weight);
   --comp-select-option-disabled-bg: var(--component-option-row-disabled-bg);
   --comp-select-option-disabled-color: var(--component-option-row-disabled-color);
@@ -11089,7 +11095,7 @@ body[data-contrast="quiet"] .station-pin[data-variant="cluster"] {
 .select-control__option[data-selected="true"],
 .country-selector__option[data-selected="true"] {
   background: var(--comp-select-option-selected-bg);
-  color: var(--comp-select-option-color);
+  color: var(--comp-select-option-selected-color);
 }
 
 .country-selector__option[data-selected="true"] {
@@ -12823,6 +12829,9 @@ body[data-theme="dark"],
   --component-option-row-hover-bg: color-mix(in srgb, var(--component-color-action) 22%, var(--component-color-surface-raised));
   --component-option-row-active-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface-raised));
   --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-surface-raised));
+  --component-option-row-disabled-bg: color-mix(in srgb, var(--component-color-text) 8%, transparent);
+  --component-option-row-disabled-color: var(--component-color-text-subtle);
+  --component-option-row-disabled-opacity: var(--component-opacity-visible);
   color-scheme: dark;
 }
 

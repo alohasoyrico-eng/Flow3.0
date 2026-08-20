@@ -37,7 +37,9 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-select-option-padding-x-lg: var(--component-option-row-padding-inline-lg)",
       "--comp-select-option-padding-x: var(--comp-select-option-padding-x-md)",
       "--comp-select-option-radius: var(--component-option-row-radius)",
+      "--comp-select-option-color: var(--component-option-row-color)",
       "--comp-select-option-active-ring: var(--component-option-row-active-ring)",
+      "--comp-select-option-selected-color: var(--component-option-row-selected-color)",
       "--comp-select-option-disabled-bg: var(--component-option-row-disabled-bg)",
       "--comp-select-option-disabled-color: var(--component-option-row-disabled-color)",
       "--comp-select-option-disabled-opacity: var(--component-option-row-disabled-opacity)",
@@ -72,8 +74,16 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!text.includes("outline: var(--component-focus-ring-width) solid var(--comp-select-option-active-ring)")) {
     add("errors", packageCssFile, 1, "Select active/keyboard option ring must consume the shared option active ring role.");
   }
-  if (!text.includes(".select-control__option[data-disabled=\"true\"") || !text.includes("opacity: var(--comp-select-option-disabled-opacity)")) {
+  if (
+    !text.includes(".select-control__option[data-disabled=\"true\"") ||
+    !text.includes("background: var(--comp-select-option-disabled-bg)") ||
+    !text.includes("color: var(--comp-select-option-disabled-color)") ||
+    !text.includes("opacity: var(--comp-select-option-disabled-opacity)")
+  ) {
     add("errors", packageCssFile, 1, "Select disabled options must expose a distinct shared disabled option affordance.");
+  }
+  if (!text.includes("--component-option-row-disabled-opacity: var(--component-opacity-visible)")) {
+    add("errors", packageCssFile, 1, "Shared option-row disabled state must remain legible; do not dim listbox options through opacity-only affordances.");
   }
   if (!text.includes(".select-control__option {\n  grid-template-columns: minmax(0, 1fr) auto auto;")) {
     add("errors", packageCssFile, 1, "Select options must reserve trailing columns for metadata and selected check geometry.");

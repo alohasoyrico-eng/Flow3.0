@@ -1,7 +1,7 @@
 {
   "schemaVersion": "0.1.0",
   "updatedAt": "2026-08-19",
-  "scope": "priority components touched in the 1:1 review",
+  "scope": "priority components touched in the 1:1 review; active scope: combobox, checkbox, radio-button, switch",
   "status": "partial",
   "rule": "A component can be pass only when all 13 steps are pass and current evidence exists, including light and dark visual QA, keyboard behavior, density order, icon scale, and demo/manual verification. Historical pass evidence is downgraded when a newer 1:1 review finds unresolved bugs.",
   "relatedAudits": [
@@ -1785,7 +1785,7 @@
     },
     {
       "id": "select",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1793,15 +1793,17 @@
         "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
-        "interaction-logic": "partial",
+        "interaction-logic": "pass",
         "motion": "pass",
-        "density-layout": "partial",
+        "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "partial",
-        "visual-qa": "needs-current-local-review",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
+        "docs/audits/select-current-light-dark-review.json",
+        "docs/audits/select-current-light-dark-review.md",
         "docs/audits/select-1to1-quality-audit.json",
         "docs/audits/select-family-scope-audit.json",
         "docs/audits/select-family-qa-metrics.json",
@@ -1815,19 +1817,20 @@
         "packages/audit/scripts/audit-field-css-contract.js",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-advanced.test.mjs",
-        "commit 5c264331"
+        "commit 5c264331",
+        "packages/audit/scripts/audit-select-css-contract.js",
+        "packages/audit/scripts/audit-combobox-css-contract.js",
+        "packages/audit/scripts/audit-menu-css-contract.js",
+        "packages/audit/scripts/audit-dark-mode-css-contract.js"
       ],
-      "openIssues": [
-        "Disabled option legibility and keyboard skip behavior were manually flagged; automated tests cover skip behavior, but current visual/dark evidence must be recorded.",
-        "Select menu colors/geometries must remain aligned with Combobox/Menu through shared option-row and overlay-panel tokens."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Select Input / Combobox exists in the ZIP reference and is not covered by base Select.",
         "Country Select exists in the ZIP reference and is currently covered only as Phone Input composition.",
         "Multiple Select exists in the ZIP reference and must stay outside base Select."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "decision": "Closed Select current QA: keyboard skip/commit/escape verified in local interactive demo; density scales monotonically; selected check scales 16/20/24; option-row colors and disabled affordance now cascade through shared Flow roles consumed by Select, Combobox, and Menu."
     },
     {
       "id": "skeleton",
@@ -2338,10 +2341,10 @@
   ],
   "summary": {
     "total": 56,
-    "pass": 51,
-    "partial": 5,
+    "pass": 52,
+    "partial": 4,
     "fail": 0,
-    "qualityDebt": 5
+    "qualityDebt": 4
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",

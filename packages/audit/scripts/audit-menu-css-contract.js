@@ -69,6 +69,7 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-menu-panel-padding: var(--component-listbox-padding)",
       "--comp-menu-panel-radius: var(--component-listbox-radius)",
       "--comp-menu-panel-gap: var(--component-listbox-gap)",
+      "--comp-menu-item-fg: var(--component-option-row-color)",
       "--comp-menu-item-height-sm: var(--component-option-row-min-block-size-sm)",
       "--comp-menu-item-height-md: var(--component-option-row-min-block-size-md)",
       "--comp-menu-item-height-lg: var(--component-option-row-min-block-size-lg)",
@@ -79,6 +80,9 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-menu-item-padding-x: var(--comp-menu-item-padding-x-md)",
       "--comp-menu-item-radius: var(--component-option-row-radius)",
       "--comp-menu-item-active-ring: var(--component-option-row-active-ring)",
+      "--comp-menu-item-disabled-bg: var(--component-option-row-disabled-bg)",
+      "--comp-menu-item-disabled-fg: var(--component-option-row-disabled-color)",
+      "--comp-menu-item-disabled-opacity: var(--component-option-row-disabled-opacity)",
       "--comp-menu-item-font-size: var(--component-font-size-label)",
       "--comp-menu-item-hover-transform: var(--component-transform-inline-nudge)",
       "--comp-menu-enter-ease: var(--component-ease-enter)",
@@ -173,9 +177,12 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: itemDisabledBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-menu-item-disabled-fg)", "opacity: var(--comp-menu-item-disabled-opacity)"],
+    snippets: ["background: var(--comp-menu-item-disabled-bg)", "color: var(--comp-menu-item-disabled-fg)", "opacity: var(--comp-menu-item-disabled-opacity)"],
     message: "Menu disabled item must consume Menu disabled aliases.",
   });
+  if (!text.includes("--component-option-row-disabled-opacity: var(--component-opacity-visible)")) {
+    add("errors", packageCssFile, 1, "Shared option-row disabled state must remain legible; do not dim menu/listbox items through opacity-only affordances.");
+  }
   requireIncludes({
     block: iconBlock,
     text,
