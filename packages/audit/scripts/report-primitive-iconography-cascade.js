@@ -86,6 +86,9 @@ const requiredComponentAliases = [
   "--component-icon-size-sm",
   "--component-icon-size-md",
   "--component-icon-size-lg",
+  "--component-density-icon-size-sm",
+  "--component-density-icon-size-md",
+  "--component-density-icon-size-lg",
   "--component-icon-color-action",
   "--component-icon-color-navigation",
   "--component-icon-color-status",
@@ -93,6 +96,41 @@ const requiredComponentAliases = [
   "--component-icon-color-danger",
   "--component-icon-color-muted",
   "--component-icon-color-disabled",
+];
+const requiredScaleSnippets = [
+  [tokenCssFile, "--ref-symbol-size-sm: 16px;", "Small icon scale must resolve to 16px."],
+  [tokenCssFile, "--ref-symbol-size-md: 20px;", "Medium icon scale must resolve to 20px."],
+  [tokenCssFile, "--ref-symbol-size-lg: 24px;", "Large icon scale must resolve to 24px."],
+  [tokenCssFile, "--sys-iconography-size-sm: var(--sys-symbol-size-sm);", "Iconography sm must consume Symbol sm."],
+  [tokenCssFile, "--sys-iconography-size-md: var(--sys-symbol-size-md);", "Iconography md must consume Symbol md."],
+  [tokenCssFile, "--sys-iconography-size-lg: var(--sys-symbol-size-lg);", "Iconography lg must consume Symbol lg."],
+  [tokenCssFile, "--sys-icon-size-sm: var(--sys-iconography-size-sm);", "Primitive icon sm must consume Iconography sm."],
+  [tokenCssFile, "--sys-icon-size-md: var(--sys-iconography-size-md);", "Primitive icon md must consume Iconography md."],
+  [tokenCssFile, "--sys-icon-size-lg: var(--sys-iconography-size-lg);", "Primitive icon lg must consume Iconography lg."],
+  [componentCssFile, "--component-density-icon-size-sm: var(--component-icon-size-sm);", "Component density icon sm must consume component icon sm."],
+  [componentCssFile, "--component-density-icon-size-md: var(--component-icon-size-md);", "Component density icon md must consume component icon md."],
+  [componentCssFile, "--component-density-icon-size-lg: var(--component-icon-size-lg);", "Component density icon lg must consume component icon lg."],
+  [componentCssFile, "--comp-button-icon-size-sm: var(--component-density-icon-size-sm);", "Button icon sm must consume density icon sm."],
+  [componentCssFile, "--comp-button-icon-size-md: var(--component-density-icon-size-md);", "Button icon md must consume density icon md."],
+  [componentCssFile, "--comp-button-icon-size-lg: var(--component-density-icon-size-lg);", "Button icon lg must consume density icon lg."],
+  [componentCssFile, "--comp-icon-button-icon-size-sm: var(--component-density-icon-size-sm);", "IconButton icon sm must consume density icon sm."],
+  [componentCssFile, "--comp-icon-button-icon-size-md: var(--component-density-icon-size-md);", "IconButton icon md must consume density icon md."],
+  [componentCssFile, "--comp-icon-button-icon-size-lg: var(--component-density-icon-size-lg);", "IconButton icon lg must consume density icon lg."],
+  [componentCssFile, "--comp-input-icon-size-sm: var(--component-density-icon-size-sm);", "Field icon sm must consume density icon sm."],
+  [componentCssFile, "--comp-input-icon-size-md: var(--component-density-icon-size-md);", "Field icon md must consume density icon md."],
+  [componentCssFile, "--comp-input-icon-size-lg: var(--component-density-icon-size-lg);", "Field icon lg must consume density icon lg."],
+  [componentCssFile, "--comp-checkbox-indicator-size-sm: var(--component-density-icon-size-sm);", "Checkbox indicator sm must consume density icon sm."],
+  [componentCssFile, "--comp-checkbox-indicator-size-md: var(--component-density-icon-size-md);", "Checkbox indicator md must consume density icon md."],
+  [componentCssFile, "--comp-checkbox-indicator-size-lg: var(--component-density-icon-size-lg);", "Checkbox indicator lg must consume density icon lg."],
+  [componentCssFile, "--component-option-row-check-size-sm: var(--component-density-icon-size-sm);", "Option check sm must consume density icon sm."],
+  [componentCssFile, "--component-option-row-check-size-md: var(--component-density-icon-size-md);", "Option check md must consume density icon md."],
+  [componentCssFile, "--component-option-row-check-size-lg: var(--component-density-icon-size-lg);", "Option check lg must consume density icon lg."],
+  [componentCssFile, "--comp-menu-item-icon-size-sm: var(--component-density-icon-size-sm);", "Menu icon sm must consume density icon sm."],
+  [componentCssFile, "--comp-menu-item-icon-size-md: var(--component-density-icon-size-md);", "Menu icon md must consume density icon md."],
+  [componentCssFile, "--comp-menu-item-icon-size-lg: var(--component-density-icon-size-lg);", "Menu icon lg must consume density icon lg."],
+  [componentCssFile, "--comp-select-icon-size-sm: var(--component-density-icon-size-sm);", "Select icon sm must consume density icon sm."],
+  [componentCssFile, "--comp-select-icon-size-md: var(--component-density-icon-size-md);", "Select icon md must consume density icon md."],
+  [componentCssFile, "--comp-select-icon-size-lg: var(--component-density-icon-size-lg);", "Select icon lg must consume density icon lg."],
 ];
 
 function rel(file) {
@@ -220,6 +258,12 @@ const componentBridge = {
   primitiveUses: (componentCss.match(/var\(--sys-icon-/g) ?? []).length,
   bridgeUses: (componentCss.match(/var\(--component-icon-/g) ?? []).length,
 };
+const scaleContract = requiredScaleSnippets.map(([file, snippet, message]) => ({
+  file: rel(file),
+  snippet,
+  message,
+  status: readIfExists(file).includes(snippet) ? "pass" : "fail",
+}));
 const directFoundationUses = findDirectFoundationIconographyUses(componentAndDocsFiles);
 const directGlyphAssignments = findDirectGlyphAssignments(componentJsFiles);
 const vendorBridge = {
@@ -261,6 +305,9 @@ if (missingTokenDependencies.length) {
 }
 if (tokenAliases.missing.length) gaps.push(`Missing sys-icon aliases: ${tokenAliases.missing.join(", ")}.`);
 if (componentBridge.missing.length) gaps.push(`Missing component icon bridge aliases: ${componentBridge.missing.join(", ")}.`);
+for (const check of scaleContract.filter((item) => item.status !== "pass")) {
+  gaps.push(`${check.message} Missing: ${check.snippet}`);
+}
 if (componentBridge.primitiveUses < 8) gaps.push("Component CSS does not consume the icon primitive enough to prove cascade adoption.");
 if (componentBridge.bridgeUses < 6) gaps.push("Component CSS does not expose reusable component icon bridge aliases.");
 if (directFoundationUses.length) {
@@ -306,6 +353,7 @@ const report = {
   },
   tokenAliases,
   componentBridge,
+  scaleContract,
   vendorBridge,
   librarySources: {
     row: librarySourceRow ?? null,
@@ -333,6 +381,7 @@ function writeReport() {
     `- Coordinated primitives: ${report.coordinatedPrimitives.present.length}/${report.coordinatedPrimitives.required.length}`,
     `- Token aliases: ${report.tokenAliases.present.length}/${report.tokenAliases.required.length}`,
     `- Component bridge aliases: ${report.componentBridge.present.length}/${report.componentBridge.required.length}`,
+    `- Scale contract checks: ${report.scaleContract.filter((check) => check.status === "pass").length}/${report.scaleContract.length}`,
     `- Component primitive token uses: ${report.componentBridge.primitiveUses}`,
     `- Component bridge token uses: ${report.componentBridge.bridgeUses}`,
     `- Docs scope: ${report.vendorBridge.docsScope}`,
@@ -350,7 +399,7 @@ function writeReport() {
 
   if (checkMode) {
     if (readIfExists(jsonOutput) !== json || readIfExists(markdownOutput) !== `${markdown}\n`) {
-      console.error("Primitive Iconography cascade audit is stale. Run npm run audit:primitive:iconography.");
+      console.error("Primitive Iconography cascade audit is stale. Run node packages/audit/scripts/report-primitive-iconography-cascade.js.");
       process.exit(1);
     }
     if (report.status !== "pass") {

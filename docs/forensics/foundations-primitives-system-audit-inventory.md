@@ -1,6 +1,6 @@
 # Foundations/Primitives System Audit Inventory
 
-Status: **iteration 3 complete**
+Status: **iteration 4 complete**
 
 This inventory starts the foundations/primitives remediation block after P0 component readiness work. It does not create a new audit lane. It consolidates the existing token, primitive, runtime, and gate evidence so the next iterations can fix systemic contracts instead of patching one component at a time.
 
@@ -44,6 +44,7 @@ The DS has real foundation/primitive ownership and active gates. The remaining r
 | ControlFrame unresolved debt | 0 | `docs/audits/control-frame-adoption-inventory.md` |
 | Runtime frame checks in fast gate | 4 | `packages/audit/scripts/audit-ds-fast-gate.js` |
 | Radius/surface role asserts in core gate | 8 | `packages/audit/scripts/audit-control-frame-css-contract.js` |
+| Icon scale contract checks | 33 | `docs/audits/primitive-iconography-cascade-audit.md` |
 
 ## Foundation Contract Map
 
@@ -98,7 +99,7 @@ Do not create a separate gate unless an existing one cannot express the rule.
 | --- | --- | --- | --- |
 | Runtime geometry coverage is narrower than token reports | Token pass did not stop md/lg and padding bugs from appearing in demos | control/choice/listbox/icon-button runtime scripts are now in `audit:ds-fast-gate` | Iteration 2 complete |
 | Radius roles are not yet documented as family acceptance criteria | Button and input/select should not have identical shape | radius primitive pass; role asserts are now in `audit:flow-core-gate` | Iteration 3 complete |
-| Icon scale is still prone to component-local drift | Checkbox/radio exposed mark/icon scaling debt | choice runtime script, iconography reports | Iteration 4 |
+| Icon scale is still prone to component-local drift | Checkbox/radio exposed mark/icon scaling debt | primitive iconography now checks 33 scale links; runtime checks cover icon-button, choice, and option checks | Iteration 4 complete |
 | Motion roles are semantically under-specified for fields vs actions | Input motion discussion exposed unclear acceptance | momentum/motion reports, input motion matrix | Iteration 5 |
 | Dark mode and contrast need runtime-style assurance | User observed legibility failures after light/dark demos | dark mode CSS audit, axe excludes color contrast in jsdom | Iteration 6 |
 | Primitive ownership is structurally pass but product-runtime proof varies | Some primitives are policy contracts, not runtime contracts | primitive runtime matrix | Iteration 7 |
@@ -114,13 +115,13 @@ Do not create a separate gate unless an existing one cannot express the rule.
 
 ## Next Iteration
 
-Iteration 4: **Icon scale contract**.
+Iteration 5: **Motion contract**.
 
 Tasks:
 
-- Verify that `16/20/24` density icon scale is enforced across icon-bearing controls, choices, listbox checks, field actions, and status/action affordances.
-- Confirm Material Symbols remain the governed icon implementation unless a component has an explicit exception.
-- Fold missing proof into existing iconography/runtime gates only.
+- Confirm motion roles for action press, field focus/error, overlay/listbox open, loading, and reduced-motion behavior.
+- Keep field controls stable unless a specific motion role justifies movement.
+- Fold missing proof into existing motion, component runtime, or P0 interaction gates only.
 
 ## Iteration 2 Result
 
@@ -163,3 +164,21 @@ Observed gate status:
 | Gate | Status | Main contract |
 | --- | --- | --- |
 | `audit:flow-core-gate` | pass | radius/surface role assertions plus phase 1 and phase 3 checkpoints |
+
+## Iteration 4 Result
+
+Icon scale proof was added to the existing Primitive Iconography cascade audit. No component CSS was changed.
+
+The audit now requires:
+
+- token scale resolves to `16/20/24` through `--ref-symbol-size-sm/md/lg`.
+- Iconography consumes Symbol size aliases.
+- primitive `--sys-icon-size-sm/md/lg` consumes Iconography aliases.
+- component density icon aliases consume component icon aliases.
+- Button, IconButton, Field/Input icons, Checkbox indicators, option row checks, Menu icons, and Select icons consume the shared density icon scale.
+
+Observed gate status:
+
+| Gate | Status | Main contract |
+| --- | --- | --- |
+| `report-primitive-iconography-cascade.js` | pass | 17/17 component bridge aliases, 33/33 scale contract checks |

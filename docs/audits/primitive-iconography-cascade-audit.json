@@ -147,6 +147,9 @@
       "--component-icon-size-sm",
       "--component-icon-size-md",
       "--component-icon-size-lg",
+      "--component-density-icon-size-sm",
+      "--component-density-icon-size-md",
+      "--component-density-icon-size-lg",
       "--component-icon-color-action",
       "--component-icon-color-navigation",
       "--component-icon-color-status",
@@ -163,6 +166,9 @@
       "--component-icon-size-sm",
       "--component-icon-size-md",
       "--component-icon-size-lg",
+      "--component-density-icon-size-sm",
+      "--component-density-icon-size-md",
+      "--component-density-icon-size-lg",
       "--component-icon-color-action",
       "--component-icon-color-navigation",
       "--component-icon-color-status",
@@ -173,8 +179,208 @@
     ],
     "missing": [],
     "primitiveUses": 24,
-    "bridgeUses": 55
+    "bridgeUses": 44
   },
+  "scaleContract": [
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--ref-symbol-size-sm: 16px;",
+      "message": "Small icon scale must resolve to 16px.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--ref-symbol-size-md: 20px;",
+      "message": "Medium icon scale must resolve to 20px.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--ref-symbol-size-lg: 24px;",
+      "message": "Large icon scale must resolve to 24px.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--sys-iconography-size-sm: var(--sys-symbol-size-sm);",
+      "message": "Iconography sm must consume Symbol sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--sys-iconography-size-md: var(--sys-symbol-size-md);",
+      "message": "Iconography md must consume Symbol md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--sys-iconography-size-lg: var(--sys-symbol-size-lg);",
+      "message": "Iconography lg must consume Symbol lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--sys-icon-size-sm: var(--sys-iconography-size-sm);",
+      "message": "Primitive icon sm must consume Iconography sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--sys-icon-size-md: var(--sys-iconography-size-md);",
+      "message": "Primitive icon md must consume Iconography md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/tokens/styles/tokens.css",
+      "snippet": "--sys-icon-size-lg: var(--sys-iconography-size-lg);",
+      "message": "Primitive icon lg must consume Iconography lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--component-density-icon-size-sm: var(--component-icon-size-sm);",
+      "message": "Component density icon sm must consume component icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--component-density-icon-size-md: var(--component-icon-size-md);",
+      "message": "Component density icon md must consume component icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--component-density-icon-size-lg: var(--component-icon-size-lg);",
+      "message": "Component density icon lg must consume component icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-button-icon-size-sm: var(--component-density-icon-size-sm);",
+      "message": "Button icon sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-button-icon-size-md: var(--component-density-icon-size-md);",
+      "message": "Button icon md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-button-icon-size-lg: var(--component-density-icon-size-lg);",
+      "message": "Button icon lg must consume density icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-icon-button-icon-size-sm: var(--component-density-icon-size-sm);",
+      "message": "IconButton icon sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-icon-button-icon-size-md: var(--component-density-icon-size-md);",
+      "message": "IconButton icon md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-icon-button-icon-size-lg: var(--component-density-icon-size-lg);",
+      "message": "IconButton icon lg must consume density icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-input-icon-size-sm: var(--component-density-icon-size-sm);",
+      "message": "Field icon sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-input-icon-size-md: var(--component-density-icon-size-md);",
+      "message": "Field icon md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-input-icon-size-lg: var(--component-density-icon-size-lg);",
+      "message": "Field icon lg must consume density icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-checkbox-indicator-size-sm: var(--component-density-icon-size-sm);",
+      "message": "Checkbox indicator sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-checkbox-indicator-size-md: var(--component-density-icon-size-md);",
+      "message": "Checkbox indicator md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-checkbox-indicator-size-lg: var(--component-density-icon-size-lg);",
+      "message": "Checkbox indicator lg must consume density icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--component-option-row-check-size-sm: var(--component-density-icon-size-sm);",
+      "message": "Option check sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--component-option-row-check-size-md: var(--component-density-icon-size-md);",
+      "message": "Option check md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--component-option-row-check-size-lg: var(--component-density-icon-size-lg);",
+      "message": "Option check lg must consume density icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-menu-item-icon-size-sm: var(--component-density-icon-size-sm);",
+      "message": "Menu icon sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-menu-item-icon-size-md: var(--component-density-icon-size-md);",
+      "message": "Menu icon md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-menu-item-icon-size-lg: var(--component-density-icon-size-lg);",
+      "message": "Menu icon lg must consume density icon lg.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-select-icon-size-sm: var(--component-density-icon-size-sm);",
+      "message": "Select icon sm must consume density icon sm.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-select-icon-size-md: var(--component-density-icon-size-md);",
+      "message": "Select icon md must consume density icon md.",
+      "status": "pass"
+    },
+    {
+      "file": "packages/components/styles/components.css",
+      "snippet": "--comp-select-icon-size-lg: var(--component-density-icon-size-lg);",
+      "message": "Select icon lg must consume density icon lg.",
+      "status": "pass"
+    }
+  ],
   "vendorBridge": {
     "docsScope": "external-not-audited",
     "docsUsesLocalMaterialSymbols": false,

@@ -11,9 +11,10 @@ Iconography consumes the Iconography, Symbol, Accessibility, State, and Energy f
 - Roles: 5/5
 - Coordinated primitives: 4/4
 - Token aliases: 24/24
-- Component bridge aliases: 14/14
+- Component bridge aliases: 17/17
+- Scale contract checks: 33/33
 - Component primitive token uses: 24
-- Component bridge token uses: 55
+- Component bridge token uses: 44
 - Docs scope: external-not-audited
 - Local Material Symbols fonts: 0/0
 - Remote Material Symbols refs in docs: no
