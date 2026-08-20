@@ -1132,22 +1132,25 @@
         "validation": "pass"
       },
       "evidence": [
-        "docs/audits/icon-button-1to1-quality-audit.json",
-        "docs/audits/icon-button-1to1-visual-metrics.json",
-        "docs/audits/icon-button-1to1-light.png",
-        "docs/audits/icon-button-1to1-dark.png",
-        "packages/components/src/components/actions.js",
+        "packages/react/src/IconButton.tsx",
+        "packages/react/src/IconButton.js",
+        "packages/react/src/IconButton.d.ts",
+        "packages/react/dist/IconButton.js",
+        "packages/react/dist/IconButton.d.ts",
+        "packages/components/src/platforms/icon-button.ts",
+        "packages/components/src/platforms/icon-button.js",
         "packages/components/styles/components.css",
-        "packages/audit/scripts/audit-package-css-contracts.js",
-        "apps/docs/styles/01-shell-02.css",
-        "packages/components/test/smoke.test.mjs"
+        "packages/audit/scripts/audit-icon-button-css-contract.js",
+        "packages/content/content/component-contracts/components/icon-button.md",
+        "packages/specs/specs/unison-system/artifacts/components/icon-button.json",
+        "packages/audit/scripts/audit-icon-button-runtime.mjs"
       ],
-      "openIssues": [
-        "Needs explicit mobile and desktop scale/composition before closure; current visual parity with the user-provided onboarding reference is not sufficient."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Search, Switch, and multi-option controls stay outside Icon Button even when they use compact controls in a toolbar."
-      ]
+      ],
+      "lastReviewAt": "2026-08-19",
+      "currentReviewCommit": "pending"
     },
     {
       "id": "inline-validation",

@@ -736,6 +736,7 @@
     "audit:flow-core-gate": "node packages/audit/scripts/audit-flow-core-gate.js",
     "audit:control-frame-runtime": "node packages/audit/scripts/audit-control-frame-density-runtime.mjs",
     "audit:choice-frame-runtime": "node packages/audit/scripts/audit-choice-frame-runtime.mjs",
+    "audit:icon-button-runtime": "node packages/audit/scripts/audit-icon-button-runtime.mjs",
     "audit:option-listbox-runtime": "node packages/audit/scripts/audit-option-listbox-runtime.mjs",
     "audit:control-frame-inventory": "node packages/audit/scripts/report-control-frame-adoption-inventory.js --check",
     "report:control-frame-inventory": "node packages/audit/scripts/report-control-frame-adoption-inventory.js",

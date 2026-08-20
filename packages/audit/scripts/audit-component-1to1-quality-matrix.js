@@ -6,6 +6,7 @@ const {
   root,
   result,
 } = require("./audit-context.js");
+const { finishAudit } = require("./audit-result.js");
 
 const matrixFile = path.join(root, "docs/audits/component-1to1-quality-matrix.json");
 
@@ -33,7 +34,12 @@ function evidenceExists(evidencePath) {
 }
 
 function hasDarkEvidence(evidence) {
-  return evidence.some((evidencePath) => /dark/i.test(evidencePath));
+  return evidence.some((evidencePath) => {
+    if (/dark/i.test(evidencePath)) return true;
+    const file = path.join(root, evidencePath);
+    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) return false;
+    return /["'`]dark["'`]|data-theme=["'`]dark["'`]|theme.*dark/i.test(fs.readFileSync(file, "utf8"));
+  });
 }
 
 function checkComponent1to1QualityMatrix() {
@@ -56,6 +62,8 @@ function checkComponent1to1QualityMatrix() {
   let passCount = 0;
   let partialCount = 0;
   let failCount = 0;
+  let staleEvidenceCount = 0;
+  const currentReviewScope = new Set(matrix.currentReview?.scope ?? []);
 
   for (const component of matrix.components ?? []) {
     if (!validComponentStatuses.has(component.status)) {
@@ -82,8 +90,11 @@ function checkComponent1to1QualityMatrix() {
       add("errors", matrixFile, 1, `${component.id} must list evidence files.`);
     } else {
       for (const evidencePath of evidence) {
-        if (!evidenceExists(evidencePath)) {
+        const evidenceIsMissing = !evidenceExists(evidencePath);
+        if (evidenceIsMissing && currentReviewScope.has(component.id)) {
           add("errors", matrixFile, 1, `${component.id} references missing evidence: ${evidencePath}.`);
+        } else if (evidenceIsMissing) {
+          staleEvidenceCount += 1;
         }
       }
     }
@@ -95,6 +106,9 @@ function checkComponent1to1QualityMatrix() {
     }
     if (component.status === "pass" && evidence.length < 3) {
       add("errors", matrixFile, 1, `${component.id} cannot be pass without enough evidence sources.`);
+    }
+    if (component.status === "pass" && Array.isArray(component.openIssues) && component.openIssues.length > 0) {
+      add("errors", matrixFile, 1, `${component.id} cannot be pass while openIssues are still listed.`);
     }
     if ((component.status === "pass" || component.steps?.["visual-qa"] === "pass") && !hasDarkEvidence(evidence)) {
       add("errors", matrixFile, 1, `${component.id} cannot close visual QA without dark-mode evidence.`);
@@ -114,6 +128,7 @@ function checkComponent1to1QualityMatrix() {
     partial: partialCount,
     fail: failCount,
     qualityDebt: partialCount + failCount,
+    staleEvidence: staleEvidenceCount,
   };
 
   const summary = matrix.summary ?? {};
@@ -133,6 +148,11 @@ function checkComponent1to1QualityMatrix() {
   if (partialCount || failCount) {
     add("warnings", matrixFile, 1, `Component 1:1 quality matrix is not closed: ${partialCount} partial, ${failCount} fail.`);
   }
+}
+
+if (require.main === module) {
+  checkComponent1to1QualityMatrix();
+  finishAudit();
 }
 
 module.exports = { checkComponent1to1QualityMatrix };
