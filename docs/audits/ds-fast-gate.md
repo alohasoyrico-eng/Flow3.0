@@ -8,12 +8,12 @@ This gate is for frequent local/PR feedback. It intentionally excludes consumer 
 
 ## Checks
 
-| Check | Status | Command | Owns | Duration ms |
-| --- | --- | --- | --- | ---: |
-| ds-qa-topology | pass | node packages/audit/scripts/report-ds-qa-topology.js | QA lane integrity | 38 |
-| flow-core-contracts | pass | npm run audit:flow-core-gate | package/spec/token/component/pattern/react contracts | 1253 |
-| react-production-readiness | pass | node packages/audit/scripts/report-react-production-readiness.js | React public surface readiness evidence | 153 |
-| react-interaction-coverage | pass | node packages/audit/scripts/report-react-interaction-coverage.js | callback, keyboard, and state semantics evidence | 73 |
+| Check | Status | Command | Owns |
+| --- | --- | --- | --- |
+| ds-qa-topology | pass | node packages/audit/scripts/report-ds-qa-topology.js | QA lane integrity |
+| flow-core-contracts | pass | npm run audit:flow-core-gate | package/spec/token/component/pattern/react contracts |
+| react-production-readiness | pass | node packages/audit/scripts/report-react-production-readiness.js | React public surface readiness evidence |
+| react-interaction-coverage | pass | node packages/audit/scripts/report-react-interaction-coverage.js | callback, keyboard, and state semantics evidence |
 
 ## Failures
 

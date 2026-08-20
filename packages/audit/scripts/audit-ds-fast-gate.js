@@ -37,25 +37,28 @@ const checks = [
 ];
 
 function runCheck(check) {
-  const startedAt = Date.now();
   const child = spawnSync(check.command, check.args, {
     cwd: root,
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
   });
+  const stdout = String(child.stdout ?? "");
+  const stderr = String(child.stderr ?? "");
+  const status = child.status === 0 ? "pass" : "fail";
   return {
     ...check,
     commandLine: [check.command, ...check.args].join(" "),
-    status: child.status === 0 ? "pass" : "fail",
+    status,
     exitCode: child.status,
-    durationMs: Date.now() - startedAt,
-    stdoutTail: String(child.stdout ?? "").split("\n").filter(Boolean).slice(-10),
-    stderrTail: String(child.stderr ?? "").split("\n").filter(Boolean).slice(-10),
+    ...(status === "pass" ? {} : {
+      stdoutTail: stdout.split("\n").filter(Boolean).slice(-10),
+      stderrTail: stderr.split("\n").filter(Boolean).slice(-10),
+    }),
   };
 }
 
 function renderMarkdown(report) {
-  const rows = report.checks.map((check) => `| ${check.id} | ${check.status} | ${check.commandLine} | ${check.owns} | ${check.durationMs} |`);
+  const rows = report.checks.map((check) => `| ${check.id} | ${check.status} | ${check.commandLine} | ${check.owns} |`);
   return `# DS Fast Gate
 
 Status: **${report.status}**
@@ -66,8 +69,8 @@ This gate is for frequent local/PR feedback. It intentionally excludes consumer 
 
 ## Checks
 
-| Check | Status | Command | Owns | Duration ms |
-| --- | --- | --- | --- | ---: |
+| Check | Status | Command | Owns |
+| --- | --- | --- | --- |
 ${rows.join("\n")}
 
 ## Failures
@@ -81,7 +84,6 @@ function main() {
   const failures = results.filter((check) => check.status !== "pass");
   const report = {
     schemaVersion: "ds-fast-gate@1",
-    generatedAt: new Date().toISOString(),
     status: failures.length ? "fail" : "pass",
     decision: failures.length
       ? "Fast DS feedback is blocked by core contract/readiness failures."
