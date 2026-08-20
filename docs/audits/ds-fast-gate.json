@@ -95,6 +95,17 @@
       "commandLine": "node packages/audit/scripts/report-react-interaction-coverage.js",
       "status": "pass",
       "exitCode": 0
+    },
+    {
+      "id": "state-variant-public-vocabulary",
+      "command": "node",
+      "args": [
+        "packages/audit/scripts/report-state-variant-public-vocabulary.js"
+      ],
+      "owns": "canonical public state/variant/tone/intent vocabulary inventory",
+      "commandLine": "node packages/audit/scripts/report-state-variant-public-vocabulary.js",
+      "status": "pass",
+      "exitCode": 0
     }
   ],
   "failures": []

@@ -18,6 +18,7 @@ This gate is for frequent local/PR feedback. It intentionally excludes consumer 
 | option-listbox-runtime | pass | npm run audit:option-listbox-runtime | rendered select/combobox/menu option row geometry and states |
 | react-production-readiness | pass | node packages/audit/scripts/report-react-production-readiness.js | React public surface readiness evidence |
 | react-interaction-coverage | pass | node packages/audit/scripts/report-react-interaction-coverage.js | callback, keyboard, and state semantics evidence |
+| state-variant-public-vocabulary | pass | node packages/audit/scripts/report-state-variant-public-vocabulary.js | canonical public state/variant/tone/intent vocabulary inventory |
 
 ## Failures
 

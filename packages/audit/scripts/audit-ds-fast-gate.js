@@ -58,6 +58,12 @@ const checks = [
     args: ["packages/audit/scripts/report-react-interaction-coverage.js"],
     owns: "callback, keyboard, and state semantics evidence",
   },
+  {
+    id: "state-variant-public-vocabulary",
+    command: "node",
+    args: ["packages/audit/scripts/report-state-variant-public-vocabulary.js"],
+    owns: "canonical public state/variant/tone/intent vocabulary inventory",
+  },
 ];
 
 function runCheck(check) {
