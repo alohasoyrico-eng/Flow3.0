@@ -4,6 +4,7 @@ const {
   fs,
   path,
   read,
+  readJson,
   root,
 } = require("./audit-context.js");
 
@@ -11,6 +12,7 @@ const outputDir = path.join(root, "docs/audits");
 const jsonOutput = path.join(outputDir, "state-variant-public-vocabulary.json");
 const markdownOutput = path.join(outputDir, "state-variant-public-vocabulary.md");
 const contractsFile = path.join(root, "packages/components/src/contracts.js");
+const taxonomyFile = path.join(root, "packages/audit/contracts/state-variant-taxonomy-contract.json");
 
 const vocabularyProps = [
   "variant",
@@ -130,13 +132,23 @@ function reviewFlags(slug, family, contract) {
   const variants = contract.variants ?? [];
   const states = contract.states ?? [];
   const flags = [];
+  const rule = taxonomyRule(family);
+  const allowedPublicProps = new Set(rule?.allowedPublicProps ?? []);
 
-  if (family === "actions" && variants.includes("accent")) {
-    flags.push("action-variant-accent");
+  for (const prop of vocabularyProps) {
+    if (props.has(prop) && allowedPublicProps.size && !allowedPublicProps.has(prop)) {
+      flags.push(`public-prop-${prop}-outside-family-taxonomy`);
+    }
   }
-  if (family === "actions" && variants.includes("tonal")) {
-    flags.push("action-variant-tonal-review");
+
+  for (const prop of rule?.reviewIfPublicProps ?? []) {
+    if (props.has(prop)) flags.push(`public-prop-${prop}-requires-review`);
   }
+
+  for (const variant of rule?.reviewIfVariants ?? []) {
+    if (variants.includes(variant)) flags.push(`variant-${variant}-requires-review`);
+  }
+
   if (props.has("variant") && !variants.length) {
     flags.push("variant-prop-without-contract-variants");
   }
@@ -160,6 +172,12 @@ function reviewFlags(slug, family, contract) {
   }
 
   return flags;
+}
+
+function taxonomyRule(family) {
+  const taxonomy = taxonomyRule.contract ??= readJson(taxonomyFile);
+  return taxonomy.familyRules?.[family]
+    ?? (family.startsWith("domain-") ? taxonomy.familyRules?.domain : undefined);
 }
 
 function countBy(rows, key) {
@@ -199,6 +217,8 @@ const report = {
   status: "inventory",
   purpose: "Inventory the public state/variant vocabulary exposed by component contracts before enforcing taxonomy changes in the existing Flow gates.",
   source: path.relative(root, contractsFile),
+  taxonomy: path.relative(root, taxonomyFile),
+  taxonomySchemaVersion: readJson(taxonomyFile).schemaVersion,
   totalComponents: rows.length,
   componentsWithPublicVocabulary: rows.filter((row) => row.publicVocabulary.length).length,
   familyCounts: countBy(rows, "family"),
@@ -230,6 +250,7 @@ const markdown = [
   `- Components: ${report.totalComponents}`,
   `- Components with public vocabulary: ${report.componentsWithPublicVocabulary}`,
   `- Source: ${report.source}`,
+  `- Taxonomy: ${report.taxonomy}`,
   "",
   "## Public Prop Counts",
   ...Object.entries(report.propCounts).map(([prop, count]) => `- ${prop}: ${count}`),

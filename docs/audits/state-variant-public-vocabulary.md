@@ -8,6 +8,7 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 - Components: 62
 - Components with public vocabulary: 62
 - Source: packages/components/src/contracts.js
+- Taxonomy: packages/audit/contracts/state-variant-taxonomy-contract.json
 
 ## Public Prop Counts
 - variant: 42
@@ -24,7 +25,10 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 - disabled-state-without-disabled-prop: 18
 - loading-state-without-loading-prop: 5
 - selected-state-without-selected-prop: 4
-- action-variant-tonal-review: 1
+- variant-tonal-requires-review: 1
+- public-prop-tone-outside-family-taxonomy: 1
+- public-prop-tone-requires-review: 1
+- variant-destructive-requires-review: 1
 
 ## Components
 | Component | Family | Variants | Intents | States | Public vocabulary | Review flags |
@@ -60,7 +64,7 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | empty-state | feedback | first-use, search-empty, permission, error, maintenance | neutral | default, action, search-empty, permission, loading, error | variant, state, density | - |
 | error-panel | feedback | inline, panel, blocking, empty-recovery | warning, error, critical | default, warning, error, critical, loading, disabled | variant, state, tone, density | disabled-state-without-disabled-prop |
 | floating-action-button | actions | primary, extended, mini | primary | default, hover, focus, pressed, loading, disabled | variant, state, density, disabled, loading | - |
-| icon-button | actions | ghost, tonal, primary | default | default, hover, pressed, selected, badged, focus, disabled | variant, density, selected, disabled | action-variant-tonal-review |
+| icon-button | actions | ghost, tonal, primary | default | default, hover, pressed, selected, badged, focus, disabled | variant, density, selected, disabled | variant-tonal-requires-review |
 | inline-validation | feedback | info, success, warning, error | info, success, warning, error | default, info, success, warning, error, disabled | state, density | disabled-state-without-disabled-prop |
 | input | fields | text, email, password, number, currency, unit, search | default | default, focus, filled, info, success, warning, loading, error, disabled | variant, state, density, disabled, loading | - |
 | input-amount | fields-payment | default | default | default, filled, loading, error, disabled | state, density, disabled, loading | - |
@@ -73,7 +77,7 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | phone-input | fields | country-code, compact, otp-handoff, readonly | input | default, hover, focus, valid, warning, error, disabled | variant, state, density, disabled | - |
 | popover | overlays | information, action, form, metric | contextual | default, closed, open, hover, focus, warning, disabled | variant, state, density, disabled | - |
 | progress-indicator | feedback | linear, indeterminate | accent, success, warning, danger, ink | default, active, indeterminate, paused, complete, error, disabled | state, tone, density | disabled-state-without-disabled-prop |
-| quick-action | actions | standard, destructive, compact, wide | action | default, hover, focus, pressed, loading, warning, disabled | variant, state, tone, density, disabled, loading | - |
+| quick-action | actions | standard, destructive, compact, wide | action | default, hover, focus, pressed, loading, warning, disabled | variant, state, tone, density, disabled, loading | public-prop-tone-outside-family-taxonomy, public-prop-tone-requires-review, variant-destructive-requires-review |
 | radio-button | choices | default, descriptive, compact, critical | default | unselected, selected, focus, error, disabled | variant, state, density, disabled | - |
 | route-summary | domain-fleet | standard, compact, compare, policy | info, warning | default, hover, focus, selected, warning, disabled | variant, state, tone, density, selected, disabled | - |
 | segmented-control | navigation | outlined, toolbar, compact, icon-only | selection | default, hover, focus, selected, warning, disabled | variant, density | disabled-state-without-disabled-prop |

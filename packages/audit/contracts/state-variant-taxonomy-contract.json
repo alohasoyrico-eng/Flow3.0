@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "flow-state-variant-taxonomy-contract@1",
+  "purpose": "Define the canonical public vocabulary for component state, variant, tone, intent, density, selected, disabled, and loading so foundations/primitives govern components instead of component-local semantics.",
+  "globalRules": [
+    "density is the shared scale prop and must stay sm/md/lg when public",
+    "size is not a public component scale prop unless a component has a non-density domain size contract",
+    "state names describe runtime or visual condition, not visual hierarchy",
+    "variant names describe anatomy or hierarchy, not semantic severity",
+    "intent names describe action consequence",
+    "tone names describe semantic status, data status, or message severity",
+    "disabled, loading, and selected states must declare their source: public prop, controlled value, item data, or lifecycle primitive"
+  ],
+  "publicVocabulary": {
+    "variant": "Component-specific anatomy, display mode, or action hierarchy.",
+    "state": "Runtime condition or visual condition with explicit precedence.",
+    "tone": "Semantic status or message/data severity.",
+    "intent": "Action consequence such as default, danger, or warning.",
+    "density": "Shared system scale: sm, md, lg.",
+    "selected": "Boolean selected state only when selection is owned by the component instance.",
+    "disabled": "Boolean disabled state only when unavailable behavior is owned by the component instance.",
+    "loading": "Boolean loading state only when pending behavior is owned by the component instance."
+  },
+  "familyRules": {
+    "actions": {
+      "allowedPublicProps": ["variant", "state", "intent", "density", "selected", "disabled", "loading"],
+      "preferredVariantRole": "action hierarchy",
+      "preferredVariants": ["primary", "secondary", "tertiary", "outlined", "ghost"],
+      "preferredIntents": ["default", "danger", "warning"],
+      "reviewIfPublicProps": ["tone", "size"],
+      "reviewIfVariants": ["accent", "tonal", "destructive", "warning"],
+      "notes": "Action semantics should come from intent; variant should not carry danger/warning/accent semantics."
+    },
+    "fields": {
+      "allowedPublicProps": ["variant", "state", "density", "disabled", "loading"],
+      "preferredVariantRole": "input anatomy or input type",
+      "preferredStates": ["default", "focus", "filled", "loading", "error", "disabled"],
+      "reviewIfPublicProps": ["tone", "intent", "size", "selected"],
+      "notes": "Validation status is state/message behavior; field controls should not invent tone or intent."
+    },
+    "fields-date": {
+      "allowedPublicProps": ["variant", "state", "density", "disabled"],
+      "preferredVariantRole": "date picking anatomy",
+      "reviewIfPublicProps": ["tone", "intent", "size"],
+      "stateSourceProps": {
+        "selected": ["value", "range", "selectedDate", "selectedRange"]
+      }
+    },
+    "fields-payment": {
+      "allowedPublicProps": ["variant", "state", "density", "disabled", "loading"],
+      "preferredVariantRole": "payment field anatomy",
+      "reviewIfPublicProps": ["tone", "intent", "size", "selected"]
+    },
+    "choices": {
+      "allowedPublicProps": ["variant", "state", "density", "selected", "disabled"],
+      "preferredVariantRole": "choice anatomy",
+      "reviewIfPublicProps": ["tone", "intent", "size", "loading"],
+      "stateSourceProps": {
+        "selected": ["checked", "value", "selected"],
+        "disabled": ["disabled"]
+      }
+    },
+    "navigation": {
+      "allowedPublicProps": ["variant", "state", "density", "selected", "disabled"],
+      "preferredVariantRole": "navigation anatomy",
+      "reviewIfPublicProps": ["tone", "intent", "size", "loading"],
+      "stateSourceProps": {
+        "selected": ["value", "activeId", "current", "items"],
+        "disabled": ["disabled", "items"]
+      }
+    },
+    "overlays": {
+      "allowedPublicProps": ["variant", "state", "tone", "density", "disabled"],
+      "preferredVariantRole": "overlay anatomy",
+      "reviewIfPublicProps": ["intent", "size", "loading", "selected"],
+      "stateSourceProps": {
+        "open": ["open", "defaultOpen"],
+        "disabled": ["disabled", "items"]
+      }
+    },
+    "feedback": {
+      "allowedPublicProps": ["variant", "state", "tone", "density", "disabled", "loading"],
+      "preferredVariantRole": "feedback anatomy",
+      "reviewIfPublicProps": ["intent", "size", "selected"]
+    },
+    "display-status": {
+      "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled"],
+      "preferredVariantRole": "display anatomy",
+      "reviewIfPublicProps": ["intent", "size", "loading"]
+    },
+    "data-display": {
+      "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled", "loading"],
+      "preferredVariantRole": "data display anatomy",
+      "reviewIfPublicProps": ["intent", "size"],
+      "stateSourceProps": {
+        "selected": ["selected", "selection", "items", "rows"],
+        "disabled": ["disabled", "items", "rows"],
+        "loading": ["loading", "items", "rows"]
+      }
+    },
+    "surface-display": {
+      "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled", "loading"],
+      "preferredVariantRole": "surface treatment",
+      "reviewIfPublicProps": ["intent", "size"]
+    },
+    "domain": {
+      "allowedPublicProps": ["variant", "state", "tone", "density", "selected", "disabled", "loading"],
+      "preferredVariantRole": "domain anatomy",
+      "reviewIfPublicProps": ["intent", "size"]
+    },
+    "motion-feedback": {
+      "allowedPublicProps": ["variant", "state", "density", "disabled"],
+      "preferredVariantRole": "motion role",
+      "reviewIfPublicProps": ["tone", "intent", "size", "selected", "loading"]
+    },
+    "progress-feedback": {
+      "allowedPublicProps": ["variant", "state", "tone", "density"],
+      "preferredVariantRole": "progress anatomy",
+      "reviewIfPublicProps": ["intent", "size", "selected"]
+    },
+    "documentation-code": {
+      "allowedPublicProps": ["variant", "state", "density", "disabled"],
+      "preferredVariantRole": "code presentation anatomy",
+      "reviewIfPublicProps": ["tone", "intent", "size", "selected", "loading"]
+    }
+  }
+}

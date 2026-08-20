@@ -2,6 +2,8 @@
   "status": "inventory",
   "purpose": "Inventory the public state/variant vocabulary exposed by component contracts before enforcing taxonomy changes in the existing Flow gates.",
   "source": "packages/components/src/contracts.js",
+  "taxonomy": "packages/audit/contracts/state-variant-taxonomy-contract.json",
+  "taxonomySchemaVersion": "flow-state-variant-taxonomy-contract@1",
   "totalComponents": 62,
   "componentsWithPublicVocabulary": 62,
   "familyCounts": {
@@ -40,7 +42,10 @@
     "disabled-state-without-disabled-prop": 18,
     "loading-state-without-loading-prop": 5,
     "selected-state-without-selected-prop": 4,
-    "action-variant-tonal-review": 1
+    "variant-tonal-requires-review": 1,
+    "public-prop-tone-outside-family-taxonomy": 1,
+    "public-prop-tone-requires-review": 1,
+    "variant-destructive-requires-review": 1
   },
   "flaggedComponents": [
     {
@@ -145,7 +150,7 @@
       "slug": "icon-button",
       "family": "actions",
       "flags": [
-        "action-variant-tonal-review"
+        "variant-tonal-requires-review"
       ]
     },
     {
@@ -176,6 +181,15 @@
       "family": "feedback",
       "flags": [
         "disabled-state-without-disabled-prop"
+      ]
+    },
+    {
+      "slug": "quick-action",
+      "family": "actions",
+      "flags": [
+        "public-prop-tone-outside-family-taxonomy",
+        "public-prop-tone-requires-review",
+        "variant-destructive-requires-review"
       ]
     },
     {
@@ -1689,7 +1703,7 @@
         }
       ],
       "reviewFlags": [
-        "action-variant-tonal-review"
+        "variant-tonal-requires-review"
       ]
     },
     {
@@ -2319,7 +2333,11 @@
           "required": false
         }
       ],
-      "reviewFlags": []
+      "reviewFlags": [
+        "public-prop-tone-outside-family-taxonomy",
+        "public-prop-tone-requires-review",
+        "variant-destructive-requires-review"
+      ]
     },
     {
       "id": "radioButton",
