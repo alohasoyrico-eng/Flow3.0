@@ -5,6 +5,7 @@ import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
 import { ProgressIndicator } from "./ProgressIndicator.js";
+import { focusableElements } from "./internal/focus.js";
 import { flowStateProps, flowToneProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validVariants = new Set(["side-sheet", "filter", "detail", "edit", "review"]);
 const validStates = new Set(["closed", "default", "open", "focus", "closing"]);
@@ -73,6 +74,7 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
     const reactId = useId();
     const triggerRef = useRef(null);
     const closeRef = useRef(null);
+    const panelRef = useRef(null);
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "side-sheet");
     const initialState = normalizeFlowValue(state, validStates, "closed");
     const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
@@ -110,10 +112,31 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
     };
     const closeDrawer = ({ restoreFocus = true, event } = {}) => setOpen(false, { restoreFocus, event });
     const onKeyDown = (event) => {
-        if (event.key !== "Escape")
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeDrawer({ event });
             return;
-        event.preventDefault();
-        closeDrawer({ event });
+        }
+        if (event.key !== "Tab" || !isOpen)
+            return;
+        const focusables = focusableElements(panelRef.current);
+        if (!focusables.length) {
+            event.preventDefault();
+            panelRef.current?.focus();
+            return;
+        }
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (event.shiftKey && (active === first || !panelRef.current?.contains(active))) {
+            event.preventDefault();
+            last.focus();
+            return;
+        }
+        if (!event.shiftKey && active === last) {
+            event.preventDefault();
+            first.focus();
+        }
     };
     return React.createElement("div", {
         ...flowRestProps(rest),
@@ -146,11 +169,13 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
         },
         onKeyDown,
     }, React.createElement("section", {
+        ref: panelRef,
         className: "drawer__panel",
         id: drawerId,
         role: "dialog",
         "aria-modal": "true",
         "aria-labelledby": titleId,
+        tabIndex: -1,
         onClick: (event) => event.stopPropagation(),
     }, React.createElement("header", null, React.createElement("strong", { id: titleId }, label), showCloseButton && closeLabel ? React.createElement(IconButton, {
         ref: closeRef,
@@ -184,7 +209,7 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
                 key: action.key,
                 label: actionLabel,
                 ...(actionDensity ?? resolvedDensity ? { density: (actionDensity ?? resolvedDensity) } : {}),
-                variant: buttonVariantForAction(action, index === 0 ? "primary" : "secondary"),
+                variant: buttonVariantForAction(action, index === resolvedActions.length - 1 ? "primary" : "secondary"),
                 ...(actionIntent ?? actionVariantValue === "danger" ? { intent: actionIntent ?? "danger" } : {}),
                 "data-overlay-close": "",
                 "data-key": actionKey,

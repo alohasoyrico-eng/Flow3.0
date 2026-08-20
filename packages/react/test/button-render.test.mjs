@@ -2746,6 +2746,13 @@ assert.match(openDrawerMarkup, /class="progress"/);
 assert.match(openDrawerMarkup, /<progress class="progress__meter" max="100" value="75"/);
 assert.match(openDrawerMarkup, /data-overlay-close=""/);
 assert.match(openDrawerMarkup, /data-key="save"/);
+const defaultDrawerActionsMarkup = renderToStaticMarkup(React.createElement(Drawer, {
+  label: "Vehicle details",
+  open: true,
+  actions: [{ key: "cancel", label: "Cancel" }, { key: "save", label: "Save" }],
+}));
+assert.match(defaultDrawerActionsMarkup, /data-key="cancel"[^>]*class="button button--secondary"/);
+assert.match(defaultDrawerActionsMarkup, /data-key="save"[^>]*class="button button--primary"/);
 const unstableDrawerActionMarkup = renderToStaticMarkup(React.createElement(Drawer, {
   label: "Vehicle details",
   open: true,

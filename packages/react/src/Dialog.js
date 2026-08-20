@@ -7,6 +7,7 @@ import { dialogPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
+import { focusableElements } from "./internal/focus.js";
 import { flowStateProps, flowToneProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validVariants = new Set(["confirmation", "destructive", "form", "review", "success"]);
 const validStates = new Set(["open", "focus", "closing", "default", "closed"]);
@@ -40,19 +41,6 @@ function buttonVariantForAction(action, fallback) {
     if (action.variant === "danger")
         return "primary";
     return action.variant ?? fallback;
-}
-function focusableElements(container) {
-    if (!container)
-        return [];
-    return Array.from(container.querySelectorAll("a[href], button, input, select, textarea, [tabindex]:not([tabindex=\"-1\"])")).filter((element) => {
-        if (element.disabled)
-            return false;
-        if (element.getAttribute("aria-disabled") === "true")
-            return false;
-        if (element.getAttribute("hidden") !== null)
-            return false;
-        return element.tabIndex >= 0;
-    });
 }
 export const Dialog = forwardRef(function Dialog({ label, description, triggerLabel, closeLabel, actions, open: openProp, tone = "neutral", variant = "confirmation", state = "closed", density, icon, fields, id, onOpenChange, onAction, className = "", ...rest }, ref) {
     const reactId = useId();

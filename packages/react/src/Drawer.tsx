@@ -6,6 +6,7 @@ import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
 import { ProgressIndicator } from "./ProgressIndicator.js";
+import { focusableElements } from "./internal/focus.js";
 import { flowStateProps, flowToneProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 import type { BadgeTone, BadgeVariant } from "./Badge.js";
 import type { ButtonVariant } from "./Button.js";
@@ -179,6 +180,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
   const reactId = useId();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLElement | null>(null);
   const resolvedVariant = normalizeFlowValue(variant, validVariants, "side-sheet");
   const initialState = normalizeFlowValue(state, validStates, "closed");
   const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
@@ -215,9 +217,30 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
   const closeDrawer = ({ restoreFocus = true, event }: SetOpenOptions = {}) => setOpen(false, { restoreFocus, event });
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key !== "Escape") return;
-    event.preventDefault();
-    closeDrawer({ event });
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeDrawer({ event });
+      return;
+    }
+    if (event.key !== "Tab" || !isOpen) return;
+    const focusables = focusableElements(panelRef.current);
+    if (!focusables.length) {
+      event.preventDefault();
+      panelRef.current?.focus();
+      return;
+    }
+    const first = focusables[0]!;
+    const last = focusables[focusables.length - 1]!;
+    const active = document.activeElement;
+    if (event.shiftKey && (active === first || !panelRef.current?.contains(active))) {
+      event.preventDefault();
+      last.focus();
+      return;
+    }
+    if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
   };
 
   return React.createElement(
@@ -259,11 +282,13 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
       React.createElement(
         "section",
         {
+          ref: panelRef,
           className: "drawer__panel",
           id: drawerId,
           role: "dialog",
           "aria-modal": "true",
           "aria-labelledby": titleId,
+          tabIndex: -1,
           onClick: (event: MouseEvent<HTMLElement>) => event.stopPropagation(),
         },
         React.createElement(
@@ -314,7 +339,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
                 key: action.key,
                 label: actionLabel,
                 ...(actionDensity ?? resolvedDensity ? { density: (actionDensity ?? resolvedDensity) as FlowDensity } : {}),
-                variant: buttonVariantForAction(action, index === 0 ? "primary" : "secondary"),
+                variant: buttonVariantForAction(action, index === resolvedActions.length - 1 ? "primary" : "secondary"),
                 ...(actionIntent ?? actionVariantValue === "danger" ? { intent: actionIntent ?? "danger" } : {}),
                 "data-overlay-close": "",
                 "data-key": actionKey,

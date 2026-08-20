@@ -4,6 +4,7 @@ import { dialogPlatformContract } from "@design-system/components/platforms";
 import { Button } from "./Button.js";
 import { IconButton } from "./IconButton.js";
 import { Input } from "./Input.js";
+import { focusableElements } from "./internal/focus.js";
 import { flowStateProps, flowToneProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 import type { ButtonVariant } from "./Button.js";
 import type { InputState, InputVariant } from "./Input.js";
@@ -67,7 +68,6 @@ export interface DialogComponent extends ForwardRefExoticComponent<DialogProps &
 }
 
 type SetOpenOptions = { restoreFocus?: boolean; event?: DialogOpenChangeEvent | undefined };
-type FocusableElement = HTMLElement & { disabled?: boolean };
 
 const validVariants = new Set<DialogVariant>(["confirmation", "destructive", "form", "review", "success"]);
 const validStates = new Set<DialogState>(["open", "focus", "closing", "default", "closed"]);
@@ -101,18 +101,6 @@ function inputStateForField(state: DialogField["state"] | undefined): InputState
 function buttonVariantForAction(action: DialogAction, fallback: ButtonVariant): ButtonVariant {
   if (action.variant === "danger") return "primary";
   return action.variant ?? fallback;
-}
-
-function focusableElements(container: HTMLElement | null): FocusableElement[] {
-  if (!container) return [];
-  return Array.from(container.querySelectorAll<FocusableElement>(
-    "a[href], button, input, select, textarea, [tabindex]:not([tabindex=\"-1\"])",
-  )).filter((element) => {
-    if (element.disabled) return false;
-    if (element.getAttribute("aria-disabled") === "true") return false;
-    if (element.getAttribute("hidden") !== null) return false;
-    return element.tabIndex >= 0;
-  });
 }
 
 export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog({

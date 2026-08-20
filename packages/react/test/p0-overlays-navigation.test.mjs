@@ -106,7 +106,7 @@ try {
       description: "Review route documents.",
       triggerLabel: "Open details",
       closeLabel: "Close details",
-      actions: [{ key: "save", label: "Save" }],
+      actions: [{ key: "cancel", label: "Cancel" }, { key: "save", label: "Save" }],
       onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
       onAction: (key, event) => actions.push({ key, eventType: event.type }),
     }));
@@ -115,12 +115,21 @@ try {
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
     assert.equal(view.getByRole("dialog", { name: /vehicle details/i }).hidden, false);
+    await waitFor(() => assert.equal(globalThis.document.activeElement.textContent.trim(), "close"));
+    await user.tab();
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Cancel");
+    await user.tab();
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Save");
+    await user.tab();
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "close");
+    await user.tab({ shift: true });
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Save");
     await user.click(view.getByRole("button", { name: /save/i }));
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(actions.at(-1), { key: "save", eventType: "click" });
 
     await user.click(trigger);
-    fireEvent.keyDown(view.container.querySelector(".drawer__overlay"), { key: "Escape" });
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Escape" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
 
