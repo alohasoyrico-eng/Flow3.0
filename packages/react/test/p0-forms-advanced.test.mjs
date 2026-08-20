@@ -395,6 +395,9 @@ try {
   {
     const user = createUser();
     const changes = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside phone input";
+    globalThis.document.body.appendChild(outsideButton);
     const view = render(React.createElement(PhoneInput, {
       label: "Mobile phone",
       countries,
@@ -402,11 +405,29 @@ try {
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     const input = view.getByRole("textbox", { name: /mobile phone/i });
+    const countryTrigger = view.getByRole("combobox", { name: /mobile phone/i });
 
     await user.type(input, "5512345678");
     assert.equal(input.value, "55 1234 5678");
     assert.equal(changes.at(-1).value, "5512345678");
     assert.equal(changes.at(-1).meta.e164, "+525512345678");
+
+    await user.click(countryTrigger);
+    await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "true"));
+    await user.click(view.getByRole("option", { name: /United States/ }));
+    assert.equal(changes.at(-1).meta.country, "US");
+    assert.equal(changes.at(-1).meta.e164, "+15512345678");
+    assert.equal(view.container.querySelector("[data-country-selector]").dataset.country, "US");
+
+    await user.click(countryTrigger);
+    await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "true"));
+    fireEvent.keyDown(countryTrigger, { key: "Tab" });
+    await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "false"));
+
+    await user.click(countryTrigger);
+    await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "true"));
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "false"));
 
     view.rerender(React.createElement(PhoneInput, {
       label: "Mobile phone",
@@ -431,6 +452,7 @@ try {
     await user.keyboard("0000");
     assert.equal(changes.length, before);
     await assertNoAxeViolations(view.container);
+    outsideButton.remove();
     cleanup();
   }
 
