@@ -2650,6 +2650,13 @@ assert.match(openDialogMarkup, />warning<\/span>/);
 assert.match(openDialogMarkup, /class="icon-button icon-button--ghost dialog__close"/);
 assert.match(openDialogMarkup, /data-overlay-close=""/);
 assert.match(openDialogMarkup, /data-key="confirm"/);
+const defaultDialogActionsMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Confirm route",
+  open: true,
+  actions: [{ key: "cancel", label: "Cancel" }, { key: "confirm", label: "Confirm" }],
+}));
+assert.match(defaultDialogActionsMarkup, /data-key="cancel"[^>]*class="button button--secondary"/);
+assert.match(defaultDialogActionsMarkup, /data-key="confirm"[^>]*class="button button--primary"/);
 const unstableDialogActionMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Confirm route",
   open: true,

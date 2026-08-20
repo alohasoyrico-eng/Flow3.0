@@ -37,10 +37,24 @@ function buttonVariantForAction(action, fallback) {
         return "primary";
     return action.variant ?? fallback;
 }
+function focusableElements(container) {
+    if (!container)
+        return [];
+    return Array.from(container.querySelectorAll("a[href], button, input, select, textarea, [tabindex]:not([tabindex=\"-1\"])")).filter((element) => {
+        if (element.disabled)
+            return false;
+        if (element.getAttribute("aria-disabled") === "true")
+            return false;
+        if (element.getAttribute("hidden") !== null)
+            return false;
+        return element.tabIndex >= 0;
+    });
+}
 export const Dialog = forwardRef(function Dialog({ label, description, triggerLabel, closeLabel, actions, open: openProp, tone = "neutral", variant = "confirmation", state = "closed", density, icon, fields, id, onOpenChange, onAction, className = "", ...rest }, ref) {
     const reactId = useId();
     const triggerRef = useRef(null);
     const closeRef = useRef(null);
+    const panelRef = useRef(null);
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "confirmation");
     const resolvedTone = resolveTone(tone, resolvedVariant);
     const resolvedDensity = normalizeFlowDensity(density);
@@ -73,10 +87,31 @@ export const Dialog = forwardRef(function Dialog({ label, description, triggerLa
     };
     const closeDialog = ({ restoreFocus = true, event } = {}) => setOpen(false, { restoreFocus, event });
     const onKeyDown = (event) => {
-        if (event.key !== "Escape")
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeDialog({ event });
             return;
-        event.preventDefault();
-        closeDialog({ event });
+        }
+        if (event.key !== "Tab" || !isOpen)
+            return;
+        const focusables = focusableElements(panelRef.current);
+        if (!focusables.length) {
+            event.preventDefault();
+            panelRef.current?.focus();
+            return;
+        }
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (event.shiftKey && (active === first || !panelRef.current?.contains(active))) {
+            event.preventDefault();
+            last.focus();
+            return;
+        }
+        if (!event.shiftKey && active === last) {
+            event.preventDefault();
+            first.focus();
+        }
     };
     const sourceActions = Array.isArray(actions) ? actions : [];
     const resolvedActions = sourceActions.filter((action) => action?.label && action.key !== undefined && action.key !== null && action.key !== "");
@@ -112,11 +147,13 @@ export const Dialog = forwardRef(function Dialog({ label, description, triggerLa
         },
         onKeyDown,
     }, React.createElement("section", {
+        ref: panelRef,
         className: "dialog__panel",
         id: dialogId,
         role: "dialog",
         "aria-modal": "true",
         "aria-labelledby": titleId,
+        tabIndex: -1,
         onClick: (event) => event.stopPropagation(),
     }, React.createElement("header", { className: "dialog__header" }, resolvedIcon ? React.createElement("span", { className: "dialog__icon", "aria-hidden": "true" }, resolvedIcon) : null, React.createElement("div", { className: "dialog__content" }, React.createElement("h3", { id: titleId }, label), description ? React.createElement("p", null, description) : null), closeLabel ? React.createElement(IconButton, {
         ref: closeRef,
@@ -144,14 +181,14 @@ export const Dialog = forwardRef(function Dialog({ label, description, triggerLa
         : null, resolvedActions.length
         ? React.createElement("footer", null, resolvedActions.map((action, index) => {
             const actionLabel = action.label;
-            const needsDangerIntent = action.intent == null && resolvedTone === "danger" && index === 0;
+            const needsDangerIntent = action.intent == null && resolvedTone === "danger" && index === resolvedActions.length - 1;
             const { variant: actionVariantValue, intent: actionIntent, density: actionDensity, key: actionKey, ...actionProps } = action;
             return React.createElement(Button, {
                 ...actionProps,
                 key: action.key,
                 label: actionLabel,
                 ...(actionDensity ?? resolvedDensity ? { density: (actionDensity ?? resolvedDensity) } : {}),
-                variant: buttonVariantForAction(action, index === 0 ? "primary" : "secondary"),
+                variant: buttonVariantForAction(action, index === resolvedActions.length - 1 ? "primary" : "secondary"),
                 ...(actionVariantValue === "danger" || needsDangerIntent || actionIntent ? { intent: actionVariantValue === "danger" ? "danger" : needsDangerIntent ? "danger" : actionIntent } : {}),
                 "data-overlay-close": "",
                 "data-key": actionKey,

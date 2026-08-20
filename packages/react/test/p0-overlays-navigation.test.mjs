@@ -59,8 +59,18 @@ try {
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
     assert.equal(view.getByRole("dialog", { name: /confirm route/i }).hidden, false);
+    await waitFor(() => assert.equal(globalThis.document.activeElement.textContent.trim(), "close"));
 
-    fireEvent.keyDown(view.container.querySelector(".dialog__overlay"), { key: "Escape" });
+    await user.tab();
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Cancel");
+    await user.tab();
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Confirm");
+    await user.tab();
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "close");
+    await user.tab({ shift: true });
+    assert.equal(globalThis.document.activeElement.textContent.trim(), "Confirm");
+
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Escape" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
 
