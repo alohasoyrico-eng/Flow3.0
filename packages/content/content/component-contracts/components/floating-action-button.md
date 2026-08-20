@@ -103,12 +103,11 @@ Floating Action Button API exposes label, icon, variant, state, position, and lo
 
 Floating Action Button variants tune prominence and label treatment for one action; action sets and speed dials are patterns.
 
-Approved variants from demos: `primary`, `accent`, `extended`, `mini`
+Approved variants from demos: `primary`, `extended`, `mini`
 
 Demo labels:
 
 - Primary
-- Accent
 - Extended
 - Mini
 
@@ -127,7 +126,6 @@ State matrix: `default`, `hover`, `focus`, `pressed`, `loading`, `disabled`
 | Row | Demo variant | Demo state |
 | --- | --- | --- |
 | Primary | primary |  |
-| Accent | accent |  |
 | Extended | extended |  |
 
 ## Full Width
@@ -164,7 +162,7 @@ Use the playground to verify icon, label, variant, state, and whether the action
 | Control | Type | Default | Options |
 | --- | --- | --- | --- |
 | label | text | Floating Action Button |  |
-| variant | select | primary | primary, accent, extended, mini |
+| variant | select | primary | primary, extended, mini |
 | state | select | default | default, hover, focus, pressed, loading, disabled |
 | fullWidth | checkbox | false |  |
 

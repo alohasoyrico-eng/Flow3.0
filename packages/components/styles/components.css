@@ -982,7 +982,6 @@
   --comp-floating-action-button-radius: var(--component-radius-pill);
   --comp-floating-action-button-bg: var(--component-color-action);
   --comp-floating-action-button-bg-hover: var(--component-color-action-hover);
-  --comp-floating-action-button-accent-bg: var(--component-color-success);
   --comp-floating-action-button-text: var(--component-color-action-text);
   --comp-floating-action-button-shadow: var(--component-depth-raised);
   --comp-floating-action-button-shadow-hover: var(--component-depth-raised-strong);
@@ -5850,7 +5849,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
   --comp-floating-action-button-justify: var(--component-justify-center);
   --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
-  --comp-floating-action-button-accent-bg-hover: color-mix(in srgb, var(--component-color-success) 86%, var(--component-color-text));
   --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
   --comp-floating-action-button-collapsed-padding-x: var(--component-frame-space-none);
   --comp-floating-action-button-disabled-cursor: var(--component-cursor-not-allowed);
@@ -5886,10 +5884,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
 }
 
-.fab[data-variant="accent"] {
-  background: var(--comp-floating-action-button-accent-bg);
-}
-
 .fab[data-variant="mini"] {
   --comp-floating-action-button-size: var(--comp-floating-action-button-mini-size);
   --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
@@ -5900,10 +5894,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-floating-action-button-bg-hover);
   box-shadow: var(--comp-floating-action-button-shadow-hover);
   transform: var(--comp-floating-action-button-hover-transform);
-}
-
-.fab[data-variant="accent"]:hover:not(:disabled) {
-  background: var(--comp-floating-action-button-accent-bg-hover);
 }
 
 .fab:active:not(:disabled) {

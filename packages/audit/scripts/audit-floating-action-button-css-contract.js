@@ -17,10 +17,8 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   const rootBlock = blockFor(blocks, selectorKey, ".fab");
   const smBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"lg\"]");
-  const accentBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"accent\"]");
   const miniBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"mini\"]");
   const hoverBlock = blockFor(blocks, selectorKey, ".fab:hover:not(:disabled)");
-  const accentHoverBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"accent\"]:hover:not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".fab:active:not(:disabled)");
   const stateHoverBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"hover\"]:not(:disabled)");
   const statePressedBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"pressed\"]:not(:disabled)");
@@ -97,13 +95,6 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
     });
   }
   requireIncludes({
-    block: accentBlock,
-    text,
-    packageCssFile,
-    snippets: ["background: var(--comp-floating-action-button-accent-bg)"],
-    message: "FloatingActionButton accent variant must consume accent background alias.",
-  });
-  requireIncludes({
     block: miniBlock,
     text,
     packageCssFile,
@@ -124,13 +115,6 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
       "transform: var(--comp-floating-action-button-hover-transform)",
     ],
     message: "FloatingActionButton hover state must consume hover aliases.",
-  });
-  requireIncludes({
-    block: accentHoverBlock,
-    text,
-    packageCssFile,
-    snippets: ["background: var(--comp-floating-action-button-accent-bg-hover)"],
-    message: "FloatingActionButton accent hover must consume accent hover alias.",
   });
   requireIncludes({
     block: activeBlock,

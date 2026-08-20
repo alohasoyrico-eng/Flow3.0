@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
-const validVariants = new Set(["primary", "accent", "extended", "mini"]);
+const validVariants = new Set(["primary", "extended", "mini"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
 const validTypes = new Set(["button", "submit", "reset"]);
 export const FloatingActionButton = forwardRef(function FloatingActionButton({ label, icon = "add", variant = "primary", state = "default", density, extended = false, loading = false, disabled = false, type = "button", className = "", ...rest }, ref) {

@@ -6,7 +6,7 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
-export type FloatingActionButtonVariant = "primary" | "accent" | "extended" | "mini";
+export type FloatingActionButtonVariant = "primary" | "extended" | "mini";
 export type FloatingActionButtonState = "default" | "hover" | "focus" | "pressed" | "loading" | "disabled";
 export type FloatingActionButtonDensity = FlowDensity;
 export type FloatingActionButtonType = "button" | "submit" | "reset";
@@ -28,7 +28,7 @@ export interface FloatingActionButtonComponent extends ForwardRefExoticComponent
   platformContract: typeof floatingActionButtonPlatformContract;
 }
 
-const validVariants = new Set<FloatingActionButtonVariant>(["primary", "accent", "extended", "mini"]);
+const validVariants = new Set<FloatingActionButtonVariant>(["primary", "extended", "mini"]);
 const validStates = new Set<FloatingActionButtonState>(["default", "hover", "focus", "pressed", "loading", "disabled"]);
 const validTypes = new Set<FloatingActionButtonType>(["button", "submit", "reset"]);
 

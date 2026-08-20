@@ -139,6 +139,9 @@ try {
     assert.equal(button.dataset.extended, "true");
     await user.click(button);
     assert.deepEqual(clicks, ["click"]);
+    button.focus();
+    await user.keyboard("{Enter}");
+    assert.deepEqual(clicks, ["click", "click"]);
 
     view.rerender(React.createElement(FloatingActionButton, {
       label: "Create card",
@@ -147,7 +150,14 @@ try {
     }));
     assert.equal(button.getAttribute("aria-busy"), "true");
     await user.click(button);
-    assert.deepEqual(clicks, ["click"]);
+    assert.deepEqual(clicks, ["click", "click"]);
+
+    view.rerender(React.createElement(FloatingActionButton, {
+      label: "Create card",
+      variant: "accent",
+      onClick: (event) => clicks.push(event.type),
+    }));
+    assert.equal(button.dataset.variant, "primary");
     await assertNoAxeViolations(view.container);
     cleanup();
   }
