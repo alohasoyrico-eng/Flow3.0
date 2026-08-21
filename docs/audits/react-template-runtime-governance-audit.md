@@ -18,10 +18,10 @@ React templates must prove runtime cascade from Surface roots through governed p
 - templatesWithControlledDrawer: 4
 - templateSlotAssertions: 24
 - templateModuleAssertions: 40
-- childPatternAssertions: 24
-- uniqueChildPatternAssertions: 15
-- childComponentAssertions: 6
-- uniqueChildComponentAssertions: 6
+- childPatternAssertions: 25
+- uniqueChildPatternAssertions: 16
+- childComponentAssertions: 5
+- uniqueChildComponentAssertions: 5
 - densityCases: 3
 - stateCases: 7
 - docsRuntimeReferences: 0
@@ -68,14 +68,14 @@ React templates must prove runtime cascade from Surface roots through governed p
 | configuration-console | offline-md | pass | offline | md | permissions | 49 |
 | configuration-console | disabled-lg | pass | disabled | lg | permissions | 57 |
 | configuration-console | uncontrolled-default | pass | loaded | md | vehicles | 59 |
-| driver-card-wallet | loaded-sm-controlled | pass | loaded | sm | movements | 14 |
-| driver-card-wallet | loading-md | pass | loading | md | card | 17 |
-| driver-card-wallet | empty-md | pass | empty | md | card | 14 |
-| driver-card-wallet | permission-lg | pass | permission | lg | card | 14 |
-| driver-card-wallet | error-sm | pass | error | sm | card | 14 |
-| driver-card-wallet | offline-md | pass | offline | md | card | 14 |
-| driver-card-wallet | disabled-lg | pass | disabled | lg | card | 14 |
-| driver-card-wallet | uncontrolled-default | pass | loaded | md | help | 14 |
+| driver-card-wallet | loaded-sm-controlled | pass | loaded | sm | movements | 18 |
+| driver-card-wallet | loading-md | pass | loading | md | card | 21 |
+| driver-card-wallet | empty-md | pass | empty | md | card | 18 |
+| driver-card-wallet | permission-lg | pass | permission | lg | card | 18 |
+| driver-card-wallet | error-sm | pass | error | sm | card | 18 |
+| driver-card-wallet | offline-md | pass | offline | md | card | 18 |
+| driver-card-wallet | disabled-lg | pass | disabled | lg | card | 18 |
+| driver-card-wallet | uncontrolled-default | pass | loaded | md | help | 18 |
 | driver-mobile-app | loaded-sm-controlled | pass | loaded | sm | routes | 29 |
 | driver-mobile-app | loading-md | pass | loading | md | home | 32 |
 | driver-mobile-app | empty-md | pass | empty | md | home | 29 |

@@ -194,7 +194,6 @@ for (const componentId of componentIds) {
     "phone-input",
     "popover",
     "progress-indicator",
-    "quick-action",
     "radio-button",
     "route-summary",
     "station-pin",

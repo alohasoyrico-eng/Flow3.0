@@ -4,12 +4,12 @@
   "principle": "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation. The actionable debt metric is accessibilityDebt.",
   "baseline": {
     "inventory": {
-      "components": 61,
+      "components": 60,
       "accessibilityDebt": 0,
       "criticalComponents": 10,
       "criticalPassing": 10,
       "totalRoles": 75,
-      "totalAria": 352,
+      "totalAria": 350,
       "keyboardHandlers": 41,
       "focusCalls": 26,
       "failures": 0,
@@ -326,18 +326,18 @@
         "Tooltip"
       ],
       "governance": {
-        "file": "packages/content/content/react-primary-governance.json",
+        "file": "packages/content/content/react-primary-accessibility-requirements.json",
         "key": "accessibilityCriticalRequirements",
         "issues": []
       }
     }
   },
   "inventory": {
-    "components": 61,
+    "components": 60,
     "criticalComponents": 10,
     "criticalPassing": 10,
     "totalRoles": 75,
-    "totalAria": 352,
+    "totalAria": 350,
     "keyboardHandlers": 41,
     "focusCalls": 26,
     "failures": 0,
@@ -1060,7 +1060,7 @@
       "missing": [],
       "signals": {
         "roles": 0,
-        "aria": 4,
+        "aria": 5,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": false,
@@ -1333,22 +1333,6 @@
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
-        "focusCalls": 0
-      },
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.js",
-      "critical": false,
-      "requirements": [],
-      "missing": [],
-      "signals": {
-        "roles": 0,
-        "aria": 3,
-        "tabIndex": 0,
-        "keyboardHandlers": 0,
-        "usesId": false,
         "focusCalls": 0
       },
       "status": "pass"

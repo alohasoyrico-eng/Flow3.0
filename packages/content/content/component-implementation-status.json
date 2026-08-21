@@ -247,11 +247,6 @@
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components for one movement row; receipts, disputes, and support flows remain pattern work."
     },
-    "quick-action": {
-      "status": "package-component",
-      "patternRisk": false,
-      "notes": "Factory and contract exist in @design-system/components for one compact local action; confirmation and high-risk action flows remain pattern work."
-    },
     "biometric-prompt": {
       "status": "package-component",
       "patternRisk": true,

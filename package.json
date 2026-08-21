@@ -489,10 +489,6 @@
       "types": "./packages/react/dist/ProgressIndicator.d.ts",
       "default": "./packages/react/dist/ProgressIndicator.js"
     },
-    "./react/quick-action": {
-      "types": "./packages/react/dist/QuickAction.d.ts",
-      "default": "./packages/react/dist/QuickAction.js"
-    },
     "./react/radio-button": {
       "types": "./packages/react/dist/RadioButton.d.ts",
       "default": "./packages/react/dist/RadioButton.js"

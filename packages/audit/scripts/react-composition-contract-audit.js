@@ -49,6 +49,7 @@ const reactComponentCompositionContracts = {
     { component: "Spinner", reason: "loading state slot" },
   ],
   FloatingActionButton: [{ component: "Spinner", reason: "loading indicator slot" }],
+  IconButton: [{ component: "Spinner", reason: "loading indicator slot" }],
   InlineValidation: [{ component: "Input", reason: "field validation composition" }],
   Input: [{ component: "Spinner", reason: "field loading indicator slot" }],
   InputAmount: [{ component: "Spinner", reason: "field loading indicator slot" }],
@@ -61,10 +62,6 @@ const reactComponentCompositionContracts = {
   Popover: [
     { component: "Button", reason: "popover action slot" },
     { component: "Input", reason: "form field slot" },
-  ],
-  QuickAction: [
-    { component: "Badge", reason: "counter badge slot" },
-    { component: "Spinner", reason: "loading indicator slot" },
   ],
   RouteSummary: [
     { component: "Button", reason: "route action slot" },

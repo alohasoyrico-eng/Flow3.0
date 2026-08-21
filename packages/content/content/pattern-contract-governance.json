@@ -188,7 +188,6 @@
     "notification-panel": {
       "fn": "notificationPanelDemoPanel",
       "components": [
-        "icon-button",
         "badge",
         "button",
         "list",

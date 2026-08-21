@@ -4,10 +4,10 @@
   "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.",
   "baseline": {
     "inventory": {
-      "components": 61,
+      "components": 60,
       "interactionDebt": 0,
-      "withCallbacks": 45,
-      "pass": 61,
+      "withCallbacks": 44,
+      "pass": 60,
       "review": 0,
       "fail": 0,
       "missingTestCallbacks": 0,
@@ -333,9 +333,9 @@
     }
   },
   "inventory": {
-    "components": 61,
-    "withCallbacks": 45,
-    "pass": 61,
+    "components": 60,
+    "withCallbacks": 44,
+    "pass": 60,
     "review": 0,
     "fail": 0,
     "missingTestCallbacks": 0,
@@ -1726,30 +1726,6 @@
       "callbackContracts": [],
       "sourceCovered": [],
       "testCovered": [],
-      "missingInSource": [],
-      "missingInTests": [],
-      "missingEventParam": [],
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "source": "packages/react/src/QuickAction.js",
-      "types": "packages/react/src/QuickAction.d.ts",
-      "callbacks": [
-        "onAction"
-      ],
-      "callbackContracts": [
-        {
-          "name": "onAction",
-          "type": "(meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void"
-        }
-      ],
-      "sourceCovered": [
-        "onAction"
-      ],
-      "testCovered": [
-        "onAction"
-      ],
       "missingInSource": [],
       "missingInTests": [],
       "missingEventParam": [],

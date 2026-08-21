@@ -7,9 +7,9 @@ Every public component must pass runtime rendering, CSS contract, visual cascade
 ## Inventory
 
 - Plan iteration: 19
-- Components: 61
-- Runtime audited components: 61
-- Passing runtime components: 61
+- Components: 60
+- Runtime audited components: 60
+- Passing runtime components: 60
 - Failing runtime components: 0
 - Source reports: 6
 - Passing source reports: 6
@@ -105,5 +105,4 @@ Every public component must pass runtime rendering, CSS contract, visual cascade
 | chat-message | ChatMessage | pass | direct | pass | pass | pass | pass | None |
 | chat-thread | ChatThread | pass | direct | pass | pass | pass | pass | None |
 | chat-composer | ChatComposer | pass | direct | pass | pass | pass | pass | None |
-| quick-action | QuickAction | pass | direct | pass | pass | pass | pass | None |
 

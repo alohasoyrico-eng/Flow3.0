@@ -172,10 +172,6 @@
       "types": "./dist/Pagination.d.ts",
       "default": "./dist/Pagination.js"
     },
-    "./quick-action": {
-      "types": "./dist/QuickAction.d.ts",
-      "default": "./dist/QuickAction.js"
-    },
     "./progress-indicator": {
       "types": "./dist/ProgressIndicator.d.ts",
       "default": "./dist/ProgressIndicator.js"

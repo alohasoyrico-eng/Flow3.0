@@ -82,26 +82,6 @@
     },
     {
       "type": "component",
-      "id": "quick-action",
-      "title": "Quick Action",
-      "group": "Mobile",
-      "summary": "Shortcut action with icon, label, state, permission, and confirmation behavior.",
-      "platform": "Mobile",
-      "audiences": [
-        "Product Designers",
-        "Developers",
-        "Content Designers",
-        "Researchers"
-      ],
-      "tokens": [
-        "color.semantic",
-        "spacing.relationship",
-        "motion.semantic",
-        "a11y.focus"
-      ]
-    },
-    {
-      "type": "component",
       "id": "card-summary",
       "title": "Card Summary",
       "group": "Mobile",

@@ -30,8 +30,8 @@
           { "id": "danger", "description": "Destructive icon action that still needs accessible confirmation." },
           { "id": "warning", "description": "Risky icon action that needs review or caution context." }
         ],
-        "states": ["default", "hover", "pressed", "selected", "badged", "focus", "disabled"],
-        "statePrecedence": "disabled > focus > pressed > selected > hover > badged > default",
+        "states": ["default", "hover", "pressed", "selected", "badged", "focus", "disabled", "loading"],
+        "statePrecedence": "disabled > loading > focus > pressed > selected > hover > badged > default",
         "foundations": {
           "Energy": { "status": "covered", "decision": "Use Energy for surface, icon color, selected accent, badge, and disabled state.", "tokens": ["comp.icon-button.*", "sys.energy.*"], "behavior": "Energy keeps compact actions visible without labels.", "example": "Grid and contrast controls show selected state in the topbar.", "test": "Verify icon, surface, badge, selected, and disabled contrast.", "rejectIf": "Raw color or color-only state replaces tokens." },
           "Voice": { "status": "covered", "decision": "Use Voice indirectly through accessible name and tooltip text.", "tokens": ["comp.icon-button.*", "sys.voice.*"], "behavior": "Voice keeps icon-only actions understandable.", "example": "Use 'Show grid' instead of 'Grid'.", "test": "Verify every icon button has a clear accessible name.", "rejectIf": "The icon is the only name." },
@@ -50,10 +50,13 @@
         "props": [
           { "name": "icon", "type": "string", "required": true, "notes": "Approved Design System/Material Symbols glyph name." },
           { "name": "ariaLabel", "type": "string", "required": true, "notes": "Accessible action name because there is no visible text." },
-          { "name": "variant", "type": "'ghost' | 'tonal' | 'primary' | 'accent'", "required": false, "notes": "Visual emphasis." },
+          { "name": "variant", "type": "'primary' | 'secondary' | 'tertiary' | 'outlined' | 'ghost'", "required": false, "notes": "Visual emphasis shared with the action family." },
+          { "name": "intent", "type": "'default' | 'danger' | 'warning'", "required": false, "notes": "Semantic action intent shared with Button and Floating Action Button." },
           { "name": "density", "type": "'sm' | 'md' | 'lg'", "required": false, "notes": "Design System Density context for the fixed circular hit area." },
+          { "name": "state", "type": "'default' | 'hover' | 'focus' | 'pressed' | 'selected' | 'badged' | 'disabled' | 'loading'", "required": false, "notes": "Controlled preview state with action-family precedence." },
           { "name": "selected", "type": "boolean", "required": false, "notes": "Pressed/toggle state exposed with aria-pressed." },
           { "name": "badge", "type": "boolean", "required": false, "notes": "Small status indicator." },
+          { "name": "loading", "type": "boolean", "required": false, "notes": "Shows Spinner, exposes aria-busy, and blocks duplicate activation." },
           { "name": "disabled", "type": "boolean", "required": false, "notes": "Blocks action and lowers emphasis." },
           { "name": "onClick", "type": "() => void", "required": true, "notes": "Runs the action when enabled." }
         ],

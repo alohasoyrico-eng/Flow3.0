@@ -2682,8 +2682,8 @@ function auditInstalledPackage(consumerDir) {
     throw new Error(`Installed component CSS selector inventory is unexpectedly small: expected at least 1100 selectors, got ${installedCssInventory.selectors}.`);
   }
   const cssCoverage = componentCssContractCoverage();
-  if (cssCoverage.direct !== 56 || cssCoverage.family !== 5 || cssCoverage.missing.length) {
-    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 56 direct, 5 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
+  if (cssCoverage.direct !== 55 || cssCoverage.family !== 5 || cssCoverage.missing.length) {
+    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 55 direct, 5 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
   }
   assertReactGovernanceBaselines();
   const missingInstalledCssCoverage = goldComponents
@@ -3293,8 +3293,8 @@ function assertInstalledContentContracts({ consumerRequire, packageRoot, realPac
   const implementationStatus = JSON.parse(fs.readFileSync(consumerRequire.resolve("@alohasoyrico-eng/flow/content/component-implementation-status"), "utf8"));
   const statusComponents = Object.values(implementationStatus.components ?? {});
   const packageComponents = statusComponents.filter((component) => component.status === "package-component");
-  if (statusComponents.length !== 61 || packageComponents.length !== 61) {
-    throw new Error(`Installed implementation status must preserve 61/61 package components; got ${packageComponents.length}/${statusComponents.length}.`);
+  if (statusComponents.length !== 60 || packageComponents.length !== 60) {
+    throw new Error(`Installed implementation status must preserve 60/60 package components; got ${packageComponents.length}/${statusComponents.length}.`);
   }
 }
 
@@ -3302,20 +3302,20 @@ function assertReactGovernanceBaselines() {
   const primary = readAuditReport("docs/audits/react-primary-coverage-audit.json");
   assertReportStatus(primary, "React primary coverage");
   assertInventory(primary, {
-    components: 61,
+    components: 60,
     primaryImplementationDebt: 0,
-    pass: 61,
+    pass: 60,
     fail: 0,
-    forwardRef: 61,
-    realTypes: 61,
-    platformContract: 61,
-    densityResolved: 61,
-    restSanitized: 61,
-    noDocsDependency: 61,
-    noDomFactory: 61,
-    publishedImports: 61,
-    cssContractCoverage: 61,
-    directCssContracts: 56,
+    forwardRef: 60,
+    realTypes: 60,
+    platformContract: 60,
+    densityResolved: 60,
+    restSanitized: 60,
+    noDocsDependency: 60,
+    noDomFactory: 60,
+    publishedImports: 60,
+    cssContractCoverage: 60,
+    directCssContracts: 55,
     familyCssContracts: 5,
   }, "React primary coverage");
 
@@ -3403,11 +3403,11 @@ function assertReactGovernanceBaselines() {
   const defaults = readAuditReport("docs/audits/react-default-governance-audit.json");
   assertReportStatus(defaults, "React default governance");
   assertInventory(defaults, {
-    components: 61,
+    components: 60,
     defaultDebt: 0,
     prohibitedDefaults: 0,
-    semanticDefaultDecisions: 116,
-    contractBackedSemanticDefaultDecisions: 116,
+    semanticDefaultDecisions: 117,
+    contractBackedSemanticDefaultDecisions: 117,
     unbackedSemanticDefaultDecisions: 0,
     semanticDefaultDecisionContractGaps: 0,
   }, "React default governance");
@@ -3415,7 +3415,7 @@ function assertReactGovernanceBaselines() {
   const styles = readAuditReport("docs/audits/react-style-governance-audit.json");
   assertReportStatus(styles, "React style governance");
   assertInventory(styles, {
-    components: 61,
+    components: 60,
     styleEscapeDebt: 0,
     approvedInlineVars: 12,
     styleProps: 10,
@@ -3426,10 +3426,10 @@ function assertReactGovernanceBaselines() {
   const composition = readAuditReport("docs/audits/react-composition-governance-audit.json");
   assertReportStatus(composition, "React composition governance");
   assertInventory(composition, {
-    components: 61,
+    components: 60,
     compositionDebt: 0,
     compositionalComponents: 29,
-    compositionEdges: 52,
+    compositionEdges: 51,
     unexpectedImports: 0,
     missingImports: 0,
     missingReasons: 0,
@@ -3441,13 +3441,13 @@ function assertReactGovernanceBaselines() {
   const classOwnership = readAuditReport("docs/audits/react-class-ownership-audit.json");
   assertReportStatus(classOwnership, "React class ownership");
   assertInventory(classOwnership, {
-    components: 61,
-    componentClassRoots: 64,
+    components: 60,
+    componentClassRoots: 63,
     protectedComponentRoots: 7,
     supportClassRoots: 9,
     packageCssRoots: 74,
     componentsWithFamilyRoots: 14,
-    observedRootAssignments: 78,
+    observedRootAssignments: 77,
     observedSupportRootAssignments: 21,
     violations: 0,
     classOwnershipDebt: 0,
@@ -3504,8 +3504,8 @@ function assertReactGovernanceBaselines() {
   const visualCascade = readAuditReport("docs/audits/component-visual-cascade-audit.json");
   assertReportStatus(visualCascade, "Component visual cascade");
   assertInventory(visualCascade, {
-    components: 61,
-    pass: 61,
+    components: 60,
+    pass: 60,
     review: 0,
     fail: 0,
     visualCascadeDebt: 0,
@@ -3959,10 +3959,10 @@ function assertReactGovernanceBaselines() {
     templatesWithControlledDrawer: 4,
     templateSlotAssertions: 24,
     templateModuleAssertions: 40,
-    childPatternAssertions: 24,
-    uniqueChildPatternAssertions: 15,
-    childComponentAssertions: 6,
-    uniqueChildComponentAssertions: 6,
+    childPatternAssertions: 25,
+    uniqueChildPatternAssertions: 16,
+    childComponentAssertions: 5,
+    uniqueChildComponentAssertions: 5,
     densityCases: 3,
     stateCases: 7,
     docsRuntimeReferences: 0,
@@ -3979,8 +3979,8 @@ function assertReactGovernanceBaselines() {
   assertInventory(reactTemplateCompositionGovernance, {
     templatesAudited: 17,
     templatesWithPassingComposition: 17,
-    formalPatternDependencies: 60,
-    runtimePatternImports: 60,
+    formalPatternDependencies: 61,
+    runtimePatternImports: 61,
     missingDeclaredPatternImports: 0,
     undeclaredPatternImports: 0,
     formalModuleMarkers: 37,
@@ -3988,7 +3988,7 @@ function assertReactGovernanceBaselines() {
     runtimeModuleMarkers: 43,
     missingFormalModuleMarkers: 0,
     undeclaredRuntimeModuleMarkers: 0,
-    directComponentImports: 8,
+    directComponentImports: 7,
     unapprovedDirectComponentImports: 0,
     surfacePrimitiveImports: 17,
     compositionContractGaps: 0,
@@ -4386,7 +4386,7 @@ function assertReactGovernanceBaselines() {
     generatedTokenOutputs: 9,
     matchingGeneratedTokenOutputs: 9,
     rawTokenValueViolations: 0,
-    sourceBoundaryFilesScanned: 677,
+    sourceBoundaryFilesScanned: 672,
     sourceBoundaryViolations: 0,
     phase3FoundationsPrimitivesDebt: 0,
   }, "Phase 3 foundations/primitives checkpoint");
@@ -4397,9 +4397,9 @@ function assertReactGovernanceBaselines() {
   const propAlignment = readAuditReport("docs/audits/react-contract-prop-alignment-audit.json");
   assertReportStatus(propAlignment, "React contract prop alignment");
   assertInventory(propAlignment, {
-    components: 61,
+    components: 60,
     propAlignmentDebt: 0,
-    pass: 61,
+    pass: 60,
     fail: 0,
     extraReactProps: 0,
     missingReactProps: 0,
@@ -4411,7 +4411,7 @@ function assertReactGovernanceBaselines() {
   const controlled = readAuditReport("docs/audits/react-controlled-governance-audit.json");
   assertReportStatus(controlled, "React controlled governance");
   assertInventory(controlled, {
-    components: 61,
+    components: 60,
     controlledDebt: 0,
     controlledComponents: 31,
     openControlledComponents: 10,
@@ -4423,10 +4423,10 @@ function assertReactGovernanceBaselines() {
   const interactions = readAuditReport("docs/audits/react-interaction-coverage-audit.json");
   assertReportStatus(interactions, "React interaction coverage");
   assertInventory(interactions, {
-    components: 61,
+    components: 60,
     interactionDebt: 0,
-    withCallbacks: 45,
-    pass: 61,
+    withCallbacks: 44,
+    pass: 60,
     review: 0,
     fail: 0,
     missingTestCallbacks: 0,
@@ -4438,7 +4438,7 @@ function assertReactGovernanceBaselines() {
   const accessibility = readAuditReport("docs/audits/react-accessibility-governance-audit.json");
   assertReportStatus(accessibility, "React accessibility governance");
   assertInventory(accessibility, {
-    components: 61,
+    components: 60,
     accessibilityDebt: 0,
     criticalComponents: 10,
     criticalPassing: 10,

@@ -1,26 +1,43 @@
 import React, { forwardRef } from "react";
 import type { ComponentProps, ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
+import { Badge } from "../Badge.js";
 import { Button } from "../Button.js";
 import type { ButtonProps } from "../Button.js";
 import { Dialog } from "../Dialog.js";
 import type { DialogProps } from "../Dialog.js";
+import { IconButton } from "../IconButton.js";
+import type { IconButtonProps, IconButtonState, IconButtonVariant } from "../IconButton.js";
 import { MovementRow } from "../MovementRow.js";
 import type { MovementRowProps } from "../MovementRow.js";
-import { QuickAction } from "../QuickAction.js";
-import type { QuickActionMeta, QuickActionProps, QuickActionState } from "../QuickAction.js";
 import { Toast } from "../Toast.js";
 import type { ToastProps } from "../Toast.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 
 export type SwipeActionsState = "closed" | "revealed" | "threshold" | "committed" | "confirming" | "disabled" | "reduced-motion";
 export type SwipeActionsDensity = "sm" | "md" | "lg";
+export type SwipeActionVariant = "standard" | "compact" | "wide";
+export type SwipeActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
+export type SwipeActionIntent = "default" | "danger" | "warning";
 
-export interface SwipeAction extends Omit<QuickActionProps, "onAction" | "intent"> {
+export interface SwipeActionMeta {
+  label: string;
+  variant: SwipeActionVariant;
+  intent: SwipeActionIntent;
+  state: SwipeActionState;
+}
+
+export interface SwipeAction extends Omit<IconButtonProps, "ariaLabel" | "badge" | "icon" | "label" | "loading" | "onClick" | "selected" | "state" | "variant" | "intent"> {
   key?: string;
+  label: string;
+  icon?: string;
+  badge?: string;
+  variant?: SwipeActionVariant;
+  state?: SwipeActionState;
   fallbackLabel?: string;
   fallbackVariant?: ButtonProps["variant"];
-  intent?: ButtonProps["intent"];
-  onAction?: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
+  intent?: SwipeActionIntent;
+  loading?: boolean;
+  onAction?: (meta: SwipeActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
   onFallbackClick?: ButtonProps["onClick"];
 }
 
@@ -90,6 +107,14 @@ function actionKey(action: SwipeAction, index: number): string {
   return action.key ?? `${action.label}-${index}`;
 }
 
+function iconButtonVariantForAction(variant: SwipeActionVariant): IconButtonVariant {
+  return variant === "compact" ? "ghost" : "secondary";
+}
+
+function iconButtonStateForAction(state: SwipeActionState): IconButtonState {
+  return state === "warning" ? "default" : state;
+}
+
 export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(function SwipeActions({
   label = "Swipe actions",
   density,
@@ -154,26 +179,49 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
       const key = actionKey(action, index);
       const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
       const actionDisabled = isDisabled || action.disabled;
-      const actionState: QuickActionState = actionDisabled ? "disabled" : action.loading ? "loading" : actionsVisible ? "pressed" : "default";
+      const actionState: SwipeActionState = actionDisabled ? "disabled" : action.loading ? "loading" : actionsVisible ? "pressed" : "default";
+      const variant: SwipeActionVariant = action.variant ?? "compact";
+      const meta: SwipeActionMeta = {
+        label: action.label,
+        variant,
+        intent,
+        state: actionState,
+      };
 
       return React.createElement(
         "div",
         { key, "data-swipe-action-key": key, "data-visible": actionsVisible ? "true" : "false" },
-        React.createElement(QuickAction, {
+        React.createElement("div", {
+          className: "quick-action",
+          "data-variant": variant,
+          "data-intent": intent,
+          "data-state": actionState,
+          "data-density": action.density ?? density,
+        },
+        React.createElement(IconButton, {
           label: action.label,
           icon: action.icon,
-          badge: action.badge,
-          variant: action.variant ?? "compact",
+          variant: iconButtonVariantForAction(variant),
           intent,
-          state: actionState,
+          state: iconButtonStateForAction(actionState),
           density: action.density ?? density,
           loading: action.loading,
           disabled: actionDisabled,
-          onAction: (meta, event) => {
+          className: "quick-action__control",
+          onClick: (event: MouseEvent<HTMLButtonElement>) => {
             action.onAction?.(meta, event);
+            if (event.defaultPrevented) return;
             onAction?.(key, action, event);
           },
-        } as ComponentProps<typeof QuickAction>),
+        } as ComponentProps<typeof IconButton>),
+        action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null,
+        action.badge
+          ? React.createElement(Badge, {
+            label: action.badge,
+            variant: "count",
+            density: action.density ?? density,
+          } as ComponentProps<typeof Badge>)
+          : null),
         React.createElement(Button, {
           label: action.fallbackLabel ?? action.label,
           icon: action.icon,

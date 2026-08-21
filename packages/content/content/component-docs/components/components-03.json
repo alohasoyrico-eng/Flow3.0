@@ -72,15 +72,6 @@
         "miel"
       ]
     },
-    "quick-action": {
-      "renderer": "quick-action",
-      "tabs": [
-        "overview",
-        "design",
-        "build",
-        "miel"
-      ]
-    },
     "biometric-prompt": {
       "renderer": "biometric-prompt",
       "tabs": [

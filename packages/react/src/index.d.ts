@@ -1049,7 +1049,9 @@ export { IconButton } from "./IconButton.js";
 export type {
   IconButtonComponent,
   IconButtonDensity,
+  IconButtonIntent,
   IconButtonProps,
+  IconButtonState,
   IconButtonType,
   IconButtonVariant,
 } from "./IconButton.js";
@@ -1135,15 +1137,6 @@ export type {
   PaginationState,
   PaginationVariant,
 } from "./Pagination.js";
-export { QuickAction } from "./QuickAction.js";
-export type {
-  QuickActionComponent,
-  QuickActionDensity,
-  QuickActionMeta,
-  QuickActionProps,
-  QuickActionState,
-  QuickActionVariant,
-} from "./QuickAction.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";
 export type {
   ProgressIndicatorComponent,

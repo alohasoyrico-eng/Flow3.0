@@ -1,8 +1,8 @@
 import assert from "node:assert/strict";
 import React, { createRef } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, ProgressIndicator, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, Spinner, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../dist/index.js";
-import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, motionBoundaryPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, quickActionPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
+import { Accordion, AnimatedMoment, AuditEvent, Avatar, Badge, BiometricPrompt, Breadcrumbs, Button, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, CardSummary, ChartPanel, Checkbox, Chip, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, FloatingActionButton, IconButton, InlineValidation, Input, KpiTile, List, Menu, MotionBoundary, MovementRow, Pagination, PhoneInput, Popover, ProgressIndicator, RadioButton, RouteSummary, SegmentedControl, Select, Skeleton, Slider, Spinner, StationPin, Stepper, Switch, Tabs, Table, Tag, TextArea, Toast, Tooltip, TreeView } from "../dist/index.js";
+import { accordionPlatformContract, animatedMomentPlatformContract, auditEventPlatformContract, avatarPlatformContract, badgePlatformContract, biometricPromptPlatformContract, breadcrumbsPlatformContract, buttonPlatformContract, cardExpiryInputPlatformContract, cardNumberInputPlatformContract, cardPlatformContract, cardSecurityCodeInputPlatformContract, cardSummaryPlatformContract, chartPanelPlatformContract, checkboxPlatformContract, chipPlatformContract, codeInputPlatformContract, comboboxPlatformContract, countrySelectorPlatformContract, datePickerPlatformContract, dateRangePickerPlatformContract, dialogPlatformContract, drawerPlatformContract, emptyStatePlatformContract, errorPanelPlatformContract, floatingActionButtonPlatformContract, iconButtonPlatformContract, inlineValidationPlatformContract, inputPlatformContract, kpiTilePlatformContract, listPlatformContract, menuPlatformContract, motionBoundaryPlatformContract, movementRowPlatformContract, paginationPlatformContract, phoneInputPlatformContract, popoverPlatformContract, radioButtonPlatformContract, routeSummaryPlatformContract, segmentedControlPlatformContract, selectPlatformContract, skeletonPlatformContract, sliderPlatformContract, stationPinPlatformContract, stepperPlatformContract, switchPlatformContract, tabsPlatformContract, tablePlatformContract, tagPlatformContract, textAreaPlatformContract, toastPlatformContract, tooltipPlatformContract, treeViewPlatformContract } from "@design-system/components/platforms";
 
 assert.equal(Accordion.displayName, "Accordion");
 assert.equal(Accordion.platformContract, accordionPlatformContract);
@@ -78,8 +78,6 @@ assert.equal(PhoneInput.displayName, "PhoneInput");
 assert.equal(PhoneInput.platformContract, phoneInputPlatformContract);
 assert.equal(Popover.displayName, "Popover");
 assert.equal(Popover.platformContract, popoverPlatformContract);
-assert.equal(QuickAction.displayName, "QuickAction");
-assert.equal(QuickAction.platformContract, quickActionPlatformContract);
 assert.equal(RadioButton.displayName, "RadioButton");
 assert.equal(RadioButton.platformContract, radioButtonPlatformContract);
 assert.equal(RouteSummary.displayName, "RouteSummary");
@@ -160,17 +158,16 @@ assert.match(dangerMarkup, /class="button button--primary button--danger"/);
 const fabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton, {
   label: "Add movement",
   icon: "add",
-  variant: "secondary",
+  variant: "extended",
   intent: "danger",
   density: "lg",
-  extended: true,
   onClick: () => {},
 }));
 assert.match(fabMarkup, /^<button/);
 assert.match(fabMarkup, /class="fab"/);
 assert.doesNotMatch(fabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /disabled/);
 assert.match(fabMarkup, /aria-label="Add movement"/);
-assert.match(fabMarkup, /data-variant="secondary"/);
+assert.match(fabMarkup, /data-variant="extended"/);
 assert.match(fabMarkup, /data-intent="danger"/);
 assert.match(fabMarkup, /data-density="lg"/);
 assert.match(fabMarkup, /data-extended="true"/);
@@ -195,44 +192,6 @@ assert.doesNotMatch(inheritedFabMarkup.match(/^<button[^>]+>/)?.[0] ?? "", /data
 assert.match(inheritedFabMarkup, /disabled=""/);
 const unnamedFabMarkup = renderToStaticMarkup(React.createElement(FloatingActionButton));
 assert.equal(unnamedFabMarkup, "");
-
-const quickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
-  label: "Freeze",
-  icon: "lock",
-  badge: "2",
-  intent: "danger",
-  state: "warning",
-  density: "sm",
-  onAction: () => {},
-}));
-assert.match(quickActionMarkup, /class="quick-action"/);
-assert.match(quickActionMarkup, /data-variant="standard"/);
-assert.match(quickActionMarkup, /data-intent="danger"/);
-assert.match(quickActionMarkup, /data-state="warning"/);
-assert.match(quickActionMarkup, /data-density="sm"/);
-assert.match(quickActionMarkup, /class="quick-action__control"/);
-assert.doesNotMatch(quickActionMarkup.match(/<button[^>]+class="quick-action__control"[^>]*>/)?.[0] ?? "", /disabled/);
-assert.match(quickActionMarkup, /aria-label="Freeze"/);
-assert.match(quickActionMarkup, /class="quick-action__icon"/);
-assert.match(quickActionMarkup, /lock/);
-assert.match(quickActionMarkup, /class="quick-action__label">Freeze<\/span>/);
-assert.match(quickActionMarkup, /class="badge/);
-
-const loadingQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
-  label: "Sync",
-  state: "loading",
-}));
-assert.match(loadingQuickActionMarkup, /aria-busy="true"/);
-assert.match(loadingQuickActionMarkup, /class="spinner/);
-assert.doesNotMatch(loadingQuickActionMarkup, /Sync loading|Loading/);
-
-const inheritedQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction, {
-  label: "Inherited action density",
-}));
-assert.doesNotMatch(inheritedQuickActionMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
-assert.match(inheritedQuickActionMarkup, /disabled=""/);
-const unnamedQuickActionMarkup = renderToStaticMarkup(React.createElement(QuickAction));
-assert.equal(unnamedQuickActionMarkup, "");
 
 const movementRowMarkup = renderToStaticMarkup(React.createElement(MovementRow, {
   label: "Fuel purchase",
@@ -2149,6 +2108,8 @@ const iconButtonMarkup = renderToStaticMarkup(React.createElement(IconButton, {
   ariaLabel: "Open notifications",
   icon: "notifications",
   variant: "secondary",
+  intent: "warning",
+  state: "pressed",
   density: "lg",
   selected: true,
   badge: true,
@@ -2157,9 +2118,26 @@ const iconButtonMarkup = renderToStaticMarkup(React.createElement(IconButton, {
 assert.match(iconButtonMarkup, /class="icon-button icon-button--secondary"/);
 assert.match(iconButtonMarkup, /aria-label="Open notifications"/);
 assert.match(iconButtonMarkup, /aria-pressed="true"/);
+assert.match(iconButtonMarkup, /data-intent="warning"/);
+assert.match(iconButtonMarkup, /data-state="selected"/);
 assert.match(iconButtonMarkup, /data-density="lg"/);
 assert.match(iconButtonMarkup, /class="icon-button__icon"/);
 assert.match(iconButtonMarkup, /class="icon-button__badge"/);
+
+const loadingIconButtonMarkup = renderToStaticMarkup(React.createElement(IconButton, {
+  ariaLabel: "Sync utilities",
+  icon: "sync",
+  variant: "primary",
+  intent: "danger",
+  loading: true,
+}));
+assert.match(loadingIconButtonMarkup, /class="icon-button icon-button--primary"/);
+assert.match(loadingIconButtonMarkup, /data-intent="danger"/);
+assert.match(loadingIconButtonMarkup, /data-state="loading"/);
+assert.match(loadingIconButtonMarkup, /disabled=""/);
+assert.match(loadingIconButtonMarkup, /aria-busy="true"/);
+assert.match(loadingIconButtonMarkup, /class="spinner/);
+assert.doesNotMatch(loadingIconButtonMarkup, /class="icon-button__icon"/);
 
 const inheritedIconButtonMarkup = renderToStaticMarkup(React.createElement(IconButton, {
   ariaLabel: "More actions",

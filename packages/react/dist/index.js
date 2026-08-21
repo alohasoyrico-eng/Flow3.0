@@ -113,7 +113,6 @@ export { MovementRow } from "./MovementRow.js";
 export { PhoneInput } from "./PhoneInput.js";
 export { Popover } from "./Popover.js";
 export { Pagination } from "./Pagination.js";
-export { QuickAction } from "./QuickAction.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";
 export { RadioButton } from "./RadioButton.js";
 export { RouteSummary } from "./RouteSummary.js";

@@ -31,7 +31,6 @@ const domainComplexIds = [
   "motion-boundary",
   "movement-row",
   "progress-indicator",
-  "quick-action",
   "route-summary",
   "skeleton",
   "spinner",

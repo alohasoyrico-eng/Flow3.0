@@ -4,7 +4,7 @@
   "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.",
   "baseline": {
     "inventory": {
-      "components": 61,
+      "components": 60,
       "styleEscapeDebt": 0,
       "componentsWithApprovedInlineVars": 6,
       "componentsWithRuntimeVars": 1,
@@ -56,7 +56,7 @@
     }
   },
   "inventory": {
-    "components": 61,
+    "components": 60,
     "styleEscapeDebt": 0,
     "componentsWithApprovedInlineVars": 6,
     "componentsWithRuntimeVars": 1,
@@ -502,16 +502,6 @@
     {
       "component": "ProgressIndicator",
       "file": "packages/react/src/ProgressIndicator.tsx",
-      "allowedInlineStyleKeys": [],
-      "approvedVars": [],
-      "styleProps": 0,
-      "setPropertyCalls": [],
-      "violations": [],
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

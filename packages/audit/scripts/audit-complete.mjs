@@ -136,7 +136,6 @@ const expectedAuditFiles = new Set([
   "audit-popover-css-contract.js",
   "audit-primitive-contracts.js",
   "audit-progress-indicator-css-contract.js",
-  "audit-quick-action-css-contract.js",
   "audit-radio-button-css-contract.js",
   "audit-react-contract-triangle.js",
   "audit-react-copy-contract.js",

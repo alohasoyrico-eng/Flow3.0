@@ -36,7 +36,9 @@
           "Disabled",
           "Breakpoints"
         ],
-        "patternDependencies": [],
+        "patternDependencies": [
+          "Quick Actions Grid"
+        ],
         "templateModuleDependencies": [
           "Mobile Card Overview",
           "Mobile Card Detail and Quick Actions",

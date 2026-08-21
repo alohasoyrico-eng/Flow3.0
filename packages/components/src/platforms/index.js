@@ -56,6 +56,5 @@ export { tablePlatformAdapters, tablePlatformContract, tablePlatformProps, } fro
 export { listPlatformAdapters, listPlatformContract, listPlatformProps, } from "./list.js";
 export { kpiTilePlatformAdapters, kpiTilePlatformContract, kpiTilePlatformProps, } from "./kpi-tile.js";
 export { movementRowPlatformAdapters, movementRowPlatformContract, movementRowPlatformProps, } from "./movement-row.js";
-export { quickActionPlatformAdapters, quickActionPlatformContract, quickActionPlatformProps, } from "./quick-action.js";
 export { routeSummaryPlatformAdapters, routeSummaryPlatformContract, routeSummaryPlatformProps, } from "./route-summary.js";
 export { stationPinPlatformAdapters, stationPinPlatformContract, stationPinPlatformProps, } from "./station-pin.js";

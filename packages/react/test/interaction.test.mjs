@@ -18,7 +18,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 
 const React = await import("react");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, ChatComposer, ChatMessage, ChatThread, Checkbox, Chip, CodeBlock, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, InputAmount, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, QuickAction, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../dist/index.js");
+const { Accordion, Breadcrumbs, Card, CardExpiryInput, CardNumberInput, CardSecurityCodeInput, ChatComposer, ChatMessage, ChatThread, Checkbox, Chip, CodeBlock, CodeInput, Combobox, CountrySelector, DatePicker, DateRangePicker, Dialog, Drawer, EmptyState, ErrorPanel, Input, InputAmount, KpiTile, List, Menu, MovementRow, Pagination, PhoneInput, Popover, RadioButton, RouteSummary, SegmentedControl, Select, Slider, StationPin, Switch, Table, Tabs, TextArea, Toast, Tooltip, TreeView } = await import("../dist/index.js");
 
 try {
   const expandedChanges = [];
@@ -1650,47 +1650,6 @@ try {
   ]));
   assert.equal(popoverTrigger.getAttribute("aria-expanded"), "false");
   assert.equal(popoverTrigger.closest(".popover").dataset.state, "default");
-
-  cleanup();
-
-  const quickActions = [];
-  const quickActionClicks = [];
-  const { getByRole: getQuickActionRole, rerender: rerenderQuickAction } = render(React.createElement(QuickAction, {
-    label: "Scan card",
-    icon: "qr_code_scanner",
-    tone: "danger",
-    onClick: (event) => quickActionClicks.push(event.type),
-    onAction: (meta, event) => quickActions.push({ meta, eventType: event.type }),
-  }));
-
-  fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
-  assert.deepEqual(quickActionClicks, ["click"]);
-  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "standard", intent: "danger", state: "default" }, eventType: "click" }]);
-
-  rerenderQuickAction(React.createElement(QuickAction, {
-    label: "Scan card",
-    icon: "qr_code_scanner",
-    loading: true,
-    onClick: (event) => quickActionClicks.push(event.type),
-    onAction: (meta, event) => quickActions.push({ meta, eventType: event.type }),
-  }));
-
-  fireEvent.click(getQuickActionRole("button", { name: /scan card/i }));
-  assert.deepEqual(quickActionClicks, ["click"]);
-  assert.deepEqual(quickActions, [{ meta: { label: "Scan card", variant: "standard", intent: "danger", state: "default" }, eventType: "click" }]);
-
-  cleanup();
-
-  const preventedQuickActions = [];
-  const { getByRole: getPreventedQuickActionRole } = render(React.createElement(QuickAction, {
-    label: "Prevent scan",
-    icon: "qr_code_scanner",
-    onClick: (event) => event.preventDefault(),
-    onAction: (meta) => preventedQuickActions.push(meta),
-  }));
-
-  fireEvent.click(getPreventedQuickActionRole("button", { name: /prevent scan/i }));
-  assert.deepEqual(preventedQuickActions, []);
 
   cleanup();
 

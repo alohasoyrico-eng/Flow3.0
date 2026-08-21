@@ -1734,7 +1734,7 @@
   transform: var(--comp-button-press-transform);
 }
 
-.icon-button:disabled {
+.icon-button:disabled:not([data-state="loading"]) {
   cursor: var(--comp-icon-button-disabled-cursor);
   opacity: var(--comp-icon-button-disabled-opacity);
 }
@@ -1841,8 +1841,7 @@
 .kpi-tile__icon,
 .fab__icon,
 .audit-event__icon,
-.segmented-control__icon,
-.quick-action__icon {
+.segmented-control__icon {
   direction: ltr;
   display: inline-block;
   font-family: var(--component-font-family-icon);
@@ -2081,20 +2080,46 @@
   --comp-icon-button-hover-bg: var(--component-action-bg-ghost-hover);
   --comp-icon-button-hover-border: var(--component-action-border-outlined-hover);
   --comp-icon-button-hover-transform: scale(var(--comp-icon-button-hover-scale));
+  --comp-icon-button-press-bg: var(--comp-icon-button-hover-bg);
   --comp-icon-button-press-transform: scale(var(--comp-icon-button-press-scale));
   --comp-icon-button-secondary-bg: var(--component-action-bg-secondary);
   --comp-icon-button-secondary-border: var(--component-action-border-secondary);
   --comp-icon-button-secondary-fg: var(--component-action-fg-secondary);
+  --comp-icon-button-secondary-hover-bg: var(--component-action-bg-secondary-hover);
+  --comp-icon-button-secondary-pressed-bg: var(--component-action-bg-secondary-pressed);
   --comp-icon-button-tertiary-bg: var(--component-action-bg-tertiary);
   --comp-icon-button-tertiary-border: var(--component-action-border-tertiary);
   --comp-icon-button-tertiary-fg: var(--component-action-fg-tertiary);
+  --comp-icon-button-tertiary-hover-bg: var(--component-action-bg-tertiary-hover);
+  --comp-icon-button-tertiary-pressed-bg: var(--component-action-bg-tertiary-pressed);
   --comp-icon-button-outlined-bg: var(--component-action-bg-outlined);
   --comp-icon-button-outlined-border: var(--component-action-border-outlined);
   --comp-icon-button-outlined-fg: var(--component-action-fg-outlined);
+  --comp-icon-button-outlined-hover-bg: var(--component-action-bg-outlined);
+  --comp-icon-button-outlined-pressed-bg: var(--component-action-bg-outlined-pressed);
   --comp-icon-button-primary-border: var(--component-action-border-ghost);
   --comp-icon-button-primary-bg: var(--component-action-bg-primary);
   --comp-icon-button-primary-fg: var(--component-action-fg-primary);
   --comp-icon-button-primary-hover-bg: var(--component-action-bg-primary-hover);
+  --comp-icon-button-primary-pressed-bg: var(--component-action-bg-primary-pressed);
+  --comp-icon-button-danger-bg: var(--component-action-bg-danger);
+  --comp-icon-button-danger-fg: var(--component-action-fg-danger);
+  --comp-icon-button-danger-hover-bg: var(--component-action-bg-danger-hover);
+  --comp-icon-button-danger-pressed-bg: var(--component-action-bg-danger-pressed);
+  --comp-icon-button-danger-secondary-bg: var(--component-action-bg-danger-secondary);
+  --comp-icon-button-danger-secondary-border: var(--component-action-border-danger-secondary);
+  --comp-icon-button-danger-secondary-fg: var(--component-action-fg-danger-secondary);
+  --comp-icon-button-danger-secondary-hover-bg: var(--component-action-bg-danger-secondary-hover);
+  --comp-icon-button-danger-secondary-pressed-bg: var(--component-action-bg-danger-secondary-pressed);
+  --comp-icon-button-warning-bg: var(--component-action-bg-warning);
+  --comp-icon-button-warning-fg: var(--component-action-fg-warning);
+  --comp-icon-button-warning-hover-bg: var(--component-action-bg-warning-hover);
+  --comp-icon-button-warning-pressed-bg: var(--component-action-bg-warning-pressed);
+  --comp-icon-button-warning-secondary-bg: var(--component-action-bg-warning-secondary);
+  --comp-icon-button-warning-secondary-border: var(--component-action-border-warning-secondary);
+  --comp-icon-button-warning-secondary-fg: var(--component-action-fg-warning-secondary);
+  --comp-icon-button-warning-secondary-hover-bg: var(--component-action-bg-warning-secondary-hover);
+  --comp-icon-button-warning-secondary-pressed-bg: var(--component-action-bg-warning-secondary-pressed);
   --comp-icon-button-selected-border: var(--component-action-bg-primary);
   --comp-icon-button-selected-fg: var(--component-action-bg-primary);
   --comp-icon-button-selected-primary-fg: var(--component-action-fg-primary);
@@ -2104,6 +2129,7 @@
   --comp-icon-button-focus-offset: var(--component-focus-ring-offset);
   --comp-icon-button-disabled-cursor: var(--component-cursor-not-allowed);
   --comp-icon-button-disabled-opacity: var(--component-disabled-readable-opacity);
+  --comp-icon-button-loading-cursor: var(--component-loading-busy-cursor);
   --comp-icon-button-badge-animation: component-pulse var(--component-duration-loop) var(--component-ease-state) infinite;
   --comp-icon-button-badge-bg: var(--component-color-success);
   --comp-icon-button-badge-border-width: var(--component-border-width-medium);
@@ -2147,7 +2173,19 @@
   transform: var(--comp-icon-button-hover-transform);
 }
 
+.icon-button[data-state="hover"]:not(:disabled) {
+  background: var(--comp-icon-button-hover-bg);
+  border-color: var(--comp-icon-button-hover-border);
+  transform: var(--comp-icon-button-hover-transform);
+}
+
 .icon-button:active:not(:disabled) {
+  background: var(--comp-icon-button-press-bg);
+  transform: var(--comp-icon-button-press-transform);
+}
+
+.icon-button[data-state="pressed"]:not(:disabled) {
+  background: var(--comp-icon-button-press-bg);
   transform: var(--comp-icon-button-press-transform);
 }
 
@@ -2155,24 +2193,32 @@
   background: var(--comp-icon-button-secondary-bg);
   border-color: var(--comp-icon-button-secondary-border);
   color: var(--comp-icon-button-secondary-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-secondary-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-secondary-pressed-bg);
 }
 
 .icon-button--tertiary {
   background: var(--comp-icon-button-tertiary-bg);
   border-color: var(--comp-icon-button-tertiary-border);
   color: var(--comp-icon-button-tertiary-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-tertiary-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-tertiary-pressed-bg);
 }
 
 .icon-button--outlined {
   background: var(--comp-icon-button-outlined-bg);
   border-color: var(--comp-icon-button-outlined-border);
   color: var(--comp-icon-button-outlined-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-outlined-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-outlined-pressed-bg);
 }
 
 .icon-button--primary {
   border-color: var(--comp-icon-button-primary-border);
   background: var(--comp-icon-button-primary-bg);
   color: var(--comp-icon-button-primary-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-primary-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-primary-pressed-bg);
 }
 
 .icon-button--primary:hover:not(:disabled) {
@@ -2180,7 +2226,44 @@
   border-color: var(--comp-icon-button-primary-border);
 }
 
+.icon-button[data-intent="danger"] {
+  background: var(--comp-icon-button-danger-secondary-bg);
+  border-color: var(--comp-icon-button-danger-secondary-border);
+  color: var(--comp-icon-button-danger-secondary-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-danger-secondary-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-danger-secondary-pressed-bg);
+  --comp-icon-button-hover-border: var(--comp-icon-button-danger-secondary-border);
+}
+
+.icon-button[data-intent="warning"] {
+  background: var(--comp-icon-button-warning-secondary-bg);
+  border-color: var(--comp-icon-button-warning-secondary-border);
+  color: var(--comp-icon-button-warning-secondary-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-warning-secondary-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-warning-secondary-pressed-bg);
+  --comp-icon-button-hover-border: var(--comp-icon-button-warning-secondary-border);
+}
+
+.icon-button--primary[data-intent="danger"] {
+  background: var(--comp-icon-button-danger-bg);
+  color: var(--comp-icon-button-danger-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-danger-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-danger-pressed-bg);
+}
+
+.icon-button--primary[data-intent="warning"] {
+  background: var(--comp-icon-button-warning-bg);
+  color: var(--comp-icon-button-warning-fg);
+  --comp-icon-button-hover-bg: var(--comp-icon-button-warning-hover-bg);
+  --comp-icon-button-press-bg: var(--comp-icon-button-warning-pressed-bg);
+}
+
 .icon-button[aria-pressed="true"] {
+  border-color: var(--comp-icon-button-selected-border);
+  color: var(--comp-icon-button-selected-fg);
+}
+
+.icon-button[data-state="selected"] {
   border-color: var(--comp-icon-button-selected-border);
   color: var(--comp-icon-button-selected-fg);
 }
@@ -2189,8 +2272,25 @@
   color: var(--comp-icon-button-selected-primary-fg);
 }
 
+.icon-button--primary[data-state="selected"] {
+  color: var(--comp-icon-button-selected-primary-fg);
+}
+
 .icon-button[aria-pressed="true"] .icon-button__icon {
   font-variation-settings: var(--comp-icon-button-selected-icon-variation);
+}
+
+.icon-button[data-state="selected"] .icon-button__icon {
+  font-variation-settings: var(--comp-icon-button-selected-icon-variation);
+}
+
+.icon-button[data-state="focus"] {
+  outline: var(--comp-icon-button-focus-ring);
+  outline-offset: var(--comp-icon-button-focus-offset);
+}
+
+.icon-button[data-state="loading"] {
+  cursor: var(--comp-icon-button-loading-cursor);
 }
 
 .icon-button__icon {
@@ -6010,45 +6110,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
 }
 
-.fab[data-variant="secondary"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-secondary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-secondary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-secondary-pressed);
-  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-secondary);
-  --comp-floating-action-button-border-color: var(--component-action-border-secondary);
+.fab[data-variant="extended"] {
+  --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
+  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
+  --comp-floating-action-button-shadow: var(--component-depth-raised-strong);
+}
+
+.fab[data-variant="mini"] {
+  --comp-floating-action-button-size: var(--comp-floating-action-button-mini-size);
+  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
+  --comp-floating-action-button-padding-x: var(--component-frame-space-none);
   --comp-floating-action-button-shadow: var(--component-depth-raised-soft);
-  --comp-floating-action-button-text: var(--component-action-fg-secondary);
-}
-
-.fab[data-variant="tertiary"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-tertiary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-tertiary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-tertiary-pressed);
-  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-tertiary);
-  --comp-floating-action-button-border-color: var(--component-action-border-tertiary);
-  --comp-floating-action-button-shadow: var(--component-depth-low);
-  --comp-floating-action-button-text: var(--component-action-fg-tertiary);
-}
-
-.fab[data-variant="outlined"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-outlined);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-outlined);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-outlined-pressed);
-  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-outlined);
-  --comp-floating-action-button-border-color: var(--component-action-border-outlined);
-  --comp-floating-action-button-shadow: var(--component-depth-none);
-  --comp-floating-action-button-text: var(--component-action-fg-outlined);
-}
-
-.fab[data-variant="ghost"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-ghost);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-ghost-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-ghost-pressed);
-  --comp-floating-action-button-border: var(--component-border-width) solid var(--component-action-border-ghost);
-  --comp-floating-action-button-border-color: var(--component-action-border-ghost);
-  --comp-floating-action-button-shadow: var(--component-depth-none);
-  --comp-floating-action-button-shadow-hover: var(--component-depth-none);
-  --comp-floating-action-button-text: var(--component-action-fg-ghost);
 }
 
 .fab[data-intent="danger"] {
@@ -6063,38 +6135,6 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-hover);
   --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-pressed);
   --comp-floating-action-button-text: var(--component-action-fg-warning);
-}
-
-.fab[data-intent="danger"][data-variant="secondary"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-danger-secondary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-danger-secondary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-secondary-pressed);
-  --comp-floating-action-button-border-color: var(--component-action-border-danger-secondary);
-  --comp-floating-action-button-text: var(--component-action-fg-danger-secondary);
-}
-
-.fab[data-intent="danger"][data-variant="outlined"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-danger-secondary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-danger-secondary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-secondary-pressed);
-  --comp-floating-action-button-border-color: var(--component-action-border-danger-secondary);
-  --comp-floating-action-button-text: var(--component-action-fg-danger-secondary);
-}
-
-.fab[data-intent="warning"][data-variant="secondary"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-warning-secondary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-secondary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-secondary-pressed);
-  --comp-floating-action-button-border-color: var(--component-action-border-warning-secondary);
-  --comp-floating-action-button-text: var(--component-action-fg-warning-secondary);
-}
-
-.fab[data-intent="warning"][data-variant="outlined"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-warning-secondary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-secondary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-secondary-pressed);
-  --comp-floating-action-button-border-color: var(--component-action-border-warning-secondary);
-  --comp-floating-action-button-text: var(--component-action-fg-warning-secondary);
 }
 
 .fab:hover:not(:disabled) {
@@ -12865,9 +12905,6 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-quick-action-disabled-fg: var(--component-color-disabled-fg);
   --comp-quick-action-disabled-opacity: var(--component-opacity-disabled);
   --comp-quick-action-full-width: var(--component-inline-size-full);
-  --comp-quick-action-icon-display: var(--component-display-inline-flex);
-  --comp-quick-action-icon-font-size: var(--component-density-icon-size-md);
-  --comp-quick-action-icon-justify: var(--component-justify-center);
   --comp-quick-action-hover-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
   --comp-quick-action-hover-border: color-mix(in srgb, var(--component-color-action) 36%, var(--component-color-border));
   --comp-quick-action-hover-transform: var(--component-transform-scale-raised);
@@ -12906,7 +12943,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .quick-action[data-density="sm"] {
   --comp-quick-action-icon-size: var(--component-action-control-size-sm);
-  --comp-quick-action-icon-font-size: var(--component-density-icon-size-sm);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-sm);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
@@ -12915,7 +12951,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .quick-action[data-density="lg"] {
   --comp-quick-action-icon-size: var(--component-action-control-size-lg);
-  --comp-quick-action-icon-font-size: var(--component-density-icon-size-lg);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-lg);
   --comp-quick-action-label-size: var(--component-font-size-label);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-lg);
@@ -12924,7 +12959,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .quick-action[data-variant="compact"] {
   --comp-quick-action-icon-size: var(--component-action-control-size-sm);
-  --comp-quick-action-icon-font-size: var(--component-density-icon-size-sm);
   --comp-quick-action-label-width: var(--component-action-label-inline-size-sm);
   --comp-quick-action-label-size: var(--component-font-size-caption);
   --comp-quick-action-min-block-size: var(--component-action-min-block-size-md);
@@ -12962,13 +12996,6 @@ body[data-contrast="quiet"] .route-summary__icon {
     box-shadow var(--comp-quick-action-motion-duration) var(--comp-quick-action-motion-ease),
     color var(--comp-quick-action-motion-duration) var(--comp-quick-action-motion-ease),
     transform var(--comp-quick-action-motion-duration) var(--comp-quick-action-motion-press);
-}
-
-.quick-action__icon {
-  align-items: center;
-  display: var(--comp-quick-action-icon-display);
-  font-size: var(--comp-quick-action-icon-font-size);
-  justify-content: var(--comp-quick-action-icon-justify);
 }
 
 .quick-action:hover .quick-action__control,

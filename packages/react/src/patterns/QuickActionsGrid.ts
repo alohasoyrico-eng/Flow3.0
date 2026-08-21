@@ -4,8 +4,8 @@ import { Badge } from "../Badge.js";
 import type { BadgeProps } from "../Badge.js";
 import { Dialog } from "../Dialog.js";
 import type { DialogProps } from "../Dialog.js";
-import { QuickAction } from "../QuickAction.js";
-import type { QuickActionMeta, QuickActionProps } from "../QuickAction.js";
+import { IconButton } from "../IconButton.js";
+import type { IconButtonIntent, IconButtonProps, IconButtonState, IconButtonVariant } from "../IconButton.js";
 import { Toast } from "../Toast.js";
 import type { ToastProps } from "../Toast.js";
 import { Tooltip } from "../Tooltip.js";
@@ -16,14 +16,30 @@ import type { SearchProps } from "./Search.js";
 
 export type QuickActionsGridState = "default" | "loading" | "disabled" | "permission-blocked" | "confirming" | "completed" | "error";
 export type QuickActionsGridDensity = "sm" | "md" | "lg";
+export type QuickActionsGridActionVariant = "standard" | "compact" | "wide";
+export type QuickActionsGridActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
+export type QuickActionsGridActionIntent = "default" | "danger" | "warning";
 
-export interface QuickActionsGridAction extends Omit<QuickActionProps, "onAction" | "intent"> {
+export interface QuickActionsGridActionMeta {
+  label: string;
+  variant: QuickActionsGridActionVariant;
+  intent: QuickActionsGridActionIntent;
+  state: QuickActionsGridActionState;
+}
+
+export interface QuickActionsGridAction extends Omit<IconButtonProps, "ariaLabel" | "badge" | "icon" | "label" | "loading" | "onClick" | "selected" | "state" | "variant" | "intent"> {
   key?: string;
+  label: string;
+  icon?: string;
+  badge?: string;
+  variant?: QuickActionsGridActionVariant;
+  state?: QuickActionsGridActionState;
   status?: Partial<BadgeProps> & { label: string };
   tooltip?: Partial<TooltipProps> & { content: string };
   permissionBlocked?: boolean;
-  intent?: "default" | "danger" | "warning";
-  onAction?: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
+  intent?: QuickActionsGridActionIntent;
+  loading?: boolean;
+  onAction?: (meta: QuickActionsGridActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface QuickActionsGridProps extends FlowDataAttributes {
@@ -87,6 +103,14 @@ function isGridAction(action: QuickActionsGridAction | null | undefined): action
   return Boolean(action?.label);
 }
 
+function iconButtonVariantForAction(variant: QuickActionsGridActionVariant): IconButtonVariant {
+  return variant === "compact" ? "ghost" : "secondary";
+}
+
+function iconButtonStateForAction(state: QuickActionsGridActionState): IconButtonState {
+  return state === "warning" ? "default" : state;
+}
+
 export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps>(function QuickActionsGrid({
   label = "Quick actions",
   density,
@@ -143,31 +167,54 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
     normalizedActions.map((action, index) => {
       const key = actionKey(action, index);
       const actionDisabled = isDisabled || action.disabled || action.permissionBlocked;
-      const actionState = resolvedState === "loading" || action.loading
+      const actionState: QuickActionsGridActionState = resolvedState === "loading" || action.loading
         ? "loading"
         : actionDisabled
           ? "disabled"
           : action.state ?? "default";
-      const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
+      const intent: QuickActionsGridActionIntent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
+      const variant: QuickActionsGridActionVariant = action.variant ?? "standard";
+      const meta: QuickActionsGridActionMeta = {
+        label: action.label,
+        variant,
+        intent,
+        state: actionState,
+      };
 
       return React.createElement(
         "div",
         { key, "data-action-key": key },
-        React.createElement(QuickAction, {
+        React.createElement("div", {
+          className: "quick-action",
+          "data-variant": variant,
+          "data-intent": intent,
+          "data-state": actionState,
+          "data-density": action.density ?? density,
+        },
+        React.createElement(IconButton, {
           label: action.label,
           icon: action.icon,
-          badge: action.badge,
-          variant: action.variant ?? "standard",
-          intent,
-          state: actionState,
+          variant: iconButtonVariantForAction(variant),
+          intent: intent as IconButtonIntent,
+          state: iconButtonStateForAction(actionState),
           density: action.density ?? density,
           loading: resolvedState === "loading" || action.loading,
           disabled: actionDisabled,
-          onAction: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => {
+          className: "quick-action__control",
+          onClick: (event: MouseEvent<HTMLButtonElement>) => {
             action.onAction?.(meta, event);
+            if (event.defaultPrevented) return;
             onAction?.(key, action, event);
           },
-        } as ComponentProps<typeof QuickAction>),
+        } as ComponentProps<typeof IconButton>),
+        action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null,
+        action.badge
+          ? React.createElement(Badge, {
+            label: action.badge,
+            variant: "count",
+            density: action.density ?? density,
+          } as ComponentProps<typeof Badge>)
+          : null),
         action.status
           ? React.createElement(Badge, {
             label: action.status.label,

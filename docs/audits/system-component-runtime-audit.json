@@ -12,9 +12,9 @@
     "primaryCoverage": "docs/audits/react-primary-coverage-audit.json"
   },
   "inventory": {
-    "components": 61,
-    "runtimeAuditedComponents": 61,
-    "passingRuntimeComponents": 61,
+    "components": 60,
+    "runtimeAuditedComponents": 60,
+    "passingRuntimeComponents": 60,
     "failingRuntimeComponents": 0,
     "sourceReports": 6,
     "passingSourceReports": 6,
@@ -1149,23 +1149,6 @@
         "contract": "packages/components/src/contracts.js",
         "runtime": "packages/react/dist/index.js",
         "types": "packages/react/dist/ChatComposer.d.ts"
-      },
-      "issues": [],
-      "status": "pass"
-    },
-    {
-      "id": "quick-action",
-      "component": "QuickAction",
-      "artifactStatus": "pass",
-      "cssContract": "direct",
-      "cssRoot": "quick-action",
-      "visualCascade": "pass",
-      "styleGovernance": "pass",
-      "primaryCoverage": "pass",
-      "runtimeEvidence": {
-        "contract": "packages/components/src/contracts.js",
-        "runtime": "packages/react/dist/index.js",
-        "types": "packages/react/dist/QuickAction.d.ts"
       },
       "issues": [],
       "status": "pass"

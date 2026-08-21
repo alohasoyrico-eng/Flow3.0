@@ -4,15 +4,15 @@
   "source": "packages/components/src/contracts.js",
   "taxonomy": "packages/audit/contracts/state-variant-taxonomy-contract.json",
   "taxonomySchemaVersion": "flow-state-variant-taxonomy-contract@1",
-  "totalComponents": 62,
-  "componentsWithPublicVocabulary": 62,
+  "totalComponents": 60,
+  "componentsWithPublicVocabulary": 60,
   "familyCounts": {
     "navigation": 6,
     "motion-feedback": 2,
     "domain-event": 1,
     "display-status": 4,
     "domain-auth": 1,
-    "actions": 5,
+    "actions": 3,
     "surface-display": 1,
     "fields-payment": 4,
     "domain-payment": 1,
@@ -28,15 +28,15 @@
     "progress-feedback": 1
   },
   "propCounts": {
-    "variant": 42,
-    "state": 56,
+    "variant": 40,
+    "state": 55,
     "tone": 14,
     "intent": 3,
-    "density": 62,
+    "density": 60,
     "size": 0,
     "selected": 6,
-    "disabled": 36,
-    "loading": 14
+    "disabled": 34,
+    "loading": 13
   },
   "reviewFlagCounts": {},
   "flaggedComponents": [],
@@ -1035,58 +1035,6 @@
       "reviewFlags": []
     },
     {
-      "id": "copyButton",
-      "slug": "copy-button",
-      "family": "actions",
-      "element": "button",
-      "variants": [
-        "text",
-        "icon",
-        "inline"
-      ],
-      "intents": [
-        "copy"
-      ],
-      "states": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "copied",
-        "error",
-        "disabled",
-        "loading"
-      ],
-      "publicVocabulary": [
-        {
-          "name": "variant",
-          "type": "\"text\" | \"icon\" | \"inline\"",
-          "required": false
-        },
-        {
-          "name": "state",
-          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"copied\" | \"error\" | \"disabled\" | \"loading\"",
-          "required": false
-        },
-        {
-          "name": "density",
-          "type": "\"sm\" | \"md\" | \"lg\"",
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "required": false
-        }
-      ],
-      "reviewFlags": []
-    },
-    {
       "id": "countrySelector",
       "slug": "country-selector",
       "family": "fields",
@@ -1391,10 +1339,8 @@
       "element": "button",
       "variants": [
         "primary",
-        "secondary",
-        "tertiary",
-        "outlined",
-        "ghost"
+        "extended",
+        "mini"
       ],
       "intents": [
         "default",
@@ -1412,7 +1358,7 @@
       "publicVocabulary": [
         {
           "name": "variant",
-          "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"",
+          "type": "\"primary\" | \"extended\" | \"mini\"",
           "required": false
         },
         {
@@ -1465,12 +1411,23 @@
         "selected",
         "badged",
         "focus",
-        "disabled"
+        "disabled",
+        "loading"
       ],
       "publicVocabulary": [
         {
           "name": "variant",
           "type": "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\"default\" | \"hover\" | \"pressed\" | \"selected\" | \"badged\" | \"focus\" | \"disabled\" | \"loading\"",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\"default\" | \"danger\" | \"warning\"",
           "required": false
         },
         {
@@ -1485,6 +1442,11 @@
         },
         {
           "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
           "type": "boolean",
           "required": false
         }
@@ -2048,64 +2010,6 @@
         {
           "name": "density",
           "type": "\"sm\" | \"md\" | \"lg\"",
-          "required": false
-        }
-      ],
-      "reviewFlags": []
-    },
-    {
-      "id": "quickAction",
-      "slug": "quick-action",
-      "family": "actions",
-      "element": "div",
-      "variants": [
-        "standard",
-        "compact",
-        "wide"
-      ],
-      "intents": [
-        "default",
-        "danger",
-        "warning"
-      ],
-      "states": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "loading",
-        "warning",
-        "disabled"
-      ],
-      "publicVocabulary": [
-        {
-          "name": "variant",
-          "type": "\"standard\" | \"compact\" | \"wide\"",
-          "required": false
-        },
-        {
-          "name": "state",
-          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"warning\" | \"disabled\"",
-          "required": false
-        },
-        {
-          "name": "intent",
-          "type": "\"default\" | \"danger\" | \"warning\"",
-          "required": false
-        },
-        {
-          "name": "density",
-          "type": "\"sm\" | \"md\" | \"lg\"",
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
           "required": false
         }
       ],

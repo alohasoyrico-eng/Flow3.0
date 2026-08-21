@@ -6,10 +6,10 @@ React components may compose other Flow React components only through an explici
 
 ## Inventory
 
-- React components scanned: 61
+- React components scanned: 60
 - Composition debt: 0
 - Components with declared composition: 29
-- Composition edges: 52
+- Composition edges: 51
 - Allowlist entries: 29
 - Unexpected imports: 0
 - Missing expected imports: 0
@@ -39,13 +39,13 @@ React components may compose other Flow React components only through an explici
 | EmptyState | pass | Button, Spinner | Button, Spinner | None | None | None | None | None |
 | ErrorPanel | pass | Button, Spinner | Button, Spinner | None | None | None | None | None |
 | FloatingActionButton | pass | Spinner | Spinner | None | None | None | None | None |
+| IconButton | pass | Spinner | Spinner | None | None | None | None | None |
 | InlineValidation | pass | Input | Input | None | None | None | None | None |
 | Input | pass | Spinner | Spinner | None | None | None | None | None |
 | InputAmount | pass | Spinner | Spinner | None | None | None | None | None |
 | Menu | pass | Avatar, Button, IconButton | Avatar, Button, IconButton | None | None | None | None | None |
 | PhoneInput | pass | CountrySelector | CountrySelector | None | None | None | None | None |
 | Popover | pass | Button, Input | Button, Input | None | None | None | None | None |
-| QuickAction | pass | Badge, Spinner | Badge, Spinner | None | None | None | None | None |
 | RouteSummary | pass | Button, IconButton | Button, IconButton | None | None | None | None | None |
 | Table | pass | Badge | Badge | None | None | None | None | None |
 | Tabs | pass | Badge | Badge | None | None | None | None | None |
@@ -94,6 +94,7 @@ React components may compose other Flow React components only through an explici
 | ErrorPanel | Button | recovery action slot |
 | ErrorPanel | Spinner | loading state slot |
 | FloatingActionButton | Spinner | loading indicator slot |
+| IconButton | Spinner | loading indicator slot |
 | InlineValidation | Input | field validation composition |
 | Input | Spinner | field loading indicator slot |
 | InputAmount | Spinner | field loading indicator slot |
@@ -103,8 +104,6 @@ React components may compose other Flow React components only through an explici
 | PhoneInput | CountrySelector | country code selector slot |
 | Popover | Button | popover action slot |
 | Popover | Input | form field slot |
-| QuickAction | Badge | counter badge slot |
-| QuickAction | Spinner | loading indicator slot |
 | RouteSummary | Button | route action slot |
 | RouteSummary | IconButton | compact action slot |
 | Table | Badge | cell status badge slot |

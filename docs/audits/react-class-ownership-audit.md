@@ -6,13 +6,13 @@ React components may only author their own visual class roots or explicit family
 
 ## Inventory
 
-- React components scanned: 61
-- Component class roots known: 64
+- React components scanned: 60
+- Component class roots known: 63
 - Protected class roots: button, card, dialog, drawer, field, menu, popover
 - Support class roots: animation-asset, docs-artifact-detail-template, documentation-hero, documentation-section, field-action, illustration-asset, input, material-symbol, surface
 - Package CSS roots visible to React governance: 74
 - Components with family roots: 14
-- Observed root assignments: 78
+- Observed root assignments: 77
 - Observed support root assignments: 21
 - Violations: 0
 - Class ownership debt: 0
@@ -64,7 +64,6 @@ React components may only author their own visual class roots or explicit family
 | PhoneInput | pass | phone-input | country-flag, country-selector, field, phone-input, select-control | field, phone-input | input | 0 |
 | Popover | pass | popover | popover | popover | None | 0 |
 | ProgressIndicator | pass | progress | progress | progress | None | 0 |
-| QuickAction | pass | quick-action | quick-action | quick-action | None | 0 |
 | RadioButton | pass | radio | choice, radio | choice, radio | None | 0 |
 | RouteSummary | pass | route-summary | route-summary | route-summary | material-symbol | 0 |
 | SegmentedControl | pass | segmented-control | segmented-control | segmented-control | None | 0 |

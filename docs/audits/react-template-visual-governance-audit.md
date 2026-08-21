@@ -42,9 +42,9 @@ React templates must render the full Flow cascade in a real browser with package
 | fleet-manager-desktop | loaded-sm | pass | desktop 1280x900 | loaded | sm | 7 | 42 | captured |
 | fleet-manager-desktop | loading-md | pass | desktop 1280x900 | loading | md | 7 | 42 | captured |
 | fleet-manager-desktop | permission-lg | pass | desktop 1280x900 | permission | lg | 7 | 44 | captured |
-| driver-card-wallet | loaded-sm | pass | mobile 390x844 | loaded | sm | 7 | 14 | captured |
-| driver-card-wallet | loading-md | pass | mobile 390x844 | loading | md | 7 | 17 | captured |
-| driver-card-wallet | permission-lg | pass | mobile 390x844 | permission | lg | 7 | 14 | captured |
+| driver-card-wallet | loaded-sm | pass | mobile 390x844 | loaded | sm | 7 | 18 | captured |
+| driver-card-wallet | loading-md | pass | mobile 390x844 | loading | md | 7 | 21 | captured |
+| driver-card-wallet | permission-lg | pass | mobile 390x844 | permission | lg | 7 | 18 | captured |
 | driver-mobile-app | loaded-sm | pass | mobile 390x844 | loaded | sm | 9 | 29 | captured |
 | driver-mobile-app | loading-md | pass | mobile 390x844 | loading | md | 9 | 32 | captured |
 | driver-mobile-app | permission-lg | pass | mobile 390x844 | permission | lg | 9 | 32 | captured |

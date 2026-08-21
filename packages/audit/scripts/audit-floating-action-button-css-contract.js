@@ -19,16 +19,10 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   const rootBlock = blockFor(blocks, selectorKey, ".fab");
   const smBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".fab[data-density=\"lg\"]");
-  const secondaryBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"secondary\"]");
-  const tertiaryBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"tertiary\"]");
-  const outlinedBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"outlined\"]");
-  const ghostBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"ghost\"]");
+  const extendedBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"extended\"]");
+  const miniBlock = blockFor(blocks, selectorKey, ".fab[data-variant=\"mini\"]");
   const dangerBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"]");
   const warningBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"]");
-  const dangerSecondaryBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"][data-variant=\"secondary\"]");
-  const dangerOutlinedBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"danger\"][data-variant=\"outlined\"]");
-  const warningSecondaryBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"][data-variant=\"secondary\"]");
-  const warningOutlinedBlock = blockFor(blocks, selectorKey, ".fab[data-intent=\"warning\"][data-variant=\"outlined\"]");
   const hoverBlock = blockFor(blocks, selectorKey, ".fab:hover:not(:disabled)");
   const activeBlock = blockFor(blocks, selectorKey, ".fab:active:not(:disabled)");
   const stateHoverBlock = blockFor(blocks, selectorKey, ".fab[data-state=\"hover\"]:not(:disabled)");
@@ -55,8 +49,8 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   if (!source.includes("const canInteract = Boolean(rest.onClick || resolvedType === \"submit\" || resolvedType === \"reset\");") || !source.includes("disabled: resolvedState === \"disabled\" || resolvedState === \"loading\" || !canInteract")) {
     add("errors", sourceFile, 1, "FloatingActionButton must keep inert and loading actions disabled.");
   }
-  if (!source.includes("export type FloatingActionButtonVariant = \"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"") || source.includes("\"extended\" | \"mini\"")) {
-    add("errors", sourceFile, 1, "FloatingActionButton variant must describe action hierarchy only; extended label treatment is owned by the extended prop.");
+  if (!source.includes("export type FloatingActionButtonVariant = \"primary\" | \"extended\" | \"mini\"") || /FloatingActionButtonVariant = .*secondary|FloatingActionButtonVariant = .*ghost/.test(source)) {
+    add("errors", sourceFile, 1, "FloatingActionButton variants must describe FAB treatment only: primary, extended, or mini.");
   }
   if (!source.includes("export type FloatingActionButtonIntent = \"default\" | \"danger\" | \"warning\"") || !source.includes("\"data-intent\": resolvedIntent")) {
     add("errors", sourceFile, 1, "FloatingActionButton must expose default, danger, and warning action intents through data-intent.");
@@ -67,9 +61,14 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
   if (text.includes("--fab-size") || text.includes("--fab-icon-size") || text.includes("--fab-padding")) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf("--fab-")), "FloatingActionButton must not use short local --fab-* aliases; use the component token namespace.");
   }
-  for (const block of [rootBlock, secondaryBlock, tertiaryBlock, outlinedBlock, ghostBlock, dangerBlock, warningBlock, dangerSecondaryBlock, dangerOutlinedBlock, warningSecondaryBlock, warningOutlinedBlock].filter(Boolean)) {
+  for (const block of [rootBlock, extendedBlock, miniBlock, dangerBlock, warningBlock].filter(Boolean)) {
     if (block.body.includes("--comp-button-")) {
       add("errors", packageCssFile, lineNumber(text, block.index), "FloatingActionButton must not consume Button-local --comp-button-* aliases; use shared component roles or FAB aliases.");
+    }
+  }
+  for (const forbidden of ["secondary", "tertiary", "outlined", "ghost"]) {
+    if (blockFor(blocks, selectorKey, `.fab[data-variant="${forbidden}"]`)) {
+      add("errors", packageCssFile, 1, `FloatingActionButton must not define Button hierarchy variant ${forbidden}; use Button/IconButton for action hierarchy.`);
     }
   }
   for (const [snippet, message] of [
@@ -132,26 +131,28 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
       message,
     });
   }
-  for (const [block, variant] of [
-    [secondaryBlock, "secondary"],
-    [tertiaryBlock, "tertiary"],
-    [outlinedBlock, "outlined"],
-    [ghostBlock, "ghost"],
-  ]) {
-    requireIncludes({
-      block,
-      text,
-      packageCssFile,
-      snippets: [
-        "--comp-floating-action-button-bg:",
-        "--comp-floating-action-button-bg-hover:",
-        "--comp-floating-action-button-bg-pressed:",
-        "--comp-floating-action-button-border:",
-        "--comp-floating-action-button-text:",
-      ],
-      message: `FloatingActionButton ${variant} variant must consume action hierarchy aliases.`,
-    });
-  }
+  requireIncludes({
+    block: extendedBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-floating-action-button-inline-size: var(--component-inline-size-fit-content)",
+      "--comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg)",
+      "--comp-floating-action-button-shadow: var(--component-depth-raised-strong)",
+    ],
+    message: "FloatingActionButton extended variant must only change FAB treatment aliases.",
+  });
+  requireIncludes({
+    block: miniBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-floating-action-button-size: var(--comp-floating-action-button-mini-size)",
+      "--comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm)",
+      "--comp-floating-action-button-padding-x: var(--component-frame-space-none)",
+    ],
+    message: "FloatingActionButton mini variant must only change FAB frame aliases.",
+  });
   for (const [block, intent] of [
     [dangerBlock, "danger"],
     [warningBlock, "warning"],
@@ -167,32 +168,6 @@ function checkFloatingActionButtonCssContract({ text, blocks, packageCssFile, se
         "--comp-floating-action-button-text:",
       ],
       message: `FloatingActionButton ${intent} intent must consume action intent aliases.`,
-    });
-  }
-  for (const [block, variant] of [[dangerSecondaryBlock, "secondary"], [dangerOutlinedBlock, "outlined"]]) {
-    requireIncludes({
-      block,
-      text,
-      packageCssFile,
-      snippets: [
-        "--comp-floating-action-button-bg: var(--component-action-bg-danger-secondary)",
-        "--comp-floating-action-button-border-color: var(--component-action-border-danger-secondary)",
-        "--comp-floating-action-button-text: var(--component-action-fg-danger-secondary)",
-      ],
-      message: `FloatingActionButton ${variant} danger intent must stay surface-based instead of solid danger.`,
-    });
-  }
-  for (const [block, variant] of [[warningSecondaryBlock, "secondary"], [warningOutlinedBlock, "outlined"]]) {
-    requireIncludes({
-      block,
-      text,
-      packageCssFile,
-      snippets: [
-        "--comp-floating-action-button-bg: var(--component-action-bg-warning-secondary)",
-        "--comp-floating-action-button-border-color: var(--component-action-border-warning-secondary)",
-        "--comp-floating-action-button-text: var(--component-action-fg-warning-secondary)",
-      ],
-      message: `FloatingActionButton ${variant} warning intent must stay surface-based instead of solid warning.`,
     });
   }
   requireIncludes({

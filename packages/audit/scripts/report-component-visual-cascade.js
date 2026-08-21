@@ -71,7 +71,6 @@ const componentClassAliases = {
   "floating-action-button": ["fab", "floating-action-button"],
   "card-summary": ["card-summary"],
   "movement-row": ["movement-row"],
-  "quick-action": ["quick-action"],
   "biometric-prompt": ["biometric-prompt"],
   "breadcrumbs": ["breadcrumbs"],
   "pagination": ["pagination"],

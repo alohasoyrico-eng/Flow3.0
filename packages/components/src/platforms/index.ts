@@ -289,11 +289,6 @@ export {
   movementRowPlatformProps,
 } from "./movement-row.js";
 export {
-  quickActionPlatformAdapters,
-  quickActionPlatformContract,
-  quickActionPlatformProps,
-} from "./quick-action.js";
-export {
   routeSummaryPlatformAdapters,
   routeSummaryPlatformContract,
   routeSummaryPlatformProps,

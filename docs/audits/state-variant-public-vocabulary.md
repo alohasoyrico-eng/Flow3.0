@@ -5,21 +5,21 @@ Status: **inventory**
 Inventory the public state/variant vocabulary exposed by component contracts before enforcing taxonomy changes in the existing Flow gates.
 
 ## Summary
-- Components: 62
-- Components with public vocabulary: 62
+- Components: 60
+- Components with public vocabulary: 60
 - Source: packages/components/src/contracts.js
 - Taxonomy: packages/audit/contracts/state-variant-taxonomy-contract.json
 
 ## Public Prop Counts
-- variant: 42
-- state: 56
+- variant: 40
+- state: 55
 - tone: 14
 - intent: 3
-- density: 62
+- density: 60
 - size: 0
 - selected: 6
-- disabled: 36
-- loading: 14
+- disabled: 34
+- loading: 13
 
 ## Review Flags
 - None
@@ -52,7 +52,6 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | code-block | documentation-code | block, inline-group, specimen | reference | default, wrapped, scrollable, with-header, with-copy, copied, error, disabled | variant, state, density, disabled | - |
 | code-input | fields | sms, otp, approval, masked, compact | security | default, hover, focus, complete, warning, error, disabled | variant, state, density, disabled | - |
 | combobox | fields | default | default | default, open, focus, filled, empty, loading, error, disabled | state, density, disabled, loading | - |
-| copy-button | actions | text, icon, inline | copy | default, hover, focus, pressed, copied, error, disabled, loading | variant, state, density, disabled, loading | - |
 | country-selector | fields | default, inline | selection | default, open, focus, error, disabled | density, disabled | - |
 | date-picker | fields-date | calendar | input | default, hover, focus, selected, warning, error, disabled | state, density, disabled | - |
 | date-range-picker | fields-date | calendar-range | input | default, hover, focus, selected, warning, error, disabled | state, density, disabled | - |
@@ -60,8 +59,8 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | drawer | overlays | side-sheet, filter, detail, edit, review | neutral, info, danger | closed, default, open, focus, closing | variant, state, tone, density | - |
 | empty-state | feedback | first-use, search-empty, permission, error, maintenance | neutral | default, action, search-empty, permission, loading, error | variant, state, density | - |
 | error-panel | feedback | inline, panel, blocking, empty-recovery | warning, error, critical | default, warning, error, critical, loading, disabled | variant, state, tone, density | - |
-| floating-action-button | actions | primary, secondary, tertiary, outlined, ghost | default, danger, warning | default, hover, focus, pressed, loading, disabled | variant, state, intent, density, disabled, loading | - |
-| icon-button | actions | primary, secondary, tertiary, outlined, ghost | default | default, hover, pressed, selected, badged, focus, disabled | variant, density, selected, disabled | - |
+| floating-action-button | actions | primary, extended, mini | default, danger, warning | default, hover, focus, pressed, loading, disabled | variant, state, intent, density, disabled, loading | - |
+| icon-button | actions | primary, secondary, tertiary, outlined, ghost | default | default, hover, pressed, selected, badged, focus, disabled, loading | variant, state, intent, density, selected, disabled, loading | - |
 | inline-validation | feedback | info, success, warning, error | info, success, warning, error | default, info, success, warning, error, disabled | state, density | - |
 | input | fields | text, email, password, number, currency, unit, search | default | default, focus, filled, info, success, warning, loading, error, disabled | variant, state, density, disabled, loading | - |
 | input-amount | fields-payment | default | default | default, filled, loading, error, disabled | state, density, disabled, loading | - |
@@ -74,7 +73,6 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | phone-input | fields | country-code, compact, otp-handoff, readonly | input | default, hover, focus, valid, warning, error, disabled | variant, state, density, disabled | - |
 | popover | overlays | information, action, form, metric | contextual | default, closed, open, hover, focus, warning, disabled | variant, state, density, disabled | - |
 | progress-indicator | feedback | linear, indeterminate | accent, success, warning, danger, ink | default, active, indeterminate, paused, complete, error, disabled | state, tone, density | - |
-| quick-action | actions | standard, compact, wide | default, danger, warning | default, hover, focus, pressed, loading, warning, disabled | variant, state, intent, density, disabled, loading | - |
 | radio-button | choices | default, descriptive, compact, critical | default | unselected, selected, focus, error, disabled | variant, state, density, disabled | - |
 | route-summary | domain-fleet | standard, compact, compare, policy | info, warning | default, hover, focus, selected, warning, disabled | variant, state, tone, density, selected, disabled | - |
 | segmented-control | navigation | outlined, toolbar, compact, icon-only | selection | default, hover, focus, selected, warning, disabled | variant, density | - |

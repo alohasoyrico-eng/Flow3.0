@@ -18,7 +18,7 @@ const sourceRuntimeHeader = [
   " */",
   "",
 ].join("\n");
-const components = ["CardSummary", "ChartPanel", "KpiTile", "QuickAction", "RouteSummary"];
+const components = ["CardSummary", "ChartPanel", "KpiTile", "RouteSummary"];
 
 function absolute(relativePath) {
   return path.join(root, relativePath);

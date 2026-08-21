@@ -26,13 +26,13 @@
     }
   },
   "inventory": {
-    "publicReactComponents": 62,
-    "readyComponents": 62,
+    "publicReactComponents": 61,
+    "readyComponents": 61,
     "partialComponents": 0,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
-    "p1Components": 17,
+    "p1Components": 16,
     "p2Components": 24,
     "missingContracts": 0,
     "missingDirectTestEvidence": 0,
@@ -63,9 +63,9 @@
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 231,
-    "fireEvent": 519,
-    "getByRole": 441,
+    "testingLibraryRender": 228,
+    "fireEvent": 516,
+    "getByRole": 440,
     "getByLabelText": 19,
     "keyDown": 64,
     "escapeKey": 24,
@@ -2227,55 +2227,6 @@
         "notes": [
           "Axe structural accessibility excludes color-contrast in JSDOM.",
           "Component has no dismiss/action surface; evidence covers determinate, indeterminate, and complete states."
-        ],
-        "invalidEvidenceFiles": []
-      },
-      "structuralIssues": [],
-      "evidenceGaps": []
-    },
-    {
-      "slug": "quick-action",
-      "component": "QuickAction",
-      "priority": "P1",
-      "family": "actions",
-      "status": "ready",
-      "evidence": {
-        "reactExport": "./quick-action",
-        "rootExport": true,
-        "source": "packages/react/src/QuickAction.tsx",
-        "dist": "packages/react/dist/QuickAction.js",
-        "types": "packages/react/dist/QuickAction.d.ts",
-        "contract": "packages/content/content/component-contracts/components/quick-action.md",
-        "tests": [
-          "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs",
-          "packages/react/test/p1-actions.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
-        ]
-      },
-      "requiredProductionEvidence": [
-        "render",
-        "props",
-        "a11y",
-        "callback",
-        "disabled/prevented"
-      ],
-      "productionReadiness": {
-        "status": "ready",
-        "evidenceFiles": [
-          "packages/react/test/p1-actions.test.mjs",
-          "packages/react/test/interaction.test.mjs"
-        ],
-        "coveredProductionEvidence": [
-          "render",
-          "props",
-          "a11y",
-          "callback",
-          "disabled/prevented"
-        ],
-        "notes": [
-          "Axe structural accessibility excludes color-contrast in JSDOM."
         ],
         "invalidEvidenceFiles": []
       },

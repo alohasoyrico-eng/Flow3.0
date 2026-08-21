@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { floatingActionButtonPlatformContract } from "#flow/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
-const validVariants = new Set(["primary", "secondary", "tertiary", "outlined", "ghost"]);
+const validVariants = new Set(["primary", "extended", "mini"]);
 const validIntents = new Set(["default", "danger", "warning"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "disabled"]);
 const validTypes = new Set(["button", "submit", "reset"]);
@@ -14,7 +14,7 @@ export const FloatingActionButton = forwardRef(function FloatingActionButton({ l
     const resolvedLabel = label;
     const resolvedType = validTypes.has(type) ? type : "button";
     const canInteract = Boolean(rest.onClick || resolvedType === "submit" || resolvedType === "reset");
-    const isExtended = Boolean(extended);
+    const isExtended = Boolean(extended || resolvedVariant === "extended");
     if (!resolvedLabel)
         return null;
     return React.createElement("button", {

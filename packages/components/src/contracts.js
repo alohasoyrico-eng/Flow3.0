@@ -60,15 +60,18 @@ export const componentContracts = {
         purpose: "Trigger a compact icon-only utility with a fixed circular hit area, required accessible label, optional badge, and selected state only for true toggles.",
         variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
         intents: ["default"],
-        states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled"],
+        states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled", "loading"],
         props: [
             { name: "ariaLabel", type: "string", required: true },
             { name: "label", type: "string", required: false },
             { name: "icon", type: "string", required: true },
             { name: "variant", type: "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"", required: false },
+            { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+            { name: "state", type: "\"default\" | \"hover\" | \"pressed\" | \"selected\" | \"badged\" | \"focus\" | \"disabled\" | \"loading\"", required: false },
             { name: "selected", type: "boolean", required: false },
             { name: "badge", type: "boolean", required: false },
+            { name: "loading", type: "boolean", required: false },
             { name: "disabled", type: "boolean", required: false },
             { name: "type", type: "\"button\" | \"submit\" | \"reset\"", required: false }
         ],
@@ -76,6 +79,7 @@ export const componentContracts = {
             "Always provide an accessible action name through ariaLabel or label.",
             "Keep the icon hidden from assistive technology.",
             "Expose selected toggle state with aria-pressed only when selected is true.",
+            "Expose loading state with aria-busy and Spinner while blocking duplicate activation.",
             "Keep badge decorative and do not let it replace the accessible name."
         ]
     },
@@ -1089,14 +1093,14 @@ export const componentContracts = {
     floatingActionButton: {
         factory: "@design-system/react/floating-action-button",
         element: "button",
-        purpose: "Expose one prominent contextual action with action hierarchy variants and optional extended label treatment.",
-        variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
+        purpose: "Expose one prominent contextual action with FAB-specific treatment variants and optional extended label treatment.",
+        variants: ["primary", "extended", "mini"],
         intents: ["default", "danger", "warning"],
         states: ["default", "hover", "focus", "pressed", "loading", "disabled"],
         props: [
             { name: "label", type: "string", required: true },
             { name: "icon", type: "string", required: false },
-            { name: "variant", type: "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"", required: false },
+            { name: "variant", type: "\"primary\" | \"extended\" | \"mini\"", required: false },
             { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
             { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"disabled\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
@@ -1108,7 +1112,7 @@ export const componentContracts = {
         accessibility: [
             "Always expose an accessible action label.",
             "Use extended label when the icon is not universally clear.",
-            "Keep action hierarchy variants aligned with Button and Icon Button.",
+            "Keep action hierarchy in Button or Icon Button; FAB variants only describe prominence, extension, and compact treatment.",
             "Do not use FAB for multiple competing actions."
         ]
     },
@@ -1702,33 +1706,6 @@ export const componentContracts = {
             "Disable empty or sending submissions.",
             "Connect error/helper text to the Field/TextArea contract.",
             "Route attachment and send actions through Button/Icon Button semantics."
-        ]
-    },
-    quickAction: {
-        factory: "@design-system/react/quick-action",
-        element: "div",
-        purpose: "Expose one compact local action with optional icon, badge, variant, state, and density without becoming a grouped actions pattern.",
-        variants: ["standard", "compact", "wide"],
-        intents: ["default", "danger", "warning"],
-        states: ["default", "hover", "focus", "pressed", "loading", "warning", "disabled"],
-        props: [
-            { name: "label", type: "string", required: true },
-            { name: "icon", type: "string", required: false },
-            { name: "badge", type: "string", required: false },
-            { name: "variant", type: "\"standard\" | \"compact\" | \"wide\"", required: false },
-            { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
-            { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"warning\" | \"disabled\"", required: false },
-            { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-            { name: "loading", type: "boolean", required: false },
-            { name: "disabled", type: "boolean", required: false },
-            { name: "type", type: "\"button\" | \"submit\" | \"reset\"", required: false },
-            { name: "onAction", type: "(meta: QuickActionMeta) => void", required: false }
-        ],
-        accessibility: [
-            "Keep the action label visible.",
-            "Hide decorative icons from assistive technology.",
-            "Expose loading with aria-busy.",
-            "Use confirmation patterns for destructive or high-risk actions."
         ]
     }
 };

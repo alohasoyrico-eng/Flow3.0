@@ -50,6 +50,10 @@ export type {
 } from "./DocsHomeTemplate.js";
 export type {
   DriverCardWalletAction,
+  DriverCardWalletActionIntent,
+  DriverCardWalletActionMeta,
+  DriverCardWalletActionState,
+  DriverCardWalletActionVariant,
   DriverCardWalletComponent,
   DriverCardWalletDensity,
   DriverCardWalletMovement,

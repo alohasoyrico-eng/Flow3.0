@@ -3,10 +3,10 @@
   "audit": "react composition governance",
   "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.",
   "inventory": {
-    "components": 61,
+    "components": 60,
     "compositionDebt": 0,
     "compositionalComponents": 29,
-    "compositionEdges": 52,
+    "compositionEdges": 51,
     "allowedEntries": 29,
     "unexpectedImports": 0,
     "missingImports": 0,
@@ -59,7 +59,6 @@
     "PhoneInput",
     "Popover",
     "ProgressIndicator",
-    "QuickAction",
     "RadioButton",
     "RouteSummary",
     "SegmentedControl",
@@ -251,6 +250,11 @@
       "reason": "loading indicator slot"
     },
     {
+      "from": "IconButton",
+      "to": "Spinner",
+      "reason": "loading indicator slot"
+    },
+    {
       "from": "InlineValidation",
       "to": "Input",
       "reason": "field validation composition"
@@ -294,16 +298,6 @@
       "from": "Popover",
       "to": "Input",
       "reason": "form field slot"
-    },
-    {
-      "from": "QuickAction",
-      "to": "Badge",
-      "reason": "counter badge slot"
-    },
-    {
-      "from": "QuickAction",
-      "to": "Spinner",
-      "reason": "loading indicator slot"
     },
     {
       "from": "RouteSummary",
@@ -888,9 +882,15 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.js",
-      "actual": [],
-      "allowed": [],
-      "reasons": {},
+      "actual": [
+        "Spinner"
+      ],
+      "allowed": [
+        "Spinner"
+      ],
+      "reasons": {
+        "Spinner": "loading indicator slot"
+      },
       "unexpected": [],
       "missing": [],
       "missingReasons": [],
@@ -1092,28 +1092,6 @@
       "actual": [],
       "allowed": [],
       "reasons": {},
-      "unexpected": [],
-      "missing": [],
-      "missingReasons": [],
-      "duplicateAllowed": [],
-      "unknownAllowed": [],
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.js",
-      "actual": [
-        "Badge",
-        "Spinner"
-      ],
-      "allowed": [
-        "Badge",
-        "Spinner"
-      ],
-      "reasons": {
-        "Badge": "counter badge slot",
-        "Spinner": "loading indicator slot"
-      },
       "unexpected": [],
       "missing": [],
       "missingReasons": [],

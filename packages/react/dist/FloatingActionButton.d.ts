@@ -6,7 +6,7 @@ import type {
 import type { FlowDataAttributes } from "./internal/props.js";
 import type { floatingActionButtonPlatformContract } from "#flow/platforms";
 
-export type FloatingActionButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
+export type FloatingActionButtonVariant = "primary" | "extended" | "mini";
 export type FloatingActionButtonIntent = "default" | "danger" | "warning";
 export type FloatingActionButtonState = "default" | "hover" | "focus" | "pressed" | "loading" | "disabled";
 export type FloatingActionButtonDensity = "sm" | "md" | "lg";

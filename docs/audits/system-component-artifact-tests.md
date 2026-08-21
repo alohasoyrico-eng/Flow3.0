@@ -7,13 +7,13 @@ Every public React component artifact must be tested one by one from the built p
 ## Inventory
 
 - Plan iteration: 15
-- Catalog components: 61
-- Contract components: 61
-- Tested components: 61
-- Passing components: 61
+- Catalog components: 60
+- Contract components: 60
+- Tested components: 60
+- Passing components: 60
 - Failing components: 0
 - Component artifact test debt: 0
-- Density checks: 61
+- Density checks: 60
 - State checks: 55
 - Theme checks: 0
 
@@ -27,7 +27,7 @@ Every public React component artifact must be tested one by one from the built p
 | --- | --- | --- | --- | ---: | --- |
 | button | Button | pass | None | 3 | None |
 | codeBlock | CodeBlock | pass | code | 3 | None |
-| iconButton | IconButton | pass | ariaLabel, icon | 2 | None |
+| iconButton | IconButton | pass | ariaLabel, icon | 3 | None |
 | input | Input | pass | label | 3 | None |
 | inputAmount | InputAmount | pass | label | 3 | None |
 | cardNumberInput | CardNumberInput | pass | label | 3 | None |
@@ -85,5 +85,4 @@ Every public React component artifact must be tested one by one from the built p
 | chatMessage | ChatMessage | pass | None | 3 | None |
 | chatThread | ChatThread | pass | None | 3 | None |
 | chatComposer | ChatComposer | pass | None | 3 | None |
-| quickAction | QuickAction | pass | label | 3 | None |
 

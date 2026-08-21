@@ -48,7 +48,6 @@ const componentPriority = {
   p1: new Set([
     "icon-button",
     "floating-action-button",
-    "quick-action",
     "text-area",
     "country-selector",
     "card-number-input",
@@ -113,7 +112,6 @@ const familyBySlug = {
   "phone-input": "fields",
   popover: "overlays",
   "progress-indicator": "feedback",
-  "quick-action": "actions",
   "radio-button": "choices",
   "route-summary": "domain-fleet",
   "segmented-control": "navigation",

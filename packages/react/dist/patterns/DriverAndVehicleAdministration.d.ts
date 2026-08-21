@@ -6,8 +6,8 @@ import type { ButtonProps } from "../Button.js";
 import type { CardSummaryProps } from "../CardSummary.js";
 import type { DialogProps } from "../Dialog.js";
 import type { EmptyStateProps } from "../EmptyState.js";
+import type { IconButtonProps } from "../IconButton.js";
 import type { PaginationProps } from "../Pagination.js";
-import type { QuickActionProps } from "../QuickAction.js";
 import type { TableProps } from "../Table.js";
 import type { ToastProps } from "../Toast.js";
 import type { FlowDataAttributes } from "../internal/props.js";
@@ -15,6 +15,9 @@ import type { ToolbarProps } from "./Toolbar.js";
 
 export type DriverAndVehicleAdministrationState = "loading" | "empty" | "ready" | "selected" | "action-running" | "permission-blocked" | "error" | "disabled";
 export type DriverAndVehicleAdministrationDensity = ButtonProps["density"];
+export type DriverAndVehicleAdministrationActionVariant = "standard" | "compact" | "wide";
+export type DriverAndVehicleAdministrationActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
+export type DriverAndVehicleAdministrationActionIntent = "default" | "danger" | "warning";
 
 export interface DriverAndVehicleAdministrationRecord {
   key?: string;
@@ -37,9 +40,23 @@ export interface DriverAndVehicleAdministrationRecord {
   [key: string]: unknown;
 }
 
-export interface DriverAndVehicleAdministrationAction extends Omit<QuickActionProps, "children"> {
+export interface DriverAndVehicleAdministrationActionMeta {
+  label: string;
+  variant: DriverAndVehicleAdministrationActionVariant;
+  intent: DriverAndVehicleAdministrationActionIntent;
+  state: DriverAndVehicleAdministrationActionState;
+}
+
+export interface DriverAndVehicleAdministrationAction extends Omit<IconButtonProps, "ariaLabel" | "badge" | "icon" | "label" | "loading" | "onClick" | "selected" | "state" | "variant" | "intent"> {
   key?: string;
   label: string;
+  icon?: string;
+  badge?: string;
+  variant?: DriverAndVehicleAdministrationActionVariant;
+  state?: DriverAndVehicleAdministrationActionState;
+  intent?: DriverAndVehicleAdministrationActionIntent;
+  loading?: boolean;
+  onAction?: (meta: DriverAndVehicleAdministrationActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface DriverAndVehicleAdministrationDialog extends Partial<DialogProps> {}

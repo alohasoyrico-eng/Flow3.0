@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import { Badge } from "../Badge.js";
 import { Dialog } from "../Dialog.js";
-import { QuickAction } from "../QuickAction.js";
+import { IconButton } from "../IconButton.js";
 import { Toast } from "../Toast.js";
 import { Tooltip } from "../Tooltip.js";
 import { Search } from "./Search.js";
@@ -28,6 +28,12 @@ function actionKey(action, index) {
 }
 function isGridAction(action) {
     return Boolean(action?.label);
+}
+function iconButtonVariantForAction(variant) {
+    return variant === "compact" ? "ghost" : "secondary";
+}
+function iconButtonStateForAction(state) {
+    return state === "warning" ? "default" : state;
 }
 export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "Quick actions", density, state, loading = false, disabled = false, permissionBlocked = false, confirming = false, completed = false, error, actions = [], search, confirmation, feedback, className = "", onAction, ...rest }, ref) {
     const normalizedActions = (Array.isArray(actions) ? actions : []).filter(isGridAction);
@@ -69,21 +75,42 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
                 ? "disabled"
                 : action.state ?? "default";
         const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
-        return React.createElement("div", { key, "data-action-key": key }, React.createElement(QuickAction, {
+        const variant = action.variant ?? "standard";
+        const meta = {
             label: action.label,
-            icon: action.icon,
-            badge: action.badge,
-            variant: action.variant ?? "standard",
+            variant,
             intent,
             state: actionState,
+        };
+        return React.createElement("div", { key, "data-action-key": key }, React.createElement("div", {
+            className: "quick-action",
+            "data-variant": variant,
+            "data-intent": intent,
+            "data-state": actionState,
+            "data-density": action.density ?? density,
+        }, React.createElement(IconButton, {
+            label: action.label,
+            icon: action.icon,
+            variant: iconButtonVariantForAction(variant),
+            intent,
+            state: iconButtonStateForAction(actionState),
             density: action.density ?? density,
             loading: resolvedState === "loading" || action.loading,
             disabled: actionDisabled,
-            onAction: (meta, event) => {
+            className: "quick-action__control",
+            onClick: (event) => {
                 action.onAction?.(meta, event);
+                if (event.defaultPrevented)
+                    return;
                 onAction?.(key, action, event);
             },
-        }), action.status
+        }), action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null, action.badge
+            ? React.createElement(Badge, {
+                label: action.badge,
+                variant: "count",
+                density: action.density ?? density,
+            })
+            : null), action.status
             ? React.createElement(Badge, {
                 label: action.status.label,
                 tone: action.status.tone ?? (action.permissionBlocked ? "warning" : "info"),

@@ -27,10 +27,10 @@
     "templatesWithControlledDrawer": 4,
     "templateSlotAssertions": 24,
     "templateModuleAssertions": 40,
-    "childPatternAssertions": 24,
-    "uniqueChildPatternAssertions": 15,
-    "childComponentAssertions": 6,
-    "uniqueChildComponentAssertions": 6,
+    "childPatternAssertions": 25,
+    "uniqueChildPatternAssertions": 16,
+    "childComponentAssertions": 5,
+    "uniqueChildComponentAssertions": 5,
     "densityCases": 3,
     "stateCases": 7,
     "docsRuntimeReferences": 0,
@@ -117,8 +117,7 @@
       "requiredTypeChecks": 10,
       "directComponentImports": [
         "CardSummary from CardSummary.js",
-        "MovementRow from MovementRow.js",
-        "QuickAction from QuickAction.js"
+        "MovementRow from MovementRow.js"
       ],
       "forbiddenDirectComponentImports": [],
       "forbiddenSourceMatches": [],
@@ -195,7 +194,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "notifications",
-      "markupBytes": 13333,
+      "markupBytes": 13751,
       "densityMarkers": 33,
       "failures": []
     },
@@ -206,7 +205,7 @@
       "density": "md",
       "state": "loading",
       "selected": "profile",
-      "markupBytes": 13863,
+      "markupBytes": 14281,
       "densityMarkers": 34,
       "failures": []
     },
@@ -217,7 +216,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "profile",
-      "markupBytes": 13288,
+      "markupBytes": 13706,
       "densityMarkers": 33,
       "failures": []
     },
@@ -228,7 +227,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "profile",
-      "markupBytes": 13557,
+      "markupBytes": 13975,
       "densityMarkers": 33,
       "failures": []
     },
@@ -239,7 +238,7 @@
       "density": "sm",
       "state": "error",
       "selected": "profile",
-      "markupBytes": 13287,
+      "markupBytes": 13705,
       "densityMarkers": 33,
       "failures": []
     },
@@ -250,7 +249,7 @@
       "density": "md",
       "state": "offline",
       "selected": "profile",
-      "markupBytes": 13291,
+      "markupBytes": 13709,
       "densityMarkers": 33,
       "failures": []
     },
@@ -261,7 +260,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "profile",
-      "markupBytes": 13591,
+      "markupBytes": 14009,
       "densityMarkers": 33,
       "failures": []
     },
@@ -272,7 +271,7 @@
       "density": "md",
       "state": "dirty",
       "selected": "theme",
-      "markupBytes": 13295,
+      "markupBytes": 13713,
       "densityMarkers": 33,
       "failures": []
     },
@@ -283,7 +282,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "tickets",
-      "markupBytes": 24673,
+      "markupBytes": 24787,
       "densityMarkers": 69,
       "failures": []
     },
@@ -294,7 +293,7 @@
       "density": "md",
       "state": "loading",
       "selected": "cases",
-      "markupBytes": 37704,
+      "markupBytes": 37805,
       "densityMarkers": 67,
       "failures": []
     },
@@ -305,7 +304,7 @@
       "density": "md",
       "state": "empty",
       "selected": "cases",
-      "markupBytes": 23927,
+      "markupBytes": 24027,
       "densityMarkers": 67,
       "failures": []
     },
@@ -316,7 +315,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "cases",
-      "markupBytes": 23362,
+      "markupBytes": 23462,
       "densityMarkers": 64,
       "failures": []
     },
@@ -327,7 +326,7 @@
       "density": "sm",
       "state": "error",
       "selected": "cases",
-      "markupBytes": 23470,
+      "markupBytes": 23570,
       "densityMarkers": 67,
       "failures": []
     },
@@ -338,7 +337,7 @@
       "density": "md",
       "state": "offline",
       "selected": "cases",
-      "markupBytes": 23474,
+      "markupBytes": 23574,
       "densityMarkers": 67,
       "failures": []
     },
@@ -349,7 +348,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "cases",
-      "markupBytes": 22852,
+      "markupBytes": 22953,
       "densityMarkers": 62,
       "failures": []
     },
@@ -360,7 +359,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "pricing",
-      "markupBytes": 24625,
+      "markupBytes": 24739,
       "densityMarkers": 69,
       "failures": []
     },
@@ -371,7 +370,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "route-help",
-      "markupBytes": 9394,
+      "markupBytes": 9523,
       "densityMarkers": 26,
       "failures": []
     },
@@ -382,7 +381,7 @@
       "density": "md",
       "state": "loading",
       "selected": "handoff",
-      "markupBytes": 8676,
+      "markupBytes": 8808,
       "densityMarkers": 24,
       "failures": []
     },
@@ -393,7 +392,7 @@
       "density": "md",
       "state": "empty",
       "selected": "handoff",
-      "markupBytes": 9359,
+      "markupBytes": 9488,
       "densityMarkers": 26,
       "failures": []
     },
@@ -404,7 +403,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "handoff",
-      "markupBytes": 8265,
+      "markupBytes": 8397,
       "densityMarkers": 23,
       "failures": []
     },
@@ -415,7 +414,7 @@
       "density": "sm",
       "state": "error",
       "selected": "handoff",
-      "markupBytes": 7829,
+      "markupBytes": 7958,
       "densityMarkers": 22,
       "failures": []
     },
@@ -426,7 +425,7 @@
       "density": "md",
       "state": "offline",
       "selected": "handoff",
-      "markupBytes": 7940,
+      "markupBytes": 8070,
       "densityMarkers": 22,
       "failures": []
     },
@@ -437,7 +436,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "handoff",
-      "markupBytes": 7902,
+      "markupBytes": 8034,
       "densityMarkers": 22,
       "failures": []
     },
@@ -448,7 +447,7 @@
       "density": "md",
       "state": "handoff",
       "selected": "receipt",
-      "markupBytes": 9367,
+      "markupBytes": 9496,
       "densityMarkers": 26,
       "failures": []
     },
@@ -459,7 +458,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "drivers",
-      "markupBytes": 21538,
+      "markupBytes": 21652,
       "densityMarkers": 59,
       "failures": []
     },
@@ -470,7 +469,7 @@
       "density": "md",
       "state": "loading",
       "selected": "permissions",
-      "markupBytes": 19052,
+      "markupBytes": 19153,
       "densityMarkers": 51,
       "failures": []
     },
@@ -481,7 +480,7 @@
       "density": "md",
       "state": "empty",
       "selected": "permissions",
-      "markupBytes": 20804,
+      "markupBytes": 20904,
       "densityMarkers": 57,
       "failures": []
     },
@@ -492,7 +491,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "permissions",
-      "markupBytes": 32747,
+      "markupBytes": 32790,
       "densityMarkers": 60,
       "failures": []
     },
@@ -503,7 +502,7 @@
       "density": "sm",
       "state": "error",
       "selected": "permissions",
-      "markupBytes": 18104,
+      "markupBytes": 18204,
       "densityMarkers": 49,
       "failures": []
     },
@@ -514,7 +513,7 @@
       "density": "md",
       "state": "offline",
       "selected": "permissions",
-      "markupBytes": 18108,
+      "markupBytes": 18208,
       "densityMarkers": 49,
       "failures": []
     },
@@ -525,7 +524,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "permissions",
-      "markupBytes": 21405,
+      "markupBytes": 21506,
       "densityMarkers": 57,
       "failures": []
     },
@@ -536,7 +535,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "vehicles",
-      "markupBytes": 21497,
+      "markupBytes": 21611,
       "densityMarkers": 59,
       "failures": []
     },
@@ -547,8 +546,8 @@
       "density": "sm",
       "state": "loaded",
       "selected": "movements",
-      "markupBytes": 6079,
-      "densityMarkers": 14,
+      "markupBytes": 6563,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -558,8 +557,8 @@
       "density": "md",
       "state": "loading",
       "selected": "card",
-      "markupBytes": 7134,
-      "densityMarkers": 17,
+      "markupBytes": 7497,
+      "densityMarkers": 21,
       "failures": []
     },
     {
@@ -569,8 +568,8 @@
       "density": "md",
       "state": "empty",
       "selected": "card",
-      "markupBytes": 6020,
-      "densityMarkers": 14,
+      "markupBytes": 6504,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -580,8 +579,8 @@
       "density": "lg",
       "state": "permission",
       "selected": "card",
-      "markupBytes": 6163,
-      "densityMarkers": 14,
+      "markupBytes": 6687,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -591,8 +590,8 @@
       "density": "sm",
       "state": "error",
       "selected": "card",
-      "markupBytes": 6016,
-      "densityMarkers": 14,
+      "markupBytes": 6500,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -602,8 +601,8 @@
       "density": "md",
       "state": "offline",
       "selected": "card",
-      "markupBytes": 6156,
-      "densityMarkers": 14,
+      "markupBytes": 6640,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -613,8 +612,8 @@
       "density": "lg",
       "state": "disabled",
       "selected": "card",
-      "markupBytes": 6191,
-      "densityMarkers": 14,
+      "markupBytes": 6715,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -624,8 +623,8 @@
       "density": "md",
       "state": "loaded",
       "selected": "help",
-      "markupBytes": 6035,
-      "densityMarkers": 14,
+      "markupBytes": 6519,
+      "densityMarkers": 18,
       "failures": []
     },
     {
@@ -635,7 +634,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "routes",
-      "markupBytes": 22997,
+      "markupBytes": 22940,
       "densityMarkers": 29,
       "failures": []
     },
@@ -646,7 +645,7 @@
       "density": "md",
       "state": "loading",
       "selected": "home",
-      "markupBytes": 25130,
+      "markupBytes": 25090,
       "densityMarkers": 32,
       "failures": []
     },
@@ -657,7 +656,7 @@
       "density": "md",
       "state": "empty",
       "selected": "home",
-      "markupBytes": 22962,
+      "markupBytes": 22905,
       "densityMarkers": 29,
       "failures": []
     },
@@ -668,7 +667,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "home",
-      "markupBytes": 24004,
+      "markupBytes": 23947,
       "densityMarkers": 32,
       "failures": []
     },
@@ -679,7 +678,7 @@
       "density": "sm",
       "state": "error",
       "selected": "home",
-      "markupBytes": 23097,
+      "markupBytes": 23040,
       "densityMarkers": 29,
       "failures": []
     },
@@ -690,7 +689,7 @@
       "density": "md",
       "state": "offline",
       "selected": "home",
-      "markupBytes": 23101,
+      "markupBytes": 23044,
       "densityMarkers": 29,
       "failures": []
     },
@@ -701,7 +700,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "home",
-      "markupBytes": 23233,
+      "markupBytes": 23176,
       "densityMarkers": 29,
       "failures": []
     },
@@ -712,7 +711,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "support",
-      "markupBytes": 22960,
+      "markupBytes": 22903,
       "densityMarkers": 29,
       "failures": []
     },
@@ -734,7 +733,7 @@
       "density": "md",
       "state": "loading",
       "selected": "centro",
-      "markupBytes": 9855,
+      "markupBytes": 9872,
       "densityMarkers": 21,
       "failures": []
     },
@@ -811,7 +810,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "finance",
-      "markupBytes": 14381,
+      "markupBytes": 14495,
       "densityMarkers": 36,
       "failures": []
     },
@@ -822,7 +821,7 @@
       "density": "md",
       "state": "loading",
       "selected": "overview",
-      "markupBytes": 13831,
+      "markupBytes": 13932,
       "densityMarkers": 34,
       "failures": []
     },
@@ -833,7 +832,7 @@
       "density": "md",
       "state": "empty",
       "selected": "overview",
-      "markupBytes": 13645,
+      "markupBytes": 13745,
       "densityMarkers": 34,
       "failures": []
     },
@@ -844,7 +843,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "overview",
-      "markupBytes": 14257,
+      "markupBytes": 14357,
       "densityMarkers": 36,
       "failures": []
     },
@@ -855,7 +854,7 @@
       "density": "sm",
       "state": "error",
       "selected": "overview",
-      "markupBytes": 13736,
+      "markupBytes": 13836,
       "densityMarkers": 34,
       "failures": []
     },
@@ -866,7 +865,7 @@
       "density": "md",
       "state": "offline",
       "selected": "overview",
-      "markupBytes": 13635,
+      "markupBytes": 13735,
       "densityMarkers": 34,
       "failures": []
     },
@@ -877,7 +876,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "overview",
-      "markupBytes": 13795,
+      "markupBytes": 13896,
       "densityMarkers": 34,
       "failures": []
     },
@@ -888,7 +887,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "ev",
-      "markupBytes": 14334,
+      "markupBytes": 14448,
       "densityMarkers": 36,
       "failures": []
     },
@@ -899,7 +898,7 @@
       "density": "sm",
       "state": "loaded",
       "selected": "fuel",
-      "markupBytes": 17534,
+      "markupBytes": 17648,
       "densityMarkers": 44,
       "failures": []
     },
@@ -910,7 +909,7 @@
       "density": "md",
       "state": "loading",
       "selected": "overview",
-      "markupBytes": 16975,
+      "markupBytes": 17076,
       "densityMarkers": 42,
       "failures": []
     },
@@ -921,7 +920,7 @@
       "density": "md",
       "state": "empty",
       "selected": "overview",
-      "markupBytes": 16801,
+      "markupBytes": 16901,
       "densityMarkers": 42,
       "failures": []
     },
@@ -932,7 +931,7 @@
       "density": "lg",
       "state": "permission",
       "selected": "overview",
-      "markupBytes": 17650,
+      "markupBytes": 17750,
       "densityMarkers": 44,
       "failures": []
     },
@@ -943,7 +942,7 @@
       "density": "sm",
       "state": "error",
       "selected": "overview",
-      "markupBytes": 16787,
+      "markupBytes": 16887,
       "densityMarkers": 42,
       "failures": []
     },
@@ -954,7 +953,7 @@
       "density": "md",
       "state": "offline",
       "selected": "overview",
-      "markupBytes": 16791,
+      "markupBytes": 16891,
       "densityMarkers": 42,
       "failures": []
     },
@@ -965,7 +964,7 @@
       "density": "lg",
       "state": "disabled",
       "selected": "overview",
-      "markupBytes": 17154,
+      "markupBytes": 17255,
       "densityMarkers": 42,
       "failures": []
     },
@@ -976,7 +975,7 @@
       "density": "md",
       "state": "loaded",
       "selected": "fleet",
-      "markupBytes": 17493,
+      "markupBytes": 17607,
       "densityMarkers": 44,
       "failures": []
     }

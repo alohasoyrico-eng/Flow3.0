@@ -4,14 +4,14 @@
   "planIteration": 15,
   "principle": "Every public React component artifact must be tested one by one from the built package boundary before pattern work continues.",
   "inventory": {
-    "catalogComponents": 61,
-    "contractComponents": 61,
-    "testedComponents": 61,
-    "passingComponents": 61,
+    "catalogComponents": 60,
+    "contractComponents": 60,
+    "testedComponents": 60,
+    "passingComponents": 60,
     "failingComponents": 0,
     "missingFromGoldInventory": 0,
-    "componentsWithRequiredProps": 56,
-    "densityChecks": 61,
+    "componentsWithRequiredProps": 55,
+    "densityChecks": 60,
     "stateChecks": 55,
     "themeChecks": 0,
     "componentArtifactTestDebt": 0
@@ -98,7 +98,7 @@
       "id": "iconButton",
       "component": "IconButton",
       "factory": "@design-system/react/icon-button",
-      "contractProps": 9,
+      "contractProps": 12,
       "requiredProps": [
         "ariaLabel",
         "icon"
@@ -112,8 +112,8 @@
         {
           "status": "pass",
           "component": "IconButton",
-          "markupLength": 237,
-          "rootTag": "<button data-artifact-test=\"iconButton\" type=\"button\" class=\"icon-button icon-button--ghost flow-artifact-test-hook\" aria-label=\"Reference action\" data-density=\"lg\">",
+          "markupLength": 280,
+          "rootTag": "<button data-artifact-test=\"iconButton\" type=\"button\" class=\"icon-button icon-button--ghost flow-artifact-test-hook\" aria-label=\"Reference action\" data-intent=\"default\" data-density=\"lg\" data-state=\"default\">",
           "issues": []
         },
         {
@@ -123,7 +123,8 @@
         },
         {
           "id": "state",
-          "status": "not-applicable"
+          "status": "pass",
+          "expected": "render state=hover"
         },
         {
           "id": "theme",
@@ -2348,45 +2349,6 @@
           "id": "state",
           "status": "pass",
           "expected": "render state=focus"
-        },
-        {
-          "id": "theme",
-          "status": "not-applicable"
-        }
-      ],
-      "issues": [],
-      "status": "pass"
-    },
-    {
-      "id": "quickAction",
-      "component": "QuickAction",
-      "factory": "@design-system/react/quick-action",
-      "contractProps": 11,
-      "requiredProps": [
-        "label"
-      ],
-      "evidence": {
-        "contract": "packages/components/src/contracts.js",
-        "runtime": "packages/react/dist/index.js",
-        "types": "packages/react/dist/QuickAction.d.ts"
-      },
-      "checks": [
-        {
-          "status": "pass",
-          "component": "QuickAction",
-          "markupLength": 412,
-          "rootTag": "<div class=\"quick-action flow-artifact-test-hook\" data-artifact-test=\"quickAction\" data-variant=\"standard\" data-state=\"default\" data-density=\"lg\" data-intent=\"default\">",
-          "issues": []
-        },
-        {
-          "id": "density",
-          "status": "pass",
-          "expected": "root data-density=sm"
-        },
-        {
-          "id": "state",
-          "status": "pass",
-          "expected": "render state=hover"
         },
         {
           "id": "theme",

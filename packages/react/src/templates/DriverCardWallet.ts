@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from "react";
 import { CardSummary, type CardSummaryProps } from "../CardSummary.js";
 import { MovementRow, type MovementRowProps } from "../MovementRow.js";
-import { QuickAction, type QuickActionProps } from "../QuickAction.js";
+import { QuickActionsGrid, type QuickActionsGridAction, type QuickActionsGridActionIntent, type QuickActionsGridActionMeta, type QuickActionsGridActionState, type QuickActionsGridActionVariant } from "../patterns/QuickActionsGrid.js";
 import { Surface, type SurfaceDensity, type SurfaceState, type SurfaceTone } from "../Surface.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 import type { ForwardRefExoticComponent, MouseEvent, ReactNode, RefAttributes } from "react";
@@ -9,6 +9,9 @@ import type { ForwardRefExoticComponent, MouseEvent, ReactNode, RefAttributes } 
 export type DriverCardWalletState = "loaded" | "loading" | "empty" | "error" | "permission" | "offline" | "disabled";
 export type DriverCardWalletDensity = SurfaceDensity;
 export type DriverCardWalletSection = "card" | "movements" | "limits" | "help" | (string & {});
+export type DriverCardWalletActionVariant = QuickActionsGridActionVariant;
+export type DriverCardWalletActionState = QuickActionsGridActionState;
+export type DriverCardWalletActionIntent = QuickActionsGridActionIntent;
 
 export interface DriverCardWalletSectionItem {
   key: string;
@@ -16,7 +19,9 @@ export interface DriverCardWalletSectionItem {
   disabled?: boolean;
 }
 
-export interface DriverCardWalletAction extends QuickActionProps {
+export type DriverCardWalletActionMeta = QuickActionsGridActionMeta;
+
+export interface DriverCardWalletAction extends QuickActionsGridAction {
   key?: string;
 }
 
@@ -103,7 +108,7 @@ function cardStateForTemplate(state: DriverCardWalletState): CardSummaryProps["s
   return "active";
 }
 
-function actionStateForTemplate(state: DriverCardWalletState): QuickActionProps["state"] {
+function actionStateForTemplate(state: DriverCardWalletState): DriverCardWalletActionState {
   if (state === "loading") return "loading";
   if (state === "permission" || state === "error" || state === "offline") return "warning";
   if (state === "disabled") return "disabled";
@@ -276,19 +281,19 @@ export const DriverCardWallet = forwardRef<HTMLDivElement, DriverCardWalletProps
           "data-template-module": "quick-actions",
           "data-module-item-count": String(actions.length),
         },
-        actions.map((action) =>
-          React.createElement(QuickAction, {
+        React.createElement(QuickActionsGrid, {
+          label: `${label} actions`,
+          density,
+          state: isBusy ? "loading" : isDisabled || resolvedState === "permission" ? "disabled" : "default",
+          actions: actions.map((action) => ({
             ...action,
-            key: action.key ?? action.label,
-            label: action.label,
-            icon: action.icon,
             density: action.density ?? density,
             state: action.state ?? actionStateForTemplate(resolvedState),
             disabled: isDisabled || action.disabled || resolvedState === "permission",
             loading: isBusy || action.loading,
-            "data-template-action": action.key ?? action.label,
-          } as DriverCardWalletAction),
-        ),
+          })),
+          "data-template-component": "quick-actions-grid",
+        } as React.ComponentProps<typeof QuickActionsGrid>),
       ),
       React.createElement(
         Surface,

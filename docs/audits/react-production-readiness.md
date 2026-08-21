@@ -7,12 +7,12 @@ Production readiness is not inferred from visual parity or TS build success; eve
 ## Inventory
 
 - Plan iteration: 1
-- Public React components: 62
-- Ready components: 62
+- Public React components: 61
+- Ready components: 61
 - Partial components: 0
 - Blocked components: 0
 - P0 components: 21
-- P1 components: 17
+- P1 components: 16
 - P2 components: 24
 - Missing contracts: 0
 - Missing direct test evidence: 0
@@ -21,9 +21,9 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 231
-- fireEvent calls: 519
-- getByRole calls: 441
+- Testing Library render calls: 228
+- fireEvent calls: 516
+- getByRole calls: 440
 - getByLabelText calls: 19
 - keyDown calls: 64
 - Escape key checks: 24
@@ -82,7 +82,6 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | phone-input | PhoneInput | P0 | forms | ready | yes | 4 | None | None |
 | popover | Popover | P0 | overlays-feedback | ready | yes | 5 | None | None |
 | progress-indicator | ProgressIndicator | P1 | feedback | ready | yes | 2 | None | None |
-| quick-action | QuickAction | P1 | actions | ready | yes | 5 | None | None |
 | radio-button | RadioButton | P0 | forms | ready | yes | 3 | None | None |
 | route-summary | RouteSummary | P2 | domain-fleet | ready | yes | 4 | None | None |
 | segmented-control | SegmentedControl | P1 | navigation-disclosure | ready | yes | 3 | None | None |

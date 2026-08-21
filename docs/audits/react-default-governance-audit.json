@@ -4,11 +4,11 @@
   "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
   "baseline": {
     "inventory": {
-      "components": 61,
+      "components": 60,
       "defaultDebt": 0,
       "prohibitedDefaults": 0,
-      "semanticDefaultDecisions": 116,
-      "contractBackedSemanticDefaultDecisions": 116,
+      "semanticDefaultDecisions": 117,
+      "contractBackedSemanticDefaultDecisions": 117,
       "unbackedSemanticDefaultDecisions": 0,
       "semanticDefaultDecisionContractGaps": 0,
       "reactGovernancePolicyIssues": 0
@@ -17,7 +17,7 @@
       "state-default": 45,
       "variant-default": 41,
       "tone-default": 14,
-      "intent-default": 3,
+      "intent-default": 4,
       "status-default": 1,
       "placement-default": 2,
       "side-default": 1,
@@ -41,7 +41,7 @@
         "state-default": 45,
         "variant-default": 41,
         "tone-default": 14,
-        "intent-default": 3,
+        "intent-default": 4,
         "status-default": 1,
         "placement-default": 2,
         "side-default": 1,
@@ -186,11 +186,11 @@
     }
   },
   "inventory": {
-    "components": 61,
+    "components": 60,
     "defaultDebt": 0,
     "prohibitedDefaults": 0,
-    "semanticDefaultDecisions": 116,
-    "contractBackedSemanticDefaultDecisions": 116,
+    "semanticDefaultDecisions": 117,
+    "contractBackedSemanticDefaultDecisions": 117,
     "unbackedSemanticDefaultDecisions": 0,
     "semanticDefaultDecisionContractGaps": 0,
     "reactGovernancePolicyIssues": 0,
@@ -219,8 +219,8 @@
       {
         "rule": "intent-default",
         "description": "Action intent fallback; allowed when constrained by the component contract.",
-        "count": 3,
-        "contractBacked": 3,
+        "count": 4,
+        "contractBacked": 4,
         "unbacked": 0
       },
       {
@@ -840,7 +840,7 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 33,
+      "line": 41,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
@@ -850,12 +850,32 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 41,
+      "line": 49,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
       "description": "Component composition default; allowed when constrained by the component contract.",
       "text": "variant = \"ghost\","
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.tsx",
+      "line": 50,
+      "rule": "intent-default",
+      "prop": "intent",
+      "value": "default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "intent = \"default\","
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.tsx",
+      "line": 52,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\","
     },
     {
       "component": "InlineValidation",
@@ -1126,16 +1146,6 @@
       "value": "active",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"active\","
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.tsx",
-      "line": 52,
-      "rule": "state-default",
-      "prop": "state",
-      "value": "default",
-      "description": "Component behavior default; allowed when normalized through component state.",
-      "text": "state = \"default\","
     },
     {
       "component": "RadioButton",
@@ -2976,7 +2986,7 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 33,
+      "line": 41,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
@@ -3004,7 +3014,7 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 41,
+      "line": 49,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
@@ -3023,6 +3033,64 @@
         "tertiary",
         "outlined",
         "ghost"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.tsx",
+      "line": 50,
+      "rule": "intent-default",
+      "prop": "intent",
+      "value": "default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "intent = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "IconButton",
+      "file": "packages/react/src/IconButton.tsx",
+      "line": 52,
+      "rule": "state-default",
+      "prop": "state",
+      "value": "default",
+      "description": "Component behavior default; allowed when normalized through component state.",
+      "text": "state = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "hover",
+        "focus",
+        "pressed",
+        "selected",
+        "badged",
+        "disabled",
+        "loading"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "hover",
+        "pressed",
+        "selected",
+        "badged",
+        "focus",
+        "disabled",
+        "loading"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",
@@ -3774,38 +3842,6 @@
         "paused",
         "complete",
         "error",
-        "disabled"
-      ],
-      "publicContractStatus": "pass",
-      "systemContractStatus": "pass",
-      "contractBacked": true,
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.tsx",
-      "line": 52,
-      "rule": "state-default",
-      "prop": "state",
-      "value": "default",
-      "description": "Component behavior default; allowed when normalized through component state.",
-      "text": "state = \"default\",",
-      "publicAllowedValues": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "loading",
-        "warning",
-        "disabled"
-      ],
-      "contractAllowedValues": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "loading",
-        "warning",
         "disabled"
       ],
       "publicContractStatus": "pass",

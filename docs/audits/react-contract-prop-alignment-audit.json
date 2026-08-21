@@ -4,19 +4,19 @@
   "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.",
   "baseline": {
     "inventory": {
-      "components": 61,
+      "components": 60,
       "propAlignmentDebt": 0,
-      "pass": 61,
+      "pass": 60,
       "fail": 0,
-      "contractProps": 740,
-      "publicReactProps": 620,
+      "contractProps": 732,
+      "publicReactProps": 614,
       "semanticInheritedProps": 1,
-      "inheritedContractProps": 28,
+      "inheritedContractProps": 27,
       "extraReactProps": 0,
       "missingReactProps": 0,
       "requiredMismatches": 0,
       "typeValueMismatches": 0,
-      "publicPropsExpectedInSource": 621,
+      "publicPropsExpectedInSource": 615,
       "unreferencedPublicProps": 0,
       "reactGovernancePolicyIssues": 0
     },
@@ -28,18 +28,18 @@
     "issues": []
   },
   "inventory": {
-    "components": 61,
-    "pass": 61,
+    "components": 60,
+    "pass": 60,
     "fail": 0,
-    "contractProps": 740,
-    "publicReactProps": 620,
+    "contractProps": 732,
+    "publicReactProps": 614,
     "semanticInheritedProps": 1,
-    "inheritedContractProps": 28,
+    "inheritedContractProps": 27,
     "extraReactProps": 0,
     "missingReactProps": 0,
     "requiredMismatches": 0,
     "typeValueMismatches": 0,
-    "publicPropsExpectedInSource": 621,
+    "publicPropsExpectedInSource": 615,
     "unreferencedPublicProps": 0,
     "reactGovernancePolicyIssues": 0,
     "propAlignmentDebt": 0
@@ -4151,7 +4151,7 @@
         },
         {
           "name": "variant",
-          "type": "\\\"primary\\\" | \\\"secondary\\\" | \\\"tertiary\\\" | \\\"outlined\\\" | \\\"ghost\\\"",
+          "type": "\\\"primary\\\" | \\\"extended\\\" | \\\"mini\\\"",
           "required": false
         },
         {
@@ -4272,8 +4272,18 @@
           "required": false
         },
         {
+          "name": "intent",
+          "type": "\\\"default\\\" | \\\"danger\\\" | \\\"warning\\\"",
+          "required": false
+        },
+        {
           "name": "density",
           "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
+          "required": false
+        },
+        {
+          "name": "state",
+          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"pressed\\\" | \\\"selected\\\" | \\\"badged\\\" | \\\"focus\\\" | \\\"disabled\\\" | \\\"loading\\\"",
           "required": false
         },
         {
@@ -4283,6 +4293,11 @@
         },
         {
           "name": "badge",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
           "type": "boolean",
           "required": false
         },
@@ -4307,7 +4322,15 @@
           "required": false
         },
         {
+          "name": "intent",
+          "required": false
+        },
+        {
           "name": "density",
+          "required": false
+        },
+        {
+          "name": "state",
           "required": false
         },
         {
@@ -4316,6 +4339,10 @@
         },
         {
           "name": "badge",
+          "required": false
+        },
+        {
+          "name": "loading",
           "required": false
         }
       ],
@@ -4330,7 +4357,10 @@
         "badge",
         "density",
         "icon",
+        "intent",
+        "loading",
         "selected",
+        "state",
         "variant"
       ],
       "unreferencedPublicProps": [],
@@ -6083,130 +6113,6 @@
         "showValue",
         "state",
         "tone"
-      ],
-      "unreferencedPublicProps": [],
-      "failures": [],
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "contractKey": "quickAction",
-      "source": "packages/react/src/QuickAction.js",
-      "types": "packages/react/src/QuickAction.d.ts",
-      "contractProps": [
-        {
-          "name": "label",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "badge",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\\\"standard\\\" | \\\"compact\\\" | \\\"wide\\\"",
-          "required": false
-        },
-        {
-          "name": "intent",
-          "type": "\\\"default\\\" | \\\"danger\\\" | \\\"warning\\\"",
-          "required": false
-        },
-        {
-          "name": "state",
-          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"loading\\\" | \\\"warning\\\" | \\\"disabled\\\"",
-          "required": false
-        },
-        {
-          "name": "density",
-          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "type",
-          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
-          "required": false
-        },
-        {
-          "name": "onAction",
-          "type": "(meta: QuickActionMeta) => void",
-          "required": false
-        }
-      ],
-      "publicReactProps": [
-        {
-          "name": "label",
-          "required": true
-        },
-        {
-          "name": "icon",
-          "required": false
-        },
-        {
-          "name": "badge",
-          "required": false
-        },
-        {
-          "name": "variant",
-          "required": false
-        },
-        {
-          "name": "state",
-          "required": false
-        },
-        {
-          "name": "intent",
-          "required": false
-        },
-        {
-          "name": "density",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "required": false
-        },
-        {
-          "name": "onAction",
-          "required": false
-        }
-      ],
-      "semanticInheritedProps": [],
-      "inheritedContractProps": [
-        "type"
-      ],
-      "extraReactProps": [],
-      "missingReactProps": [],
-      "semanticInheritedMissingFromContract": [],
-      "requiredMismatches": [],
-      "typeValueMismatches": [],
-      "publicPropsExpectedInSource": [
-        "badge",
-        "density",
-        "icon",
-        "intent",
-        "label",
-        "loading",
-        "onAction",
-        "state",
-        "variant"
       ],
       "unreferencedPublicProps": [],
       "failures": [],

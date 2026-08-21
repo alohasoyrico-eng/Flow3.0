@@ -683,18 +683,6 @@ export function componentDemoProps(component, demo = {}) {
             fullWidth: Boolean(demo.fullWidth),
             disabled: state === "disabled",
         };
-    if (component === "quick-action")
-        return {
-            label: demo.label ?? "Freeze card",
-            icon: demo.icon ?? "touch_app",
-            badge: demo.badge ?? "",
-            variant: demo.variant ?? "standard",
-            state,
-            density: demo.density,
-            loading: state === "loading",
-            disabled: state === "disabled",
-            tone: demo.tone ?? "neutral",
-        };
     if (component === "dialog") {
         const dialogState = demo.state ?? state;
         const variant = demo.variant ?? "confirmation";

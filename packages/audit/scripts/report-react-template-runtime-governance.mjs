@@ -304,9 +304,9 @@ const templateContracts = [
     uncontrolledSelected: "help",
     requiredSlots: ["wallet-shell", "workspace"],
     requiredModules: ["wallet-navigation", "card-status-block", "quick-actions", "movement-receipt-detail", "dispute-entry-point"],
-    requiredPatterns: [],
-    requiredComponents: ["card-summary", "quick-action", "movement-row"],
-    allowedDirectComponentImports: ["CardSummary", "MovementRow", "QuickAction"],
+    requiredPatterns: ["quick-actions-grid"],
+    requiredComponents: ["card-summary", "movement-row"],
+    allowedDirectComponentImports: ["CardSummary", "MovementRow"],
     requiresDrawer: false,
     requiredSharedTypeNeedles: [],
     permissionStateNeedle: 'data-state="frozen"',
@@ -314,7 +314,7 @@ const templateContracts = [
     requiredSourceNeedles: [
       ["CardSummary component", 'import { CardSummary } from "../CardSummary.js"'],
       ["MovementRow component", 'import { MovementRow } from "../MovementRow.js"'],
-      ["QuickAction component", 'import { QuickAction } from "../QuickAction.js"'],
+      ["QuickActionsGrid pattern", 'import { QuickActionsGrid } from "../patterns/QuickActionsGrid.js"'],
       ["card module", '"data-template-module": "card-status-block"'],
       ["movement module", '"data-template-module": "movement-receipt-detail"'],
     ],
@@ -326,7 +326,7 @@ const templateContracts = [
       "onSelectedSectionChange?",
       "CardSummaryProps",
       "MovementRowProps",
-      "QuickActionProps",
+      "QuickActionsGridAction",
     ],
     cases: ({ controlledProp, defaultProp, controlledSelected, uncontrolledSelected }) => [
       {
@@ -683,7 +683,7 @@ function assertRenderCase(contract, renderCase) {
   for (const slot of contract.requiredSlots) addMissingNeedle(`slot ${slot}`, `data-template-slot="${slot}"`);
   for (const module of contract.requiredModules) addMissingNeedle(`module ${module}`, `data-template-module="${module}"`);
   for (const pattern of contract.requiredPatterns) addMissingNeedle(`pattern ${pattern}`, `data-flow-pattern="${pattern}"`);
-  for (const component of contract.requiredComponents ?? []) addMissingNeedle(`component ${component}`, component === "card-summary" ? 'class="card-summary' : component === "quick-action" ? 'class="quick-action' : component === "movement-row" ? 'class="movement-row' : component);
+  for (const component of contract.requiredComponents ?? []) addMissingNeedle(`component ${component}`, component === "card-summary" ? 'class="card-summary' : component === "movement-row" ? 'class="movement-row' : component);
   for (const [needle, label] of renderCase.extraNeedles ?? []) addMissingNeedle(label, needle);
 
   const densityCount = countNeedle(markup, `data-density="${renderCase.density}"`);

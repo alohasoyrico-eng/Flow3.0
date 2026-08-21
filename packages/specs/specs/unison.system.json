@@ -220,7 +220,6 @@
     "unison-system/artifacts/components/floating-action-button.json",
     "unison-system/artifacts/components/card-summary.json",
     "unison-system/artifacts/components/movement-row.json",
-    "unison-system/artifacts/components/quick-action.json",
     "unison-system/artifacts/components/biometric-prompt.json",
     "unison-system/artifacts/components/breadcrumbs.json",
     "unison-system/artifacts/components/pagination.json",

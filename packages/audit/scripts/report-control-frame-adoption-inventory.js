@@ -51,7 +51,6 @@ const componentRoles = {
   "phone-input": { role: "field-composition", status: "covered", iteration: 3, note: "Composes Field, Input, and CountrySelector; compact size overrides Field alias through governed phone input roles." },
   popover: { role: "overlay", status: "covered", iteration: 4, note: "Panel consumes OverlayPanel roles with explicit border-box; trigger remains an external action/control consumer." },
   "progress-indicator": { role: "feedback", status: "not-applicable", iteration: null, note: "Progress display." },
-  "quick-action": { role: "action-content-frame", status: "separate-contract", iteration: 2, note: "Uses ActionContentFrame roles for circular icon control plus external label; not a standard 36/44/52 inline ControlFrame." },
   "radio-button": { role: "choice", status: "separate-contract", iteration: 5, note: "Uses ChoiceMark/IconDensity, not full ControlFrame." },
   "route-summary": { role: "display", status: "not-applicable", iteration: null, note: "Domain summary display." },
   "segmented-control": { role: "navigation-action", status: "covered", iteration: 2, note: "Segment items consume ControlFrame action sizing/padding/radius and pass runtime frame audit." },

@@ -6,7 +6,7 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 import type { ButtonHTMLAttributes, ForwardRefExoticComponent, RefAttributes } from "react";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
-export type FloatingActionButtonVariant = "primary" | "secondary" | "tertiary" | "outlined" | "ghost";
+export type FloatingActionButtonVariant = "primary" | "extended" | "mini";
 export type FloatingActionButtonIntent = "default" | "danger" | "warning";
 export type FloatingActionButtonState = "default" | "hover" | "focus" | "pressed" | "loading" | "disabled";
 export type FloatingActionButtonDensity = FlowDensity;
@@ -30,7 +30,7 @@ export interface FloatingActionButtonComponent extends ForwardRefExoticComponent
   platformContract: typeof floatingActionButtonPlatformContract;
 }
 
-const validVariants = new Set<FloatingActionButtonVariant>(["primary", "secondary", "tertiary", "outlined", "ghost"]);
+const validVariants = new Set<FloatingActionButtonVariant>(["primary", "extended", "mini"]);
 const validIntents = new Set<FloatingActionButtonIntent>(["default", "danger", "warning"]);
 const validStates = new Set<FloatingActionButtonState>(["default", "hover", "focus", "pressed", "loading", "disabled"]);
 const validTypes = new Set<FloatingActionButtonType>(["button", "submit", "reset"]);
@@ -56,7 +56,7 @@ export const FloatingActionButton = forwardRef<HTMLButtonElement, FloatingAction
   const resolvedLabel = label;
   const resolvedType = validTypes.has(type) ? type : "button";
   const canInteract = Boolean(rest.onClick || resolvedType === "submit" || resolvedType === "reset");
-  const isExtended = Boolean(extended);
+  const isExtended = Boolean(extended || resolvedVariant === "extended");
   if (!resolvedLabel) return null;
 
   return React.createElement(

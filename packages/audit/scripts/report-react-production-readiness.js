@@ -57,7 +57,6 @@ const priority = {
     "inline-validation",
     "error-panel",
     "empty-state",
-    "quick-action",
     "floating-action-button",
     "code-block",
     "progress-indicator",
@@ -109,7 +108,6 @@ const familyBySlug = {
   "phone-input": "forms",
   "popover": "overlays-feedback",
   "progress-indicator": "feedback",
-  "quick-action": "actions",
   "radio-button": "forms",
   "route-summary": "domain-fleet",
   "segmented-control": "navigation-disclosure",
@@ -352,7 +350,7 @@ function createReport() {
     reactProductionReadinessHarnessDebt: 0,
   };
   const harnessIssues = [];
-  if (inventory.publicReactComponents !== 62) harnessIssues.push(`expected 62 direct public React components, found ${inventory.publicReactComponents}`);
+  if (inventory.publicReactComponents !== 61) harnessIssues.push(`expected 61 direct public React components, found ${inventory.publicReactComponents}`);
   if (inventory.structuralIssues) harnessIssues.push(`${inventory.structuralIssues} structural component issues found`);
   if (inventory.invalidReadinessEvidenceFiles) harnessIssues.push(`${inventory.invalidReadinessEvidenceFiles} readiness evidence file references are invalid`);
   if (missingPrioritySlugs.length) harnessIssues.push(`priority list references missing components: ${missingPrioritySlugs.join(", ")}`);

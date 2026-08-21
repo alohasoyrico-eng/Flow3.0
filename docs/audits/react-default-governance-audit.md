@@ -6,11 +6,11 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 ## Inventory
 
-- React components scanned: 61
+- React components scanned: 60
 - Default debt: 0
 - Prohibited platform defaults: 0
-- Visible semantic default decisions: 116
-- Contract-backed semantic default decisions: 116
+- Visible semantic default decisions: 117
+- Contract-backed semantic default decisions: 117
 - Unbacked semantic default decisions: 0
 - Semantic default decision contract gaps: 0
 - Inventory baseline mismatches: 0
@@ -22,11 +22,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 61 | 61 |
+| components | 60 | 60 |
 | defaultDebt | 0 | 0 |
 | prohibitedDefaults | 0 | 0 |
-| semanticDefaultDecisions | 116 | 116 |
-| contractBackedSemanticDefaultDecisions | 116 | 116 |
+| semanticDefaultDecisions | 117 | 117 |
+| contractBackedSemanticDefaultDecisions | 117 | 117 |
 | unbackedSemanticDefaultDecisions | 0 | 0 |
 | semanticDefaultDecisionContractGaps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
@@ -44,7 +44,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | state-default | 45 | 45 |
 | variant-default | 41 | 41 |
 | tone-default | 14 | 14 |
-| intent-default | 3 | 3 |
+| intent-default | 4 | 4 |
 | status-default | 1 | 1 |
 | placement-default | 2 | 2 |
 | side-default | 1 | 1 |
@@ -69,7 +69,7 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | state-default | 45 | 45 | 0 | Component behavior default; allowed when normalized through component state. |
 | variant-default | 41 | 41 | 0 | Component composition default; allowed when constrained by the component contract. |
 | tone-default | 14 | 14 | 0 | Component tone fallback; allowed when constrained by the component contract. |
-| intent-default | 3 | 3 | 0 | Action intent fallback; allowed when constrained by the component contract. |
+| intent-default | 4 | 4 | 0 | Action intent fallback; allowed when constrained by the component contract. |
 | status-default | 1 | 1 | 0 | Component status fallback; allowed when constrained by the component contract. |
 | placement-default | 2 | 2 | 0 | Overlay placement fallback; allowed when constrained by the component contract. |
 | side-default | 1 | 1 | 0 | Surface side fallback; allowed when constrained by the component contract. |
@@ -151,8 +151,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:41 |
 | FloatingActionButton | intent-default | intent | default | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:42 |
 | FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:43 |
-| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:33 |
 | IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:41 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:49 |
+| IconButton | intent-default | intent | default | pass | pass | Yes | packages/react/src/IconButton.tsx:50 |
+| IconButton | state-default | state | default | pass | pass | Yes | packages/react/src/IconButton.tsx:52 |
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.tsx:48 |
 | Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:132 |
 | Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:140 |
@@ -180,7 +182,6 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:41 |
 | ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:57 |
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:58 |
-| QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.tsx:52 |
 | RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.tsx:50 |
 | RadioButton | state-default | state | unselected | pass | pass | Yes | packages/react/src/RadioButton.tsx:51 |
 | RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.tsx:116 |
@@ -272,8 +273,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.tsx:41 | `variant = "primary",` |
 | FloatingActionButton | intent-default | intent | default | packages/react/src/FloatingActionButton.tsx:42 | `intent = "default",` |
 | FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.tsx:43 | `state = "default",` |
-| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:33 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
-| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:41 | `variant = "ghost",` |
+| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:41 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
+| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:49 | `variant = "ghost",` |
+| IconButton | intent-default | intent | default | packages/react/src/IconButton.tsx:50 | `intent = "default",` |
+| IconButton | state-default | state | default | packages/react/src/IconButton.tsx:52 | `state = "default",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.tsx:48 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.tsx:132 | `variant = "text",` |
 | Input | align-default | align | start | packages/react/src/Input.tsx:140 | `align = "start",` |
@@ -301,7 +304,6 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:41 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false }: { value?: number; max?: number; state?: ProgressIndicatorState; indeterminate?: boolean } = {}) {` |
 | ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.tsx:57 | `tone = "accent",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:58 | `state = "active",` |
-| QuickAction | state-default | state | default | packages/react/src/QuickAction.tsx:52 | `state = "default",` |
 | RadioButton | variant-default | variant | default | packages/react/src/RadioButton.tsx:50 | `variant = "default",` |
 | RadioButton | state-default | state | unselected | packages/react/src/RadioButton.tsx:51 | `state = "unselected",` |
 | RouteSummary | variant-default | variant | standard | packages/react/src/RouteSummary.tsx:116 | `variant = "standard",` |

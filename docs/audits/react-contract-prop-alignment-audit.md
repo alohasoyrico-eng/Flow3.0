@@ -6,19 +6,19 @@ The public React prop surface must stay aligned with componentContracts so produ
 
 ## Inventory
 
-- React components scanned: 61
+- React components scanned: 60
 - Prop alignment debt: 0
-- Pass: 61
+- Pass: 60
 - Fail: 0
-- Contract props: 740
-- Public React props: 620
+- Contract props: 732
+- Public React props: 614
 - Semantic inherited props: 1
-- Contract props satisfied by React DOM inheritance: 28
+- Contract props satisfied by React DOM inheritance: 27
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 621
+- Public props expected in source: 615
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -28,19 +28,19 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 61 | 61 |
+| components | 60 | 60 |
 | propAlignmentDebt | 0 | 0 |
-| pass | 61 | 61 |
+| pass | 60 | 60 |
 | fail | 0 | 0 |
-| contractProps | 740 | 740 |
-| publicReactProps | 620 | 620 |
+| contractProps | 732 | 732 |
+| publicReactProps | 614 | 614 |
 | semanticInheritedProps | 1 | 1 |
-| inheritedContractProps | 28 | 28 |
+| inheritedContractProps | 27 | 27 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 621 | 621 |
+| publicPropsExpectedInSource | 615 | 615 |
 | unreferencedPublicProps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
 
@@ -84,7 +84,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | EmptyState | pass | 9 | 8 | 8 | None | None | None | None | None |
 | ErrorPanel | pass | 11 | 10 | 10 | None | None | None | None | None |
 | FloatingActionButton | pass | 10 | 8 | 8 | None | None | None | None | None |
-| IconButton | pass | 9 | 5 | 5 | None | None | None | None | None |
+| IconButton | pass | 12 | 8 | 8 | None | None | None | None | None |
 | InlineValidation | pass | 9 | 7 | 7 | None | None | None | None | None |
 | Input | pass | 29 | 22 | 22 | None | None | None | None | None |
 | InputAmount | pass | 18 | 13 | 13 | None | None | None | None | None |
@@ -97,7 +97,6 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | PhoneInput | pass | 13 | 11 | 11 | None | None | None | None | None |
 | Popover | pass | 15 | 12 | 12 | None | None | None | None | None |
 | ProgressIndicator | pass | 10 | 8 | 8 | None | None | None | None | None |
-| QuickAction | pass | 11 | 9 | 9 | None | None | None | None | None |
 | RadioButton | pass | 12 | 7 | 7 | None | None | None | None | None |
 | RouteSummary | pass | 12 | 11 | 11 | None | None | None | None | None |
 | SegmentedControl | pass | 6 | 6 | 6 | None | None | None | None | None |

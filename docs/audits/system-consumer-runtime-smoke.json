@@ -3,7 +3,7 @@
   "generatedAt": "2026-08-14",
   "status": "pass",
   "inventory": {
-    "packedFiles": 1365,
+    "packedFiles": 1358,
     "resolvedExports": 15,
     "renderedArtifacts": 19,
     "consumerRuntimeSmokeDebt": 0
@@ -43,7 +43,7 @@
     },
     {
       "name": "Topbar",
-      "markupLength": 1547
+      "markupLength": 1633
     },
     {
       "name": "DocumentationHero",
@@ -67,7 +67,7 @@
     },
     {
       "name": "DocsShellTemplate",
-      "markupLength": 5565
+      "markupLength": 5608
     },
     {
       "name": "DocsHomeTemplate",
@@ -83,7 +83,7 @@
     },
     {
       "name": "FleetDashboardSuite",
-      "markupLength": 13660
+      "markupLength": 13746
     }
   ],
   "policy": {

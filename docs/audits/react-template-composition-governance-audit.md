@@ -8,8 +8,8 @@ React templates must derive runtime composition from formal template artifacts: 
 
 - templatesAudited: 17
 - templatesWithPassingComposition: 17
-- formalPatternDependencies: 60
-- runtimePatternImports: 60
+- formalPatternDependencies: 61
+- runtimePatternImports: 61
 - missingDeclaredPatternImports: 0
 - undeclaredPatternImports: 0
 - formalModuleMarkers: 37
@@ -17,7 +17,7 @@ React templates must derive runtime composition from formal template artifacts: 
 - runtimeModuleMarkers: 43
 - missingFormalModuleMarkers: 0
 - undeclaredRuntimeModuleMarkers: 0
-- directComponentImports: 8
+- directComponentImports: 7
 - unapprovedDirectComponentImports: 0
 - surfacePrimitiveImports: 17
 - compositionContractGaps: 0
@@ -34,7 +34,7 @@ React templates must derive runtime composition from formal template artifacts: 
 | docs-collection-template | 5/5 | 0/0 | 0 | 0/0 | 0 |
 | docs-home-template | 4/4 | 0/0 | 0 | 0/0 | 0 |
 | docs-shell-template | 5/5 | 0/0 | 0 | 0/0 | 0 |
-| driver-card-wallet | 0/0 | 5/4 | 1 | 3/3 | 0 |
+| driver-card-wallet | 1/1 | 5/4 | 1 | 2/2 | 0 |
 | driver-mobile-app | 2/2 | 6/4 | 2 | 0/0 | 0 |
 | fleet-dashboard-suite | 2/2 | 4/4 | 0 | 0/0 | 0 |
 | fleet-manager-desktop | 3/3 | 5/4 | 1 | 0/0 | 0 |

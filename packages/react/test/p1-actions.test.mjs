@@ -23,7 +23,7 @@ const React = await import("react");
 const axe = await import("axe-core");
 const userEvent = await import("@testing-library/user-event");
 const { cleanup, fireEvent, render } = await import("@testing-library/react");
-const { Button, FloatingActionButton, IconButton, QuickAction } = await import("../dist/index.js");
+const { Button, FloatingActionButton, IconButton } = await import("../dist/index.js");
 
 async function assertNoAxeViolations(container) {
   const results = await axe.default.run(container, {
@@ -90,6 +90,7 @@ try {
     const view = render(React.createElement(IconButton, {
       label: "Toggle density",
       icon: "grid_view",
+      intent: "warning",
       selected: true,
       badge: true,
       density: "lg",
@@ -98,6 +99,8 @@ try {
     const button = view.getByRole("button", { name: /toggle density/i });
 
     assert.equal(button.getAttribute("aria-pressed"), "true");
+    assert.equal(button.dataset.intent, "warning");
+    assert.equal(button.dataset.state, "selected");
     assert.equal(button.dataset.density, "lg");
     await user.click(button);
     assert.deepEqual(clicks, ["click"]);
@@ -111,6 +114,7 @@ try {
       disabled: true,
       onClick: (event) => clicks.push(event.type),
     }));
+    assert.equal(button.dataset.state, "disabled");
     await user.click(button);
     assert.deepEqual(clicks, ["click", "click"]);
 
@@ -118,9 +122,26 @@ try {
       label: "Toggle density",
       icon: "grid_view",
       variant: "accent",
+      intent: "destructive",
     }));
     assert.match(button.className, /icon-button--ghost/);
     assert.doesNotMatch(button.className, /icon-button--accent/);
+    assert.equal(button.dataset.intent, "default");
+
+    view.rerender(React.createElement(IconButton, {
+      label: "Toggle density",
+      icon: "grid_view",
+      variant: "primary",
+      intent: "danger",
+      loading: true,
+      onClick: (event) => clicks.push(event.type),
+    }));
+    assert.equal(button.dataset.intent, "danger");
+    assert.equal(button.dataset.state, "loading");
+    assert.equal(button.getAttribute("aria-busy"), "true");
+    assert.equal(button.disabled, true);
+    await user.click(button);
+    assert.deepEqual(clicks, ["click", "click"]);
     await assertNoAxeViolations(view.container);
     cleanup();
   }
@@ -154,58 +175,22 @@ try {
 
     view.rerender(React.createElement(FloatingActionButton, {
       label: "Create card",
-      variant: "secondary",
+      variant: "extended",
       intent: "danger",
       onClick: (event) => clicks.push(event.type),
     }));
-    assert.equal(button.dataset.variant, "secondary");
+    assert.equal(button.dataset.variant, "extended");
+    assert.equal(button.dataset.extended, "true");
     assert.equal(button.dataset.intent, "danger");
 
     view.rerender(React.createElement(FloatingActionButton, {
       label: "Create card",
-      variant: "accent",
+      variant: "secondary",
       intent: "destructive",
       onClick: (event) => clicks.push(event.type),
     }));
     assert.equal(button.dataset.variant, "primary");
     assert.equal(button.dataset.intent, "default");
-    await assertNoAxeViolations(view.container);
-    cleanup();
-  }
-
-  {
-    const user = createUser();
-    const actions = [];
-    const clicks = [];
-    const view = render(React.createElement(QuickAction, {
-      label: "Scan card",
-      icon: "qr_code",
-      badge: "2",
-      onClick: (event) => clicks.push(event.type),
-      onAction: (meta, event) => actions.push({ label: meta.label, variant: meta.variant, state: meta.state, eventType: event.type }),
-    }));
-    const button = view.getByRole("button", { name: /scan card/i });
-
-    await user.click(button);
-    assert.deepEqual(clicks, ["click"]);
-    assert.deepEqual(actions, [{ label: "Scan card", variant: "standard", state: "default", eventType: "click" }]);
-
-    view.rerender(React.createElement(QuickAction, {
-      label: "Scan card",
-      icon: "qr_code",
-      onClick: (event) => event.preventDefault(),
-      onAction: (meta) => actions.push(meta),
-    }));
-    await user.click(button);
-    assert.equal(actions.length, 1);
-
-    view.rerender(React.createElement(QuickAction, {
-      label: "Scan card",
-      disabled: true,
-      onAction: (meta) => actions.push(meta),
-    }));
-    await user.click(button);
-    assert.equal(actions.length, 1);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

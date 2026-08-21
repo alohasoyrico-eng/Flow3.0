@@ -232,6 +232,10 @@ export type {
 export { DriverAndVehicleAdministration } from "./DriverAndVehicleAdministration.js";
 export type {
   DriverAndVehicleAdministrationAction,
+  DriverAndVehicleAdministrationActionIntent,
+  DriverAndVehicleAdministrationActionMeta,
+  DriverAndVehicleAdministrationActionState,
+  DriverAndVehicleAdministrationActionVariant,
   DriverAndVehicleAdministrationComponent,
   DriverAndVehicleAdministrationDensity,
   DriverAndVehicleAdministrationDialog,
@@ -489,6 +493,10 @@ export type {
 export { QuickActionsGrid } from "./QuickActionsGrid.js";
 export type {
   QuickActionsGridAction,
+  QuickActionsGridActionIntent,
+  QuickActionsGridActionMeta,
+  QuickActionsGridActionState,
+  QuickActionsGridActionVariant,
   QuickActionsGridComponent,
   QuickActionsGridDensity,
   QuickActionsGridProps,
@@ -676,6 +684,10 @@ export type {
 export { SwipeActions } from "./SwipeActions.js";
 export type {
   SwipeAction,
+  SwipeActionIntent,
+  SwipeActionMeta,
+  SwipeActionState,
+  SwipeActionVariant,
   SwipeActionsComponent,
   SwipeActionsDensity,
   SwipeActionsProps,

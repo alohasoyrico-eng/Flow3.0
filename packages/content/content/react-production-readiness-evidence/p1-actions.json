@@ -51,23 +51,6 @@
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM."
       ]
-    },
-    "quick-action": {
-      "status": "ready",
-      "evidenceFiles": [
-        "packages/react/test/p1-actions.test.mjs",
-        "packages/react/test/interaction.test.mjs"
-      ],
-      "coveredProductionEvidence": [
-        "render",
-        "props",
-        "a11y",
-        "callback",
-        "disabled/prevented"
-      ],
-      "notes": [
-        "Axe structural accessibility excludes color-contrast in JSDOM."
-      ]
     }
   }
 }

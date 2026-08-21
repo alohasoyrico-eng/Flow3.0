@@ -3,10 +3,11 @@
  * Authored source of truth is the paired .ts/.tsx file.
  */
 import React, { forwardRef } from "react";
+import { Badge } from "../Badge.js";
 import { Button } from "../Button.js";
 import { Dialog } from "../Dialog.js";
+import { IconButton } from "../IconButton.js";
 import { MovementRow } from "../MovementRow.js";
-import { QuickAction } from "../QuickAction.js";
 import { Toast } from "../Toast.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
@@ -28,6 +29,12 @@ function resolveState({ revealed, threshold, committed, confirming, disabled, re
 }
 function actionKey(action, index) {
     return action.key ?? `${action.label}-${index}`;
+}
+function iconButtonVariantForAction(variant) {
+    return variant === "compact" ? "ghost" : "secondary";
+}
+function iconButtonStateForAction(state) {
+    return state === "warning" ? "default" : state;
 }
 export const SwipeActions = forwardRef(function SwipeActions({ label = "Swipe actions", density, state, revealed = false, threshold = false, committed = false, confirming = false, disabled = false, reducedMotion = false, row, actions = [], confirmation, recovery, feedback, className = "", onAction, ...rest }, ref) {
     const normalizedActions = (Array.isArray(actions) ? actions : []).filter((action) => Boolean(action?.label));
@@ -71,21 +78,42 @@ export const SwipeActions = forwardRef(function SwipeActions({ label = "Swipe ac
         const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
         const actionDisabled = isDisabled || action.disabled;
         const actionState = actionDisabled ? "disabled" : action.loading ? "loading" : actionsVisible ? "pressed" : "default";
-        return React.createElement("div", { key, "data-swipe-action-key": key, "data-visible": actionsVisible ? "true" : "false" }, React.createElement(QuickAction, {
+        const variant = action.variant ?? "compact";
+        const meta = {
             label: action.label,
-            icon: action.icon,
-            badge: action.badge,
-            variant: action.variant ?? "compact",
+            variant,
             intent,
             state: actionState,
+        };
+        return React.createElement("div", { key, "data-swipe-action-key": key, "data-visible": actionsVisible ? "true" : "false" }, React.createElement("div", {
+            className: "quick-action",
+            "data-variant": variant,
+            "data-intent": intent,
+            "data-state": actionState,
+            "data-density": action.density ?? density,
+        }, React.createElement(IconButton, {
+            label: action.label,
+            icon: action.icon,
+            variant: iconButtonVariantForAction(variant),
+            intent,
+            state: iconButtonStateForAction(actionState),
             density: action.density ?? density,
             loading: action.loading,
             disabled: actionDisabled,
-            onAction: (meta, event) => {
+            className: "quick-action__control",
+            onClick: (event) => {
                 action.onAction?.(meta, event);
+                if (event.defaultPrevented)
+                    return;
                 onAction?.(key, action, event);
             },
-        }), React.createElement(Button, {
+        }), action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null, action.badge
+            ? React.createElement(Badge, {
+                label: action.badge,
+                variant: "count",
+                density: action.density ?? density,
+            })
+            : null), React.createElement(Button, {
             label: action.fallbackLabel ?? action.label,
             icon: action.icon,
             variant: action.fallbackVariant ?? "secondary",

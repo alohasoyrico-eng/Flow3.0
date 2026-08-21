@@ -18,10 +18,10 @@ import { Dialog } from "../Dialog.js";
 import type { DialogProps } from "../Dialog.js";
 import { EmptyState } from "../EmptyState.js";
 import type { EmptyStateProps } from "../EmptyState.js";
+import { IconButton } from "../IconButton.js";
+import type { IconButtonProps, IconButtonState, IconButtonVariant } from "../IconButton.js";
 import { Pagination } from "../Pagination.js";
 import type { PaginationProps } from "../Pagination.js";
-import { QuickAction } from "../QuickAction.js";
-import type { QuickActionMeta, QuickActionProps } from "../QuickAction.js";
 import { Surface } from "../Surface.js";
 import type { SurfaceProps } from "../Surface.js";
 import { Table } from "../Table.js";
@@ -34,6 +34,9 @@ import type { ToolbarProps } from "./Toolbar.js";
 
 export type DriverAndVehicleAdministrationState = "loading" | "empty" | "ready" | "selected" | "action-running" | "permission-blocked" | "error" | "disabled";
 export type DriverAndVehicleAdministrationDensity = ButtonProps["density"];
+export type DriverAndVehicleAdministrationActionVariant = "standard" | "compact" | "wide";
+export type DriverAndVehicleAdministrationActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
+export type DriverAndVehicleAdministrationActionIntent = "default" | "danger" | "warning";
 
 export interface DriverAndVehicleAdministrationRecord {
   key?: string;
@@ -56,9 +59,23 @@ export interface DriverAndVehicleAdministrationRecord {
   [key: string]: unknown;
 }
 
-export interface DriverAndVehicleAdministrationAction extends Omit<QuickActionProps, "children"> {
+export interface DriverAndVehicleAdministrationActionMeta {
+  label: string;
+  variant: DriverAndVehicleAdministrationActionVariant;
+  intent: DriverAndVehicleAdministrationActionIntent;
+  state: DriverAndVehicleAdministrationActionState;
+}
+
+export interface DriverAndVehicleAdministrationAction extends Omit<IconButtonProps, "ariaLabel" | "badge" | "icon" | "label" | "loading" | "onClick" | "selected" | "state" | "variant" | "intent"> {
   key?: string;
   label: string;
+  icon?: string;
+  badge?: string;
+  variant?: DriverAndVehicleAdministrationActionVariant;
+  state?: DriverAndVehicleAdministrationActionState;
+  intent?: DriverAndVehicleAdministrationActionIntent;
+  loading?: boolean;
+  onAction?: (meta: DriverAndVehicleAdministrationActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface DriverAndVehicleAdministrationDialog extends Partial<DialogProps> {}
@@ -99,6 +116,14 @@ export interface DriverAndVehicleAdministrationProps extends FlowDataAttributes 
 
 export interface DriverAndVehicleAdministrationComponent extends ForwardRefExoticComponent<DriverAndVehicleAdministrationProps & RefAttributes<HTMLDivElement>> {
   displayName: "DriverAndVehicleAdministration";
+}
+
+function iconButtonVariantForAction(variant: DriverAndVehicleAdministrationActionVariant): IconButtonVariant {
+  return variant === "compact" ? "ghost" : "secondary";
+}
+
+function iconButtonStateForAction(state: DriverAndVehicleAdministrationActionState): IconButtonState {
+  return state === "warning" ? "default" : state;
 }
 
 type SafeRootProps = {
@@ -325,19 +350,54 @@ export const DriverAndVehicleAdministration = forwardRef<HTMLDivElement, DriverA
           onPageChange: pagination.onPageChange,
         } as PaginationProps)
         : null,
-      normalizedActions.map((action) => React.createElement(QuickAction, {
-        ...action,
-        key: action.key ?? action.label,
-        label: action.label,
-        density: action.density ?? density,
-        loading: action.loading ?? (actionRunning && action.key === selectedKey),
-        disabled: isDisabled || action.disabled,
-        onAction: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => {
-          action.onAction?.(meta, event);
-          if (event.defaultPrevented) return;
-          onAction?.(action.key ?? action.label, event);
+      normalizedActions.map((action) => {
+        const actionState: DriverAndVehicleAdministrationActionState = isDisabled || action.disabled
+          ? "disabled"
+          : action.loading ?? (actionRunning && action.key === selectedKey)
+            ? "loading"
+            : action.state ?? "default";
+        const variant: DriverAndVehicleAdministrationActionVariant = action.variant ?? "standard";
+        const intent: DriverAndVehicleAdministrationActionIntent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
+        const meta: DriverAndVehicleAdministrationActionMeta = {
+          label: action.label,
+          variant,
+          intent,
+          state: actionState,
+        };
+
+        return React.createElement("div", {
+          key: action.key ?? action.label,
+          className: "quick-action",
+          "data-variant": variant,
+          "data-intent": intent,
+          "data-state": actionState,
+          "data-density": action.density ?? density,
         },
-      } as QuickActionProps & { key: string })),
+        React.createElement(IconButton, {
+          label: action.label,
+          icon: action.icon,
+          variant: iconButtonVariantForAction(variant),
+          intent,
+          state: iconButtonStateForAction(actionState),
+          density: action.density ?? density,
+          loading: action.loading ?? (actionRunning && action.key === selectedKey),
+          disabled: isDisabled || action.disabled,
+          className: "quick-action__control",
+          onClick: (event: MouseEvent<HTMLButtonElement>) => {
+            action.onAction?.(meta, event);
+            if (event.defaultPrevented) return;
+            onAction?.(action.key ?? action.label, event);
+          },
+        } as React.ComponentProps<typeof IconButton>),
+        action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null,
+        action.badge
+          ? React.createElement(Badge, {
+            label: action.badge,
+            variant: "count",
+            density: action.density ?? density,
+          } as React.ComponentProps<typeof Badge>)
+          : null);
+      }),
       primaryAction?.label
         ? React.createElement(Button, {
           ...primaryAction,

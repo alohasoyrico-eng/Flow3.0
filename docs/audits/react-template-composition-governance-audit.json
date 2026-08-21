@@ -2,12 +2,12 @@
   "status": "pass",
   "audit": "react template composition governance",
   "principle": "React templates must derive runtime composition from formal template artifacts: pattern imports, module markers, Surface primitive ownership, and approved direct component exceptions must stay explicit.",
-  "generatedAt": "2026-08-14T23:14:29.226Z",
+  "generatedAt": "2026-08-21T18:39:40.392Z",
   "inventory": {
     "templatesAudited": 17,
     "templatesWithPassingComposition": 17,
-    "formalPatternDependencies": 60,
-    "runtimePatternImports": 60,
+    "formalPatternDependencies": 61,
+    "runtimePatternImports": 61,
     "missingDeclaredPatternImports": 0,
     "undeclaredPatternImports": 0,
     "formalModuleMarkers": 37,
@@ -15,7 +15,7 @@
     "runtimeModuleMarkers": 43,
     "missingFormalModuleMarkers": 0,
     "undeclaredRuntimeModuleMarkers": 0,
-    "directComponentImports": 8,
+    "directComponentImports": 7,
     "unapprovedDirectComponentImports": 0,
     "surfacePrimitiveImports": 17,
     "compositionContractGaps": 0,
@@ -231,8 +231,12 @@
       "id": "driver-card-wallet",
       "componentName": "DriverCardWallet",
       "source": "packages/react/src/templates/DriverCardWallet.js",
-      "formalPatterns": [],
-      "runtimePatternImports": [],
+      "formalPatterns": [
+        "QuickActionsGrid"
+      ],
+      "runtimePatternImports": [
+        "QuickActionsGrid"
+      ],
       "formalModules": [
         "card-status-block",
         "dispute-entry-point",
@@ -254,13 +258,11 @@
       ],
       "directComponentImports": [
         "CardSummary",
-        "MovementRow",
-        "QuickAction"
+        "MovementRow"
       ],
       "approvedDirectComponentImports": [
         "CardSummary",
-        "MovementRow",
-        "QuickAction"
+        "MovementRow"
       ],
       "issues": []
     },

@@ -6,12 +6,12 @@ React components with accessibility-critical interaction must keep explicit role
 
 ## Inventory
 
-- React components scanned: 61
+- React components scanned: 60
 - Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
 - Role declarations: 75
-- ARIA declarations: 352
+- ARIA declarations: 350
 - Keyboard handlers: 41
 - Focus calls: 26
 - Failures: 0
@@ -24,12 +24,12 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 61 | 61 |
+| components | 60 | 60 |
 | accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
 | totalRoles | 75 | 75 |
-| totalAria | 352 | 352 |
+| totalAria | 350 | 350 |
 | keyboardHandlers | 41 | 41 |
 | focusCalls | 26 | 26 |
 | failures | 0 | 0 |
@@ -91,7 +91,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | EmptyState | 0 | 2 | 0 | 0 | 0 | yes |
 | ErrorPanel | 1 | 1 | 0 | 0 | 0 | no |
 | FloatingActionButton | 0 | 3 | 0 | 0 | 0 | no |
-| IconButton | 0 | 4 | 0 | 0 | 0 | no |
+| IconButton | 0 | 5 | 0 | 0 | 0 | no |
 | InlineValidation | 1 | 4 | 0 | 0 | 0 | yes |
 | Input | 1 | 12 | 0 | 0 | 0 | yes |
 | InputAmount | 1 | 7 | 0 | 0 | 0 | yes |
@@ -104,7 +104,6 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | PhoneInput | 1 | 5 | 0 | 0 | 0 | yes |
 | Popover | 1 | 4 | 2 | 0 | 1 | yes |
 | ProgressIndicator | 0 | 5 | 0 | 0 | 0 | yes |
-| QuickAction | 0 | 3 | 0 | 0 | 0 | no |
 | RadioButton | 0 | 2 | 0 | 0 | 0 | no |
 | RouteSummary | 0 | 3 | 0 | 2 | 0 | no |
 | SegmentedControl | 2 | 6 | 3 | 1 | 1 | yes |

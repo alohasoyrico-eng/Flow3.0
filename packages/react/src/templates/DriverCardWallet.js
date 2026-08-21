@@ -5,7 +5,7 @@
 import React, { forwardRef, useState } from "react";
 import { CardSummary } from "../CardSummary.js";
 import { MovementRow } from "../MovementRow.js";
-import { QuickAction } from "../QuickAction.js";
+import { QuickActionsGrid } from "../patterns/QuickActionsGrid.js";
 import { Surface } from "../Surface.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
@@ -166,17 +166,19 @@ export const DriverCardWallet = forwardRef(function DriverCardWallet({ label = "
         elevation: "none",
         "data-template-module": "quick-actions",
         "data-module-item-count": String(actions.length),
-    }, actions.map((action) => React.createElement(QuickAction, {
-        ...action,
-        key: action.key ?? action.label,
-        label: action.label,
-        icon: action.icon,
-        density: action.density ?? density,
-        state: action.state ?? actionStateForTemplate(resolvedState),
-        disabled: isDisabled || action.disabled || resolvedState === "permission",
-        loading: isBusy || action.loading,
-        "data-template-action": action.key ?? action.label,
-    }))), React.createElement(Surface, {
+    }, React.createElement(QuickActionsGrid, {
+        label: `${label} actions`,
+        density,
+        state: isBusy ? "loading" : isDisabled || resolvedState === "permission" ? "disabled" : "default",
+        actions: actions.map((action) => ({
+            ...action,
+            density: action.density ?? density,
+            state: action.state ?? actionStateForTemplate(resolvedState),
+            disabled: isDisabled || action.disabled || resolvedState === "permission",
+            loading: isBusy || action.loading,
+        })),
+        "data-template-component": "quick-actions-grid",
+    })), React.createElement(Surface, {
         surfaceRole: "panel",
         state: surfaceStateForTemplate(resolvedState),
         density,

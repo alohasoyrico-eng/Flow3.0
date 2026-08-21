@@ -1,13 +1,16 @@
 import type { ForwardRefExoticComponent, MouseEvent, ReactNode, RefAttributes } from "react";
 import type { CardSummaryProps } from "../CardSummary.js";
 import type { MovementRowProps } from "../MovementRow.js";
-import type { QuickActionProps } from "../QuickAction.js";
+import type { QuickActionsGridAction, QuickActionsGridActionIntent, QuickActionsGridActionMeta, QuickActionsGridActionState, QuickActionsGridActionVariant } from "../patterns/QuickActionsGrid.js";
 import type { SurfaceDensity, SurfaceTone } from "../Surface.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 
 export type DriverCardWalletState = "loaded" | "loading" | "empty" | "error" | "permission" | "offline" | "disabled";
 export type DriverCardWalletDensity = SurfaceDensity;
 export type DriverCardWalletSection = "card" | "movements" | "limits" | "help" | (string & {});
+export type DriverCardWalletActionVariant = QuickActionsGridActionVariant;
+export type DriverCardWalletActionState = QuickActionsGridActionState;
+export type DriverCardWalletActionIntent = QuickActionsGridActionIntent;
 
 export interface DriverCardWalletSectionItem {
   key: string;
@@ -15,7 +18,9 @@ export interface DriverCardWalletSectionItem {
   disabled?: boolean;
 }
 
-export interface DriverCardWalletAction extends QuickActionProps {
+export type DriverCardWalletActionMeta = QuickActionsGridActionMeta;
+
+export interface DriverCardWalletAction extends QuickActionsGridAction {
   key?: string;
 }
 

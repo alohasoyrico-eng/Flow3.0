@@ -3,13 +3,13 @@
   "audit": "react class ownership",
   "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
   "inventory": {
-    "components": 61,
-    "componentClassRoots": 64,
+    "components": 60,
+    "componentClassRoots": 63,
     "protectedComponentRoots": 7,
     "supportClassRoots": 9,
     "packageCssRoots": 74,
     "componentsWithFamilyRoots": 14,
-    "observedRootAssignments": 78,
+    "observedRootAssignments": 77,
     "observedSupportRootAssignments": 21,
     "violations": 0,
     "classOwnershipDebt": 0
@@ -847,21 +847,6 @@
       ],
       "observedRoots": [
         "progress"
-      ],
-      "observedSupportRoots": [],
-      "protectedRootsObserved": [],
-      "violations": [],
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.js",
-      "ownerRoot": "quick-action",
-      "allowedRoots": [
-        "quick-action"
-      ],
-      "observedRoots": [
-        "quick-action"
       ],
       "observedSupportRoots": [],
       "protectedRootsObserved": [],

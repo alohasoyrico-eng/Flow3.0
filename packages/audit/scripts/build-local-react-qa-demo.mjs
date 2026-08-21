@@ -97,13 +97,11 @@ const components = {
     exportName: "FloatingActionButton",
     buildId: "fab-react-runtime-1",
     demoBody: `e("section", { className: "audit-section" },
-          e("h2", null, "Variantes de accion"),
+          e("h2", null, "Tratamientos FAB"),
           e("div", { className: "audit-row" },
             action({ label: "Create route primary", icon: "add", variant: "primary" }),
-            action({ label: "Create route secondary", icon: "add", variant: "secondary" }),
-            action({ label: "Create route tertiary", icon: "add", variant: "tertiary" }),
-            action({ label: "Create route outlined", icon: "add", variant: "outlined" }),
-            action({ label: "Create route ghost", icon: "add", variant: "ghost" })
+            action({ label: "Create route extended", icon: "add", variant: "extended" }),
+            action({ label: "Create route mini", icon: "add", variant: "mini" })
           )
         ),
         e("section", { className: "audit-section" },
@@ -111,8 +109,8 @@ const components = {
           e("div", { className: "audit-row" },
             action({ label: "Danger action", icon: "delete", intent: "danger" }),
             action({ label: "Warning action", icon: "warning", intent: "warning" }),
-            action({ label: "Secondary danger action", icon: "delete", variant: "secondary", intent: "danger" }),
-            action({ label: "Secondary warning action", icon: "warning", variant: "secondary", intent: "warning" })
+            action({ label: "Extended danger action", icon: "delete", variant: "extended", intent: "danger" }),
+            action({ label: "Mini warning action", icon: "warning", variant: "mini", intent: "warning" })
           )
         ),
         e("section", { className: "audit-section" },
@@ -134,7 +132,7 @@ const components = {
           )
         ),
         e("section", { className: "audit-section" },
-          e("h2", null, "Extended"),
+          e("h2", null, "Compatibilidad extended prop"),
           e("div", { className: "audit-row" },
             action({ label: "Create route", icon: "add", extended: true }),
             action({ label: "Delete route", icon: "delete", extended: true, intent: "danger" }),
@@ -142,53 +140,73 @@ const components = {
           )
         )`,
   },
-  "quick-action": {
-    title: "QuickAction",
-    directory: "quick-action-2026-08-20",
-    module: "QuickAction.js",
-    exportName: "QuickAction",
-    buildId: "quick-action-react-runtime-1",
+  card: {
+    title: "Card",
+    directory: "card-2026-08-20",
+    module: "Card.js",
+    exportName: "Card",
+    buildId: "card-react-runtime-2",
     eventPropName: "onAction",
-    actionHandler: "(...args) => onAction(props.label)(args.at(-1)?.type ? args.at(-1) : { type: 'action' })",
+    actionHandler: "(key, action, event) => onAction(key || props.actionKey || props.title)(event || { type: 'action' })",
+    supportPreamble: `const baseCard = {
+      title: "Wallet health",
+      value: "98%",
+      detail: "3 cards active - 1 review pending",
+      status: "Stable",
+      icon: "credit_card",
+    };
+    const mediaAsset = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 160'%3E%3Crect width='320' height='160' fill='%230060df'/%3E%3Ccircle cx='250' cy='52' r='58' fill='%23fbbf24'/%3E%3C/svg%3E";`,
     demoBody: `e("section", { className: "audit-section" },
-          e("h2", null, "Variantes publicas"),
-          e("div", { className: "audit-row" },
-            action({ label: "Scan", icon: "qr_code", variant: "standard" }),
-            action({ label: "Compact", icon: "bolt", variant: "compact" }),
-            action({ label: "Wide action", icon: "route", variant: "wide" })
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Default", variant: "default" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Minimal", variant: "minimal" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Elevated", variant: "elevated" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Ghost", variant: "ghost" }))
           )
         ),
         e("section", { className: "audit-section" },
-          e("h2", null, "Intents"),
-          e("div", { className: "audit-row" },
-            action({ label: "Default", icon: "add", intent: "default" }),
-            action({ label: "Danger", icon: "delete", intent: "danger" }),
-            action({ label: "Warning", icon: "warning", intent: "warning" })
+          e("h2", null, "Composiciones"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Standard", composition: "standard" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Compact", composition: "compact", status: "4" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Stats", composition: "stats", trend: "up", value: "24", unit: "+", status: "12%" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Media", composition: "media", media: mediaAsset, mediaAlt: "Abstract card media" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
-          e("div", { className: "audit-row" },
-            action({ label: "Small", icon: "add", density: "sm" }),
-            action({ label: "Medium", icon: "add", density: "md" }),
-            action({ label: "Large", icon: "add", density: "lg" })
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Small", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Medium", density: "md" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Large", density: "lg" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
-          e("div", { className: "audit-row" },
-            action({ label: "Hover", icon: "touch_app", state: "hover" }),
-            action({ label: "Focus", icon: "center_focus_strong", state: "focus" }),
-            action({ label: "Pressed", icon: "ads_click", state: "pressed" }),
-            action({ label: "Loading", icon: "save", loading: true }),
-            e(Component, { label: "Disabled", icon: "block", disabled: true, onAction: onAction("Disabled") })
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Hover", state: "hover" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Focus", state: "focus" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Selected", selected: true, interactive: true, actionKey: "selected-card" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Loading", loading: true, value: "Syncing" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Error", state: "error", status: "Failed" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Disabled", disabled: true, interactive: true, actionKey: "disabled-card" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Muted", state: "muted" })),
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Interactive", interactive: true, actionKey: "interactive-card" }))
           )
         ),
         e("section", { className: "audit-section" },
-          e("h2", null, "Badge"),
-          e("div", { className: "audit-row" },
-            action({ label: "Notifications", icon: "notifications", badge: "3" }),
-            action({ label: "Danger badge", icon: "report", badge: "!", intent: "danger" })
+          e("h2", null, "Acciones internas"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              ...baseCard,
+              title: "Actions",
+              actions: [
+                { key: "details", label: "Details", variant: "secondary" },
+                { key: "freeze", label: "Freeze", variant: "danger" },
+                { key: "more", label: "More actions", icon: "more_horiz", iconOnly: true },
+              ],
+            }))
           )
         )`,
   },
@@ -536,7 +554,7 @@ const components = {
 };
 
 const requestedComponents = requestedComponent === "all-actions"
-  ? ["button", "icon-button", "floating-action-button", "quick-action"]
+  ? ["button", "icon-button", "floating-action-button"]
   : requestedComponent === "all-fields"
     ? ["input", "select", "combobox"]
   : requestedComponent === "all-choice-nav"

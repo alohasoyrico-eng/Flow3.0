@@ -10,8 +10,8 @@ import { Button } from "../Button.js";
 import { CardSummary } from "../CardSummary.js";
 import { Dialog } from "../Dialog.js";
 import { EmptyState } from "../EmptyState.js";
+import { IconButton } from "../IconButton.js";
 import { Pagination } from "../Pagination.js";
-import { QuickAction } from "../QuickAction.js";
 import { Surface } from "../Surface.js";
 import { Table } from "../Table.js";
 import { Toast } from "../Toast.js";
@@ -21,6 +21,12 @@ function sanitizeRestProps(rest) {
 }
 function normalizeRecords(records) {
     return (Array.isArray(records) ? records : []).filter((record) => Boolean(record?.key || record?.id));
+}
+function iconButtonVariantForAction(variant) {
+    return variant === "compact" ? "ghost" : "secondary";
+}
+function iconButtonStateForAction(state) {
+    return state === "warning" ? "default" : state;
 }
 function resolveState({ disabled, loading, empty, selectedKey, actionRunning, permissionBlocked, error, state, records, }) {
     if (disabled || state === "disabled")
@@ -174,20 +180,51 @@ export const DriverAndVehicleAdministration = forwardRef(function DriverAndVehic
             fullWidth: pagination.fullWidth ?? true,
             onPageChange: pagination.onPageChange,
         })
-        : null, normalizedActions.map((action) => React.createElement(QuickAction, {
-        ...action,
-        key: action.key ?? action.label,
-        label: action.label,
-        density: action.density ?? density,
-        loading: action.loading ?? (actionRunning && action.key === selectedKey),
-        disabled: isDisabled || action.disabled,
-        onAction: (meta, event) => {
-            action.onAction?.(meta, event);
-            if (event.defaultPrevented)
-                return;
-            onAction?.(action.key ?? action.label, event);
-        },
-    })), primaryAction?.label
+        : null, normalizedActions.map((action) => {
+        const actionState = isDisabled || action.disabled
+            ? "disabled"
+            : action.loading ?? (actionRunning && action.key === selectedKey)
+                ? "loading"
+                : action.state ?? "default";
+        const variant = action.variant ?? "standard";
+        const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
+        const meta = {
+            label: action.label,
+            variant,
+            intent,
+            state: actionState,
+        };
+        return React.createElement("div", {
+            key: action.key ?? action.label,
+            className: "quick-action",
+            "data-variant": variant,
+            "data-intent": intent,
+            "data-state": actionState,
+            "data-density": action.density ?? density,
+        }, React.createElement(IconButton, {
+            label: action.label,
+            icon: action.icon,
+            variant: iconButtonVariantForAction(variant),
+            intent,
+            state: iconButtonStateForAction(actionState),
+            density: action.density ?? density,
+            loading: action.loading ?? (actionRunning && action.key === selectedKey),
+            disabled: isDisabled || action.disabled,
+            className: "quick-action__control",
+            onClick: (event) => {
+                action.onAction?.(meta, event);
+                if (event.defaultPrevented)
+                    return;
+                onAction?.(action.key ?? action.label, event);
+            },
+        }), action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null, action.badge
+            ? React.createElement(Badge, {
+                label: action.badge,
+                variant: "count",
+                density: action.density ?? density,
+            })
+            : null);
+    }), primaryAction?.label
         ? React.createElement(Button, {
             ...primaryAction,
             label: primaryAction.label,
