@@ -4,14 +4,14 @@
   "principle": "React components with accessibility-critical interaction must keep explicit role, ARIA, keyboard, and focus contracts visible in source and gated in validation. The actionable debt metric is accessibilityDebt.",
   "baseline": {
     "inventory": {
-      "components": 62,
+      "components": 61,
       "accessibilityDebt": 0,
       "criticalComponents": 10,
       "criticalPassing": 10,
-      "totalRoles": 74,
-      "totalAria": 348,
-      "keyboardHandlers": 40,
-      "focusCalls": 15,
+      "totalRoles": 75,
+      "totalAria": 352,
+      "keyboardHandlers": 41,
+      "focusCalls": 26,
       "failures": 0,
       "interactionFailures": 0,
       "reactGovernancePolicyIssues": 0
@@ -333,13 +333,13 @@
     }
   },
   "inventory": {
-    "components": 62,
+    "components": 61,
     "criticalComponents": 10,
     "criticalPassing": 10,
-    "totalRoles": 74,
-    "totalAria": 348,
-    "keyboardHandlers": 40,
-    "focusCalls": 15,
+    "totalRoles": 75,
+    "totalAria": 352,
+    "keyboardHandlers": 41,
+    "focusCalls": 26,
     "failures": 0,
     "interactionFailures": 0,
     "reactGovernancePolicyIssues": 0,
@@ -658,7 +658,7 @@
       "missing": [],
       "signals": {
         "roles": 0,
-        "aria": 1,
+        "aria": 2,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": false,
@@ -731,27 +731,11 @@
         "missing": []
       },
       "signals": {
-        "roles": 5,
-        "aria": 18,
+        "roles": 6,
+        "aria": 20,
         "tabIndex": 1,
         "keyboardHandlers": 2,
         "usesId": true,
-        "focusCalls": 0
-      },
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.js",
-      "critical": false,
-      "requirements": [],
-      "missing": [],
-      "signals": {
-        "roles": 0,
-        "aria": 2,
-        "tabIndex": 0,
-        "keyboardHandlers": 0,
-        "usesId": false,
         "focusCalls": 0
       },
       "status": "pass"
@@ -804,7 +788,7 @@
         "roles": 4,
         "aria": 15,
         "tabIndex": 2,
-        "keyboardHandlers": 3,
+        "keyboardHandlers": 4,
         "usesId": true,
         "focusCalls": 0
       },
@@ -861,10 +845,10 @@
       "signals": {
         "roles": 6,
         "aria": 22,
-        "tabIndex": 1,
+        "tabIndex": 2,
         "keyboardHandlers": 4,
         "usesId": true,
-        "focusCalls": 1
+        "focusCalls": 3
       },
       "status": "pass"
     },
@@ -919,10 +903,10 @@
       "signals": {
         "roles": 6,
         "aria": 23,
-        "tabIndex": 2,
+        "tabIndex": 3,
         "keyboardHandlers": 4,
         "usesId": true,
-        "focusCalls": 1
+        "focusCalls": 3
       },
       "status": "pass"
     },
@@ -966,10 +950,10 @@
       "signals": {
         "roles": 1,
         "aria": 6,
-        "tabIndex": 0,
+        "tabIndex": 1,
         "keyboardHandlers": 2,
         "usesId": true,
-        "focusCalls": 2
+        "focusCalls": 6
       },
       "status": "pass"
     },
@@ -1013,10 +997,10 @@
       "signals": {
         "roles": 1,
         "aria": 5,
-        "tabIndex": 0,
+        "tabIndex": 1,
         "keyboardHandlers": 2,
         "usesId": true,
-        "focusCalls": 2
+        "focusCalls": 5
       },
       "status": "pass"
     },
@@ -1108,7 +1092,7 @@
       "missing": [],
       "signals": {
         "roles": 1,
-        "aria": 11,
+        "aria": 12,
         "tabIndex": 0,
         "keyboardHandlers": 0,
         "usesId": true,
@@ -1463,7 +1447,7 @@
       },
       "signals": {
         "roles": 5,
-        "aria": 16,
+        "aria": 18,
         "tabIndex": 1,
         "keyboardHandlers": 3,
         "usesId": true,

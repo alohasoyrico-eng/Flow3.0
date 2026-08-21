@@ -1,19 +1,19 @@
 {
   "status": "pass",
   "audit": "system phase 4 component cascade checkpoint",
-  "principle": "Component cascade work can proceed only when the current 62-component React, contract, state, accessibility, style, interaction, visual, and CSS gates agree. Legacy 1:1 matrices may remain as historical evidence only when their gaps are explicitly covered by current gates.",
+  "principle": "Component cascade work can proceed only when the current 61-component React, contract, state, accessibility, style, interaction, visual, and CSS gates agree. Legacy 1:1 matrices may remain as historical evidence only when their gaps are explicitly covered by current gates.",
   "scope": "Original plan iteration 20: component cascade audit 1:1.",
   "inventory": {
-    "expectedComponents": 62,
+    "expectedComponents": 61,
     "currentComponentGateReports": 11,
     "passingCurrentComponentGateReports": 11,
     "currentGateInventoryMismatches": 0,
-    "reactPrimaryComponents": 62,
-    "reactPrimaryPass": 62,
+    "reactPrimaryComponents": 61,
+    "reactPrimaryPass": 61,
     "legacyMatrixComponents": 56,
     "legacyMatrixPass": 56,
-    "legacyMatrixMissingComponents": 6,
-    "legacyMatrixMissingCoveredByCurrentGates": 6,
+    "legacyMatrixMissingComponents": 5,
+    "legacyMatrixMissingCoveredByCurrentGates": 5,
     "componentCascadeAuditDebt": 0
   },
   "expectedComponentIds": [
@@ -39,7 +39,6 @@
     "code-block",
     "code-input",
     "combobox",
-    "copy-button",
     "country-selector",
     "date-picker",
     "date-range-picker",
@@ -179,7 +178,6 @@
       "chat-message",
       "chat-thread",
       "code-block",
-      "copy-button",
       "input-amount"
     ],
     "missingComponentsCoveredByCurrentGates": [
@@ -187,7 +185,6 @@
       "chat-message",
       "chat-thread",
       "code-block",
-      "copy-button",
       "input-amount"
     ]
   },

@@ -645,10 +645,6 @@
       "types": "./packages/react/dist/CodeBlock.d.ts",
       "default": "./packages/react/dist/CodeBlock.js"
     },
-    "./react/copy-button": {
-      "types": "./packages/react/dist/CopyButton.d.ts",
-      "default": "./packages/react/dist/CopyButton.js"
-    },
     "./react/templates/docs-artifact-detail-template": {
       "types": "./packages/react/dist/templates/DocsArtifactDetailTemplate.d.ts",
       "default": "./packages/react/dist/templates/DocsArtifactDetailTemplate.js"

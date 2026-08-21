@@ -4,20 +4,20 @@
   "principle": "Platform defaults such as density, size, and theme must come from the Flow cascade; component-level semantic default decisions may exist only when visible and contract-backed. The actionable debt metric is defaultDebt.",
   "baseline": {
     "inventory": {
-      "components": 62,
+      "components": 61,
       "defaultDebt": 0,
       "prohibitedDefaults": 0,
-      "semanticDefaultDecisions": 118,
-      "contractBackedSemanticDefaultDecisions": 118,
+      "semanticDefaultDecisions": 116,
+      "contractBackedSemanticDefaultDecisions": 116,
       "unbackedSemanticDefaultDecisions": 0,
       "semanticDefaultDecisionContractGaps": 0,
       "reactGovernancePolicyIssues": 0
     },
     "semanticByRule": {
-      "state-default": 46,
-      "variant-default": 42,
-      "tone-default": 15,
-      "intent-default": 2,
+      "state-default": 45,
+      "variant-default": 41,
+      "tone-default": 14,
+      "intent-default": 3,
       "status-default": 1,
       "placement-default": 2,
       "side-default": 1,
@@ -38,10 +38,10 @@
     "issues": [],
     "semanticByRulePolicy": {
       "expectedSemanticByRule": {
-        "state-default": 46,
-        "variant-default": 42,
-        "tone-default": 15,
-        "intent-default": 2,
+        "state-default": 45,
+        "variant-default": 41,
+        "tone-default": 14,
+        "intent-default": 3,
         "status-default": 1,
         "placement-default": 2,
         "side-default": 1,
@@ -186,11 +186,11 @@
     }
   },
   "inventory": {
-    "components": 62,
+    "components": 61,
     "defaultDebt": 0,
     "prohibitedDefaults": 0,
-    "semanticDefaultDecisions": 118,
-    "contractBackedSemanticDefaultDecisions": 118,
+    "semanticDefaultDecisions": 116,
+    "contractBackedSemanticDefaultDecisions": 116,
     "unbackedSemanticDefaultDecisions": 0,
     "semanticDefaultDecisionContractGaps": 0,
     "reactGovernancePolicyIssues": 0,
@@ -198,29 +198,29 @@
       {
         "rule": "state-default",
         "description": "Component behavior default; allowed when normalized through component state.",
-        "count": 46,
-        "contractBacked": 46,
+        "count": 45,
+        "contractBacked": 45,
         "unbacked": 0
       },
       {
         "rule": "variant-default",
         "description": "Component composition default; allowed when constrained by the component contract.",
-        "count": 42,
-        "contractBacked": 42,
+        "count": 41,
+        "contractBacked": 41,
         "unbacked": 0
       },
       {
         "rule": "tone-default",
         "description": "Component tone fallback; allowed when constrained by the component contract.",
-        "count": 15,
-        "contractBacked": 15,
+        "count": 14,
+        "contractBacked": 14,
         "unbacked": 0
       },
       {
         "rule": "intent-default",
         "description": "Action intent fallback; allowed when constrained by the component contract.",
-        "count": 2,
-        "contractBacked": 2,
+        "count": 3,
+        "contractBacked": 3,
         "unbacked": 0
       },
       {
@@ -660,7 +660,7 @@
     {
       "component": "CodeBlock",
       "file": "packages/react/src/CodeBlock.tsx",
-      "line": 94,
+      "line": 105,
       "rule": "variant-default",
       "prop": "variant",
       "value": "block",
@@ -670,7 +670,7 @@
     {
       "component": "CodeBlock",
       "file": "packages/react/src/CodeBlock.tsx",
-      "line": 95,
+      "line": 106,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -688,29 +688,9 @@
       "text": "variant = \"sms\","
     },
     {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.tsx",
-      "line": 66,
-      "rule": "variant-default",
-      "prop": "variant",
-      "value": "text",
-      "description": "Component composition default; allowed when constrained by the component contract.",
-      "text": "variant = \"text\","
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.tsx",
-      "line": 67,
-      "rule": "state-default",
-      "prop": "state",
-      "value": "default",
-      "description": "Component behavior default; allowed when normalized through component state.",
-      "text": "state = \"default\","
-    },
-    {
       "component": "Dialog",
       "file": "packages/react/src/Dialog.tsx",
-      "line": 112,
+      "line": 113,
       "rule": "tone-default",
       "prop": "tone",
       "value": "neutral",
@@ -720,7 +700,7 @@
     {
       "component": "Dialog",
       "file": "packages/react/src/Dialog.tsx",
-      "line": 113,
+      "line": 114,
       "rule": "variant-default",
       "prop": "variant",
       "value": "confirmation",
@@ -730,7 +710,7 @@
     {
       "component": "Dialog",
       "file": "packages/react/src/Dialog.tsx",
-      "line": 114,
+      "line": 115,
       "rule": "state-default",
       "prop": "state",
       "value": "closed",
@@ -740,7 +720,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 163,
+      "line": 164,
       "rule": "variant-default",
       "prop": "variant",
       "value": "side-sheet",
@@ -750,7 +730,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 164,
+      "line": 165,
       "rule": "state-default",
       "prop": "state",
       "value": "closed",
@@ -760,7 +740,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 165,
+      "line": 166,
       "rule": "tone-default",
       "prop": "tone",
       "value": "neutral",
@@ -770,7 +750,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 167,
+      "line": 168,
       "rule": "side-default",
       "prop": "side",
       "value": "right",
@@ -830,7 +810,7 @@
     {
       "component": "FloatingActionButton",
       "file": "packages/react/src/FloatingActionButton.tsx",
-      "line": 38,
+      "line": 41,
       "rule": "variant-default",
       "prop": "variant",
       "value": "primary",
@@ -840,7 +820,17 @@
     {
       "component": "FloatingActionButton",
       "file": "packages/react/src/FloatingActionButton.tsx",
-      "line": 39,
+      "line": 42,
+      "rule": "intent-default",
+      "prop": "intent",
+      "value": "default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "intent = \"default\","
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.tsx",
+      "line": 43,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -850,7 +840,7 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 32,
+      "line": 33,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
@@ -860,7 +850,7 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 40,
+      "line": 41,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
@@ -1140,22 +1130,12 @@
     {
       "component": "QuickAction",
       "file": "packages/react/src/QuickAction.tsx",
-      "line": 50,
+      "line": 52,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
       "description": "Component behavior default; allowed when normalized through component state.",
       "text": "state = \"default\","
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.tsx",
-      "line": 53,
-      "rule": "tone-default",
-      "prop": "tone",
-      "value": "neutral",
-      "description": "Component tone fallback; allowed when constrained by the component contract.",
-      "text": "tone = \"neutral\","
     },
     {
       "component": "RadioButton",
@@ -1220,7 +1200,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 88,
+      "line": 116,
       "rule": "variant-default",
       "prop": "variant",
       "value": "default",
@@ -1230,7 +1210,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 89,
+      "line": 117,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -2506,7 +2486,7 @@
     {
       "component": "CodeBlock",
       "file": "packages/react/src/CodeBlock.tsx",
-      "line": 94,
+      "line": 105,
       "rule": "variant-default",
       "prop": "variant",
       "value": "block",
@@ -2530,7 +2510,7 @@
     {
       "component": "CodeBlock",
       "file": "packages/react/src/CodeBlock.tsx",
-      "line": 95,
+      "line": 106,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -2590,67 +2570,9 @@
       "status": "pass"
     },
     {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.tsx",
-      "line": 66,
-      "rule": "variant-default",
-      "prop": "variant",
-      "value": "text",
-      "description": "Component composition default; allowed when constrained by the component contract.",
-      "text": "variant = \"text\",",
-      "publicAllowedValues": [
-        "text",
-        "icon",
-        "inline"
-      ],
-      "contractAllowedValues": [
-        "text",
-        "icon",
-        "inline"
-      ],
-      "publicContractStatus": "pass",
-      "systemContractStatus": "pass",
-      "contractBacked": true,
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.tsx",
-      "line": 67,
-      "rule": "state-default",
-      "prop": "state",
-      "value": "default",
-      "description": "Component behavior default; allowed when normalized through component state.",
-      "text": "state = \"default\",",
-      "publicAllowedValues": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "copied",
-        "error",
-        "disabled",
-        "loading"
-      ],
-      "contractAllowedValues": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "copied",
-        "error",
-        "disabled",
-        "loading"
-      ],
-      "publicContractStatus": "pass",
-      "systemContractStatus": "pass",
-      "contractBacked": true,
-      "status": "pass"
-    },
-    {
       "component": "Dialog",
       "file": "packages/react/src/Dialog.tsx",
-      "line": 112,
+      "line": 113,
       "rule": "tone-default",
       "prop": "tone",
       "value": "neutral",
@@ -2676,7 +2598,7 @@
     {
       "component": "Dialog",
       "file": "packages/react/src/Dialog.tsx",
-      "line": 113,
+      "line": 114,
       "rule": "variant-default",
       "prop": "variant",
       "value": "confirmation",
@@ -2704,7 +2626,7 @@
     {
       "component": "Dialog",
       "file": "packages/react/src/Dialog.tsx",
-      "line": 114,
+      "line": 115,
       "rule": "state-default",
       "prop": "state",
       "value": "closed",
@@ -2732,7 +2654,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 163,
+      "line": 164,
       "rule": "variant-default",
       "prop": "variant",
       "value": "side-sheet",
@@ -2760,7 +2682,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 164,
+      "line": 165,
       "rule": "state-default",
       "prop": "state",
       "value": "closed",
@@ -2788,7 +2710,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 165,
+      "line": 166,
       "rule": "tone-default",
       "prop": "tone",
       "value": "neutral",
@@ -2812,7 +2734,7 @@
     {
       "component": "Drawer",
       "file": "packages/react/src/Drawer.tsx",
-      "line": 167,
+      "line": 168,
       "rule": "side-default",
       "prop": "side",
       "value": "right",
@@ -2972,7 +2894,7 @@
     {
       "component": "FloatingActionButton",
       "file": "packages/react/src/FloatingActionButton.tsx",
-      "line": 38,
+      "line": 41,
       "rule": "variant-default",
       "prop": "variant",
       "value": "primary",
@@ -2980,15 +2902,17 @@
       "text": "variant = \"primary\",",
       "publicAllowedValues": [
         "primary",
-        "accent",
-        "extended",
-        "mini"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "contractAllowedValues": [
         "primary",
-        "accent",
-        "extended",
-        "mini"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",
@@ -2998,7 +2922,31 @@
     {
       "component": "FloatingActionButton",
       "file": "packages/react/src/FloatingActionButton.tsx",
-      "line": 39,
+      "line": 42,
+      "rule": "intent-default",
+      "prop": "intent",
+      "value": "default",
+      "description": "Action intent fallback; allowed when constrained by the component contract.",
+      "text": "intent = \"default\",",
+      "publicAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "contractAllowedValues": [
+        "default",
+        "danger",
+        "warning"
+      ],
+      "publicContractStatus": "pass",
+      "systemContractStatus": "pass",
+      "contractBacked": true,
+      "status": "pass"
+    },
+    {
+      "component": "FloatingActionButton",
+      "file": "packages/react/src/FloatingActionButton.tsx",
+      "line": 43,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -3028,23 +2976,25 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 32,
+      "line": 33,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
       "description": "Component composition default; allowed when constrained by the component contract.",
       "text": "function iconButtonClassName({ variant = \"ghost\", className = \"\" }: { variant?: IconButtonVariant; className?: string } = {}) {",
       "publicAllowedValues": [
-        "ghost",
-        "tonal",
         "primary",
-        "accent"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "contractAllowedValues": [
-        "ghost",
-        "tonal",
         "primary",
-        "accent"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",
@@ -3054,23 +3004,25 @@
     {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
-      "line": 40,
+      "line": 41,
       "rule": "variant-default",
       "prop": "variant",
       "value": "ghost",
       "description": "Component composition default; allowed when constrained by the component contract.",
       "text": "variant = \"ghost\",",
       "publicAllowedValues": [
-        "ghost",
-        "tonal",
         "primary",
-        "accent"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "contractAllowedValues": [
-        "ghost",
-        "tonal",
         "primary",
-        "accent"
+        "secondary",
+        "tertiary",
+        "outlined",
+        "ghost"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",
@@ -3832,7 +3784,7 @@
     {
       "component": "QuickAction",
       "file": "packages/react/src/QuickAction.tsx",
-      "line": 50,
+      "line": 52,
       "rule": "state-default",
       "prop": "state",
       "value": "default",
@@ -3855,28 +3807,6 @@
         "loading",
         "warning",
         "disabled"
-      ],
-      "publicContractStatus": "pass",
-      "systemContractStatus": "pass",
-      "contractBacked": true,
-      "status": "pass"
-    },
-    {
-      "component": "QuickAction",
-      "file": "packages/react/src/QuickAction.tsx",
-      "line": 53,
-      "rule": "tone-default",
-      "prop": "tone",
-      "value": "neutral",
-      "description": "Component tone fallback; allowed when constrained by the component contract.",
-      "text": "tone = \"neutral\",",
-      "publicAllowedValues": [
-        "neutral",
-        "danger"
-      ],
-      "contractAllowedValues": [
-        "neutral",
-        "danger"
       ],
       "publicContractStatus": "pass",
       "systemContractStatus": "pass",
@@ -4046,7 +3976,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 88,
+      "line": 116,
       "rule": "variant-default",
       "prop": "variant",
       "value": "default",
@@ -4068,7 +3998,7 @@
     {
       "component": "Select",
       "file": "packages/react/src/Select.tsx",
-      "line": 89,
+      "line": 117,
       "rule": "state-default",
       "prop": "state",
       "value": "default",

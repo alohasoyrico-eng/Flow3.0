@@ -1,0 +1,294 @@
+{
+  "version": "2026-08-09",
+  "principle": "React accessibility critical requirements are split from react-primary-governance so governance JSON stays reviewable while preserving the same policy surface.",
+  "accessibilityCriticalRequirements": {
+    "Dialog": [
+      {
+        "label": "role dialog",
+        "pattern": "role:\\s*\"dialog\""
+      },
+      {
+        "label": "modal",
+        "pattern": "\"aria-modal\":\\s*\"true\""
+      },
+      {
+        "label": "labelledby",
+        "pattern": "\"aria-labelledby\""
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus restoration",
+        "pattern": "\\.focus\\(\\)"
+      }
+    ],
+    "Drawer": [
+      {
+        "label": "role dialog",
+        "pattern": "role:\\s*\"dialog\""
+      },
+      {
+        "label": "modal",
+        "pattern": "\"aria-modal\":\\s*\"true\""
+      },
+      {
+        "label": "labelledby",
+        "pattern": "\"aria-labelledby\""
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus restoration",
+        "pattern": "\\.focus\\(\\)"
+      }
+    ],
+    "Menu": [
+      {
+        "label": "menu trigger",
+        "pattern": "\"aria-haspopup\":\\s*\"menu\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "role menu",
+        "pattern": "role:\\s*\"menu\""
+      },
+      {
+        "label": "role menuitem",
+        "pattern": "role:\\s*\"menuitem\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus management",
+        "pattern": "\\.focus\\(\\)"
+      }
+    ],
+    "Popover": [
+      {
+        "label": "dialog trigger",
+        "pattern": "\"aria-haspopup\":\\s*\"dialog\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "role dialog",
+        "pattern": "role:\\s*\"dialog\""
+      },
+      {
+        "label": "labelledby",
+        "pattern": "\"aria-labelledby\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus restoration",
+        "pattern": "\\.focus\\(\\)"
+      }
+    ],
+    "Tooltip": [
+      {
+        "label": "describedby",
+        "pattern": "\"aria-describedby\""
+      },
+      {
+        "label": "role tooltip",
+        "pattern": "role:\\s*\"tooltip\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus trigger",
+        "pattern": "onFocus"
+      }
+    ],
+    "Select": [
+      {
+        "label": "role combobox",
+        "pattern": "role:\\s*\"combobox\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "listbox",
+        "pattern": "role:\\s*\"listbox\""
+      },
+      {
+        "label": "option",
+        "pattern": "role:\\s*\"option\""
+      },
+      {
+        "label": "active descendant",
+        "pattern": "\"aria-activedescendant\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*===\\s*\"Escape\""
+      }
+    ],
+    "Combobox": [
+      {
+        "label": "role combobox",
+        "pattern": "role:\\s*\"combobox\""
+      },
+      {
+        "label": "autocomplete",
+        "pattern": "\"aria-autocomplete\":\\s*\"list\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "listbox",
+        "pattern": "role:\\s*\"listbox\""
+      },
+      {
+        "label": "option",
+        "pattern": "role:\\s*\"option\""
+      },
+      {
+        "label": "active descendant",
+        "pattern": "\"aria-activedescendant\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*===\\s*\"Escape\""
+      }
+    ],
+    "CountrySelector": [
+      {
+        "label": "role combobox",
+        "pattern": "role:\\s*\"combobox\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "listbox",
+        "pattern": "role:\\s*\"listbox\""
+      },
+      {
+        "label": "option",
+        "pattern": "role:\\s*\"option\""
+      },
+      {
+        "label": "active descendant",
+        "pattern": "\"aria-activedescendant\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*===\\s*\"Escape\""
+      }
+    ],
+    "DatePicker": [
+      {
+        "label": "dialog trigger",
+        "pattern": "\"aria-haspopup\":\\s*\"dialog\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "role dialog",
+        "pattern": "role:\\s*\"dialog\""
+      },
+      {
+        "label": "grid",
+        "pattern": "role:\\s*\"grid\""
+      },
+      {
+        "label": "gridcell",
+        "pattern": "role:\\s*\"gridcell\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus restoration",
+        "pattern": "\\.focus\\(\\)"
+      }
+    ],
+    "DateRangePicker": [
+      {
+        "label": "dialog trigger",
+        "pattern": "\"aria-haspopup\":\\s*\"dialog\""
+      },
+      {
+        "label": "expanded state",
+        "pattern": "\"aria-expanded\""
+      },
+      {
+        "label": "role dialog",
+        "pattern": "role:\\s*\"dialog\""
+      },
+      {
+        "label": "grid",
+        "pattern": "role:\\s*\"grid\""
+      },
+      {
+        "label": "gridcell",
+        "pattern": "role:\\s*\"gridcell\""
+      },
+      {
+        "label": "keyboard",
+        "pattern": "onKeyDown"
+      },
+      {
+        "label": "escape",
+        "pattern": "event\\.key\\s*!==\\s*\"Escape\"|event\\.key\\s*===\\s*\"Escape\""
+      },
+      {
+        "label": "focus restoration",
+        "pattern": "\\.focus\\(\\)"
+      }
+    ]
+  }
+}

@@ -592,10 +592,6 @@
       "types": "./dist/CodeBlock.d.ts",
       "default": "./dist/CodeBlock.js"
     },
-    "./copy-button": {
-      "types": "./dist/CopyButton.d.ts",
-      "default": "./dist/CopyButton.js"
-    },
     "./templates/docs-artifact-detail-template": {
       "types": "./dist/templates/DocsArtifactDetailTemplate.d.ts",
       "default": "./dist/templates/DocsArtifactDetailTemplate.js"

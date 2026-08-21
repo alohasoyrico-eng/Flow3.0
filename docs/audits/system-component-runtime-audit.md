@@ -7,9 +7,9 @@ Every public component must pass runtime rendering, CSS contract, visual cascade
 ## Inventory
 
 - Plan iteration: 19
-- Components: 62
-- Runtime audited components: 62
-- Passing runtime components: 62
+- Components: 61
+- Runtime audited components: 61
+- Passing runtime components: 61
 - Failing runtime components: 0
 - Source reports: 6
 - Passing source reports: 6
@@ -46,7 +46,6 @@ Every public component must pass runtime rendering, CSS contract, visual cascade
 | Component ID | React component | Artifact tests | CSS contract | Visual cascade | Style governance | Primary coverage | Status | Issues |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | button | Button | pass | direct | pass | pass | pass | pass | None |
-| copy-button | CopyButton | pass | direct | pass | pass | pass | pass | None |
 | code-block | CodeBlock | pass | direct | pass | pass | pass | pass | None |
 | icon-button | IconButton | pass | direct | pass | pass | pass | pass | None |
 | input | Input | pass | family | pass | pass | pass | pass | None |

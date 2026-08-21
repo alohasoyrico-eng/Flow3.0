@@ -6,7 +6,7 @@ Controlled React props must be explicit in source and covered by external rerend
 
 ## Inventory
 
-- React components scanned: 62
+- React components scanned: 61
 - Controlled debt: 0
 - Controlled components: 31
 - Open-controlled components: 10
@@ -25,7 +25,7 @@ Changing these numbers is a contract decision. controlledDebt must stay at 0; co
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 62 | 62 |
+| components | 61 | 61 |
 | controlledDebt | 0 | 0 |
 | controlledComponents | 31 | 31 |
 | openControlledComponents | 10 | 10 |

@@ -14,7 +14,6 @@ export { chatMessagePlatformAdapters, chatMessagePlatformContract, chatMessagePl
 export { chatThreadPlatformAdapters, chatThreadPlatformContract, chatThreadPlatformProps, } from "./chat-thread.js";
 export { chipPlatformAdapters, chipPlatformContract, chipPlatformProps, } from "./chip.js";
 export { buttonPlatformAdapters, buttonPlatformContract, buttonPlatformProps, } from "./button.js";
-export { copyButtonPlatformAdapters, copyButtonPlatformContract, copyButtonPlatformProps, } from "./copy-button.js";
 export { codeBlockPlatformAdapters, codeBlockPlatformContract, codeBlockPlatformProps, } from "./code-block.js";
 export { cardPlatformAdapters, cardPlatformContract, cardPlatformProps, } from "./card.js";
 export { cardSummaryPlatformAdapters, cardSummaryPlatformContract, cardSummaryPlatformProps, } from "./card-summary.js";

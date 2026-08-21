@@ -14,9 +14,9 @@
   ],
   "expectedInventory": {
     "checks": 18,
-    "componentClassRoots": 65,
-    "acceptedComponents": 62,
-    "ownerRoots": 62,
+    "componentClassRoots": 64,
+    "acceptedComponents": 61,
+    "ownerRoots": 61,
     "missingOwnerRoots": 0,
     "extensionRoots": 3,
     "protectedComponentRoots": 7,

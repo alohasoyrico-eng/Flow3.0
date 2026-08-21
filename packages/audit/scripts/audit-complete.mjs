@@ -83,7 +83,6 @@ const expectedAuditFiles = new Set([
   "audit-component-var-fallbacks.js",
   "audit-content-ownership.js",
   "audit-context.js",
-  "audit-copy-button-css-contract.js",
   "audit-country-selector-css-contract.js",
   "audit-css-ownership.js",
   "audit-css.js",

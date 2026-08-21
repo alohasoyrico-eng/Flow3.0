@@ -79,11 +79,6 @@ export {
   buttonPlatformProps,
 } from "./button.js";
 export {
-  copyButtonPlatformAdapters,
-  copyButtonPlatformContract,
-  copyButtonPlatformProps,
-} from "./copy-button.js";
-export {
   codeBlockPlatformAdapters,
   codeBlockPlatformContract,
   codeBlockPlatformProps,

@@ -6,12 +6,12 @@ Core controls and form components must pass TypeScript source/runtime/declaratio
 
 ## Inventory
 
-- Core control components: 22/22
+- Core control components: 21/21
 - Gate reports: 8/8
-- TSX sources: 22/22
-- Runtime files: 22/22
-- Declaration files: 22/22
-- Component gate edges: 176/176
+- TSX sources: 21/21
+- Runtime files: 21/21
+- Declaration files: 21/21
+- Component gate edges: 168/168
 - Core controls/forms debt: 0
 
 ## Components
@@ -29,7 +29,6 @@ Core controls and form components must pass TypeScript source/runtime/declaratio
 | combobox | pass | yes | yes | yes | 8/8 | None |
 | country-selector | pass | yes | yes | yes | 8/8 | None |
 | code-input | pass | yes | yes | yes | 8/8 | None |
-| copy-button | pass | yes | yes | yes | 8/8 | None |
 | phone-input | pass | yes | yes | yes | 8/8 | None |
 | input-amount | pass | yes | yes | yes | 8/8 | None |
 | card-number-input | pass | yes | yes | yes | 8/8 | None |

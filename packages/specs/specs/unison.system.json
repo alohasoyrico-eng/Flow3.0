@@ -105,7 +105,6 @@
     "unison-system/artifacts/components/date-picker.json",
     "unison-system/artifacts/components/date-range-picker.json",
     "unison-system/artifacts/components/code-block.json",
-    "unison-system/artifacts/components/copy-button.json",
     "unison-system/artifacts/patterns/action-sheet.json",
     "unison-system/artifacts/patterns/advanced-filters.json",
     "unison-system/artifacts/patterns/authentication-login-biometrics-and-otp.json",

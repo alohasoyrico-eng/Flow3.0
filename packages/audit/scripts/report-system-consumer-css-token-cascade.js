@@ -24,7 +24,7 @@ const componentAliasMarkers = [
   "--comp-field-control-size:",
   "--comp-table-bg:",
   "--comp-code-block-bg:",
-  "--comp-copy-button-feedback-gap:",
+  "--comp-code-block-copy-copied-color:",
 ];
 
 const componentRootMarkers = [
@@ -33,7 +33,7 @@ const componentRootMarkers = [
   ".field",
   ".table",
   ".code-block",
-  ".copy-button",
+  ".code-block__copy-action",
 ];
 
 const densityMarkers = [

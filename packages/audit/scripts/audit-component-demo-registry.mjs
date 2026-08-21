@@ -173,7 +173,6 @@ for (const componentId of componentIds) {
     "code-block",
     "code-input",
     "combobox",
-    "copy-button",
     "country-selector",
     "date-picker",
     "date-range-picker",

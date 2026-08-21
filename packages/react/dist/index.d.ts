@@ -848,7 +848,6 @@ export { Chip } from "./Chip.js";
 export { CodeBlock } from "./CodeBlock.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
-export { CopyButton } from "./CopyButton.js";
 export { CountrySelector } from "./CountrySelector.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";
@@ -859,21 +858,13 @@ export { Menu } from "./Menu.js";
 export type {
   CodeBlockAction,
   CodeBlockComponent,
+  CodeBlockCopyEvent,
+  CodeBlockCopyMeta,
   CodeBlockDensity,
   CodeBlockProps,
   CodeBlockState,
   CodeBlockVariant,
 } from "./CodeBlock.js";
-export type {
-  CopyButtonComponent,
-  CopyButtonDensity,
-  CopyButtonEvent,
-  CopyButtonMeta,
-  CopyButtonProps,
-  CopyButtonState,
-  CopyButtonType,
-  CopyButtonVariant,
-} from "./CopyButton.js";
 export type {
   FloatingActionButtonComponent,
   FloatingActionButtonDensity,
@@ -1151,7 +1142,6 @@ export type {
   QuickActionMeta,
   QuickActionProps,
   QuickActionState,
-  QuickActionTone,
   QuickActionVariant,
 } from "./QuickAction.js";
 export { ProgressIndicator } from "./ProgressIndicator.js";

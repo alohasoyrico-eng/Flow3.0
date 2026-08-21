@@ -6,14 +6,14 @@ React components with accessibility-critical interaction must keep explicit role
 
 ## Inventory
 
-- React components scanned: 62
+- React components scanned: 61
 - Accessibility debt: 0
 - Accessibility-critical components: 10
 - Critical passing: 10
-- Role declarations: 74
-- ARIA declarations: 348
-- Keyboard handlers: 40
-- Focus calls: 15
+- Role declarations: 75
+- ARIA declarations: 352
+- Keyboard handlers: 41
+- Focus calls: 26
 - Failures: 0
 - Critical interaction failures: 0
 - Inventory baseline mismatches: 0
@@ -24,14 +24,14 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 62 | 62 |
+| components | 61 | 61 |
 | accessibilityDebt | 0 | 0 |
 | criticalComponents | 10 | 10 |
 | criticalPassing | 10 | 10 |
-| totalRoles | 74 | 74 |
-| totalAria | 348 | 348 |
-| keyboardHandlers | 40 | 40 |
-| focusCalls | 15 | 15 |
+| totalRoles | 75 | 75 |
+| totalAria | 352 | 352 |
+| keyboardHandlers | 41 | 41 |
+| focusCalls | 26 | 26 |
 | failures | 0 | 0 |
 | interactionFailures | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
@@ -80,21 +80,20 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | ChatThread | 1 | 3 | 0 | 0 | 0 | no |
 | Checkbox | 0 | 3 | 0 | 0 | 0 | no |
 | Chip | 0 | 6 | 0 | 0 | 0 | no |
-| CodeBlock | 0 | 1 | 0 | 0 | 0 | no |
+| CodeBlock | 0 | 2 | 0 | 0 | 0 | no |
 | CodeInput | 1 | 6 | 0 | 0 | 0 | yes |
-| Combobox | 5 | 18 | 2 | 1 | 0 | yes |
-| CopyButton | 0 | 2 | 0 | 0 | 0 | no |
-| CountrySelector | 4 | 15 | 3 | 2 | 0 | yes |
-| DatePicker | 6 | 22 | 4 | 1 | 1 | yes |
-| DateRangePicker | 6 | 23 | 4 | 2 | 1 | yes |
-| Dialog | 1 | 6 | 2 | 0 | 2 | yes |
-| Drawer | 1 | 5 | 2 | 0 | 2 | yes |
+| Combobox | 6 | 20 | 2 | 1 | 0 | yes |
+| CountrySelector | 4 | 15 | 4 | 2 | 0 | yes |
+| DatePicker | 6 | 22 | 4 | 2 | 3 | yes |
+| DateRangePicker | 6 | 23 | 4 | 3 | 3 | yes |
+| Dialog | 1 | 6 | 2 | 1 | 6 | yes |
+| Drawer | 1 | 5 | 2 | 1 | 5 | yes |
 | EmptyState | 0 | 2 | 0 | 0 | 0 | yes |
 | ErrorPanel | 1 | 1 | 0 | 0 | 0 | no |
 | FloatingActionButton | 0 | 3 | 0 | 0 | 0 | no |
 | IconButton | 0 | 4 | 0 | 0 | 0 | no |
 | InlineValidation | 1 | 4 | 0 | 0 | 0 | yes |
-| Input | 1 | 11 | 0 | 0 | 0 | yes |
+| Input | 1 | 12 | 0 | 0 | 0 | yes |
 | InputAmount | 1 | 7 | 0 | 0 | 0 | yes |
 | KpiTile | 1 | 8 | 2 | 1 | 0 | no |
 | List | 1 | 5 | 0 | 0 | 0 | no |
@@ -109,7 +108,7 @@ Changing these numbers is a contract decision. accessibilityDebt must stay at 0;
 | RadioButton | 0 | 2 | 0 | 0 | 0 | no |
 | RouteSummary | 0 | 3 | 0 | 2 | 0 | no |
 | SegmentedControl | 2 | 6 | 3 | 1 | 1 | yes |
-| Select | 5 | 16 | 3 | 1 | 0 | yes |
+| Select | 5 | 18 | 3 | 1 | 0 | yes |
 | Skeleton | 1 | 5 | 0 | 0 | 0 | no |
 | Slider | 0 | 6 | 0 | 0 | 0 | no |
 | Spinner | 1 | 4 | 0 | 0 | 0 | no |

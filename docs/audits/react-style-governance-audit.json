@@ -4,7 +4,7 @@
   "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.",
   "baseline": {
     "inventory": {
-      "components": 62,
+      "components": 61,
       "styleEscapeDebt": 0,
       "componentsWithApprovedInlineVars": 6,
       "componentsWithRuntimeVars": 1,
@@ -56,7 +56,7 @@
     }
   },
   "inventory": {
-    "components": 62,
+    "components": 61,
     "styleEscapeDebt": 0,
     "componentsWithApprovedInlineVars": 6,
     "componentsWithRuntimeVars": 1,
@@ -292,16 +292,6 @@
     {
       "component": "Combobox",
       "file": "packages/react/src/Combobox.tsx",
-      "allowedInlineStyleKeys": [],
-      "approvedVars": [],
-      "styleProps": 0,
-      "setPropertyCalls": [],
-      "violations": [],
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.tsx",
       "allowedInlineStyleKeys": [],
       "approvedVars": [],
       "styleProps": 0,

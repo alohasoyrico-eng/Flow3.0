@@ -4,10 +4,10 @@
   "principle": "React components that declare callback props must use them in source and must have explicit interaction coverage, not only static render snapshots. The actionable debt metric is interactionDebt.",
   "baseline": {
     "inventory": {
-      "components": 62,
+      "components": 61,
       "interactionDebt": 0,
       "withCallbacks": 45,
-      "pass": 62,
+      "pass": 61,
       "review": 0,
       "fail": 0,
       "missingTestCallbacks": 0,
@@ -326,16 +326,16 @@
         "Tooltip"
       ],
       "governance": {
-        "file": "packages/content/content/react-primary-governance.json",
+        "file": "packages/content/content/react-primary-accessibility-requirements.json",
         "key": "accessibilityCriticalRequirements",
         "issues": []
       }
     }
   },
   "inventory": {
-    "components": 62,
+    "components": 61,
     "withCallbacks": 45,
-    "pass": 62,
+    "pass": 61,
     "review": 0,
     "fail": 0,
     "missingTestCallbacks": 0,
@@ -1102,10 +1102,28 @@
       "component": "CodeBlock",
       "source": "packages/react/src/CodeBlock.js",
       "types": "packages/react/src/CodeBlock.d.ts",
-      "callbacks": [],
-      "callbackContracts": [],
-      "sourceCovered": [],
-      "testCovered": [],
+      "callbacks": [
+        "onCopied",
+        "onCopyError"
+      ],
+      "callbackContracts": [
+        {
+          "name": "onCopied",
+          "type": "(meta: CodeBlockCopyMeta, event: CodeBlockCopyEvent) => void"
+        },
+        {
+          "name": "onCopyError",
+          "type": "(meta: CodeBlockCopyMeta, event: CodeBlockCopyEvent) => void"
+        }
+      ],
+      "sourceCovered": [
+        "onCopied",
+        "onCopyError"
+      ],
+      "testCovered": [
+        "onCopied",
+        "onCopyError"
+      ],
       "missingInSource": [],
       "missingInTests": [],
       "missingEventParam": [],
@@ -1167,37 +1185,6 @@
       "testCovered": [
         "onOpenChange",
         "onValueChange"
-      ],
-      "missingInSource": [],
-      "missingInTests": [],
-      "missingEventParam": [],
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "source": "packages/react/src/CopyButton.js",
-      "types": "packages/react/src/CopyButton.d.ts",
-      "callbacks": [
-        "onCopied",
-        "onCopyError"
-      ],
-      "callbackContracts": [
-        {
-          "name": "onCopied",
-          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void"
-        },
-        {
-          "name": "onCopyError",
-          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void"
-        }
-      ],
-      "sourceCovered": [
-        "onCopied",
-        "onCopyError"
-      ],
-      "testCovered": [
-        "onCopied",
-        "onCopyError"
       ],
       "missingInSource": [],
       "missingInTests": [],

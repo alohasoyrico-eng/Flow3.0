@@ -7,14 +7,14 @@ Every public React component artifact must be tested one by one from the built p
 ## Inventory
 
 - Plan iteration: 15
-- Catalog components: 62
-- Contract components: 62
-- Tested components: 62
-- Passing components: 62
+- Catalog components: 61
+- Contract components: 61
+- Tested components: 61
+- Passing components: 61
 - Failing components: 0
 - Component artifact test debt: 0
-- Density checks: 62
-- State checks: 56
+- Density checks: 61
+- State checks: 55
 - Theme checks: 0
 
 ## Baseline Mismatches
@@ -26,7 +26,6 @@ Every public React component artifact must be tested one by one from the built p
 | Contract id | React component | Status | Required props | Passed checks | Issues |
 | --- | --- | --- | --- | ---: | --- |
 | button | Button | pass | None | 3 | None |
-| copyButton | CopyButton | pass | value | 3 | None |
 | codeBlock | CodeBlock | pass | code | 3 | None |
 | iconButton | IconButton | pass | ariaLabel, icon | 2 | None |
 | input | Input | pass | label | 3 | None |

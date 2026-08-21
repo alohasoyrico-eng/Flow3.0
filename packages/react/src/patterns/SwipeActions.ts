@@ -152,7 +152,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
     } as ComponentProps<typeof MovementRow>),
     normalizedActions.map((action, index) => {
       const key = actionKey(action, index);
-      const intent = action.intent === "danger" || action.tone === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
+      const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
       const actionDisabled = isDisabled || action.disabled;
       const actionState: QuickActionState = actionDisabled ? "disabled" : action.loading ? "loading" : actionsVisible ? "pressed" : "default";
 

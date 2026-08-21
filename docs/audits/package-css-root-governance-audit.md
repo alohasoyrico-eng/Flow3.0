@@ -7,13 +7,13 @@ Every root class and --comp-* alias in the package stylesheet must map to a know
 ## Inventory
 
 - Package CSS: packages/components/styles/components.css
-- Selectors scanned: 1296
-- Component aliases scanned: 3359
-- Component alias roots: 68
+- Selectors scanned: 1333
+- Component aliases scanned: 3558
+- Component alias roots: 67
 - Unknown component aliases: 0
-- CSS roots: 75
-- Component roots: 64
-- Component roots observed by React: 64
+- CSS roots: 74
+- Component roots: 63
+- Component roots observed by React: 63
 - Component roots not observed by React: 0
 - Classified non-component roots: 11
 - Unclassified roots: 0
@@ -26,13 +26,13 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| selectors | 1296 | 1296 |
-| componentAliases | 3359 | 3359 |
-| componentAliasRoots | 68 | 68 |
+| selectors | 1333 | 1333 |
+| componentAliases | 3558 | 3558 |
+| componentAliasRoots | 67 | 67 |
 | unknownComponentAliases | 0 | 0 |
-| cssRoots | 75 | 75 |
-| componentRoots | 64 | 64 |
-| observedComponentRoots | 64 | 64 |
+| cssRoots | 74 | 74 |
+| componentRoots | 63 | 63 |
+| observedComponentRoots | 63 | 63 |
 | unobservedComponentRoots | 0 | 0 |
 | classifiedNonComponentRoots | 11 | 11 |
 | unclassifiedRoots | 0 | 0 |
@@ -89,7 +89,6 @@ Changing these numbers is a contract decision. Published CSS roots and --comp-* 
 | code-block |
 | code-input |
 | combobox |
-| copy-button |
 | country-selector |
 | date-picker |
 | date-range-picker |

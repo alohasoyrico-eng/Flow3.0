@@ -137,7 +137,7 @@ const defaultCard: Partial<CardSummaryProps> = {
 };
 
 const defaultActions: DriverCardWalletAction[] = [
-  { key: "freeze", label: "Freeze card", icon: "ac_unit", tone: "danger" },
+  { key: "freeze", label: "Freeze card", icon: "ac_unit", intent: "danger" },
   { key: "limits", label: "Adjust limits", icon: "tune" },
   { key: "support", label: "Get help", icon: "support_agent" },
 ];

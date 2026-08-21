@@ -4,7 +4,7 @@
   "principle": "Controlled React props must be explicit in source and covered by external rerender tests so product code can own state without hidden uncontrolled drift. The actionable debt metric is controlledDebt.",
   "baseline": {
     "inventory": {
-      "components": 62,
+      "components": 61,
       "controlledDebt": 0,
       "controlledComponents": 31,
       "openControlledComponents": 10,
@@ -74,7 +74,7 @@
     }
   },
   "inventory": {
-    "components": 62,
+    "components": 61,
     "controlledComponents": 31,
     "openControlledComponents": 10,
     "openSourceCovered": 10,
@@ -405,18 +405,6 @@
           "testCovered": true
         }
       ],
-      "failures": [],
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.js",
-      "openControlled": {
-        "contractControlled": false,
-        "sourceControlled": false,
-        "testCovered": false
-      },
-      "controlledProps": [],
       "failures": [],
       "status": "pass"
     },

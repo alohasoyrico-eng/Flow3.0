@@ -29,9 +29,9 @@ Foundations required: `Energy`, `Voice`, `Frame`, `Depth`, `Momentum`, `State`, 
 
 Primitive dependencies: `Color`, `Typography`, `Spacing`, `Radius`, `Surface`, `Density`, `Focus`, `Disabled`, `Breakpoints`, `Message`
 
-Component dependencies: `Copy Button`, `Badge`, `Tag`, `Inline Validation`
+Component dependencies: `Button`, `Badge`, `Tag`, `Inline Validation`
 
-Token dependencies: `comp.code-block.*`, `comp.copy-button.*`, `sys.frame.*`, `sys.surface.*`, `sys.typography.*`, `sys.state.*`, `sys.accessibility.*`
+Token dependencies: `comp.code-block.*`, `comp.button.*`, `sys.frame.*`, `sys.surface.*`, `sys.typography.*`, `sys.state.*`, `sys.accessibility.*`
 
 Gaps or review gates:
 
@@ -48,7 +48,7 @@ Gaps or review gates:
 
 - Use Code Block for commands, API snippets, token paths, and generated source examples.
 - Choose wrapping for short examples and scrollable behavior for long source.
-- Use Copy Button composition when the snippet is copyable.
+- Use Button composition when the snippet is copyable; keep clipboard behavior inside Code Block.
 
 ## Do Not Use Without Review
 
@@ -67,7 +67,7 @@ Render documentation source snippets with readable context, governed overflow, o
 
 - The snippet needs source semantics rather than a decorative card.
 - Overflow and wrapping must be owned by Flow, not page CSS.
-- Copy behavior is delegated to Copy Button so clipboard feedback is reusable.
+- Copy behavior is owned by Code Block so clipboard feedback remains tied to the snippet source.
 
 Scenario type: `documentation-source`
 
@@ -78,7 +78,7 @@ Scenario type: `documentation-source`
 | container | Owns snippet surface, border, radius, density, and overflow. | comp.code-block.*, sys.energy.*, sys.frame.* |
 | header | Optional metadata row for label, filename, language, helper, and copy action. | sys.voice.*, sys.frame.* |
 | code content | Selectable monospace source text with governed wrapping or scroll. | sys.voice.*, sys.accessibility.* |
-| copy action | Uses Copy Button rather than a local clipboard control. | comp.copy-button.*, sys.state.* |
+| copy action | Uses Button for the visible affordance while Code Block owns clipboard behavior. | comp.code-block.*, comp.button.*, sys.state.* |
 
 ## Accessibility
 
@@ -93,7 +93,7 @@ Scenario type: `documentation-source`
 Referenced token families:
 
 - `comp.code-block.*`
-- `comp.copy-button.*`
+- `comp.button.*`
 - `sys.accessibility.*`
 - `sys.energy.*`
 - `sys.frame.*`

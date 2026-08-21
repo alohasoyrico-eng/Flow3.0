@@ -22,8 +22,8 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 const React = await import("react");
 const axe = await import("axe-core");
 const userEvent = await import("@testing-library/user-event");
-const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Button, CopyButton, FloatingActionButton, IconButton, QuickAction } = await import("../dist/index.js");
+const { cleanup, fireEvent, render } = await import("@testing-library/react");
+const { Button, FloatingActionButton, IconButton, QuickAction } = await import("../dist/index.js");
 
 async function assertNoAxeViolations(container) {
   const results = await axe.default.run(container, {
@@ -206,63 +206,6 @@ try {
     }));
     await user.click(button);
     assert.equal(actions.length, 1);
-    await assertNoAxeViolations(view.container);
-    cleanup();
-  }
-
-  {
-    const user = createUser();
-    const clipboardWrites = [];
-    const copied = [];
-    const errors = [];
-    Object.defineProperty(globalThis.navigator, "clipboard", {
-      configurable: true,
-      value: {
-        writeText: async (value) => {
-          clipboardWrites.push(value);
-        },
-      },
-    });
-    const view = render(React.createElement(CopyButton, {
-      value: "npm install @design-system/react",
-      label: "Copy install command",
-      copiedLabel: "Copied",
-      feedbackDuration: 1,
-      onCopied: (meta, event) => copied.push({ value: meta.value, state: meta.state, eventType: event.type }),
-      onCopyError: (meta) => errors.push(meta),
-    }));
-    const button = view.getByRole("button", { name: /copy install command/i });
-
-    await user.click(button);
-    await waitFor(() => assert.equal(copied.at(-1).state, "copied"));
-    assert.deepEqual(clipboardWrites, ["npm install @design-system/react"]);
-    assert.equal(errors.length, 0);
-
-    view.rerender(React.createElement(CopyButton, {
-      value: "npm install @design-system/react",
-      label: "Copy install command",
-      onClick: (event) => event.preventDefault(),
-      onCopied: (meta) => copied.push(meta),
-    }));
-    await user.click(button);
-    assert.equal(copied.length, 1);
-
-    Object.defineProperty(globalThis.navigator, "clipboard", {
-      configurable: true,
-      value: {
-        writeText: async () => {
-          throw new Error("clipboard denied");
-        },
-      },
-    });
-    view.rerender(React.createElement(CopyButton, {
-      value: "npm install @design-system/react",
-      label: "Copy install command",
-      errorLabel: "Copy failed",
-      onCopyError: (meta, event) => errors.push({ value: meta.value, state: meta.state, eventType: event.type }),
-    }));
-    fireEvent.click(button);
-    await waitFor(() => assert.equal(errors.at(-1).state, "error"));
     await assertNoAxeViolations(view.container);
     cleanup();
   }

@@ -35,7 +35,7 @@ export const codeBlockPlatformContract = {
     ],
     tokens: [
         "comp.code-block.*",
-        "comp.copy-button.*",
+        "comp.button.*",
         "sys.energy.*",
         "sys.voice.*",
         "sys.frame.*",

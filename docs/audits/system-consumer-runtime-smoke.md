@@ -5,9 +5,9 @@ Generated: 2026-08-14
 ## Summary
 
 - Status: pass
-- Packed files: 1375
-- Resolved exports: 16
-- Rendered artifacts: 20
+- Packed files: 1365
+- Resolved exports: 15
+- Rendered artifacts: 19
 - Consumer runtime smoke debt: 0
 
 ## Rendered Artifacts
@@ -19,8 +19,7 @@ Generated: 2026-08-14
 | Input | 326 |
 | Select | 1181 |
 | Table | 278 |
-| CodeBlock | 342 |
-| CopyButton | 198 |
+| CodeBlock | 537 |
 | Search | 1303 |
 | Sidebar | 1922 |
 | Topbar | 1547 |

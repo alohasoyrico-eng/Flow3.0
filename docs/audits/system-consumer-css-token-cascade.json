@@ -3,9 +3,9 @@
   "generatedAt": "2026-08-14",
   "status": "pass",
   "inventory": {
-    "packedFiles": 1375,
+    "packedFiles": 1365,
     "tokenCssBytes": 65902,
-    "componentCssBytes": 593247,
+    "componentCssBytes": 593089,
     "tokenMarkers": 4,
     "componentAliasMarkers": 6,
     "componentRootMarkers": 6,
@@ -26,7 +26,7 @@
       "--comp-field-control-size:",
       "--comp-table-bg:",
       "--comp-code-block-bg:",
-      "--comp-copy-button-feedback-gap:"
+      "--comp-code-block-copy-copied-color:"
     ],
     "componentRootMarkers": [
       ".button",
@@ -34,7 +34,7 @@
       ".field",
       ".table",
       ".code-block",
-      ".copy-button"
+      ".code-block__copy-action"
     ],
     "densityMarkers": [
       ".button[data-density=\"sm\"]",

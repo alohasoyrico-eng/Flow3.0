@@ -14,7 +14,7 @@
       ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
-        "Clipboard success and disabled copy paths are covered through the embedded CopyButton surface."
+        "Clipboard success and disabled copy paths are covered through CodeBlock copyAction composed with Button."
       ]
     },
     "tooltip": {

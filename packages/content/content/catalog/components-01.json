@@ -42,26 +42,6 @@
     },
     {
       "type": "component",
-      "id": "copy-button",
-      "title": "Copy Button",
-      "group": "Core",
-      "summary": "Clipboard action with explicit target, keyboard activation, and visible copied/error feedback.",
-      "platform": "Cross-platform",
-      "audiences": [
-        "Product Designers",
-        "Developers",
-        "Content Designers",
-        "Researchers"
-      ],
-      "tokens": [
-        "color.semantic",
-        "spacing.relationship",
-        "motion.semantic",
-        "a11y.focus"
-      ]
-    },
-    {
-      "type": "component",
       "id": "input",
       "title": "Input",
       "group": "Core",

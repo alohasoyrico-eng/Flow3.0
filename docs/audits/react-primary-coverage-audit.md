@@ -6,26 +6,26 @@ Every accepted component must have a real React implementation contract: source,
 
 ## Inventory
 
-- Expected components: 62
-- React components: 62
+- Expected components: 61
+- React components: 61
 - Primary implementation debt: 0
-- Pass: 62
+- Pass: 61
 - Fail: 0
-- Forward ref: 62/62
-- Real types: 62/62
-- Platform contract: 62/62
-- Normalized density: 62/62
-- Sanitized rest props: 62/62
-- No docs dependency: 62/62
-- No DOM factory dependency: 62/62
-- Published imports stay package-safe: 62/62
-- CSS contract coverage: 62/62
-- Direct CSS contracts: 57
+- Forward ref: 61/61
+- Real types: 61/61
+- Platform contract: 61/61
+- Normalized density: 61/61
+- Sanitized rest props: 61/61
+- No docs dependency: 61/61
+- No DOM factory dependency: 61/61
+- Published imports stay package-safe: 61/61
+- CSS contract coverage: 61/61
+- Direct CSS contracts: 56
 - Family CSS contracts: 5
-- Source index exports: 62/62
-- Source type index exports: 62/62
-- Dist index exports: 62/62
-- Dist type index exports: 62/62
+- Source index exports: 61/61
+- Source type index exports: 61/61
+- Dist index exports: 61/61
+- Dist type index exports: 61/61
 - React primary governance issues: 0
 - Inventory baseline mismatches: 0
 
@@ -35,28 +35,28 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| expectedComponents | 62 | 62 |
-| components | 62 | 62 |
+| expectedComponents | 61 | 61 |
+| components | 61 | 61 |
 | primaryImplementationDebt | 0 | 0 |
-| pass | 62 | 62 |
+| pass | 61 | 61 |
 | fail | 0 | 0 |
 | missingSources | 0 | 0 |
 | extraSources | 0 | 0 |
-| forwardRef | 62 | 62 |
-| realTypes | 62 | 62 |
-| platformContract | 62 | 62 |
-| densityResolved | 62 | 62 |
-| restSanitized | 62 | 62 |
-| noDocsDependency | 62 | 62 |
-| noDomFactory | 62 | 62 |
-| publishedImports | 62 | 62 |
-| cssContractCoverage | 62 | 62 |
-| directCssContracts | 57 | 57 |
+| forwardRef | 61 | 61 |
+| realTypes | 61 | 61 |
+| platformContract | 61 | 61 |
+| densityResolved | 61 | 61 |
+| restSanitized | 61 | 61 |
+| noDocsDependency | 61 | 61 |
+| noDomFactory | 61 | 61 |
+| publishedImports | 61 | 61 |
+| cssContractCoverage | 61 | 61 |
+| directCssContracts | 56 | 56 |
 | familyCssContracts | 5 | 5 |
-| sourceIndexExport | 62 | 62 |
-| sourceTypesIndexExport | 62 | 62 |
-| distIndexExport | 62 | 62 |
-| distTypesIndexExport | 62 | 62 |
+| sourceIndexExport | 61 | 61 |
+| sourceTypesIndexExport | 61 | 61 |
+| distIndexExport | 61 | 61 |
+| distTypesIndexExport | 61 | 61 |
 | reactPrimaryGovernanceIssues | 0 | 0 |
 
 ## Baseline Mismatches
@@ -91,7 +91,6 @@ Changing these numbers is a contract decision. primaryImplementationDebt must st
 | CodeBlock | pass | direct:code-block | None |
 | CodeInput | pass | direct:code-input | None |
 | Combobox | pass | direct:combobox | None |
-| CopyButton | pass | direct:copy-button | None |
 | CountrySelector | pass | direct:country-selector | None |
 | DatePicker | pass | direct:date-picker | None |
 | DateRangePicker | pass | direct:date-range-picker | None |

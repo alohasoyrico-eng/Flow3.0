@@ -26,12 +26,8 @@ const reactComponentCompositionContracts = {
     { component: "EmptyState", reason: "unavailable conversation state slot" },
     { component: "Surface", reason: "thread log structural primitive boundary" },
   ],
-  CodeBlock: [{ component: "CopyButton", reason: "governed copy action slot" }],
+  CodeBlock: [{ component: "Button", reason: "governed copy action slot" }],
   Combobox: [{ component: "Spinner", reason: "field loading indicator slot" }],
-  CopyButton: [
-    { component: "Button", reason: "visible text copy action" },
-    { component: "IconButton", reason: "compact icon copy action" },
-  ],
   Dialog: [
     { component: "Button", reason: "dialog action slot" },
     { component: "IconButton", reason: "dismiss control" },

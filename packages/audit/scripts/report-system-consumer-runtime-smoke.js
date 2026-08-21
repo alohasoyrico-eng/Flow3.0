@@ -58,7 +58,7 @@ import { createRequire } from "node:module";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-import { Button, Card, CodeBlock, CopyButton, Input, Select, Table } from "@alohasoyrico-eng/flow/react";
+import { Button, Card, CodeBlock, Input, Select, Table } from "@alohasoyrico-eng/flow/react";
 import { Search } from "@alohasoyrico-eng/flow/react/patterns/search";
 import { Sidebar } from "@alohasoyrico-eng/flow/react/patterns/sidebar";
 import { Topbar } from "@alohasoyrico-eng/flow/react/patterns/topbar";
@@ -78,7 +78,6 @@ const resolvedExports = [
   "@alohasoyrico-eng/flow/react",
   "@alohasoyrico-eng/flow/react/button",
   "@alohasoyrico-eng/flow/react/code-block",
-  "@alohasoyrico-eng/flow/react/copy-button",
   "@alohasoyrico-eng/flow/react/patterns/topbar",
   "@alohasoyrico-eng/flow/react/patterns/sidebar",
   "@alohasoyrico-eng/flow/react/patterns/search",
@@ -137,8 +136,7 @@ const cases = [
     rowKey: "id",
     density: "md",
   })],
-  ["CodeBlock", React.createElement(CodeBlock, { language: "tsx", code: "export const ok = true;" })],
-  ["CopyButton", React.createElement(CopyButton, { label: "Copy", value: "copy-value" })],
+  ["CodeBlock", React.createElement(CodeBlock, { language: "tsx", code: "export const ok = true;", copyable: true, copyAction: { label: "Copy" } })],
   ["Search", React.createElement(Search, {
     label: "Search docs",
     value: "button",

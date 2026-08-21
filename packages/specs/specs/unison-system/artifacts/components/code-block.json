@@ -43,9 +43,10 @@
           },
           {
             "part": "Copy action",
-            "rule": "Optional Copy Button composes the copy behavior and feedback.",
+            "rule": "Optional Button composes the copy affordance while Code Block owns clipboard behavior and feedback.",
             "tokens": [
-              "comp.copy-button.*",
+              "comp.code-block.*",
+              "comp.button.*",
               "sys.state.*"
             ]
           }
@@ -214,14 +215,14 @@
           "Message"
         ],
         "componentDependencies": [
-          "Copy Button",
+          "Button",
           "Badge",
           "Tag",
           "Inline Validation"
         ],
         "tokenDependencies": [
           "comp.code-block.*",
-          "comp.copy-button.*",
+          "comp.button.*",
           "sys.frame.*",
           "sys.surface.*",
           "sys.typography.*",

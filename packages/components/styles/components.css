@@ -1379,10 +1379,6 @@
   --comp-button-font-size-md: var(--component-control-frame-font-size-md);
   --comp-button-font-size-lg: var(--component-control-frame-font-size-lg);
   --comp-button-font-size: var(--comp-button-font-size-md);
-  --comp-copy-button-feedback-gap: var(--component-space-xs);
-  --comp-copy-button-feedback-opacity: var(--component-opacity-visible);
-  --comp-copy-button-error-color: var(--component-color-danger);
-  --comp-copy-button-copied-color: var(--component-color-success);
   --comp-code-block-bg: var(--component-color-surface-raised);
   --comp-code-block-border: var(--component-color-border);
   --comp-code-block-fg: var(--component-color-text);
@@ -1390,6 +1386,8 @@
   --comp-code-block-radius: var(--component-radius-surface);
   --comp-code-block-shadow: var(--component-depth-none);
   --comp-code-block-padding: var(--component-density-surface-padding);
+  --comp-code-block-copy-error-color: var(--component-color-danger);
+  --comp-code-block-copy-copied-color: var(--component-color-success);
   --comp-code-block-gap: var(--component-frame-gap-element);
   --comp-code-block-header-gap: var(--component-frame-gap-component);
   --comp-code-block-font-family: var(--component-font-family-mono);
@@ -1753,18 +1751,6 @@
   cursor: var(--component-loading-busy-cursor);
 }
 
-.copy-button {
-  gap: var(--comp-copy-button-feedback-gap);
-}
-
-.copy-button[data-copy-feedback="copied"] {
-  color: var(--comp-copy-button-copied-color);
-}
-
-.copy-button[data-copy-feedback="error"] {
-  color: var(--comp-copy-button-error-color);
-}
-
 .code-block {
   background: var(--comp-code-block-bg);
   border: var(--component-border-width) solid var(--comp-code-block-border);
@@ -1821,6 +1807,14 @@
   line-height: var(--comp-code-block-line-height);
   margin: var(--component-frame-space-none);
   overflow: var(--comp-code-block-overflow);
+}
+
+.code-block__copy-action[data-copy-feedback="copied"] {
+  color: var(--comp-code-block-copy-copied-color);
+}
+
+.code-block__copy-action[data-copy-feedback="error"] {
+  color: var(--comp-code-block-copy-error-color);
 }
 
 .code-block[data-wrap="true"] .code-block__pre code {

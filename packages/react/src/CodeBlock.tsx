@@ -1,13 +1,18 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { codeBlockPlatformContract } from "@design-system/components/platforms";
-import { CopyButton } from "./CopyButton.js";
+import { Button } from "./Button.js";
 import { flowDensityProps, flowRestProps, flowStateProps, flowVariantProps, normalizeFlowDensity } from "./internal/props.js";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
 export type CodeBlockVariant = "block" | "inline-group" | "specimen";
 export type CodeBlockState = "default" | "wrapped" | "scrollable" | "with-header" | "with-copy" | "copied" | "error" | "disabled";
 export type CodeBlockDensity = FlowDensity;
+export type CodeBlockCopyMeta = {
+  value: string;
+  state: "copied" | "error";
+};
+export type CodeBlockCopyEvent = React.MouseEvent<HTMLButtonElement>;
 
 export interface CodeBlockAction {
   value?: string;
@@ -17,6 +22,8 @@ export interface CodeBlockAction {
   errorLabel?: string;
   disabled?: boolean;
   feedbackDuration?: number;
+  onCopied?: (meta: CodeBlockCopyMeta, event: CodeBlockCopyEvent) => void;
+  onCopyError?: (meta: CodeBlockCopyMeta, event: CodeBlockCopyEvent) => void;
 }
 
 export interface CodeBlockProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
@@ -38,6 +45,8 @@ type ResolvedCodeBlockAction = CodeBlockAction & {
   value: string;
   ariaLabel: string;
 };
+
+type CodeBlockCopyFeedback = "copied" | "error";
 
 export interface CodeBlockComponent extends ForwardRefExoticComponent<CodeBlockProps & RefAttributes<HTMLElement>> {
   displayName: "CodeBlock";
@@ -82,6 +91,8 @@ function resolveCopyAction({
     ...(copyAction?.errorLabel !== undefined ? { errorLabel: copyAction.errorLabel } : {}),
     ...(disabled || copyAction?.disabled ? { disabled: true } : {}),
     ...(copyAction?.feedbackDuration !== undefined ? { feedbackDuration: copyAction.feedbackDuration } : {}),
+    ...(copyAction?.onCopied !== undefined ? { onCopied: copyAction.onCopied } : {}),
+    ...(copyAction?.onCopyError !== undefined ? { onCopyError: copyAction.onCopyError } : {}),
   };
 }
 
@@ -113,7 +124,41 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBl
     copyable,
     disabled,
   });
+  const [copyFeedback, setCopyFeedback] = useState<CodeBlockCopyFeedback | null>(null);
+  const copyFeedbackTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function updateCopyFeedback(nextFeedback: CodeBlockCopyFeedback, duration = 1600) {
+    setCopyFeedback(nextFeedback);
+    if (copyFeedbackTimer.current) {
+      clearTimeout(copyFeedbackTimer.current);
+    }
+    copyFeedbackTimer.current = setTimeout(() => setCopyFeedback(null), duration);
+  }
+
+  async function handleCopyClick(event: React.MouseEvent<HTMLButtonElement>) {
+    if (!resolvedCopyAction || resolvedCopyAction.disabled || resolvedState === "disabled") return;
+    try {
+      if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API is not available.");
+      }
+      await navigator.clipboard.writeText(resolvedCopyAction.value);
+      updateCopyFeedback("copied", resolvedCopyAction.feedbackDuration);
+      resolvedCopyAction.onCopied?.({ value: resolvedCopyAction.value, state: "copied" }, event);
+    } catch {
+      updateCopyFeedback("error", resolvedCopyAction.feedbackDuration);
+      resolvedCopyAction.onCopyError?.({ value: resolvedCopyAction.value, state: "error" }, event);
+    }
+  }
+
   if (!code) return null;
+
+  const copyActionState = copyFeedback ?? (resolvedState === "copied" || resolvedState === "error" ? resolvedState : null);
+  const copyActionLabel =
+    copyActionState === "copied"
+      ? resolvedCopyAction?.copiedLabel ?? "Copied"
+      : copyActionState === "error"
+        ? resolvedCopyAction?.errorLabel ?? "Copy failed"
+        : resolvedCopyAction?.label ?? "Copy";
 
   return React.createElement(
     "figure",
@@ -141,10 +186,14 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBl
           language ? React.createElement("span", { className: "code-block__language" }, language) : null,
         ),
         resolvedCopyAction
-          ? React.createElement(CopyButton, {
-            ...resolvedCopyAction,
-            variant: "inline",
+          ? React.createElement(Button, {
+            label: copyActionLabel,
+            variant: "tertiary",
             className: "code-block__copy-action",
+            "aria-label": resolvedCopyAction.ariaLabel,
+            "data-copy-feedback": copyActionState ?? undefined,
+            disabled: Boolean(resolvedCopyAction.disabled) || resolvedState === "disabled",
+            onClick: handleCopyClick,
             ...(resolvedDensity !== undefined ? { density: resolvedDensity } : {}),
           })
           : null,

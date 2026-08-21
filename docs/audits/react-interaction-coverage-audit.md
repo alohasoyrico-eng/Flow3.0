@@ -6,10 +6,10 @@ React components that declare callback props must use them in source and must ha
 
 ## Inventory
 
-- Components audited: 62
+- Components audited: 61
 - Interaction debt: 0
 - Components with callbacks: 45
-- Pass: 62
+- Pass: 61
 - Review: 0
 - Fail: 0
 - Missing callback test assertions: 0
@@ -25,10 +25,10 @@ Changing these numbers is a contract decision. interactionDebt must stay at 0; c
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 62 | 62 |
+| components | 61 | 61 |
 | interactionDebt | 0 | 0 |
 | withCallbacks | 45 | 45 |
-| pass | 62 | 62 |
+| pass | 61 | 61 |
 | review | 0 | 0 |
 | fail | 0 | 0 |
 | missingTestCallbacks | 0 | 0 |

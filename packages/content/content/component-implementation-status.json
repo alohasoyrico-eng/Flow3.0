@@ -77,11 +77,6 @@
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components."
     },
-    "copy-button": {
-      "status": "package-component",
-      "patternRisk": false,
-      "notes": "Factory and contract exist in @design-system/components for one explicit clipboard action; bulk export, private values, and workflow policy remain pattern or product concerns."
-    },
     "badge": {
       "status": "package-component",
       "patternRisk": false,

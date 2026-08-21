@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "inventory": {
-    "total": 62,
+    "total": 61,
     "cssContractDebt": 0,
-    "direct": 57,
+    "direct": 56,
     "family": 5,
     "missing": 0,
     "directRootGaps": 0,
@@ -13,9 +13,9 @@
   },
   "baseline": {
     "inventory": {
-      "total": 62,
+      "total": 61,
       "cssContractDebt": 0,
-      "direct": 57,
+      "direct": 56,
       "family": 5,
       "missing": 0,
       "directRootGaps": 0,
@@ -24,9 +24,9 @@
       "componentCssGovernanceIssues": 0
     },
     "actual": {
-      "total": 62,
+      "total": 61,
       "cssContractDebt": 0,
-      "direct": 57,
+      "direct": 56,
       "family": 5,
       "missing": 0,
       "directRootGaps": 0,
@@ -63,8 +63,8 @@
     "issues": []
   },
   "cssContractDebt": 0,
-  "total": 62,
-  "direct": 57,
+  "total": 61,
+  "direct": 56,
   "family": 5,
   "missing": [],
   "directRootGaps": [],
@@ -331,16 +331,6 @@
         "combobox",
         "field",
         "select-control"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "copy-button",
-      "coverage": "direct",
-      "contract": "copy-button",
-      "requiredRoot": "copy-button",
-      "observedRoots": [
-        "copy-button"
       ],
       "requiredRootObserved": true
     },

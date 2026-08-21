@@ -1,7 +1,12 @@
 const { path, readJson, rel, root } = require("./audit-context.js");
 
 const governanceFile = path.join(root, "packages/content/content/react-primary-governance.json");
+const accessibilityRequirementsFile = path.join(root, "packages/content/content/react-primary-accessibility-requirements.json");
 const governance = readJson(governanceFile) ?? {};
+const accessibilityRequirementsGovernance = readJson(accessibilityRequirementsFile) ?? {};
+const accessibilityCriticalRequirements = governance.accessibilityCriticalRequirements
+  ?? accessibilityRequirementsGovernance.accessibilityCriticalRequirements
+  ?? {};
 
 function validateNumberMap(map, label) {
   const issues = [];
@@ -194,7 +199,7 @@ function semanticDefaultExpectedByRulePolicy() {
 }
 
 function accessibilityCriticalRequirementsPolicy() {
-  const rawRequirements = governance.accessibilityCriticalRequirements ?? {};
+  const rawRequirements = accessibilityCriticalRequirements;
   const issues = [];
   if (!rawRequirements || typeof rawRequirements !== "object") {
     issues.push("accessibilityCriticalRequirements must be an object");
@@ -229,7 +234,7 @@ function accessibilityCriticalRequirementsPolicy() {
     criticalRequirements,
     criticalComponents: Object.keys(criticalRequirements).sort(),
     governance: {
-      file: rel(governanceFile),
+      file: rel(accessibilityRequirementsFile),
       key: "accessibilityCriticalRequirements",
       issues,
     },

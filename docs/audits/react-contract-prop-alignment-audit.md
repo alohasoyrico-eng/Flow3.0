@@ -6,19 +6,19 @@ The public React prop surface must stay aligned with componentContracts so produ
 
 ## Inventory
 
-- React components scanned: 62
+- React components scanned: 61
 - Prop alignment debt: 0
-- Pass: 62
+- Pass: 61
 - Fail: 0
-- Contract props: 751
-- Public React props: 628
+- Contract props: 740
+- Public React props: 620
 - Semantic inherited props: 1
 - Contract props satisfied by React DOM inheritance: 28
 - Extra React props: 0
 - Missing React props: 0
 - Required mismatches: 0
 - Type value mismatches: 0
-- Public props expected in source: 629
+- Public props expected in source: 621
 - Unreferenced public props: 0
 - Inventory baseline mismatches: 0
 
@@ -28,19 +28,19 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 62 | 62 |
+| components | 61 | 61 |
 | propAlignmentDebt | 0 | 0 |
-| pass | 62 | 62 |
+| pass | 61 | 61 |
 | fail | 0 | 0 |
-| contractProps | 751 | 751 |
-| publicReactProps | 628 | 628 |
+| contractProps | 740 | 740 |
+| publicReactProps | 620 | 620 |
 | semanticInheritedProps | 1 | 1 |
 | inheritedContractProps | 28 | 28 |
 | extraReactProps | 0 | 0 |
 | missingReactProps | 0 | 0 |
 | requiredMismatches | 0 | 0 |
 | typeValueMismatches | 0 | 0 |
-| publicPropsExpectedInSource | 629 | 629 |
+| publicPropsExpectedInSource | 621 | 621 |
 | unreferencedPublicProps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
 
@@ -75,8 +75,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | Chip | pass | 13 | 12 | 12 | None | None | None | None | None |
 | CodeBlock | pass | 12 | 11 | 11 | None | None | None | None | None |
 | CodeInput | pass | 12 | 10 | 10 | None | None | None | None | None |
-| Combobox | pass | 16 | 12 | 12 | None | None | None | None | None |
-| CopyButton | pass | 15 | 12 | 12 | None | None | None | None | None |
+| Combobox | pass | 18 | 14 | 14 | None | None | None | None | None |
 | CountrySelector | pass | 14 | 12 | 12 | None | None | None | None | None |
 | DatePicker | pass | 19 | 14 | 14 | None | None | None | None | None |
 | DateRangePicker | pass | 21 | 18 | 18 | None | None | None | None | None |
@@ -84,7 +83,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | Drawer | pass | 17 | 16 | 16 | None | None | None | None | None |
 | EmptyState | pass | 9 | 8 | 8 | None | None | None | None | None |
 | ErrorPanel | pass | 11 | 10 | 10 | None | None | None | None | None |
-| FloatingActionButton | pass | 9 | 7 | 7 | None | None | None | None | None |
+| FloatingActionButton | pass | 10 | 8 | 8 | None | None | None | None | None |
 | IconButton | pass | 9 | 5 | 5 | None | None | None | None | None |
 | InlineValidation | pass | 9 | 7 | 7 | None | None | None | None | None |
 | Input | pass | 29 | 22 | 22 | None | None | None | None | None |
@@ -102,7 +101,7 @@ Changing these numbers is a contract decision. propAlignmentDebt must stay at 0;
 | RadioButton | pass | 12 | 7 | 7 | None | None | None | None | None |
 | RouteSummary | pass | 12 | 11 | 11 | None | None | None | None | None |
 | SegmentedControl | pass | 6 | 6 | 6 | None | None | None | None | None |
-| Select | pass | 14 | 11 | 11 | None | None | None | None | None |
+| Select | pass | 15 | 12 | 12 | None | None | None | None | None |
 | Skeleton | pass | 11 | 10 | 10 | None | None | None | None | None |
 | Slider | pass | 14 | 9 | 9 | None | None | None | None | None |
 | Spinner | pass | 5 | 5 | 5 | None | None | None | None | None |

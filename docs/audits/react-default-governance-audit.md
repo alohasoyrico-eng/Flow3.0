@@ -6,11 +6,11 @@ Platform defaults such as density, size, and theme must come from the Flow casca
 
 ## Inventory
 
-- React components scanned: 62
+- React components scanned: 61
 - Default debt: 0
 - Prohibited platform defaults: 0
-- Visible semantic default decisions: 118
-- Contract-backed semantic default decisions: 118
+- Visible semantic default decisions: 116
+- Contract-backed semantic default decisions: 116
 - Unbacked semantic default decisions: 0
 - Semantic default decision contract gaps: 0
 - Inventory baseline mismatches: 0
@@ -22,11 +22,11 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| components | 62 | 62 |
+| components | 61 | 61 |
 | defaultDebt | 0 | 0 |
 | prohibitedDefaults | 0 | 0 |
-| semanticDefaultDecisions | 118 | 118 |
-| contractBackedSemanticDefaultDecisions | 118 | 118 |
+| semanticDefaultDecisions | 116 | 116 |
+| contractBackedSemanticDefaultDecisions | 116 | 116 |
 | unbackedSemanticDefaultDecisions | 0 | 0 |
 | semanticDefaultDecisionContractGaps | 0 | 0 |
 | reactGovernancePolicyIssues | 0 | 0 |
@@ -41,10 +41,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Rule | Expected | Actual |
 | --- | ---: | ---: |
-| state-default | 46 | 46 |
-| variant-default | 42 | 42 |
-| tone-default | 15 | 15 |
-| intent-default | 2 | 2 |
+| state-default | 45 | 45 |
+| variant-default | 41 | 41 |
+| tone-default | 14 | 14 |
+| intent-default | 3 | 3 |
 | status-default | 1 | 1 |
 | placement-default | 2 | 2 |
 | side-default | 1 | 1 |
@@ -66,10 +66,10 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 
 | Rule | Count | Contract-backed | Unbacked | Meaning |
 | --- | ---: | ---: | ---: | --- |
-| state-default | 46 | 46 | 0 | Component behavior default; allowed when normalized through component state. |
-| variant-default | 42 | 42 | 0 | Component composition default; allowed when constrained by the component contract. |
-| tone-default | 15 | 15 | 0 | Component tone fallback; allowed when constrained by the component contract. |
-| intent-default | 2 | 2 | 0 | Action intent fallback; allowed when constrained by the component contract. |
+| state-default | 45 | 45 | 0 | Component behavior default; allowed when normalized through component state. |
+| variant-default | 41 | 41 | 0 | Component composition default; allowed when constrained by the component contract. |
+| tone-default | 14 | 14 | 0 | Component tone fallback; allowed when constrained by the component contract. |
+| intent-default | 3 | 3 | 0 | Action intent fallback; allowed when constrained by the component contract. |
 | status-default | 1 | 1 | 0 | Component status fallback; allowed when constrained by the component contract. |
 | placement-default | 2 | 2 | 0 | Overlay placement fallback; allowed when constrained by the component contract. |
 | side-default | 1 | 1 | 0 | Surface side fallback; allowed when constrained by the component contract. |
@@ -133,27 +133,26 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | variant-default | variant | filter | pass | pass | Yes | packages/react/src/Chip.tsx:55 |
 | Chip | tone-default | tone | default | pass | pass | Yes | packages/react/src/Chip.tsx:56 |
 | Chip | state-default | state | default | pass | pass | Yes | packages/react/src/Chip.tsx:57 |
-| CodeBlock | variant-default | variant | block | pass | pass | Yes | packages/react/src/CodeBlock.tsx:94 |
-| CodeBlock | state-default | state | default | pass | pass | Yes | packages/react/src/CodeBlock.tsx:95 |
+| CodeBlock | variant-default | variant | block | pass | pass | Yes | packages/react/src/CodeBlock.tsx:105 |
+| CodeBlock | state-default | state | default | pass | pass | Yes | packages/react/src/CodeBlock.tsx:106 |
 | CodeInput | variant-default | variant | sms | pass | pass | Yes | packages/react/src/CodeInput.tsx:78 |
-| CopyButton | variant-default | variant | text | pass | pass | Yes | packages/react/src/CopyButton.tsx:66 |
-| CopyButton | state-default | state | default | pass | pass | Yes | packages/react/src/CopyButton.tsx:67 |
-| Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.tsx:112 |
-| Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.tsx:113 |
-| Dialog | state-default | state | closed | pass | pass | Yes | packages/react/src/Dialog.tsx:114 |
-| Drawer | variant-default | variant | side-sheet | pass | pass | Yes | packages/react/src/Drawer.tsx:163 |
-| Drawer | state-default | state | closed | pass | pass | Yes | packages/react/src/Drawer.tsx:164 |
-| Drawer | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Drawer.tsx:165 |
-| Drawer | side-default | side | right | pass | pass | Yes | packages/react/src/Drawer.tsx:167 |
+| Dialog | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Dialog.tsx:113 |
+| Dialog | variant-default | variant | confirmation | pass | pass | Yes | packages/react/src/Dialog.tsx:114 |
+| Dialog | state-default | state | closed | pass | pass | Yes | packages/react/src/Dialog.tsx:115 |
+| Drawer | variant-default | variant | side-sheet | pass | pass | Yes | packages/react/src/Drawer.tsx:164 |
+| Drawer | state-default | state | closed | pass | pass | Yes | packages/react/src/Drawer.tsx:165 |
+| Drawer | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/Drawer.tsx:166 |
+| Drawer | side-default | side | right | pass | pass | Yes | packages/react/src/Drawer.tsx:168 |
 | EmptyState | variant-default | variant | first-use | pass | pass | Yes | packages/react/src/EmptyState.tsx:67 |
 | EmptyState | state-default | state | default | pass | pass | Yes | packages/react/src/EmptyState.tsx:68 |
 | ErrorPanel | tone-default | tone | error | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:77 |
 | ErrorPanel | variant-default | variant | panel | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:78 |
 | ErrorPanel | state-default | state | error | pass | pass | Yes | packages/react/src/ErrorPanel.tsx:79 |
-| FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:38 |
-| FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:39 |
-| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:32 |
-| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:40 |
+| FloatingActionButton | variant-default | variant | primary | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:41 |
+| FloatingActionButton | intent-default | intent | default | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:42 |
+| FloatingActionButton | state-default | state | default | pass | pass | Yes | packages/react/src/FloatingActionButton.tsx:43 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:33 |
+| IconButton | variant-default | variant | ghost | pass | pass | Yes | packages/react/src/IconButton.tsx:41 |
 | InlineValidation | state-default | state | default | pass | pass | Yes | packages/react/src/InlineValidation.tsx:48 |
 | Input | variant-default | variant | text | pass | pass | Yes | packages/react/src/Input.tsx:132 |
 | Input | align-default | align | start | pass | pass | Yes | packages/react/src/Input.tsx:140 |
@@ -181,16 +180,15 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:41 |
 | ProgressIndicator | tone-default | tone | accent | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:57 |
 | ProgressIndicator | state-default | state | active | pass | pass | Yes | packages/react/src/ProgressIndicator.tsx:58 |
-| QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.tsx:50 |
-| QuickAction | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/QuickAction.tsx:53 |
+| QuickAction | state-default | state | default | pass | pass | Yes | packages/react/src/QuickAction.tsx:52 |
 | RadioButton | variant-default | variant | default | pass | pass | Yes | packages/react/src/RadioButton.tsx:50 |
 | RadioButton | state-default | state | unselected | pass | pass | Yes | packages/react/src/RadioButton.tsx:51 |
 | RouteSummary | variant-default | variant | standard | pass | pass | Yes | packages/react/src/RouteSummary.tsx:116 |
 | RouteSummary | state-default | state | default | pass | pass | Yes | packages/react/src/RouteSummary.tsx:117 |
 | RouteSummary | tone-default | tone | neutral | pass | pass | Yes | packages/react/src/RouteSummary.tsx:119 |
 | SegmentedControl | variant-default | variant | outlined | pass | pass | Yes | packages/react/src/SegmentedControl.tsx:73 |
-| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.tsx:88 |
-| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.tsx:89 |
+| Select | variant-default | variant | default | pass | pass | Yes | packages/react/src/Select.tsx:116 |
+| Select | state-default | state | default | pass | pass | Yes | packages/react/src/Select.tsx:117 |
 | Skeleton | variant-default | variant | text | pass | pass | Yes | packages/react/src/Skeleton.tsx:113 |
 | Slider | variant-default | variant | continuous | pass | pass | Yes | packages/react/src/Slider.tsx:76 |
 | Slider | state-default | state | default | pass | pass | Yes | packages/react/src/Slider.tsx:77 |
@@ -256,27 +254,26 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | Chip | variant-default | variant | filter | packages/react/src/Chip.tsx:55 | `variant = "filter",` |
 | Chip | tone-default | tone | default | packages/react/src/Chip.tsx:56 | `tone = "default",` |
 | Chip | state-default | state | default | packages/react/src/Chip.tsx:57 | `state = "default",` |
-| CodeBlock | variant-default | variant | block | packages/react/src/CodeBlock.tsx:94 | `variant = "block",` |
-| CodeBlock | state-default | state | default | packages/react/src/CodeBlock.tsx:95 | `state = "default",` |
+| CodeBlock | variant-default | variant | block | packages/react/src/CodeBlock.tsx:105 | `variant = "block",` |
+| CodeBlock | state-default | state | default | packages/react/src/CodeBlock.tsx:106 | `state = "default",` |
 | CodeInput | variant-default | variant | sms | packages/react/src/CodeInput.tsx:78 | `variant = "sms",` |
-| CopyButton | variant-default | variant | text | packages/react/src/CopyButton.tsx:66 | `variant = "text",` |
-| CopyButton | state-default | state | default | packages/react/src/CopyButton.tsx:67 | `state = "default",` |
-| Dialog | tone-default | tone | neutral | packages/react/src/Dialog.tsx:112 | `tone = "neutral",` |
-| Dialog | variant-default | variant | confirmation | packages/react/src/Dialog.tsx:113 | `variant = "confirmation",` |
-| Dialog | state-default | state | closed | packages/react/src/Dialog.tsx:114 | `state = "closed",` |
-| Drawer | variant-default | variant | side-sheet | packages/react/src/Drawer.tsx:163 | `variant = "side-sheet",` |
-| Drawer | state-default | state | closed | packages/react/src/Drawer.tsx:164 | `state = "closed",` |
-| Drawer | tone-default | tone | neutral | packages/react/src/Drawer.tsx:165 | `tone = "neutral",` |
-| Drawer | side-default | side | right | packages/react/src/Drawer.tsx:167 | `side = "right",` |
+| Dialog | tone-default | tone | neutral | packages/react/src/Dialog.tsx:113 | `tone = "neutral",` |
+| Dialog | variant-default | variant | confirmation | packages/react/src/Dialog.tsx:114 | `variant = "confirmation",` |
+| Dialog | state-default | state | closed | packages/react/src/Dialog.tsx:115 | `state = "closed",` |
+| Drawer | variant-default | variant | side-sheet | packages/react/src/Drawer.tsx:164 | `variant = "side-sheet",` |
+| Drawer | state-default | state | closed | packages/react/src/Drawer.tsx:165 | `state = "closed",` |
+| Drawer | tone-default | tone | neutral | packages/react/src/Drawer.tsx:166 | `tone = "neutral",` |
+| Drawer | side-default | side | right | packages/react/src/Drawer.tsx:168 | `side = "right",` |
 | EmptyState | variant-default | variant | first-use | packages/react/src/EmptyState.tsx:67 | `variant = "first-use",` |
 | EmptyState | state-default | state | default | packages/react/src/EmptyState.tsx:68 | `state = "default",` |
 | ErrorPanel | tone-default | tone | error | packages/react/src/ErrorPanel.tsx:77 | `tone = "error",` |
 | ErrorPanel | variant-default | variant | panel | packages/react/src/ErrorPanel.tsx:78 | `variant = "panel",` |
 | ErrorPanel | state-default | state | error | packages/react/src/ErrorPanel.tsx:79 | `state = "error",` |
-| FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.tsx:38 | `variant = "primary",` |
-| FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.tsx:39 | `state = "default",` |
-| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:32 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
-| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:40 | `variant = "ghost",` |
+| FloatingActionButton | variant-default | variant | primary | packages/react/src/FloatingActionButton.tsx:41 | `variant = "primary",` |
+| FloatingActionButton | intent-default | intent | default | packages/react/src/FloatingActionButton.tsx:42 | `intent = "default",` |
+| FloatingActionButton | state-default | state | default | packages/react/src/FloatingActionButton.tsx:43 | `state = "default",` |
+| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:33 | `function iconButtonClassName({ variant = "ghost", className = "" }: { variant?: IconButtonVariant; className?: string } = {}) {` |
+| IconButton | variant-default | variant | ghost | packages/react/src/IconButton.tsx:41 | `variant = "ghost",` |
 | InlineValidation | state-default | state | default | packages/react/src/InlineValidation.tsx:48 | `state = "default",` |
 | Input | variant-default | variant | text | packages/react/src/Input.tsx:132 | `variant = "text",` |
 | Input | align-default | align | start | packages/react/src/Input.tsx:140 | `align = "start",` |
@@ -304,16 +301,15 @@ Changing these numbers is a contract decision. defaultDebt must stay at 0; seman
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:41 | `function progressMeta({ value = 0, max = 100, state = "active", indeterminate = false }: { value?: number; max?: number; state?: ProgressIndicatorState; indeterminate?: boolean } = {}) {` |
 | ProgressIndicator | tone-default | tone | accent | packages/react/src/ProgressIndicator.tsx:57 | `tone = "accent",` |
 | ProgressIndicator | state-default | state | active | packages/react/src/ProgressIndicator.tsx:58 | `state = "active",` |
-| QuickAction | state-default | state | default | packages/react/src/QuickAction.tsx:50 | `state = "default",` |
-| QuickAction | tone-default | tone | neutral | packages/react/src/QuickAction.tsx:53 | `tone = "neutral",` |
+| QuickAction | state-default | state | default | packages/react/src/QuickAction.tsx:52 | `state = "default",` |
 | RadioButton | variant-default | variant | default | packages/react/src/RadioButton.tsx:50 | `variant = "default",` |
 | RadioButton | state-default | state | unselected | packages/react/src/RadioButton.tsx:51 | `state = "unselected",` |
 | RouteSummary | variant-default | variant | standard | packages/react/src/RouteSummary.tsx:116 | `variant = "standard",` |
 | RouteSummary | state-default | state | default | packages/react/src/RouteSummary.tsx:117 | `state = "default",` |
 | RouteSummary | tone-default | tone | neutral | packages/react/src/RouteSummary.tsx:119 | `tone = "neutral",` |
 | SegmentedControl | variant-default | variant | outlined | packages/react/src/SegmentedControl.tsx:73 | `variant = "outlined",` |
-| Select | variant-default | variant | default | packages/react/src/Select.tsx:88 | `variant = "default",` |
-| Select | state-default | state | default | packages/react/src/Select.tsx:89 | `state = "default",` |
+| Select | variant-default | variant | default | packages/react/src/Select.tsx:116 | `variant = "default",` |
+| Select | state-default | state | default | packages/react/src/Select.tsx:117 | `state = "default",` |
 | Skeleton | variant-default | variant | text | packages/react/src/Skeleton.tsx:113 | `variant = "text",` |
 | Slider | variant-default | variant | continuous | packages/react/src/Slider.tsx:76 | `variant = "continuous",` |
 | Slider | state-default | state | default | packages/react/src/Slider.tsx:77 | `state = "default",` |

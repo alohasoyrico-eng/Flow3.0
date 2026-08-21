@@ -7,10 +7,10 @@ const validVariants = new Set(["standard", "compact", "wide"]);
 const validStates = new Set(["default", "hover", "focus", "pressed", "loading", "warning", "disabled"]);
 const validIntents = new Set(["default", "danger", "warning"]);
 const validTypes = new Set(["button", "submit", "reset"]);
-export const QuickAction = forwardRef(function QuickAction({ label, icon = "", badge = "", variant, state = "default", intent, density, loading = false, tone = "neutral", disabled = false, type = "button", onAction, className = "", ...rest }, ref) {
+export const QuickAction = forwardRef(function QuickAction({ label, icon = "", badge = "", variant, state = "default", intent, density, loading = false, disabled = false, type = "button", onAction, className = "", ...rest }, ref) {
     const resolvedLabel = label;
     const resolvedVariant = variant && validVariants.has(variant) ? variant : "standard";
-    const resolvedIntent = intent && validIntents.has(intent) ? intent : tone === "danger" ? "danger" : state === "warning" ? "warning" : "default";
+    const resolvedIntent = intent && validIntents.has(intent) ? intent : state === "warning" ? "warning" : "default";
     const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
     const resolvedDensity = normalizeFlowDensity(density);
     const resolvedType = validTypes.has(type) ? type : "button";

@@ -4,15 +4,15 @@
   "planIteration": 15,
   "principle": "Every public React component artifact must be tested one by one from the built package boundary before pattern work continues.",
   "inventory": {
-    "catalogComponents": 62,
-    "contractComponents": 62,
-    "testedComponents": 62,
-    "passingComponents": 62,
+    "catalogComponents": 61,
+    "contractComponents": 61,
+    "testedComponents": 61,
+    "passingComponents": 61,
     "failingComponents": 0,
     "missingFromGoldInventory": 0,
-    "componentsWithRequiredProps": 57,
-    "densityChecks": 62,
-    "stateChecks": 56,
+    "componentsWithRequiredProps": 56,
+    "densityChecks": 61,
+    "stateChecks": 55,
     "themeChecks": 0,
     "componentArtifactTestDebt": 0
   },
@@ -35,45 +35,6 @@
           "component": "Button",
           "markupLength": 221,
           "rootTag": "<button data-artifact-test=\"button\" type=\"button\" class=\"button button--primary flow-artifact-test-hook\" data-density=\"lg\" data-state=\"default\" data-full-width=\"false\">",
-          "issues": []
-        },
-        {
-          "id": "density",
-          "status": "pass",
-          "expected": "root data-density=sm"
-        },
-        {
-          "id": "state",
-          "status": "pass",
-          "expected": "render state=hover"
-        },
-        {
-          "id": "theme",
-          "status": "not-applicable"
-        }
-      ],
-      "issues": [],
-      "status": "pass"
-    },
-    {
-      "id": "copyButton",
-      "component": "CopyButton",
-      "factory": "@design-system/react/copy-button",
-      "contractProps": 15,
-      "requiredProps": [
-        "value"
-      ],
-      "evidence": {
-        "contract": "packages/components/src/contracts.js",
-        "runtime": "packages/react/dist/index.js",
-        "types": "packages/react/dist/CopyButton.d.ts"
-      },
-      "checks": [
-        {
-          "status": "pass",
-          "component": "CopyButton",
-          "markupLength": 292,
-          "rootTag": "<button data-artifact-test=\"copyButton\" aria-label=\"Copy Reference\" data-variant=\"text\" data-state=\"default\" data-density=\"lg\" type=\"button\" class=\"button button--secondary copy-button flow-artifact-test-hook\" data-full-width=\"false\">",
           "issues": []
         },
         {

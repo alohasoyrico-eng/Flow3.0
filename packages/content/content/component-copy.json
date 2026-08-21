@@ -193,7 +193,6 @@
     "component-copy/components/chat-thread/states.json",
     "component-copy/components/input-amount/states.json",
     "component-copy/components/code-block/states.json",
-    "component-copy/components/copy-button/states.json",
     "component-copy/components/chat-composer/all.json",
     "component-copy/components/chat-message/all.json",
     "component-copy/components/chat-thread/all.json",

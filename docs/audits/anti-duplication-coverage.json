@@ -3,9 +3,9 @@
   "errors": [],
   "inventory": {
     "checks": 18,
-    "componentClassRoots": 65,
-    "acceptedComponents": 62,
-    "ownerRoots": 62,
+    "componentClassRoots": 64,
+    "acceptedComponents": 61,
+    "ownerRoots": 61,
     "missingOwnerRoots": 0,
     "extensionRoots": 3,
     "protectedComponentRoots": 7,
@@ -29,9 +29,9 @@
   "baseline": {
     "inventory": {
       "checks": 18,
-      "componentClassRoots": 65,
-      "acceptedComponents": 62,
-      "ownerRoots": 62,
+      "componentClassRoots": 64,
+      "acceptedComponents": 61,
+      "ownerRoots": 61,
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
       "protectedComponentRoots": 7,
@@ -49,9 +49,9 @@
     },
     "actual": {
       "checks": 18,
-      "componentClassRoots": 65,
-      "acceptedComponents": 62,
-      "ownerRoots": 62,
+      "componentClassRoots": 64,
+      "acceptedComponents": 61,
+      "ownerRoots": 61,
       "missingOwnerRoots": 0,
       "extensionRoots": 3,
       "protectedComponentRoots": 7,
@@ -97,7 +97,6 @@
     "code-block",
     "code-input",
     "combobox",
-    "copy-button",
     "country-flag",
     "country-selector",
     "date-picker",
@@ -141,8 +140,8 @@
     "tree-view"
   ],
   "rootRegistry": {
-    "acceptedComponents": 62,
-    "ownerRoots": 62,
+    "acceptedComponents": 61,
+    "ownerRoots": 61,
     "missingOwnerRoots": [],
     "extensionRoots": [
       "choice",

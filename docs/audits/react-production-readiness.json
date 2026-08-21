@@ -26,13 +26,13 @@
     }
   },
   "inventory": {
-    "publicReactComponents": 63,
-    "readyComponents": 63,
+    "publicReactComponents": 62,
+    "readyComponents": 62,
     "partialComponents": 0,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
-    "p1Components": 18,
+    "p1Components": 17,
     "p2Components": 24,
     "missingContracts": 0,
     "missingDirectTestEvidence": 0,
@@ -63,9 +63,9 @@
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 232,
-    "fireEvent": 520,
-    "getByRole": 442,
+    "testingLibraryRender": 231,
+    "fireEvent": 519,
+    "getByRole": 441,
     "getByLabelText": 19,
     "keyDown": 64,
     "escapeKey": 24,
@@ -1048,6 +1048,7 @@
         "types": "packages/react/dist/CodeBlock.d.ts",
         "contract": "packages/content/content/component-contracts/components/code-block.md",
         "tests": [
+          "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-documentation-overlay.test.mjs"
         ]
       },
@@ -1070,7 +1071,7 @@
         ],
         "notes": [
           "Axe structural accessibility excludes color-contrast in JSDOM.",
-          "Clipboard success and disabled copy paths are covered through the embedded CopyButton surface."
+          "Clipboard success and disabled copy paths are covered through CodeBlock copyAction composed with Button."
         ],
         "invalidEvidenceFiles": []
       },
@@ -1172,53 +1173,6 @@
         ],
         "notes": [
           "Axe structural accessibility excludes color-contrast in JSDOM."
-        ],
-        "invalidEvidenceFiles": []
-      },
-      "structuralIssues": [],
-      "evidenceGaps": []
-    },
-    {
-      "slug": "copy-button",
-      "component": "CopyButton",
-      "priority": "P1",
-      "family": "actions",
-      "status": "ready",
-      "evidence": {
-        "reactExport": "./copy-button",
-        "rootExport": true,
-        "source": "packages/react/src/CopyButton.tsx",
-        "dist": "packages/react/dist/CopyButton.js",
-        "types": "packages/react/dist/CopyButton.d.ts",
-        "contract": "packages/content/content/component-contracts/components/copy-button.md",
-        "tests": [
-          "packages/react/test/interaction.test.mjs",
-          "packages/react/test/p1-actions.test.mjs"
-        ]
-      },
-      "requiredProductionEvidence": [
-        "render",
-        "props",
-        "a11y",
-        "callback",
-        "disabled/prevented"
-      ],
-      "productionReadiness": {
-        "status": "ready",
-        "evidenceFiles": [
-          "packages/react/test/p1-actions.test.mjs",
-          "packages/react/test/interaction.test.mjs"
-        ],
-        "coveredProductionEvidence": [
-          "render",
-          "props",
-          "a11y",
-          "callback",
-          "disabled/prevented"
-        ],
-        "notes": [
-          "Axe structural accessibility excludes color-contrast in JSDOM.",
-          "Clipboard success, failure, and prevented click paths are covered."
         ],
         "invalidEvidenceFiles": []
       },

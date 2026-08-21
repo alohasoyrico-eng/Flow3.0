@@ -2,9 +2,9 @@
 
 Status: pass
 
-- Components: 62
+- Components: 61
 - CSS contract debt: 0
-- Direct contracts: 57
+- Direct contracts: 56
 - Family contracts: 5
 - Missing contracts: 0
 - Direct root gaps: 0
@@ -19,9 +19,9 @@ Changing these numbers is a contract decision. cssContractDebt must stay at 0; a
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| total | 62 | 62 |
+| total | 61 | 61 |
 | cssContractDebt | 0 | 0 |
-| direct | 57 | 57 |
+| direct | 56 | 56 |
 | family | 5 | 5 |
 | missing | 0 | 0 |
 | directRootGaps | 0 | 0 |
@@ -97,7 +97,6 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | code-block | direct | code-block | code-block | true | n/a | None |
 | code-input | direct | code-input | code-input | true | n/a | None |
 | combobox | direct | combobox | combobox | true | n/a | None |
-| copy-button | direct | copy-button | copy-button | true | n/a | None |
 | country-selector | direct | country-selector | country-selector | true | n/a | None |
 | date-picker | direct | date-picker | date-picker | true | n/a | None |
 | date-range-picker | direct | date-range-picker | date-range-picker | true | n/a | None |

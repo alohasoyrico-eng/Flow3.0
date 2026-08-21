@@ -1,6 +1,6 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import { codeBlockPlatformContract } from "#flow/platforms";
-import { CopyButton } from "./CopyButton.js";
+import { Button } from "./Button.js";
 import { flowDensityProps, flowRestProps, flowStateProps, flowVariantProps, normalizeFlowDensity } from "./internal/props.js";
 const validVariants = new Set(["block", "inline-group", "specimen"]);
 const validStates = new Set(["default", "wrapped", "scrollable", "with-header", "with-copy", "copied", "error", "disabled"]);
@@ -23,6 +23,8 @@ function resolveCopyAction({ code, label, filename, language, copyAction, copyab
         ...(copyAction?.errorLabel !== undefined ? { errorLabel: copyAction.errorLabel } : {}),
         ...(disabled || copyAction?.disabled ? { disabled: true } : {}),
         ...(copyAction?.feedbackDuration !== undefined ? { feedbackDuration: copyAction.feedbackDuration } : {}),
+        ...(copyAction?.onCopied !== undefined ? { onCopied: copyAction.onCopied } : {}),
+        ...(copyAction?.onCopyError !== undefined ? { onCopyError: copyAction.onCopyError } : {}),
     };
 }
 export const CodeBlock = forwardRef(function CodeBlock({ code, label, filename, language, helper, variant = "block", state = "default", density, copyAction, copyable = false, disabled = false, wrap = true, className = "", ...rest }, ref) {
@@ -38,8 +40,39 @@ export const CodeBlock = forwardRef(function CodeBlock({ code, label, filename, 
         copyable,
         disabled,
     });
+    const [copyFeedback, setCopyFeedback] = useState(null);
+    const copyFeedbackTimer = useRef(null);
+    function updateCopyFeedback(nextFeedback, duration = 1600) {
+        setCopyFeedback(nextFeedback);
+        if (copyFeedbackTimer.current) {
+            clearTimeout(copyFeedbackTimer.current);
+        }
+        copyFeedbackTimer.current = setTimeout(() => setCopyFeedback(null), duration);
+    }
+    async function handleCopyClick(event) {
+        if (!resolvedCopyAction || resolvedCopyAction.disabled || resolvedState === "disabled")
+            return;
+        try {
+            if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) {
+                throw new Error("Clipboard API is not available.");
+            }
+            await navigator.clipboard.writeText(resolvedCopyAction.value);
+            updateCopyFeedback("copied", resolvedCopyAction.feedbackDuration);
+            resolvedCopyAction.onCopied?.({ value: resolvedCopyAction.value, state: "copied" }, event);
+        }
+        catch {
+            updateCopyFeedback("error", resolvedCopyAction.feedbackDuration);
+            resolvedCopyAction.onCopyError?.({ value: resolvedCopyAction.value, state: "error" }, event);
+        }
+    }
     if (!code)
         return null;
+    const copyActionState = copyFeedback ?? (resolvedState === "copied" || resolvedState === "error" ? resolvedState : null);
+    const copyActionLabel = copyActionState === "copied"
+        ? resolvedCopyAction?.copiedLabel ?? "Copied"
+        : copyActionState === "error"
+            ? resolvedCopyAction?.errorLabel ?? "Copy failed"
+            : resolvedCopyAction?.label ?? "Copy";
     return React.createElement("figure", {
         ...flowRestProps(rest),
         ref,
@@ -52,10 +85,14 @@ export const CodeBlock = forwardRef(function CodeBlock({ code, label, filename, 
         "data-language": language || undefined,
     }, label || filename || helper || language || resolvedCopyAction
         ? React.createElement("figcaption", { className: "code-block__header" }, React.createElement("span", { className: "code-block__meta" }, label ? React.createElement("strong", null, label) : null, filename ? React.createElement("span", { className: "code-block__filename" }, filename) : null, helper ? React.createElement("span", null, helper) : null, language ? React.createElement("span", { className: "code-block__language" }, language) : null), resolvedCopyAction
-            ? React.createElement(CopyButton, {
-                ...resolvedCopyAction,
-                variant: "inline",
+            ? React.createElement(Button, {
+                label: copyActionLabel,
+                variant: "tertiary",
                 className: "code-block__copy-action",
+                "aria-label": resolvedCopyAction.ariaLabel,
+                "data-copy-feedback": copyActionState ?? undefined,
+                disabled: Boolean(resolvedCopyAction.disabled) || resolvedState === "disabled",
+                onClick: handleCopyClick,
                 ...(resolvedDensity !== undefined ? { density: resolvedDensity } : {}),
             })
             : null)

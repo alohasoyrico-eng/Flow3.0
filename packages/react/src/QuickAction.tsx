@@ -10,7 +10,6 @@ import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 export type QuickActionVariant = "standard" | "compact" | "wide";
 export type QuickActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
 export type QuickActionDensity = FlowDensity;
-export type QuickActionTone = "neutral" | "danger";
 export type QuickActionIntent = "default" | "danger" | "warning";
 export type QuickActionType = "button" | "submit" | "reset";
 
@@ -31,7 +30,6 @@ export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   density?: QuickActionDensity;
   loading?: boolean;
   disabled?: boolean;
-  tone?: QuickActionTone;
   type?: QuickActionType;
   onAction?: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -55,7 +53,6 @@ export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(funct
   intent,
   density,
   loading = false,
-  tone = "neutral",
   disabled = false,
   type = "button",
   onAction,
@@ -64,7 +61,7 @@ export const QuickAction = forwardRef<HTMLButtonElement, QuickActionProps>(funct
 }, ref) {
   const resolvedLabel = label;
   const resolvedVariant: QuickActionVariant = variant && validVariants.has(variant) ? variant : "standard";
-  const resolvedIntent: QuickActionIntent = intent && validIntents.has(intent) ? intent : tone === "danger" ? "danger" : state === "warning" ? "warning" : "default";
+  const resolvedIntent: QuickActionIntent = intent && validIntents.has(intent) ? intent : state === "warning" ? "warning" : "default";
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedType = validTypes.has(type) ? type : "button";

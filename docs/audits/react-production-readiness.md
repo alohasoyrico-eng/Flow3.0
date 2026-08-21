@@ -7,12 +7,12 @@ Production readiness is not inferred from visual parity or TS build success; eve
 ## Inventory
 
 - Plan iteration: 1
-- Public React components: 63
-- Ready components: 63
+- Public React components: 62
+- Ready components: 62
 - Partial components: 0
 - Blocked components: 0
 - P0 components: 21
-- P1 components: 18
+- P1 components: 17
 - P2 components: 24
 - Missing contracts: 0
 - Missing direct test evidence: 0
@@ -21,9 +21,9 @@ Production readiness is not inferred from visual parity or TS build success; eve
 
 ## Test Capability Snapshot
 
-- Testing Library render calls: 232
-- fireEvent calls: 520
-- getByRole calls: 442
+- Testing Library render calls: 231
+- fireEvent calls: 519
+- getByRole calls: 441
 - getByLabelText calls: 19
 - keyDown calls: 64
 - Escape key checks: 24
@@ -58,10 +58,9 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | chat-thread | ChatThread | P2 | domain-chat | ready | yes | 3 | None | None |
 | checkbox | Checkbox | P0 | forms | ready | yes | 5 | None | None |
 | chip | Chip | P2 | display-status | ready | yes | 5 | None | None |
-| code-block | CodeBlock | P1 | documentation-code | ready | yes | 1 | None | None |
+| code-block | CodeBlock | P1 | documentation-code | ready | yes | 2 | None | None |
 | code-input | CodeInput | P0 | forms | ready | yes | 4 | None | None |
 | combobox | Combobox | P0 | forms | ready | yes | 5 | None | None |
-| copy-button | CopyButton | P1 | actions | ready | yes | 2 | None | None |
 | country-selector | CountrySelector | P0 | forms | ready | yes | 3 | None | None |
 | date-picker | DatePicker | P0 | forms-date | ready | yes | 4 | None | None |
 | date-range-picker | DateRangePicker | P0 | forms-date | ready | yes | 5 | None | None |

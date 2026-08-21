@@ -4,19 +4,19 @@
   "principle": "The public React prop surface must stay aligned with componentContracts so product teams can trust generated docs, types, and platform metadata as one contract. The actionable debt metric is propAlignmentDebt.",
   "baseline": {
     "inventory": {
-      "components": 62,
+      "components": 61,
       "propAlignmentDebt": 0,
-      "pass": 62,
+      "pass": 61,
       "fail": 0,
-      "contractProps": 751,
-      "publicReactProps": 628,
+      "contractProps": 740,
+      "publicReactProps": 620,
       "semanticInheritedProps": 1,
       "inheritedContractProps": 28,
       "extraReactProps": 0,
       "missingReactProps": 0,
       "requiredMismatches": 0,
       "typeValueMismatches": 0,
-      "publicPropsExpectedInSource": 629,
+      "publicPropsExpectedInSource": 621,
       "unreferencedPublicProps": 0,
       "reactGovernancePolicyIssues": 0
     },
@@ -28,18 +28,18 @@
     "issues": []
   },
   "inventory": {
-    "components": 62,
-    "pass": 62,
+    "components": 61,
+    "pass": 61,
     "fail": 0,
-    "contractProps": 751,
-    "publicReactProps": 628,
+    "contractProps": 740,
+    "publicReactProps": 620,
     "semanticInheritedProps": 1,
     "inheritedContractProps": 28,
     "extraReactProps": 0,
     "missingReactProps": 0,
     "requiredMismatches": 0,
     "typeValueMismatches": 0,
-    "publicPropsExpectedInSource": 629,
+    "publicPropsExpectedInSource": 621,
     "unreferencedPublicProps": 0,
     "reactGovernancePolicyIssues": 0,
     "propAlignmentDebt": 0
@@ -2864,7 +2864,17 @@
           "required": false
         },
         {
+          "name": "loadingText",
+          "type": "string",
+          "required": false
+        },
+        {
           "name": "disabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "loading",
           "type": "boolean",
           "required": false
         },
@@ -2875,7 +2885,7 @@
         },
         {
           "name": "state",
-          "type": "\\\"default\\\" | \\\"open\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"empty\\\" | \\\"error\\\" | \\\"disabled\\\"",
+          "type": "\\\"default\\\" | \\\"open\\\" | \\\"focus\\\" | \\\"filled\\\" | \\\"empty\\\" | \\\"loading\\\" | \\\"error\\\" | \\\"disabled\\\"",
           "required": false
         },
         {
@@ -2924,6 +2934,14 @@
           "required": false
         },
         {
+          "name": "loadingText",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "required": false
+        },
+        {
           "name": "density",
           "required": false
         },
@@ -2958,169 +2976,14 @@
         "helper",
         "icon",
         "label",
+        "loading",
+        "loadingText",
         "onOpenChange",
         "onValueChange",
         "open",
         "options",
         "optionsLabel",
         "state"
-      ],
-      "unreferencedPublicProps": [],
-      "failures": [],
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "contractKey": "copyButton",
-      "source": "packages/react/src/CopyButton.js",
-      "types": "packages/react/src/CopyButton.d.ts",
-      "contractProps": [
-        {
-          "name": "value",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "label",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "ariaLabel",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "variant",
-          "type": "\\\"text\\\" | \\\"icon\\\" | \\\"inline\\\"",
-          "required": false
-        },
-        {
-          "name": "density",
-          "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
-          "required": false
-        },
-        {
-          "name": "state",
-          "type": "\\\"default\\\" | \\\"hover\\\" | \\\"focus\\\" | \\\"pressed\\\" | \\\"copied\\\" | \\\"error\\\" | \\\"disabled\\\" | \\\"loading\\\"",
-          "required": false
-        },
-        {
-          "name": "feedbackDuration",
-          "type": "number",
-          "required": false
-        },
-        {
-          "name": "copiedLabel",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "errorLabel",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "icon",
-          "type": "string",
-          "required": false
-        },
-        {
-          "name": "type",
-          "type": "\\\"button\\\" | \\\"submit\\\" | \\\"reset\\\"",
-          "required": false
-        },
-        {
-          "name": "onCopied",
-          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void",
-          "required": false
-        },
-        {
-          "name": "onCopyError",
-          "type": "(meta: CopyButtonMeta, event: CopyButtonEvent) => void",
-          "required": false
-        }
-      ],
-      "publicReactProps": [
-        {
-          "name": "label",
-          "required": false
-        },
-        {
-          "name": "ariaLabel",
-          "required": false
-        },
-        {
-          "name": "variant",
-          "required": false
-        },
-        {
-          "name": "state",
-          "required": false
-        },
-        {
-          "name": "density",
-          "required": false
-        },
-        {
-          "name": "feedbackDuration",
-          "required": false
-        },
-        {
-          "name": "copiedLabel",
-          "required": false
-        },
-        {
-          "name": "errorLabel",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "required": false
-        },
-        {
-          "name": "icon",
-          "required": false
-        },
-        {
-          "name": "onCopied",
-          "required": false
-        },
-        {
-          "name": "onCopyError",
-          "required": false
-        }
-      ],
-      "semanticInheritedProps": [],
-      "inheritedContractProps": [],
-      "extraReactProps": [],
-      "missingReactProps": [],
-      "semanticInheritedMissingFromContract": [],
-      "requiredMismatches": [],
-      "typeValueMismatches": [],
-      "publicPropsExpectedInSource": [
-        "ariaLabel",
-        "copiedLabel",
-        "density",
-        "errorLabel",
-        "feedbackDuration",
-        "icon",
-        "label",
-        "loading",
-        "onCopied",
-        "onCopyError",
-        "state",
-        "variant"
       ],
       "unreferencedPublicProps": [],
       "failures": [],
@@ -4288,7 +4151,12 @@
         },
         {
           "name": "variant",
-          "type": "\\\"primary\\\" | \\\"accent\\\" | \\\"extended\\\" | \\\"mini\\\"",
+          "type": "\\\"primary\\\" | \\\"secondary\\\" | \\\"tertiary\\\" | \\\"outlined\\\" | \\\"ghost\\\"",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\\\"default\\\" | \\\"danger\\\" | \\\"warning\\\"",
           "required": false
         },
         {
@@ -4336,6 +4204,10 @@
           "required": false
         },
         {
+          "name": "intent",
+          "required": false
+        },
+        {
           "name": "state",
           "required": false
         },
@@ -4363,6 +4235,7 @@
         "density",
         "extended",
         "icon",
+        "intent",
         "label",
         "loading",
         "state",
@@ -4395,7 +4268,7 @@
         },
         {
           "name": "variant",
-          "type": "\\\"ghost\\\" | \\\"tonal\\\" | \\\"primary\\\" | \\\"accent\\\"",
+          "type": "\\\"primary\\\" | \\\"secondary\\\" | \\\"tertiary\\\" | \\\"outlined\\\" | \\\"ghost\\\"",
           "required": false
         },
         {
@@ -6238,7 +6111,12 @@
         },
         {
           "name": "variant",
-          "type": "\\\"standard\\\" | \\\"destructive\\\" | \\\"compact\\\" | \\\"wide\\\"",
+          "type": "\\\"standard\\\" | \\\"compact\\\" | \\\"wide\\\"",
+          "required": false
+        },
+        {
+          "name": "intent",
+          "type": "\\\"default\\\" | \\\"danger\\\" | \\\"warning\\\"",
           "required": false
         },
         {
@@ -6259,11 +6137,6 @@
         {
           "name": "disabled",
           "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "tone",
-          "type": "\\\"neutral\\\" | \\\"danger\\\"",
           "required": false
         },
         {
@@ -6299,15 +6172,15 @@
           "required": false
         },
         {
+          "name": "intent",
+          "required": false
+        },
+        {
           "name": "density",
           "required": false
         },
         {
           "name": "loading",
-          "required": false
-        },
-        {
-          "name": "tone",
           "required": false
         },
         {
@@ -6328,11 +6201,11 @@
         "badge",
         "density",
         "icon",
+        "intent",
         "label",
         "loading",
         "onAction",
         "state",
-        "tone",
         "variant"
       ],
       "unreferencedPublicProps": [],
@@ -6717,6 +6590,11 @@
           "required": false
         },
         {
+          "name": "loading",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "name": "density",
           "type": "\\\"sm\\\" | \\\"md\\\" | \\\"lg\\\"",
           "required": false
@@ -6774,6 +6652,10 @@
           "required": false
         },
         {
+          "name": "loading",
+          "required": false
+        },
+        {
           "name": "density",
           "required": false
         },
@@ -6810,6 +6692,7 @@
         "helper",
         "icon",
         "label",
+        "loading",
         "onOpenChange",
         "onValueChange",
         "open",

@@ -10,7 +10,6 @@ import type { quickActionPlatformContract } from "@design-system/components/plat
 export type QuickActionVariant = "standard" | "compact" | "wide";
 export type QuickActionState = "default" | "hover" | "focus" | "pressed" | "loading" | "warning" | "disabled";
 export type QuickActionDensity = "sm" | "md" | "lg";
-export type QuickActionTone = "neutral" | "danger";
 export type QuickActionIntent = "default" | "danger" | "warning";
 
 export interface QuickActionMeta {
@@ -30,7 +29,6 @@ export interface QuickActionProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
   density?: QuickActionDensity;
   loading?: boolean;
   disabled?: boolean;
-  tone?: QuickActionTone;
   onAction?: (meta: QuickActionMeta, event: MouseEvent<HTMLButtonElement>) => void;
 }
 

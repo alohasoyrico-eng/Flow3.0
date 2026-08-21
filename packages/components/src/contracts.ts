@@ -44,37 +44,6 @@ export const componentContracts = {
       "Expose loading with aria-busy and block duplicate activation."
     ]
   },
-  copyButton: {
-    factory: "@design-system/react/copy-button",
-    element: "button",
-    purpose: "Copy one explicit value with accessible naming, success/error feedback, and disabled/loading state.",
-    variants: ["text", "icon", "inline"],
-    intents: ["copy"],
-    states: ["default", "hover", "focus", "pressed", "copied", "error", "disabled", "loading"],
-    props: [
-      { name: "value", type: "string", required: true },
-      { name: "label", type: "string", required: false },
-      { name: "ariaLabel", type: "string", required: false },
-      { name: "variant", type: "\"text\" | \"icon\" | \"inline\"", required: false },
-      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-      { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"copied\" | \"error\" | \"disabled\" | \"loading\"", required: false },
-      { name: "feedbackDuration", type: "number", required: false },
-      { name: "copiedLabel", type: "string", required: false },
-      { name: "errorLabel", type: "string", required: false },
-      { name: "disabled", type: "boolean", required: false },
-      { name: "loading", type: "boolean", required: false },
-      { name: "icon", type: "string", required: false },
-      { name: "type", type: "\"button\" | \"submit\" | \"reset\"", required: false },
-      { name: "onCopied", type: "(meta: CopyButtonMeta, event: CopyButtonEvent) => void", required: false },
-      { name: "onCopyError", type: "(meta: CopyButtonMeta, event: CopyButtonEvent) => void", required: false }
-    ],
-    accessibility: [
-      "Use native button semantics through Button or Icon Button.",
-      "Require an accessible name for icon or ambiguous copy actions.",
-      "Expose copied and error feedback.",
-      "Keep disabled and loading states non-interactive."
-    ]
-  },
   codeBlock: {
     factory: "@design-system/react/code-block",
     element: "figure",
@@ -99,7 +68,7 @@ export const componentContracts = {
     accessibility: [
       "Use figure and optional figcaption to label source context.",
       "Keep code text selectable and readable by assistive technology.",
-      "Compose Copy Button for copy affordances.",
+      "Compose Button for copy affordances and keep clipboard behavior in copyAction.",
       "Keep overflow reachable without trapping focus."
     ]
   },

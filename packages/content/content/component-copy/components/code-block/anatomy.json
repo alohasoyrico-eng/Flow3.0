@@ -20,8 +20,8 @@
           },
           {
             "part": "copy action",
-            "rule": "Uses Copy Button rather than a local clipboard control.",
-            "tokens": ["comp.copy-button.*", "sys.state.*"]
+            "rule": "Uses Button for the visible affordance while Code Block owns clipboard behavior.",
+            "tokens": ["comp.code-block.*", "comp.button.*", "sys.state.*"]
           }
         ]
       }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T18:21:55.604Z",
+  "generatedAt": "2026-08-21T00:41:33.454Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
@@ -19,9 +19,9 @@
     "localQaComponents": 14,
     "localQaComponentIds": [
       "button",
+      "card",
       "checkbox",
       "combobox",
-      "copy-button",
       "dialog",
       "floating-action-button",
       "icon-button",
@@ -76,6 +76,32 @@
       "dynamicStylePlumbing": []
     },
     {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-2026-08-20/interactive/react-runtime.html",
+      "component": "card",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/checkbox-2026-08-18/interactive/react-runtime.html",
       "component": "checkbox",
       "classification": "local-component-qa-harness",
@@ -104,32 +130,6 @@
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/combobox-2026-08-17/interactive/react-runtime.html",
       "component": "combobox",
-      "classification": "local-component-qa-harness",
-      "signals": [
-        "uses-flow-token-css",
-        "uses-flow-component-css",
-        "uses-flow-react-runtime",
-        "has-theme-control",
-        "keyboard-observation-harness",
-        "local-harness-css"
-      ],
-      "risks": [
-        "Harness CSS can affect visual reading; do not use as component source truth."
-      ],
-      "metrics": {
-        "localStyleBlocks": 1,
-        "flowCssLinks": 3,
-        "keyboardTerms": 1,
-        "localVisualOverrides": 0,
-        "dynamicStylePlumbing": 0,
-        "reactRuntimeProof": 1
-      },
-      "visualOverrides": [],
-      "dynamicStylePlumbing": []
-    },
-    {
-      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/copy-button-2026-08-20/interactive/react-runtime.html",
-      "component": "copy-button",
       "classification": "local-component-qa-harness",
       "signals": [
         "uses-flow-token-css",

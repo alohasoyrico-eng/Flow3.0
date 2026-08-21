@@ -3,13 +3,13 @@
   "audit": "react class ownership",
   "principle": "React components may only author their own visual class roots or explicit family roots; protected roots must be reused through real component composition. The actionable debt metric is classOwnershipDebt.",
   "inventory": {
-    "components": 62,
-    "componentClassRoots": 65,
+    "components": 61,
+    "componentClassRoots": 64,
     "protectedComponentRoots": 7,
     "supportClassRoots": 9,
-    "packageCssRoots": 75,
+    "packageCssRoots": 74,
     "componentsWithFamilyRoots": 14,
-    "observedRootAssignments": 79,
+    "observedRootAssignments": 78,
     "observedSupportRootAssignments": 21,
     "violations": 0,
     "classOwnershipDebt": 0
@@ -59,7 +59,6 @@
     "code-block",
     "code-input",
     "combobox",
-    "copy-button",
     "country-flag",
     "country-selector",
     "date-picker",
@@ -488,21 +487,6 @@
       "protectedRootsObserved": [
         "field"
       ],
-      "violations": [],
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.js",
-      "ownerRoot": "copy-button",
-      "allowedRoots": [
-        "copy-button"
-      ],
-      "observedRoots": [
-        "copy-button"
-      ],
-      "observedSupportRoots": [],
-      "protectedRootsObserved": [],
       "violations": [],
       "status": "pass"
     },

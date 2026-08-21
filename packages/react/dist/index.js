@@ -91,7 +91,6 @@ export { Chip } from "./Chip.js";
 export { CodeBlock } from "./CodeBlock.js";
 export { CodeInput } from "./CodeInput.js";
 export { Combobox } from "./Combobox.js";
-export { CopyButton } from "./CopyButton.js";
 export { CountrySelector } from "./CountrySelector.js";
 export { DatePicker } from "./DatePicker.js";
 export { DateRangePicker } from "./DateRangePicker.js";

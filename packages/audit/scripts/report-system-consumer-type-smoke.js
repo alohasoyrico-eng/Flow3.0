@@ -73,14 +73,12 @@ import {
   Button,
   Card,
   CodeBlock,
-  CopyButton,
   Input,
   Select,
   Table,
   type ButtonProps,
   type CardProps,
   type CodeBlockProps,
-  type CopyButtonProps,
   type InputProps,
   type SelectProps,
   type TableProps,
@@ -148,14 +146,12 @@ const codeBlockProps: CodeBlockProps = {
   code: "export const ready = true;",
   language: "ts",
   copyable: true,
-  copyAction: { label: "Copy code" },
-};
-const copyButtonProps: CopyButtonProps = {
-  value: "ready",
-  label: "Copy",
-  onCopied: (meta, event) => {
-    meta.value.toUpperCase();
-    event.currentTarget.focus();
+  copyAction: {
+    label: "Copy code",
+    onCopied: (meta, event) => {
+      meta.value.toUpperCase();
+      event.currentTarget.focus();
+    },
   },
 };
 
@@ -253,7 +249,6 @@ const nodes = [
   React.createElement(Select, selectProps),
   React.createElement(Table, tableProps),
   React.createElement(CodeBlock, codeBlockProps),
-  React.createElement(CopyButton, copyButtonProps),
   React.createElement(Search, searchProps),
   React.createElement(Sidebar, sidebarProps),
   React.createElement(Topbar, topbarProps),

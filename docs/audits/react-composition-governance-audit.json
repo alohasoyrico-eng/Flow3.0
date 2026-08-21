@@ -3,10 +3,10 @@
   "audit": "react composition governance",
   "principle": "React components may compose other Flow React components only through an explicit allowlist, so visual reuse is intentional and duplicate implementations cannot drift silently. The actionable debt metric is compositionDebt.",
   "inventory": {
-    "components": 62,
+    "components": 61,
     "compositionDebt": 0,
     "compositionalComponents": 29,
-    "compositionEdges": 53,
+    "compositionEdges": 52,
     "allowedEntries": 29,
     "unexpectedImports": 0,
     "missingImports": 0,
@@ -38,7 +38,6 @@
     "CodeBlock",
     "CodeInput",
     "Combobox",
-    "CopyButton",
     "CountrySelector",
     "DatePicker",
     "DateRangePicker",
@@ -178,18 +177,13 @@
     },
     {
       "from": "CodeBlock",
-      "to": "CopyButton",
+      "to": "Button",
       "reason": "governed copy action slot"
     },
     {
-      "from": "CopyButton",
-      "to": "Button",
-      "reason": "visible text copy action"
-    },
-    {
-      "from": "CopyButton",
-      "to": "IconButton",
-      "reason": "compact icon copy action"
+      "from": "Combobox",
+      "to": "Spinner",
+      "reason": "field loading indicator slot"
     },
     {
       "from": "Dialog",
@@ -686,13 +680,13 @@
       "component": "CodeBlock",
       "file": "packages/react/src/CodeBlock.js",
       "actual": [
-        "CopyButton"
+        "Button"
       ],
       "allowed": [
-        "CopyButton"
+        "Button"
       ],
       "reasons": {
-        "CopyButton": "governed copy action slot"
+        "Button": "governed copy action slot"
       },
       "unexpected": [],
       "missing": [],
@@ -717,30 +711,14 @@
     {
       "component": "Combobox",
       "file": "packages/react/src/Combobox.js",
-      "actual": [],
-      "allowed": [],
-      "reasons": {},
-      "unexpected": [],
-      "missing": [],
-      "missingReasons": [],
-      "duplicateAllowed": [],
-      "unknownAllowed": [],
-      "status": "pass"
-    },
-    {
-      "component": "CopyButton",
-      "file": "packages/react/src/CopyButton.js",
       "actual": [
-        "Button",
-        "IconButton"
+        "Spinner"
       ],
       "allowed": [
-        "Button",
-        "IconButton"
+        "Spinner"
       ],
       "reasons": {
-        "Button": "visible text copy action",
-        "IconButton": "compact icon copy action"
+        "Spinner": "field loading indicator slot"
       },
       "unexpected": [],
       "missing": [],

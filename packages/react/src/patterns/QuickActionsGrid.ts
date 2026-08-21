@@ -148,7 +148,7 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
         : actionDisabled
           ? "disabled"
           : action.state ?? "default";
-      const intent = action.intent === "danger" || action.tone === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
+      const intent = action.intent === "danger" ? "danger" : action.intent === "warning" ? "warning" : "default";
 
       return React.createElement(
         "div",

@@ -98,7 +98,7 @@ Referenced token families:
 - `sys.symbol.*`
 - `sys.voice.*`
 
-Quick Action renders a wrapper, a circular button control, external label text, optional badge, variant, state, density, loading, disabled, and tone while Design System owns target size, focus, Spinner loading, and state precedence.
+Quick Action renders a wrapper, a circular button control, external label text, optional badge, variant, intent, state, density, loading, and disabled while Design System owns target size, focus, Spinner loading, and state precedence.
 
 ## Variants
 
@@ -171,7 +171,7 @@ Use the playground to verify icon, label, variant, state, and whether the shortc
 
 ## API And Foundations
 
-Quick Action renders a wrapper, a circular button control, external label text, optional badge, variant, state, density, loading, disabled, and tone while Design System owns target size, focus, Spinner loading, and state precedence.
+Quick Action renders a wrapper, a circular button control, external label text, optional badge, variant, intent, state, density, loading, and disabled while Design System owns target size, focus, Spinner loading, and state precedence.
 
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
@@ -183,7 +183,6 @@ Quick Action renders a wrapper, a circular button control, external label text, 
 | density | "sm" \| "md" \| "lg" | No | Scales icon target and label size through Flow density. |
 | loading | boolean | No | Shows package Spinner and exposes aria-busy. |
 | disabled | boolean | No | Disables the action. |
-| tone | "neutral" \| "danger" | No | Legacy tone shortcut; danger maps to destructive. |
 
 ## Implementation Checklist
 

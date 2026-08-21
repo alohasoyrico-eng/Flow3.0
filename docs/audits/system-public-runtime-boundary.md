@@ -9,11 +9,11 @@ The public Flow runtime is only trustworthy when components, patterns, and templ
 - Plan iteration: 22
 - Public runtime layers: 3
 - Passing runtime layers: 3
-- Runtime artifacts: 151
-- Runtime audited artifacts: 151
-- Passing runtime artifacts: 151
+- Runtime artifacts: 150
+- Runtime audited artifacts: 150
+- Passing runtime artifacts: 150
 - Failing runtime artifacts: 0
-- Component runtime artifacts: 62
+- Component runtime artifacts: 61
 - Pattern runtime artifacts: 72
 - Template runtime artifacts: 17
 - Layer runtime debt: 0
@@ -24,7 +24,7 @@ The public Flow runtime is only trustworthy when components, patterns, and templ
 
 | Layer | Iteration | Report | Status | Artifacts | Runtime audited | Passing | Failing | Debt | Issues |
 | --- | ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| components | 19 | docs/audits/system-component-runtime-audit.json | pass | 62 | 62 | 62 | 0 | 0 | None |
+| components | 19 | docs/audits/system-component-runtime-audit.json | pass | 61 | 61 | 61 | 0 | 0 | None |
 | patterns | 20 | docs/audits/system-pattern-runtime-audit.json | pass | 72 | 72 | 72 | 0 | 0 | None |
 | templates | 21 | docs/audits/system-template-runtime-audit.json | pass | 17 | 17 | 17 | 0 | 0 | None |
 

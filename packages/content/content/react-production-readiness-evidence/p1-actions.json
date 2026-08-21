@@ -18,24 +18,6 @@
         "Axe structural accessibility excludes color-contrast in JSDOM."
       ]
     },
-    "copy-button": {
-      "status": "ready",
-      "evidenceFiles": [
-        "packages/react/test/p1-actions.test.mjs",
-        "packages/react/test/interaction.test.mjs"
-      ],
-      "coveredProductionEvidence": [
-        "render",
-        "props",
-        "a11y",
-        "callback",
-        "disabled/prevented"
-      ],
-      "notes": [
-        "Axe structural accessibility excludes color-contrast in JSDOM.",
-        "Clipboard success, failure, and prevented click paths are covered."
-      ]
-    },
     "floating-action-button": {
       "status": "ready",
       "evidenceFiles": [
