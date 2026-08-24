@@ -649,7 +649,9 @@ function checkCascadeOverrideGovernance(options = {}) {
 
 if (require.main === module) {
   const report = createReport();
-  writeReport(report);
+  if (!process.argv.includes("--check")) {
+    writeReport(report);
+  }
   const { jsonOutput, markdownOutput } = outputFilesForScope(report.scope);
   console.log(JSON.stringify({
     status: report.status,

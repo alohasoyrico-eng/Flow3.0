@@ -32,6 +32,7 @@ export type FlowTokenName =
   | "ref-depth-overlay-dark"
   | "ref-depth-overlay-light"
   | "ref-depth-shadow-color-rgb"
+  | "ref-depth-shadow-dark-color-rgb"
   | "ref-depth-z-base"
   | "ref-depth-z-dialog"
   | "ref-depth-z-dropdown"
@@ -436,6 +437,10 @@ export type FlowTokenName =
   | "sys-depth-elevation-2"
   | "sys-depth-elevation-3"
   | "sys-depth-elevation-4"
+  | "sys-depth-elevation-dark-1"
+  | "sys-depth-elevation-dark-2"
+  | "sys-depth-elevation-dark-3"
+  | "sys-depth-elevation-dark-4"
   | "sys-depth-lift-overlay"
   | "sys-depth-lift-raised"
   | "sys-depth-lift-rest"
@@ -827,6 +832,7 @@ export type FlowTokenName =
   | "sys-loading-spinner-track"
   | "sys-loading-stale-opacity"
   | "sys-map-depth-pin"
+  | "sys-map-depth-pin-pointer"
   | "sys-map-depth-selected"
   | "sys-map-fallback-surface"
   | "sys-map-fallback-text-color"
@@ -1520,6 +1526,12 @@ export const flowTokens = {
     "scope": "ref",
     "cssVariable": "--ref-depth-shadow-color-rgb"
   },
+  "ref-depth-shadow-dark-color-rgb": {
+    "value": "0 0 0",
+    "type": "shadow",
+    "scope": "ref",
+    "cssVariable": "--ref-depth-shadow-dark-color-rgb"
+  },
   "ref-depth-overlay-light": {
     "value": "color-mix(in srgb, var(--ref-energy-neutral-900) 50%, transparent)",
     "type": "color",
@@ -1759,6 +1771,30 @@ export const flowTokens = {
     "type": "shadow",
     "scope": "sys",
     "cssVariable": "--sys-depth-elevation-4"
+  },
+  "sys-depth-elevation-dark-1": {
+    "value": "0 1px 2px 0 rgb(var(--ref-depth-shadow-dark-color-rgb) / 52%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 9%, transparent)",
+    "type": "shadow",
+    "scope": "sys",
+    "cssVariable": "--sys-depth-elevation-dark-1"
+  },
+  "sys-depth-elevation-dark-2": {
+    "value": "0 8px 18px -6px rgb(var(--ref-depth-shadow-dark-color-rgb) / 66%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 11%, transparent)",
+    "type": "shadow",
+    "scope": "sys",
+    "cssVariable": "--sys-depth-elevation-dark-2"
+  },
+  "sys-depth-elevation-dark-3": {
+    "value": "0 18px 44px -14px rgb(var(--ref-depth-shadow-dark-color-rgb) / 78%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 13%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 8%, transparent) inset",
+    "type": "shadow",
+    "scope": "sys",
+    "cssVariable": "--sys-depth-elevation-dark-3"
+  },
+  "sys-depth-elevation-dark-4": {
+    "value": "0 28px 72px -20px rgb(var(--ref-depth-shadow-dark-color-rgb) / 86%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 15%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 10%, transparent) inset",
+    "type": "shadow",
+    "scope": "sys",
+    "cssVariable": "--sys-depth-elevation-dark-4"
   },
   "ref-energy-neutral-50": {
     "value": "#f8fafc",
@@ -8434,6 +8470,12 @@ export const flowTokens = {
     "reference": "sys-depth-elevation-2",
     "cssReference": "--sys-depth-elevation-2"
   },
+  "sys-map-depth-pin-pointer": {
+    "value": "drop-shadow(0 var(--sys-frame-border-control) var(--sys-frame-border-control) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent))",
+    "type": "shadow",
+    "scope": "sys",
+    "cssVariable": "--sys-map-depth-pin-pointer"
+  },
   "sys-map-fallback-surface": {
     "value": "var(--sys-energy-surface-primary)",
     "type": "color",
@@ -9366,6 +9408,7 @@ export const flowTokenNames = [
   "ref-depth-overlay-dark",
   "ref-depth-overlay-light",
   "ref-depth-shadow-color-rgb",
+  "ref-depth-shadow-dark-color-rgb",
   "ref-depth-z-base",
   "ref-depth-z-dialog",
   "ref-depth-z-dropdown",
@@ -9770,6 +9813,10 @@ export const flowTokenNames = [
   "sys-depth-elevation-2",
   "sys-depth-elevation-3",
   "sys-depth-elevation-4",
+  "sys-depth-elevation-dark-1",
+  "sys-depth-elevation-dark-2",
+  "sys-depth-elevation-dark-3",
+  "sys-depth-elevation-dark-4",
   "sys-depth-lift-overlay",
   "sys-depth-lift-raised",
   "sys-depth-lift-rest",
@@ -10161,6 +10208,7 @@ export const flowTokenNames = [
   "sys-loading-spinner-track",
   "sys-loading-stale-opacity",
   "sys-map-depth-pin",
+  "sys-map-depth-pin-pointer",
   "sys-map-depth-selected",
   "sys-map-fallback-surface",
   "sys-map-fallback-text-color",

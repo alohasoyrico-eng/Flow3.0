@@ -2,7 +2,7 @@
 
 Date: 2026-08-15
 
-Scope: production readiness for 63 direct public React component exports.
+Scope: production readiness for 61 direct public React component exports.
 
 Source artifacts:
 
@@ -18,24 +18,25 @@ Move direct React components from `partial` to an evidence-backed status:
 - `partial`
 - `blocked`
 
-The goal is not visual parity, FlowDocs remediation, patterns, or templates. Those are downstream.
+The goal is not FlowDocs remediation, patterns, or templates. Those are downstream. Visual parity is evidence only when tied to the canonical React runtime demo for a component.
 
 ## Current Baseline
 
 | Status | Count |
 | --- | ---: |
-| `ready` | 0 |
-| `partial` | 63 |
+| `ready` | 12 |
+| `partial` | 49 |
 | `blocked` | 0 |
 | `unknown` | 0 |
+| `retired/composed` | 2 |
 
 Main blockers to certification:
 
-- No per-component production-readiness rows.
-- No family-specific executable gate.
-- No axe/user-event style accessibility coverage.
-- P0 components need explicit keyboard/a11y/runtime proof.
-- Existing tests are useful but monolithic and not enough for certification.
+- Remaining partial components need per-component production-readiness rows.
+- Remaining partial families need executable user-event/axe evidence.
+- Remaining P0 components need explicit keyboard/a11y/runtime proof.
+- The first closure batch is no longer blocked by monolithic-only evidence.
+- Retired/composed surfaces must stay out of public component exports.
 
 ## Execution Principles
 
@@ -48,11 +49,13 @@ Main blockers to certification:
 
 ## Iteration Plan
 
-Estimated analysis-to-certification work: 12 iterations.
+Estimated remaining analysis-to-certification work: 7 iterations.
 
 This estimate covers certification and targeted test/audit remediation. It does not guarantee deep implementation fixes for every blocked component; discovered blockers may add iterations.
 
 ### Iteration 1: Production Readiness Harness
+
+Status: complete.
 
 Objective: create the durable readiness report/gate shape.
 
@@ -71,6 +74,8 @@ Done when:
 
 ### Iteration 2: Test Harness Upgrade Decision
 
+Status: complete.
+
 Objective: decide and wire realistic interaction/a11y tooling.
 
 Deliverables:
@@ -86,6 +91,8 @@ Done when:
 - The choice is reflected in tests/gates, not only docs.
 
 ### Iteration 3: P0 Forms Batch 1
+
+Status: test/a11y evidence complete for `input`, `checkbox`, `radio-button`, `switch`, `text-area`, and `slider`. `input`, `checkbox`, `radio-button`, and `switch` also have reviewed runtime demos. `text-area` and `slider` still need runtime demo review before `ready`.
 
 Components:
 
@@ -111,6 +118,8 @@ Minimum evidence:
 - value/checked callback payload.
 
 ### Iteration 4: P0 Forms Batch 2
+
+Status: test/a11y evidence complete for `select`, `combobox`, `country-selector`, `date-picker`, and `date-range-picker`. `select` and `combobox` also have reviewed runtime demos. `country-selector`, `date-picker`, and `date-range-picker` still need runtime demo review before `ready`.
 
 Components:
 
@@ -185,6 +194,8 @@ Minimum evidence:
 - return focus where applicable,
 - role/name and aria-expanded/controls/haspopup.
 
+Status: test/a11y evidence complete for `menu`, `dialog`, `drawer`, and `popover`. `menu` has reviewed runtime demo. `dialog`, `drawer`, and `popover` still need runtime demo review before `ready`.
+
 ### Iteration 7: P0 Navigation
 
 Components:
@@ -211,6 +222,8 @@ Minimum evidence:
 - controlled rerender,
 - disabled item behavior.
 
+Status: complete for `tabs`; remaining P1 navigation components are still partial.
+
 ### Iteration 8: P1 Actions
 
 Components:
@@ -218,12 +231,11 @@ Components:
 - `button`
 - `icon-button`
 - `floating-action-button`
-- `quick-action`
 
 Gaps:
 
 - disabled/loading callback proof,
-- thin evidence for `floating-action-button`.
+- retired/composed governance for duplicate action surfaces.
 
 Minimum evidence:
 
@@ -232,6 +244,8 @@ Minimum evidence:
 - icon-only accessible name,
 - keyboard activation where applicable,
 - clipboard affordance decision for `button`/`icon-button` usage.
+
+Status: complete for `button`, `icon-button`, and `floating-action-button`. `quick-action` is retired/composed, not a public component.
 
 ### Iteration 9: P1 Data/Display And Remaining Navigation
 
@@ -254,6 +268,8 @@ Minimum evidence:
 - interactive callback and keyboard path,
 - invalid data/key protection,
 - current/selected/expanded state semantics.
+
+Status: complete for `card`. Test/a11y evidence exists for `table` and `list`, but they still need runtime demo review. `card-summary`, `breadcrumbs`, and `stepper` remain partial.
 
 ### Iteration 10: Display/Status
 
@@ -339,7 +355,7 @@ Done when:
 | P0 forms checkpoint | 5 | all P0 forms have readiness rows and family tests or blockers. |
 | P0 interaction checkpoint | 7 | overlays and tabs have keyboard/focus/open-close evidence or blockers. |
 | Shared surface checkpoint | 9 | P1 actions/navigation/data have readiness rows. |
-| Full surface checkpoint | 11 | all 63 components have readiness rows. |
+| Full surface checkpoint | 11 | all 61 direct public components have readiness rows. |
 | Certification checkpoint | 12 | final counts and release decision exist. |
 
 ## Expected Outcome

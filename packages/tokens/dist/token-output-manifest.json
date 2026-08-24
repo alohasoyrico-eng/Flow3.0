@@ -1,25 +1,25 @@
 {
   "source": {
     "file": "packages/tokens/.build/flow.tokens.json",
-    "sha256": "8b45c6eac1fd70d841e959e9032c9d795cc6a08e0644540cc26ac64895133ec5",
-    "tokenCount": 1152
+    "sha256": "ba21f32edec3b8aa56966be702d8cb7eb3638676c0c6a701aa24c897743abc3c",
+    "tokenCount": 1158
   },
   "outputs": [
     {
       "file": "packages/tokens/styles/tokens.css",
-      "sha256": "e0e728c2e128beba16851e341412cf93fde688a5b041305abb34b16c0b04263a"
+      "sha256": "68aa7fbd575f4f63d8b9233bfebc3914915cd196cfcbe12f542a452e045b7868"
     },
     {
       "file": "packages/tokens/styles/token-contexts.css",
-      "sha256": "b70c5a2f09d73bd978269f839036f83a7f6d80e1762b33e6b9993a939ddde02e"
+      "sha256": "c7f7a3220f7ac70f4feb9e524fe02f6b742d5490b4f393ea525000976a80d855"
     },
     {
       "file": "packages/tokens/tokens.json",
-      "sha256": "41eacd64e29b607903a7fa63de25ac9cfcb609be665edea01ad79b9b1540f458"
+      "sha256": "e225824c5ed7ecae79ddd7be1e9c489fd485a779e5c1b84ea130a769f88b5b3c"
     },
     {
       "file": "packages/tokens/src/generated/tokens.ts",
-      "sha256": "c9a677a164c16ebb736fa10ca747cad87f5867c3a687bf88bff5f286c47afa77"
+      "sha256": "f2777c1f3f8a22e266ab6793afeab85af1e296d3565fbddf621a57cff8e56ac8"
     },
     {
       "file": "packages/tokens/src/index.js",
@@ -27,15 +27,15 @@
     },
     {
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",
-      "sha256": "35a4437d14283170829a412b2671b7fc963e62ecda08336baf3a77e8b8b079d6"
+      "sha256": "a6baddfd3330a704f0ef2439a7ebee827db21a16c4fc45ec50c7016c012e72c8"
     },
     {
       "file": "packages/tokens/dist/android/flow_tokens.xml",
-      "sha256": "59019d98d80f7094e05fba4efdb926217a0ac4d43e1d90f64b916b1c76b57a5b"
+      "sha256": "48b722a6ab5dc5f9308028b29f2cb35d8adc1568ccba6c20f596e6aa41bdbc59"
     },
     {
       "file": "packages/tokens/dist/ios/FlowTokens.swift",
-      "sha256": "ebb09ce4eeed24bd8f6a4dec82a7e025648a37814f64c0944acb916a952c6886"
+      "sha256": "20c9c6ad4d446ed99eb5e9c3ee624606f67f678668108bef8a3bc83ec5d53960"
     },
     {
       "file": "packages/react/src/internal/email-token-values.js",

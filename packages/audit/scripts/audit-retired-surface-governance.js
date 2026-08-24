@@ -10,7 +10,6 @@ const { retiredSurfaceFindings } = require("./retired-surface-policy.js");
 const retiredSurfaceRoots = [
   "package.json",
   "tsconfig.json",
-  "docs/forensics",
   "packages/react/src",
   "packages/react/dist",
   "packages/components/src",

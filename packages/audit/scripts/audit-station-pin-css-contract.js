@@ -89,8 +89,11 @@ function checkStationPinCssContract({ text, blocks, packageCssFile, selectorKey,
     ],
     message: "StationPin pointer must consume pointer aliases instead of hardcoded geometry.",
   });
-  if (/--comp-station-pin-pointer-shadow:\s*drop-shadow\([^;]*var\(--sys-frame-border-thin/.test(text)) {
-    add("errors", packageCssFile, 1, "StationPin pointer shadow must route through the component pointer shadow alias.");
+  if (!text.includes("--component-station-pin-pointer-shadow: var(--sys-map-depth-pin-pointer)")) {
+    add("errors", packageCssFile, 1, "StationPin pointer shadow must route through the Maps primitive pointer depth alias.");
+  }
+  if (/--(?:component|comp)-station-pin-pointer-shadow:\s*drop-shadow\(/.test(text)) {
+    add("errors", packageCssFile, 1, "StationPin pointer shadow must not define local drop-shadow formulas in component CSS.");
   }
   for (const [block, message] of [
     [densitySmBlock, "StationPin small density must set marker, pointer, frame, font, and touch target aliases."],

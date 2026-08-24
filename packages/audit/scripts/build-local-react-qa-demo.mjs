@@ -18,7 +18,7 @@ const components = {
     directory: "button-2026-08-17",
     module: "Button.js",
     exportName: "Button",
-    buildId: "button-react-runtime-1",
+    buildId: "button-depth-dark-runtime-1",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Variantes de accion"),
           e("div", { className: "audit-row" },
@@ -95,7 +95,7 @@ const components = {
     directory: "floating-action-button-2026-08-20",
     module: "FloatingActionButton.js",
     exportName: "FloatingActionButton",
-    buildId: "fab-react-runtime-1",
+    buildId: "fab-depth-dark-runtime-1",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Tratamientos FAB"),
           e("div", { className: "audit-row" },
@@ -145,7 +145,7 @@ const components = {
     directory: "card-2026-08-20",
     module: "Card.js",
     exportName: "Card",
-    buildId: "card-react-runtime-9",
+    buildId: "card-depth-dark-runtime-1",
     indexImports: ["Table", "EmptyState", "Skeleton"],
     eventPropName: "onAction",
     actionHandler: "(key, action, event) => onAction(key || props.actionKey || props.title)(event || { type: 'action' })",
@@ -505,12 +505,115 @@ const components = {
           )
         )`,
   },
+  "text-area": {
+    title: "TextArea",
+    directory: "text-area-2026-08-24",
+    module: "TextArea.js",
+    exportName: "TextArea",
+    buildId: "text-area-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
+    actionSelector: "textarea[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Notes", placeholder: "Write driver notes", helper: "Visible to operations" })),
+            e("div", { className: "audit-card" }, action({ label: "Limited notes", maxLength: 80, placeholder: "Max 80 characters" })),
+            e("div", { className: "audit-card" }, action({ label: "Filled", value: "Inspection completed before dispatch." }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", value: "Small density" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", value: "Medium density" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", value: "Large density" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Success", state: "success", helper: "Saved" })),
+            e("div", { className: "audit-card" }, action({ label: "Warning", state: "warning", helper: "Review wording" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", error: "Notes are required" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "Disabled notes", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  slider: {
+    title: "Slider",
+    directory: "slider-2026-08-24",
+    module: "Slider.js",
+    exportName: "Slider",
+    buildId: "slider-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
+    actionSelector: "input[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Rangos"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Search radius", min: 0, max: 20, step: 1, unit: " km", value: 8 })),
+            e("div", { className: "audit-card" }, action({ label: "Battery threshold", min: 0, max: 100, step: 5, unit: "%", value: 45 })),
+            e("div", { className: "audit-card" }, action({ label: "Controlled value", min: 0, max: 20, step: 2, unit: " km", value: 12 }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", min: 0, max: 10, value: 3 })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", min: 0, max: 10, value: 5 })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", min: 0, max: 10, value: 7 }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Focus", state: "focus", min: 0, max: 10, value: 5 })),
+            e("div", { className: "audit-card" }, action({ label: "Dragging", state: "dragging", min: 0, max: 10, value: 5 })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, min: 0, max: 10, value: 5, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "code-input": {
+    title: "CodeInput",
+    directory: "code-input-2026-08-24",
+    module: "CodeInput.js",
+    exportName: "CodeInput",
+    buildId: "code-input-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
+    actionSelector: "input[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Longitudes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Security code", length: 4, helper: "Numbers only" })),
+            e("div", { className: "audit-card" }, action({ label: "Six digit code", length: 6, value: "123456" })),
+            e("div", { className: "audit-card" }, action({ label: "Partial code", length: 4, value: "12" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", length: 4, value: "1234" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", length: 4, value: "1234" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", length: 4, value: "1234" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Complete", length: 4, value: "9876" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", length: 4, value: "12", error: "Invalid security code" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", length: 4, value: "1234", disabled: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
   select: {
     title: "Select",
     directory: "select-2026-08-17",
     module: "Select.js",
     exportName: "Select",
-    buildId: "select-react-runtime-1",
+    buildId: "select-depth-dark-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.label)(event)",
     actionSelector: "button[data-runtime-action]",
@@ -550,7 +653,7 @@ const components = {
     directory: "combobox-2026-08-17",
     module: "Combobox.js",
     exportName: "Combobox",
-    buildId: "combobox-react-runtime-1",
+    buildId: "combobox-depth-dark-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + (meta.label || value))(event)",
     actionSelector: "input[data-runtime-action]",
@@ -582,6 +685,151 @@ const components = {
             e("div", { className: "audit-card" }, action({ label: "Loading", options, loading: true, loadingText: "Loading drivers" })),
             e("div", { className: "audit-card" }, action({ label: "Error", options, state: "error", helper: "Select a driver" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", options, value: "ana", disabled: true, clearSelectionLabel: "Clear selection", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "country-selector": {
+    title: "CountrySelector",
+    directory: "country-selector-2026-08-24",
+    module: "CountrySelector.js",
+    exportName: "CountrySelector",
+    buildId: "country-selector-react-runtime-1",
+    flagAssets: ["MX", "US", "CO", "BR"],
+    eventPropName: "onValueChange",
+    actionHandler: "(countryCode, country, event) => onAction(props.label + '=' + countryCode)(event)",
+    actionSelector: "button[data-runtime-action]",
+    supportPreamble: `const countries = [
+      { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
+      { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
+      { country: "CO", label: "Colombia", callingCode: "+57", nationalLength: 10 },
+      { country: "BR", label: "Brazil", callingCode: "+55", nationalLength: 11 }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Interactivo"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Country code", countries, country: "MX" })),
+            e("div", { className: "audit-card" }, action({ label: "Open country", countries, country: "US", state: "open" })),
+            e("div", { className: "audit-card" }, action({ label: "Search country", countries, searchable: true, country: "CO" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", countries, country: "MX", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", countries, country: "MX", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", countries, country: "MX", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", state: "error", helper: "Country required" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", countries, country: "MX", disabled: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "phone-input": {
+    title: "PhoneInput",
+    directory: "phone-input-2026-08-24",
+    module: "PhoneInput.js",
+    exportName: "PhoneInput",
+    buildId: "phone-input-react-runtime-1",
+    flagAssets: ["MX", "US", "CO"],
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
+    actionSelector: "input[data-runtime-action]",
+    supportPreamble: `const countries = [
+      { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
+      { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
+      { country: "CO", label: "Colombia", callingCode: "+57", nationalLength: 10 }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Formato"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Mobile phone", countries, country: "MX", placeholder: "55 1234 5678" })),
+            e("div", { className: "audit-card" }, action({ label: "US phone", countries, country: "US", value: "+15512345678" })),
+            e("div", { className: "audit-card" }, action({ label: "With helper", countries, country: "CO", helper: "Include area code" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", countries, country: "MX", density: "sm", value: "+525512345678" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", countries, country: "MX", density: "md", value: "+525512345678" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", countries, country: "MX", density: "lg", value: "+525512345678" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", error: "Invalid phone number" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", countries, country: "MX", value: "+525512345678", disabled: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "date-picker": {
+    title: "DatePicker",
+    directory: "date-picker-2026-08-24",
+    module: "DatePicker.js",
+    exportName: "DatePicker",
+    buildId: "date-picker-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, event) => onAction(props.label + '=' + value)(event)",
+    actionSelector: "button[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Interactivo"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Service date", value: "2026-01-15" })),
+            e("div", { className: "audit-card" }, action({ label: "Open date", value: "2026-01-15", open: true })),
+            e("div", { className: "audit-card" }, action({ label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25", open: true }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", value: "2026-01-15", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", value: "2026-01-15", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", value: "2026-01-15", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Error", value: "2026-01-15", error: "Choose a valid date" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", value: "2026-01-15", disabled: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "date-range-picker": {
+    title: "DateRangePicker",
+    directory: "date-range-picker-2026-08-24",
+    module: "DateRangePicker.js",
+    exportName: "DateRangePicker",
+    buildId: "date-range-picker-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, event) => onAction(props.label + '=' + [value.from, value.to].filter(Boolean).join('/'))(event)",
+    actionSelector: "button[data-runtime-action]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Interactivo"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Billing window", value: { from: "2026-02-10", to: "2026-02-15" } })),
+            e("div", { className: "audit-card" }, action({ label: "Open range", value: { from: "2026-02-10", to: "" }, open: true })),
+            e("div", { className: "audit-card" }, action({ label: "With presets", value: { from: "2026-02-10", to: "2026-02-15" }, presets: true, presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }] }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", value: { from: "2026-02-10", to: "2026-02-15" }, density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", value: { from: "2026-02-10", to: "2026-02-15" }, density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", value: { from: "2026-02-10", to: "2026-02-15" }, density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Error", value: { from: "2026-02-10", to: "" }, error: "Choose an end date" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", value: { from: "2026-02-10", to: "2026-02-15" }, disabled: true, "data-runtime-action": "true" }))
           )
         )`,
   },
@@ -722,7 +970,7 @@ const components = {
     directory: "menu-2026-08-18",
     module: "Menu.js",
     exportName: "Menu",
-    buildId: "menu-react-runtime-1",
+    buildId: "menu-anchor-layout-runtime-1",
     eventPropName: "onSelect",
     actionHandler: "(item, event) => onAction(props.triggerLabel + '=' + item.label)(event)",
     actionSelector: "[data-menu-trigger]:not(:disabled)",
@@ -809,6 +1057,8 @@ const requestedComponents = requestedComponent === "all-actions"
   ? ["button", "icon-button", "floating-action-button"]
   : requestedComponent === "all-fields"
     ? ["input", "select", "combobox"]
+  : requestedComponent === "all-p0-forms"
+    ? ["text-area", "slider", "code-input", "phone-input", "country-selector", "date-picker", "date-range-picker"]
   : requestedComponent === "all-choice-nav"
     ? ["checkbox", "radio-button", "switch", "tabs", "menu"]
   : requestedComponent === "all-overlays"
@@ -823,12 +1073,44 @@ if (invalidComponent) {
   process.exit(1);
 }
 
+function copyFlagAssets(config, outDir) {
+  if (!Array.isArray(config.flagAssets) || !config.flagAssets.length) return;
+
+  const sourceDir = path.join(repoRoot, "node_modules/country-flag-icons/3x2");
+  const targetDir = path.join(outDir, "vendor/country-flag-icons/3x2");
+  fs.mkdirSync(targetDir, { recursive: true });
+
+  for (const code of config.flagAssets) {
+    const source = path.join(sourceDir, `${code}.svg`);
+    if (!fs.existsSync(source)) {
+      console.error(`Missing flag asset: ${source}`);
+      process.exit(1);
+    }
+    fs.copyFileSync(source, path.join(targetDir, `${code}.svg`));
+  }
+}
+
+function copyMaterialSymbolsAssets(outDir) {
+  const sourceDir = path.join(workspaceRoot, "apps/docs/vendor/material-symbols");
+  const targetDir = path.join(outDir, "vendor/material-symbols");
+  if (!fs.existsSync(sourceDir)) {
+    console.error(`Missing Material Symbols asset directory: ${sourceDir}`);
+    process.exit(1);
+  }
+  fs.mkdirSync(targetDir, { recursive: true });
+  for (const file of fs.readdirSync(sourceDir)) {
+    fs.copyFileSync(path.join(sourceDir, file), path.join(targetDir, file));
+  }
+}
+
 const outputs = [];
 
 for (const component of requestedComponents) {
 const config = components[component];
 const outDir = path.join(localQaRoot, config.directory, "interactive");
 fs.mkdirSync(outDir, { recursive: true });
+copyFlagAssets(config, outDir);
+copyMaterialSymbolsAssets(outDir);
 
 const relToRepo = path.relative(outDir, repoRoot).replaceAll(path.sep, "/");
 
@@ -843,7 +1125,7 @@ const html = `<!doctype html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Flow ${config.title} React Runtime QA</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="${relToRepo}/../FlowDocs/apps/docs/vendor/material-symbols/material-symbols-rounded.css">
+  <link rel="stylesheet" href="./vendor/material-symbols/material-symbols-rounded.css?v=${config.buildId}">
   <link rel="stylesheet" href="${relToRepo}/packages/tokens/styles/tokens.css?v=${config.buildId}">
   <link rel="stylesheet" href="${relToRepo}/packages/tokens/styles/token-contexts.css?v=${config.buildId}">
   <link rel="stylesheet" href="${relToRepo}/packages/components/styles/components.css?v=${config.buildId}">

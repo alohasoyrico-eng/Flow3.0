@@ -2,7 +2,7 @@
 
 Date: 2026-08-15
 
-Scope: 63 direct public React component exports. Patterns and templates are excluded.
+Scope: 61 direct public React component exports. Patterns and templates are excluded. Retired/composed surfaces are tracked as governance decisions, not component readiness rows.
 
 Inputs:
 
@@ -17,7 +17,7 @@ Inputs:
 
 ## Executive Finding
 
-No direct React component is production-ready by the contract yet.
+The first closure batch has production evidence and is no longer tracked as ambiguous `partial` debt.
 
 This does not mean every component is broken. It means every component is missing at least one required piece of production evidence: family-specific behavior, keyboard/a11y proof, controlled/uncontrolled proof, or a per-component readiness row.
 
@@ -25,30 +25,31 @@ Current classification:
 
 | Status | Count | Meaning |
 | --- | ---: | --- |
-| `ready` | 0 | No component has complete evidence yet. |
-| `partial` | 63 | Surface/build evidence exists, but production evidence is incomplete. |
+| `ready` | 12 | Closure-batch components have contract, source/build, user-event/axe evidence, runtime demos, and systemic gates. |
+| `partial` | 49 | Surface/build evidence exists, but production evidence is incomplete. |
 | `blocked` | 0 | No blocker is proven by this matrix alone. |
-| `unknown` | 0 | Every direct component has enough surface evidence to classify as `partial`. |
+| `unknown` | 0 | Every direct component has enough surface evidence to classify as `ready` or `partial`. |
+| `retired/composed` | 2 | `copy-button` and `quick-action` are not public component exports. |
 
 ## Summary
 
 | Metric | Count |
 | --- | ---: |
-| Direct React components | 63 |
+| Direct React components | 61 |
 | P0 components | 18 |
-| P1 components | 18 |
-| P2 components | 27 |
+| P1 components | 17 |
+| P2 components | 26 |
 | Components missing component contract | 1 |
 | Components with no test evidence mention | 1 |
-| Components with thin test evidence | 3 |
-| Components needing family-specific proof | 63 |
+| Components with thin test evidence | 2 |
+| Components not ready yet | 49 |
 
 Critical gaps:
 
-- P0 forms do not yet have explicit, per-component controlled/uncontrolled + keyboard/a11y proof.
-- P0 overlays do not yet have explicit, per-component focus + Escape + outside-click proof.
-- P0 navigation does not yet have explicit keyboard navigation proof.
-- Existing evidence is mostly broad/monolithic; it is useful, but not sufficient for production certification.
+- Remaining P0 forms outside the closure batch need explicit controlled/uncontrolled + keyboard/a11y proof.
+- Remaining P0 overlays outside the closure batch need explicit focus + Escape + outside-click proof.
+- Remaining navigation outside `tabs` needs keyboard navigation proof.
+- Existing evidence is now mixed: closure-batch evidence is executable and family-specific; the remaining surface still needs the same treatment.
 - `surface` is exported as React but has no component contract.
 - `code-block` has no current test mention.
 
@@ -64,6 +65,9 @@ Critical gaps:
 | `interaction-signal` | Referenced by React interaction test. |
 | `static-render-a11y-signal` | Referenced by static render/ARIA assertions. |
 | `indirect-pattern-interaction` | Referenced by pattern/template interaction tests. |
+| `production-user-event-axe` | Covered by family-specific user-event tests with axe smoke coverage. |
+| `runtime-demo-reviewed` | Covered by the canonical local React runtime demo reviewed during component QA. |
+| `systemic-gates` | Covered by current flow core gates for retired surfaces, cascade overrides, namespace, frame/density/state/motion/accessibility policy, and package contracts. |
 
 ## Gap Labels
 
@@ -82,36 +86,61 @@ Critical gaps:
 | `domain-state-event-proof` | Domain component must prove domain states/events. |
 | `per-component-readiness-row` | Component needs a durable readiness row in the final report/gate. |
 
+## Closure Batch Status
+
+These components were already reviewed in the 1:1 component pass and are now classified without the ambiguous `partial` label.
+
+| Component | Status | Evidence | Notes |
+| --- | --- | --- | --- |
+| `button` | ready | component-contract, contract-render, ref-test, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Action states, loading/disabled prevention, keyboard activation, intents, sizing, and copy affordance ownership are covered. |
+| `input` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Controlled/uncontrolled behavior, validation states, loading vs disabled, helper/error/live semantics, density/frame, and dark/a11y checks are covered. |
+| `select` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Open/close, Escape, ArrowDown/ArrowUp, Enter selection, disabled option behavior, no false initial selection, listbox geometry, and controlled rerender are covered. |
+| `combobox` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Search input, clear affordance gating, ArrowDown/Enter, Escape revert, no false initial selection, selected check semantics, and controlled rerender are covered. |
+| `checkbox` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Checked/mixed states, disabled prevention, Space activation, icon scale, label alignment, and dark border visibility are covered. |
+| `radio-button` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Checked state, disabled prevention, Space activation, Material Symbols indicator policy, motion, and dark border visibility are covered. |
+| `switch` | ready | component-contract, contract-render, ref-test, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Checked/controlled behavior, disabled prevention, geometry, thumb scale, and a11y role/name are covered. |
+| `tabs` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Disabled tab behavior, click activation, Arrow/Home/End navigation, controlled rerender, and a11y role/name are covered. |
+| `menu` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Open/close, Escape, outside click, Arrow/Home navigation, Enter selection, focus return, geometry, and trigger sizing are covered. |
+| `icon-button` | ready | component-contract, interaction-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Variants/intents aligned with action contract, icon-only accessible name, loading/disabled prevention, selected state, and keyboard activation are covered. |
+| `floating-action-button` | ready | component-contract, production-user-event-axe, runtime-demo-reviewed, systemic-gates | Primary/extended behavior, loading prevention, danger intent, unsupported variant fallback, geometry, and keyboard activation are covered. |
+| `card` | ready | component-contract, interaction-signal, runtime-demo-reviewed, systemic-gates | Visual parity batch, card/surface/pattern ownership, semantic boundary, density/radius/spacing, and duplication governance are covered. |
+
+Retired/composed decisions:
+
+| Surface | Status | Owner |
+| --- | --- | --- |
+| `copy-button` | retired/composed | `button` / `icon-button` usage owns copy affordances. |
+| `quick-action` | retired/composed | Action patterns compose `IconButton`; no standalone public component export. |
+
 ## Matrix
 
 | Component | Priority | Family | Existing evidence | Missing evidence | Status |
 | --- | --- | --- | --- | --- | --- |
-| `checkbox` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `code-input` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `combobox` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `country-selector` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `date-picker` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `date-range-picker` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `input` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `phone-input` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `radio-button` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `select` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `slider` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `switch` | P0 | forms | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `text-area` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `tabs` | P0 | navigation-disclosure | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, keyboard-navigation-proof, per-component-readiness-row | partial |
-| `dialog` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, focus-escape-outside-click, per-component-readiness-row | partial |
-| `drawer` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, focus-escape-outside-click, per-component-readiness-row | partial |
-| `menu` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | family-specific-keyboard-a11y, focus-escape-outside-click, per-component-readiness-row | partial |
-| `popover` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, interaction-signal, static-render-a11y-signal | family-specific-keyboard-a11y, focus-escape-outside-click, per-component-readiness-row | partial |
-| `button` | P1 | actions | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | disabled-loading-callback-proof, per-component-readiness-row | partial |
-| `floating-action-button` | P1 | actions | public-export, source+dist+types, component-contract, static-render-a11y-signal | thin-test-evidence, disabled-loading-callback-proof, per-component-readiness-row | partial |
-| `icon-button` | P1 | actions | public-export, source+dist+types, component-contract, static-render-a11y-signal, indirect-pattern-interaction | disabled-loading-callback-proof, per-component-readiness-row | partial |
-| `quick-action` | P1 | actions | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | disabled-loading-callback-proof, per-component-readiness-row | partial |
-| `card` | P1 | data-display | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | state-data-event-proof, per-component-readiness-row | partial |
+| `checkbox` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `code-input` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `combobox` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `country-selector` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `date-picker` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `date-range-picker` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe | runtime-demo-reviewed | partial |
+| `input` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `phone-input` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `radio-button` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `select` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `slider` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `switch` | P0 | forms | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `text-area` | P0 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `tabs` | P0 | navigation-disclosure | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `dialog` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe | runtime-demo-reviewed | partial |
+| `drawer` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe | runtime-demo-reviewed | partial |
+| `menu` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `popover` | P0 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `button` | P1 | actions | public-export, source+dist+types, component-contract, contract-render, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `floating-action-button` | P1 | actions | public-export, source+dist+types, component-contract, static-render-a11y-signal, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `icon-button` | P1 | actions | public-export, source+dist+types, component-contract, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe, runtime-demo-reviewed, systemic-gates | none | ready |
+| `card` | P1 | data-display | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, runtime-demo-reviewed, systemic-gates | none | ready |
 | `card-summary` | P1 | data-display | public-export, source+dist+types, component-contract, static-render-a11y-signal | state-data-event-proof, per-component-readiness-row | partial |
-| `list` | P1 | data-display | public-export, source+dist+types, component-contract, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | state-data-event-proof, per-component-readiness-row | partial |
-| `table` | P1 | data-display | public-export, source+dist+types, component-contract, contract-render, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | state-data-event-proof, per-component-readiness-row | partial |
+| `list` | P1 | data-display | public-export, source+dist+types, component-contract, ref-test, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe | runtime-demo-reviewed | partial |
+| `table` | P1 | data-display | public-export, source+dist+types, component-contract, contract-render, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction, production-user-event-axe | runtime-demo-reviewed | partial |
 | `inline-validation` | P1 | display-status | public-export, source+dist+types, component-contract, static-render-a11y-signal | informative-decorative-a11y-proof, per-component-readiness-row | partial |
 | `surface` | P1 | display-status | public-export, source+dist+types, contract-render, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | contract, informative-decorative-a11y-proof, per-component-readiness-row | partial |
 | `accordion` | P1 | navigation-disclosure | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | keyboard-navigation-proof, per-component-readiness-row | partial |
@@ -144,18 +173,18 @@ Critical gaps:
 | `chat-thread` | P2 | domain-specialized | public-export, source+dist+types, component-contract, interaction-signal | domain-state-event-proof, per-component-readiness-row | partial |
 | `motion-boundary` | P2 | domain-specialized | public-export, source+dist+types, component-contract, static-render-a11y-signal | domain-state-event-proof, per-component-readiness-row | partial |
 | `station-pin` | P2 | domain-specialized | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | domain-state-event-proof, per-component-readiness-row | partial |
-| `card-expiry-input` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `card-number-input` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | controlled-uncontrolled-proof, per-component-readiness-row | partial |
-| `card-security-code-input` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | controlled-uncontrolled-proof, per-component-readiness-row | partial |
+| `card-expiry-input` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `card-number-input` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
+| `card-security-code-input` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, production-user-event-axe | runtime-demo-reviewed | partial |
 | `input-amount` | P2 | forms | public-export, source+dist+types, component-contract, interaction-signal | controlled-uncontrolled-proof, per-component-readiness-row | partial |
 
 ## Remediation Implications
 
 Execution should not start by fixing random components. The next implementation plan must address evidence gaps in this order:
 
-1. Build or formalize a production-readiness harness that can record per-component rows.
-2. Add P0 family-specific tests for forms, overlays, and tabs/navigation.
+1. Keep the production-readiness harness as the single evidence path; do not create parallel docs-only audits.
+2. Continue family-specific tests for remaining forms, overlays, and navigation.
 3. Decide whether `surface` needs a component contract or should be explicitly governed as a primitive export.
 4. Add missing test evidence for `code-block`.
-5. Strengthen thin evidence components: `floating-action-button`, `progress-indicator`.
+5. Strengthen thin evidence component: `progress-indicator`.
 6. Convert the matrix into an executable gate only after the criteria are agreed.

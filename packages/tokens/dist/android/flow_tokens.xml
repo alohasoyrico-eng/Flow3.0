@@ -34,6 +34,7 @@
   <string name="ref_depth_overlay_dark">color-mix(in srgb, var(--ref-energy-neutral-900) 65%, transparent)</string>
   <string name="ref_depth_overlay_light">color-mix(in srgb, var(--ref-energy-neutral-900) 50%, transparent)</string>
   <string name="ref_depth_shadow_color_rgb">16 26 119</string>
+  <string name="ref_depth_shadow_dark_color_rgb">0 0 0</string>
   <string name="ref_depth_z_base">0</string>
   <string name="ref_depth_z_dialog">1001</string>
   <string name="ref_depth_z_dropdown">100</string>
@@ -438,6 +439,10 @@
   <string name="sys_depth_elevation_2">0 4px 12px 4px rgb(var(--ref-depth-shadow-color-rgb) / 8%), 0 2px 4px 0 rgb(var(--ref-depth-shadow-color-rgb) / 4%)</string>
   <string name="sys_depth_elevation_3">0 22px 70px color-mix(in srgb, var(--ref-energy-neutral-900) 52%, transparent)</string>
   <string name="sys_depth_elevation_4">0 20px 56px 8px rgb(var(--ref-depth-shadow-color-rgb) / 16%), 0 8px 20px 2px rgb(var(--ref-depth-shadow-color-rgb) / 8%)</string>
+  <string name="sys_depth_elevation_dark_1">0 1px 2px 0 rgb(var(--ref-depth-shadow-dark-color-rgb) / 52%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 9%, transparent)</string>
+  <string name="sys_depth_elevation_dark_2">0 8px 18px -6px rgb(var(--ref-depth-shadow-dark-color-rgb) / 66%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 11%, transparent)</string>
+  <string name="sys_depth_elevation_dark_3">0 18px 44px -14px rgb(var(--ref-depth-shadow-dark-color-rgb) / 78%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 13%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 8%, transparent) inset</string>
+  <string name="sys_depth_elevation_dark_4">0 28px 72px -20px rgb(var(--ref-depth-shadow-dark-color-rgb) / 86%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 15%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 10%, transparent) inset</string>
   <string name="sys_depth_lift_overlay">calc(var(--ref-frame-space-5) * -0.5)</string>
   <string name="sys_depth_lift_raised">calc(var(--ref-frame-space-3) * -0.5)</string>
   <string name="sys_depth_lift_rest">calc(var(--ref-frame-space-micro) * -1)</string>
@@ -829,6 +834,7 @@
   <string name="sys_loading_spinner_track">var(--sys-energy-border-default)</string>
   <string name="sys_loading_stale_opacity">var(--sys-state-closed-opacity)</string>
   <string name="sys_map_depth_pin">var(--sys-depth-elevation-1)</string>
+  <string name="sys_map_depth_pin_pointer">drop-shadow(0 var(--sys-frame-border-control) var(--sys-frame-border-control) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent))</string>
   <string name="sys_map_depth_selected">var(--sys-depth-elevation-2)</string>
   <string name="sys_map_fallback_surface">var(--sys-energy-surface-primary)</string>
   <string name="sys_map_fallback_text_color">var(--sys-energy-text-primary)</string>

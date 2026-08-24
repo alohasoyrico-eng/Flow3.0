@@ -110,8 +110,9 @@
       "--component-depth-card-hover"
     ],
     "missing": [],
-    "elevationAliasUseCount": 202,
+    "elevationAliasUseCount": 214,
     "directRefDepthConsumerUses": [],
+    "rawDepthEffects": [],
     "rawBoxShadow": [],
     "surfaceAliasGaps": []
   },
@@ -158,12 +159,13 @@
     "scannedFiles": [],
     "elevationAliasUseCount": 0,
     "directRefDepthConsumerUses": [],
+    "rawDepthEffects": [],
     "rawBoxShadow": [],
     "note": "State rings may use inset or 0 0 0 shadows. Surface elevation must use Elevation/Depth aliases."
   },
   "cascadeCoverage": {
     "components": {
-      "count": 62,
+      "count": 60,
       "ids": [
         "accordion",
         "animated-moment",
@@ -187,7 +189,6 @@
         "code-block",
         "code-input",
         "combobox",
-        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -209,7 +210,6 @@
         "phone-input",
         "popover",
         "progress-indicator",
-        "quick-action",
         "radio-button",
         "route-summary",
         "segmented-control",

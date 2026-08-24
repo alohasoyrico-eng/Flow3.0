@@ -9,6 +9,16 @@
       }
     }
   },
+  "ref-depth-shadow-dark-color-rgb": {
+    "$value": "0 0 0",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-depth-shadow-dark-color-rgb",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
   "ref-depth-overlay-light": {
     "$value": "color-mix(in srgb, var(--ref-energy-neutral-900) 50%, transparent)",
     "$type": "color",
@@ -365,6 +375,46 @@
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-depth-elevation-4",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-dark-1": {
+    "$value": "0 1px 2px 0 rgb(var(--ref-depth-shadow-dark-color-rgb) / 52%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 9%, transparent)",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-dark-1",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-dark-2": {
+    "$value": "0 8px 18px -6px rgb(var(--ref-depth-shadow-dark-color-rgb) / 66%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 11%, transparent)",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-dark-2",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-dark-3": {
+    "$value": "0 18px 44px -14px rgb(var(--ref-depth-shadow-dark-color-rgb) / 78%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 13%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 8%, transparent) inset",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-dark-3",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-depth-elevation-dark-4": {
+    "$value": "0 28px 72px -20px rgb(var(--ref-depth-shadow-dark-color-rgb) / 86%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 15%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 10%, transparent) inset",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-depth-elevation-dark-4",
         "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
       }
     }

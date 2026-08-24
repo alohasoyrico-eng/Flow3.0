@@ -71,6 +71,7 @@ const requiredTokenAliases = [
   "--sys-map-fallback-text-color",
   "--sys-map-depth-pin",
   "--sys-map-depth-selected",
+  "--sys-map-depth-pin-pointer",
   "--sys-map-focus-ring",
 ];
 

@@ -25,9 +25,14 @@ function checkDarkModeCssContract({ text, packageCssFile }) {
     "--component-action-bg-outlined:",
     "--component-action-bg-ghost-hover:",
     "--component-action-bg-danger-secondary:",
+    "--ref-depth-shadow-color-rgb: var(--ref-depth-shadow-dark-color-rgb);",
+    "--sys-depth-elevation-1: var(--sys-depth-elevation-dark-1);",
+    "--sys-depth-elevation-2: var(--sys-depth-elevation-dark-2);",
+    "--sys-depth-elevation-3: var(--sys-depth-elevation-dark-3);",
+    "--sys-depth-elevation-4: var(--sys-depth-elevation-dark-4);",
   ]) {
     if (!tokenContexts.includes(snippet)) {
-      add("errors", tokenContextsCssFile, 1, `Dark action appearance must be emitted by token contexts, not components.css: missing ${snippet}`);
+      add("errors", tokenContextsCssFile, 1, `Dark mode system roles must be emitted by token contexts, not components.css: missing ${snippet}`);
     }
   }
   if (!darkThemeBlock.includes("--component-action-bg-secondary:")) {
@@ -36,6 +41,18 @@ function checkDarkModeCssContract({ text, packageCssFile }) {
   const componentActionDarkOverride = /\[data-theme="dark"\][^{]*\{[^}]*--component-action-/g;
   for (const match of text.matchAll(componentActionDarkOverride)) {
     add("errors", packageCssFile, lineNumber(text, match.index), "Action appearance dark mode must be owned by packages/tokens/styles/token-contexts.css, not components.css.");
+  }
+  const tokensCss = read(tokensCssFile);
+  for (const tokenName of [
+    "--ref-depth-shadow-dark-color-rgb:",
+    "--sys-depth-elevation-dark-1:",
+    "--sys-depth-elevation-dark-2:",
+    "--sys-depth-elevation-dark-3:",
+    "--sys-depth-elevation-dark-4:",
+  ]) {
+    if (!tokensCss.includes(tokenName)) {
+      add("errors", tokensCssFile, 1, `Dark depth scale must be generated from token source: missing ${tokenName}`);
+    }
   }
 
   checkDarkModeContrast({ text, packageCssFile });

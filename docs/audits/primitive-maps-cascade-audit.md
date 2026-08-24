@@ -13,7 +13,7 @@ Maps governs geolocation, permission, pins, routes, fallback lists, MapLibre run
 - Docs scope: external-not-audited
 - Runtime dependency: 5.24.0
 - Local runtime: not audited here
-- Token aliases: 18/18
+- Token aliases: 19/19
 - Station Pin sys-map CSS uses: 11
 - Template refs: driver-mobile-app, routes-and-stations, template-detail-template
 

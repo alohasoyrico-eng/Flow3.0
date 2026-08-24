@@ -146,12 +146,13 @@ function findDirectRefDepth(files) {
   return findings;
 }
 
-function findRawBoxShadow(file, source) {
+function findRawDepthEffect(file, source) {
   if (isReferenceLayer(file)) return [];
   const findings = [];
   let match;
-  const pattern = /box-shadow\s*:\s*(?<value>[^;]+);/g;
+  const pattern = /(?<!-)\b(?<property>box-shadow|text-shadow|filter)\s*:\s*(?<value>[^;]+);/g;
   while ((match = pattern.exec(source))) {
+    const property = match.groups.property;
     const value = match.groups.value.trim();
     const isNone = value === "none" || value === "0";
     const hasElevationToken = /var\(--(?:sys-depth|sys-elevation|component-depth|[a-z0-9-]+-[a-z0-9-]*(?:depth|shadow|elevation|glow|ring|halo))[a-z0-9-]*/.test(value);
@@ -160,9 +161,10 @@ function findRawBoxShadow(file, source) {
       findings.push({
         file: rel(file),
         line: lineNumber(source, match.index),
+        property,
         value,
         status: "fail",
-        reason: "Surface elevation must resolve through Elevation/Depth tokens, not raw shadow declarations.",
+        reason: "Surface elevation and depth effects must resolve through Elevation/Depth tokens, not raw shadow/filter declarations.",
       });
     }
   }
@@ -203,7 +205,7 @@ function writeReport(report) {
     `- Component bridge aliases: ${report.componentBridge.present.length}/${report.componentBridge.required.length}`,
     `- Component elevation/depth uses: ${report.componentBridge.elevationAliasUseCount}`,
     `- Docs elevation/depth uses: ${report.docsSignal.elevationAliasUseCount}`,
-    `- Raw shadow failures: ${report.componentBridge.rawBoxShadow.length + report.docsSignal.rawBoxShadow.length}`,
+    `- Raw depth effect failures: ${report.componentBridge.rawDepthEffects.length + report.docsSignal.rawDepthEffects.length}`,
     "",
     "## Foundation Gates",
     `- Depth: ${report.foundationGate.depth.status}`,
@@ -266,8 +268,8 @@ function createReport() {
   const missingComponentAliases = requiredComponentAliases.filter((alias) => !componentDecls.has(alias));
   const componentDirectRefDepth = findDirectRefDepth([componentCssFile]);
   const docsDirectRefDepth = findDirectRefDepth(docsCssFiles);
-  const componentRawBoxShadow = findRawBoxShadow(componentCssFile, componentCss);
-  const docsRawBoxShadow = docsCssFiles.flatMap((file) => findRawBoxShadow(file, readIfExists(file)));
+  const componentRawDepthEffects = findRawDepthEffect(componentCssFile, componentCss);
+  const docsRawDepthEffects = docsCssFiles.flatMap((file) => findRawDepthEffect(file, readIfExists(file)));
   const componentSurfaceAliasGaps = findComponentSurfaceDepthRawAliases(componentDecls);
   const componentElevationAliasUseCount = countMatches(componentCss, /var\(--(?:sys-depth|sys-elevation|component-depth|comp-[a-z0-9-]+-(?:depth|shadow|ring))[a-z0-9-]*/g);
   const docsElevationAliasUseCount = docsCssFiles.reduce((total, file) => total + countMatches(readIfExists(file), /var\(--(?:sys-depth|sys-elevation|component-depth|comp-[a-z0-9-]+-(?:depth|shadow|ring)|pattern-[a-z0-9-]+-(?:depth|shadow|ring))[a-z0-9-]*/g), 0);
@@ -283,7 +285,7 @@ function createReport() {
   if (missingComponentAliases.length) gaps.push(`Component package is missing required Elevation bridge aliases: ${missingComponentAliases.join(", ")}.`);
   if (componentDirectRefDepth.length) gaps.push("Component package still consumes ref-depth directly instead of Elevation.");
   if (docsDirectRefDepth.length) gaps.push("Docs consumers still use ref-depth directly outside the foundation/reference layer.");
-  if (componentRawBoxShadow.length || docsRawBoxShadow.length) gaps.push("Raw surface box-shadow values still appear outside tokens.");
+  if (componentRawDepthEffects.length || docsRawDepthEffects.length) gaps.push("Raw surface depth effects still appear outside tokens.");
   if (componentSurfaceAliasGaps.length) gaps.push("Component surface depth aliases do not map to Elevation primitives.");
   if (!contract.includes("Generated portable primitive contract for Design System.")) gaps.push("Elevation Markdown contract is missing or not generated.");
   if (depthReport.status !== "pass" || frameReport.status !== "pass" || stateReport.status !== "pass" || accessibilityReport.status !== "pass") gaps.push("Elevation cannot pass while Depth, Frame, State, or Accessibility foundation reports are not pass.");
@@ -330,7 +332,8 @@ function createReport() {
       missing: missingComponentAliases,
       elevationAliasUseCount: componentElevationAliasUseCount,
       directRefDepthConsumerUses: componentDirectRefDepth,
-      rawBoxShadow: componentRawBoxShadow,
+      rawDepthEffects: componentRawDepthEffects,
+      rawBoxShadow: componentRawDepthEffects,
       surfaceAliasGaps: componentSurfaceAliasGaps,
     },
     foundationGate: {
@@ -348,7 +351,8 @@ function createReport() {
       scannedFiles: docsCssFiles.map(rel),
       elevationAliasUseCount: docsElevationAliasUseCount,
       directRefDepthConsumerUses: docsDirectRefDepth,
-      rawBoxShadow: docsRawBoxShadow,
+      rawDepthEffects: docsRawDepthEffects,
+      rawBoxShadow: docsRawDepthEffects,
       note: "State rings may use inset or 0 0 0 shadows. Surface elevation must use Elevation/Depth aliases.",
     },
     cascadeCoverage: {

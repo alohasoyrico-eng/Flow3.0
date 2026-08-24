@@ -34,6 +34,7 @@ class FlowTokens {
   static const String refDepthOverlayDark = "color-mix(in srgb, var(--ref-energy-neutral-900) 65%, transparent)";
   static const String refDepthOverlayLight = "color-mix(in srgb, var(--ref-energy-neutral-900) 50%, transparent)";
   static const String refDepthShadowColorRgb = "16 26 119";
+  static const String refDepthShadowDarkColorRgb = "0 0 0";
   static const String refDepthZBase = "0";
   static const String refDepthZDialog = "1001";
   static const String refDepthZDropdown = "100";
@@ -438,6 +439,10 @@ class FlowTokens {
   static const String sysDepthElevation2 = "0 4px 12px 4px rgb(var(--ref-depth-shadow-color-rgb) / 8%), 0 2px 4px 0 rgb(var(--ref-depth-shadow-color-rgb) / 4%)";
   static const String sysDepthElevation3 = "0 22px 70px color-mix(in srgb, var(--ref-energy-neutral-900) 52%, transparent)";
   static const String sysDepthElevation4 = "0 20px 56px 8px rgb(var(--ref-depth-shadow-color-rgb) / 16%), 0 8px 20px 2px rgb(var(--ref-depth-shadow-color-rgb) / 8%)";
+  static const String sysDepthElevationDark1 = "0 1px 2px 0 rgb(var(--ref-depth-shadow-dark-color-rgb) / 52%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 9%, transparent)";
+  static const String sysDepthElevationDark2 = "0 8px 18px -6px rgb(var(--ref-depth-shadow-dark-color-rgb) / 66%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 11%, transparent)";
+  static const String sysDepthElevationDark3 = "0 18px 44px -14px rgb(var(--ref-depth-shadow-dark-color-rgb) / 78%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 13%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 8%, transparent) inset";
+  static const String sysDepthElevationDark4 = "0 28px 72px -20px rgb(var(--ref-depth-shadow-dark-color-rgb) / 86%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 15%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 10%, transparent) inset";
   static const String sysDepthLiftOverlay = "calc(var(--ref-frame-space-5) * -0.5)";
   static const String sysDepthLiftRaised = "calc(var(--ref-frame-space-3) * -0.5)";
   static const String sysDepthLiftRest = "calc(var(--ref-frame-space-micro) * -1)";
@@ -829,6 +834,7 @@ class FlowTokens {
   static const String sysLoadingSpinnerTrack = "var(--sys-energy-border-default)";
   static const String sysLoadingStaleOpacity = "var(--sys-state-closed-opacity)";
   static const String sysMapDepthPin = "var(--sys-depth-elevation-1)";
+  static const String sysMapDepthPinPointer = "drop-shadow(0 var(--sys-frame-border-control) var(--sys-frame-border-control) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent))";
   static const String sysMapDepthSelected = "var(--sys-depth-elevation-2)";
   static const String sysMapFallbackSurface = "var(--sys-energy-surface-primary)";
   static const String sysMapFallbackTextColor = "var(--sys-energy-text-primary)";
@@ -1188,6 +1194,7 @@ class FlowTokens {
     "ref-depth-overlay-dark": "color-mix(in srgb, var(--ref-energy-neutral-900) 65%, transparent)",
     "ref-depth-overlay-light": "color-mix(in srgb, var(--ref-energy-neutral-900) 50%, transparent)",
     "ref-depth-shadow-color-rgb": "16 26 119",
+    "ref-depth-shadow-dark-color-rgb": "0 0 0",
     "ref-depth-z-base": "0",
     "ref-depth-z-dialog": "1001",
     "ref-depth-z-dropdown": "100",
@@ -1592,6 +1599,10 @@ class FlowTokens {
     "sys-depth-elevation-2": "0 4px 12px 4px rgb(var(--ref-depth-shadow-color-rgb) / 8%), 0 2px 4px 0 rgb(var(--ref-depth-shadow-color-rgb) / 4%)",
     "sys-depth-elevation-3": "0 22px 70px color-mix(in srgb, var(--ref-energy-neutral-900) 52%, transparent)",
     "sys-depth-elevation-4": "0 20px 56px 8px rgb(var(--ref-depth-shadow-color-rgb) / 16%), 0 8px 20px 2px rgb(var(--ref-depth-shadow-color-rgb) / 8%)",
+    "sys-depth-elevation-dark-1": "0 1px 2px 0 rgb(var(--ref-depth-shadow-dark-color-rgb) / 52%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 9%, transparent)",
+    "sys-depth-elevation-dark-2": "0 8px 18px -6px rgb(var(--ref-depth-shadow-dark-color-rgb) / 66%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 11%, transparent)",
+    "sys-depth-elevation-dark-3": "0 18px 44px -14px rgb(var(--ref-depth-shadow-dark-color-rgb) / 78%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 13%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 8%, transparent) inset",
+    "sys-depth-elevation-dark-4": "0 28px 72px -20px rgb(var(--ref-depth-shadow-dark-color-rgb) / 86%), 0 0 0 1px color-mix(in srgb, var(--sys-color-text) 15%, transparent), 0 1px 0 color-mix(in srgb, var(--sys-color-text) 10%, transparent) inset",
     "sys-depth-lift-overlay": "calc(var(--ref-frame-space-5) * -0.5)",
     "sys-depth-lift-raised": "calc(var(--ref-frame-space-3) * -0.5)",
     "sys-depth-lift-rest": "calc(var(--ref-frame-space-micro) * -1)",
@@ -1983,6 +1994,7 @@ class FlowTokens {
     "sys-loading-spinner-track": "var(--sys-energy-border-default)",
     "sys-loading-stale-opacity": "var(--sys-state-closed-opacity)",
     "sys-map-depth-pin": "var(--sys-depth-elevation-1)",
+    "sys-map-depth-pin-pointer": "drop-shadow(0 var(--sys-frame-border-control) var(--sys-frame-border-control) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent))",
     "sys-map-depth-selected": "var(--sys-depth-elevation-2)",
     "sys-map-fallback-surface": "var(--sys-energy-surface-primary)",
     "sys-map-fallback-text-color": "var(--sys-energy-text-primary)",

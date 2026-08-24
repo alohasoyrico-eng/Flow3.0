@@ -134,6 +134,7 @@
   --component-justify-space-between: space-between;
   --component-justify-self-start: start;
   --component-justify-items-center: center;
+  --component-justify-items-start: start;
   --component-text-align-center: center;
   --component-text-align-start: start;
   --component-font-family-inherit: inherit;
@@ -1343,7 +1344,7 @@
   --component-route-summary-icon-size-sm: var(--component-field-icon-action-size-md);
   --component-route-summary-icon-size-md: var(--component-card-icon-size-md);
   --component-route-summary-icon-size-lg: var(--component-card-icon-size-lg);
-  --component-station-pin-pointer-shadow: drop-shadow(0 var(--component-border-width) var(--component-border-width) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent));
+  --component-station-pin-pointer-shadow: var(--sys-map-depth-pin-pointer);
   --component-station-pin-pointer-size-sm: calc(var(--component-station-pin-pointer-size) - var(--sys-frame-border-thin));
   --component-station-pin-pointer-size-lg: calc(var(--component-station-pin-pointer-size) + var(--sys-frame-border-thin));
   --component-card-icon-size-sm: calc(var(--component-control-min-size) - var(--sys-space-lg));
@@ -7540,6 +7541,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-trigger-avatar-hover-border: var(--component-color-border-strong);
   --comp-menu-focus-ring: var(--component-focus-ring);
   --comp-menu-focus-ring-offset: var(--component-focus-ring-offset);
+  --comp-menu-inline-size: var(--component-inline-size-fit-content);
+  --comp-menu-max-inline-size: var(--component-inline-size-full);
+  --comp-menu-justify-items: var(--component-justify-items-start);
+  --comp-menu-position: var(--component-position-relative);
   --comp-menu-active-scale: var(--component-scale-press);
   --comp-menu-enter-duration: var(--component-duration-enter);
   --comp-menu-enter-ease: var(--component-ease-enter);
@@ -7549,7 +7554,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-transition: background-color var(--comp-menu-state-duration) var(--comp-menu-state-ease), color var(--comp-menu-state-duration) var(--comp-menu-state-ease), transform var(--comp-menu-state-duration) var(--comp-menu-state-ease);
   display: inline-grid;
   gap: var(--comp-menu-gap);
-  position: relative;
+  inline-size: var(--comp-menu-inline-size);
+  justify-items: var(--comp-menu-justify-items);
+  max-inline-size: var(--comp-menu-max-inline-size);
+  position: var(--comp-menu-position);
 }
 
 .menu[data-density="sm"] {

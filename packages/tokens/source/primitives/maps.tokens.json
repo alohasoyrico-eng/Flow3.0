@@ -19,6 +19,16 @@
       }
     }
   },
+  "sys-map-depth-pin-pointer": {
+    "$value": "drop-shadow(0 var(--sys-frame-border-control) var(--sys-frame-border-control) color-mix(in srgb, var(--sys-map-pin-foreground) 14%, transparent))",
+    "$type": "shadow",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-map-depth-pin-pointer",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
   "sys-map-fallback-surface": {
     "$value": "{sys-energy-surface-primary}",
     "$type": "color",
