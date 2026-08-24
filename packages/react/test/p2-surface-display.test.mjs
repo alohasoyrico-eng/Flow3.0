@@ -362,6 +362,19 @@ try {
     cleanup();
   }
 
+  for (const unsupportedComposition of ["table", "empty", "skeleton"]) {
+    const view = render(React.createElement(Card, {
+      title: `Unsupported ${unsupportedComposition} composition`,
+      composition: unsupportedComposition,
+    }));
+    const article = view.getByRole("article");
+
+    assert.equal(article.dataset.composition, "standard");
+    assert.doesNotMatch(article.outerHTML, /data-composition="table"|data-composition="empty"|data-composition="skeleton"/);
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
   console.log("P2 surface/display production evidence passed");
 } catch (error) {
   console.error(error);

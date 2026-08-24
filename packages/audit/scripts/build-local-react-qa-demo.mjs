@@ -145,7 +145,7 @@ const components = {
     directory: "card-2026-08-20",
     module: "Card.js",
     exportName: "Card",
-    buildId: "card-react-runtime-7",
+    buildId: "card-react-runtime-9",
     indexImports: ["Table", "EmptyState", "Skeleton"],
     eventPropName: "onAction",
     actionHandler: "(key, action, event) => onAction(key || props.actionKey || props.title)(event || { type: 'action' })",
@@ -214,7 +214,7 @@ const components = {
           e("h2", null, "Composiciones"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Standard", composition: "standard" })),
-            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Compact", composition: "compact", status: "4" })),
+            e("div", { className: "audit-card" }, action({ title: "Tarjeta ****4102", icon: "credit_card", composition: "compact", status: "Activa" })),
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Media", composition: "media", media: mediaAsset, mediaAlt: "Abstract card media" }))
           )
         ),
@@ -919,6 +919,7 @@ const html = `<!doctype html>
       "imports": {
         "react": "${relToRepo}/packages/audit/local-react-qa/react-shim.mjs",
         "react-dom/client": "${relToRepo}/packages/audit/local-react-qa/react-dom-client-shim.mjs",
+        "#flow/components": "${relToRepo}/packages/components/src/index.js",
         "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js"
       }
     }

@@ -29,6 +29,7 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const minimalIconBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"minimal\"] .card__icon");
   const minimalDetailBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"minimal\"] .card__detail");
   const elevatedDetailBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"elevated\"] .card__detail");
+  const elevatedBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"elevated\"]");
   const ghostBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"ghost\"]");
   const ghostTextBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"ghost\"] .card__title,.card[data-variant=\"ghost\"] .card__detail");
   const minimalHeaderBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"minimal\"] .card__header,.card[data-variant=\"minimal\"] .card__heading");
@@ -95,6 +96,7 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-card-current-actions-gap: var(--comp-card-actions-gap)",
       "background: var(--comp-card-bg)",
       "border-radius: var(--comp-card-radius)",
+      "box-sizing: border-box",
       "gap: var(--comp-card-current-gap)",
       "padding: var(--comp-card-current-padding)",
     ],
@@ -129,13 +131,14 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
     [headingBlock, ["gap: var(--comp-card-current-heading-gap)"], "Card heading gap must consume the component-scoped current alias."],
     [iconBlock, ["border-radius: var(--comp-card-icon-radius)", "font-size: var(--comp-card-current-icon-font-size)", "inline-size: var(--comp-card-current-icon-size)"], "Card icon frame must consume component Card aliases."],
     [statusBlock, ["border-radius: var(--comp-card-current-status-radius)", "font-size: var(--comp-card-current-status-size)", "padding: var(--comp-card-current-status-padding-block) var(--comp-card-current-status-padding-inline)"], "Card status frame and voice must consume component-scoped current aliases."],
-    [detailBlock, ["color: var(--comp-card-current-detail-fg)"], "Card detail color must consume the component-scoped current alias."],
+    [detailBlock, ["color: var(--comp-card-current-detail-fg)", "font-size: var(--comp-card-detail-size)", "line-height: var(--comp-card-detail-line-height)"], "Card detail voice and color must consume component Card aliases."],
     [loadingBlock, ["gap: var(--comp-card-current-loading-gap)", "min-block-size: var(--comp-card-current-loading-min-block-size)"], "Card loading rhythm must consume component-scoped current aliases."],
     [actionsBlock, ["gap: var(--comp-card-current-actions-gap)", "justify-content: var(--comp-card-current-actions-justify)"], "Card actions layout must consume component-scoped current aliases."],
     [headerActionsBlock, ["justify-content: flex-end"], "Card header actions must have a governed placement rule."],
     [minimalIconBlock, ["font-size: var(--comp-card-minimal-icon-size)", "inline-size: var(--comp-card-minimal-icon-size)"], "Card minimal icon sizing must consume component Card aliases."],
     [minimalHeaderBlock, ["display: flex"], "Card minimal header/heading must preserve real flex anatomy."],
     [minimalDetailBlock, ["font-size: var(--comp-card-minimal-detail-size)"], "Card minimal detail voice must consume a component Card alias."],
+    [elevatedBlock, ["box-shadow: var(--comp-card-shadow-hover)"], "Card elevated depth must consume the Card hover shadow alias."],
     [elevatedDetailBlock, ["font-size: var(--comp-card-elevated-detail-size)"], "Card elevated detail voice must consume a component Card alias."],
     [ghostBlock, ["color: var(--comp-card-ghost-fg)"], "Card ghost foreground must consume a component Card alias."],
     [ghostTextBlock, ["font-size: var(--comp-card-ghost-text-size)"], "Card ghost text voice must consume a component Card alias."],
@@ -145,9 +148,14 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   }
   for (const [snippet, message] of [
     ["--comp-card-surface-bg: var(--component-color-surface)", "Card surface background must map through a Surface/Foundation alias."],
-    ["--comp-card-surface-radius: var(--component-radius-surface)", "Card surface radius must map through a Surface/Foundation alias."],
+    ["--component-radius-card: var(--sys-radius-lg)", "Card radius must expose a component alias over the foundation card radius."],
+    ["--component-depth-card-hover: var(--sys-elevation-floating)", "Card hover depth must use the floating elevation alias rather than the heavier overlay/popover depth."],
+    ["--comp-card-surface-radius: var(--component-radius-card)", "Card surface radius must map through the component card radius alias."],
     ["--comp-card-bg: var(--comp-card-surface-bg)", "Card background must consume the mapped surface alias."],
     ["--comp-card-radius: var(--comp-card-surface-radius)", "Card radius must consume the mapped surface alias."],
+    ["--comp-card-title-size-lg: var(--component-font-size-title-md)", "Card large density title must use the next title voice instead of resolving to the same size as medium."],
+    ["--comp-card-ghost-fg: var(--component-color-text)", "Card ghost foreground must use text color, not surface color, so light/dark contrast stays readable."],
+    ["--comp-card-shadow-error: var(--component-depth-error-ring), var(--comp-card-shadow-rest)", "Card error state must use an error ring plus rest shadow, not modal/overlay depth."],
   ]) {
     if (!text.includes(snippet)) add("errors", packageCssFile, 1, message);
   }

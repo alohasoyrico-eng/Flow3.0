@@ -46,6 +46,7 @@
   --component-focus-ring-offset: var(--sys-focus-ring-offset);
   --component-radius-pill: var(--sys-frame-radius-full);
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
+  --component-radius-card: var(--sys-radius-lg);
   --component-radius-surface: var(--sys-radius-surface);
   --component-radius-md: var(--sys-radius-md);
   --component-radius-sm: var(--sys-frame-radius-sm);
@@ -592,7 +593,7 @@
   --component-depth-success-ring: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--sys-color-success) 12%, transparent);
   --component-depth-card-rest: var(--sys-elevation-card, var(--component-depth-low-medium));
   --component-depth-toast: var(--sys-elevation-toast);
-  --component-depth-card-hover: var(--sys-elevation-card-hover);
+  --component-depth-card-hover: var(--sys-elevation-floating);
   --component-depth-date-panel: var(--sys-elevation-popover);
   --component-depth-elevation-3: var(--sys-depth-elevation-3);
   --component-backdrop-blur: var(--sys-depth-backdrop-blur);
@@ -1079,7 +1080,7 @@
   --comp-card-stats-value-size: var(--component-font-size-title-lg);
   --comp-card-minimal-gap: calc(var(--component-space-xs) / 2) calc(var(--component-space-sm) + var(--component-border-width) * 2);
   --comp-card-elevated-gap: var(--component-space-xs);
-  --comp-card-surface-radius: var(--component-radius-surface);
+  --comp-card-surface-radius: var(--component-radius-card);
   --comp-card-surface-bg: var(--component-color-surface);
   --comp-card-surface-bg-muted: color-mix(in srgb, var(--component-color-surface) 72%, var(--component-color-bg));
   --comp-card-surface-bg-selected: color-mix(in srgb, var(--component-color-action) 3%, var(--component-color-surface));
@@ -1099,7 +1100,7 @@
   --comp-card-selected-indicator-width: var(--component-focus-ring-width);
   --comp-card-selected-indicator: inset var(--comp-card-selected-indicator-width) 0 0 var(--comp-card-border-selected);
   --comp-card-shadow-selected: var(--comp-card-selected-indicator), var(--component-depth-card-hover);
-  --comp-card-shadow-error: var(--component-depth-danger);
+  --comp-card-shadow-error: var(--component-depth-error-ring), var(--comp-card-shadow-rest);
   --comp-card-hover-transform: var(--component-transform-lift-hover);
   --comp-card-icon-size-sm: var(--component-card-icon-size-sm);
   --comp-card-icon-size-md: var(--component-card-icon-size-md);
@@ -1108,9 +1109,9 @@
   --comp-card-icon-font-size-sm: var(--component-font-size-title-md);
   --comp-card-icon-font-size-md: var(--component-font-size-title-lg);
   --comp-card-icon-font-size-lg: var(--component-font-size-title-lg);
-  --comp-card-title-size-sm: var(--component-font-size-caption);
+  --comp-card-title-size-sm: var(--component-font-size-label);
   --comp-card-title-size-md: var(--component-font-size-body);
-  --comp-card-title-size-lg: var(--component-font-size-title-sm);
+  --comp-card-title-size-lg: var(--component-font-size-title-md);
   --comp-card-value-size-sm: var(--component-font-size-title-sm);
   --comp-card-value-size-md: var(--component-font-size-title-sm);
   --comp-card-value-size-lg: var(--component-font-size-title-md);
@@ -1138,6 +1139,8 @@
   --comp-card-header-gap: var(--component-space-md);
   --comp-card-heading-gap: var(--component-space-sm);
   --comp-card-detail-fg: var(--comp-card-muted-fg);
+  --comp-card-detail-size: var(--component-font-size-small);
+  --comp-card-detail-line-height: var(--component-line-height-normal);
   --comp-card-loading-gap: var(--component-space-sm);
   --comp-card-actions-gap: var(--component-space-sm);
   --comp-card-actions-justify: var(--component-justify-flex-end);
@@ -1174,7 +1177,7 @@
   --comp-card-stats-status-neutral-bg: var(--component-color-surface-raised);
   --comp-card-stats-status-neutral-border: var(--component-color-border);
   --comp-card-stats-status-neutral-fg: var(--component-color-text-muted);
-  --comp-card-ghost-fg: var(--component-color-surface);
+  --comp-card-ghost-fg: var(--component-color-text);
   --comp-card-ghost-text-size: var(--component-font-size-small);
   --comp-card-ghost-blur: var(--component-depth-blur-md);
   --comp-card-ghost-bg: color-mix(in srgb, var(--component-color-surface) 40%, transparent);
@@ -6895,6 +6898,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-card-bg);
   border: var(--component-border-width) solid var(--comp-card-border);
   border-radius: var(--comp-card-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-card-shadow-rest);
   color: var(--comp-card-fg);
   display: grid;
@@ -7083,7 +7087,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .card[data-variant="elevated"] {
   --comp-card-current-gap: var(--comp-card-elevated-gap);
   border-color: var(--comp-card-border-hover);
-  box-shadow: var(--component-depth-card-hover);
+  box-shadow: var(--comp-card-shadow-hover);
 }
 
 .card[data-variant="elevated"] .card__title {
@@ -7215,6 +7219,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card__detail {
   color: var(--comp-card-current-detail-fg);
+  font-size: var(--comp-card-detail-size);
+  line-height: var(--comp-card-detail-line-height);
   margin: 0;
   min-inline-size: 0;
 }
