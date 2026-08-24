@@ -104,7 +104,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 - `Badge`
 - `Dialog`
-- `Quick Action`
+- `IconButton`
 - `Toast`
 - `Tooltip`
 
@@ -116,7 +116,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 - `comp.badge.*`
 - `comp.dialog.*`
-- `comp.quick-action.*`
+- `component.pattern-action-item.*`
 - `comp.toast.*`
 - `comp.tooltip.*`
 - `sys.accessibility.*`
@@ -129,7 +129,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 | Slot | Owner | Uses |
 | --- | --- | --- |
-| `actions` | `component` | `Quick Action`, `Badge`, `Tooltip` |
+| `actions` | `component` | `IconButton`, `Badge`, `Tooltip` |
 | `confirmation` | `component` | `Dialog` |
 | `feedback` | `component` | `Toast` |
 | `searchBoundary` | `pattern` | `Search` |
@@ -144,13 +144,13 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 ### Decision Tree
 
-- Use Quick Action for a single compact command.
-- Use Quick Actions Grid when multiple quick commands need layout, grouping, or status.
+- Use IconButton for a single compact command.
+- Use QuickActionsGrid when multiple quick commands need layout, grouping, or status.
 - Use Command Palette when actions are discovered through a global command query.
 
 ### Failure Modes
 
-- Actions are hand-built buttons instead of Quick Action.
+- Actions are hand-built buttons instead of IconButton.
 - Tooltip is the only source of required meaning.
 - Search owns action execution.
 - Risky actions bypass Dialog or Toast recovery.
@@ -169,13 +169,13 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 ### Tests
 
-- Composes Quick Action, Badge, Tooltip, Dialog, and Toast.
+- Composes IconButton, Badge, Tooltip, Dialog, and Toast.
 - Covers disabled, permission, confirming, completed, and error states.
 - Keeps Search as discovery boundary only.
 
 ### Agent Instructions
 
-- Do not recreate Button or Quick Action visuals.
+- Do not recreate Button or IconButton visuals.
 - Keep product-specific action policies outside the pattern.
 - Ask before exposing destructive or regulated actions.
 
@@ -190,7 +190,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 | Slot | Type | Required | Notes |
 | --- | --- | --- | --- |
-| actions | QuickAction[] | yes | Frequent independent actions. |
+| actions | QuickActionsGridAction[] | yes | Frequent independent actions. |
 | hint | Tooltip | conditional | Short explanation for blocked or ambiguous actions. |
 | confirmation | Dialog | conditional | Required for risky actions. |
 | status | Badge | conditional | Small state count or availability marker. |
@@ -198,7 +198,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 ## Components Used
 
-- Quick Action
+- IconButton
 - Tooltip
 - Dialog
 - Toast
@@ -230,7 +230,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 ## Implementation Checklist
 
 - Declare `actions`: Frequent independent actions.
-- Actions render through Quick Action components.
+- Actions render through IconButton components.
 - Blocked action exposes Tooltip copy.
 - Risky action opens Dialog after click.
 - Confirmed action shows Toast.
@@ -240,7 +240,7 @@ Coordinate a compact set of high-frequency actions with status, tooltip explanat
 
 Must test:
 
-- Actions render through Quick Action components.
+- Actions render through IconButton components.
 - Blocked action exposes Tooltip copy.
 - Risky action opens Dialog after click.
 - Confirmed action shows Toast.

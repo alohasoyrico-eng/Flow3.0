@@ -83,7 +83,6 @@ Important: test signal means the component name appears in existing tests. It is
 | Component | Priority | Family | Signal |
 | --- | --- | --- | --- |
 | `code-block` | P2 | display/status | No test mention found. |
-| `copy-button` | P2 | actions | Only `interaction.test.mjs` mention found. |
 | `floating-action-button` | P1 | actions | Only `button-render.test.mjs` mention found. |
 | `progress-indicator` | P2 | display/status | Only `button-render.test.mjs` mention found. |
 

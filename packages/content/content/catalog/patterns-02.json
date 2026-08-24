@@ -272,7 +272,7 @@
         "Button",
         "Dialog",
         "Movement Row",
-        "Quick Action",
+        "IconButton",
         "Toast"
       ],
       "tokens": [
@@ -296,7 +296,7 @@
       "componentsUsed": [
         "Badge",
         "Dialog",
-        "Quick Action",
+        "IconButton",
         "Toast",
         "Tooltip"
       ],

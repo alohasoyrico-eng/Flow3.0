@@ -35,7 +35,7 @@ function iconButtonVariantForAction(variant) {
 function iconButtonStateForAction(state) {
     return state === "warning" ? "default" : state;
 }
-export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "Quick actions", density, state, loading = false, disabled = false, permissionBlocked = false, confirming = false, completed = false, error, actions = [], search, confirmation, feedback, className = "", onAction, ...rest }, ref) {
+export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "Pattern action items", density, state, loading = false, disabled = false, permissionBlocked = false, confirming = false, completed = false, error, actions = [], search, confirmation, feedback, className = "", onAction, ...rest }, ref) {
     const normalizedActions = (Array.isArray(actions) ? actions : []).filter(isGridAction);
     const resolvedState = resolveState({
         loading,
@@ -83,7 +83,7 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
             state: actionState,
         };
         return React.createElement("div", { key, "data-action-key": key }, React.createElement("div", {
-            className: "quick-action",
+            className: "pattern-action-item",
             "data-variant": variant,
             "data-intent": intent,
             "data-state": actionState,
@@ -97,14 +97,14 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
             density: action.density ?? density,
             loading: resolvedState === "loading" || action.loading,
             disabled: actionDisabled,
-            className: "quick-action__control",
+            className: "pattern-action-item__control",
             onClick: (event) => {
                 action.onAction?.(meta, event);
                 if (event.defaultPrevented)
                     return;
                 onAction?.(key, action, event);
             },
-        }), action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null, action.badge
+        }), action.label ? React.createElement("span", { className: "pattern-action-item__label" }, action.label) : null, action.badge
             ? React.createElement(Badge, {
                 label: action.badge,
                 variant: "count",
@@ -142,7 +142,7 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
         })
         : null, error
         ? React.createElement(Toast, {
-            label: error.label ?? "Quick action failed",
+            label: error.label ?? "Pattern action item failed",
             description: error.description,
             tone: "danger",
             variant: "recovery",

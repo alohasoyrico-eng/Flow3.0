@@ -73,7 +73,7 @@ The future audit should be component-aware. A single global "motion yes/no" rule
 Required checks:
 
 - Base `Input` and `TextArea` must not apply `transform`, `scale`, `translate`, or keyframe bounce to the whole field control.
-- `Button`, `IconButton`, `QuickAction`, and interactive cards may use activation transforms, but those transforms must not leak into `.field__control`.
+- `Button`, `IconButton`, `QuickActionsGrid` action items, and interactive cards may use activation transforms, but those transforms must not leak into `.field__control`.
 - Input-family transitions must use token aliases from Momentum/Duration/Motion Curves, never raw durations/easing.
 - Validation states must have an associated message path, not only border/color/motion.
 - `CodeInput` may use slot-level motion, but it must preserve one logical input/accessibility contract.

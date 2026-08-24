@@ -196,7 +196,7 @@ export const DriverAndVehicleAdministration = forwardRef(function DriverAndVehic
         };
         return React.createElement("div", {
             key: action.key ?? action.label,
-            className: "quick-action",
+            className: "pattern-action-item",
             "data-variant": variant,
             "data-intent": intent,
             "data-state": actionState,
@@ -210,14 +210,14 @@ export const DriverAndVehicleAdministration = forwardRef(function DriverAndVehic
             density: action.density ?? density,
             loading: action.loading ?? (actionRunning && action.key === selectedKey),
             disabled: isDisabled || action.disabled,
-            className: "quick-action__control",
+            className: "pattern-action-item__control",
             onClick: (event) => {
                 action.onAction?.(meta, event);
                 if (event.defaultPrevented)
                     return;
                 onAction?.(action.key ?? action.label, event);
             },
-        }), action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null, action.badge
+        }), action.label ? React.createElement("span", { className: "pattern-action-item__label" }, action.label) : null, action.badge
             ? React.createElement(Badge, {
                 label: action.badge,
                 variant: "count",

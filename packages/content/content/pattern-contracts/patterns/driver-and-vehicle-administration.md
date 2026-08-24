@@ -38,7 +38,7 @@ Support alta, baja, editing, assignment, suspension, recovery, and audit for dri
 
 ## Formal Purpose
 
-Coordinate reusable administration of drivers and vehicles through table review, quick actions, audit context, pagination, empty states, and toolbar boundary while templates own domain policy.
+Coordinate reusable administration of drivers and vehicles through table review, pattern action items, audit context, pagination, empty states, and toolbar boundary while templates own domain policy.
 
 ## Formal Scope
 
@@ -115,7 +115,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 - `Dialog`
 - `Empty State`
 - `Pagination`
-- `Quick Action`
+- `IconButton`
 - `Table`
 - `Toast`
 
@@ -133,7 +133,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 - `comp.dialog.*`
 - `comp.empty-state.*`
 - `comp.pagination.*`
-- `comp.quick-action.*`
+- `component.pattern-action-item.*`
 - `comp.table.*`
 - `comp.toast.*`
 - `sys.accessibility.*`
@@ -149,7 +149,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 | --- | --- | --- |
 | `summary` | `component` | `Card Summary`, `Badge` |
 | `records` | `component` | `Table`, `Avatar`, `Pagination`, `Empty State` |
-| `actions` | `component` | `Quick Action`, `Dialog`, `Button`, `Toast`, `Audit Event` |
+| `actions` | `component` | `IconButton`, `Dialog`, `Button`, `Toast`, `Audit Event` |
 | `toolbarBoundary` | `pattern` | `Toolbar` |
 
 ## Formal Governance
@@ -157,7 +157,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 ### Entry Conditions
 
 - A product needs a reusable driver/vehicle admin composition.
-- Records need table scanning, quick actions, pagination, audit context, or empty recovery.
+- Records need table scanning, pattern action items, pagination, audit context, or empty recovery.
 - Templates own domain-specific columns, permissions, and business workflows.
 
 ### Decision Tree
@@ -170,7 +170,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 
 - The pattern hardcodes domain authorization or template layout.
 - Toolbar internals are duplicated.
-- Quick actions bypass Quick Action/Dialog.
+- Pattern action items bypass IconButton/Dialog.
 - Audit context is custom markup.
 
 ### Success Metrics
@@ -200,7 +200,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 ### Reject If
 
 - Template business workflow is embedded.
-- Actions bypass Quick Action/Dialog.
+- Actions bypass IconButton/Dialog.
 - Audit context is custom visuals.
 - Permissions are hidden.
 
@@ -212,7 +212,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 | vehicleTable | Table | yes | Vehicle rows composed from Design System table behavior. |
 | identity | Avatar \| Badge | conditional | Driver identity and status metadata. |
 | summary | CardSummary \| AuditEvent | conditional | Selected vehicle/card or recent lifecycle event. |
-| actions | QuickAction \| Button[] | yes | Invite, edit, assign, suspend, recover, or export. |
+| actions | DriverAndVehicleAdministrationAction \| Button[] | yes | Invite, edit, assign, suspend, recover, or export. |
 | pagination | Pagination | conditional | Paged datasets and remote result sets. |
 
 ## Components Used
@@ -220,7 +220,7 @@ Coordinate reusable administration of drivers and vehicles through table review,
 - Table
 - Avatar
 - Badge
-- Quick Action
+- IconButton
 - Button
 - Pagination
 - Empty State

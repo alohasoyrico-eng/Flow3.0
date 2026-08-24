@@ -112,7 +112,7 @@ function iconButtonStateForAction(state: QuickActionsGridActionState): IconButto
 }
 
 export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps>(function QuickActionsGrid({
-  label = "Quick actions",
+  label = "Pattern action items",
   density,
   state,
   loading = false,
@@ -185,7 +185,7 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
         "div",
         { key, "data-action-key": key },
         React.createElement("div", {
-          className: "quick-action",
+          className: "pattern-action-item",
           "data-variant": variant,
           "data-intent": intent,
           "data-state": actionState,
@@ -200,14 +200,14 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
           density: action.density ?? density,
           loading: resolvedState === "loading" || action.loading,
           disabled: actionDisabled,
-          className: "quick-action__control",
+          className: "pattern-action-item__control",
           onClick: (event: MouseEvent<HTMLButtonElement>) => {
             action.onAction?.(meta, event);
             if (event.defaultPrevented) return;
             onAction?.(key, action, event);
           },
         } as ComponentProps<typeof IconButton>),
-        action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null,
+        action.label ? React.createElement("span", { className: "pattern-action-item__label" }, action.label) : null,
         action.badge
           ? React.createElement(Badge, {
             label: action.badge,
@@ -251,7 +251,7 @@ export const QuickActionsGrid = forwardRef<HTMLDivElement, QuickActionsGridProps
       : null,
     error
       ? React.createElement(Toast, {
-        label: error.label ?? "Quick action failed",
+        label: error.label ?? "Pattern action item failed",
         description: error.description,
         tone: "danger",
         variant: "recovery",

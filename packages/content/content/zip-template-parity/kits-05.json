@@ -134,7 +134,7 @@
         "components": [
           "Card Summary",
           "Movement Row",
-          "Quick Action",
+          "IconButton",
           "Button",
           "Icon Button",
           "Segmented Control",
@@ -160,7 +160,7 @@
       "cascadeRisks": [
         "payment card clone",
         "transaction row clone",
-        "quick actions outside Quick Action component"
+        "pattern action items outside IconButton composition"
       ]
     }
   ]

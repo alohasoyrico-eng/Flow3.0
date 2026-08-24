@@ -65,7 +65,7 @@
         ],
         [
           "actions",
-          "QuickAction | Button[]",
+          "DriverAndVehicleAdministrationAction | Button[]",
           "yes",
           "Invite, edit, assign, suspend, recover, or export."
         ],
@@ -80,7 +80,7 @@
         "Table",
         "Avatar",
         "Badge",
-        "Quick Action",
+        "IconButton",
         "Button",
         "Pagination",
         "Empty State",

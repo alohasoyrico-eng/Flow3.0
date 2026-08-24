@@ -49,7 +49,7 @@
         ],
         [
           "actions",
-          "QuickAction[]",
+          "SwipeAction[]",
           "yes",
           "One to three contextual actions."
         ],
@@ -68,7 +68,7 @@
       ],
       "componentsUsed": [
         "Movement Row",
-        "Quick Action",
+        "IconButton",
         "Button",
         "Dialog",
         "Toast"
@@ -114,7 +114,7 @@
         "Actions are hidden by default.",
         "Reveal button exposes actions.",
         "Hide button resets the row.",
-        "Quick action shows feedback.",
+        "IconButton action shows feedback.",
         "Keyboard can reach reveal and actions."
       ],
       "miel": {

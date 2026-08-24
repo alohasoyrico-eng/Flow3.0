@@ -4,13 +4,13 @@
   "source": "docs/forensics/system-forensic-gates.json",
   "status": "planning_only",
   "summary": {
-    "totalTickets": 186,
+    "totalTickets": 184,
     "priorities": {
       "P0": 38,
       "P1": 17,
-      "P2": 131
+      "P2": 129
     },
-    "undecidedOwnerDecisions": 186,
+    "undecidedOwnerDecisions": 184,
     "byLayer": {
       "foundation": {
         "total": 11,
@@ -19,7 +19,7 @@
         "P2": 0,
         "blocked": 11,
         "needsOwnerDecision": 0,
-        "docsHandSurfaces": 512
+        "docsHandSurfaces": 514
       },
       "primitive": {
         "total": 24,
@@ -31,13 +31,13 @@
         "docsHandSurfaces": 431
       },
       "component": {
-        "total": 62,
+        "total": 60,
         "P0": 0,
         "P1": 0,
-        "P2": 62,
+        "P2": 60,
         "blocked": 0,
-        "needsOwnerDecision": 62,
-        "docsHandSurfaces": 1208
+        "needsOwnerDecision": 60,
+        "docsHandSurfaces": 1188
       },
       "pattern": {
         "total": 72,
@@ -46,7 +46,7 @@
         "P2": 69,
         "blocked": 0,
         "needsOwnerDecision": 70,
-        "docsHandSurfaces": 395
+        "docsHandSurfaces": 393
       },
       "template": {
         "total": 17,
@@ -55,7 +55,7 @@
         "P2": 0,
         "blocked": 0,
         "needsOwnerDecision": 17,
-        "docsHandSurfaces": 39
+        "docsHandSurfaces": 43
       }
     }
   },
@@ -84,12 +84,22 @@
       "id": "docs-ownership",
       "status": "fail",
       "blockers": [
-        "7 docs generated candidates do not map to spec",
-        "179 entities have hand-authored docs surfaces"
+        "9 docs generated candidates do not map to spec",
+        "177 entities have hand-authored docs surfaces"
       ]
     }
   ],
   "docsOnlyCandidates": [
+    {
+      "layer": "unknown",
+      "slug": "copybutton",
+      "reason": "generated docs runtime does not map cleanly to spec artifact"
+    },
+    {
+      "layer": "unknown",
+      "slug": "quickaction",
+      "reason": "generated docs runtime does not map cleanly to spec artifact"
+    },
     {
       "layer": "stack",
       "slug": "motion",
@@ -722,7 +732,7 @@
       "duplicateSurfaces": [
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 135,
+      "docsHandSurfaceCount": 137,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -733,6 +743,7 @@
         "../FlowDocs/apps/docs/demo-preview-frame-island.js",
         "../FlowDocs/apps/docs/detail-tabs-core.js",
         "../FlowDocs/apps/docs/doc-interactions.js",
+        "../FlowDocs/apps/docs/docs-layout.js",
         "../FlowDocs/apps/docs/docs-shell-react.js",
         "../FlowDocs/apps/docs/docs-state.js",
         "../FlowDocs/apps/docs/documentation-section-island.js",
@@ -799,6 +810,7 @@
         "../FlowDocs/apps/docs/gold-toast-docs.js",
         "../FlowDocs/apps/docs/gold-tooltip-docs.js",
         "../FlowDocs/apps/docs/gold-tree-view-docs.js",
+        "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
         "../FlowDocs/apps/docs/pattern-build-gates.js",
@@ -982,7 +994,6 @@
         "../FlowDocs/apps/docs/component-demo.js",
         "../FlowDocs/apps/docs/component-foundation-trace.js",
         "../FlowDocs/apps/docs/docs-layout.js",
-        "../FlowDocs/apps/docs/documentation-hero-island.js",
         "../FlowDocs/apps/docs/documentation-section-island.js",
         "../FlowDocs/apps/docs/family-component-docs.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
@@ -1001,6 +1012,7 @@
         "../FlowDocs/apps/docs/gold-tag-docs.js",
         "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/gold-toast-docs.js",
+        "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-business-renderers.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -1468,7 +1480,6 @@
         "../FlowDocs/apps/docs/docs-code-block.js",
         "../FlowDocs/apps/docs/docs-layout.js",
         "../FlowDocs/apps/docs/docs-shell-react.js",
-        "../FlowDocs/apps/docs/documentation-hero-island.js",
         "../FlowDocs/apps/docs/documentation-section-island.js",
         "../FlowDocs/apps/docs/foundation-explorer.js",
         "../FlowDocs/apps/docs/foundation-reference.js",
@@ -1490,6 +1501,7 @@
         "../FlowDocs/apps/docs/gold-switch-docs.js",
         "../FlowDocs/apps/docs/gold-text-area-docs.js",
         "../FlowDocs/apps/docs/home-illustrations.js",
+        "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-candidate-demos.js",
         "../FlowDocs/apps/docs/pattern-desktop-demos.js",
@@ -4219,57 +4231,6 @@
       ]
     },
     {
-      "id": "component:copy-button",
-      "layer": "component",
-      "slug": "copy-button",
-      "priority": "P2",
-      "status": "needs_owner_decision",
-      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/copy-button",
-      "runtime": {
-        "flowJs": true,
-        "flowDts": true,
-        "docsGeneratedJs": true,
-        "docsGeneratedDts": true,
-        "tsSource": true
-      },
-      "duplicateSurfaces": [
-        "flow-react-js",
-        "flow-dts",
-        "flow-ts-source",
-        "docs-generated-js",
-        "docs-generated-dts",
-        "docs-hand-authored-surface"
-      ],
-      "docsHandSurfaceCount": 2,
-      "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/component-demo.js",
-        "../FlowDocs/apps/docs/react-component-islands.js"
-      ],
-      "dependencies": [
-        "style-dictionary-real",
-        "typescript-source-real",
-        "primitive-cascade-runtime"
-      ],
-      "ownerDecision": "undecided",
-      "ownerDecisionOptions": [
-        "system_owned",
-        "docs_owned",
-        "merge_into_existing_system_entity",
-        "remove_duplicate_surface",
-        "block_until_dependency_ready"
-      ],
-      "requiredWork": [
-        "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
-      ],
-      "acceptanceCriteria": [
-        "source of truth is explicit",
-        "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
-        "docs consume Flow or are explicitly marked docs-owned content",
-        "gate can be rerun and produce stable evidence"
-      ]
-    },
-    {
       "id": "component:country-selector",
       "layer": "component",
       "slug": "country-selector",
@@ -5660,72 +5621,6 @@
       ]
     },
     {
-      "id": "component:quick-action",
-      "layer": "component",
-      "slug": "quick-action",
-      "priority": "P2",
-      "status": "needs_owner_decision",
-      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/quick-action",
-      "runtime": {
-        "flowJs": true,
-        "flowDts": true,
-        "docsGeneratedJs": true,
-        "docsGeneratedDts": true,
-        "tsSource": true
-      },
-      "duplicateSurfaces": [
-        "flow-react-js",
-        "flow-dts",
-        "flow-ts-source",
-        "docs-generated-js",
-        "docs-generated-dts",
-        "docs-hand-authored-surface"
-      ],
-      "docsHandSurfaceCount": 17,
-      "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/app.js",
-        "../FlowDocs/apps/docs/candidate-component-plans.js",
-        "../FlowDocs/apps/docs/component-demo.js",
-        "../FlowDocs/apps/docs/component-foundation-trace.js",
-        "../FlowDocs/apps/docs/gold-component-docs.js",
-        "../FlowDocs/apps/docs/gold-quick-action-docs.js",
-        "../FlowDocs/apps/docs/icon-system.js",
-        "../FlowDocs/apps/docs/pattern-desktop-demos.js",
-        "../FlowDocs/apps/docs/pattern-mobile-demos.js",
-        "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
-        "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-        "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
-        "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-        "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-        "../FlowDocs/apps/docs/template-react-demos.js"
-      ],
-      "dependencies": [
-        "style-dictionary-real",
-        "typescript-source-real",
-        "primitive-cascade-runtime"
-      ],
-      "ownerDecision": "undecided",
-      "ownerDecisionOptions": [
-        "system_owned",
-        "docs_owned",
-        "merge_into_existing_system_entity",
-        "remove_duplicate_surface",
-        "block_until_dependency_ready"
-      ],
-      "requiredWork": [
-        "classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete"
-      ],
-      "acceptanceCriteria": [
-        "source of truth is explicit",
-        "no second visual/conceptual implementation remains without owner decision",
-        "TypeScript source exists where runtime exists",
-        "docs consume Flow or are explicitly marked docs-owned content",
-        "gate can be rerun and produce stable evidence"
-      ]
-    },
-    {
       "id": "component:radio-button",
       "layer": "component",
       "slug": "radio-button",
@@ -5925,7 +5820,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 79,
+      "docsHandSurfaceCount": 78,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -5986,7 +5881,6 @@
         "../FlowDocs/apps/docs/reference-demo-interactions.js",
         "../FlowDocs/apps/docs/select-interactions.js",
         "../FlowDocs/apps/docs/shell-controls.js",
-        "../FlowDocs/apps/docs/slider-demo-interactions.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
@@ -6114,7 +6008,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 14,
+      "docsHandSurfaceCount": 13,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/component-demo-interactions.js",
@@ -6124,7 +6018,6 @@
         "../FlowDocs/apps/docs/gold-slider-docs.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/react-component-islands.js",
-        "../FlowDocs/apps/docs/slider-demo-interactions.js",
         "../FlowDocs/apps/docs/stateful-component-interactions.js",
         "../FlowDocs/apps/docs/styles.css",
         "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
@@ -6643,7 +6536,7 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 32,
+      "docsHandSurfaceCount": 33,
       "docsHandSurfaceFiles": [
         "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/artifact-metadata-bar.js",
@@ -6658,6 +6551,7 @@
         "../FlowDocs/apps/docs/gold-component-core.js",
         "../FlowDocs/apps/docs/gold-component-docs.js",
         "../FlowDocs/apps/docs/gold-tag-docs.js",
+        "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/icon-system.js",
         "../FlowDocs/apps/docs/pattern-contract-tabs.js",
         "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
@@ -8198,10 +8092,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 5,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/documentation-hero-island.js",
-        "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/pattern-react-islands.js",
         "../FlowDocs/apps/docs/styles/01-shell-intro.css",
         "../FlowDocs/apps/docs/styles/02-doc-layout.css"
@@ -11214,9 +11106,8 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 4,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/app.js",
         "../FlowDocs/apps/docs/docs-layout.js",
         "../FlowDocs/apps/docs/template-desktop-demos.js",
         "../FlowDocs/apps/docs/template-react-islands.js"
@@ -11270,8 +11161,10 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 1,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
+        "../FlowDocs/apps/docs/docs-layout.js",
+        "../FlowDocs/apps/docs/docs-template-islands.js",
         "../FlowDocs/apps/docs/template-desktop-demos.js"
       ],
       "dependencies": [
@@ -11323,8 +11216,9 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 2,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
+        "../FlowDocs/apps/docs/docs-template-islands.js",
         "../FlowDocs/apps/docs/home-stack-renderers.js",
         "../FlowDocs/apps/docs/template-desktop-demos.js"
       ],
@@ -11759,9 +11653,11 @@
         "docs-generated-dts",
         "docs-hand-authored-surface"
       ],
-      "docsHandSurfaceCount": 1,
+      "docsHandSurfaceCount": 3,
       "docsHandSurfaceFiles": [
-        "../FlowDocs/apps/docs/template-desktop-demos.js"
+        "../FlowDocs/apps/docs/docs-layout.js",
+        "../FlowDocs/apps/docs/template-desktop-demos.js",
+        "../FlowDocs/apps/docs/template-react-islands.js"
       ],
       "dependencies": [
         "style-dictionary-real",

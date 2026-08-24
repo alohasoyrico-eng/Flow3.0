@@ -219,12 +219,11 @@ Components:
 - `icon-button`
 - `floating-action-button`
 - `quick-action`
-- `copy-button`
 
 Gaps:
 
 - disabled/loading callback proof,
-- thin evidence for `floating-action-button` and `copy-button`.
+- thin evidence for `floating-action-button`.
 
 Minimum evidence:
 
@@ -232,7 +231,7 @@ Minimum evidence:
 - disabled/loading prevention,
 - icon-only accessible name,
 - keyboard activation where applicable,
-- clipboard behavior decision for `copy-button`.
+- clipboard affordance decision for `button`/`icon-button` usage.
 
 ### Iteration 9: P1 Data/Display And Remaining Navigation
 

@@ -6,6 +6,7 @@ const {
   requiredComponentContracts,
   root,
 } = require("./audit-context.js");
+const { checkRetiredSurfaceGovernance } = require("./audit-retired-surface-governance.js");
 
 const registryFile = path.join(root, "packages/components/src/registry.js");
 const indexFile = path.join(root, "packages/components/src/index.js");
@@ -16,7 +17,6 @@ const removedDocsAdapterFiles = [
   "apps/docs/component-table-demo-adapter.js",
 ].map((file) => path.join(root, file));
 const docsRendererFile = path.join(docsAppDir, "component-demo.js");
-
 const forbiddenPackageRegistryApi = [
   "componentRegistry",
   "renderComponentDemo",
@@ -45,7 +45,6 @@ const allowedComponentIndexExportSources = new Set([
   "./platforms/index.js",
   "./registry.js",
 ]);
-
 function checkComponentRegistry() {
   const registrySource = read(registryFile);
   const indexSource = read(indexFile);
@@ -128,6 +127,8 @@ function checkComponentRegistry() {
       add("errors", file, 1, "Docs component adapters are no longer allowed; consume apps/docs/component-demo.js and React islands.");
     }
   }
+
+  checkRetiredSurfaceGovernance();
 }
 
 module.exports = { checkComponentRegistry };

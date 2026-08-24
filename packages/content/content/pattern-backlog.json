@@ -198,7 +198,7 @@
   "nextBatch": [
     {
       "id": "confirmation-dialog",
-      "reason": "P0 risk from Dialog and Quick Action. High-risk actions need confirmation, copy, recovery, and tests before admin/mobile patterns expand."
+      "reason": "P0 risk from Dialog and IconButton-composed action patterns. High-risk actions need confirmation, copy, recovery, and tests before admin/mobile patterns expand."
     },
     {
       "id": "authentication-login-biometrics-and-otp",

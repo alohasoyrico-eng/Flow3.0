@@ -39,7 +39,7 @@
         "componentDependencies": [
           "Badge",
           "Dialog",
-          "Quick Action",
+          "IconButton",
           "Toast",
           "Tooltip"
         ],
@@ -49,7 +49,7 @@
         "tokenDependencies": [
           "comp.badge.*",
           "comp.dialog.*",
-          "comp.quick-action.*",
+          "component.pattern-action-item.*",
           "comp.toast.*",
           "comp.tooltip.*",
           "sys.accessibility.*",
@@ -69,12 +69,12 @@
           "Search may reveal action targets but must not own the action grid."
         ],
         "decisionTree": [
-          "Use Quick Action for a single compact command.",
-          "Use Quick Actions Grid when multiple quick commands need layout, grouping, or status.",
+          "Use IconButton for a single compact command.",
+          "Use QuickActionsGrid when multiple quick commands need layout, grouping, or status.",
           "Use Command Palette when actions are discovered through a global command query."
         ],
         "failureModes": [
-          "Actions are hand-built buttons instead of Quick Action.",
+          "Actions are hand-built buttons instead of IconButton.",
           "Tooltip is the only source of required meaning.",
           "Search owns action execution.",
           "Risky actions bypass Dialog or Toast recovery."
@@ -98,7 +98,7 @@
             "name": "actions",
             "owner": "component",
             "uses": [
-              "Quick Action",
+              "IconButton",
               "Badge",
               "Tooltip"
             ]
@@ -133,12 +133,12 @@
           "Expose disabled and permission reasons in text."
         ],
         "tests": [
-          "Composes Quick Action, Badge, Tooltip, Dialog, and Toast.",
+          "Composes IconButton, Badge, Tooltip, Dialog, and Toast.",
           "Covers disabled, permission, confirming, completed, and error states.",
           "Keeps Search as discovery boundary only."
         ],
         "agentInstructions": [
-          "Do not recreate Button or Quick Action visuals.",
+          "Do not recreate Button or IconButton visuals.",
           "Keep product-specific action policies outside the pattern.",
           "Ask before exposing destructive or regulated actions."
         ],

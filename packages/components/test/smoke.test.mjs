@@ -125,9 +125,6 @@ import {
   movementRowPlatformAdapters,
   movementRowPlatformContract,
   movementRowPlatformProps,
-  quickActionPlatformAdapters,
-  quickActionPlatformContract,
-  quickActionPlatformProps,
   radioButtonPlatformAdapters,
   radioButtonPlatformContract,
   radioButtonPlatformProps,
@@ -320,7 +317,7 @@ globalThis.document = {
 };
 
 assert.equal(componentContractVersion, "0.1.0");
-assert.deepEqual(Object.keys(componentContracts), ["button", "codeBlock", "iconButton", "input", "inputAmount", "cardNumberInput", "cardExpiryInput", "cardSecurityCodeInput", "select", "combobox", "card", "checkbox", "switch", "radioButton", "textArea", "badge", "chip", "tag", "tabs", "tooltip", "toast", "progressIndicator", "spinner", "accordion", "slider", "avatar", "skeleton", "dialog", "menu", "drawer", "table", "biometricPrompt", "treeView", "motionBoundary", "animatedMoment", "emptyState", "list", "kpiTile", "floatingActionButton", "breadcrumbs", "pagination", "auditEvent", "errorPanel", "inlineValidation", "stepper", "chartPanel", "stationPin", "routeSummary", "codeInput", "phoneInput", "countrySelector", "datePicker", "dateRangePicker", "segmentedControl", "popover", "cardSummary", "movementRow", "chatMessage", "chatThread", "chatComposer", "quickAction"]);
+assert.deepEqual(Object.keys(componentContracts), ["button", "codeBlock", "iconButton", "input", "inputAmount", "cardNumberInput", "cardExpiryInput", "cardSecurityCodeInput", "select", "combobox", "card", "checkbox", "switch", "radioButton", "textArea", "badge", "chip", "tag", "tabs", "tooltip", "toast", "progressIndicator", "spinner", "accordion", "slider", "avatar", "skeleton", "dialog", "menu", "drawer", "table", "biometricPrompt", "treeView", "motionBoundary", "animatedMoment", "emptyState", "list", "kpiTile", "floatingActionButton", "breadcrumbs", "pagination", "auditEvent", "errorPanel", "inlineValidation", "stepper", "chartPanel", "stationPin", "routeSummary", "codeInput", "phoneInput", "countrySelector", "datePicker", "dateRangePicker", "segmentedControl", "popover", "cardSummary", "movementRow", "chatMessage", "chatThread", "chatComposer"]);
 assert.equal(componentContracts.button.factory, "@design-system/react/button");
 assert.equal(buttonPlatformContract.id, "button");
 assert.equal(buttonPlatformContract.source.factory, componentContracts.button.factory);
@@ -837,15 +834,6 @@ assert.deepEqual(movementRowPlatformContract.states, componentContracts.movement
 assert.deepEqual(Object.keys(movementRowPlatformAdapters), ["react"]);
 assert.equal(movementRowPlatformAdapters.react.componentName, "MovementRow");
 assert.equal(movementRowPlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.quickAction.factory, "@design-system/react/quick-action");
-assert.equal(quickActionPlatformContract.id, "quick-action");
-assert.equal(quickActionPlatformContract.source.factory, componentContracts.quickAction.factory);
-assert.deepEqual(quickActionPlatformProps(), componentContracts.quickAction.props.map((prop) => prop.name));
-assert.deepEqual(quickActionPlatformContract.variants, componentContracts.quickAction.variants);
-assert.deepEqual(quickActionPlatformContract.states, componentContracts.quickAction.states);
-assert.deepEqual(Object.keys(quickActionPlatformAdapters), ["react"]);
-assert.equal(quickActionPlatformAdapters.react.componentName, "QuickAction");
-assert.equal(quickActionPlatformAdapters.react.sourceOfTruth, true);
 for (const contract of Object.values(componentContracts)) {
   assert.ok(contract.purpose.length > 20);
   assert.ok(contract.props.length >= 5);

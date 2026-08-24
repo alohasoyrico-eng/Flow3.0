@@ -11,7 +11,7 @@
           "Researchers",
           "Agents"
         ],
-        "purpose": "Coordinate reusable administration of drivers and vehicles through table review, quick actions, audit context, pagination, empty states, and toolbar boundary while templates own domain policy.",
+        "purpose": "Coordinate reusable administration of drivers and vehicles through table review, pattern action items, audit context, pagination, empty states, and toolbar boundary while templates own domain policy.",
         "governingFoundations": [
           "Accessibility",
           "Depth",
@@ -47,7 +47,7 @@
           "Dialog",
           "Empty State",
           "Pagination",
-          "Quick Action",
+          "IconButton",
           "Table",
           "Toast"
         ],
@@ -66,7 +66,7 @@
           "comp.dialog.*",
           "comp.empty-state.*",
           "comp.pagination.*",
-          "comp.quick-action.*",
+          "component.pattern-action-item.*",
           "comp.table.*",
           "comp.toast.*",
           "sys.accessibility.*",
@@ -82,7 +82,7 @@
         ],
         "entryConditions": [
           "A product needs a reusable driver/vehicle admin composition.",
-          "Records need table scanning, quick actions, pagination, audit context, or empty recovery.",
+          "Records need table scanning, pattern action items, pagination, audit context, or empty recovery.",
           "Templates own domain-specific columns, permissions, and business workflows."
         ],
         "decisionTree": [
@@ -93,7 +93,7 @@
         "failureModes": [
           "The pattern hardcodes domain authorization or template layout.",
           "Toolbar internals are duplicated.",
-          "Quick actions bypass Quick Action/Dialog.",
+          "Pattern action items bypass IconButton/Dialog.",
           "Audit context is custom markup."
         ],
         "successMetrics": [
@@ -134,7 +134,7 @@
             "name": "actions",
             "owner": "component",
             "uses": [
-              "Quick Action",
+              "IconButton",
               "Dialog",
               "Button",
               "Toast",
@@ -168,7 +168,7 @@
         ],
         "rejectIf": [
           "Template business workflow is embedded.",
-          "Actions bypass Quick Action/Dialog.",
+          "Actions bypass IconButton/Dialog.",
           "Audit context is custom visuals.",
           "Permissions are hidden."
         ],

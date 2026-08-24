@@ -37,7 +37,7 @@
       "slots": [
         [
           "actions",
-          "QuickAction[]",
+          "QuickActionsGridAction[]",
           "yes",
           "Frequent independent actions."
         ],
@@ -67,7 +67,7 @@
         ]
       ],
       "componentsUsed": [
-        "Quick Action",
+        "IconButton",
         "Tooltip",
         "Dialog",
         "Toast",
@@ -111,7 +111,7 @@
         "Confirmation is required for risky side effects."
       ],
       "tests": [
-        "Actions render through Quick Action components.",
+        "Actions render through IconButton components.",
         "Blocked action exposes Tooltip copy.",
         "Risky action opens Dialog after click.",
         "Confirmed action shows Toast.",

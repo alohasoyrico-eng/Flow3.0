@@ -192,7 +192,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
         "div",
         { key, "data-swipe-action-key": key, "data-visible": actionsVisible ? "true" : "false" },
         React.createElement("div", {
-          className: "quick-action",
+          className: "pattern-action-item",
           "data-variant": variant,
           "data-intent": intent,
           "data-state": actionState,
@@ -207,14 +207,14 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
           density: action.density ?? density,
           loading: action.loading,
           disabled: actionDisabled,
-          className: "quick-action__control",
+          className: "pattern-action-item__control",
           onClick: (event: MouseEvent<HTMLButtonElement>) => {
             action.onAction?.(meta, event);
             if (event.defaultPrevented) return;
             onAction?.(key, action, event);
           },
         } as ComponentProps<typeof IconButton>),
-        action.label ? React.createElement("span", { className: "quick-action__label" }, action.label) : null,
+        action.label ? React.createElement("span", { className: "pattern-action-item__label" }, action.label) : null,
         action.badge
           ? React.createElement(Badge, {
             label: action.badge,

@@ -7,7 +7,7 @@
       "First pattern batch: Wallet overview, Card detail and quick actions, Movement detail, Nearby stations, and Route guidance.",
       "Finish foundations consciously against the reference: adopt structure where it fits, adapt examples to this product, reject copied generic content.",
       "Selection and inputs batch: Select, Input, Code Input, Phone Input, Date Picker.",
-      "Mobile surfaces batch: Bottom Sheet, Quick Action, Card Summary, Movement Row, Mobile Movement Detail pattern.",
+      "Mobile surfaces batch: Bottom Sheet, QuickActionsGrid pattern, Card Summary, Movement Row, Mobile Movement Detail pattern.",
       "Dashboard batch: KPI Tile, Chart Panel, Virtual Data Table pattern, Dashboard Filter Bar, and Notification Panel pattern coverage.",
       "Configuration batch: Permission Matrix, driver administration pattern, vehicle administration pattern, Audit Event.",
       "Driver mobile patterns: onboarding, auth, card overview, card detail, movements, routes, station detail.",
@@ -54,7 +54,7 @@
         "components": [
           "Payment Card",
           "Transaction Row",
-          "Quick Action",
+          "Icon Button",
           "Bottom Sheet",
           "Badge"
         ],

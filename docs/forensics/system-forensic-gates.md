@@ -41,7 +41,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | style-dictionary-real | pass | None |
 | typescript-source-real | pass | None |
 | primitive-cascade-runtime | pass | None |
-| docs-ownership | fail | 7 docs generated candidates do not map to spec<br>179 entities have hand-authored docs surfaces |
+| docs-ownership | fail | 9 docs generated candidates do not map to spec<br>177 entities have hand-authored docs surfaces |
 
 ## Layer matrix summary
 
@@ -49,7 +49,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | --- | ---: | ---: | ---: | ---: | ---: |
 | foundation | 11 | 0 | 0 | 11 | 0 |
 | primitive | 24 | 24 | 1 | 19 | 24 |
-| component | 62 | 62 | 62 | 62 | 62 |
+| component | 60 | 60 | 60 | 60 | 60 |
 | pattern | 72 | 72 | 72 | 70 | 72 |
 | template | 17 | 17 | 17 | 17 | 17 |
 
@@ -58,16 +58,16 @@ This report defines the audit gates that must pass before remediation can be cal
 | Layer | Entity | Duplicate surfaces | Hand docs files | Surfaces |
 | --- | --- | ---: | ---: | --- |
 | component | card | 6 | 93 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
-| component | select | 6 | 79 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| component | select | 6 | 78 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | button | 6 | 71 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | list | 6 | 67 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | table | 6 | 66 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | input | 6 | 61 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | pattern | search | 6 | 49 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | tabs | 6 | 42 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| component | tag | 6 | 33 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | pattern | documentation-section | 6 | 33 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | switch | 6 | 32 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
-| component | tag | 6 | 32 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | badge | 6 | 31 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | menu | 6 | 30 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | drawer | 6 | 28 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
@@ -81,17 +81,19 @@ This report defines the audit gates that must pass before remediation can be cal
 | component | audit-event | 6 | 19 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | tooltip | 6 | 19 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | pattern | topbar | 6 | 19 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
-| component | quick-action | 6 | 17 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | breadcrumbs | 6 | 16 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | icon-button | 6 | 16 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | pattern | sidebar | 6 | 16 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | empty-state | 6 | 14 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 | component | pagination | 6 | 14 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
+| component | stepper | 6 | 14 | flow-react-js, flow-dts, flow-ts-source, docs-generated-js, docs-generated-dts, docs-hand-authored-surface |
 
 ## Docs-only candidates
 
 | Layer | Entity | Reason |
 | --- | --- | --- |
+| unknown | copybutton | generated docs runtime does not map cleanly to spec artifact |
+| unknown | quickaction | generated docs runtime does not map cleanly to spec artifact |
 | stack | motion | docs catalog collection is outside the system taxonomy and needs an owner decision |
 | stack | dotanimated | docs catalog collection is outside the system taxonomy and needs an owner decision |
 | stack | gsap | docs catalog collection is outside the system taxonomy and needs an owner decision |
@@ -111,7 +113,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | foundation | growth | Flow token/spec source | 1 | 11 | None |
 | foundation | iconography | Flow token/spec source | 1 | 3 | None |
 | foundation | momentum | Flow token/spec source | 1 | 18 | None |
-| foundation | state | Flow token/spec source | 1 | 135 | None |
+| foundation | state | Flow token/spec source | 1 | 137 | None |
 | foundation | symbol | Flow token/spec source | 1 | 24 | None |
 | foundation | tone | Flow token/spec source | 1 | 58 | None |
 | foundation | voice | Flow token/spec source | 1 | 39 | None |
@@ -161,7 +163,6 @@ This report defines the audit gates that must pass before remediation can be cal
 | component | code-block | Flow React component package | 6 | 21 | packages/react/src/CodeBlock.js<br>packages/react/src/CodeBlock.d.ts<br>packages/react/src/CodeBlock.tsx<br>apps/docs/generated/react/CodeBlock.js<br>apps/docs/generated/react/CodeBlock.d.ts |
 | component | code-input | Flow React component package | 6 | 13 | packages/react/src/CodeInput.js<br>packages/react/src/CodeInput.d.ts<br>packages/react/src/CodeInput.tsx<br>apps/docs/generated/react/CodeInput.js<br>apps/docs/generated/react/CodeInput.d.ts |
 | component | combobox | Flow React component package | 6 | 6 | packages/react/src/Combobox.js<br>packages/react/src/Combobox.d.ts<br>packages/react/src/Combobox.tsx<br>apps/docs/generated/react/Combobox.js<br>apps/docs/generated/react/Combobox.d.ts |
-| component | copy-button | Flow React component package | 6 | 2 | packages/react/src/CopyButton.js<br>packages/react/src/CopyButton.d.ts<br>packages/react/src/CopyButton.tsx<br>apps/docs/generated/react/CopyButton.js<br>apps/docs/generated/react/CopyButton.d.ts |
 | component | country-selector | Flow React component package | 6 | 5 | packages/react/src/CountrySelector.js<br>packages/react/src/CountrySelector.d.ts<br>packages/react/src/CountrySelector.tsx<br>apps/docs/generated/react/CountrySelector.js<br>apps/docs/generated/react/CountrySelector.d.ts |
 | component | date-picker | Flow React component package | 6 | 9 | packages/react/src/DatePicker.js<br>packages/react/src/DatePicker.d.ts<br>packages/react/src/DatePicker.tsx<br>apps/docs/generated/react/DatePicker.js<br>apps/docs/generated/react/DatePicker.d.ts |
 | component | date-range-picker | Flow React component package | 6 | 7 | packages/react/src/DateRangePicker.js<br>packages/react/src/DateRangePicker.d.ts<br>packages/react/src/DateRangePicker.tsx<br>apps/docs/generated/react/DateRangePicker.js<br>apps/docs/generated/react/DateRangePicker.d.ts |
@@ -183,20 +184,19 @@ This report defines the audit gates that must pass before remediation can be cal
 | component | phone-input | Flow React component package | 6 | 9 | packages/react/src/PhoneInput.js<br>packages/react/src/PhoneInput.d.ts<br>packages/react/src/PhoneInput.tsx<br>apps/docs/generated/react/PhoneInput.js<br>apps/docs/generated/react/PhoneInput.d.ts |
 | component | popover | Flow React component package | 6 | 11 | packages/react/src/Popover.js<br>packages/react/src/Popover.d.ts<br>packages/react/src/Popover.tsx<br>apps/docs/generated/react/Popover.js<br>apps/docs/generated/react/Popover.d.ts |
 | component | progress-indicator | Flow React component package | 6 | 8 | packages/react/src/ProgressIndicator.js<br>packages/react/src/ProgressIndicator.d.ts<br>packages/react/src/ProgressIndicator.tsx<br>apps/docs/generated/react/ProgressIndicator.js<br>apps/docs/generated/react/ProgressIndicator.d.ts |
-| component | quick-action | Flow React component package | 6 | 17 | packages/react/src/QuickAction.js<br>packages/react/src/QuickAction.d.ts<br>packages/react/src/QuickAction.tsx<br>apps/docs/generated/react/QuickAction.js<br>apps/docs/generated/react/QuickAction.d.ts |
 | component | radio-button | Flow React component package | 6 | 12 | packages/react/src/RadioButton.js<br>packages/react/src/RadioButton.d.ts<br>packages/react/src/RadioButton.tsx<br>apps/docs/generated/react/RadioButton.js<br>apps/docs/generated/react/RadioButton.d.ts |
 | component | route-summary | Flow React component package | 6 | 9 | packages/react/src/RouteSummary.js<br>packages/react/src/RouteSummary.d.ts<br>packages/react/src/RouteSummary.tsx<br>apps/docs/generated/react/RouteSummary.js<br>apps/docs/generated/react/RouteSummary.d.ts |
 | component | segmented-control | Flow React component package | 6 | 10 | packages/react/src/SegmentedControl.js<br>packages/react/src/SegmentedControl.d.ts<br>packages/react/src/SegmentedControl.tsx<br>apps/docs/generated/react/SegmentedControl.js<br>apps/docs/generated/react/SegmentedControl.d.ts |
-| component | select | Flow React component package | 6 | 79 | packages/react/src/Select.js<br>packages/react/src/Select.d.ts<br>packages/react/src/Select.tsx<br>apps/docs/generated/react/Select.js<br>apps/docs/generated/react/Select.d.ts |
+| component | select | Flow React component package | 6 | 78 | packages/react/src/Select.js<br>packages/react/src/Select.d.ts<br>packages/react/src/Select.tsx<br>apps/docs/generated/react/Select.js<br>apps/docs/generated/react/Select.d.ts |
 | component | skeleton | Flow React component package | 6 | 12 | packages/react/src/Skeleton.js<br>packages/react/src/Skeleton.d.ts<br>packages/react/src/Skeleton.tsx<br>apps/docs/generated/react/Skeleton.js<br>apps/docs/generated/react/Skeleton.d.ts |
-| component | slider | Flow React component package | 6 | 14 | packages/react/src/Slider.js<br>packages/react/src/Slider.d.ts<br>packages/react/src/Slider.tsx<br>apps/docs/generated/react/Slider.js<br>apps/docs/generated/react/Slider.d.ts |
+| component | slider | Flow React component package | 6 | 13 | packages/react/src/Slider.js<br>packages/react/src/Slider.d.ts<br>packages/react/src/Slider.tsx<br>apps/docs/generated/react/Slider.js<br>apps/docs/generated/react/Slider.d.ts |
 | component | spinner | Flow React component package | 6 | 6 | packages/react/src/Spinner.js<br>packages/react/src/Spinner.d.ts<br>packages/react/src/Spinner.tsx<br>apps/docs/generated/react/Spinner.js<br>apps/docs/generated/react/Spinner.d.ts |
 | component | station-pin | Flow React component package | 6 | 12 | packages/react/src/StationPin.js<br>packages/react/src/StationPin.d.ts<br>packages/react/src/StationPin.tsx<br>apps/docs/generated/react/StationPin.js<br>apps/docs/generated/react/StationPin.d.ts |
 | component | stepper | Flow React component package | 6 | 14 | packages/react/src/Stepper.js<br>packages/react/src/Stepper.d.ts<br>packages/react/src/Stepper.tsx<br>apps/docs/generated/react/Stepper.js<br>apps/docs/generated/react/Stepper.d.ts |
 | component | switch | Flow React component package | 6 | 32 | packages/react/src/Switch.js<br>packages/react/src/Switch.d.ts<br>packages/react/src/Switch.tsx<br>apps/docs/generated/react/Switch.js<br>apps/docs/generated/react/Switch.d.ts |
 | component | table | Flow React component package | 6 | 66 | packages/react/src/Table.js<br>packages/react/src/Table.d.ts<br>packages/react/src/Table.tsx<br>apps/docs/generated/react/Table.js<br>apps/docs/generated/react/Table.d.ts |
 | component | tabs | Flow React component package | 6 | 42 | packages/react/src/Tabs.js<br>packages/react/src/Tabs.d.ts<br>packages/react/src/Tabs.tsx<br>apps/docs/generated/react/Tabs.js<br>apps/docs/generated/react/Tabs.d.ts |
-| component | tag | Flow React component package | 6 | 32 | packages/react/src/Tag.js<br>packages/react/src/Tag.d.ts<br>packages/react/src/Tag.tsx<br>apps/docs/generated/react/Tag.js<br>apps/docs/generated/react/Tag.d.ts |
+| component | tag | Flow React component package | 6 | 33 | packages/react/src/Tag.js<br>packages/react/src/Tag.d.ts<br>packages/react/src/Tag.tsx<br>apps/docs/generated/react/Tag.js<br>apps/docs/generated/react/Tag.d.ts |
 | component | text-area | Flow React component package | 6 | 14 | packages/react/src/TextArea.js<br>packages/react/src/TextArea.d.ts<br>packages/react/src/TextArea.tsx<br>apps/docs/generated/react/TextArea.js<br>apps/docs/generated/react/TextArea.d.ts |
 | component | toast | Flow React component package | 6 | 28 | packages/react/src/Toast.js<br>packages/react/src/Toast.d.ts<br>packages/react/src/Toast.tsx<br>apps/docs/generated/react/Toast.js<br>apps/docs/generated/react/Toast.d.ts |
 | component | tooltip | Flow React component package | 6 | 19 | packages/react/src/Tooltip.js<br>packages/react/src/Tooltip.d.ts<br>packages/react/src/Tooltip.tsx<br>apps/docs/generated/react/Tooltip.js<br>apps/docs/generated/react/Tooltip.d.ts |
@@ -223,7 +223,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | pattern | confirmation-dialog | Flow React pattern package | 6 | 3 | packages/react/src/patterns/ConfirmationDialog.js<br>packages/react/src/patterns/ConfirmationDialog.d.ts<br>packages/react/src/patterns/ConfirmationDialog.tsx<br>apps/docs/generated/react/patterns/ConfirmationDialog.js<br>apps/docs/generated/react/patterns/ConfirmationDialog.d.ts |
 | pattern | demo-preview-frame | Flow React pattern package | 6 | 5 | packages/react/src/patterns/DemoPreviewFrame.js<br>packages/react/src/patterns/DemoPreviewFrame.d.ts<br>packages/react/src/patterns/DemoPreviewFrame.tsx<br>apps/docs/generated/react/patterns/DemoPreviewFrame.js<br>apps/docs/generated/react/patterns/DemoPreviewFrame.d.ts |
 | pattern | dense-operational-list | Flow React pattern package | 6 | 3 | packages/react/src/patterns/DenseOperationalList.js<br>packages/react/src/patterns/DenseOperationalList.d.ts<br>packages/react/src/patterns/DenseOperationalList.tsx<br>apps/docs/generated/react/patterns/DenseOperationalList.js<br>apps/docs/generated/react/patterns/DenseOperationalList.d.ts |
-| pattern | documentation-hero | Flow React pattern package | 6 | 5 | packages/react/src/patterns/DocumentationHero.js<br>packages/react/src/patterns/DocumentationHero.d.ts<br>packages/react/src/patterns/DocumentationHero.tsx<br>apps/docs/generated/react/patterns/DocumentationHero.js<br>apps/docs/generated/react/patterns/DocumentationHero.d.ts |
+| pattern | documentation-hero | Flow React pattern package | 6 | 3 | packages/react/src/patterns/DocumentationHero.js<br>packages/react/src/patterns/DocumentationHero.d.ts<br>packages/react/src/patterns/DocumentationHero.tsx<br>apps/docs/generated/react/patterns/DocumentationHero.js<br>apps/docs/generated/react/patterns/DocumentationHero.d.ts |
 | pattern | documentation-page-shell | Flow React pattern package | 5 | 0 | packages/react/src/patterns/DocumentationPageShell.js<br>packages/react/src/patterns/DocumentationPageShell.d.ts<br>packages/react/src/patterns/DocumentationPageShell.tsx<br>apps/docs/generated/react/patterns/DocumentationPageShell.js<br>apps/docs/generated/react/patterns/DocumentationPageShell.d.ts |
 | pattern | documentation-primitive-demo | Flow React pattern package | 6 | 2 | packages/react/src/patterns/DocumentationPrimitiveDemo.js<br>packages/react/src/patterns/DocumentationPrimitiveDemo.d.ts<br>packages/react/src/patterns/DocumentationPrimitiveDemo.tsx<br>apps/docs/generated/react/patterns/DocumentationPrimitiveDemo.js<br>apps/docs/generated/react/patterns/DocumentationPrimitiveDemo.d.ts |
 | pattern | documentation-reference-grid | Flow React pattern package | 6 | 2 | packages/react/src/patterns/DocumentationReferenceGrid.js<br>packages/react/src/patterns/DocumentationReferenceGrid.d.ts<br>packages/react/src/patterns/DocumentationReferenceGrid.tsx<br>apps/docs/generated/react/patterns/DocumentationReferenceGrid.js<br>apps/docs/generated/react/patterns/DocumentationReferenceGrid.d.ts |
@@ -276,9 +276,9 @@ This report defines the audit gates that must pass before remediation can be cal
 | template | agent-workspace | Flow React template package | 6 | 2 | packages/react/src/templates/AgentWorkspace.js<br>packages/react/src/templates/AgentWorkspace.d.ts<br>packages/react/src/templates/AgentWorkspace.tsx<br>apps/docs/generated/react/templates/AgentWorkspace.js<br>apps/docs/generated/react/templates/AgentWorkspace.d.ts |
 | template | component-detail-template | Flow React template package | 6 | 1 | packages/react/src/templates/ComponentDetailTemplate.js<br>packages/react/src/templates/ComponentDetailTemplate.d.ts<br>packages/react/src/templates/ComponentDetailTemplate.tsx<br>apps/docs/generated/react/templates/ComponentDetailTemplate.js<br>apps/docs/generated/react/templates/ComponentDetailTemplate.d.ts |
 | template | configuration-console | Flow React template package | 6 | 4 | packages/react/src/templates/ConfigurationConsole.js<br>packages/react/src/templates/ConfigurationConsole.d.ts<br>packages/react/src/templates/ConfigurationConsole.tsx<br>apps/docs/generated/react/templates/ConfigurationConsole.js<br>apps/docs/generated/react/templates/ConfigurationConsole.d.ts |
-| template | docs-artifact-detail-template | Flow React template package | 6 | 4 | packages/react/src/templates/DocsArtifactDetailTemplate.js<br>packages/react/src/templates/DocsArtifactDetailTemplate.d.ts<br>packages/react/src/templates/DocsArtifactDetailTemplate.tsx<br>apps/docs/generated/react/templates/DocsArtifactDetailTemplate.js<br>apps/docs/generated/react/templates/DocsArtifactDetailTemplate.d.ts |
-| template | docs-collection-template | Flow React template package | 6 | 1 | packages/react/src/templates/DocsCollectionTemplate.js<br>packages/react/src/templates/DocsCollectionTemplate.d.ts<br>packages/react/src/templates/DocsCollectionTemplate.tsx<br>apps/docs/generated/react/templates/DocsCollectionTemplate.js<br>apps/docs/generated/react/templates/DocsCollectionTemplate.d.ts |
-| template | docs-home-template | Flow React template package | 6 | 2 | packages/react/src/templates/DocsHomeTemplate.js<br>packages/react/src/templates/DocsHomeTemplate.d.ts<br>packages/react/src/templates/DocsHomeTemplate.tsx<br>apps/docs/generated/react/templates/DocsHomeTemplate.js<br>apps/docs/generated/react/templates/DocsHomeTemplate.d.ts |
+| template | docs-artifact-detail-template | Flow React template package | 6 | 3 | packages/react/src/templates/DocsArtifactDetailTemplate.js<br>packages/react/src/templates/DocsArtifactDetailTemplate.d.ts<br>packages/react/src/templates/DocsArtifactDetailTemplate.tsx<br>apps/docs/generated/react/templates/DocsArtifactDetailTemplate.js<br>apps/docs/generated/react/templates/DocsArtifactDetailTemplate.d.ts |
+| template | docs-collection-template | Flow React template package | 6 | 3 | packages/react/src/templates/DocsCollectionTemplate.js<br>packages/react/src/templates/DocsCollectionTemplate.d.ts<br>packages/react/src/templates/DocsCollectionTemplate.tsx<br>apps/docs/generated/react/templates/DocsCollectionTemplate.js<br>apps/docs/generated/react/templates/DocsCollectionTemplate.d.ts |
+| template | docs-home-template | Flow React template package | 6 | 3 | packages/react/src/templates/DocsHomeTemplate.js<br>packages/react/src/templates/DocsHomeTemplate.d.ts<br>packages/react/src/templates/DocsHomeTemplate.tsx<br>apps/docs/generated/react/templates/DocsHomeTemplate.js<br>apps/docs/generated/react/templates/DocsHomeTemplate.d.ts |
 | template | docs-shell-template | Flow React template package | 6 | 2 | packages/react/src/templates/DocsShellTemplate.js<br>packages/react/src/templates/DocsShellTemplate.d.ts<br>packages/react/src/templates/DocsShellTemplate.tsx<br>apps/docs/generated/react/templates/DocsShellTemplate.js<br>apps/docs/generated/react/templates/DocsShellTemplate.d.ts |
 | template | driver-card-wallet | Flow React template package | 6 | 3 | packages/react/src/templates/DriverCardWallet.js<br>packages/react/src/templates/DriverCardWallet.d.ts<br>packages/react/src/templates/DriverCardWallet.tsx<br>apps/docs/generated/react/templates/DriverCardWallet.js<br>apps/docs/generated/react/templates/DriverCardWallet.d.ts |
 | template | driver-mobile-app | Flow React template package | 6 | 3 | packages/react/src/templates/DriverMobileApp.js<br>packages/react/src/templates/DriverMobileApp.d.ts<br>packages/react/src/templates/DriverMobileApp.tsx<br>apps/docs/generated/react/templates/DriverMobileApp.js<br>apps/docs/generated/react/templates/DriverMobileApp.d.ts |
@@ -286,7 +286,7 @@ This report defines the audit gates that must pass before remediation can be cal
 | template | fleet-manager-desktop | Flow React template package | 6 | 4 | packages/react/src/templates/FleetManagerDesktop.js<br>packages/react/src/templates/FleetManagerDesktop.d.ts<br>packages/react/src/templates/FleetManagerDesktop.tsx<br>apps/docs/generated/react/templates/FleetManagerDesktop.js<br>apps/docs/generated/react/templates/FleetManagerDesktop.d.ts |
 | template | internal-operations-console | Flow React template package | 6 | 2 | packages/react/src/templates/InternalOperationsConsole.js<br>packages/react/src/templates/InternalOperationsConsole.d.ts<br>packages/react/src/templates/InternalOperationsConsole.tsx<br>apps/docs/generated/react/templates/InternalOperationsConsole.js<br>apps/docs/generated/react/templates/InternalOperationsConsole.d.ts |
 | template | pattern-detail-template | Flow React template package | 6 | 1 | packages/react/src/templates/PatternDetailTemplate.js<br>packages/react/src/templates/PatternDetailTemplate.d.ts<br>packages/react/src/templates/PatternDetailTemplate.tsx<br>apps/docs/generated/react/templates/PatternDetailTemplate.js<br>apps/docs/generated/react/templates/PatternDetailTemplate.d.ts |
-| template | reference-detail-template | Flow React template package | 6 | 1 | packages/react/src/templates/ReferenceDetailTemplate.js<br>packages/react/src/templates/ReferenceDetailTemplate.d.ts<br>packages/react/src/templates/ReferenceDetailTemplate.tsx<br>apps/docs/generated/react/templates/ReferenceDetailTemplate.js<br>apps/docs/generated/react/templates/ReferenceDetailTemplate.d.ts |
+| template | reference-detail-template | Flow React template package | 6 | 3 | packages/react/src/templates/ReferenceDetailTemplate.js<br>packages/react/src/templates/ReferenceDetailTemplate.d.ts<br>packages/react/src/templates/ReferenceDetailTemplate.tsx<br>apps/docs/generated/react/templates/ReferenceDetailTemplate.js<br>apps/docs/generated/react/templates/ReferenceDetailTemplate.d.ts |
 | template | routes-and-stations | Flow React template package | 6 | 3 | packages/react/src/templates/RoutesAndStations.js<br>packages/react/src/templates/RoutesAndStations.d.ts<br>packages/react/src/templates/RoutesAndStations.tsx<br>apps/docs/generated/react/templates/RoutesAndStations.js<br>apps/docs/generated/react/templates/RoutesAndStations.d.ts |
 | template | settings-workspace | Flow React template package | 6 | 2 | packages/react/src/templates/SettingsWorkspace.js<br>packages/react/src/templates/SettingsWorkspace.d.ts<br>packages/react/src/templates/SettingsWorkspace.tsx<br>apps/docs/generated/react/templates/SettingsWorkspace.js<br>apps/docs/generated/react/templates/SettingsWorkspace.d.ts |
 | template | template-detail-template | Flow React template package | 6 | 1 | packages/react/src/templates/TemplateDetailTemplate.js<br>packages/react/src/templates/TemplateDetailTemplate.d.ts<br>packages/react/src/templates/TemplateDetailTemplate.tsx<br>apps/docs/generated/react/templates/TemplateDetailTemplate.js<br>apps/docs/generated/react/templates/TemplateDetailTemplate.d.ts |

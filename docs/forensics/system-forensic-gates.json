@@ -131,8 +131,8 @@
       "id": "docs-ownership",
       "status": "fail",
       "blockers": [
-        "7 docs generated candidates do not map to spec",
-        "179 entities have hand-authored docs surfaces"
+        "9 docs generated candidates do not map to spec",
+        "177 entities have hand-authored docs surfaces"
       ]
     }
   ],
@@ -152,11 +152,11 @@
       "withTypescriptSource": 24
     },
     "component": {
-      "total": 62,
-      "withRuntime": 62,
-      "withDocsGeneratedRuntime": 62,
-      "withHandDocsSurfaces": 62,
-      "withTypescriptSource": 62
+      "total": 60,
+      "withRuntime": 60,
+      "withDocsGeneratedRuntime": 60,
+      "withHandDocsSurfaces": 60,
+      "withTypescriptSource": 60
     },
     "pattern": {
       "total": 72,
@@ -174,7 +174,7 @@
     }
   },
   "language": {
-    "flowTsSourceFiles": 258,
+    "flowTsSourceFiles": 256,
     "docsTsSourceFiles": 1
   },
   "styleDictionary": {
@@ -382,7 +382,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 79,
+        "docsHandSurfaceCount": 78,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -443,7 +443,6 @@
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/select-interactions.js",
           "../FlowDocs/apps/docs/shell-controls.js",
-          "../FlowDocs/apps/docs/slider-demo-interactions.js",
           "../FlowDocs/apps/docs/stateful-component-interactions.js",
           "../FlowDocs/apps/docs/styles.css",
           "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
@@ -1167,6 +1166,96 @@
       "duplicateSurfaceCount": 6
     },
     {
+      "layer": "component",
+      "slug": "tag",
+      "sourceOfTruthOwner": "Flow React component package",
+      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/tag",
+      "allowedRuntimeLocations": [
+        "packages/react/src/Tag.tsx",
+        "packages/react/src/Tag.ts",
+        "packages/react/src/Tag.js",
+        "packages/react/src/Tag.d.ts",
+        "packages/react/dist/Tag.js",
+        "packages/react/dist/Tag.d.ts",
+        "apps/docs/generated/react/Tag.js",
+        "apps/docs/generated/react/Tag.d.ts"
+      ],
+      "currentRuntimeLocations": [
+        "packages/react/src/Tag.js",
+        "packages/react/src/Tag.d.ts",
+        "packages/react/src/Tag.tsx",
+        "apps/docs/generated/react/Tag.js",
+        "apps/docs/generated/react/Tag.d.ts"
+      ],
+      "blockedDocsOnlyPatterns": [
+        "component-class-root-css",
+        "formal-pattern-root-css",
+        "docs-only-slot-helper",
+        "legacy-dom-runtime",
+        "raw-token-values"
+      ],
+      "docsRuntimePolicy": "Docs may compose demos through generated React islands; component behavior, class roots, and contract props stay in Flow.",
+      "runtime": {
+        "flowJs": true,
+        "flowDts": true,
+        "docsGeneratedJs": true,
+        "docsGeneratedDts": true,
+        "tsSource": true
+      },
+      "duplicateSurfaces": [
+        "flow-react-js",
+        "flow-dts",
+        "flow-ts-source",
+        "docs-generated-js",
+        "docs-generated-dts",
+        "docs-hand-authored-surface"
+      ],
+      "gates": {
+        "hasSpec": true,
+        "hasRuntime": true,
+        "hasTypescriptSource": true,
+        "hasDocsGeneratedRuntime": true,
+        "docsHandSurfaceCount": 33,
+        "docsHandSurfaceFiles": [
+          "../FlowDocs/apps/docs/app.js",
+          "../FlowDocs/apps/docs/artifact-metadata-bar.js",
+          "../FlowDocs/apps/docs/component-demo-interactions.js",
+          "../FlowDocs/apps/docs/component-demo.js",
+          "../FlowDocs/apps/docs/detail-tabs-core.js",
+          "../FlowDocs/apps/docs/docs-layout.js",
+          "../FlowDocs/apps/docs/docs-state.js",
+          "../FlowDocs/apps/docs/family-component-docs.js",
+          "../FlowDocs/apps/docs/foundation-explorer.js",
+          "../FlowDocs/apps/docs/gold-button-docs.js",
+          "../FlowDocs/apps/docs/gold-component-core.js",
+          "../FlowDocs/apps/docs/gold-component-docs.js",
+          "../FlowDocs/apps/docs/gold-tag-docs.js",
+          "../FlowDocs/apps/docs/home-stack-renderers.js",
+          "../FlowDocs/apps/docs/icon-system.js",
+          "../FlowDocs/apps/docs/pattern-contract-tabs.js",
+          "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
+          "../FlowDocs/apps/docs/pattern-journey-demos.js",
+          "../FlowDocs/apps/docs/pattern-operational-demos.js",
+          "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
+          "../FlowDocs/apps/docs/pattern-tabs.js",
+          "../FlowDocs/apps/docs/react-component-islands.js",
+          "../FlowDocs/apps/docs/reference-demo-interactions.js",
+          "../FlowDocs/apps/docs/styles.css",
+          "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
+          "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
+          "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
+          "../FlowDocs/apps/docs/styles/04l-tag-docs.css",
+          "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
+          "../FlowDocs/apps/docs/template-tabs.js",
+          "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
+          "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
+          "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
+        ]
+      },
+      "remediationOwnerDecision": "undecided",
+      "duplicateSurfaceCount": 6
+    },
+    {
       "layer": "pattern",
       "slug": "documentation-section",
       "sourceOfTruthOwner": "Flow React pattern package",
@@ -1337,95 +1426,6 @@
           "../FlowDocs/apps/docs/styles/08-template-desktop-demos.css",
           "../FlowDocs/apps/docs/template-desktop-interactions.js",
           "../FlowDocs/apps/docs/template-react-demos.js",
-          "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
-          "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
-          "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
-        ]
-      },
-      "remediationOwnerDecision": "undecided",
-      "duplicateSurfaceCount": 6
-    },
-    {
-      "layer": "component",
-      "slug": "tag",
-      "sourceOfTruthOwner": "Flow React component package",
-      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/tag",
-      "allowedRuntimeLocations": [
-        "packages/react/src/Tag.tsx",
-        "packages/react/src/Tag.ts",
-        "packages/react/src/Tag.js",
-        "packages/react/src/Tag.d.ts",
-        "packages/react/dist/Tag.js",
-        "packages/react/dist/Tag.d.ts",
-        "apps/docs/generated/react/Tag.js",
-        "apps/docs/generated/react/Tag.d.ts"
-      ],
-      "currentRuntimeLocations": [
-        "packages/react/src/Tag.js",
-        "packages/react/src/Tag.d.ts",
-        "packages/react/src/Tag.tsx",
-        "apps/docs/generated/react/Tag.js",
-        "apps/docs/generated/react/Tag.d.ts"
-      ],
-      "blockedDocsOnlyPatterns": [
-        "component-class-root-css",
-        "formal-pattern-root-css",
-        "docs-only-slot-helper",
-        "legacy-dom-runtime",
-        "raw-token-values"
-      ],
-      "docsRuntimePolicy": "Docs may compose demos through generated React islands; component behavior, class roots, and contract props stay in Flow.",
-      "runtime": {
-        "flowJs": true,
-        "flowDts": true,
-        "docsGeneratedJs": true,
-        "docsGeneratedDts": true,
-        "tsSource": true
-      },
-      "duplicateSurfaces": [
-        "flow-react-js",
-        "flow-dts",
-        "flow-ts-source",
-        "docs-generated-js",
-        "docs-generated-dts",
-        "docs-hand-authored-surface"
-      ],
-      "gates": {
-        "hasSpec": true,
-        "hasRuntime": true,
-        "hasTypescriptSource": true,
-        "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 32,
-        "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/app.js",
-          "../FlowDocs/apps/docs/artifact-metadata-bar.js",
-          "../FlowDocs/apps/docs/component-demo-interactions.js",
-          "../FlowDocs/apps/docs/component-demo.js",
-          "../FlowDocs/apps/docs/detail-tabs-core.js",
-          "../FlowDocs/apps/docs/docs-layout.js",
-          "../FlowDocs/apps/docs/docs-state.js",
-          "../FlowDocs/apps/docs/family-component-docs.js",
-          "../FlowDocs/apps/docs/foundation-explorer.js",
-          "../FlowDocs/apps/docs/gold-button-docs.js",
-          "../FlowDocs/apps/docs/gold-component-core.js",
-          "../FlowDocs/apps/docs/gold-component-docs.js",
-          "../FlowDocs/apps/docs/gold-tag-docs.js",
-          "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-contract-tabs.js",
-          "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-journey-demos.js",
-          "../FlowDocs/apps/docs/pattern-operational-demos.js",
-          "../FlowDocs/apps/docs/pattern-shell-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-tabs.js",
-          "../FlowDocs/apps/docs/react-component-islands.js",
-          "../FlowDocs/apps/docs/reference-demo-interactions.js",
-          "../FlowDocs/apps/docs/styles.css",
-          "../FlowDocs/apps/docs/styles/03b-foundation-reference-02.css",
-          "../FlowDocs/apps/docs/styles/03c-motion-reference-01.css",
-          "../FlowDocs/apps/docs/styles/03c-motion-reference-02.css",
-          "../FlowDocs/apps/docs/styles/04l-tag-docs.css",
-          "../FlowDocs/apps/docs/styles/07-pattern-docs.css",
-          "../FlowDocs/apps/docs/template-tabs.js",
           "../FlowDocs/apps/docs/vendor/echarts.esm.min.js",
           "../FlowDocs/apps/docs/vendor/lottie-web/lottie.min.js",
           "../FlowDocs/apps/docs/vendor/maplibre-gl/maplibre-gl.js"
@@ -2483,80 +2483,6 @@
     },
     {
       "layer": "component",
-      "slug": "quick-action",
-      "sourceOfTruthOwner": "Flow React component package",
-      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/quick-action",
-      "allowedRuntimeLocations": [
-        "packages/react/src/QuickAction.tsx",
-        "packages/react/src/QuickAction.ts",
-        "packages/react/src/QuickAction.js",
-        "packages/react/src/QuickAction.d.ts",
-        "packages/react/dist/QuickAction.js",
-        "packages/react/dist/QuickAction.d.ts",
-        "apps/docs/generated/react/QuickAction.js",
-        "apps/docs/generated/react/QuickAction.d.ts"
-      ],
-      "currentRuntimeLocations": [
-        "packages/react/src/QuickAction.js",
-        "packages/react/src/QuickAction.d.ts",
-        "packages/react/src/QuickAction.tsx",
-        "apps/docs/generated/react/QuickAction.js",
-        "apps/docs/generated/react/QuickAction.d.ts"
-      ],
-      "blockedDocsOnlyPatterns": [
-        "component-class-root-css",
-        "formal-pattern-root-css",
-        "docs-only-slot-helper",
-        "legacy-dom-runtime",
-        "raw-token-values"
-      ],
-      "docsRuntimePolicy": "Docs may compose demos through generated React islands; component behavior, class roots, and contract props stay in Flow.",
-      "runtime": {
-        "flowJs": true,
-        "flowDts": true,
-        "docsGeneratedJs": true,
-        "docsGeneratedDts": true,
-        "tsSource": true
-      },
-      "duplicateSurfaces": [
-        "flow-react-js",
-        "flow-dts",
-        "flow-ts-source",
-        "docs-generated-js",
-        "docs-generated-dts",
-        "docs-hand-authored-surface"
-      ],
-      "gates": {
-        "hasSpec": true,
-        "hasRuntime": true,
-        "hasTypescriptSource": true,
-        "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 17,
-        "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/app.js",
-          "../FlowDocs/apps/docs/candidate-component-plans.js",
-          "../FlowDocs/apps/docs/component-demo.js",
-          "../FlowDocs/apps/docs/component-foundation-trace.js",
-          "../FlowDocs/apps/docs/gold-component-docs.js",
-          "../FlowDocs/apps/docs/gold-quick-action-docs.js",
-          "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-desktop-demos.js",
-          "../FlowDocs/apps/docs/pattern-mobile-demos.js",
-          "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
-          "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
-          "../FlowDocs/apps/docs/react-component-islands.js",
-          "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-          "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-          "../FlowDocs/apps/docs/template-react-demos.js"
-        ]
-      },
-      "remediationOwnerDecision": "undecided",
-      "duplicateSurfaceCount": 6
-    },
-    {
-      "layer": "component",
       "slug": "breadcrumbs",
       "sourceOfTruthOwner": "Flow React component package",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/breadcrumbs",
@@ -2915,9 +2841,90 @@
       },
       "remediationOwnerDecision": "undecided",
       "duplicateSurfaceCount": 6
+    },
+    {
+      "layer": "component",
+      "slug": "stepper",
+      "sourceOfTruthOwner": "Flow React component package",
+      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/stepper",
+      "allowedRuntimeLocations": [
+        "packages/react/src/Stepper.tsx",
+        "packages/react/src/Stepper.ts",
+        "packages/react/src/Stepper.js",
+        "packages/react/src/Stepper.d.ts",
+        "packages/react/dist/Stepper.js",
+        "packages/react/dist/Stepper.d.ts",
+        "apps/docs/generated/react/Stepper.js",
+        "apps/docs/generated/react/Stepper.d.ts"
+      ],
+      "currentRuntimeLocations": [
+        "packages/react/src/Stepper.js",
+        "packages/react/src/Stepper.d.ts",
+        "packages/react/src/Stepper.tsx",
+        "apps/docs/generated/react/Stepper.js",
+        "apps/docs/generated/react/Stepper.d.ts"
+      ],
+      "blockedDocsOnlyPatterns": [
+        "component-class-root-css",
+        "formal-pattern-root-css",
+        "docs-only-slot-helper",
+        "legacy-dom-runtime",
+        "raw-token-values"
+      ],
+      "docsRuntimePolicy": "Docs may compose demos through generated React islands; component behavior, class roots, and contract props stay in Flow.",
+      "runtime": {
+        "flowJs": true,
+        "flowDts": true,
+        "docsGeneratedJs": true,
+        "docsGeneratedDts": true,
+        "tsSource": true
+      },
+      "duplicateSurfaces": [
+        "flow-react-js",
+        "flow-dts",
+        "flow-ts-source",
+        "docs-generated-js",
+        "docs-generated-dts",
+        "docs-hand-authored-surface"
+      ],
+      "gates": {
+        "hasSpec": true,
+        "hasRuntime": true,
+        "hasTypescriptSource": true,
+        "hasDocsGeneratedRuntime": true,
+        "docsHandSurfaceCount": 14,
+        "docsHandSurfaceFiles": [
+          "../FlowDocs/apps/docs/app.js",
+          "../FlowDocs/apps/docs/component-demo-interactions.js",
+          "../FlowDocs/apps/docs/component-demo.js",
+          "../FlowDocs/apps/docs/doc-interactions.js",
+          "../FlowDocs/apps/docs/gold-component-docs.js",
+          "../FlowDocs/apps/docs/gold-simple-component-docs.js",
+          "../FlowDocs/apps/docs/gold-stepper-docs.js",
+          "../FlowDocs/apps/docs/icon-system.js",
+          "../FlowDocs/apps/docs/pattern-contract-tabs.js",
+          "../FlowDocs/apps/docs/pattern-journey-demos.js",
+          "../FlowDocs/apps/docs/pattern-journey-interactions.js",
+          "../FlowDocs/apps/docs/pattern-mobile-demos.js",
+          "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
+          "../FlowDocs/apps/docs/react-component-islands.js"
+        ]
+      },
+      "remediationOwnerDecision": "undecided",
+      "duplicateSurfaceCount": 6
     }
   ],
   "docsOnlyCandidates": [
+    {
+      "layer": "unknown",
+      "slug": "copybutton",
+      "reason": "generated docs runtime does not map cleanly to spec artifact"
+    },
+    {
+      "layer": "unknown",
+      "slug": "quickaction",
+      "reason": "generated docs runtime does not map cleanly to spec artifact"
+    },
     {
       "layer": "stack",
       "slug": "motion",
@@ -3572,7 +3579,7 @@
         "hasRuntime": false,
         "hasTypescriptSource": false,
         "hasDocsGeneratedRuntime": false,
-        "docsHandSurfaceCount": 135,
+        "docsHandSurfaceCount": 137,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -3583,6 +3590,7 @@
           "../FlowDocs/apps/docs/demo-preview-frame-island.js",
           "../FlowDocs/apps/docs/detail-tabs-core.js",
           "../FlowDocs/apps/docs/doc-interactions.js",
+          "../FlowDocs/apps/docs/docs-layout.js",
           "../FlowDocs/apps/docs/docs-shell-react.js",
           "../FlowDocs/apps/docs/docs-state.js",
           "../FlowDocs/apps/docs/documentation-section-island.js",
@@ -3649,6 +3657,7 @@
           "../FlowDocs/apps/docs/gold-toast-docs.js",
           "../FlowDocs/apps/docs/gold-tooltip-docs.js",
           "../FlowDocs/apps/docs/gold-tree-view-docs.js",
+          "../FlowDocs/apps/docs/home-stack-renderers.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/pattern-advanced-filter-interactions.js",
           "../FlowDocs/apps/docs/pattern-build-gates.js",
@@ -3832,7 +3841,6 @@
           "../FlowDocs/apps/docs/component-demo.js",
           "../FlowDocs/apps/docs/component-foundation-trace.js",
           "../FlowDocs/apps/docs/docs-layout.js",
-          "../FlowDocs/apps/docs/documentation-hero-island.js",
           "../FlowDocs/apps/docs/documentation-section-island.js",
           "../FlowDocs/apps/docs/family-component-docs.js",
           "../FlowDocs/apps/docs/foundation-explorer.js",
@@ -3851,6 +3859,7 @@
           "../FlowDocs/apps/docs/gold-tag-docs.js",
           "../FlowDocs/apps/docs/gold-text-area-docs.js",
           "../FlowDocs/apps/docs/gold-toast-docs.js",
+          "../FlowDocs/apps/docs/home-stack-renderers.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/pattern-business-renderers.js",
           "../FlowDocs/apps/docs/pattern-candidate-demos.js",
@@ -4312,7 +4321,6 @@
           "../FlowDocs/apps/docs/docs-code-block.js",
           "../FlowDocs/apps/docs/docs-layout.js",
           "../FlowDocs/apps/docs/docs-shell-react.js",
-          "../FlowDocs/apps/docs/documentation-hero-island.js",
           "../FlowDocs/apps/docs/documentation-section-island.js",
           "../FlowDocs/apps/docs/foundation-explorer.js",
           "../FlowDocs/apps/docs/foundation-reference.js",
@@ -4334,6 +4342,7 @@
           "../FlowDocs/apps/docs/gold-switch-docs.js",
           "../FlowDocs/apps/docs/gold-text-area-docs.js",
           "../FlowDocs/apps/docs/home-illustrations.js",
+          "../FlowDocs/apps/docs/home-stack-renderers.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/pattern-candidate-demos.js",
           "../FlowDocs/apps/docs/pattern-desktop-demos.js",
@@ -7190,65 +7199,6 @@
     },
     {
       "layer": "component",
-      "slug": "copy-button",
-      "sourceOfTruthOwner": "Flow React component package",
-      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/copy-button",
-      "allowedRuntimeLocations": [
-        "packages/react/src/CopyButton.tsx",
-        "packages/react/src/CopyButton.ts",
-        "packages/react/src/CopyButton.js",
-        "packages/react/src/CopyButton.d.ts",
-        "packages/react/dist/CopyButton.js",
-        "packages/react/dist/CopyButton.d.ts",
-        "apps/docs/generated/react/CopyButton.js",
-        "apps/docs/generated/react/CopyButton.d.ts"
-      ],
-      "currentRuntimeLocations": [
-        "packages/react/src/CopyButton.js",
-        "packages/react/src/CopyButton.d.ts",
-        "packages/react/src/CopyButton.tsx",
-        "apps/docs/generated/react/CopyButton.js",
-        "apps/docs/generated/react/CopyButton.d.ts"
-      ],
-      "blockedDocsOnlyPatterns": [
-        "component-class-root-css",
-        "formal-pattern-root-css",
-        "docs-only-slot-helper",
-        "legacy-dom-runtime",
-        "raw-token-values"
-      ],
-      "docsRuntimePolicy": "Docs may compose demos through generated React islands; component behavior, class roots, and contract props stay in Flow.",
-      "runtime": {
-        "flowJs": true,
-        "flowDts": true,
-        "docsGeneratedJs": true,
-        "docsGeneratedDts": true,
-        "tsSource": true
-      },
-      "duplicateSurfaces": [
-        "flow-react-js",
-        "flow-dts",
-        "flow-ts-source",
-        "docs-generated-js",
-        "docs-generated-dts",
-        "docs-hand-authored-surface"
-      ],
-      "gates": {
-        "hasSpec": true,
-        "hasRuntime": true,
-        "hasTypescriptSource": true,
-        "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 2,
-        "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/component-demo.js",
-          "../FlowDocs/apps/docs/react-component-islands.js"
-        ]
-      },
-      "remediationOwnerDecision": "undecided",
-      "duplicateSurfaceCount": 6
-    },
-    {
-      "layer": "component",
       "slug": "country-selector",
       "sourceOfTruthOwner": "Flow React component package",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/country-selector",
@@ -8807,80 +8757,6 @@
     },
     {
       "layer": "component",
-      "slug": "quick-action",
-      "sourceOfTruthOwner": "Flow React component package",
-      "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/quick-action",
-      "allowedRuntimeLocations": [
-        "packages/react/src/QuickAction.tsx",
-        "packages/react/src/QuickAction.ts",
-        "packages/react/src/QuickAction.js",
-        "packages/react/src/QuickAction.d.ts",
-        "packages/react/dist/QuickAction.js",
-        "packages/react/dist/QuickAction.d.ts",
-        "apps/docs/generated/react/QuickAction.js",
-        "apps/docs/generated/react/QuickAction.d.ts"
-      ],
-      "currentRuntimeLocations": [
-        "packages/react/src/QuickAction.js",
-        "packages/react/src/QuickAction.d.ts",
-        "packages/react/src/QuickAction.tsx",
-        "apps/docs/generated/react/QuickAction.js",
-        "apps/docs/generated/react/QuickAction.d.ts"
-      ],
-      "blockedDocsOnlyPatterns": [
-        "component-class-root-css",
-        "formal-pattern-root-css",
-        "docs-only-slot-helper",
-        "legacy-dom-runtime",
-        "raw-token-values"
-      ],
-      "docsRuntimePolicy": "Docs may compose demos through generated React islands; component behavior, class roots, and contract props stay in Flow.",
-      "runtime": {
-        "flowJs": true,
-        "flowDts": true,
-        "docsGeneratedJs": true,
-        "docsGeneratedDts": true,
-        "tsSource": true
-      },
-      "duplicateSurfaces": [
-        "flow-react-js",
-        "flow-dts",
-        "flow-ts-source",
-        "docs-generated-js",
-        "docs-generated-dts",
-        "docs-hand-authored-surface"
-      ],
-      "gates": {
-        "hasSpec": true,
-        "hasRuntime": true,
-        "hasTypescriptSource": true,
-        "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 17,
-        "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/app.js",
-          "../FlowDocs/apps/docs/candidate-component-plans.js",
-          "../FlowDocs/apps/docs/component-demo.js",
-          "../FlowDocs/apps/docs/component-foundation-trace.js",
-          "../FlowDocs/apps/docs/gold-component-docs.js",
-          "../FlowDocs/apps/docs/gold-quick-action-docs.js",
-          "../FlowDocs/apps/docs/icon-system.js",
-          "../FlowDocs/apps/docs/pattern-desktop-demos.js",
-          "../FlowDocs/apps/docs/pattern-mobile-demos.js",
-          "../FlowDocs/apps/docs/pattern-mobile-interactions.js",
-          "../FlowDocs/apps/docs/pattern-mobile-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-operational-react-demos.js",
-          "../FlowDocs/apps/docs/pattern-react-mobile-islands.js",
-          "../FlowDocs/apps/docs/react-component-islands.js",
-          "../FlowDocs/apps/docs/styles/04b-component-standard-layout.css",
-          "../FlowDocs/apps/docs/styles/07-pattern-mobile-demos.css",
-          "../FlowDocs/apps/docs/template-react-demos.js"
-        ]
-      },
-      "remediationOwnerDecision": "undecided",
-      "duplicateSurfaceCount": 6
-    },
-    {
-      "layer": "component",
       "slug": "radio-button",
       "sourceOfTruthOwner": "Flow React component package",
       "sourceOfTruth": "packages/specs/specs/unison-system/artifacts/components/radio-button",
@@ -9131,7 +9007,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 79,
+        "docsHandSurfaceCount": 78,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/button-playground-interactions.js",
@@ -9192,7 +9068,6 @@
           "../FlowDocs/apps/docs/reference-demo-interactions.js",
           "../FlowDocs/apps/docs/select-interactions.js",
           "../FlowDocs/apps/docs/shell-controls.js",
-          "../FlowDocs/apps/docs/slider-demo-interactions.js",
           "../FlowDocs/apps/docs/stateful-component-interactions.js",
           "../FlowDocs/apps/docs/styles.css",
           "../FlowDocs/apps/docs/styles/04a-button-docs-01.css",
@@ -9336,7 +9211,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 14,
+        "docsHandSurfaceCount": 13,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/component-demo-interactions.js",
@@ -9346,7 +9221,6 @@
           "../FlowDocs/apps/docs/gold-slider-docs.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/react-component-islands.js",
-          "../FlowDocs/apps/docs/slider-demo-interactions.js",
           "../FlowDocs/apps/docs/stateful-component-interactions.js",
           "../FlowDocs/apps/docs/styles.css",
           "../FlowDocs/apps/docs/styles/04z-slider-docs.css",
@@ -9921,7 +9795,7 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 32,
+        "docsHandSurfaceCount": 33,
         "docsHandSurfaceFiles": [
           "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/artifact-metadata-bar.js",
@@ -9936,6 +9810,7 @@
           "../FlowDocs/apps/docs/gold-component-core.js",
           "../FlowDocs/apps/docs/gold-component-docs.js",
           "../FlowDocs/apps/docs/gold-tag-docs.js",
+          "../FlowDocs/apps/docs/home-stack-renderers.js",
           "../FlowDocs/apps/docs/icon-system.js",
           "../FlowDocs/apps/docs/pattern-contract-tabs.js",
           "../FlowDocs/apps/docs/pattern-desktop-react-demos.js",
@@ -11648,10 +11523,8 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 5,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/documentation-hero-island.js",
-          "../FlowDocs/apps/docs/home-stack-renderers.js",
           "../FlowDocs/apps/docs/pattern-react-islands.js",
           "../FlowDocs/apps/docs/styles/01-shell-intro.css",
           "../FlowDocs/apps/docs/styles/02-doc-layout.css"
@@ -14981,9 +14854,8 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 4,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/app.js",
           "../FlowDocs/apps/docs/docs-layout.js",
           "../FlowDocs/apps/docs/template-desktop-demos.js",
           "../FlowDocs/apps/docs/template-react-islands.js"
@@ -15042,8 +14914,10 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 1,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
+          "../FlowDocs/apps/docs/docs-layout.js",
+          "../FlowDocs/apps/docs/docs-template-islands.js",
           "../FlowDocs/apps/docs/template-desktop-demos.js"
         ]
       },
@@ -15100,8 +14974,9 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 2,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
+          "../FlowDocs/apps/docs/docs-template-islands.js",
           "../FlowDocs/apps/docs/home-stack-renderers.js",
           "../FlowDocs/apps/docs/template-desktop-demos.js"
         ]
@@ -15576,9 +15451,11 @@
         "hasRuntime": true,
         "hasTypescriptSource": true,
         "hasDocsGeneratedRuntime": true,
-        "docsHandSurfaceCount": 1,
+        "docsHandSurfaceCount": 3,
         "docsHandSurfaceFiles": [
-          "../FlowDocs/apps/docs/template-desktop-demos.js"
+          "../FlowDocs/apps/docs/docs-layout.js",
+          "../FlowDocs/apps/docs/template-desktop-demos.js",
+          "../FlowDocs/apps/docs/template-react-islands.js"
         ]
       },
       "remediationOwnerDecision": "undecided",

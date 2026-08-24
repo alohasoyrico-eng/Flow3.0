@@ -6,21 +6,21 @@ This matrix turns the forensic gates into owner-decision tickets. It is not a re
 
 ## Summary
 
-- Total tickets: 186
+- Total tickets: 184
 - P0 tickets: 38
 - P1 tickets: 17
-- P2 tickets: 131
-- Undecided owner decisions: 186
+- P2 tickets: 129
+- Undecided owner decisions: 184
 
 ## By layer
 
 | Layer | Total | P0 | P1 | P2 | Blocked | Needs owner decision | Docs hand surface files |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| foundation | 11 | 11 | 0 | 0 | 11 | 0 | 512 |
+| foundation | 11 | 11 | 0 | 0 | 11 | 0 | 514 |
 | primitive | 24 | 24 | 0 | 0 | 0 | 19 | 431 |
-| component | 62 | 0 | 0 | 62 | 0 | 62 | 1208 |
-| pattern | 72 | 3 | 0 | 69 | 0 | 70 | 395 |
-| template | 17 | 0 | 17 | 0 | 0 | 17 | 39 |
+| component | 60 | 0 | 0 | 60 | 0 | 60 | 1188 |
+| pattern | 72 | 3 | 0 | 69 | 0 | 70 | 393 |
+| template | 17 | 0 | 17 | 0 | 0 | 17 | 43 |
 
 ## P0 queue
 
@@ -33,7 +33,7 @@ This matrix turns the forensic gates into owner-decision tickets. It is not a re
 | foundation:growth | blocked | 11 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | foundation:iconography | blocked | 3 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | foundation:momentum | blocked | 18 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
-| foundation:state | blocked | 135 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
+| foundation:state | blocked | 137 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | foundation:symbol | blocked | 24 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | foundation:tone | blocked | 58 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | foundation:voice | blocked | 39 | style-dictionary-real, typescript-source-real | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
@@ -76,7 +76,7 @@ This matrix turns the forensic gates into owner-decision tickets. It is not a re
 | growth | blocked | 11 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | iconography | blocked | 3 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | momentum | blocked | 18 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
-| state | blocked | 135 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
+| state | blocked | 137 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | symbol | blocked | 24 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | tone | blocked | 58 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |
 | voice | blocked | 39 | define canonical token/foundation source; no ad hoc docs-only visual behavior<br>classify each docs hand-authored surface as consume Flow, docs-only content, merge, or delete |

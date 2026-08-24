@@ -40,7 +40,7 @@
           "Button",
           "Dialog",
           "Movement Row",
-          "Quick Action",
+          "IconButton",
           "Toast"
         ],
         "patternDependencies": [],
@@ -48,7 +48,7 @@
           "comp.button.*",
           "comp.dialog.*",
           "comp.movement-row.*",
-          "comp.quick-action.*",
+          "component.pattern-action-item.*",
           "comp.toast.*",
           "sys.accessibility.*",
           "sys.energy.*",
@@ -67,13 +67,13 @@
           "Risky actions may require confirmation or undo recovery."
         ],
         "decisionTree": [
-          "Use Quick Action for visible compact commands.",
+          "Use IconButton for visible compact commands.",
           "Use Swipe Actions when touch reveal is the main row shortcut.",
           "Use Confirmation Dialog for destructive action confirmation."
         ],
         "failureModes": [
           "Swipe is the only way to access an action.",
-          "Revealed actions recreate Button or Quick Action visuals.",
+          "Revealed actions recreate Button or IconButton visuals.",
           "Destructive actions execute without confirmation or undo.",
           "Motion ignores reduced motion preferences."
         ],
@@ -103,7 +103,7 @@
             "name": "actions",
             "owner": "component",
             "uses": [
-              "Quick Action",
+              "IconButton",
               "Button"
             ]
           },
@@ -123,11 +123,11 @@
         ],
         "tests": [
           "Covers touch, keyboard, pointer, reduced-motion, and disabled states.",
-          "Uses Movement Row, Quick Action, Button, Dialog, and Toast.",
+          "Uses Movement Row, IconButton, Button, Dialog, and Toast.",
           "Prevents swipe-only access."
         ],
         "agentInstructions": [
-          "Compose from Movement Row, Quick Action, Button, Dialog, and Toast.",
+          "Compose from Movement Row, IconButton, Button, Dialog, and Toast.",
           "Keep business action policy outside the pattern.",
           "Ask before using swipe for destructive or regulated actions."
         ],

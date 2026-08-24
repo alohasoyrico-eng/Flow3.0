@@ -122,7 +122,6 @@ Critical gaps:
 | `tree-view` | P1 | navigation-disclosure | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | keyboard-navigation-proof, per-component-readiness-row | partial |
 | `toast` | P1 | overlays-feedback | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal, indirect-pattern-interaction | focus-escape-outside-click, per-component-readiness-row | partial |
 | `tooltip` | P1 | overlays-feedback | public-export, source+dist+types, component-contract, contract-render, interaction-signal, static-render-a11y-signal | focus-escape-outside-click, per-component-readiness-row | partial |
-| `copy-button` | P2 | actions | public-export, source+dist+types, component-contract, interaction-signal | thin-test-evidence, disabled-loading-callback-proof, per-component-readiness-row | partial |
 | `chart-panel` | P2 | data-display | public-export, source+dist+types, component-contract, static-render-a11y-signal | state-data-event-proof, per-component-readiness-row | partial |
 | `kpi-tile` | P2 | data-display | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | state-data-event-proof, per-component-readiness-row | partial |
 | `movement-row` | P2 | data-display | public-export, source+dist+types, component-contract, interaction-signal, static-render-a11y-signal | state-data-event-proof, per-component-readiness-row | partial |
@@ -158,5 +157,5 @@ Execution should not start by fixing random components. The next implementation 
 2. Add P0 family-specific tests for forms, overlays, and tabs/navigation.
 3. Decide whether `surface` needs a component contract or should be explicitly governed as a primitive export.
 4. Add missing test evidence for `code-block`.
-5. Strengthen thin evidence components: `floating-action-button`, `copy-button`, `progress-indicator`.
+5. Strengthen thin evidence components: `floating-action-button`, `progress-indicator`.
 6. Convert the matrix into an executable gate only after the criteria are agreed.

@@ -105,7 +105,7 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 - `Button`
 - `Dialog`
 - `Movement Row`
-- `Quick Action`
+- `IconButton`
 - `Toast`
 
 ### Tokens
@@ -113,7 +113,7 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 - `comp.button.*`
 - `comp.dialog.*`
 - `comp.movement-row.*`
-- `comp.quick-action.*`
+- `component.pattern-action-item.*`
 - `comp.toast.*`
 - `sys.accessibility.*`
 - `sys.energy.*`
@@ -126,7 +126,7 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 | Slot | Owner | Uses |
 | --- | --- | --- |
 | `row` | `component` | `Movement Row` |
-| `actions` | `component` | `Quick Action`, `Button` |
+| `actions` | `component` | `IconButton`, `Button` |
 | `recovery` | `component` | `Dialog`, `Toast` |
 
 ## Formal Governance
@@ -139,14 +139,14 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 
 ### Decision Tree
 
-- Use Quick Action for visible compact commands.
+- Use IconButton for visible compact commands.
 - Use Swipe Actions when touch reveal is the main row shortcut.
 - Use Confirmation Dialog for destructive action confirmation.
 
 ### Failure Modes
 
 - Swipe is the only way to access an action.
-- Revealed actions recreate Button or Quick Action visuals.
+- Revealed actions recreate Button or IconButton visuals.
 - Destructive actions execute without confirmation or undo.
 - Motion ignores reduced motion preferences.
 
@@ -165,12 +165,12 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 ### Tests
 
 - Covers touch, keyboard, pointer, reduced-motion, and disabled states.
-- Uses Movement Row, Quick Action, Button, Dialog, and Toast.
+- Uses Movement Row, IconButton, Button, Dialog, and Toast.
 - Prevents swipe-only access.
 
 ### Agent Instructions
 
-- Compose from Movement Row, Quick Action, Button, Dialog, and Toast.
+- Compose from Movement Row, IconButton, Button, Dialog, and Toast.
 - Keep business action policy outside the pattern.
 - Ask before using swipe for destructive or regulated actions.
 
@@ -187,14 +187,14 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 | --- | --- | --- | --- |
 | row | MovementRow | yes | The object being acted on. |
 | reveal | Button | yes | Explicit alternative to the swipe gesture. |
-| actions | QuickAction[] | yes | One to three contextual actions. |
+| actions | SwipeAction[] | yes | One to three contextual actions. |
 | feedback | Toast | conditional | Reports the selected action. |
 | confirmation | Dialog | conditional | Required for high-risk actions. |
 
 ## Components Used
 
 - Movement Row
-- Quick Action
+- IconButton
 - Button
 - Dialog
 - Toast
@@ -230,7 +230,7 @@ Coordinate touch reveal actions for list rows with equivalent keyboard, pointer,
 - Actions are hidden by default.
 - Reveal button exposes actions.
 - Hide button resets the row.
-- Quick action shows feedback.
+- IconButton action shows feedback.
 - Keyboard can reach reveal and actions.
 
 ## Tests And Rejection Rules
@@ -240,7 +240,7 @@ Must test:
 - Actions are hidden by default.
 - Reveal button exposes actions.
 - Hide button resets the row.
-- Quick action shows feedback.
+- IconButton action shows feedback.
 - Keyboard can reach reveal and actions.
 
 Reject if:

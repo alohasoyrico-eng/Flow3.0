@@ -59,7 +59,12 @@ What does not count as enough evidence:
 
 ### Actions
 
-Components: `button`, `icon-button`, `floating-action-button`, `quick-action`, `copy-button`.
+Components: `button`, `icon-button`, `floating-action-button`.
+
+Retired/non-component action affordances:
+
+- Copy affordances are owned by `button`/`icon-button` usage, not a standalone component.
+- Quick action items are owned by `quick-actions-grid` as a pattern and compose `IconButton`; `quick-action` is not a public component.
 
 Required gates:
 

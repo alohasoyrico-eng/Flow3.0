@@ -198,7 +198,7 @@
     "quick-actions-grid": {
       "fn": "quickActionsGridDemoPanel",
       "components": [
-        "quick-action",
+        "icon-button",
         "tooltip",
         "dialog",
         "toast",
@@ -240,7 +240,7 @@
       "fn": "swipeActionsDemoPanel",
       "components": [
         "movement-row",
-        "quick-action",
+        "icon-button",
         "button",
         "toast"
       ]

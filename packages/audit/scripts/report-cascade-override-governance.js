@@ -639,7 +639,9 @@ function writeReport(report) {
 
 function checkCascadeOverrideGovernance(options = {}) {
   const report = createReport({ scope: options.scope ?? "flow-core" });
-  writeReport(report);
+  if (options.writeReport === true) {
+    writeReport(report);
+  }
   for (const finding of report.findings.filter((item) => item.severity === "error")) {
     add("errors", path.join(root, finding.file), finding.line, `${finding.type}: ${finding.reason}${finding.variable ? ` (${finding.variable})` : ""}`);
   }

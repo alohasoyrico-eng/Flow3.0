@@ -103,9 +103,12 @@ function checkPatternCatalogIds() {
   }
 }
 
-function checkPatternContracts() {
+function checkPatternContracts(options = {}) {
+  const { includeDocsDemoComposition = true } = options;
   checkPatternCatalogIds();
-  checkPatternDemoComposition();
+  if (includeDocsDemoComposition) {
+    checkPatternDemoComposition();
+  }
   for (const issue of patternContractGovernance.issues) {
     add("errors", patternContractGovernance.file, 1, `Pattern contract governance issue: ${issue}`);
   }
