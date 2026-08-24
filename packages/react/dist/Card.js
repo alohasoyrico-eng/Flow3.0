@@ -8,6 +8,7 @@ const variants = new Set(["default", "minimal", "elevated", "ghost"]);
 const compositions = new Set(["standard", "compact", "media", "stats"]);
 const states = new Set(["default", "hover", "focus", "selected", "loading", "error", "disabled", "muted", "interactive"]);
 const trends = new Set(["up", "down", "neutral"]);
+const actionPlacements = new Set(["footer", "header"]);
 function resolveState({ disabled, loading, selected, state }) {
     if (disabled)
         return "disabled";
@@ -59,9 +60,10 @@ function cardAction(action, inheritedDensity, index, onAction) {
             onClick: handleClick,
         });
 }
-export const Card = forwardRef(function Card({ title, value, unit, detail, status, trend = "neutral", icon, media, mediaAlt, variant = "default", composition = "standard", state = "default", density, fullWidth = false, interactive = false, selected = false, disabled = false, loading = false, actionKey, actions, onAction, className = "", ...rest }, ref) {
+export const Card = forwardRef(function Card({ children, title, value, unit, detail, status, trend = "neutral", icon, media, mediaAlt, variant = "default", composition = "standard", state = "default", density, fullWidth = false, interactive = false, selected = false, disabled = false, loading = false, actionKey, actions, actionPlacement = "footer", onAction, className = "", ...rest }, ref) {
     const resolvedVariant = variants.has(variant) ? variant : "default";
     const resolvedComposition = compositions.has(composition) ? composition : "standard";
+    const resolvedActionPlacement = actionPlacements.has(actionPlacement) ? actionPlacement : "footer";
     const resolvedState = resolveState({ disabled, loading, selected, state });
     const resolvedDensity = normalizeFlowDensity(density);
     const hasStableActionKey = actionKey !== undefined && actionKey !== null && actionKey !== "";
@@ -69,16 +71,23 @@ export const Card = forwardRef(function Card({ title, value, unit, detail, statu
     const sourceActions = Array.isArray(actions) ? actions : [];
     const validActions = sourceActions.filter(isValidCardAction);
     const hasActions = validActions.length > 0;
-    const hasInteractiveContent = Boolean(title || value || detail || status || mediaAlt);
+    const actionsNode = hasActions
+        ? React.createElement("div", { className: "card__actions", "data-placement": resolvedActionPlacement, key: "actions" }, validActions.map((action, index) => cardAction(action, resolvedDensity, index, onAction)))
+        : null;
+    const hasCustomContent = children !== undefined && children !== null;
+    const hasGeneratedContent = Boolean(title || value || detail || status || mediaAlt);
+    const hasInteractiveContent = Boolean(hasCustomContent || hasGeneratedContent);
     const requestedInteraction = Boolean(interactive || resolvedState === "interactive" || onAction || rest.onClick);
     const canActivateCard = hasStableActionKey && Boolean(onAction || rest.onClick);
     const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction && canActivateCard;
     const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
     const RootElement = isInteractive ? "div" : "article";
-    const header = React.createElement("div", { className: "card__header", key: "header" }, title || icon
-        ? React.createElement("div", { className: "card__heading" }, icon ? React.createElement("span", { className: "card__icon", "aria-hidden": "true" }, icon) : null, title ? React.createElement("h3", { className: "card__title" }, title) : null)
-        : null, status ? React.createElement("span", { className: "card__status", "data-trend": resolvedComposition === "stats" ? (trends.has(trend) ? trend : "neutral") : undefined }, status) : null);
-    const content = [
+    const header = title || icon || status
+        ? React.createElement("div", { className: "card__header", key: "header" }, title || icon
+            ? React.createElement("div", { className: "card__heading" }, icon ? React.createElement("span", { className: "card__icon", "aria-hidden": "true" }, icon) : null, title ? React.createElement("h3", { className: "card__title" }, title) : null)
+            : null, status ? React.createElement("span", { className: "card__status", "data-trend": resolvedComposition === "stats" ? (trends.has(trend) ? trend : "neutral") : undefined }, status) : null, resolvedActionPlacement === "header" ? actionsNode : null)
+        : null;
+    const generatedContent = [
         header,
         resolvedState === "loading"
             ? React.createElement("div", { className: "card__loading", key: "loading" }, React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true }), value ? React.createElement("span", null, value) : null)
@@ -86,8 +95,15 @@ export const Card = forwardRef(function Card({ title, value, unit, detail, statu
                 value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" && unit ? `${unit}${value}` : value) : null,
                 detail ? React.createElement("p", { className: "card__detail", key: "detail" }, detail) : null,
             ],
-        hasActions ? React.createElement("div", { className: "card__actions", key: "actions" }, validActions.map((action, index) => cardAction(action, resolvedDensity, index, onAction))) : null,
+        resolvedActionPlacement === "footer" ? actionsNode : null,
     ];
+    const content = hasCustomContent
+        ? [
+            header,
+            React.createElement(React.Fragment, { key: "children" }, children),
+            resolvedActionPlacement === "footer" ? actionsNode : null,
+        ]
+        : generatedContent;
     return React.createElement(RootElement, {
         ...flowRestProps(rest),
         ref,
@@ -98,6 +114,7 @@ export const Card = forwardRef(function Card({ title, value, unit, detail, statu
         ...flowDensityProps(resolvedDensity),
         "data-full-width": String(Boolean(fullWidth)),
         "data-interactive": String(isInteractive),
+        "data-action-placement": hasActions ? resolvedActionPlacement : undefined,
         tabIndex: isInteractive ? (isDisabled ? -1 : 0) : rest.tabIndex,
         role: isInteractive ? "button" : rest.role,
         "aria-pressed": isInteractive ? String(resolvedState === "selected") : rest["aria-pressed"],

@@ -60,12 +60,13 @@ export const ChartWrapper = forwardRef(function ChartWrapper({ label = "Chart", 
     const resolvedState = resolveState({ disabled, loading, empty, error: Boolean(error), permissionBlocked, filtered, interactive, state });
     const isDisabled = disabled || resolvedState === "disabled" || resolvedState === "permission-blocked";
     const showLoading = resolvedState === "loading";
+    const showPermission = resolvedState === "permission-blocked";
     const showEmpty = resolvedState === "empty" || resolvedState === "permission-blocked";
     const showError = resolvedState === "error";
     const chartProps = chart ?? {};
     return React.createElement("div", {
         ref,
-        className,
+        className: ["chart-wrapper", className].filter(Boolean).join(" "),
         role: "group",
         "aria-label": label,
         "aria-busy": showLoading ? "true" : undefined,
@@ -133,12 +134,12 @@ export const ChartWrapper = forwardRef(function ChartWrapper({ label = "Chart", 
         })
         : null, showEmpty
         ? React.createElement(EmptyState, {
-            title: emptyState?.title ?? (permissionBlocked ? `${label} unavailable` : `${label} has no data`),
+            title: emptyState?.title ?? (showPermission ? `${label} unavailable` : `${label} has no data`),
             description: emptyState?.description ?? description,
             icon: emptyState?.icon,
             action: emptyState?.action,
-            variant: emptyState?.variant ?? (permissionBlocked ? "permission" : "search-empty"),
-            state: emptyState?.state ?? (permissionBlocked ? "permission" : "search-empty"),
+            variant: emptyState?.variant ?? (showPermission ? "permission" : "search-empty"),
+            state: emptyState?.state ?? (showPermission ? "permission" : "search-empty"),
             density,
             fullWidth: true,
             onAction: emptyState?.onAction,

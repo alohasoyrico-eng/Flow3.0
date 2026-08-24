@@ -117,15 +117,10 @@ export const Settings = forwardRef(function Settings({ label = "Settings", descr
         "data-flow-slot": "groups",
         "data-settings-group": group.key,
         "aria-label": group.title,
-    }, React.createElement(Card, {
-        title: group.title,
-        detail: group.description,
-        density,
-        composition: "compact",
-        variant: "ghost",
-        state: isDisabled ? "disabled" : "default",
-        fullWidth: true,
-    }), group.controls.map((control) => renderControl(control, density, isDisabled, onControlChange)))), confirmation?.label
+    }, React.createElement("header", {
+        "data-flow-slot": "groupHeader",
+        "data-settings-group-header": group.key,
+    }, React.createElement("h3", null, group.title), group.description ? React.createElement("p", null, group.description) : null), group.controls.map((control) => renderControl(control, density, isDisabled, onControlChange)))), confirmation?.label
         ? React.createElement(Dialog, {
             label: confirmation.label,
             description: confirmation.description,

@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, ReactNode, RefAttributes } from "react";
 import type { FlowDataAttributes } from "./internal/props.js";
 import type { cardPlatformContract } from "@design-system/components/platforms";
 
@@ -7,6 +7,7 @@ export type CardComposition = "standard" | "compact" | "media" | "stats";
 export type CardState = "default" | "hover" | "focus" | "selected" | "loading" | "error" | "disabled" | "muted" | "interactive";
 export type CardDensity = "sm" | "md" | "lg";
 export type CardTrend = "up" | "down" | "neutral";
+export type CardActionPlacement = "footer" | "header";
 export type CardAction = {
   key?: string;
   label?: string;
@@ -25,7 +26,8 @@ export type CardAction = {
 };
 
 export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "title" | "onAction" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
-  title: ReactNode;
+  children?: ReactNode;
+  title?: ReactNode;
   value?: ReactNode;
   unit?: string;
   detail?: ReactNode;
@@ -45,7 +47,8 @@ export interface CardProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "
   loading?: boolean;
   actionKey?: string;
   actions?: CardAction[];
-  onAction?: (key: string, action?: CardAction, event?: MouseEvent<HTMLElement>) => void;
+  actionPlacement?: CardActionPlacement;
+  onAction?: (key: string, action?: CardAction, event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>) => void;
 }
 
 export interface CardComponent extends ForwardRefExoticComponent<CardProps & RefAttributes<HTMLElement>> {

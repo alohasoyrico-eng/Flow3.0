@@ -103,6 +103,12 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
 }, ref) {
   const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : state;
   const hasMetric = value !== undefined && value !== null && value !== "";
+  const showLoading = resolvedState === "loading";
+  const showError = resolvedState === "error";
+  const showPermission = resolvedState === "permission-blocked";
+  const showEmpty = resolvedState === "empty" || (!hasMetric && !showLoading && !showError && !showPermission);
+  const showMetric = hasMetric && !showLoading && !showError && !showEmpty && !showPermission;
+  const hasDrillIn = Boolean(onSelect);
 
   if (!label) return null;
 
@@ -110,7 +116,7 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
     "div",
     {
       ref,
-      className,
+      className: ["kpi-card", className].filter(Boolean).join(" "),
       role: "group",
       "aria-label": label,
       "data-flow-pattern": "kpi-card",
@@ -118,7 +124,7 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
       "data-density": density,
       ...sanitizeRestProps(rest),
     },
-    resolvedState === "loading"
+    showLoading
       ? React.createElement(Skeleton, {
         label: `${label} loading`,
         variant: "card",
@@ -128,7 +134,7 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
         fullWidth: true,
       } as SkeletonProps)
       : null,
-    resolvedState === "error"
+    showError
       ? React.createElement(ErrorPanel, {
         label: error?.label ?? `${label} unavailable`,
         description: error?.description,
@@ -140,7 +146,19 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
         onAction: error?.onAction,
       } as ErrorPanelProps)
       : null,
-    !hasMetric && resolvedState !== "loading" && resolvedState !== "error"
+    showPermission
+      ? React.createElement(EmptyState, {
+        title: empty?.title ?? `${label} is permission blocked`,
+        description: empty?.description,
+        icon: empty?.icon ?? "lock",
+        action: empty?.action,
+        variant: empty?.variant ?? "permission",
+        state: "permission",
+        density,
+        onAction: empty?.onAction,
+      } as EmptyStateProps)
+      : null,
+    showEmpty
       ? React.createElement(EmptyState, {
         title: empty?.title ?? `${label} is empty`,
         description: empty?.description,
@@ -152,7 +170,7 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
         onAction: empty?.onAction,
       } as EmptyStateProps)
       : null,
-    hasMetric && resolvedState !== "loading" && resolvedState !== "error"
+    showMetric
       ? React.createElement(KpiTile, {
         label,
         value: String(value),
@@ -160,7 +178,7 @@ export const KpiCard = forwardRef<HTMLDivElement, KpiCardProps>(function KpiCard
         trend,
         tone,
         icon,
-        variant: action?.label ? "drill-in" : "standard",
+        variant: hasDrillIn ? "drill-in" : "standard",
         state: resolvedState === "stale" ? "risk" : resolvedState === "disabled" ? "disabled" : "default",
         density,
         disabled,

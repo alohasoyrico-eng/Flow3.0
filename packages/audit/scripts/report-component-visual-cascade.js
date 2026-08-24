@@ -95,7 +95,6 @@ const componentQualityRequirements = {
       '.card[data-density="lg"]',
       '.card[data-composition="compact"]',
       '.card[data-composition="media"]',
-      '.card[data-composition="stats"]',
       ".card__header",
       ".card__title",
       ".card__actions",

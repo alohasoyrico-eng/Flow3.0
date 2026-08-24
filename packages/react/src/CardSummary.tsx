@@ -47,6 +47,15 @@ function statusToneFor(state: CardSummaryState): BadgeTone {
   return "success";
 }
 
+function maskedCardNumber(number: string | undefined): string {
+  const value = String(number ?? "").trim();
+  if (!value) return "";
+  const digits = value.replace(/\D/g, "");
+  if (digits.length >= 4) return `**** ${digits.slice(-4)}`;
+  if (/[*•]/.test(value)) return value;
+  return `**** ${value.slice(-4)}`;
+}
+
 export const CardSummary = forwardRef<HTMLElement, CardSummaryProps>(function CardSummary({
   label,
   meta,
@@ -67,7 +76,8 @@ export const CardSummary = forwardRef<HTMLElement, CardSummaryProps>(function Ca
   const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
   if (!label) return null;
-  const statusLabel = status;
+  const statusLabel = status || (resolvedState === "frozen" ? "Frozen" : undefined);
+  const displayNumber = maskedCardNumber(number);
   const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
   const sourceMetrics = Array.isArray(metrics) ? metrics : [];
   const visibleMetrics = sourceMetrics.filter((metric) => metric?.key && metric?.label && metric?.value);
@@ -103,11 +113,11 @@ export const CardSummary = forwardRef<HTMLElement, CardSummaryProps>(function Ca
       React.createElement("span", { className: "card-summary__chip", "aria-hidden": "true" }),
       React.createElement("span", { className: "card-summary__icon material-symbol", "aria-hidden": "true" }, resolvedIcon),
     ),
-    number
+    displayNumber
       ? React.createElement(
           "p",
           { className: "card-summary__number-row" },
-          React.createElement("span", { className: "card-summary__number" }, number),
+          React.createElement("span", { className: "card-summary__number" }, displayNumber),
           expires ? React.createElement("span", { className: "card-summary__expires" }, expires) : null,
         )
       : null,

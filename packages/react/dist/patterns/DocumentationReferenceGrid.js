@@ -12,7 +12,7 @@ function normalizeItems(items) {
 function cardCompositionFor(kind, item) {
     if (item.composition)
         return item.composition;
-    return kind === "summary" ? "stats" : "standard";
+    return kind === "summary" ? "compact" : "standard";
 }
 export const DocumentationReferenceGrid = forwardRef(function DocumentationReferenceGrid({ items, kind, label = "Reference grid", density, state, className = "", cardClassName = "", surface, ...rest }, ref) {
     const resolvedKind = resolveKind(kind);

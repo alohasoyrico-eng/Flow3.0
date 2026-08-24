@@ -117,11 +117,21 @@ function createReport() {
   const rawVisualCss = [...css.matchAll(/\.surface[\s\S]{0,220}\b(?:#[0-9a-f]{3,8}|rgba?\(|hsla?\(|box-shadow:\s*(?!var\())/gi)]
     .map((match) => match[0].split(/\r?\n/)[0]);
   const patternFiles = listFiles(reactPatternDir, (file) => /^[A-Z].*\.js$/.test(path.basename(file)));
+  const patternSourceFiles = listFiles(reactPatternDir, (file) => /^[A-Z].*\.(?:js|ts)$/.test(path.basename(file)));
   const patternSurfaceImports = patternFiles.filter((file) => read(file).includes('import { Surface } from "../Surface.js"')).length;
+  const structuralCardContextIssues = patternSourceFiles.flatMap((file) => {
+    const body = read(file);
+    const issues = [];
+    if (/"data-settings-group":\s*group\.key,[\s\S]{0,520}React\.createElement\(Card/.test(body)) {
+      issues.push(`${rel(file)} uses Card inside a settings group Surface; group headers and structural settings sections must stay owned by Surface/Settings.`);
+    }
+    return issues;
+  });
   const structuralSurfacePolicyIssues = [
     ...(patternPolicy.structuralSurfacePrimitive === "Surface" ? [] : ["pattern policy structuralSurfacePrimitive must be Surface"]),
     ...(patternPolicy.structuralSurfaceForbiddenCopyComponents.has("Card") ? [] : ["pattern policy must forbid Card as structural Surface copy wrapper"]),
     ...(patternPolicy.structuralSurfaceForbiddenCopyComponents.has("List") ? [] : ["pattern policy must forbid List as structural Surface copy wrapper"]),
+    ...structuralCardContextIssues,
   ];
   const distGaps = [
     ...(!dist.includes('"data-flow-primitive": "surface"') ? ["dist Surface.js missing primitive data attribute"] : []),
@@ -171,6 +181,7 @@ function createReport() {
       missingCssSelectors: missingCssSelectors.length,
       rawVisualCss: rawVisualCss.length,
       patternSurfaceImports,
+      structuralCardContextIssues: structuralCardContextIssues.length,
       structuralSurfacePolicyIssues: structuralSurfacePolicyIssues.length,
       distGaps: distGaps.length,
       surfaceCascadeDebt: gaps.length,

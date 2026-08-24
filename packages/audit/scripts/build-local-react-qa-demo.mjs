@@ -145,7 +145,8 @@ const components = {
     directory: "card-2026-08-20",
     module: "Card.js",
     exportName: "Card",
-    buildId: "card-react-runtime-2",
+    buildId: "card-react-runtime-7",
+    indexImports: ["Table", "EmptyState", "Skeleton"],
     eventPropName: "onAction",
     actionHandler: "(key, action, event) => onAction(key || props.actionKey || props.title)(event || { type: 'action' })",
     supportPreamble: `const baseCard = {
@@ -157,6 +158,50 @@ const components = {
     };
     const mediaAsset = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 160'%3E%3Crect width='320' height='160' fill='%230060df'/%3E%3Ccircle cx='250' cy='52' r='58' fill='%23fbbf24'/%3E%3C/svg%3E";`,
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Superficie contenedora"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              title: "Shipment exception",
+              status: "Review",
+              icon: "local_shipping",
+              density: "md",
+              actions: [
+                { key: "resolve", label: "Resolve", variant: "primary" },
+                { key: "more", label: "More actions", icon: "more_horiz", iconOnly: true },
+              ],
+              children: e("p", null, "Custom body content uses the Card surface without creating a parallel card anatomy."),
+            })),
+            e("div", { className: "audit-card" }, action({
+              title: "Header actions",
+              detail: "Actions are governed by Card header anatomy.",
+              icon: "space_dashboard",
+              density: "md",
+              actionPlacement: "header",
+              actions: [
+                { key: "share", label: "Share", icon: "share", iconOnly: true },
+                { key: "archive", label: "Archive", variant: "secondary" },
+              ],
+            })),
+            e("div", { className: "audit-card" }, action({
+              interactive: true,
+              actionKey: "open-custom-card",
+              density: "sm",
+              children: e("div", null,
+                e("strong", null, "Interactive custom content"),
+                e("p", null, "Enter, Space and click should activate the Card.")
+              ),
+            }))
+            ,
+            e("div", { className: "audit-card" }, action({
+              title: "Media custom body",
+              media: mediaAsset,
+              mediaAlt: "Abstract card media",
+              composition: "media",
+              children: e("p", null, "Custom media body keeps image and governed body frame.")
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Variantes"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Default", variant: "default" })),
@@ -170,7 +215,6 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Standard", composition: "standard" })),
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Compact", composition: "compact", status: "4" })),
-            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Stats", composition: "stats", trend: "up", value: "24", unit: "+", status: "12%" })),
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Media", composition: "media", media: mediaAsset, mediaAlt: "Abstract card media" }))
           )
         ),
@@ -207,6 +251,214 @@ const components = {
                 { key: "more", label: "More actions", icon: "more_horiz", iconOnly: true },
               ],
             }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Recipes gobernados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { title: "Table shell", detail: "Card owns the object frame; Table owns tabular data." },
+              e(Table, {
+                label: "Card table recipe",
+                columns: [{ key: "driver", label: "Driver" }, { key: "status", label: "Status" }],
+                rows: [{ id: "ana", driver: "Ana Sosa", status: "Active" }, { id: "luis", driver: "Luis Perez", status: "Review" }],
+                density: "sm"
+              })
+            )),
+            e("div", { className: "audit-card" }, e(Component, { title: "Empty state shell" },
+              e(EmptyState, {
+                title: "No cards yet",
+                description: "Create a card to start tracking fleet spend.",
+                icon: "credit_card",
+                action: { key: "create-card", label: "Create card" },
+                variant: "search-empty",
+                fullWidth: true
+              })
+            )),
+            e("div", { className: "audit-card" }, e(Component, { title: "Skeleton shell", state: "loading" },
+              e(Skeleton, {
+                label: "Card content loading",
+                variant: "card",
+                rows: 3,
+                fullWidth: true
+              })
+            ))
+          )
+        )`,
+  },
+  "kpi-card": {
+    title: "KpiCard",
+    directory: "kpi-card-2026-08-24",
+    module: "patterns/KpiCard.js",
+    exportName: "KpiCard",
+    buildId: "kpi-card-react-runtime-1",
+    eventPropName: "onSelect",
+    actionHandler: "(metric, event) => onAction(props.label)(event)",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Metrica base"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Fleet availability", value: 96, unit: "%", delta: "+4%", trend: "up", tone: "success", status: { label: "Healthy", tone: "success" }, tag: { label: "Live", tone: "info" } })),
+            e("div", { className: "audit-card" }, action({ label: "Risk exposure", value: "$18k", delta: "+12%", trend: "up", tone: "warning", state: "stale", status: { label: "Review", tone: "warning" } })),
+            e("div", { className: "audit-card" }, action({ label: "Open incidents", value: 7, delta: "-2", trend: "down", tone: "danger", action: { key: "review-incidents", label: "Review" }, onAction: (key, event) => onAction("Review incidents")(event) }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small metric", value: "42", density: "sm", delta: "+1", trend: "up", tone: "info" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium metric", value: "42", density: "md", delta: "+1", trend: "up", tone: "info" })),
+            e("div", { className: "audit-card" }, action({ label: "Large metric", value: "42", density: "lg", delta: "+1", trend: "up", tone: "info" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados de patron"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Loading metric", loading: true, density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Empty metric", value: 96, state: "empty", empty: { title: "No metric yet", description: "Waiting for the first data point." }, density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Permission metric", value: 96, state: "permission-blocked", empty: { title: "Permission needed", description: "Ask an admin for access." }, density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Error metric", state: "error", error: { label: "Metric unavailable", description: "Retry later." }, density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled metric", value: "88", disabled: true, density: "md" }))
+          )
+        )`,
+  },
+  "chart-wrapper": {
+    title: "ChartWrapper",
+    directory: "chart-wrapper-2026-08-24",
+    module: "patterns/ChartWrapper.js",
+    exportName: "ChartWrapper",
+    buildId: "chart-wrapper-react-runtime-1",
+    eventPropName: "onAction",
+    actionHandler: "(key, event) => onAction(props.label + ':' + key)(event)",
+    supportPreamble: `const routeTable = {
+      columns: [{ key: "day", label: "Day" }, { key: "routes", label: "Routes" }],
+      rows: [{ id: "mon", day: "Mon", routes: "12" }, { id: "tue", day: "Tue", routes: "18" }]
+    };
+    const insightList = {
+      items: [{ key: "best", label: "Best day", value: "Wed" }, { key: "risk", label: "Late risk", value: "Low" }]
+    };
+    const overflow = {
+      triggerLabel: "Chart actions",
+      items: [{ key: "compare", label: "Compare" }, { key: "download", label: "Download" }]
+    };
+    const baseChart = {
+      label: "Route completion chart",
+      value: "92%",
+      caption: "Completed routes by day.",
+      variant: "line",
+      values: [12, 18, 22, 19],
+      labels: ["Mon", "Tue", "Wed", "Thu"],
+      fullWidth: true
+    };`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Chart card pattern"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              label: "Route completion",
+              description: "Completed routes by day.",
+              filtered: true,
+              chart: baseChart,
+              summary: { label: "Completed", value: "92%", tone: "success" },
+              status: { label: "Filtered", tone: "warning" },
+              primaryAction: { key: "export", label: "Export", variant: "secondary" },
+              overflow,
+              table: routeTable,
+              list: insightList
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small chart", density: "sm", chart: { ...baseChart, label: "Small chart", variant: "bars" }, summary: { label: "Small", value: "42", tone: "info" } })),
+            e("div", { className: "audit-card" }, action({ label: "Medium chart", density: "md", chart: { ...baseChart, label: "Medium chart", variant: "line" }, summary: { label: "Medium", value: "42", tone: "info" } })),
+            e("div", { className: "audit-card" }, action({ label: "Large chart", density: "lg", chart: { ...baseChart, label: "Large chart", variant: "area" }, summary: { label: "Large", value: "42", tone: "info" } }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Loading chart", loading: true, chart: baseChart })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Empty chart", state: "empty", description: "Waiting for the first route data point.", chart: baseChart })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Permission chart", state: "permission-blocked", description: "Ask an admin for analytics access.", chart: baseChart })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Error chart", error: { label: "Chart unavailable", description: "Retry later." }, chart: baseChart })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled chart", disabled: true, chart: baseChart, primaryAction: { key: "disabled", label: "Disabled action" } }))
+          )
+        )`,
+  },
+  "card-summary": {
+    title: "CardSummary",
+    directory: "card-summary-2026-08-24",
+    module: "CardSummary.js",
+    exportName: "CardSummary",
+    buildId: "card-summary-react-runtime-1",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Payment/fleet summary"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Flota", meta: "DIEGO VERA", number: "4242 4242 4242 4821", expires: "12/28", status: "Active", variant: "physical" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Digital", meta: "ANA SOSA", number: "**** 0937", expires: "03/27", status: "Active", variant: "virtual" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Viaticos", meta: "LUIS PEREZ", number: "**** 1105", expires: "08/29", status: "Review", state: "warning" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Small", meta: "ANA SOSA", number: "**** 4821", expires: "12/28", density: "sm" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Medium", meta: "ANA SOSA", number: "**** 4821", expires: "12/28", density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Large", meta: "ANA SOSA", number: "**** 4821", expires: "12/28", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados y layouts"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Frozen default text", meta: "ANA SOSA", number: "**** 4821", expires: "12/28", state: "frozen" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Limit", meta: "ANA SOSA", number: "**** 4821", expires: "12/28", variant: "limit", metrics: [{ key: "available", label: "Available", value: "$2,480" }, { key: "limit", label: "Limit", value: "$5,000" }] })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Compact", meta: "ANA SOSA", number: "**** 4821", variant: "compact" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", meta: "ANA SOSA", number: "**** 4821", disabled: true }))
+          )
+        )`,
+  },
+  "route-summary": {
+    title: "RouteSummary",
+    directory: "route-summary-2026-08-24",
+    module: "RouteSummary.js",
+    exportName: "RouteSummary",
+    buildId: "route-summary-react-runtime-1",
+    eventPropName: "onClick",
+    actionHandler: "onAction(props.label)",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Route/admin summary"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, {
+              label: "Fast route",
+              description: "Best option for current policy and station availability.",
+              metrics: [{ key: "eta", label: "ETA", value: "18 min" }, { key: "distance", label: "Distance", value: "12.4 km" }, { key: "fuel", label: "Fuel", value: "$842" }],
+              actions: [{ key: "start", label: "Start route" }, { key: "compare", label: "Compare", variant: "secondary" }]
+            })),
+            e("div", { className: "audit-card" }, e(Component, {
+              label: "Policy route",
+              description: "Requires manager review before dispatch.",
+              variant: "policy",
+              state: "warning",
+              tone: "warning",
+              metrics: [{ key: "risk", label: "Risk", value: "High" }, { key: "window", label: "Window", value: "42 min" }],
+              actions: [{ key: "review", label: "Review", intent: "warning" }]
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Small route", description: "6 min", density: "sm", metrics: [{ key: "eta", label: "ETA", value: "6 min" }] })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Medium route", description: "12 min", density: "md", metrics: [{ key: "eta", label: "ETA", value: "12 min" }] })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Large route", description: "18 min", density: "lg", metrics: [{ key: "eta", label: "ETA", value: "18 min" }] }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados y variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Selected route", selected: true, metrics: [{ key: "eta", label: "ETA", value: "18 min" }] })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Compact route", variant: "compact", description: "0.9 km - llegas en 4 min", actions: [{ key: "cancel", label: "Cancel route", icon: "close", variant: "ghost" }] })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Compare route", variant: "compare", metrics: [{ key: "eta", label: "ETA", value: "18 min" }, { key: "distance", label: "Distance", value: "12.4 km" }] })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled route", disabled: true, metrics: [{ key: "eta", label: "ETA", value: "18 min" }], actions: [{ key: "start", label: "Start route" }] }))
           )
         )`,
   },
@@ -580,6 +832,10 @@ fs.mkdirSync(outDir, { recursive: true });
 
 const relToRepo = path.relative(outDir, repoRoot).replaceAll(path.sep, "/");
 
+const indexImportLine = Array.isArray(config.indexImports) && config.indexImports.length
+  ? `\n    import { ${config.indexImports.join(", ")} } from "${relToRepo}/packages/react/dist/index.js";`
+  : "";
+
 const html = `<!doctype html>
 <html lang="es" data-theme="light" data-flow-react-runtime="true" data-flow-react-source="packages/react/dist/${config.module}">
 <head>
@@ -673,7 +929,7 @@ const html = `<!doctype html>
   <script type="module">
     import React from "react";
     import { createRoot } from "react-dom/client";
-    import { ${config.exportName} as Component } from "${relToRepo}/packages/react/dist/${config.module}";
+    import { ${config.exportName} as Component } from "${relToRepo}/packages/react/dist/${config.module}";${indexImportLine}
 
     const e = React.createElement;
     const log = [];

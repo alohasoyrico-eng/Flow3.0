@@ -17,13 +17,25 @@ function statusToneFor(state) {
         return "neutral";
     return "success";
 }
+function maskedCardNumber(number) {
+    const value = String(number ?? "").trim();
+    if (!value)
+        return "";
+    const digits = value.replace(/\D/g, "");
+    if (digits.length >= 4)
+        return `**** ${digits.slice(-4)}`;
+    if (/[*•]/.test(value))
+        return value;
+    return `**** ${value.slice(-4)}`;
+}
 export const CardSummary = forwardRef(function CardSummary({ label, meta, number, status, metrics, expires, variant = "physical", state = "default", density, icon = "", fullWidth = false, disabled = false, className = "", ...rest }, ref) {
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "physical");
     const resolvedState = disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
     const resolvedDensity = normalizeFlowDensity(density);
     if (!label)
         return null;
-    const statusLabel = status;
+    const statusLabel = status || (resolvedState === "frozen" ? "Frozen" : undefined);
+    const displayNumber = maskedCardNumber(number);
     const resolvedIcon = icon || (resolvedVariant === "virtual" ? "smartphone" : resolvedState === "frozen" ? "ac_unit" : "contactless");
     const sourceMetrics = Array.isArray(metrics) ? metrics : [];
     const visibleMetrics = sourceMetrics.filter((metric) => metric?.key && metric?.label && metric?.value);
@@ -43,8 +55,8 @@ export const CardSummary = forwardRef(function CardSummary({ label, meta, number
         variant: "status",
         state: resolvedState === "disabled" ? "disabled" : "default",
         ...(resolvedDensity ? { density: resolvedDensity } : {}),
-    }) : null), React.createElement("div", { className: "card-summary__tech" }, React.createElement("span", { className: "card-summary__chip", "aria-hidden": "true" }), React.createElement("span", { className: "card-summary__icon material-symbol", "aria-hidden": "true" }, resolvedIcon)), number
-        ? React.createElement("p", { className: "card-summary__number-row" }, React.createElement("span", { className: "card-summary__number" }, number), expires ? React.createElement("span", { className: "card-summary__expires" }, expires) : null)
+    }) : null), React.createElement("div", { className: "card-summary__tech" }, React.createElement("span", { className: "card-summary__chip", "aria-hidden": "true" }), React.createElement("span", { className: "card-summary__icon material-symbol", "aria-hidden": "true" }, resolvedIcon)), displayNumber
+        ? React.createElement("p", { className: "card-summary__number-row" }, React.createElement("span", { className: "card-summary__number" }, displayNumber), expires ? React.createElement("span", { className: "card-summary__expires" }, expires) : null)
         : null, meta ? React.createElement("small", { className: "card-summary__holder" }, meta) : null, visibleMetrics.length && resolvedVariant === "limit"
         ? React.createElement("div", { className: "card-summary__metrics" }, visibleMetrics.map((metric) => React.createElement("span", { key: metric.key }, React.createElement("small", null, metric.label), React.createElement("strong", null, metric.value))))
         : null, resolvedState === "frozen" && statusLabel

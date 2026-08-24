@@ -409,6 +409,20 @@ const inheritedCardSummaryMarkup = renderToStaticMarkup(React.createElement(Card
 assert.doesNotMatch(inheritedCardSummaryMarkup.match(/^<article[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedCardSummaryMarkup, /class="badge/);
 
+const panCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Masked card",
+  number: "4242 4242 4242 1234",
+}));
+assert.match(panCardSummaryMarkup, /class="card-summary__number">\*\*\*\* 1234<\/span>/);
+assert.doesNotMatch(panCardSummaryMarkup, /4242 4242 4242 1234|4242424242421234/);
+
+const frozenStatusCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
+  label: "Frozen without status",
+  state: "frozen",
+}));
+assert.match(frozenStatusCardSummaryMarkup, /class="card-summary__frost"/);
+assert.match(frozenStatusCardSummaryMarkup, />Frozen</);
+
 const explicitlyFocusableCardSummaryMarkup = renderToStaticMarkup(React.createElement(CardSummary, {
   label: "Focusable by product",
   tabIndex: 0,

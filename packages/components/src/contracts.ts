@@ -352,12 +352,13 @@ export const componentContracts = {
   card: {
     factory: "@design-system/react/card",
     element: "article",
-    purpose: "Group a product summary, state, supporting detail, and optional actions.",
+    purpose: "Render a discrete object-card with governed anatomy, state, media, supporting detail, and optional actions while leaving generic layout surfaces to Surface.",
     variants: ["default", "minimal", "elevated", "ghost"],
     intents: ["default"],
     states: ["default", "hover", "focus", "selected", "loading", "error", "disabled", "muted", "interactive"],
     props: [
-      { name: "title", type: "string", required: true },
+      { name: "children", type: "ReactNode", required: false },
+      { name: "title", type: "ReactNode", required: false },
       { name: "value", type: "string", required: false },
       { name: "unit", type: "string", required: false },
       { name: "detail", type: "string", required: false },
@@ -377,14 +378,21 @@ export const componentContracts = {
       { name: "loading", type: "boolean", required: false },
       { name: "actionKey", type: "string", required: false },
       { name: "actions", type: "CardAction[]", required: false },
-      { name: "onAction", type: "(key: string, action?: CardAction, event?: MouseEvent<HTMLElement>) => void", required: false }
+      { name: "actionPlacement", type: "\"footer\" | \"header\"", required: false },
+      { name: "onAction", type: "(key: string, action?: CardAction, event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>) => void", required: false }
     ],
     accessibility: [
       "Use a meaningful title.",
       "Keep status visible as text, not color alone.",
       "Use real buttons for nested actions.",
       "Require stable action keys before composing nested or whole-card actions.",
-      "When the whole Card is interactive, expose role button, keyboard activation, and aria-pressed for selected state."
+      "When the whole Card is interactive, expose role button, keyboard activation, and aria-pressed for selected state.",
+      "Do not use Card as a generic layout panel, grouped form, overlay, or page section; use Surface for structural surfaces.",
+      "Surface owns canvas, section, panel, overlay, inline groups, settings sections, grouped forms, and page shells; Card must only render object-card anatomy.",
+      "Do not use Card for KPI/stat, chart panel, payment-card, or route/admin summary semantics; those belong to Card-family patterns.",
+      "Use KpiCard for KPI/stat semantics; KpiTile may implement the metric visual and Card composition stats is compatibility only.",
+      "Use Chart Wrapper for chart-card semantics; ChartPanel may implement the chart visual when its API fits the pattern.",
+      "Use a payment/fleet card pattern for payment-card semantics; CardSummary may implement the payment summary visual when it remains useful."
     ]
   },
   checkbox: {

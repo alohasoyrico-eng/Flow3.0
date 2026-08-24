@@ -405,6 +405,7 @@ const kpiMarkup = renderToStaticMarkup(React.createElement(KpiCard, {
 }));
 
 assert.match(kpiMarkup, /data-flow-pattern="kpi-card"/);
+assert.match(kpiMarkup, /class="kpi-card"/);
 assert.match(kpiMarkup, /class="kpi-tile/);
 assert.match(kpiMarkup, /class="badge/);
 assert.match(kpiMarkup, /class="tag/);
@@ -423,6 +424,24 @@ const kpiErrorMarkup = renderToStaticMarkup(React.createElement(KpiCard, {
   error: { label: "Metric unavailable", description: "Retry later." },
 }));
 assert.match(kpiErrorMarkup, /class="error-panel/);
+
+const kpiEmptyMarkup = renderToStaticMarkup(React.createElement(KpiCard, {
+  label: "Fleet availability",
+  value: 96,
+  state: "empty",
+}));
+assert.match(kpiEmptyMarkup, /data-state="empty"/);
+assert.match(kpiEmptyMarkup, /class="empty-state/);
+assert.doesNotMatch(kpiEmptyMarkup, /class="kpi-tile/);
+
+const kpiPermissionMarkup = renderToStaticMarkup(React.createElement(KpiCard, {
+  label: "Fleet availability",
+  value: 96,
+  state: "permission-blocked",
+}));
+assert.match(kpiPermissionMarkup, /data-state="permission-blocked"/);
+assert.match(kpiPermissionMarkup, /data-variant="permission"/);
+assert.doesNotMatch(kpiPermissionMarkup, /class="kpi-tile/);
 
 const confirmationMarkup = renderToStaticMarkup(React.createElement(ConfirmationDialog, {
   label: "Delete route",
@@ -1934,6 +1953,7 @@ const chartWrapperMarkup = renderToStaticMarkup(React.createElement(ChartWrapper
 }));
 
 assert.match(chartWrapperMarkup, /data-flow-pattern="chart-wrapper"/);
+assert.match(chartWrapperMarkup, /class="chart-wrapper"/);
 assert.match(chartWrapperMarkup, /data-state="filtered"/);
 assert.match(chartWrapperMarkup, /data-has-table-summary="true"/);
 assert.match(chartWrapperMarkup, /data-has-list-summary="true"/);
@@ -1980,6 +2000,8 @@ const chartWrapperPermissionMarkup = renderToStaticMarkup(React.createElement(Ch
 }));
 assert.match(chartWrapperPermissionMarkup, /data-state="permission-blocked"/);
 assert.match(chartWrapperPermissionMarkup, /class="empty-state/);
+assert.match(chartWrapperPermissionMarkup, /data-variant="permission"/);
+assert.doesNotMatch(chartWrapperPermissionMarkup, /class="chart-panel/);
 
 const calendarViewMarkup = renderToStaticMarkup(React.createElement(CalendarView, {
   label: "Maintenance calendar",

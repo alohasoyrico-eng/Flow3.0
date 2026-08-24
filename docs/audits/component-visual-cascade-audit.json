@@ -906,7 +906,7 @@
         "aliases": [
           "badge"
         ],
-        "matchedRules": 21,
+        "matchedRules": 23,
         "tokenAliases": [
           "badge"
         ],
@@ -1563,7 +1563,7 @@
         "aliases": [
           "button"
         ],
-        "matchedRules": 66,
+        "matchedRules": 69,
         "tokenAliases": [
           "button"
         ],
@@ -1999,7 +1999,7 @@
         "aliases": [
           "card"
         ],
-        "matchedRules": 49,
+        "matchedRules": 50,
         "tokenAliases": [
           "card"
         ],
@@ -3087,7 +3087,7 @@
         "aliases": [
           "chart-panel"
         ],
-        "matchedRules": 74,
+        "matchedRules": 75,
         "tokenAliases": [
           "chart-panel"
         ],
@@ -5572,7 +5572,7 @@
         "aliases": [
           "empty-state"
         ],
-        "matchedRules": 12,
+        "matchedRules": 13,
         "tokenAliases": [
           "empty-state"
         ],
@@ -5618,6 +5618,7 @@
           "--component-icon-size-display-sm",
           "--component-icon-size-lg-plus",
           "--component-icon-variation-filled",
+          "--component-inline-size-full",
           "--component-letter-spacing-normal",
           "--component-line-height-none",
           "--component-line-height-normal",
@@ -5705,7 +5706,7 @@
         "aliases": [
           "error-panel"
         ],
-        "matchedRules": 18,
+        "matchedRules": 19,
         "tokenAliases": [
           "error-panel"
         ],
@@ -5763,6 +5764,7 @@
           "--component-font-size-title-sm",
           "--component-font-weight-black",
           "--component-icon-size-display-sm",
+          "--component-inline-size-full",
           "--component-line-height-none",
           "--component-line-height-normal",
           "--component-opacity-disabled",
@@ -5867,7 +5869,7 @@
           "fab",
           "floating-action-button"
         ],
-        "matchedRules": 25,
+        "matchedRules": 19,
         "tokenAliases": [
           "floating-action-button"
         ],
@@ -5900,6 +5902,7 @@
           "--comp-floating-action-button-icon-size-sm",
           "--comp-floating-action-button-inline-size",
           "--comp-floating-action-button-justify",
+          "--comp-floating-action-button-mini-size",
           "--comp-floating-action-button-motion-duration",
           "--comp-floating-action-button-motion-ease",
           "--comp-floating-action-button-motion-enter",
@@ -5920,48 +5923,18 @@
           "--component-action-bg-danger",
           "--component-action-bg-danger-hover",
           "--component-action-bg-danger-pressed",
-          "--component-action-bg-danger-secondary",
-          "--component-action-bg-danger-secondary-hover",
-          "--component-action-bg-danger-secondary-pressed",
-          "--component-action-bg-ghost",
-          "--component-action-bg-ghost-hover",
-          "--component-action-bg-ghost-pressed",
-          "--component-action-bg-outlined",
-          "--component-action-bg-outlined-pressed",
-          "--component-action-bg-secondary",
-          "--component-action-bg-secondary-hover",
-          "--component-action-bg-secondary-pressed",
-          "--component-action-bg-tertiary",
-          "--component-action-bg-tertiary-hover",
-          "--component-action-bg-tertiary-pressed",
           "--component-action-bg-warning",
           "--component-action-bg-warning-hover",
           "--component-action-bg-warning-pressed",
-          "--component-action-bg-warning-secondary",
-          "--component-action-bg-warning-secondary-hover",
-          "--component-action-bg-warning-secondary-pressed",
-          "--component-action-border-danger-secondary",
-          "--component-action-border-ghost",
-          "--component-action-border-outlined",
-          "--component-action-border-secondary",
-          "--component-action-border-tertiary",
-          "--component-action-border-warning-secondary",
           "--component-action-fg-danger",
-          "--component-action-fg-danger-secondary",
-          "--component-action-fg-ghost",
-          "--component-action-fg-outlined",
-          "--component-action-fg-secondary",
-          "--component-action-fg-tertiary",
           "--component-action-fg-warning",
-          "--component-action-fg-warning-secondary",
           "--component-align-center",
           "--component-border-none",
           "--component-border-width",
           "--component-cursor-not-allowed",
           "--component-cursor-pointer",
-          "--component-depth-low",
-          "--component-depth-none",
           "--component-depth-raised-soft",
+          "--component-depth-raised-strong",
           "--component-display-inline-flex",
           "--component-font-family-body",
           "--component-font-family-icon",
@@ -6004,6 +5977,7 @@
           "--comp-floating-action-button-icon-size-sm",
           "--comp-floating-action-button-inline-size",
           "--comp-floating-action-button-justify",
+          "--comp-floating-action-button-mini-size",
           "--comp-floating-action-button-motion-duration",
           "--comp-floating-action-button-motion-ease",
           "--comp-floating-action-button-motion-enter",
@@ -6051,6 +6025,7 @@
           "--comp-floating-action-button-icon-size-sm",
           "--comp-floating-action-button-inline-size",
           "--comp-floating-action-button-justify",
+          "--comp-floating-action-button-mini-size",
           "--comp-floating-action-button-motion-duration",
           "--comp-floating-action-button-motion-ease",
           "--comp-floating-action-button-motion-enter",
@@ -7210,7 +7185,7 @@
         "aliases": [
           "list"
         ],
-        "matchedRules": 19,
+        "matchedRules": 20,
         "tokenAliases": [
           "list"
         ],
@@ -7447,7 +7422,7 @@
         "aliases": [
           "menu"
         ],
-        "matchedRules": 24,
+        "matchedRules": 25,
         "tokenAliases": [
           "menu"
         ],
@@ -10121,7 +10096,7 @@
         "aliases": [
           "skeleton"
         ],
-        "matchedRules": 20,
+        "matchedRules": 21,
         "tokenAliases": [
           "skeleton"
         ],
@@ -11323,7 +11298,7 @@
         "aliases": [
           "table"
         ],
-        "matchedRules": 23,
+        "matchedRules": 24,
         "tokenAliases": [
           "table"
         ],
@@ -11408,6 +11383,7 @@
           "--comp-table-sort-icon-opacity",
           "--comp-table-sort-icon-size",
           "--component-font-family-body",
+          "--component-inline-size-full",
           "--component-surface-transparent"
         ],
         "compTokenUses": [
@@ -11935,7 +11911,7 @@
         "aliases": [
           "tag"
         ],
-        "matchedRules": 20,
+        "matchedRules": 21,
         "tokenAliases": [
           "tag"
         ],

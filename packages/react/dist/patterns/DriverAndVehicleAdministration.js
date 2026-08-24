@@ -12,17 +12,17 @@ import { Surface } from "../Surface.js";
 import { Table } from "../Table.js";
 import { Toast } from "../Toast.js";
 import { Toolbar } from "./Toolbar.js";
-function sanitizeRestProps(rest) {
-    return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
-}
-function normalizeRecords(records) {
-    return (Array.isArray(records) ? records : []).filter((record) => Boolean(record?.key || record?.id));
-}
 function iconButtonVariantForAction(variant) {
     return variant === "compact" ? "ghost" : "secondary";
 }
 function iconButtonStateForAction(state) {
     return state === "warning" ? "default" : state;
+}
+function sanitizeRestProps(rest) {
+    return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
+}
+function normalizeRecords(records) {
+    return (Array.isArray(records) ? records : []).filter((record) => Boolean(record?.key || record?.id));
 }
 function resolveState({ disabled, loading, empty, selectedKey, actionRunning, permissionBlocked, error, state, records, }) {
     if (disabled || state === "disabled")

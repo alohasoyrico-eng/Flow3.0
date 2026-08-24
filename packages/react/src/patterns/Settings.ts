@@ -266,15 +266,15 @@ export const Settings = forwardRef<HTMLDivElement, SettingsProps>(function Setti
         "data-settings-group": group.key,
         "aria-label": group.title,
       } as ComponentProps<typeof Surface>,
-      React.createElement(Card, {
-        title: group.title,
-        detail: group.description,
-        density,
-        composition: "compact",
-        variant: "ghost",
-        state: isDisabled ? "disabled" : "default",
-        fullWidth: true,
-      } as ComponentProps<typeof Card>),
+      React.createElement(
+        "header",
+        {
+          "data-flow-slot": "groupHeader",
+          "data-settings-group-header": group.key,
+        },
+        React.createElement("h3", null, group.title),
+        group.description ? React.createElement("p", null, group.description) : null,
+      ),
       group.controls.map((control) => renderControl(control, density, isDisabled, onControlChange)),
     )),
     confirmation?.label

@@ -3,8 +3,10 @@ import type { ComponentProps, ForwardRefExoticComponent, ReactNode, RefAttribute
 import { Button } from "../Button.js";
 import { Card } from "../Card.js";
 import { CodeBlock } from "../CodeBlock.js";
+import { KpiTile } from "../KpiTile.js";
 import { Surface } from "../Surface.js";
 import type { CardAction, CardProps } from "../Card.js";
+import type { KpiTileProps } from "../KpiTile.js";
 import type { SurfaceDensity, SurfaceProps } from "../Surface.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 import { flowRestProps } from "../internal/props.js";
@@ -265,16 +267,15 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
       } as CardProps));
     }
     if (resolvedType === "statGrid") {
-      return (rows ?? []).map(([label, value]) => React.createElement(Card, {
+      return (rows ?? []).map(([label, value]) => React.createElement(KpiTile, {
         key: label,
-        title: label,
+        label,
         value,
-        variant: "minimal",
+        variant: "standard",
         state: "default",
-        composition: "stats",
         fullWidth: true,
         density,
-      } as CardProps));
+      } as KpiTileProps));
     }
     return (roles ?? []).map((role) => React.createElement("div", { key: role, "data-doc-primitive": "primitive-surface-role-demo", "data-inverse": role === "inverse" ? "true" : undefined }, React.createElement("div", { "data-doc-primitive": "primitive-surface-role-label" }, role)));
   }, [action, active, cards, choices, code, controls, copy, density, icons, initialLabel, items, labels, roles, rows, resolvedType, sample, sampleCode, samples, states, staticSamples, targetLabel, title]);

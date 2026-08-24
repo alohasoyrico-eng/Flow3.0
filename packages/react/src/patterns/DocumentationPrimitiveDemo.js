@@ -6,6 +6,7 @@ import React, { forwardRef, useMemo, useState } from "react";
 import { Button } from "../Button.js";
 import { Card } from "../Card.js";
 import { CodeBlock } from "../CodeBlock.js";
+import { KpiTile } from "../KpiTile.js";
 import { Surface } from "../Surface.js";
 import { flowRestProps } from "../internal/props.js";
 const validTypes = new Set([
@@ -166,13 +167,12 @@ export const DocumentationPrimitiveDemo = forwardRef(function DocumentationPrimi
             }));
         }
         if (resolvedType === "statGrid") {
-            return (rows ?? []).map(([label, value]) => React.createElement(Card, {
+            return (rows ?? []).map(([label, value]) => React.createElement(KpiTile, {
                 key: label,
-                title: label,
+                label,
                 value,
-                variant: "minimal",
+                variant: "standard",
                 state: "default",
-                composition: "stats",
                 fullWidth: true,
                 density,
             }));

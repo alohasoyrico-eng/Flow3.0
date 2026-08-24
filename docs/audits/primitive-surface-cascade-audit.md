@@ -30,6 +30,7 @@ Surface owns structural grouping, background, density, elevation, focus, and bre
 | missingCssSelectors | 0 |
 | rawVisualCss | 0 |
 | patternSurfaceImports | 48 |
+| structuralCardContextIssues | 0 |
 | structuralSurfacePolicyIssues | 0 |
 | distGaps | 0 |
 | surfaceCascadeDebt | 0 |

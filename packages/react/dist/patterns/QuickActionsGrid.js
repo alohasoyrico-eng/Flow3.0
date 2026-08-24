@@ -92,7 +92,7 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
             label: action.label,
             icon: action.icon,
             variant: iconButtonVariantForAction(variant),
-            intent,
+            intent: intent,
             state: iconButtonStateForAction(actionState),
             density: action.density ?? density,
             loading: resolvedState === "loading" || action.loading,

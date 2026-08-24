@@ -53,7 +53,7 @@ function normalizeItems(items: DocumentationReferenceGridItem[] | undefined): Do
 
 function cardCompositionFor(kind: DocumentationReferenceGridKind, item: DocumentationReferenceGridItem): CardProps["composition"] {
   if (item.composition) return item.composition;
-  return kind === "summary" ? "stats" : "standard";
+  return kind === "summary" ? "compact" : "standard";
 }
 
 export const DocumentationReferenceGrid = forwardRef<HTMLDivElement, DocumentationReferenceGridProps>(function DocumentationReferenceGrid({

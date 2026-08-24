@@ -472,14 +472,15 @@ for (const { componentId, exportName } of reactSubpathAssertions) {
 assert.deepEqual(installedRenderFailures, []);
 
 const screen = React.createElement("main", { className: "product-screen", "data-density": "md", "data-theme": "light" },
-  React.createElement(Card, {
-    title: "Fleet health",
-    value: "96",
-    unit: "",
-    detail: "Vehicles available",
-    status: "On track",
-    composition: "stats",
-    actions: [{ label: "Review", variant: "secondary" }],
+  React.createElement(KpiCard, {
+    label: "Fleet health",
+    value: 96,
+    unit: "%",
+    delta: "+4%",
+    trend: "up",
+    tone: "success",
+    status: { label: "On track", tone: "success" },
+    action: { label: "Review" },
   }),
   React.createElement(Input, {
     label: "Search vehicle",
@@ -2675,8 +2676,8 @@ function auditInstalledPackage(consumerDir) {
   assertInstalledContentContracts({ consumerRequire, packageRoot, realPackageRoot });
   const installedCssInventory = packageCssRootInventory(packageRoot);
   const installedCssRoots = installedCssInventory.roots;
-  if (installedCssRoots.size !== 74) {
-    throw new Error(`Installed component CSS must preserve the governed root baseline: expected 74 roots, got ${installedCssRoots.size}.`);
+  if (installedCssRoots.size !== 76) {
+    throw new Error(`Installed component CSS must preserve the governed root baseline: expected 76 roots, got ${installedCssRoots.size}.`);
   }
   if (installedCssInventory.selectors < 1100) {
     throw new Error(`Installed component CSS selector inventory is unexpectedly small: expected at least 1100 selectors, got ${installedCssInventory.selectors}.`);
