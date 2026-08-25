@@ -466,33 +466,33 @@ const components = {
     directory: "text-area-2026-08-24",
     module: "TextArea.js",
     exportName: "TextArea",
-    buildId: "text-area-react-runtime-1",
+    buildId: "text-area-density-counter-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
     actionSelector: "textarea[data-runtime-action]",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Variantes"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Notes", placeholder: "Write driver notes", helper: "Visible to operations" })),
-            e("div", { className: "audit-card" }, action({ label: "Limited notes", maxLength: 80, placeholder: "Max 80 characters" })),
-            e("div", { className: "audit-card" }, action({ label: "Filled", value: "Inspection completed before dispatch." }))
+            e("div", { className: "audit-card" }, action({ label: "Notes", maxLength: 140, placeholder: "Write driver notes", helper: "Visible to operations" })),
+            e("div", { className: "audit-card" }, action({ label: "Limited notes", maxLength: 80, value: "Confirm charger status before departure.", placeholder: "Max 80 characters" })),
+            e("div", { className: "audit-card" }, action({ label: "Filled", maxLength: 140, value: "Inspection completed before dispatch." }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", value: "Small density" })),
-            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", value: "Medium density" })),
-            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", value: "Large density" }))
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", maxLength: 120, value: "Small density" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", maxLength: 120, value: "Medium density" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", maxLength: 120, value: "Large density" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Success", state: "success", helper: "Saved" })),
-            e("div", { className: "audit-card" }, action({ label: "Warning", state: "warning", helper: "Review wording" })),
-            e("div", { className: "audit-card" }, action({ label: "Error", error: "Notes are required" })),
-            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "Disabled notes", "data-runtime-action": "true" }))
+            e("div", { className: "audit-card" }, action({ label: "Success", state: "success", maxLength: 120, value: "Saved route notes", helper: "Saved" })),
+            e("div", { className: "audit-card" }, action({ label: "Warning", state: "warning", maxLength: 80, value: "Review wording before assigning final dispatch note to operations desk now.", helper: "Review wording" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", error: "Notes are required", maxLength: 80, value: "Missing dispatch justification at final route stop. Confirm before departure now." })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, maxLength: 120, value: "Disabled notes", "data-runtime-action": "true" }))
           )
         )`,
   },

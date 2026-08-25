@@ -3,7 +3,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import { textAreaPlatformContract } from "@design-system/components/platforms";
 
 export type TextAreaDensity = "sm" | "md" | "lg";
-export type TextAreaState = "default" | "focus" | "filled" | "loading" | "error" | "disabled";
+export type TextAreaState = "default" | "focus" | "filled" | "success" | "warning" | "loading" | "error" | "disabled";
 
 export interface TextAreaChangeMeta {
   length: number;

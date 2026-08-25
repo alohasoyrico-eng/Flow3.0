@@ -733,26 +733,39 @@
   --comp-input-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-input-disabled-bg: var(--component-disabled-bg);
   --comp-input-open-opacity: var(--component-opacity-visible);
-  --comp-text-area-min-block: var(--component-textarea-min-block);
-  --comp-text-area-padding-block: var(--component-space-md);
-  --comp-text-area-padding-inline: var(--component-space-lg);
-  --comp-text-area-counter-padding-block-end: var(--component-frame-gap-subsection);
-  --comp-text-area-counter-inset-block: var(--component-space-sm);
-  --comp-text-area-counter-inset-inline: var(--component-density-control-padding-x);
+  --comp-text-area-min-block-sm: calc(var(--component-control-frame-size-sm) * 2);
+  --comp-text-area-min-block-md: var(--component-textarea-min-block);
+  --comp-text-area-min-block-lg: calc(var(--component-textarea-min-block) + var(--component-control-frame-size-sm));
+  --comp-text-area-current-min-block: var(--comp-text-area-min-block-md);
+  --comp-text-area-padding-block-sm: var(--component-space-sm);
+  --comp-text-area-padding-block-md: var(--component-space-md);
+  --comp-text-area-padding-block-lg: var(--component-space-lg);
+  --comp-text-area-padding-inline-sm: var(--component-space-md);
+  --comp-text-area-padding-inline-md: var(--component-space-lg);
+  --comp-text-area-padding-inline-lg: calc(var(--component-space-lg) + var(--component-space-xs));
+  --comp-text-area-current-padding-block: var(--comp-text-area-padding-block-md);
+  --comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-md);
+  --comp-text-area-counter-gap: var(--component-frame-space-micro);
+  --comp-text-area-counter-row-block: var(--component-min-text-line);
   --comp-text-area-bg: var(--component-color-surface);
   --comp-text-area-bg-muted: var(--component-color-surface-raised);
   --comp-text-area-bg-loading: color-mix(in srgb, var(--component-loading-skeleton-surface) 62%, var(--component-color-surface));
   --comp-text-area-bg-error: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
+  --comp-text-area-bg-success: color-mix(in srgb, var(--component-color-success) 8%, var(--component-color-surface));
+  --comp-text-area-bg-warning: color-mix(in srgb, var(--component-color-warning) 9%, var(--component-color-surface));
   --comp-text-area-border: var(--component-color-border);
   --comp-text-area-border-hover: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
   --comp-text-area-border-focus: var(--component-color-action);
   --comp-text-area-border-error: var(--component-color-danger);
+  --comp-text-area-border-success: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
+  --comp-text-area-border-warning: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
   --comp-text-area-fg: var(--component-color-text);
   --comp-text-area-radius: var(--component-radius-control);
   --comp-text-area-font-size: var(--component-font-size-label);
   --comp-text-area-font-weight: var(--component-font-weight-medium);
   --comp-text-area-line-height: var(--component-line-height-relaxed);
   --comp-text-area-counter-fg: var(--component-color-text-muted);
+  --comp-text-area-counter-warning-fg: color-mix(in srgb, var(--component-color-warning) 58%, var(--component-color-text));
   --comp-text-area-counter-error-fg: var(--component-color-danger);
   --comp-text-area-counter-family: var(--component-font-family-mono);
   --comp-text-area-counter-size: var(--component-font-size-micro);
@@ -2865,54 +2878,86 @@
 }
 
 .text-area__surface {
-  display: block;
-  position: relative;
-}
-
-.text-area {
   background: var(--comp-text-area-bg);
   border: var(--component-border-width) solid var(--comp-text-area-border);
   border-radius: var(--comp-text-area-radius);
-  color: var(--comp-text-area-fg);
-  font: inherit;
-  font-size: var(--comp-text-area-font-size);
-  font-weight: var(--comp-text-area-font-weight);
+  box-sizing: border-box;
+  display: grid;
   inline-size: 100%;
-  line-height: var(--comp-text-area-line-height);
-  min-block-size: var(--comp-text-area-min-block);
-  padding: var(--comp-text-area-padding-block) var(--comp-text-area-padding-inline);
-  resize: vertical;
+  max-inline-size: 100%;
+  min-block-size: var(--comp-text-area-current-min-block);
+  min-inline-size: 0;
+  padding: var(--comp-text-area-current-padding-block) var(--comp-text-area-current-padding-inline);
+  position: relative;
   transition:
     border-color var(--comp-text-area-motion-duration) var(--comp-text-area-motion-ease),
     box-shadow var(--comp-text-area-motion-duration) var(--comp-text-area-motion-ease),
     background-color var(--comp-text-area-motion-duration) var(--comp-text-area-motion-ease);
 }
 
-.text-area__surface[data-has-counter="true"] .text-area {
-  padding-block-end: var(--comp-text-area-counter-padding-block-end);
+.text-area {
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--comp-text-area-fg);
+  font: inherit;
+  font-size: var(--comp-text-area-font-size);
+  font-weight: var(--comp-text-area-font-weight);
+  inline-size: 100%;
+  line-height: var(--comp-text-area-line-height);
+  max-inline-size: 100%;
+  min-block-size: calc(var(--comp-text-area-current-min-block) - (var(--comp-text-area-current-padding-block) * 2));
+  min-inline-size: 0;
+  outline: 0;
+  padding: 0 0 var(--comp-text-area-counter-row-block);
+  resize: vertical;
 }
 
-.text-area:hover:not(:disabled) {
+.field[data-density="sm"] {
+  --comp-text-area-current-min-block: var(--comp-text-area-min-block-sm);
+  --comp-text-area-current-padding-block: var(--comp-text-area-padding-block-sm);
+  --comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-sm);
+  --comp-text-area-font-size: var(--component-control-frame-font-size-sm);
+}
+
+.field[data-density="lg"] {
+  --comp-text-area-current-min-block: var(--comp-text-area-min-block-lg);
+  --comp-text-area-current-padding-block: var(--comp-text-area-padding-block-lg);
+  --comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-lg);
+  --comp-text-area-font-size: var(--component-control-frame-font-size-lg);
+}
+
+.text-area__surface:has(.text-area:hover:not(:disabled)) {
   border-color: var(--comp-text-area-border-hover);
 }
 
-.text-area:focus-visible,
-.field[data-state="focus"] .text-area {
+.text-area__surface:focus-within,
+.field[data-state="focus"] .text-area__surface {
   border-color: var(--comp-text-area-border-focus);
   outline: var(--comp-text-area-focus-width) solid var(--comp-text-area-focus-color);
   outline-offset: var(--comp-text-area-focus-offset);
 }
 
-.field[data-state="error"] .text-area {
+.field[data-state="error"] .text-area__surface {
   background: var(--comp-text-area-bg-error);
   border-color: var(--comp-text-area-border-error);
 }
 
-.field[data-state="disabled"] .text-area {
+.field[data-state="success"] .text-area__surface {
+  background: var(--comp-text-area-bg-success);
+  border-color: var(--comp-text-area-border-success);
+}
+
+.field[data-state="warning"] .text-area__surface {
+  background: var(--comp-text-area-bg-warning);
+  border-color: var(--comp-text-area-border-warning);
+}
+
+.field[data-state="disabled"] .text-area__surface {
   background: var(--comp-text-area-bg-muted);
 }
 
-.field[data-state="loading"] .text-area {
+.field[data-state="loading"] .text-area__surface {
   background: var(--comp-text-area-bg-loading);
 }
 
@@ -2921,10 +2966,19 @@
   font-family: var(--comp-text-area-counter-family);
   font-size: var(--comp-text-area-counter-size);
   font-weight: var(--comp-text-area-counter-weight);
-  inset-block-end: var(--comp-text-area-counter-inset-block);
-  inset-inline-end: var(--comp-text-area-counter-inset-inline);
+  inset-block-end: var(--comp-text-area-current-padding-block);
+  inset-inline-start: var(--comp-text-area-current-padding-inline);
   pointer-events: none;
   position: absolute;
+  transition: color var(--comp-text-area-motion-duration) var(--comp-text-area-motion-ease);
+}
+
+.text-area__counter[data-limit-state="warning"] {
+  color: var(--comp-text-area-counter-warning-fg);
+}
+
+.text-area__counter[data-limit-state="limit"] {
+  color: var(--comp-text-area-counter-error-fg);
 }
 
 .field[data-state="error"] .text-area__counter {

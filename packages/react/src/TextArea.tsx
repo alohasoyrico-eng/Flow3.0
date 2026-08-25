@@ -6,7 +6,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type TextAreaDensity = "sm" | "md" | "lg";
-export type TextAreaState = "default" | "focus" | "filled" | "loading" | "error" | "disabled";
+export type TextAreaState = "default" | "focus" | "filled" | "success" | "warning" | "loading" | "error" | "disabled";
 
 export interface TextAreaChangeMeta {
   length: number;
@@ -65,6 +65,16 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
   const resolvedState = resolveState({ disabled, loading, error, ...(state ? { state } : {}), value: currentValue });
   const isDisabled = Boolean(disabled) || Boolean(loading);
   const counterId = maxLength != null ? `${textAreaId}-counter` : "";
+  const counterMaxLength = maxLength == null ? undefined : Number(maxLength);
+  const counterLength = String(currentValue ?? "").length;
+  const counterDisplayLength = counterMaxLength == null ? counterLength : Math.min(counterLength, counterMaxLength);
+  const counterState = counterMaxLength == null
+    ? undefined
+    : counterLength >= counterMaxLength
+      ? "limit"
+      : counterLength >= Math.ceil(counterMaxLength * 0.9)
+        ? "warning"
+        : "default";
   const fieldMessage = resolveFieldMessage({
     controlId: textAreaId,
     describedBy: [counterId, rest["aria-describedby"]].filter(Boolean).join(" ") || undefined,
@@ -73,7 +83,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
     helperText,
     state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
   });
-  const counterText = maxLength != null ? `${String(currentValue ?? "").length}/${Number(maxLength)}` : "";
+  const counterText = counterMaxLength != null ? `${counterDisplayLength}/${counterMaxLength}` : "";
   const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label) return null;
@@ -112,13 +122,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
         disabled: isDisabled,
         required,
         rows,
-        maxLength: maxLength == null ? undefined : Number(maxLength),
+        maxLength: counterMaxLength,
         "aria-labelledby": `${textAreaId}-label`,
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: handleChange,
       }),
-      maxLength != null ? React.createElement("span", { className: "text-area__counter", id: counterId, "data-text-area-counter": "" }, counterText) : null,
+      counterMaxLength != null ? React.createElement("span", { className: "text-area__counter", id: counterId, "data-limit-state": counterState, "data-text-area-counter": "" }, counterText) : null,
     ),
     fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null,
   );
