@@ -104,7 +104,6 @@ const expectedAuditFiles = new Set([
   "report-email-channel-governance.js",
   "report-email-channel-renderer.mjs",
   "audit-field-css-contract.js",
-  "audit-floating-action-button-css-contract.js",
   "audit-frame-contracts.js",
   "audit-foundation-cascade-contracts.js",
   "audit-foundation-contracts.js",

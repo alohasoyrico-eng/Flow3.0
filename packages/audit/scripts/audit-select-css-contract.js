@@ -18,6 +18,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const selectBlock = blockFor(blocks, selectorKey, ".select-control");
   const selectTriggerBlock = blockFor(blocks, selectorKey, ".select-control__trigger,.country-selector__trigger,.phone-input__country-trigger");
+  const inlineListboxBlock = blockFor(blocks, selectorKey, ".select-control--inline .select-control__listbox,.country-selector.select-control--inline .country-selector__listbox,.phone-input__country-listbox");
 
   requireIncludes({
     block: selectBlock,
@@ -43,6 +44,8 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-select-listbox-padding: var(--component-listbox-padding)",
       "--comp-select-listbox-radius: var(--component-listbox-radius)",
       "--comp-select-listbox-depth: var(--component-listbox-depth)",
+      "--comp-select-inline-listbox-inline: var(--component-inline-size-max-content)",
+      "--comp-select-inline-listbox-min-inline: var(--component-menu-panel-min-inline-md)",
       "--comp-select-option-min-size-sm: var(--component-option-row-min-block-size-sm)",
       "--comp-select-option-min-size-md: var(--component-option-row-min-block-size-md)",
       "--comp-select-option-min-size-lg: var(--component-option-row-min-block-size-lg)",
@@ -113,9 +116,23 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!text.includes("--component-option-row-disabled-opacity: var(--component-opacity-visible)")) {
     add("errors", packageCssFile, 1, "Shared option-row disabled state must remain legible; do not dim listbox options through opacity-only affordances.");
   }
+  if (!text.includes("--component-option-row-disabled-bg: var(--component-surface-transparent)")) {
+    add("errors", packageCssFile, 1, "Shared option-row disabled state must not use a filled row surface that competes with selected options.");
+  }
   if (!text.includes(".select-control__option {\n  grid-template-columns: minmax(0, 1fr) auto auto;")) {
     add("errors", packageCssFile, 1, "Select options must reserve trailing columns for metadata and selected check geometry.");
   }
+  requireIncludes({
+    block: inlineListboxBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "inline-size: var(--comp-select-inline-listbox-inline)",
+      "inset-inline-end: auto",
+      "min-inline-size: var(--comp-select-inline-listbox-min-inline)",
+    ],
+    message: "Select inline listbox must stay readable through governed inline-listbox sizing instead of inheriting the compact trigger width.",
+  });
   if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex")) {
     add("errors", sourceFile, 1, "Select must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");
   }

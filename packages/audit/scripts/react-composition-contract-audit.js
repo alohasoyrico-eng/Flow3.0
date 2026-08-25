@@ -48,7 +48,6 @@ const reactComponentCompositionContracts = {
     { component: "Button", reason: "recovery action slot" },
     { component: "Spinner", reason: "loading state slot" },
   ],
-  FloatingActionButton: [{ component: "Spinner", reason: "loading indicator slot" }],
   IconButton: [{ component: "Spinner", reason: "loading indicator slot" }],
   InlineValidation: [{ component: "Input", reason: "field validation composition" }],
   Input: [{ component: "Spinner", reason: "field loading indicator slot" }],

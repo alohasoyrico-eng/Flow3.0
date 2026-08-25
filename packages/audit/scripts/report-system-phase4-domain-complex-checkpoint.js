@@ -26,7 +26,6 @@ const domainComplexIds = [
   "chip",
   "empty-state",
   "error-panel",
-  "floating-action-button",
   "inline-validation",
   "motion-boundary",
   "movement-row",

@@ -25,6 +25,7 @@ function checkDarkModeCssContract({ text, packageCssFile }) {
     "--component-action-bg-outlined:",
     "--component-action-bg-ghost-hover:",
     "--component-action-bg-danger-secondary:",
+    "--component-option-row-disabled-bg: var(--component-surface-transparent);",
     "--ref-depth-shadow-color-rgb: var(--ref-depth-shadow-dark-color-rgb);",
     "--sys-depth-elevation-1: var(--sys-depth-elevation-dark-1);",
     "--sys-depth-elevation-2: var(--sys-depth-elevation-dark-2);",

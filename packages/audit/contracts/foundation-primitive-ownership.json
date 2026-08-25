@@ -86,7 +86,7 @@
     {
       "id": "action-appearance",
       "owner": "action primitive",
-      "patterns": ["action", "button", "fab", "quick-action"]
+      "patterns": ["action", "button", "quick-action"]
     },
     {
       "id": "field-control",

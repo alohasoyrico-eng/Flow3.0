@@ -39,7 +39,6 @@ export { dialogPlatformAdapters, dialogPlatformContract, dialogPlatformProps, } 
 export { drawerPlatformAdapters, drawerPlatformContract, drawerPlatformProps, } from "./drawer.js";
 export { emptyStatePlatformAdapters, emptyStatePlatformContract, emptyStatePlatformProps, } from "./empty-state.js";
 export { errorPanelPlatformAdapters, errorPanelPlatformContract, errorPanelPlatformProps, } from "./error-panel.js";
-export { floatingActionButtonPlatformAdapters, floatingActionButtonPlatformContract, floatingActionButtonPlatformProps, } from "./floating-action-button.js";
 export { phoneInputPlatformAdapters, phoneInputPlatformContract, phoneInputPlatformProps, } from "./phone-input.js";
 export { progressIndicatorPlatformAdapters, progressIndicatorPlatformContract, progressIndicatorPlatformProps, } from "./progress-indicator.js";
 export { selectPlatformAdapters, selectPlatformContract, selectPlatformProps, } from "./select.js";

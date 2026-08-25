@@ -176,7 +176,8 @@ export const Card = forwardRef<HTMLElement, CardProps>(function Card({
   const isInteractive = !hasActions && hasInteractiveContent && requestedInteraction && canActivateCard;
   const isDisabled = resolvedState === "disabled" || resolvedState === "loading";
   const RootElement = isInteractive ? "div" : "article";
-  const header = title || icon || status
+  const hasIcon = Boolean(icon);
+  const header = title || icon || status || (resolvedActionPlacement === "header" && actionsNode)
     ? React.createElement(
       "div",
       { className: "card__header", key: "header" },
@@ -185,7 +186,7 @@ export const Card = forwardRef<HTMLElement, CardProps>(function Card({
           "div",
           { className: "card__heading" },
           icon ? React.createElement("span", { className: "card__icon", "aria-hidden": "true" }, icon) : null,
-          title ? React.createElement("h3", { className: "card__title" }, title) : null,
+          title ? React.createElement("div", { className: "card__heading-content" }, React.createElement("h3", { className: "card__title" }, title)) : null,
         )
         : null,
       status ? React.createElement(
@@ -196,25 +197,30 @@ export const Card = forwardRef<HTMLElement, CardProps>(function Card({
       resolvedActionPlacement === "header" ? actionsNode : null,
     )
     : null;
-  const generatedContent = [
-    header,
-    resolvedState === "loading"
+  const generatedBody = resolvedState === "loading"
+    ? React.createElement(
+      "div",
+      { className: "card__loading", key: "loading" },
+      React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true }),
+      value ? React.createElement("span", null, value) : null,
+    )
+    : value || detail
       ? React.createElement(
         "div",
-        { className: "card__loading", key: "loading" },
-        React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true }),
-        value ? React.createElement("span", null, value) : null,
-      )
-      : [
+        { className: "card__content", key: "content" },
         value ? React.createElement("p", { className: "card__value", key: "value" }, resolvedComposition === "stats" && unit ? `${unit}${value}` : value) : null,
         detail ? React.createElement("p", { className: "card__detail", key: "detail" }, detail) : null,
-      ],
+      )
+      : null;
+  const generatedContent = [
+    header,
+    generatedBody,
     resolvedActionPlacement === "footer" ? actionsNode : null,
   ];
   const content = hasCustomContent
     ? [
       header,
-      React.createElement(React.Fragment, { key: "children" }, children),
+      React.createElement("div", { className: "card__content", key: "children" }, children),
       resolvedActionPlacement === "footer" ? actionsNode : null,
     ]
     : generatedContent;
@@ -230,6 +236,7 @@ export const Card = forwardRef<HTMLElement, CardProps>(function Card({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
+      "data-has-icon": String(hasIcon),
       "data-interactive": String(isInteractive),
       "data-action-placement": hasActions ? resolvedActionPlacement : undefined,
       tabIndex: isInteractive ? (isDisabled ? -1 : 0) : rest.tabIndex,

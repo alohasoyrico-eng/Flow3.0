@@ -17,7 +17,7 @@ const componentFamilyDomains = [
   ["field-control", /(?:^|[-_\s])(field|input|select|combobox|placeholder|helper|affix)(?:[-_\s]|$)/],
   ["choice-control", /(?:^|[-_\s])(checkbox|radio|switch|choice)(?:[-_\s]|$)/],
   ["option-listbox", /(?:^|[-_\s])(option|listbox|menu-item)(?:[-_\s]|$)/],
-  ["action-appearance", /(?:^|[-_\s])(action|button|fab|floating-action-button|quick-action|icon-button)(?:[-_\s]|$)/],
+  ["action-appearance", /(?:^|[-_\s])(action|button|quick-action|icon-button)(?:[-_\s]|$)/],
   ["content-surface", /(?:^|[-_\s])(surface|card|section|panel)(?:[-_\s]|$)/],
   ["asset-rendering", /(?:^|[-_\s])(illustration|animation-asset|chart|map|flag|library-source)(?:[-_\s]|$)/],
 ];

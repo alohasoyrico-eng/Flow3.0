@@ -23,6 +23,7 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const fieldLgBlock = blockFor(blocks, selectorKey, ".field-control[data-density=\"lg\"],.field[data-density=\"lg\"]");
   const fieldIconBlock = blockFor(blocks, selectorKey, ".field__icon");
   const fieldActionBlock = blockFor(blocks, selectorKey, ".field-action");
+  const fieldActionIconBlock = blockFor(blocks, selectorKey, ".field-action__icon");
   const fieldErrorMessageBlock = blockFor(blocks, selectorKey, ".field-control[data-state=\"error\"] .field-control__helper,.field[data-state=\"error\"] .field__helper,.field[data-state=\"error\"] .field__icon");
   const darkFieldBlock = { body: publicCascadeText, index: 0 };
   const cardFieldBlock = blockFor(blocks, selectorKey, ".card-number-input,.card-expiry-input,.card-security-code-input");
@@ -148,6 +149,16 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: ["inline-size: var(--comp-field-icon-action-size)", "min-block-size: var(--comp-field-icon-action-size)"],
     message: "Field actions must consume the current Field action size.",
+  });
+  if (!text.includes(".field-action__icon")) {
+    add("errors", packageCssFile, 1, "Field action icons must be part of the shared Material Symbols hook.");
+  }
+  requireIncludes({
+    block: fieldActionIconBlock,
+    text,
+    packageCssFile,
+    snippets: ["font-size: var(--comp-field-icon-size)"],
+    message: "Field action icons must consume the current Field icon density size.",
   });
   if (!text.includes("--component-field-placeholder-fg: var(--component-color-text-muted);")) {
     add("errors", packageCssFile, 1, "Field placeholder color must be exposed as a shared component field token.");

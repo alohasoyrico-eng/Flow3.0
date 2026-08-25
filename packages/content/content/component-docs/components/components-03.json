@@ -45,15 +45,6 @@
         "miel"
       ]
     },
-    "floating-action-button": {
-      "renderer": "floating-action-button",
-      "tabs": [
-        "overview",
-        "design",
-        "build",
-        "miel"
-      ]
-    },
     "card-summary": {
       "renderer": "card-summary",
       "tabs": [

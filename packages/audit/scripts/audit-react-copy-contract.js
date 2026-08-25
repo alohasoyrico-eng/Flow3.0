@@ -72,7 +72,6 @@ const displayFallbackTermsByFile = new Map([
   ["CardSecurityCodeInput.js", ["Security code"]],
   ["DatePicker.js", ["Date"]],
   ["DateRangePicker.js", ["Date range"]],
-  ["FloatingActionButton.js", ["Create", "Loading", " loading"]],
   ["IconButton.js", ["Action"]],
   ["Input.js", ["Input"]],
   ["PhoneInput.js", ["Phone number"]],

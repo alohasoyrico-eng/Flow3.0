@@ -68,7 +68,6 @@ const componentClassAliases = {
   "date-range-picker": ["date-range-picker"],
   "segmented-control": ["segmented-control"],
   "popover": ["popover"],
-  "floating-action-button": ["fab", "floating-action-button"],
   "card-summary": ["card-summary"],
   "movement-row": ["movement-row"],
   "biometric-prompt": ["biometric-prompt"],
@@ -82,7 +81,6 @@ const componentClassAliases = {
 };
 
 const componentTokenAliases = {
-  "floating-action-button": ["floating-action-button"],
   "progress-indicator": ["progress-indicator"],
   "radio-button": ["radio-button"],
   "select": ["select"],

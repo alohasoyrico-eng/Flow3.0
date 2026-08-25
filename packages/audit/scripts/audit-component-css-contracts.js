@@ -31,7 +31,6 @@ const { checkDatePickerCssContract } = require("./audit-date-picker-css-contract
 const { checkEmptyStateCssContract } = require("./audit-empty-state-css-contract.js");
 const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract.js");
 const { checkFieldCssContract } = require("./audit-field-css-contract.js");
-const { checkFloatingActionButtonCssContract } = require("./audit-floating-action-button-css-contract.js");
 const { checkIconButtonCssContract } = require("./audit-icon-button-css-contract.js");
 const { checkInlineValidationCssContract } = require("./audit-inline-validation-css-contract.js");
 const { checkKpiTileCssContract } = require("./audit-kpi-tile-css-contract.js");
@@ -64,7 +63,6 @@ const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js"
 const { familyCssContracts } = componentCssGovernance();
 
 const directCssContractRoots = {
-  "floating-action-button": "fab",
   "progress-indicator": "progress",
   "radio-button": "radio",
   select: "select-control",
@@ -223,7 +221,6 @@ function checkComponentCssContracts(context) {
   checkEmptyStateCssContract(context);
   checkErrorPanelCssContract(context);
   checkFieldCssContract(context);
-  checkFloatingActionButtonCssContract(context);
   checkIconButtonCssContract(context);
   checkInlineValidationCssContract(context);
   checkKpiTileCssContract(context);

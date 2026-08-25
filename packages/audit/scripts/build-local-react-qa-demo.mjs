@@ -10,7 +10,7 @@ const workspaceRoot = path.resolve(repoRoot, "../..");
 const localQaRoot = path.join(workspaceRoot, "local-visual-snapshots/Flow3-component-qa");
 const runtimeHtml = "react-runtime.html";
 
-const requestedComponent = process.argv.find((arg) => arg.startsWith("--component="))?.split("=")[1] ?? "floating-action-button";
+const requestedComponent = process.argv.find((arg) => arg.startsWith("--component="))?.split("=")[1] ?? "button";
 
 const components = {
   button: {
@@ -90,63 +90,19 @@ const components = {
           )
         )`,
   },
-  "floating-action-button": {
-    title: "FloatingActionButton",
-    directory: "floating-action-button-2026-08-20",
-    module: "FloatingActionButton.js",
-    exportName: "FloatingActionButton",
-    buildId: "fab-depth-dark-runtime-1",
-    demoBody: `e("section", { className: "audit-section" },
-          e("h2", null, "Tratamientos FAB"),
-          e("div", { className: "audit-row" },
-            action({ label: "Create route primary", icon: "add", variant: "primary" }),
-            action({ label: "Create route extended", icon: "add", variant: "extended" }),
-            action({ label: "Create route mini", icon: "add", variant: "mini" })
-          )
-        ),
-        e("section", { className: "audit-section" },
-          e("h2", null, "Intents"),
-          e("div", { className: "audit-row" },
-            action({ label: "Danger action", icon: "delete", intent: "danger" }),
-            action({ label: "Warning action", icon: "warning", intent: "warning" }),
-            action({ label: "Extended danger action", icon: "delete", variant: "extended", intent: "danger" }),
-            action({ label: "Mini warning action", icon: "warning", variant: "mini", intent: "warning" })
-          )
-        ),
-        e("section", { className: "audit-section" },
-          e("h2", null, "Densidades"),
-          e("div", { className: "audit-row" },
-            action({ label: "Small create", icon: "add", density: "sm" }),
-            action({ label: "Medium create", icon: "add", density: "md" }),
-            action({ label: "Large create", icon: "add", density: "lg" })
-          )
-        ),
-        e("section", { className: "audit-section" },
-          e("h2", null, "Estados"),
-          e("div", { className: "audit-row" },
-            action({ label: "Hover state", icon: "touch_app", state: "hover" }),
-            action({ label: "Focus state", icon: "center_focus_strong", state: "focus" }),
-            action({ label: "Pressed state", icon: "ads_click", state: "pressed" }),
-            action({ label: "Saving", icon: "save", loading: true }),
-            e(Component, { label: "Disabled create", icon: "block", disabled: true, onClick: onAction("Disabled create") })
-          )
-        ),
-        e("section", { className: "audit-section" },
-          e("h2", null, "Compatibilidad extended prop"),
-          e("div", { className: "audit-row" },
-            action({ label: "Create route", icon: "add", extended: true }),
-            action({ label: "Delete route", icon: "delete", extended: true, intent: "danger" }),
-            action({ label: "Review warning", icon: "warning", extended: true, intent: "warning" })
-          )
-        )`,
-  },
   card: {
     title: "Card",
     directory: "card-2026-08-20",
     module: "Card.js",
     exportName: "Card",
-    buildId: "card-depth-dark-runtime-1",
+    buildId: "card-pressed-surface-runtime-1",
     indexImports: ["Table", "EmptyState", "Skeleton"],
+    referenceAssets: [
+      {
+        source: path.join(workspaceRoot, "../../Desktop/Ilustracion Flow/System vision gallery/Escenario 1.jpeg"),
+        target: "media-card-reference.jpeg",
+      },
+    ],
     eventPropName: "onAction",
     actionHandler: "(key, action, event) => onAction(key || props.actionKey || props.title)(event || { type: 'action' })",
     supportPreamble: `const baseCard = {
@@ -156,7 +112,7 @@ const components = {
       status: "Stable",
       icon: "credit_card",
     };
-    const mediaAsset = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 160'%3E%3Crect width='320' height='160' fill='%230060df'/%3E%3Ccircle cx='250' cy='52' r='58' fill='%23fbbf24'/%3E%3C/svg%3E";`,
+    const mediaAsset = "./media-card-reference.jpeg";`,
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Superficie contenedora"),
           e("div", { className: "audit-grid" },
@@ -195,7 +151,7 @@ const components = {
             e("div", { className: "audit-card" }, action({
               title: "Media custom body",
               media: mediaAsset,
-              mediaAlt: "Abstract card media",
+              mediaAlt: "EV charging reference image",
               composition: "media",
               children: e("p", null, "Custom media body keeps image and governed body frame.")
             }))
@@ -215,7 +171,7 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ ...baseCard, title: "Standard", composition: "standard" })),
             e("div", { className: "audit-card" }, action({ title: "Tarjeta ****4102", icon: "credit_card", composition: "compact", status: "Activa" })),
-            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Media", composition: "media", media: mediaAsset, mediaAlt: "Abstract card media" }))
+            e("div", { className: "audit-card" }, action({ ...baseCard, title: "Media", composition: "media", media: mediaAsset, mediaAlt: "EV charging reference image" }))
           )
         ),
         e("section", { className: "audit-section" },
@@ -617,6 +573,7 @@ const components = {
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.label)(event)",
     actionSelector: "button[data-runtime-action]",
+    statefulValueProp: "value",
     supportPreamble: `const options = [
       { label: "Priority", value: "priority", meta: "Ops" },
       { label: "Driver", value: "driver", meta: "People", disabled: true },
@@ -657,6 +614,7 @@ const components = {
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + (meta.label || value))(event)",
     actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "value",
     supportPreamble: `const options = [
       { label: "Ana Sosa", value: "ana", meta: "Driver" },
       { label: "Luis Perez", value: "luis", meta: "Dispatch" },
@@ -698,6 +656,7 @@ const components = {
     eventPropName: "onValueChange",
     actionHandler: "(countryCode, country, event) => onAction(props.label + '=' + countryCode)(event)",
     actionSelector: "button[data-runtime-action]",
+    statefulValueProp: "country",
     supportPreamble: `const countries = [
       { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
       { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
@@ -1054,7 +1013,7 @@ const components = {
 };
 
 const requestedComponents = requestedComponent === "all-actions"
-  ? ["button", "icon-button", "floating-action-button"]
+  ? ["button", "icon-button"]
   : requestedComponent === "all-fields"
     ? ["input", "select", "combobox"]
   : requestedComponent === "all-p0-forms"
@@ -1103,6 +1062,18 @@ function copyMaterialSymbolsAssets(outDir) {
   }
 }
 
+function copyReferenceAssets(config, outDir) {
+  if (!Array.isArray(config.referenceAssets) || !config.referenceAssets.length) return;
+
+  for (const asset of config.referenceAssets) {
+    if (!fs.existsSync(asset.source)) {
+      console.error(`Missing reference asset: ${asset.source}`);
+      process.exit(1);
+    }
+    fs.copyFileSync(asset.source, path.join(outDir, asset.target));
+  }
+}
+
 const outputs = [];
 
 for (const component of requestedComponents) {
@@ -1111,11 +1082,12 @@ const outDir = path.join(localQaRoot, config.directory, "interactive");
 fs.mkdirSync(outDir, { recursive: true });
 copyFlagAssets(config, outDir);
 copyMaterialSymbolsAssets(outDir);
+copyReferenceAssets(config, outDir);
 
 const relToRepo = path.relative(outDir, repoRoot).replaceAll(path.sep, "/");
 
 const indexImportLine = Array.isArray(config.indexImports) && config.indexImports.length
-  ? `\n    import { ${config.indexImports.join(", ")} } from "${relToRepo}/packages/react/dist/index.js";`
+  ? `\n    import { ${config.indexImports.join(", ")} } from "${relToRepo}/packages/react/dist/index.js?v=${config.buildId}";`
   : "";
 
 const html = `<!doctype html>
@@ -1201,8 +1173,8 @@ const html = `<!doctype html>
       "imports": {
         "react": "${relToRepo}/packages/audit/local-react-qa/react-shim.mjs",
         "react-dom/client": "${relToRepo}/packages/audit/local-react-qa/react-dom-client-shim.mjs",
-        "#flow/components": "${relToRepo}/packages/components/src/index.js",
-        "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js"
+        "#flow/components": "${relToRepo}/packages/components/src/index.js?v=${config.buildId}",
+        "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js?v=${config.buildId}"
       }
     }
   </script>
@@ -1212,7 +1184,7 @@ const html = `<!doctype html>
   <script type="module">
     import React from "react";
     import { createRoot } from "react-dom/client";
-    import { ${config.exportName} as Component } from "${relToRepo}/packages/react/dist/${config.module}";${indexImportLine}
+    import { ${config.exportName} as Component } from "${relToRepo}/packages/react/dist/${config.module}?v=${config.buildId}";${indexImportLine}
 
     const e = React.createElement;
     const log = [];
@@ -1222,11 +1194,39 @@ const html = `<!doctype html>
     };
     ${config.supportPreamble ?? ""}
 
-    const action = (props) => e(Component, {
-      ...props,
-      "data-runtime-action": "true",
-      ${config.eventPropName ?? "onClick"}: ${config.actionHandler ?? "onAction(props.label)"},
-    });
+    const action = (props) => e(RuntimeAction, { props });
+
+    function RuntimeAction({ props }) {
+      const statefulValueProp = ${JSON.stringify(config.statefulValueProp ?? "")};
+      const shouldRuntimeOpen = props.state === "open" || props.open === true;
+      const [runtimeOpen, setRuntimeOpen] = React.useState(shouldRuntimeOpen);
+      const [runtimeValue, setRuntimeValue] = React.useState(statefulValueProp ? props[statefulValueProp] : undefined);
+      const runtimeProps = {
+        ...props,
+        "data-runtime-action": "true",
+      };
+      const runtimeActionHandler = ${config.actionHandler ?? "onAction(props.label)"};
+
+      if (statefulValueProp) {
+        runtimeProps[statefulValueProp] = runtimeValue;
+      }
+
+      if (shouldRuntimeOpen) {
+        Object.assign(runtimeProps, { open: runtimeOpen });
+        runtimeProps.onOpenChange = (open) => {
+          setRuntimeOpen(open);
+        };
+      }
+
+      runtimeProps.${config.eventPropName ?? "onClick"} = (...args) => {
+        if (statefulValueProp && args[0] !== undefined) {
+          setRuntimeValue(args[0]);
+        }
+        return runtimeActionHandler(...args);
+      };
+
+      return e(Component, runtimeProps);
+    }
 
     function Demo() {
       const [theme, setTheme] = React.useState("light");

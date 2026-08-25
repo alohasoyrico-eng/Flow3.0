@@ -26,6 +26,7 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const loadingBlock = bodyFor(blocks, selectorKey, ".card__loading");
   const actionsBlock = bodyFor(blocks, selectorKey, ".card__actions");
   const headerActionsBlock = bodyFor(blocks, selectorKey, ".card__actions[data-placement=\"header\"]");
+  const pressedBlock = bodyFor(blocks, selectorKey, ".card[data-interactive=\"true\"]:active");
   const minimalIconBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"minimal\"] .card__icon");
   const minimalDetailBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"minimal\"] .card__detail");
   const elevatedDetailBlock = bodyFor(blocks, selectorKey, ".card[data-variant=\"elevated\"] .card__detail");
@@ -72,11 +73,22 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (localMediaSize) {
     add("errors", packageCssFile, lineNumber(text, localMediaSize.index), "Card media block size must flow through shared frame/content roles instead of local control-size math.");
   }
+  const localCardFrameAlias = /--comp-card-(?:padding|gap)-(?:sm|md|lg):\s*(?:var\(--component-space-|calc\([^;]*--component-space-)/.exec(text);
+  if (localCardFrameAlias) {
+    add("errors", packageCssFile, lineNumber(text, localCardFrameAlias.index), "Card density padding/gap must resolve through Surface/Frame aliases, not direct component-space aliases.");
+  }
+  const localCardCompositionFrame = /--comp-card-(?:compact-padding|compact-gap|media-padding|media-gap|stats-padding|stats-gap|minimal-gap|elevated-gap):\s*(?:var\(--component-space-|calc\([^;]*--component-space-)/.exec(text);
+  if (localCardCompositionFrame) {
+    add("errors", packageCssFile, lineNumber(text, localCardCompositionFrame.index), "Card composition padding/gap must resolve through Surface/Frame aliases, not direct component-space aliases.");
+  }
   if (minimalHeaderBlock?.body.includes("display: contents")) {
     add("errors", packageCssFile, lineNumber(text, minimalHeaderBlock.index), "Card minimal must preserve component anatomy; do not use display: contents for card header/heading.");
   }
   if (selectedBlock?.body.includes("border-width")) {
     add("errors", packageCssFile, lineNumber(text, selectedBlock.index), "Card selected state must not change border width because it causes layout shift.");
+  }
+  if (text.includes("--comp-card-selected-indicator: inset")) {
+    add("errors", packageCssFile, lineNumber(text, text.indexOf("--comp-card-selected-indicator: inset")), "Card selected/pressed affordance must not use a side indicator; use the shared pressed surface tokens.");
   }
 
   requireIncludes({
@@ -95,6 +107,7 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-card-current-loading-min-block-size: calc(var(--comp-card-current-icon-size) + var(--comp-card-current-loading-gap))",
       "--comp-card-current-actions-gap: var(--comp-card-actions-gap)",
       "background: var(--comp-card-bg)",
+      "border: var(--component-surface-frame-border-width) solid var(--comp-card-border)",
       "border-radius: var(--comp-card-radius)",
       "box-sizing: border-box",
       "gap: var(--comp-card-current-gap)",
@@ -127,14 +140,14 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   }
 
   const elementContracts = [
-    [headerBlock, ["gap: var(--comp-card-current-header-gap)"], "Card header gap must consume the component-scoped current alias."],
-    [headingBlock, ["gap: var(--comp-card-current-heading-gap)"], "Card heading gap must consume the component-scoped current alias."],
+    [headerBlock, ["align-items: center", "gap: var(--comp-card-current-header-gap)"], "Card header row must center-align its icon, title, status, and header actions while consuming the component-scoped current gap alias."],
+    [headingBlock, ["align-items: center", "gap: var(--comp-card-current-heading-gap)"], "Card heading row must center-align icon and title content while consuming the component-scoped current gap alias."],
     [iconBlock, ["border-radius: var(--comp-card-icon-radius)", "font-size: var(--comp-card-current-icon-font-size)", "inline-size: var(--comp-card-current-icon-size)"], "Card icon frame must consume component Card aliases."],
-    [statusBlock, ["border-radius: var(--comp-card-current-status-radius)", "font-size: var(--comp-card-current-status-size)", "padding: var(--comp-card-current-status-padding-block) var(--comp-card-current-status-padding-inline)"], "Card status frame and voice must consume component-scoped current aliases."],
+    [statusBlock, ["align-self: center", "border-radius: var(--comp-card-current-status-radius)", "font-size: var(--comp-card-current-status-size)", "padding: var(--comp-card-current-status-padding-block) var(--comp-card-current-status-padding-inline)"], "Card status frame, placement, and voice must consume component-scoped current aliases."],
     [detailBlock, ["color: var(--comp-card-current-detail-fg)", "font-size: var(--comp-card-detail-size)", "line-height: var(--comp-card-detail-line-height)"], "Card detail voice and color must consume component Card aliases."],
     [loadingBlock, ["gap: var(--comp-card-current-loading-gap)", "min-block-size: var(--comp-card-current-loading-min-block-size)"], "Card loading rhythm must consume component-scoped current aliases."],
     [actionsBlock, ["gap: var(--comp-card-current-actions-gap)", "justify-content: var(--comp-card-current-actions-justify)"], "Card actions layout must consume component-scoped current aliases."],
-    [headerActionsBlock, ["justify-content: flex-end"], "Card header actions must have a governed placement rule."],
+    [headerActionsBlock, ["align-self: center", "justify-content: flex-end"], "Card header actions must have a governed placement rule."],
     [minimalIconBlock, ["font-size: var(--comp-card-minimal-icon-size)", "inline-size: var(--comp-card-minimal-icon-size)"], "Card minimal icon sizing must consume component Card aliases."],
     [minimalHeaderBlock, ["display: flex"], "Card minimal header/heading must preserve real flex anatomy."],
     [minimalDetailBlock, ["font-size: var(--comp-card-minimal-detail-size)"], "Card minimal detail voice must consume a component Card alias."],
@@ -149,10 +162,20 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
   for (const [snippet, message] of [
     ["--comp-card-surface-bg: var(--component-color-surface)", "Card surface background must map through a Surface/Foundation alias."],
     ["--component-radius-card: var(--sys-radius-lg)", "Card radius must expose a component alias over the foundation card radius."],
+    ["--component-surface-frame-padding-md: var(--component-density-card-padding)", "Card surface frame medium padding must route through the card density foundation."],
+    ["--component-surface-frame-radius-card: var(--component-radius-card)", "Card surface frame radius must route through the component Card radius alias."],
+    ["--component-surface-frame-border-width: var(--component-frame-border-thin)", "Card surface frame border width must route through the frame border foundation."],
+    ["--comp-card-padding-md: var(--component-surface-frame-padding-md)", "Card medium padding must consume the Surface/Frame padding alias, not generic spacing."],
+    ["--comp-card-gap-md: var(--component-surface-frame-gap-md)", "Card medium gap must consume the Surface/Frame gap alias, not generic spacing."],
     ["--component-depth-card-hover: var(--sys-elevation-floating)", "Card hover depth must use the floating elevation alias rather than the heavier overlay/popover depth."],
-    ["--comp-card-surface-radius: var(--component-radius-card)", "Card surface radius must map through the component card radius alias."],
+    ["--comp-card-surface-radius: var(--component-surface-frame-radius-card)", "Card surface radius must map through the Surface/Frame card radius alias."],
     ["--comp-card-bg: var(--comp-card-surface-bg)", "Card background must consume the mapped surface alias."],
     ["--comp-card-radius: var(--comp-card-surface-radius)", "Card radius must consume the mapped surface alias."],
+    ["--comp-card-surface-bg-pressed: var(--component-tone-action-surface-pressed)", "Card pressed surface background must map through the shared action pressed surface tone."],
+    ["--comp-card-bg-selected: var(--comp-card-bg-pressed)", "Card selected state must consume the shared Card pressed background alias."],
+    ["--comp-card-border-selected: var(--comp-card-border-pressed)", "Card selected state must consume the shared Card pressed border alias."],
+    ["--comp-card-shadow-selected: var(--comp-card-shadow-pressed)", "Card selected state must consume the shared Card pressed shadow alias."],
+    ["--comp-card-press-transform: var(--component-transform-press)", "Card pressed state must consume the shared press motion transform."],
     ["--comp-card-title-size-lg: var(--component-font-size-title-md)", "Card large density title must use the next title voice instead of resolving to the same size as medium."],
     ["--comp-card-ghost-fg: var(--component-color-text)", "Card ghost foreground must use text color, not surface color, so light/dark contrast stays readable."],
     ["--comp-card-shadow-error: var(--component-depth-error-ring), var(--comp-card-shadow-rest)", "Card error state must use an error ring plus rest shadow, not modal/overlay depth."],
@@ -163,12 +186,16 @@ function checkCardCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: selectedBlock,
     text,
     packageCssFile,
-    snippets: ["box-shadow: var(--comp-card-shadow-selected)"],
-    message: "Card selected state must use the selected shadow/indicator alias for non-color-only selection affordance.",
+    snippets: ["background: var(--comp-card-bg-selected)", "box-shadow: var(--comp-card-shadow-selected)", "transform: var(--comp-card-press-transform)"],
+    message: "Card selected state must read as a pressed surface with governed background, depth, and motion aliases.",
   });
-  if (!text.includes("--comp-card-selected-indicator: inset var(--comp-card-selected-indicator-width)")) {
-    add("errors", packageCssFile, 1, "Card selected affordance must include an inset structural indicator and not rely on color alone.");
-  }
+  requireIncludes({
+    block: pressedBlock,
+    text,
+    packageCssFile,
+    snippets: ["background: var(--comp-card-bg-pressed)", "border-color: var(--comp-card-border-pressed)", "box-shadow: var(--comp-card-shadow-pressed)", "transform: var(--comp-card-press-transform)"],
+    message: "Interactive Card active state must consume the same pressed surface aliases as selected Card.",
+  });
 }
 
 module.exports = { checkCardCssContract };

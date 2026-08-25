@@ -27,6 +27,14 @@
   --component-frame-space-none: var(--sys-frame-space-none);
   --component-frame-space-micro: var(--sys-frame-space-micro);
   --component-frame-width-control: var(--sys-frame-width-control);
+  --component-surface-frame-padding-sm: var(--component-frame-gap-component);
+  --component-surface-frame-padding-md: var(--component-density-card-padding);
+  --component-surface-frame-padding-lg: var(--component-frame-gap-component-lg);
+  --component-surface-frame-gap-sm: var(--component-frame-gap-element);
+  --component-surface-frame-gap-md: var(--component-frame-gap-component);
+  --component-surface-frame-gap-lg: var(--component-frame-gap-component-lg);
+  --component-surface-frame-radius-card: var(--component-radius-card);
+  --component-surface-frame-border-width: var(--component-frame-border-thin);
   --component-display-block: block;
   --component-display-flex: flex;
   --component-display-grid: grid;
@@ -308,8 +316,8 @@
   --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 12%, var(--component-color-surface));
   --component-option-row-selected-color: var(--component-color-text);
   --component-option-row-selected-weight: var(--component-font-weight-semibold);
-  --component-option-row-disabled-bg: color-mix(in srgb, var(--component-color-text-muted) 8%, transparent);
-  --component-option-row-disabled-color: var(--component-color-text-muted);
+  --component-option-row-disabled-bg: var(--component-surface-transparent);
+  --component-option-row-disabled-color: var(--component-disabled-text);
   --component-option-row-disabled-opacity: var(--component-opacity-visible);
   --component-option-row-check-size-sm: var(--component-density-icon-size-sm);
   --component-option-row-check-size-md: var(--component-density-icon-size-md);
@@ -1016,93 +1024,56 @@
   --comp-list-disabled-opacity: var(--component-opacity-disabled);
   --comp-list-motion-duration: var(--component-duration-snappy);
   --comp-list-motion-ease: var(--component-ease-state);
-  --component-fab-size-sm: var(--component-inline-size-lg);
-  --component-fab-size-md: calc(var(--component-inline-size-lg) + var(--sys-space-sm));
-  --component-fab-size-lg: var(--sys-space-16);
-  --comp-floating-action-button-size-sm: var(--component-fab-size-sm);
-  --comp-floating-action-button-size-md: var(--component-fab-size-md);
-  --comp-floating-action-button-size-lg: var(--component-fab-size-lg);
-  --comp-floating-action-button-size: var(--component-density-control-height);
-  --comp-floating-action-button-mini-size: var(--comp-floating-action-button-size-sm);
-  --comp-floating-action-button-icon-size-sm: var(--component-density-icon-size-sm);
-  --comp-floating-action-button-icon-size-md: var(--component-density-icon-size-md);
-  --comp-floating-action-button-icon-size-lg: var(--component-density-icon-size-lg);
-  --comp-floating-action-button-icon-size: var(--component-density-icon-size-md);
-  --comp-floating-action-button-padding-x-sm: var(--component-space-md);
-  --comp-floating-action-button-padding-x-md: var(--component-space-lg);
-  --comp-floating-action-button-padding-x-lg: var(--component-space-xl);
-  --comp-floating-action-button-padding-x: var(--component-density-control-padding-x);
-  --comp-floating-action-button-gap: var(--component-space-sm);
-  --comp-floating-action-button-radius: var(--component-radius-pill);
-  --comp-floating-action-button-bg: var(--component-action-bg-primary);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-primary-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-primary-pressed);
-  --comp-floating-action-button-border-color: var(--component-action-border-ghost);
-  --comp-floating-action-button-text: var(--component-action-fg-primary);
-  --comp-floating-action-button-shadow: var(--component-depth-raised);
-  --comp-floating-action-button-shadow-hover: var(--component-depth-raised-strong);
-  --comp-floating-action-button-font-weight: var(--component-font-weight-extrabold);
-  --comp-floating-action-button-motion-duration: var(--component-duration-state);
-  --comp-floating-action-button-motion-ease: var(--component-ease-state);
-  --comp-floating-action-button-motion-enter: var(--component-ease-enter);
-  --comp-floating-action-button-hover-transform: var(--component-transform-lift-hover);
-  --comp-floating-action-button-press-transform: var(--component-transform-rest-quiet);
-  --comp-floating-action-button-focus-width: var(--component-focus-ring-width);
-  --comp-floating-action-button-focus-color: var(--component-color-focus);
-  --comp-floating-action-button-focus-offset: var(--component-focus-ring-offset);
-  --comp-floating-action-button-disabled-bg: var(--component-disabled-bg);
-  --comp-floating-action-button-disabled-border: var(--component-disabled-border);
-  --comp-floating-action-button-disabled-text: var(--component-disabled-text);
-  --comp-floating-action-button-disabled-opacity: var(--component-disabled-readable-opacity);
-  --comp-floating-action-button-disabled-shadow: var(--component-depth-none);
   --component-error-panel-icon-size: var(--component-list-icon-box-size);
   --component-error-panel-icon-size-sm: var(--component-list-icon-box-size-sm);
   --component-error-panel-icon-size-lg: var(--component-list-icon-box-size-lg);
   --component-error-panel-empty-icon-size: var(--component-empty-state-icon-size-md);
   --component-card-icon-size-compact: var(--component-field-icon-action-size-sm);
   --component-card-icon-size-md: var(--component-field-icon-action-size-lg);
-  --comp-card-padding-sm: var(--component-space-lg);
-  --comp-card-padding-md: var(--component-space-xl);
-  --comp-card-padding-lg: calc(var(--component-space-xl) + var(--component-space-sm));
-  --comp-card-gap-sm: var(--component-space-sm);
-  --comp-card-gap-md: var(--component-space-md);
-  --comp-card-gap-lg: var(--component-space-lg);
-  --comp-card-compact-padding: var(--component-space-sm) var(--component-space-md);
-  --comp-card-compact-gap: var(--component-space-sm);
+  --comp-card-padding-sm: var(--component-surface-frame-padding-sm);
+  --comp-card-padding-md: var(--component-surface-frame-padding-md);
+  --comp-card-padding-lg: var(--component-surface-frame-padding-lg);
+  --comp-card-gap-sm: var(--component-surface-frame-gap-sm);
+  --comp-card-gap-md: var(--component-surface-frame-gap-md);
+  --comp-card-gap-lg: var(--component-surface-frame-gap-lg);
+  --comp-card-compact-padding: var(--component-surface-frame-gap-sm) var(--component-surface-frame-gap-md);
+  --comp-card-compact-gap: var(--component-surface-frame-gap-sm);
   --comp-card-compact-title-size: var(--component-font-size-label);
   --comp-card-compact-value-size: var(--component-font-size-body);
-  --comp-card-media-padding: var(--component-space-xl);
-  --comp-card-media-gap: var(--component-space-sm);
+  --comp-card-media-padding: var(--component-surface-frame-padding-md);
+  --comp-card-media-gap: var(--component-surface-frame-gap-sm);
   --comp-card-media-title-size: var(--component-font-size-body);
   --comp-card-media-detail-size: var(--component-font-size-small);
-  --comp-card-stats-padding: var(--component-space-lg);
-  --comp-card-stats-gap: var(--component-space-xs);
+  --comp-card-stats-padding: var(--component-surface-frame-padding-sm);
+  --comp-card-stats-gap: var(--component-frame-gap-element);
   --comp-card-stats-title-size: var(--component-font-size-caption);
   --comp-card-stats-value-size: var(--component-font-size-title-lg);
-  --comp-card-minimal-gap: calc(var(--component-space-xs) / 2) calc(var(--component-space-sm) + var(--component-border-width) * 2);
-  --comp-card-elevated-gap: var(--component-space-xs);
-  --comp-card-surface-radius: var(--component-radius-card);
+  --comp-card-minimal-gap: var(--component-frame-space-micro) calc(var(--component-surface-frame-gap-sm) + var(--component-surface-frame-border-width) * 2);
+  --comp-card-elevated-gap: var(--component-surface-frame-gap-sm);
+  --comp-card-surface-radius: var(--component-surface-frame-radius-card);
   --comp-card-surface-bg: var(--component-color-surface);
   --comp-card-surface-bg-muted: color-mix(in srgb, var(--component-color-surface) 72%, var(--component-color-bg));
-  --comp-card-surface-bg-selected: color-mix(in srgb, var(--component-color-action) 3%, var(--component-color-surface));
+  --comp-card-surface-bg-pressed: var(--component-tone-action-surface-pressed);
   --comp-card-surface-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
   --comp-card-radius: var(--comp-card-surface-radius);
   --comp-card-bg: var(--comp-card-surface-bg);
   --comp-card-bg-muted: var(--comp-card-surface-bg-muted);
-  --comp-card-bg-selected: var(--comp-card-surface-bg-selected);
+  --comp-card-bg-pressed: var(--comp-card-surface-bg-pressed);
+  --comp-card-bg-selected: var(--comp-card-bg-pressed);
   --comp-card-border: var(--comp-card-surface-border);
   --comp-card-border-hover: color-mix(in srgb, var(--component-color-action) 14%, var(--component-color-border));
-  --comp-card-border-selected: color-mix(in srgb, var(--component-color-action) 68%, var(--component-color-border));
+  --comp-card-border-pressed: var(--component-tone-action-subtle-border-pressed);
+  --comp-card-border-selected: var(--comp-card-border-pressed);
   --comp-card-border-error: color-mix(in srgb, var(--component-color-danger) 58%, var(--component-color-border));
   --comp-card-fg: var(--component-color-text);
   --comp-card-muted-fg: var(--component-color-text-muted);
   --comp-card-shadow-rest: var(--component-depth-card-rest);
   --comp-card-shadow-hover: var(--component-depth-card-hover);
-  --comp-card-selected-indicator-width: var(--component-focus-ring-width);
-  --comp-card-selected-indicator: inset var(--comp-card-selected-indicator-width) 0 0 var(--comp-card-border-selected);
-  --comp-card-shadow-selected: var(--comp-card-selected-indicator), var(--component-depth-card-hover);
+  --comp-card-shadow-pressed: var(--component-depth-card-rest);
+  --comp-card-shadow-selected: var(--comp-card-shadow-pressed);
   --comp-card-shadow-error: var(--component-depth-error-ring), var(--comp-card-shadow-rest);
   --comp-card-hover-transform: var(--component-transform-lift-hover);
+  --comp-card-press-transform: var(--component-transform-press);
   --comp-card-icon-size-sm: var(--component-card-icon-size-sm);
   --comp-card-icon-size-md: var(--component-card-icon-size-md);
   --comp-card-icon-size-lg: var(--component-card-icon-size-lg);
@@ -1113,9 +1084,9 @@
   --comp-card-title-size-sm: var(--component-font-size-label);
   --comp-card-title-size-md: var(--component-font-size-body);
   --comp-card-title-size-lg: var(--component-font-size-title-md);
-  --comp-card-value-size-sm: var(--component-font-size-title-sm);
-  --comp-card-value-size-md: var(--component-font-size-title-sm);
-  --comp-card-value-size-lg: var(--component-font-size-title-md);
+  --comp-card-value-size-sm: var(--component-font-size-title-md);
+  --comp-card-value-size-md: var(--component-font-size-data-lg);
+  --comp-card-value-size-lg: var(--component-font-size-display-sm);
   --comp-card-status-bg: color-mix(in srgb, var(--component-color-action) 9%, var(--component-color-surface));
   --comp-card-status-border: color-mix(in srgb, var(--component-color-action) 20%, var(--component-color-border));
   --comp-card-status-fg: var(--component-color-text);
@@ -1139,6 +1110,7 @@
   --comp-card-value-line-height: var(--component-line-height-compact);
   --comp-card-header-gap: var(--component-space-md);
   --comp-card-heading-gap: var(--component-space-sm);
+  --comp-card-content-gap: var(--component-space-xs);
   --comp-card-detail-fg: var(--comp-card-muted-fg);
   --comp-card-detail-size: var(--component-font-size-small);
   --comp-card-detail-line-height: var(--component-line-height-normal);
@@ -1441,7 +1413,6 @@
 .empty-state,
 .list,
 .kpi-tile,
-.fab,
 .breadcrumbs,
 .pagination,
 .audit-event,
@@ -1841,6 +1812,7 @@
 .movement-row__icon,
 .tabs__icon,
 .field__icon,
+.field-action__icon,
 .chip__icon,
 .tag__icon,
 .biometric-prompt__icon,
@@ -1850,7 +1822,6 @@
 .dialog__icon,
 .list__icon,
 .kpi-tile__icon,
-.fab__icon,
 .audit-event__icon,
 .segmented-control__icon {
   direction: ltr;
@@ -2373,7 +2344,10 @@
 .combobox {
   --comp-combobox-chevron-color: var(--component-color-text-muted);
   --comp-combobox-chevron-focus-color: var(--component-color-action);
+  --comp-combobox-chevron-family: var(--component-font-family-icon);
   --comp-combobox-chevron-size: calc(var(--component-font-size-title-md) + var(--component-frame-space-micro));
+  --comp-combobox-chevron-weight: var(--component-font-weight-regular);
+  --comp-combobox-chevron-line-height: var(--component-line-height-none);
   --comp-combobox-chevron-motion-duration: var(--component-duration-state);
   --comp-combobox-chevron-motion-ease: var(--component-ease-press);
   --comp-combobox-overlay-motion-duration: var(--component-duration-state);
@@ -2426,7 +2400,7 @@
   --comp-combobox-option-selected-bg: var(--component-option-row-selected-bg);
   --comp-combobox-option-selected-color: var(--component-option-row-selected-color);
   --comp-combobox-option-selected-weight: var(--component-option-row-selected-weight);
-  --comp-combobox-option-check-family: "Material Symbols Rounded";
+  --comp-combobox-option-check-family: var(--component-font-family-icon);
   --comp-combobox-option-check-size-sm: var(--component-option-row-check-size-sm);
   --comp-combobox-option-check-size-md: var(--component-option-row-check-size-md);
   --comp-combobox-option-check-size-lg: var(--component-option-row-check-size-lg);
@@ -2434,7 +2408,11 @@
   --comp-combobox-option-check-weight: var(--component-icon-weight-semibold);
   --comp-combobox-option-check-hidden-opacity: var(--component-opacity-hidden);
   --comp-combobox-option-check-visible-opacity: var(--component-opacity-visible);
+  --comp-select-chevron-color: var(--comp-combobox-chevron-color);
+  --comp-select-chevron-family: var(--comp-combobox-chevron-family);
   --comp-select-chevron-size: var(--comp-combobox-chevron-size);
+  --comp-select-chevron-weight: var(--comp-combobox-chevron-weight);
+  --comp-select-chevron-line-height: var(--comp-combobox-chevron-line-height);
   --comp-select-chevron-motion-duration: var(--comp-combobox-chevron-motion-duration);
   --comp-select-chevron-motion-ease: var(--comp-combobox-chevron-motion-ease);
   --comp-select-overlay-motion-duration: var(--comp-combobox-overlay-motion-duration);
@@ -2460,6 +2438,15 @@
 
 .combobox__chevron {
   color: var(--comp-combobox-chevron-color);
+  flex: 0 0 auto;
+  font-family: var(--comp-combobox-chevron-family);
+  font-size: var(--comp-combobox-chevron-size);
+  font-weight: var(--comp-combobox-chevron-weight);
+  line-height: var(--comp-combobox-chevron-line-height);
+  transform-origin: center;
+  transition:
+    color var(--component-duration-state) var(--component-ease-state),
+    transform var(--comp-combobox-chevron-motion-duration) var(--comp-combobox-chevron-motion-ease);
 }
 
 .combobox__clear:disabled {
@@ -2755,6 +2742,10 @@
 .field-action:disabled {
   cursor: var(--comp-input-action-disabled-cursor);
   opacity: var(--component-opacity-disabled);
+}
+
+.field-action__icon {
+  font-size: var(--comp-field-icon-size);
 }
 
 .field-input,
@@ -6101,131 +6092,22 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   margin-block-start: var(--component-pattern-kpi-card-action-gap);
 }
 
-.fab {
-  --comp-floating-action-button-align: var(--component-align-center);
-  --comp-floating-action-button-size: var(--comp-floating-action-button-size-md);
-  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-md);
-  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-md);
-  --comp-floating-action-button-border: var(--component-border-none);
-  --comp-floating-action-button-cursor: var(--component-cursor-pointer);
-  --comp-floating-action-button-display: var(--component-display-inline-flex);
-  --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
-  --comp-floating-action-button-justify: var(--component-justify-center);
-  --comp-floating-action-button-transition: background-color var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), box-shadow var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-ease), transform var(--comp-floating-action-button-motion-duration) var(--comp-floating-action-button-motion-enter);
-  --comp-floating-action-button-active-transform: var(--component-transform-rest-quiet);
-  --comp-floating-action-button-collapsed-padding-x: var(--component-frame-space-none);
-  --comp-floating-action-button-disabled-cursor: var(--component-cursor-not-allowed);
-  align-items: var(--comp-floating-action-button-align);
-  background: var(--comp-floating-action-button-bg);
-  border: var(--comp-floating-action-button-border);
-  border-color: var(--comp-floating-action-button-border-color);
-  border-radius: var(--comp-floating-action-button-radius);
-  block-size: var(--comp-floating-action-button-size);
-  box-sizing: border-box;
-  box-shadow: var(--comp-floating-action-button-shadow);
-  color: var(--comp-floating-action-button-text);
-  cursor: var(--comp-floating-action-button-cursor);
-  display: var(--comp-floating-action-button-display);
-  font-weight: var(--comp-floating-action-button-font-weight);
-  gap: var(--comp-floating-action-button-gap);
-  inline-size: var(--comp-floating-action-button-inline-size);
-  justify-content: var(--comp-floating-action-button-justify);
-  min-block-size: var(--comp-floating-action-button-size);
-  min-inline-size: var(--comp-floating-action-button-size);
-  padding: 0 var(--comp-floating-action-button-padding-x);
-  transition: var(--comp-floating-action-button-transition);
-}
 
-.fab[data-density="sm"] {
-  --comp-floating-action-button-size: var(--comp-floating-action-button-size-sm);
-  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
-  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-sm);
-}
 
-.fab[data-density="lg"] {
-  --comp-floating-action-button-size: var(--comp-floating-action-button-size-lg);
-  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-lg);
-  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
-}
 
-.fab[data-variant="extended"] {
-  --comp-floating-action-button-inline-size: var(--component-inline-size-fit-content);
-  --comp-floating-action-button-padding-x: var(--comp-floating-action-button-padding-x-lg);
-  --comp-floating-action-button-shadow: var(--component-depth-raised-strong);
-}
 
-.fab[data-variant="mini"] {
-  --comp-floating-action-button-size: var(--comp-floating-action-button-mini-size);
-  --comp-floating-action-button-icon-size: var(--comp-floating-action-button-icon-size-sm);
-  --comp-floating-action-button-padding-x: var(--component-frame-space-none);
-  --comp-floating-action-button-shadow: var(--component-depth-raised-soft);
-}
 
-.fab[data-intent="danger"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-danger);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-danger-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-danger-pressed);
-  --comp-floating-action-button-text: var(--component-action-fg-danger);
-}
 
-.fab[data-intent="warning"] {
-  --comp-floating-action-button-bg: var(--component-action-bg-warning);
-  --comp-floating-action-button-bg-hover: var(--component-action-bg-warning-hover);
-  --comp-floating-action-button-bg-pressed: var(--component-action-bg-warning-pressed);
-  --comp-floating-action-button-text: var(--component-action-fg-warning);
-}
 
-.fab:hover:not(:disabled) {
-  background: var(--comp-floating-action-button-bg-hover);
-  box-shadow: var(--comp-floating-action-button-shadow-hover);
-  transform: var(--comp-floating-action-button-hover-transform);
-}
 
-.fab:active:not(:disabled) {
-  background: var(--comp-floating-action-button-bg-pressed);
-  transform: var(--comp-floating-action-button-active-transform);
-}
 
-.fab[data-state="hover"]:not(:disabled) {
-  box-shadow: var(--comp-floating-action-button-shadow-hover);
-  transform: var(--comp-floating-action-button-hover-transform);
-}
 
-.fab[data-state="pressed"]:not(:disabled) {
-  background: var(--comp-floating-action-button-bg-pressed);
-  transform: var(--comp-floating-action-button-press-transform);
-}
 
-.fab[data-extended="false"] {
-  padding: 0 var(--comp-floating-action-button-collapsed-padding-x);
-}
 
-.fab__icon {
-  font-size: var(--comp-floating-action-button-icon-size);
-}
 
-.fab:focus-visible {
-  outline: var(--comp-floating-action-button-focus-width) solid var(--comp-floating-action-button-focus-color);
-  outline-offset: var(--comp-floating-action-button-focus-offset);
-}
 
-.fab[data-state="focus"] {
-  outline: var(--comp-floating-action-button-focus-width) solid var(--comp-floating-action-button-focus-color);
-  outline-offset: var(--comp-floating-action-button-focus-offset);
-}
 
-.fab:disabled:not([data-state="loading"]) {
-  background: var(--comp-floating-action-button-disabled-bg);
-  border: var(--component-border-width) solid var(--comp-floating-action-button-disabled-border);
-  box-shadow: var(--comp-floating-action-button-disabled-shadow);
-  color: var(--comp-floating-action-button-disabled-text);
-  cursor: var(--comp-floating-action-button-disabled-cursor);
-  opacity: var(--comp-floating-action-button-disabled-opacity);
-}
 
-.fab[data-state="loading"] {
-  cursor: var(--component-loading-busy-cursor);
-}
 
 .breadcrumbs {
   --comp-breadcrumbs-list-align: var(--component-align-center);
@@ -6896,8 +6778,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-card-current-loading-min-block-size: calc(var(--comp-card-current-icon-size) + var(--comp-card-current-loading-gap));
   --comp-card-current-actions-gap: var(--comp-card-actions-gap);
   --comp-card-current-actions-justify: var(--comp-card-actions-justify);
+  --comp-card-current-content-offset: calc(var(--comp-card-current-icon-size) + var(--comp-card-current-heading-gap));
   background: var(--comp-card-bg);
-  border: var(--component-border-width) solid var(--comp-card-border);
+  border: var(--component-surface-frame-border-width) solid var(--comp-card-border);
   border-radius: var(--comp-card-radius);
   box-sizing: border-box;
   box-shadow: var(--comp-card-shadow-rest);
@@ -6989,7 +6872,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-composition="media"] .card__header,
 .card[data-composition="media"] .card__heading {
-  display: block;
+  display: grid;
 }
 
 .card[data-composition="media"] .card__title {
@@ -7011,7 +6894,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-composition="stats"] .card__header,
 .card[data-composition="stats"] .card__heading {
-  display: block;
+  display: grid;
 }
 
 .card[data-composition="stats"] .card__title {
@@ -7056,6 +6939,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .card[data-variant="minimal"] {
   --comp-card-current-gap: var(--comp-card-minimal-gap);
+  --comp-card-current-content-offset: calc(var(--comp-card-minimal-icon-size) + var(--comp-card-current-heading-gap));
   background: var(--component-surface-transparent);
   border-color: var(--component-border-transparent);
   box-shadow: none;
@@ -7145,6 +7029,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-card-bg-selected);
   border-color: var(--comp-card-border-selected);
   box-shadow: var(--comp-card-shadow-selected);
+  transform: var(--comp-card-press-transform);
+}
+
+.card[data-interactive="true"]:active {
+  background: var(--comp-card-bg-pressed);
+  border-color: var(--comp-card-border-pressed);
+  box-shadow: var(--comp-card-shadow-pressed);
+  transform: var(--comp-card-press-transform);
 }
 
 .card[data-state="error"] {
@@ -7159,18 +7051,30 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__header {
-  align-items: start;
-  display: flex;
+  align-items: center;
+  display: grid;
   gap: var(--comp-card-current-header-gap);
-  justify-content: space-between;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   min-inline-size: 0;
 }
 
 .card__heading {
   align-items: center;
-  display: flex;
+  display: grid;
   gap: var(--comp-card-current-heading-gap);
+  grid-template-columns: auto minmax(0, 1fr);
   min-inline-size: 0;
+}
+
+.card__heading-content,
+.card__content {
+  display: grid;
+  gap: var(--comp-card-content-gap);
+  min-inline-size: 0;
+}
+
+.card[data-has-icon="true"] .card__content {
+  padding-inline-start: var(--comp-card-current-content-offset);
 }
 
 .card__icon {
@@ -7200,12 +7104,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__status {
+  align-self: center;
   background: var(--comp-card-status-bg);
   border: var(--component-border-width) solid var(--comp-card-status-border);
   border-radius: var(--comp-card-current-status-radius);
   color: var(--comp-card-status-fg);
   font-size: var(--comp-card-current-status-size);
   font-weight: var(--comp-card-current-status-weight);
+  justify-self: end;
   padding: var(--comp-card-current-status-padding-block) var(--comp-card-current-status-padding-inline);
 }
 
@@ -7241,8 +7147,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .card__actions[data-placement="header"] {
-  flex: 0 0 auto;
+  align-self: center;
   justify-content: flex-end;
+  justify-self: end;
 }
 
 .dialog,
@@ -10976,6 +10883,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-listbox-bg: var(--component-listbox-bg);
   --comp-select-listbox-border: var(--component-listbox-border);
   --comp-select-listbox-inline: min(100%, calc(100vw - (var(--component-space-md) * 2)));
+  --comp-select-inline-listbox-inline: var(--component-inline-size-max-content);
+  --comp-select-inline-listbox-min-inline: var(--component-menu-panel-min-inline-md);
   --comp-select-listbox-offset: var(--component-listbox-offset);
   --comp-select-listbox-depth: var(--component-listbox-depth);
   --comp-select-listbox-max-block-size: var(--component-listbox-max-block-size);
@@ -11437,7 +11346,9 @@ body[data-contrast="quiet"] .route-summary__icon {
 .select-control--inline .select-control__listbox,
 .country-selector.select-control--inline .country-selector__listbox,
 .phone-input__country-listbox {
+  inline-size: var(--comp-select-inline-listbox-inline);
   inset-inline-end: auto;
+  min-inline-size: var(--comp-select-inline-listbox-min-inline);
 }
 
 .country-selector.select-control--inline .country-selector__listbox,

@@ -18,23 +18,6 @@
         "Axe structural accessibility excludes color-contrast in JSDOM."
       ]
     },
-    "floating-action-button": {
-      "status": "ready",
-      "evidenceFiles": [
-        "packages/react/test/p1-actions.test.mjs",
-        "packages/react/test/button-render.test.mjs"
-      ],
-      "coveredProductionEvidence": [
-        "render",
-        "props",
-        "a11y",
-        "callback",
-        "disabled/prevented"
-      ],
-      "notes": [
-        "Axe structural accessibility excludes color-contrast in JSDOM."
-      ]
-    },
     "icon-button": {
       "status": "ready",
       "evidenceFiles": [

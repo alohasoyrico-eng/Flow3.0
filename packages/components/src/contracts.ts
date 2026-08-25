@@ -1116,32 +1116,6 @@ export const componentContracts = {
       "Use dashboard patterns for metric grouping, formulas, thresholds, and cross-panel drill-down."
     ]
   },
-  floatingActionButton: {
-    factory: "@design-system/react/floating-action-button",
-    element: "button",
-    purpose: "Expose one prominent contextual action with FAB-specific treatment variants and optional extended label treatment.",
-    variants: ["primary", "extended", "mini"],
-    intents: ["default"],
-    states: ["default", "hover", "focus", "pressed", "loading", "disabled"],
-    props: [
-      { name: "label", type: "string", required: true },
-      { name: "icon", type: "string", required: false },
-      { name: "variant", type: "\"primary\" | \"extended\" | \"mini\"", required: false },
-      { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
-      { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"disabled\"", required: false },
-      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-      { name: "extended", type: "boolean", required: false },
-      { name: "loading", type: "boolean", required: false },
-      { name: "disabled", type: "boolean", required: false },
-      { name: "type", type: "\"button\" | \"submit\" | \"reset\"", required: false }
-    ],
-    accessibility: [
-      "Always expose an accessible action label.",
-      "Use extended label when the icon is not universally clear.",
-      "Keep action hierarchy in Button or Icon Button; FAB variants only describe prominence, extension, and compact treatment.",
-      "Do not use FAB for multiple competing actions."
-    ]
-  },
   breadcrumbs: {
     factory: "@design-system/react/breadcrumbs",
     element: "nav",

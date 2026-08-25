@@ -23,7 +23,7 @@ const React = await import("react");
 const axe = await import("axe-core");
 const userEvent = await import("@testing-library/user-event");
 const { cleanup, fireEvent, render } = await import("@testing-library/react");
-const { Button, FloatingActionButton, IconButton } = await import("../dist/index.js");
+const { Button, IconButton } = await import("../dist/index.js");
 
 async function assertNoAxeViolations(container) {
   const results = await axe.default.run(container, {
@@ -142,55 +142,6 @@ try {
     assert.equal(button.disabled, true);
     await user.click(button);
     assert.deepEqual(clicks, ["click", "click"]);
-    await assertNoAxeViolations(view.container);
-    cleanup();
-  }
-
-  {
-    const user = createUser();
-    const clicks = [];
-    const view = render(React.createElement(FloatingActionButton, {
-      label: "Create card",
-      icon: "add",
-      extended: true,
-      onClick: (event) => clicks.push(event.type),
-    }));
-    const button = view.getByRole("button", { name: /create card/i });
-
-    assert.equal(button.dataset.extended, "true");
-    await user.click(button);
-    assert.deepEqual(clicks, ["click"]);
-    button.focus();
-    await user.keyboard("{Enter}");
-    assert.deepEqual(clicks, ["click", "click"]);
-
-    view.rerender(React.createElement(FloatingActionButton, {
-      label: "Create card",
-      loading: true,
-      onClick: (event) => clicks.push(event.type),
-    }));
-    assert.equal(button.getAttribute("aria-busy"), "true");
-    await user.click(button);
-    assert.deepEqual(clicks, ["click", "click"]);
-
-    view.rerender(React.createElement(FloatingActionButton, {
-      label: "Create card",
-      variant: "extended",
-      intent: "danger",
-      onClick: (event) => clicks.push(event.type),
-    }));
-    assert.equal(button.dataset.variant, "extended");
-    assert.equal(button.dataset.extended, "true");
-    assert.equal(button.dataset.intent, "danger");
-
-    view.rerender(React.createElement(FloatingActionButton, {
-      label: "Create card",
-      variant: "secondary",
-      intent: "destructive",
-      onClick: (event) => clicks.push(event.type),
-    }));
-    assert.equal(button.dataset.variant, "primary");
-    assert.equal(button.dataset.intent, "default");
     await assertNoAxeViolations(view.container);
     cleanup();
   }

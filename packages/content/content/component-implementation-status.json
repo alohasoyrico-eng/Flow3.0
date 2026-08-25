@@ -232,11 +232,6 @@
       "patternRisk": false,
       "notes": "Factory and contract exist in @design-system/components for short contextual dialog content; multi-step decisions remain pattern work."
     },
-    "floating-action-button": {
-      "status": "package-component",
-      "patternRisk": false,
-      "notes": "Factory and contract exist in @design-system/components for local primary action affordance."
-    },
     "card-summary": {
       "status": "package-component",
       "patternRisk": false,

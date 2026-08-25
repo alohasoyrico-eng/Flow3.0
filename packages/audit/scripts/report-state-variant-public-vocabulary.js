@@ -47,7 +47,6 @@ const componentPriority = {
   ]),
   p1: new Set([
     "icon-button",
-    "floating-action-button",
     "text-area",
     "country-selector",
     "card-number-input",
@@ -98,7 +97,6 @@ const familyBySlug = {
   drawer: "overlays",
   "empty-state": "feedback",
   "error-panel": "feedback",
-  "floating-action-button": "actions",
   "icon-button": "actions",
   "inline-validation": "feedback",
   input: "fields",

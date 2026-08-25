@@ -133,7 +133,6 @@ function main() {
         && include.includes("packages/react/src/CountrySelector.tsx")
         && include.includes("packages/react/src/InputAmount.tsx")
         && include.includes("packages/react/src/BiometricPrompt.tsx")
-        && include.includes("packages/react/src/FloatingActionButton.tsx")
         && include.includes("packages/react/src/StationPin.tsx")
         && include.includes("packages/react/src/Tooltip.tsx")
         && include.includes("packages/react/src/CardSummary.tsx")

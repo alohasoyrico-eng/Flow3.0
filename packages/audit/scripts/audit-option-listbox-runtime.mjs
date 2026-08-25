@@ -183,6 +183,10 @@ for (const theme of ["light", "dark"]) {
   for (const component of ["select", "combobox", "menu"]) {
     const disabled = byKey.get(`${theme}:${component}:disabled`);
     if (disabled.opacity < 1) errors.push(`${theme} ${component} disabled option must stay legible through color, not opacity; got ${disabled.opacity}.`);
+    const rest = byKey.get(`${theme}:${component}:rest`);
+    if (theme === "dark" && normalizeColor(disabled.backgroundColor) !== normalizeColor(rest.backgroundColor)) {
+      errors.push(`${theme} ${component} disabled option background must stay transparent/rest so it does not compete with selected state; got ${disabled.backgroundColor} vs rest ${rest.backgroundColor}.`);
+    }
   }
   if (theme === "dark") {
     for (const component of ["select", "combobox", "menu"]) {

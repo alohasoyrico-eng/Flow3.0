@@ -9,6 +9,7 @@ const docsDir = fs.existsSync(path.join(root, "../FlowDocs/apps/docs"))
   : path.join(root, "apps/docs");
 const localSnapshotsDir = path.join(root, "../../local-visual-snapshots");
 const localQaDir = path.join(localSnapshotsDir, "Flow3-component-qa");
+const localQaGeneratorFile = path.join(root, "packages/audit/scripts/build-local-react-qa-demo.mjs");
 const outputDir = path.join(root, "docs/audits");
 const localQaOnly = process.argv.includes("--local-qa-only");
 const outputJson = path.join(outputDir, localQaOnly ? "flow-core-local-qa-boundary.json" : "flowdocs-demo-boundary.json");
@@ -44,9 +45,9 @@ function styleBlocks(source) {
 function localQaVisualOverrides(source) {
   const css = styleBlocks(source).join("\n");
   const findings = [];
-  const componentInternalSelector = /(?:^|[,{]\s*)(?:[^{}\n]*\s)?\.(?:button|icon-button|fab|quick-action|dialog|field|select-control|combobox|menu|checkbox|radio|switch|tabs)(?:__[a-z0-9-]+|--[a-z0-9-]+|\[[^\]]+\]|:[a-z-]+|\s+[.#]?[a-z0-9_-]*__)/gim;
+  const componentInternalSelector = /(?:^|[,{]\s*)(?:[^{}\n]*\s)?\.(?:button|icon-button|quick-action|dialog|field|select-control|combobox|menu|checkbox|radio|switch|tabs)(?:__[a-z0-9-]+|--[a-z0-9-]+|\[[^\]]+\]|:[a-z-]+|\s+[.#]?[a-z0-9_-]*__)/gim;
   const componentLocalToken = /--comp-[a-z0-9-]+\s*:/g;
-  const themeComponentOverride = /\[data-theme=["']dark["'][^{]*(?:\.(?:button|icon-button|fab|quick-action|dialog|field|select-control|combobox|menu|checkbox|radio|switch|tabs))/gim;
+  const themeComponentOverride = /\[data-theme=["']dark["'][^{]*(?:\.(?:button|icon-button|quick-action|dialog|field|select-control|combobox|menu|checkbox|radio|switch|tabs))/gim;
 
   for (const match of css.matchAll(componentInternalSelector)) {
     findings.push({
@@ -210,7 +211,10 @@ function buildReport() {
   }).map((file) => rel(file));
   const nonCanonicalLocalQaFiles = walk(localQaDir, (file) => {
     const relativeParts = path.relative(localQaDir, file).split(path.sep);
-    return !(relativeParts.at(-2) === "interactive" && relativeParts.at(-1) === "react-runtime.html");
+    const isRuntimeEntrypoint = relativeParts.at(-2) === "interactive" && relativeParts.at(-1) === "react-runtime.html";
+    const isRuntimeVendorAsset = relativeParts.at(-3) === "interactive" && relativeParts.at(-2) === "vendor";
+    const isNestedRuntimeVendorAsset = relativeParts.includes("interactive") && relativeParts.includes("vendor");
+    return !(isRuntimeEntrypoint || isRuntimeVendorAsset || isNestedRuntimeVendorAsset);
   }).map((file) => rel(file));
   const nonCanonicalLocalSnapshotFiles = walk(localSnapshotsDir, (file) => {
     const relativeParts = path.relative(localSnapshotsDir, file).split(path.sep);
@@ -222,6 +226,7 @@ function buildReport() {
   const localReactRuntimeFiles = localQaFiles.filter((entry) => entry.metrics.reactRuntimeProof > 0);
   const localManualHarnessFiles = localQaFiles.filter((entry) => entry.metrics.reactRuntimeProof === 0);
   const localComponents = [...new Set(localQaFiles.map((entry) => entry.component))].sort();
+  const localQaGenerator = classifyLocalQaGenerator(localQaGeneratorFile);
 
   const summary = {
     flowdocsDemoFiles: docsDemoFiles.length,
@@ -235,6 +240,7 @@ function buildReport() {
     obsoleteLocalQaFiles: obsoleteLocalQaFiles.length,
     nonCanonicalLocalQaFiles: nonCanonicalLocalQaFiles.length,
     nonCanonicalLocalSnapshotFiles: nonCanonicalLocalSnapshotFiles.length,
+    localQaGeneratorOpenStateful: localQaGenerator.openStateful ? 1 : 0,
   };
 
   const findings = [
@@ -286,6 +292,12 @@ function buildReport() {
       action: "Delete stale comparison indexes and ZIP baselines; regenerate from original sources only when the current task needs evidence.",
       count: nonCanonicalLocalSnapshotFiles.length,
     }] : []),
+    ...(!localQaGenerator.openStateful && localQaGenerator.openDemoCases > 0 ? [{
+      severity: "high",
+      issue: "Local React QA demos include initially-open component cases without stateful open/onOpenChange handling.",
+      action: "Keep initially-open demos interactive: the shared runtime harness must control open and update it through onOpenChange so Escape/outside/selection can be reviewed.",
+      count: localQaGenerator.openDemoCases,
+    }] : []),
   ];
 
   return {
@@ -305,6 +317,7 @@ function buildReport() {
     findings,
     flowdocsDemos: docsDemoFiles,
     localQaHarnesses: localQaFiles,
+    localQaGenerator,
     obsoleteLocalQaFiles,
     nonCanonicalLocalQaFiles,
     nonCanonicalLocalSnapshotFiles,
@@ -313,6 +326,26 @@ function buildReport() {
       name: "Templates Boundary",
       goal: "Classify docs templates and package templates so FlowDocs pages consume Flow templates without recreating layout rules locally.",
     },
+  };
+}
+
+function classifyLocalQaGenerator(file) {
+  const source = read(file);
+  const openDemoCases = count(source, /state:\s*"open"|open:\s*true/g);
+  const openStateful = [
+    "shouldRuntimeOpen",
+    "setRuntimeOpen(open)",
+    "onOpenChange",
+    "{ open: runtimeOpen }",
+  ].every((snippet) => source.includes(snippet));
+
+  return {
+    file: rel(file),
+    openDemoCases,
+    openStateful,
+    risks: [
+      openDemoCases > 0 && !openStateful ? "Initially-open runtime demos cannot prove Escape/close behavior unless open is controlled by the harness." : null,
+    ].filter(Boolean),
   };
 }
 

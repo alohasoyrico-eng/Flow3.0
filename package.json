@@ -161,10 +161,6 @@
       "types": "./packages/react/dist/ErrorPanel.d.ts",
       "default": "./packages/react/dist/ErrorPanel.js"
     },
-    "./react/floating-action-button": {
-      "types": "./packages/react/dist/FloatingActionButton.d.ts",
-      "default": "./packages/react/dist/FloatingActionButton.js"
-    },
     "./react/icon-button": {
       "types": "./packages/react/dist/IconButton.d.ts",
       "default": "./packages/react/dist/IconButton.js"

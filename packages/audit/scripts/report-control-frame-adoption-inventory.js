@@ -37,7 +37,6 @@ const componentRoles = {
   drawer: { role: "sheet-panel", status: "separate-contract", iteration: 4, note: "Sheet panel owns drawer-specific frame/motion/z-index aliases with border-box safeguards; close/footer actions compose action controls." },
   "empty-state": { role: "display", status: "not-applicable", iteration: null, note: "Display/empty content; actions inside should compose Button." },
   "error-panel": { role: "feedback-surface", status: "not-applicable", iteration: null, note: "Feedback surface; actions inside should compose Button." },
-  "floating-action-button": { role: "action-exception", status: "separate-contract", iteration: 2, note: "Uses FAB scale, not standard inline ControlFrame; audit requires exact block-size and border-box." },
   "icon-button": { role: "action-icon", status: "covered", iteration: 2, note: "Consumes ControlFrame action/icon sizing and passes runtime frame audit." },
   "inline-validation": { role: "feedback", status: "not-applicable", iteration: null, note: "Validation message, not a control frame." },
   input: { role: "field", status: "covered", iteration: 3, note: "Consumes ControlFrame field size/font/padding/radius." },

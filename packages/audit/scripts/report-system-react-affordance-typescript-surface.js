@@ -18,7 +18,7 @@ const sourceRuntimeHeader = [
   " */",
   "",
 ].join("\n");
-const components = ["BiometricPrompt", "FloatingActionButton", "StationPin", "Tooltip"];
+const components = ["BiometricPrompt", "StationPin", "Tooltip"];
 
 function absolute(relativePath) {
   return path.join(root, relativePath);

@@ -299,11 +299,6 @@ export function componentDemoProps(
     disabled: state === "disabled",
     loading: state === "loading",
   };
-  if (component === "floating-action-button") {
-    const variant = ["primary", "secondary", "tertiary", "outlined", "ghost"].includes(String(demo.variant)) ? demo.variant : "primary";
-    const intent = ["default", "danger", "warning"].includes(String(demo.intent)) ? demo.intent : "default";
-    return { label: demo.label ?? "Add movement", icon: demo.icon ?? "add", variant, intent, state, density: demo.density, extended: Boolean(demo.extended), loading: state === "loading" || Boolean(demo.loading), disabled: state === "disabled" || Boolean(demo.disabled), type: demo.type ?? "button" };
-  }
   if (component === "badge") return { label: demo.label ?? demo.count ?? "8", tone: demo.tone ?? "neutral", variant: demo.variant ?? "count", state, hidden: state === "hidden", live: Boolean(demo.live), icon: demo.icon ?? "", ariaLabel: demo.ariaLabel ?? "" };
   if (component === "chip") return { label: demo.label ?? "Active filter", variant: demo.variant ?? "filter", tone: demo.tone ?? "default", state, selected: Boolean(demo.selected) || state === "selected", disabled: state === "disabled", removable: Boolean(demo.removable), icon: demo.icon ?? "", interactive: Boolean(demo.interactive) || state !== "default" || Boolean(demo.selected) || Boolean(demo.removable) };
   if (component === "tag") return { label: demo.label ?? "Cross-platform", variant: demo.variant ?? "metadata", tone: demo.tone ?? "neutral", state, icon: demo.icon ?? "", interactive: Boolean(demo.interactive) || demo.variant === "link", disabled: state === "disabled" };

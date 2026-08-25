@@ -182,26 +182,6 @@
     },
     {
       "type": "component",
-      "id": "floating-action-button",
-      "title": "Floating Action Button",
-      "group": "Core",
-      "summary": "High-prominence single action for mobile maps, sheets, and focused creation flows.",
-      "platform": "Cross-platform",
-      "audiences": [
-        "Product Designers",
-        "Developers",
-        "Content Designers",
-        "Researchers"
-      ],
-      "tokens": [
-        "color.semantic",
-        "spacing.relationship",
-        "motion.semantic",
-        "a11y.focus"
-      ]
-    },
-    {
-      "type": "component",
       "id": "segmented-control",
       "title": "Segmented Control",
       "group": "Selection",

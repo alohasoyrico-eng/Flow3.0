@@ -1075,7 +1075,6 @@ function allowedClassRootsForReactComponent(componentName) {
     CountrySelector: ["country-flag", "country-selector", "select-control"],
     DatePicker: ["date-picker", "field"],
     DateRangePicker: ["date-picker", "date-range-picker", "field"],
-    FloatingActionButton: ["fab"],
     InlineValidation: ["inline-validation"],
     Input: ["field"],
     InputAmount: ["input-amount", "field"],
@@ -1096,7 +1095,6 @@ function allowedClassRootsForReactComponent(componentName) {
 
 function ownerClassRootForReactComponent(componentName) {
   return {
-    FloatingActionButton: "fab",
     Input: "field",
     ProgressIndicator: "progress",
     RadioButton: "radio",

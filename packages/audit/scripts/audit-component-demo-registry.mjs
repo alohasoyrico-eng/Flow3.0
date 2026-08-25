@@ -180,7 +180,6 @@ for (const componentId of componentIds) {
     "drawer",
     "empty-state",
     "error-panel",
-    "floating-action-button",
     "icon-button",
     "inline-validation",
     "input",

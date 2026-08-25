@@ -74,9 +74,6 @@ import {
   errorPanelPlatformAdapters,
   errorPanelPlatformContract,
   errorPanelPlatformProps,
-  floatingActionButtonPlatformAdapters,
-  floatingActionButtonPlatformContract,
-  floatingActionButtonPlatformProps,
   phoneInputPlatformAdapters,
   phoneInputPlatformContract,
   phoneInputPlatformProps,
@@ -317,7 +314,7 @@ globalThis.document = {
 };
 
 assert.equal(componentContractVersion, "0.1.0");
-assert.deepEqual(Object.keys(componentContracts), ["button", "codeBlock", "iconButton", "input", "inputAmount", "cardNumberInput", "cardExpiryInput", "cardSecurityCodeInput", "select", "combobox", "card", "checkbox", "switch", "radioButton", "textArea", "badge", "chip", "tag", "tabs", "tooltip", "toast", "progressIndicator", "spinner", "accordion", "slider", "avatar", "skeleton", "dialog", "menu", "drawer", "table", "biometricPrompt", "treeView", "motionBoundary", "animatedMoment", "emptyState", "list", "kpiTile", "floatingActionButton", "breadcrumbs", "pagination", "auditEvent", "errorPanel", "inlineValidation", "stepper", "chartPanel", "stationPin", "routeSummary", "codeInput", "phoneInput", "countrySelector", "datePicker", "dateRangePicker", "segmentedControl", "popover", "cardSummary", "movementRow", "chatMessage", "chatThread", "chatComposer"]);
+assert.deepEqual(Object.keys(componentContracts), ["button", "codeBlock", "iconButton", "input", "inputAmount", "cardNumberInput", "cardExpiryInput", "cardSecurityCodeInput", "select", "combobox", "card", "checkbox", "switch", "radioButton", "textArea", "badge", "chip", "tag", "tabs", "tooltip", "toast", "progressIndicator", "spinner", "accordion", "slider", "avatar", "skeleton", "dialog", "menu", "drawer", "table", "biometricPrompt", "treeView", "motionBoundary", "animatedMoment", "emptyState", "list", "kpiTile", "breadcrumbs", "pagination", "auditEvent", "errorPanel", "inlineValidation", "stepper", "chartPanel", "stationPin", "routeSummary", "codeInput", "phoneInput", "countrySelector", "datePicker", "dateRangePicker", "segmentedControl", "popover", "cardSummary", "movementRow", "chatMessage", "chatThread", "chatComposer"]);
 assert.equal(componentContracts.button.factory, "@design-system/react/button");
 assert.equal(buttonPlatformContract.id, "button");
 assert.equal(buttonPlatformContract.source.factory, componentContracts.button.factory);
@@ -670,15 +667,6 @@ assert.deepEqual(kpiTilePlatformContract.states, componentContracts.kpiTile.stat
 assert.deepEqual(Object.keys(kpiTilePlatformAdapters), ["react"]);
 assert.equal(kpiTilePlatformAdapters.react.componentName, "KpiTile");
 assert.equal(kpiTilePlatformAdapters.react.sourceOfTruth, true);
-assert.equal(componentContracts.floatingActionButton.factory, "@design-system/react/floating-action-button");
-assert.equal(floatingActionButtonPlatformContract.id, "floating-action-button");
-assert.equal(floatingActionButtonPlatformContract.source.factory, componentContracts.floatingActionButton.factory);
-assert.deepEqual(floatingActionButtonPlatformProps(), componentContracts.floatingActionButton.props.map((prop) => prop.name));
-assert.deepEqual(floatingActionButtonPlatformContract.variants, componentContracts.floatingActionButton.variants);
-assert.deepEqual(floatingActionButtonPlatformContract.states, componentContracts.floatingActionButton.states);
-assert.deepEqual(Object.keys(floatingActionButtonPlatformAdapters), ["react"]);
-assert.equal(floatingActionButtonPlatformAdapters.react.componentName, "FloatingActionButton");
-assert.equal(floatingActionButtonPlatformAdapters.react.sourceOfTruth, true);
 assert.equal(componentContracts.pagination.factory, "@design-system/react/pagination");
 assert.equal(componentContracts.pagination.props.some((prop) => prop.name === "onPageChange"), true);
 assert.equal(paginationPlatformContract.id, "pagination");
