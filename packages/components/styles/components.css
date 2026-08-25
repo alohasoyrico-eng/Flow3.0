@@ -538,6 +538,7 @@
   --component-transform-rotate-cycle: rotate(var(--component-rotation-cycle));
   --component-transform-center: translate(var(--sys-frame-position-center), var(--sys-frame-position-center));
   --component-transform-center-raised: translate(var(--sys-frame-position-center), var(--sys-frame-position-center)) scale(var(--component-scale-raised));
+  --component-transform-center-press: translate(var(--sys-frame-position-center), var(--sys-frame-position-center)) scale(var(--component-scale-press));
   --component-transform-y-center: translateY(var(--sys-frame-position-center));
   --component-transform-x-center: translateX(var(--sys-frame-position-center));
   --component-transform-progress-start: translateX(var(--sys-momentum-progress-translate-start));
@@ -5396,8 +5397,14 @@ button.tag:disabled,
   --comp-slider-thumb-depth: var(--component-depth-low);
   --comp-slider-thumb-raised-depth: var(--component-depth-raised);
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 4) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
+  --comp-slider-thumb-hover-halo: 0 0 0 calc(var(--component-border-width) * 3) color-mix(in srgb, var(--comp-slider-state-color) 14%, transparent);
+  --comp-slider-thumb-pressed-halo: 0 0 0 calc(var(--component-border-width) * 5) color-mix(in srgb, var(--comp-slider-state-color) 24%, transparent);
   --comp-slider-thumb-transform: var(--component-transform-center);
-  --comp-slider-thumb-active-transform: var(--component-transform-center-raised);
+  --comp-slider-thumb-hover-transform: var(--component-transform-center-raised);
+  --comp-slider-thumb-focus-transform: var(--component-transform-center-raised);
+  --comp-slider-thumb-pressed-transform: var(--component-transform-center-press);
+  --comp-slider-fill-hover-transform: var(--component-transform-scale-rest);
+  --comp-slider-fill-pressed-transform: var(--component-transform-scale-settle);
   --comp-slider-input-bg: var(--component-surface-transparent);
   --comp-slider-input-cursor: var(--component-cursor-grab);
   --comp-slider-input-active-cursor: var(--component-cursor-grabbing);
@@ -5408,10 +5415,13 @@ button.tag:disabled,
   --comp-slider-focus-ring-color: var(--component-color-focus);
   --comp-slider-focus-ring-offset: var(--component-focus-ring-offset);
   --comp-slider-state-duration: var(--component-duration-state);
+  --comp-slider-press-duration: var(--component-duration-press);
   --comp-slider-state-ease: var(--component-ease-state);
   --comp-slider-enter-ease: var(--component-ease-enter);
+  --comp-slider-press-ease: var(--component-ease-press);
   --comp-slider-value-transition: color var(--comp-slider-state-duration) var(--comp-slider-state-ease);
-  --comp-slider-thumb-transition: box-shadow var(--comp-slider-state-duration) var(--comp-slider-state-ease), transform var(--comp-slider-state-duration) var(--comp-slider-enter-ease);
+  --comp-slider-fill-transition: background-color var(--comp-slider-state-duration) var(--comp-slider-state-ease), transform var(--comp-slider-press-duration) var(--comp-slider-press-ease);
+  --comp-slider-thumb-transition: border-color var(--comp-slider-state-duration) var(--comp-slider-state-ease), box-shadow var(--comp-slider-state-duration) var(--comp-slider-state-ease), transform var(--comp-slider-press-duration) var(--comp-slider-press-ease);
   color: var(--comp-slider-fg);
   display: grid;
   gap: var(--comp-slider-gap);
@@ -5423,6 +5433,8 @@ button.tag:disabled,
   --comp-slider-thumb-size: var(--component-slider-thumb-size-sm);
   --comp-slider-thumb-border-width: calc(var(--component-border-width) * 2);
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 3) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
+  --comp-slider-thumb-hover-halo: 0 0 0 calc(var(--component-border-width) * 2) color-mix(in srgb, var(--comp-slider-state-color) 14%, transparent);
+  --comp-slider-thumb-pressed-halo: 0 0 0 calc(var(--component-border-width) * 4) color-mix(in srgb, var(--comp-slider-state-color) 24%, transparent);
   --comp-slider-touch-size: var(--component-slider-touch-size-sm);
   --comp-slider-gap: var(--component-space-xs);
   --comp-slider-label-font-size: var(--component-density-label-size-sm);
@@ -5434,6 +5446,8 @@ button.tag:disabled,
   --comp-slider-thumb-size: var(--component-slider-thumb-size-lg);
   --comp-slider-thumb-border-width: calc(var(--component-border-width) * 3);
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 5) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
+  --comp-slider-thumb-hover-halo: 0 0 0 calc(var(--component-border-width) * 4) color-mix(in srgb, var(--comp-slider-state-color) 14%, transparent);
+  --comp-slider-thumb-pressed-halo: 0 0 0 calc(var(--component-border-width) * 6) color-mix(in srgb, var(--comp-slider-state-color) 24%, transparent);
   --comp-slider-touch-size: var(--component-slider-touch-size-lg);
   --comp-slider-gap: var(--component-space-md);
   --comp-slider-label-font-size: var(--component-density-label-size-lg);
@@ -5495,6 +5509,9 @@ button.tag:disabled,
 .slider__fill {
   background: var(--comp-slider-fill-color);
   inline-size: var(--comp-slider-percent);
+  transform: var(--component-transform-y-center) var(--comp-slider-fill-hover-transform);
+  transform-origin: left center;
+  transition: var(--comp-slider-fill-transition);
 }
 
 .slider__thumb {
@@ -5532,6 +5549,8 @@ button.tag:disabled,
 }
 
 .slider[data-dragging="true"] .slider__value,
+.slider[data-state="hover"] .slider__value,
+.slider[data-state="pressed"] .slider__value,
 .slider[data-state="dragging"] .slider__value,
 .slider[data-state="focus"] .slider__value,
 .slider[data-state="complete"] .slider__value,
@@ -5541,6 +5560,8 @@ button.tag:disabled,
 
 body[data-contrast="quiet"] .slider__value,
 body[data-contrast="quiet"] .slider[data-dragging="true"] .slider__value,
+body[data-contrast="quiet"] .slider[data-state="hover"] .slider__value,
+body[data-contrast="quiet"] .slider[data-state="pressed"] .slider__value,
 body[data-contrast="quiet"] .slider[data-state="dragging"] .slider__value,
 body[data-contrast="quiet"] .slider[data-state="focus"] .slider__value,
 body[data-contrast="quiet"] .slider[data-state="complete"] .slider__value,
@@ -5553,14 +5574,34 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .slider__control:hover .slider__thumb,
+.slider[data-state="hover"] .slider__thumb {
+  box-shadow: var(--comp-slider-thumb-hover-halo), var(--comp-slider-thumb-raised-depth);
+  transform: var(--comp-slider-thumb-hover-transform);
+}
+
 .slider:focus-within .slider__thumb,
-.slider[data-state="focus"] .slider__thumb,
-.slider[data-state="dragging"] .slider__thumb,
-.slider[data-dragging="true"] .slider__thumb {
+.slider[data-state="focus"] .slider__thumb {
   box-shadow: var(--comp-slider-thumb-halo), var(--comp-slider-thumb-raised-depth);
   outline: var(--comp-slider-focus-ring-width) solid var(--comp-slider-focus-ring-color);
   outline-offset: var(--comp-slider-focus-ring-offset);
-  transform: var(--comp-slider-thumb-active-transform);
+  transform: var(--comp-slider-thumb-focus-transform);
+}
+
+.slider__control:active .slider__fill,
+.slider[data-state="pressed"] .slider__fill,
+.slider[data-state="dragging"] .slider__fill,
+.slider[data-dragging="true"] .slider__fill {
+  transform: var(--component-transform-y-center) var(--comp-slider-fill-pressed-transform);
+}
+
+.slider__control:active .slider__thumb,
+.slider[data-state="pressed"] .slider__thumb,
+.slider[data-state="dragging"] .slider__thumb,
+.slider[data-dragging="true"] .slider__thumb {
+  box-shadow: var(--comp-slider-thumb-pressed-halo), var(--comp-slider-thumb-raised-depth);
+  outline: var(--comp-slider-focus-ring-width) solid var(--comp-slider-focus-ring-color);
+  outline-offset: var(--comp-slider-focus-ring-offset);
+  transform: var(--comp-slider-thumb-pressed-transform);
 }
 
 .slider[data-state="disabled"] {

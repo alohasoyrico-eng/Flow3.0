@@ -5,7 +5,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 
 export type SliderVariant = "continuous" | "stepped" | "bounded" | "threshold" | "paired-value";
-export type SliderState = "default" | "focus" | "dragging" | "disabled" | "error" | "complete";
+export type SliderState = "default" | "hover" | "focus" | "pressed" | "dragging" | "disabled" | "error" | "complete";
 export type SliderDensity = "sm" | "md" | "lg";
 
 export interface SliderValueMeta {
@@ -41,7 +41,7 @@ export interface SliderComponent extends ForwardRefExoticComponent<SliderProps &
 type SliderStyle = CSSProperties & { "--comp-slider-percent": string };
 
 const allowedVariants = new Set<SliderVariant>(["continuous", "stepped", "bounded", "threshold", "paired-value"]);
-const allowedStates = new Set<SliderState>(["default", "focus", "dragging", "disabled", "error", "complete"]);
+const allowedStates = new Set<SliderState>(["default", "hover", "focus", "pressed", "dragging", "disabled", "error", "complete"]);
 
 function clampValue(value: string | number | undefined, min: number, max: number): number {
   const number = Number(value);
@@ -57,7 +57,7 @@ function percentFor(value: number, min: number, max: number): number {
 
 function normalizeState({ disabled, state, dragging }: { disabled: boolean; state: SliderState; dragging: boolean }): SliderState {
   if (disabled) return "disabled";
-  if (dragging) return "dragging";
+  if (dragging) return "pressed";
   return allowedStates.has(state) ? state : "default";
 }
 

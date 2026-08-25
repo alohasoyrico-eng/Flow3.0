@@ -6,7 +6,7 @@ import React, { forwardRef, useMemo, useRef, useState } from "react";
 import { sliderPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 const allowedVariants = new Set(["continuous", "stepped", "bounded", "threshold", "paired-value"]);
-const allowedStates = new Set(["default", "focus", "dragging", "disabled", "error", "complete"]);
+const allowedStates = new Set(["default", "hover", "focus", "pressed", "dragging", "disabled", "error", "complete"]);
 function clampValue(value, min, max) {
     const number = Number(value);
     if (!Number.isFinite(number))
@@ -23,7 +23,7 @@ function normalizeState({ disabled, state, dragging }) {
     if (disabled)
         return "disabled";
     if (dragging)
-        return "dragging";
+        return "pressed";
     return allowedStates.has(state) ? state : "default";
 }
 function formatSliderValue({ value, initialValue, valueLabel, unit, formatValue }) {

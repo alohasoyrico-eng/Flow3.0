@@ -24,7 +24,10 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const inputFocusBlock = blockFor(blocks, selectorKey, ".slider__input:focus-visible");
   const inputActiveBlock = blockFor(blocks, selectorKey, ".slider__input:active");
   const activeValueBlock = blocks.find((block) => selectorKey(block).includes(".slider:focus-within .slider__value"));
-  const activeThumbBlock = blocks.find((block) => selectorKey(block).includes(".slider[data-dragging=\"true\"] .slider__thumb"));
+  const hoverThumbBlock = blocks.find((block) => selectorKey(block).includes(".slider[data-state=\"hover\"] .slider__thumb"));
+  const focusThumbBlock = blocks.find((block) => selectorKey(block).includes(".slider[data-state=\"focus\"] .slider__thumb"));
+  const pressedFillBlock = blocks.find((block) => selectorKey(block).includes(".slider[data-state=\"pressed\"] .slider__fill"));
+  const pressedThumbBlock = blocks.find((block) => selectorKey(block).includes(".slider[data-dragging=\"true\"] .slider__thumb"));
   const disabledBlock = blockFor(blocks, selectorKey, ".slider[data-state=\"disabled\"]");
   const disabledInputBlock = blockFor(blocks, selectorKey, ".slider[data-state=\"disabled\"] .slider__input");
 
@@ -50,6 +53,13 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-slider-value-font-size: var(--component-density-value-size-md)",
       "--comp-slider-thumb-border-width: calc(var(--component-border-width) * 3)",
       "--comp-slider-focus-ring-width: var(--component-focus-ring-width)",
+      "--comp-slider-thumb-hover-halo:",
+      "--comp-slider-thumb-pressed-halo:",
+      "--comp-slider-thumb-hover-transform: var(--component-transform-center-raised)",
+      "--comp-slider-thumb-focus-transform: var(--component-transform-center-raised)",
+      "--comp-slider-thumb-pressed-transform:",
+      "--comp-slider-fill-transition:",
+      "--comp-slider-thumb-transition:",
       "--comp-slider-value-transition:",
       "color: var(--comp-slider-fg)",
       "gap: var(--comp-slider-gap)",
@@ -114,8 +124,8 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: fillBlock,
     text,
     packageCssFile,
-    snippets: ["background: var(--comp-slider-fill-color)", "inline-size: var(--comp-slider-percent)"],
-    message: "Slider fill must consume the Slider fill color alias and percentage contract.",
+    snippets: ["background: var(--comp-slider-fill-color)", "inline-size: var(--comp-slider-percent)", "transform: var(--component-transform-y-center) var(--comp-slider-fill-hover-transform)", "transition: var(--comp-slider-fill-transition)"],
+    message: "Slider fill must consume the Slider fill color, percentage, transform, and motion contracts.",
   });
   requireIncludes({
     block: controlBlock,
@@ -167,15 +177,43 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     message: "Slider active input cursor must consume Slider cursor alias.",
   });
   requireIncludes({
-    block: activeThumbBlock,
+    block: hoverThumbBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "box-shadow: var(--comp-slider-thumb-hover-halo), var(--comp-slider-thumb-raised-depth)",
+      "transform: var(--comp-slider-thumb-hover-transform)",
+    ],
+    message: "Slider hover thumb must use a distinct tokenized hover halo and transform without focus ring.",
+  });
+  requireIncludes({
+    block: focusThumbBlock,
     text,
     packageCssFile,
     snippets: [
       "box-shadow: var(--comp-slider-thumb-halo), var(--comp-slider-thumb-raised-depth)",
       "outline: var(--comp-slider-focus-ring-width) solid var(--comp-slider-focus-ring-color)",
-      "transform: var(--comp-slider-thumb-active-transform)",
+      "transform: var(--comp-slider-thumb-focus-transform)",
     ],
-    message: "Slider active thumb must consume Slider depth, focus, and transform aliases.",
+    message: "Slider focus thumb must keep a distinct focus ring and transform.",
+  });
+  requireIncludes({
+    block: pressedFillBlock,
+    text,
+    packageCssFile,
+    snippets: ["transform: var(--component-transform-y-center) var(--comp-slider-fill-pressed-transform)"],
+    message: "Slider pressed fill must use tokenized pressed momentum.",
+  });
+  requireIncludes({
+    block: pressedThumbBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "box-shadow: var(--comp-slider-thumb-pressed-halo), var(--comp-slider-thumb-raised-depth)",
+      "outline: var(--comp-slider-focus-ring-width) solid var(--comp-slider-focus-ring-color)",
+      "transform: var(--comp-slider-thumb-pressed-transform)",
+    ],
+    message: "Slider pressed/dragging thumb must consume Slider depth, focus, and pressed transform aliases.",
   });
   requireIncludes({
     block: disabledBlock,

@@ -717,7 +717,7 @@ export const componentContracts = {
         purpose: "Choose a numeric value from a bounded range with visible label, output, and native range semantics.",
         variants: ["continuous", "stepped", "bounded", "threshold", "paired-value"],
         intents: ["default"],
-        states: ["default", "focus", "dragging", "disabled", "error", "complete"],
+        states: ["default", "hover", "focus", "pressed", "dragging", "disabled", "error", "complete"],
         props: [
             { name: "label", type: "string", required: true },
             { name: "value", type: "number", required: false },
@@ -725,7 +725,7 @@ export const componentContracts = {
             { name: "max", type: "number", required: false },
             { name: "step", type: "number", required: false },
             { name: "variant", type: "\"continuous\" | \"stepped\" | \"bounded\" | \"threshold\" | \"paired-value\"", required: false },
-            { name: "state", type: "\"default\" | \"focus\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"", required: false },
+            { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "unit", type: "string", required: false },
             { name: "disabled", type: "boolean", required: false },

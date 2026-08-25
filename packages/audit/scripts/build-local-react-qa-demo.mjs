@@ -590,7 +590,7 @@ const components = {
     directory: "slider-2026-08-24",
     module: "Slider.js",
     exportName: "Slider",
-    buildId: "slider-stateful-runtime-1",
+    buildId: "slider-momentum-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
     actionSelector: "input[data-runtime-action]",
@@ -614,7 +614,9 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Hover", state: "hover", min: 0, max: 10, value: 5 })),
             e("div", { className: "audit-card" }, action({ label: "Focus", state: "focus", min: 0, max: 10, value: 5 })),
+            e("div", { className: "audit-card" }, action({ label: "Pressed", state: "pressed", min: 0, max: 10, value: 5 })),
             e("div", { className: "audit-card" }, action({ label: "Dragging", state: "dragging", min: 0, max: 10, value: 5 })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, min: 0, max: 10, value: 5, "data-runtime-action": "true" }))
           )

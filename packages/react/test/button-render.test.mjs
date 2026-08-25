@@ -1520,6 +1520,12 @@ assert.match(sliderMarkup, /aria-valuetext="9 km"/);
 assert.match(sliderMarkup, /class="slider__track"/);
 assert.match(sliderMarkup, /class="slider__fill"/);
 assert.match(sliderMarkup, /class="slider__thumb"/);
+const pressedSliderMarkup = renderToStaticMarkup(React.createElement(Slider, {
+  label: "Pressed radius",
+  value: 6,
+  state: "pressed",
+}));
+assert.match(pressedSliderMarkup, /data-state="pressed"/);
 const inheritedSliderMarkup = renderToStaticMarkup(React.createElement(Slider, {
   label: "Inherited radius",
 }));
