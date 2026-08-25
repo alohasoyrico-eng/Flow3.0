@@ -635,7 +635,7 @@ public enum FlowTokens {
   public static let sysFrameContentCodeSlotInlineLg = "calc(var(--sys-space-11) + var(--sys-space-md))"
   public static let sysFrameContentCodeSlotInlineMd = "var(--sys-space-12)"
   public static let sysFrameContentCodeSlotInlineSm = "var(--sys-space-11)"
-  public static let sysFrameContentCountryListboxInline = "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))"
+  public static let sysFrameContentCountryListboxInline = "max-content"
   public static let sysFrameContentCountryListboxMaxInline = "calc(var(--sys-space-11) * 6)"
   public static let sysFrameContentDatePanel = "calc(var(--sys-space-11) * 6.5)"
   public static let sysFrameContentDateRangePanel = "calc(var(--sys-space-11) * 7)"
@@ -1797,7 +1797,7 @@ public enum FlowTokens {
     "sys-frame-content-code-slot-inline-lg": "calc(var(--sys-space-11) + var(--sys-space-md))",
     "sys-frame-content-code-slot-inline-md": "var(--sys-space-12)",
     "sys-frame-content-code-slot-inline-sm": "var(--sys-space-11)",
-    "sys-frame-content-country-listbox-inline": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
+    "sys-frame-content-country-listbox-inline": "max-content",
     "sys-frame-content-country-listbox-max-inline": "calc(var(--sys-space-11) * 6)",
     "sys-frame-content-date-panel": "calc(var(--sys-space-11) * 6.5)",
     "sys-frame-content-date-range-panel": "calc(var(--sys-space-11) * 7)",

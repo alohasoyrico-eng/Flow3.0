@@ -103,7 +103,7 @@ export const PhoneInput = forwardRef(function PhoneInput({ label, value, prefix 
         invalid: Boolean(error),
         ...(resolvedDensity ? { density: resolvedDensity } : {}),
         inline: true,
-        searchable: false,
+        searchPlaceholder: "Search country or code",
         ...(emptyText !== undefined ? { emptyText } : {}),
         className: "phone-input__country",
         onValueChange: (_countryCode, option, event) => commitCountry(option, event),

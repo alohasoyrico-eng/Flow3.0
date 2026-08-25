@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useId, useMemo, useRef, useState, } from "react";
 import { countryFlagAssetPath, normalizeCountryCallingCodeOptions, resolveCountryCallingCodeOption, } from "#flow/components";
 import { countrySelectorPlatformContract } from "#flow/platforms";
+import { Input } from "./Input.js";
 import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 function CountryFlag({ country, className = "" }) {
     const code = String(country ?? "").toUpperCase();
@@ -94,6 +95,50 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
         if (next)
             setActiveCountryCode(next.country);
     };
+    const handleKeyDown = (event) => {
+        if (disabled)
+            return;
+        const target = event.target;
+        const isSearchTarget = target?.matches?.("[data-country-selector-search], input[type='search']") ?? false;
+        if (event.key === "Tab" && open) {
+            setOpen(false, event);
+            return;
+        }
+        if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false, event);
+            return;
+        }
+        if (event.key === "ArrowDown") {
+            event.preventDefault();
+            if (!open) {
+                setActiveCountryCode(selectedCountry.country);
+                setOpen(true, event);
+                return;
+            }
+            moveActive(1);
+            return;
+        }
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+            if (!open) {
+                setActiveCountryCode(selectedCountry.country);
+                setOpen(true, event);
+                return;
+            }
+            moveActive(-1);
+            return;
+        }
+        if (event.key === "Enter" || (!isSearchTarget && event.key === " ")) {
+            event.preventDefault();
+            if (open) {
+                commitOption(activeOption, event);
+                return;
+            }
+            setActiveCountryCode(selectedCountry.country);
+            setOpen(true, event);
+        }
+    };
     return React.createElement("span", {
         ...flowRestProps(rest),
         ref: setRootRef,
@@ -104,10 +149,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
         "data-open": String(open),
         ...flowDensityProps(resolvedDensity),
         ...flowStateProps(resolvedState === "default" ? undefined : resolvedState),
-        onKeyDown: (event) => {
-            if (event.key === "Tab" && open)
-                setOpen(false, event);
-        },
+        onKeyDown: handleKeyDown,
     }, React.createElement("span", {
         className: "select-control__trigger country-selector__trigger",
         "data-country-selector-trigger": "",
@@ -126,58 +168,32 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
                 setOpen(!open, event);
             }
         },
-        onKeyDown: (event) => {
-            if (disabled)
-                return;
-            if (["Enter", " "].includes(event.key)) {
-                event.preventDefault();
-                if (open) {
-                    commitOption(activeOption, event);
-                    return;
-                }
-                setActiveCountryCode(selectedCountry.country);
-                setOpen(true, event);
-            }
-            if (event.key === "Escape") {
-                event.preventDefault();
-                setOpen(false, event);
-            }
-            if (event.key === "ArrowDown") {
-                event.preventDefault();
-                setOpen(true, event);
-                moveActive(1);
-            }
-            if (event.key === "ArrowUp") {
-                event.preventDefault();
-                setOpen(true, event);
-                moveActive(-1);
-            }
-        },
-    }, React.createElement(CountryFlag, { country: selectedCountry.country }), React.createElement("span", { className: "country-selector__value", "data-country-selector-value": "" }, React.createElement("span", { className: "country-selector__label", "data-country-selector-label": "" }, selectedCountry.label), React.createElement("span", { className: "select-control__code country-selector__code", "data-country-selector-prefix": "" }, selectedCountry.callingCode)), React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more")), searchable
-        ? React.createElement("span", { className: "country-selector__search" }, React.createElement("input", {
-            className: "country-selector__search-input",
+    }, React.createElement(CountryFlag, { country: selectedCountry.country }), React.createElement("span", { className: "country-selector__value", "data-country-selector-value": "" }, React.createElement("span", { className: "country-selector__label", "data-country-selector-label": "" }, selectedCountry.label), React.createElement("span", { className: "select-control__code country-selector__code", "data-country-selector-prefix": "" }, selectedCountry.callingCode)), React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more")), React.createElement("span", {
+        className: "select-control__listbox country-selector__overlay",
+        "data-country-selector-overlay": "",
+    }, searchable
+        ? React.createElement("span", { className: "country-selector__search" }, React.createElement(Input, {
+            className: "country-selector__search-field",
             "data-country-selector-search": "",
-            type: "search",
+            label: searchPlaceholder || `${label} search`,
+            labelHidden: true,
+            variant: "search",
+            icon: "search",
             placeholder: searchPlaceholder,
             value: query,
-            "aria-label": searchPlaceholder || `${label} search`,
-            onChange: (event) => setQuery(event.currentTarget.value),
-            onKeyDown: (event) => {
-                if (event.key === "Escape") {
-                    event.preventDefault();
-                    setOpen(false, event);
-                }
-            },
+            ...(resolvedDensity ? { density: resolvedDensity } : {}),
+            onValueChange: (nextQuery) => setQuery(nextQuery),
         }))
         : null, React.createElement("span", {
         id: `${selectorId}-listbox`,
-        className: "select-control__listbox country-selector__listbox",
+        className: "country-selector__listbox",
         "data-country-selector-list": "",
         role: "listbox",
         "aria-label": `${label} options`,
     }, options.map((option, index) => {
         const hidden = !matchesQuery(option, query);
         const isSelected = option.country === selectedCountry.country;
+        const isActive = open && !hidden && option.country === activeOption?.country;
         return React.createElement("span", {
             key: option.country,
             id: `${selectorId}-option-${index}`,
@@ -187,23 +203,14 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
             "data-country-calling": option.callingCode,
             "data-country-national-length": option.nationalLength,
             "data-selected": String(isSelected),
+            "data-active": String(isActive),
             role: "option",
             tabIndex: hidden ? undefined : -1,
             hidden,
             "aria-selected": String(isSelected),
             onClick: (event) => commitOption(option, event),
-            onKeyDown: (event) => {
-                if (["Enter", " "].includes(event.key)) {
-                    event.preventDefault();
-                    commitOption(option, event);
-                }
-                if (event.key === "Escape") {
-                    event.preventDefault();
-                    setOpen(false, event);
-                }
-            },
         }, React.createElement(CountryFlag, { country: option.country }), React.createElement("span", { className: "country-selector__option-body" }, React.createElement("span", { className: "select-control__option-label country-selector__option-label" }, option.label), React.createElement("span", { className: "select-control__option-code country-selector__option-code" }, option.callingCode)), React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"));
-    })), emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null);
+    })), emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null));
 });
 CountrySelector.displayName = "CountrySelector";
 CountrySelector.platformContract = countrySelectorPlatformContract;

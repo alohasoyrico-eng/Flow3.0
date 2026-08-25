@@ -31,8 +31,22 @@ function checkPhoneInputCssContract({ text, blocks, packageCssFile, selectorKey 
       "--comp-phone-input-flex-basis-compact: var(--component-phone-input-flex-basis-compact)",
       "--comp-phone-input-min-inline-size: var(--component-phone-input-min-inline-size)",
       "--comp-phone-input-min-inline-size-compact: var(--component-phone-input-min-inline-size-compact)",
+      "--comp-phone-input-font-family: var(--component-font-family-mono)",
+      "--comp-phone-input-font-weight: var(--component-font-weight-light)",
+      "--comp-phone-input-letter-spacing: var(--component-letter-spacing-normal)",
     ],
-    message: "Phone Input frame widths must flow through component Frame aliases instead of local control multipliers.",
+    message: "Phone Input frame widths and numeric voice must flow through component aliases instead of local control multipliers or heavy tracked numerals.",
+  });
+  requireIncludes({
+    block: blockFor(blocks, selectorKey, ".phone-input__country .country-selector__code"),
+    text,
+    packageCssFile,
+    snippets: [
+      "font-family: var(--comp-phone-input-font-family)",
+      "font-weight: var(--comp-phone-input-font-weight)",
+      "letter-spacing: var(--comp-phone-input-letter-spacing)",
+    ],
+    message: "Phone Input inline country code must use the same numeric voice as the phone number.",
   });
   requireIncludes({
     block: phoneInputInputBlock,

@@ -52,6 +52,7 @@ const reactComponentCompositionContracts = {
   InlineValidation: [{ component: "Input", reason: "field validation composition" }],
   Input: [{ component: "Spinner", reason: "field loading indicator slot" }],
   InputAmount: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  CountrySelector: [{ component: "Input", reason: "local country/code search slot" }],
   Menu: [
     { component: "Avatar", reason: "avatar trigger slot" },
     { component: "Button", reason: "button trigger slot" },

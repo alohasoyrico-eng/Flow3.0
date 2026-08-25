@@ -636,7 +636,7 @@
   <string name="sys_frame_content_code_slot_inline_lg">calc(var(--sys-space-11) + var(--sys-space-md))</string>
   <string name="sys_frame_content_code_slot_inline_md">var(--sys-space-12)</string>
   <string name="sys_frame_content_code_slot_inline_sm">var(--sys-space-11)</string>
-  <string name="sys_frame_content_country_listbox_inline">min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))</string>
+  <string name="sys_frame_content_country_listbox_inline">max-content</string>
   <string name="sys_frame_content_country_listbox_max_inline">calc(var(--sys-space-11) * 6)</string>
   <string name="sys_frame_content_date_panel">calc(var(--sys-space-11) * 6.5)</string>
   <string name="sys_frame_content_date_range_panel">calc(var(--sys-space-11) * 7)</string>

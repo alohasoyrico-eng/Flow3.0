@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1.0",
-  "updatedAt": "2026-08-19",
+  "updatedAt": "2026-08-25",
   "scope": "priority components touched in the 1:1 review; no active component scope is currently blocked",
   "status": "pass",
   "rule": "A component can be pass only when all 13 steps are pass and current evidence exists, including light and dark visual QA, keyboard behavior, density order, icon scale, and demo/manual verification. Historical pass evidence is downgraded when a newer 1:1 review finds unresolved bugs.",
@@ -773,7 +773,10 @@
       "openIssues": [],
       "inventoryEscalations": [
         "PasscodeKeypad from the ZIP reference is tracked outside Code Input as an authentication pattern backlog item, not as a component variant."
-      ]
+      ],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "dffa7131",
+      "decision": "Code Input is closed for current review: runtime demo uses package React, slots keep square frame geometry across density, numerals use the governed mono stack with light weight, paste/backspace/complete behavior remains package-owned, success state has visible green momentum and error state has shake feedback. Masked entry exists; eye reveal remains composition/auth pattern scope unless Card Security Code Input owns it."
     },
     {
       "id": "combobox",
@@ -1512,9 +1515,16 @@
         "docs/audits/component-motion-role-audit.json",
         "packages/components/src/components/fields.js",
         "packages/components/src/components/specialized-inputs.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-phone-input-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "../../local-visual-snapshots/Flow3-component-qa/phone-input-2026-08-24/interactive/react-runtime.html"
       ],
-      "openIssues": []
+      "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "pending",
+      "decision": "Phone Input is closed for current review pending commit: runtime demo uses package React and now exposes contract variants and states; the country selector remains a composed CountrySelector, the field frame keeps the shared 36/44/52 density scale, and phone numerals plus inline calling code use the governed mono/light numeric voice with normal tracking. OTP delivery, verification, recovery, and advanced country search remain pattern scope."
     },
     {
       "id": "popover",
@@ -1898,7 +1908,10 @@
       "openIssues": [],
       "inventoryEscalations": [
         "Exact numeric entry, financial entry, and multi-field range workflows remain Input or pattern concerns; Slider only owns bounded numeric adjustment."
-      ]
+      ],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "b1029bf4",
+      "decision": "Slider is closed for current review: runtime demo uses package React, keyboard semantics keep native range behavior, hover/focus/pressed/dragging states now produce distinguishable token-backed motion and depth, and the CSS contract routes center-press transform through component aliases instead of reaching into raw foundation values."
     },
     {
       "id": "spinner",
@@ -2348,9 +2361,11 @@
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
-    "updatedAt": "2026-08-19",
-    "sourceCommit": "5c264331 Harden component interaction and density contracts",
+    "updatedAt": "2026-08-25",
+    "sourceCommit": "b1029bf4 Add Slider hover and pressed momentum",
     "scope": [],
+    "nextComponent": "phone-input",
+    "nextComponentReason": "P0 Forms Batch 3 continues after Code Input; Phone Input is the remaining first-class form component before payment-form components.",
     "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
   }
 }

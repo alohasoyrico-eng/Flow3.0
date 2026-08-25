@@ -33,6 +33,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   prefix?: string;
   suffix?: string;
   mono?: boolean;
+  labelHidden?: boolean;
   loading?: boolean;
   align?: InputAlign;
   revealable?: boolean;
@@ -134,6 +135,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
   prefix = "",
   suffix = "",
   mono = false,
+  labelHidden = false,
   type = "text",
   inputMode,
   autocomplete,
@@ -205,6 +207,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
       ...flowDensityProps(resolvedDensity),
       ...flowVariantProps(resolvedVariant),
       "data-mono": mono ? "true" : undefined,
+      "data-label-hidden": labelHidden ? "true" : undefined,
       "data-align": resolvedAlign === "end" ? "end" : undefined,
     },
     React.createElement("span", { className: "field__label", "data-field-label": "", id: `${inputId}-label` }, label),

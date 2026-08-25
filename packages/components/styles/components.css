@@ -871,8 +871,8 @@
   --comp-phone-input-min-inline-size-compact: var(--component-phone-input-min-inline-size-compact);
   --comp-phone-input-font-family: var(--component-font-family-mono);
   --comp-phone-input-font-size-compact: var(--component-font-size-small);
-  --comp-phone-input-font-weight: var(--component-font-weight-semibold);
-  --comp-phone-input-letter-spacing: var(--component-letter-spacing-wide);
+  --comp-phone-input-font-weight: var(--component-font-weight-light);
+  --comp-phone-input-letter-spacing: var(--component-letter-spacing-normal);
   --comp-phone-input-focus-border: var(--component-color-action);
   --comp-phone-input-focus-width: var(--component-focus-ring-width);
   --comp-phone-input-focus-color: color-mix(in srgb, var(--component-color-action) 35%, transparent);
@@ -2386,6 +2386,17 @@
   color: var(--comp-input-label-fg);
   font-size: var(--comp-input-label-size);
   font-weight: var(--comp-input-label-weight);
+}
+
+.field[data-label-hidden="true"] .field__label {
+  block-size: var(--component-visually-hidden-size);
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  inline-size: var(--component-visually-hidden-size);
+  margin: calc(var(--component-visually-hidden-size) * -1);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
 }
 
 .field-control__surface,
@@ -11317,7 +11328,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-country-selector-inline-trigger-color: var(--component-color-text-muted);
   --comp-country-selector-inline-trigger-gap: var(--component-space-xs);
   --comp-country-selector-inline-trigger-size: calc(var(--comp-select-current-control-size) - (var(--component-space-xs) * 2));
-  --comp-country-selector-inline-trigger-padding-end: var(--comp-select-inline-padding-end);
+  --comp-country-selector-inline-trigger-padding-start: var(--component-space-xs);
+  --comp-country-selector-inline-trigger-padding-end: var(--component-space-xs);
   --comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size);
   --comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size);
   --comp-country-selector-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
@@ -11518,7 +11530,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   border-width: 0;
   color: var(--comp-country-selector-inline-trigger-color);
   gap: var(--comp-country-selector-inline-trigger-gap);
-  padding: 0 var(--comp-country-selector-inline-trigger-padding-end) 0 0;
+  padding: 0 var(--comp-country-selector-inline-trigger-padding-end) 0 var(--comp-country-selector-inline-trigger-padding-start);
 }
 
 .select-control__trigger:hover,
@@ -11610,6 +11622,12 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-weight: var(--comp-country-selector-code-font-weight);
 }
 
+.phone-input__country .country-selector__code {
+  font-family: var(--comp-phone-input-font-family);
+  font-weight: var(--comp-phone-input-font-weight);
+  letter-spacing: var(--comp-phone-input-letter-spacing);
+}
+
 .select-control__icon,
 .select-control__chevron,
 .country-selector__chevron {
@@ -11678,8 +11696,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .select-control__listbox,
-.country-selector__listbox,
-.phone-input__country-listbox {
+.country-selector__overlay {
   background: var(--comp-select-listbox-bg);
   border: var(--component-border-width) solid var(--comp-select-listbox-border);
   border-radius: var(--comp-select-listbox-radius);
@@ -11706,8 +11723,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   z-index: var(--component-z-overlay);
 }
 
-.country-selector__listbox,
-.phone-input__country-listbox {
+.country-selector__overlay {
   background: var(--comp-country-selector-listbox-bg);
   border-color: var(--comp-country-selector-listbox-border);
   border-radius: var(--comp-country-selector-listbox-radius);
@@ -11722,20 +11738,26 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .select-control--inline .select-control__listbox,
-.country-selector.select-control--inline .country-selector__listbox,
-.phone-input__country-listbox {
+.country-selector.select-control--inline .country-selector__overlay {
   inline-size: var(--comp-select-inline-listbox-inline);
   inset-inline-end: auto;
   min-inline-size: var(--comp-select-inline-listbox-min-inline);
 }
 
-.country-selector.select-control--inline .country-selector__listbox,
-.phone-input__country-listbox {
+.country-selector.select-control--inline .country-selector__overlay {
   inline-size: var(--comp-country-selector-inline-listbox-inline-size);
+  max-inline-size: var(--comp-country-selector-inline-listbox-max-inline-size);
+  min-inline-size: max-content;
+}
+
+.country-selector.select-control--inline .country-selector__option,
+.phone-input__country-option {
+  grid-template-columns: auto max-content auto;
+  justify-content: start;
 }
 
 .select-control[data-open="true"] .select-control__listbox,
-.country-selector[data-open="true"] .country-selector__listbox {
+.country-selector[data-open="true"] .country-selector__overlay {
   opacity: var(--comp-select-listbox-open-opacity);
   pointer-events: auto;
   transform: var(--component-transform-rest);
@@ -11746,11 +11768,18 @@ body[data-contrast="quiet"] .route-summary__icon {
   visibility: visible;
 }
 
-.country-selector[data-open="true"] .country-selector__listbox {
+.country-selector[data-open="true"] .country-selector__overlay {
   transition:
     opacity var(--comp-country-selector-overlay-duration) var(--comp-country-selector-overlay-ease),
     transform var(--comp-country-selector-overlay-duration) var(--comp-country-selector-overlay-ease),
     visibility var(--component-duration-instant) var(--component-ease-linear) var(--component-duration-instant);
+}
+
+.country-selector__overlay .country-selector__listbox {
+  display: grid;
+  gap: var(--comp-country-selector-listbox-gap);
+  inline-size: 100%;
+  min-inline-size: 0;
 }
 
 .country-selector__search {
@@ -11758,28 +11787,15 @@ body[data-contrast="quiet"] .route-summary__icon {
   padding: 0 0 var(--comp-country-selector-search-gap);
 }
 
-.country-selector__search-input {
-  background: var(--comp-country-selector-search-bg);
-  border: var(--component-border-width) solid var(--comp-country-selector-search-border);
-  border-radius: var(--comp-country-selector-search-radius);
-  box-sizing: border-box;
-  color: var(--comp-country-selector-search-color);
-  font: inherit;
-  font-size: var(--comp-country-selector-search-font-size);
-  font-weight: var(--comp-country-selector-search-font-weight);
-  min-block-size: var(--comp-country-selector-search-min-block);
-  outline: var(--comp-select-outline-reset);
-  padding: 0 var(--comp-country-selector-option-padding-x);
-  transition:
-    background-color var(--component-duration-state) var(--component-ease-state),
-    border-color var(--component-duration-state) var(--component-ease-state),
-    outline-color var(--component-duration-state) var(--component-ease-state);
-}
-
-.country-selector__search-input:focus-visible {
-  border-color: var(--comp-country-selector-search-focus-border);
-  outline: var(--component-focus-ring-width) solid var(--comp-country-selector-trigger-focus-ring);
-  outline-offset: var(--component-focus-ring-offset);
+.country-selector__search-field {
+  --comp-field-control-size: var(--comp-country-selector-search-min-block);
+  --comp-input-label-size: var(--comp-country-selector-search-font-size);
+  --comp-input-surface-bg: var(--comp-country-selector-search-bg);
+  --comp-input-surface-border: var(--comp-country-selector-search-border);
+  --comp-input-surface-fg: var(--comp-country-selector-search-color);
+  --comp-input-font-size: var(--comp-country-selector-search-font-size);
+  --comp-input-font-weight: var(--comp-country-selector-search-font-weight);
+  --comp-input-padding-x: var(--comp-country-selector-option-padding-x);
 }
 
 .select-control__option,
@@ -11859,7 +11875,9 @@ body[data-contrast="quiet"] .route-summary__icon {
   align-items: baseline;
   display: inline-flex;
   gap: var(--comp-country-selector-inline-trigger-gap);
+  justify-self: start;
   min-inline-size: 0;
+  text-align: start;
 }
 
 .select-control__option-label {

@@ -1,13 +1,13 @@
 {
   "source": {
     "file": "packages/tokens/.build/flow.tokens.json",
-    "sha256": "382233bd3474b8198b46ea1adfb6bda438d3d04abd6eda5a65bcc215b6e366a7",
+    "sha256": "53cb71d1de084764f88572d49886e68a28d2d012456913db05531868a35d2f87",
     "tokenCount": 1160
   },
   "outputs": [
     {
       "file": "packages/tokens/styles/tokens.css",
-      "sha256": "c84c20a5ce1b22a4d78787224fb8ff4693c64ae5419c3baa97f461f76ee52d04"
+      "sha256": "f1d32c4d59465064da302a55fd4addea885dc9360b0ebae998b5affee777a170"
     },
     {
       "file": "packages/tokens/styles/token-contexts.css",
@@ -15,11 +15,11 @@
     },
     {
       "file": "packages/tokens/tokens.json",
-      "sha256": "c6f2321fe102ab0cb470af0a958c33bc7774376fa64270e0572828f7ec84d270"
+      "sha256": "937002e4ae95c45e2bd84109540c3d27e2656bbf450dbbf838309d1d6773b39e"
     },
     {
       "file": "packages/tokens/src/generated/tokens.ts",
-      "sha256": "95f60315dc51c8582c345f17d9c306f2f519e71161fe75dce16d632fc49561b4"
+      "sha256": "2c005bc7a2a9adcab06eb4e72fc2cf7c361a6e0b70d1c079b6d03498a4b1f287"
     },
     {
       "file": "packages/tokens/src/index.js",
@@ -27,15 +27,15 @@
     },
     {
       "file": "packages/tokens/dist/flutter/flow_tokens.dart",
-      "sha256": "df02442ccdce713809cd482e3fa04dc6ab7d1153e499183e1f1d2e5f1f9c03a7"
+      "sha256": "990b9b14aa00268ba2f5657b6dc2d302b1e6ec963855e7468ec16fc1d1b66c9f"
     },
     {
       "file": "packages/tokens/dist/android/flow_tokens.xml",
-      "sha256": "d52d78a1b560b12cf6677cb851637b14ec97cf26ded9e8a7cf61eed0259defd0"
+      "sha256": "ee24a1b3b213099a15d75d78a9d7af8855cf4b992e6404df24edb75824f07e33"
     },
     {
       "file": "packages/tokens/dist/ios/FlowTokens.swift",
-      "sha256": "657c8726dbc69f6dceda05461666607fbe54a6cad12285df28e9c6fcb78ec708"
+      "sha256": "009356818019bbe40e46b049b9cc07e998b3b4993f92e4d1293d9acf63907b0e"
     },
     {
       "file": "packages/react/src/internal/email-token-values.js",

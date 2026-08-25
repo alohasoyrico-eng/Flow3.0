@@ -127,6 +127,7 @@ export const componentContracts = {
       { name: "prefix", type: "string", required: false },
       { name: "suffix", type: "string", required: false },
       { name: "mono", type: "boolean", required: false },
+      { name: "labelHidden", type: "boolean", required: false },
       { name: "type", type: "string", required: false },
       { name: "inputMode", type: "string", required: false },
       { name: "autocomplete", type: "string", required: false },

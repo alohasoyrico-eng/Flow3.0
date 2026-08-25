@@ -249,10 +249,10 @@ function checkPackageCssContracts() {
   const selectLgBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-density=\"lg\"]");
   const selectTriggerBlock = blocks.find((block) => selectorKey(block) === ".select-control__trigger,.country-selector__trigger,.phone-input__country-trigger");
   const selectChevronBlock = blocks.find((block) => selectorKey(block) === ".select-control__icon,.select-control__chevron,.country-selector__chevron");
-  const selectListboxBlock = blocks.find((block) => selectorKey(block) === ".select-control__listbox,.country-selector__listbox,.phone-input__country-listbox");
-  const selectOpenListboxBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-open=\"true\"] .select-control__listbox,.country-selector[data-open=\"true\"] .country-selector__listbox");
+  const selectListboxBlock = blocks.find((block) => selectorKey(block) === ".select-control__listbox,.country-selector__overlay");
+  const selectOpenListboxBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-open=\"true\"] .select-control__listbox,.country-selector[data-open=\"true\"] .country-selector__overlay");
   const selectOptionBlock = blocks.find((block) => selectorKey(block) === ".select-control__option,.country-selector__option,.phone-input__country-option");
-  const countrySelectorBlock = blocks.find((block) => selectorKey(block) === ".country-selector"), inlineCountryListboxBlock = blocks.find((block) => selectorKey(block) === ".country-selector.select-control--inline .country-selector__listbox,.phone-input__country-listbox");
+  const countrySelectorBlock = blocks.find((block) => selectorKey(block) === ".country-selector"), inlineCountryListboxBlock = blocks.find((block) => selectorKey(block) === ".country-selector.select-control--inline .country-selector__overlay");
   if (/--select-|--component-select/.test(text)) {
     add("errors", packageCssFile, 1, "Select must use the component alias family --comp-select-*; legacy --select-* and --component-select-* aliases are not allowed.");
   }

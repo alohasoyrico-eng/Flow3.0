@@ -19,7 +19,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
   const selectBlock = blockFor(blocks, selectorKey, ".select-control");
   const countrySelectorBlock = blockFor(blocks, selectorKey, ".country-selector");
   const selectTriggerBlock = blockFor(blocks, selectorKey, ".select-control__trigger,.country-selector__trigger,.phone-input__country-trigger");
-  const inlineListboxBlock = blockFor(blocks, selectorKey, ".select-control--inline .select-control__listbox,.country-selector.select-control--inline .country-selector__listbox,.phone-input__country-listbox");
+  const inlineListboxBlock = blockFor(blocks, selectorKey, ".select-control--inline .select-control__listbox,.country-selector.select-control--inline .country-selector__overlay");
   const selectOptionLabelBlock = blockFor(blocks, selectorKey, ".select-control__option-label");
   const selectOptionCodeBlock = blockFor(blocks, selectorKey, ".select-control__option-code");
   const countryOptionLabelBlock = blockFor(blocks, selectorKey, ".country-selector__option-label");

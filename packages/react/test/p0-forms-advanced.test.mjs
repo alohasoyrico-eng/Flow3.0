@@ -277,6 +277,7 @@ try {
     fireEvent.keyDown(trigger, { key: "ArrowDown" });
     const unitedStatesOption = view.getByRole("option", { name: /United States/ });
     assert.equal(trigger.getAttribute("aria-activedescendant"), unitedStatesOption.id);
+    assert.equal(unitedStatesOption.getAttribute("data-active"), "true");
     fireEvent.keyDown(view.getByRole("searchbox", { name: /country code search/i }), { key: "Tab" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
@@ -293,6 +294,18 @@ try {
     assert.equal(changes.at(-1).countryCode, "US");
     assert.equal(unitedStatesOption.getAttribute("data-selected"), "true");
     assert.equal(trigger.getAttribute("aria-activedescendant"), null);
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    const searchbox = view.getByRole("searchbox", { name: /country code search/i });
+    fireEvent.change(searchbox, { target: { value: "+52" } });
+    assert.equal(trigger.getAttribute("aria-activedescendant"), mexicoOption.id);
+    assert.equal(mexicoOption.getAttribute("data-active"), "true");
+    fireEvent.keyDown(searchbox, { key: "Enter" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.equal(changes.at(-1).countryCode, "MX");
+    await user.click(trigger);
+    fireEvent.keyDown(searchbox, { key: "Escape" });
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     await user.click(trigger);
     await user.click(view.getByRole("option", { name: /United States/ }));
     assert.equal(changes.at(-1).countryCode, "US");
@@ -483,10 +496,11 @@ try {
     });
 
     fireEvent.pointerDown(slider);
-    assert.equal(root.dataset.state, "dragging");
+    assert.equal(root.dataset.state, "pressed");
     assert.equal(root.dataset.dragging, "true");
     fireEvent.pointerUp(slider);
-    await waitFor(() => assert.notEqual(root.dataset.state, "dragging"));
+    await waitFor(() => assert.notEqual(root.dataset.state, "pressed"));
+    await waitFor(() => assert.equal(root.dataset.dragging, undefined));
 
     view.rerender(React.createElement(Slider, {
       label: "Search radius",

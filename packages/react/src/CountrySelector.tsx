@@ -1,5 +1,4 @@
 import React, {
-  type ChangeEvent,
   type ForwardRefExoticComponent,
   type HTMLAttributes,
   type KeyboardEvent,
@@ -18,6 +17,7 @@ import {
   resolveCountryCallingCodeOption,
 } from "@design-system/components";
 import { countrySelectorPlatformContract } from "@design-system/components/platforms";
+import { Input } from "./Input.js";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 import { flowStateProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
@@ -31,7 +31,7 @@ export interface CountrySelectorCountry {
 }
 
 type CountryResolverInput = { country?: string; prefix?: string };
-export type CountrySelectorValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>;
+export type CountrySelectorValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement> | KeyboardEvent<HTMLInputElement>;
 export type CountrySelectorOpenChangeEvent =
   | MouseEvent<HTMLSpanElement>
   | KeyboardEvent<HTMLSpanElement>
@@ -172,6 +172,50 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
     const next = filteredOptions[Math.max(0, Math.min(filteredOptions.length - 1, currentIndex + direction))];
     if (next) setActiveCountryCode(next.country);
   };
+  const handleKeyDown = (event: KeyboardEvent<HTMLSpanElement>) => {
+    if (disabled) return;
+    const target = event.target as HTMLElement | null;
+    const isSearchTarget = target?.matches?.("[data-country-selector-search], input[type='search']") ?? false;
+
+    if (event.key === "Tab" && open) {
+      setOpen(false, event);
+      return;
+    }
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false, event);
+      return;
+    }
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (!open) {
+        setActiveCountryCode(selectedCountry.country);
+        setOpen(true, event);
+        return;
+      }
+      moveActive(1);
+      return;
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      if (!open) {
+        setActiveCountryCode(selectedCountry.country);
+        setOpen(true, event);
+        return;
+      }
+      moveActive(-1);
+      return;
+    }
+    if (event.key === "Enter" || (!isSearchTarget && event.key === " ")) {
+      event.preventDefault();
+      if (open) {
+        commitOption(activeOption, event);
+        return;
+      }
+      setActiveCountryCode(selectedCountry.country);
+      setOpen(true, event);
+    }
+  };
 
   return React.createElement(
     "span",
@@ -185,9 +229,7 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
       "data-open": String(open),
       ...flowDensityProps(resolvedDensity),
       ...flowStateProps(resolvedState === "default" ? undefined : resolvedState),
-      onKeyDown: (event: KeyboardEvent<HTMLSpanElement>) => {
-        if (event.key === "Tab" && open) setOpen(false, event);
-      },
+      onKeyDown: handleKeyDown,
     },
     React.createElement(
       "span",
@@ -209,32 +251,6 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
             setOpen(!open, event);
           }
         },
-        onKeyDown: (event: KeyboardEvent<HTMLSpanElement>) => {
-          if (disabled) return;
-          if (["Enter", " "].includes(event.key)) {
-            event.preventDefault();
-            if (open) {
-              commitOption(activeOption, event);
-              return;
-            }
-            setActiveCountryCode(selectedCountry.country);
-            setOpen(true, event);
-          }
-          if (event.key === "Escape") {
-            event.preventDefault();
-            setOpen(false, event);
-          }
-          if (event.key === "ArrowDown") {
-            event.preventDefault();
-            setOpen(true, event);
-            moveActive(1);
-          }
-          if (event.key === "ArrowUp") {
-            event.preventDefault();
-            setOpen(true, event);
-            moveActive(-1);
-          }
-        },
       },
       React.createElement(CountryFlag, { country: selectedCountry.country }),
       React.createElement(
@@ -245,78 +261,74 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
       ),
       React.createElement("span", { className: "select-control__chevron country-selector__chevron", "aria-hidden": "true" }, open ? "expand_less" : "expand_more"),
     ),
-    searchable
-      ? React.createElement(
-        "span",
-        { className: "country-selector__search" },
-        React.createElement("input", {
-          className: "country-selector__search-input",
-          "data-country-selector-search": "",
-          type: "search",
-          placeholder: searchPlaceholder,
-          value: query,
-          "aria-label": searchPlaceholder || `${label} search`,
-          onChange: (event: ChangeEvent<HTMLInputElement>) => setQuery(event.currentTarget.value),
-          onKeyDown: (event: KeyboardEvent<HTMLInputElement>) => {
-            if (event.key === "Escape") {
-              event.preventDefault();
-              setOpen(false, event);
-            }
-          },
-        }),
-      )
-      : null,
     React.createElement(
       "span",
       {
-        id: `${selectorId}-listbox`,
-        className: "select-control__listbox country-selector__listbox",
-        "data-country-selector-list": "",
-        role: "listbox",
-        "aria-label": `${label} options`,
+        className: "select-control__listbox country-selector__overlay",
+        "data-country-selector-overlay": "",
       },
-      options.map((option, index) => {
-        const hidden = !matchesQuery(option, query);
-        const isSelected = option.country === selectedCountry.country;
-        return React.createElement(
+      searchable
+        ? React.createElement(
           "span",
-          {
-            key: option.country,
-            id: `${selectorId}-option-${index}`,
-            className: "select-control__option country-selector__option",
-            "data-country-selector-option": "",
-            "data-country-code": option.country,
-            "data-country-calling": option.callingCode,
-            "data-country-national-length": option.nationalLength,
-            "data-selected": String(isSelected),
-            role: "option",
-            tabIndex: hidden ? undefined : -1,
-            hidden,
-            "aria-selected": String(isSelected),
-            onClick: (event: MouseEvent<HTMLSpanElement>) => commitOption(option, event),
-            onKeyDown: (event: KeyboardEvent<HTMLSpanElement>) => {
-              if (["Enter", " "].includes(event.key)) {
-                event.preventDefault();
-                commitOption(option, event);
-              }
-              if (event.key === "Escape") {
-                event.preventDefault();
-                setOpen(false, event);
-              }
-            },
-          },
-          React.createElement(CountryFlag, { country: option.country }),
-          React.createElement(
+          { className: "country-selector__search" },
+          React.createElement(Input, {
+            className: "country-selector__search-field",
+            "data-country-selector-search": "",
+            label: searchPlaceholder || `${label} search`,
+            labelHidden: true,
+            variant: "search",
+            icon: "search",
+            placeholder: searchPlaceholder,
+            value: query,
+            ...(resolvedDensity ? { density: resolvedDensity } : {}),
+            onValueChange: (nextQuery: string) => setQuery(nextQuery),
+          }),
+        )
+        : null,
+      React.createElement(
+        "span",
+        {
+          id: `${selectorId}-listbox`,
+          className: "country-selector__listbox",
+          "data-country-selector-list": "",
+          role: "listbox",
+          "aria-label": `${label} options`,
+        },
+        options.map((option, index) => {
+          const hidden = !matchesQuery(option, query);
+          const isSelected = option.country === selectedCountry.country;
+          const isActive = open && !hidden && option.country === activeOption?.country;
+          return React.createElement(
             "span",
-            { className: "country-selector__option-body" },
-            React.createElement("span", { className: "select-control__option-label country-selector__option-label" }, option.label),
-            React.createElement("span", { className: "select-control__option-code country-selector__option-code" }, option.callingCode),
-          ),
-          React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"),
-        );
-      }),
+            {
+              key: option.country,
+              id: `${selectorId}-option-${index}`,
+              className: "select-control__option country-selector__option",
+              "data-country-selector-option": "",
+              "data-country-code": option.country,
+              "data-country-calling": option.callingCode,
+              "data-country-national-length": option.nationalLength,
+              "data-selected": String(isSelected),
+              "data-active": String(isActive),
+              role: "option",
+              tabIndex: hidden ? undefined : -1,
+              hidden,
+              "aria-selected": String(isSelected),
+              onClick: (event: MouseEvent<HTMLSpanElement>) => commitOption(option, event),
+            },
+            React.createElement(CountryFlag, { country: option.country }),
+            React.createElement(
+              "span",
+              { className: "country-selector__option-body" },
+              React.createElement("span", { className: "select-control__option-label country-selector__option-label" }, option.label),
+              React.createElement("span", { className: "select-control__option-code country-selector__option-code" }, option.callingCode),
+            ),
+            React.createElement("span", { className: "country-selector__option-check", "aria-hidden": "true" }, "check"),
+          );
+        }),
+      ),
+      emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
     ),
-    emptyText ? React.createElement("span", { className: "country-selector__empty", "data-country-selector-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null,
   );
 }) as CountrySelectorComponent;
 

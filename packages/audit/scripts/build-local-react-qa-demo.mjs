@@ -816,7 +816,7 @@ const components = {
     directory: "phone-input-2026-08-24",
     module: "PhoneInput.js",
     exportName: "PhoneInput",
-    buildId: "phone-input-react-runtime-1",
+    buildId: "phone-input-country-search-runtime-1",
     flagAssets: ["MX", "US", "CO"],
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
@@ -843,8 +843,20 @@ const components = {
           )
         ),
         e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Country code", countries, country: "MX", value: "+525512345678", variant: "country-code" })),
+            e("div", { className: "audit-card" }, action({ label: "Compact", countries, country: "US", value: "+15512345678", variant: "compact", helper: "Embedded field rhythm" })),
+            e("div", { className: "audit-card" }, action({ label: "OTP handoff", countries, country: "CO", value: "+573001112233", variant: "otp-handoff", helper: "Ready for verification" })),
+            e("div", { className: "audit-card" }, action({ label: "Readonly", countries, country: "MX", value: "+525512345678", variant: "readonly", state: "valid", helper: "Verified phone" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Focus", countries, country: "MX", value: "+525512345678", state: "focus" })),
+            e("div", { className: "audit-card" }, action({ label: "Valid", countries, country: "MX", value: "+525512345678", state: "valid", helper: "Number can receive OTP." })),
+            e("div", { className: "audit-card" }, action({ label: "Warning", countries, country: "US", value: "+1555123", state: "warning", helper: "Confirm this number before inviting." })),
             e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", error: "Invalid phone number" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", countries, country: "MX", value: "+525512345678", disabled: true, "data-runtime-action": "true" }))
           )

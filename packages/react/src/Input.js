@@ -75,7 +75,7 @@ function normalizeValue(value, variant) {
         numericValue: normalized === "" || normalized === "-" ? null : Number(normalized),
     };
 }
-export const Input = forwardRef(function Input({ label, helper = "", helperText, error = "", live = false, value, name = "", placeholder = "", disabled = false, loading = false, required = false, density, state, variant = "text", icon = "", prefix = "", suffix = "", mono = false, type = "text", inputMode, autocomplete, align = "start", revealable = false, revealed: revealedProp, revealLabel, hideLabel, locale, onValueChange, onRevealChange, className = "", id, ...rest }, ref) {
+export const Input = forwardRef(function Input({ label, helper = "", helperText, error = "", live = false, value, name = "", placeholder = "", disabled = false, loading = false, required = false, density, state, variant = "text", icon = "", prefix = "", suffix = "", mono = false, labelHidden = false, type = "text", inputMode, autocomplete, align = "start", revealable = false, revealed: revealedProp, revealLabel, hideLabel, locale, onValueChange, onRevealChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const inputId = id ?? `input-${generatedId}`;
     const resolvedVariant = normalizeFlowValue(variant, validVariants, "text");
@@ -129,6 +129,7 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
         ...flowDensityProps(resolvedDensity),
         ...flowVariantProps(resolvedVariant),
         "data-mono": mono ? "true" : undefined,
+        "data-label-hidden": labelHidden ? "true" : undefined,
         "data-align": resolvedAlign === "end" ? "end" : undefined,
     }, React.createElement("span", { className: "field__label", "data-field-label": "", id: `${inputId}-label` }, label), React.createElement("span", { className: "field__control" }, icon
         ? React.createElement("span", { className: "field__icon", "aria-hidden": "true" }, icon)

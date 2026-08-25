@@ -636,7 +636,7 @@ class FlowTokens {
   static const String sysFrameContentCodeSlotInlineLg = "calc(var(--sys-space-11) + var(--sys-space-md))";
   static const String sysFrameContentCodeSlotInlineMd = "var(--sys-space-12)";
   static const String sysFrameContentCodeSlotInlineSm = "var(--sys-space-11)";
-  static const String sysFrameContentCountryListboxInline = "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))";
+  static const String sysFrameContentCountryListboxInline = "max-content";
   static const String sysFrameContentCountryListboxMaxInline = "calc(var(--sys-space-11) * 6)";
   static const String sysFrameContentDatePanel = "calc(var(--sys-space-11) * 6.5)";
   static const String sysFrameContentDateRangePanel = "calc(var(--sys-space-11) * 7)";
@@ -1798,7 +1798,7 @@ class FlowTokens {
     "sys-frame-content-code-slot-inline-lg": "calc(var(--sys-space-11) + var(--sys-space-md))",
     "sys-frame-content-code-slot-inline-md": "var(--sys-space-12)",
     "sys-frame-content-code-slot-inline-sm": "var(--sys-space-11)",
-    "sys-frame-content-country-listbox-inline": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
+    "sys-frame-content-country-listbox-inline": "max-content",
     "sys-frame-content-country-listbox-max-inline": "calc(var(--sys-space-11) * 6)",
     "sys-frame-content-date-panel": "calc(var(--sys-space-11) * 6.5)",
     "sys-frame-content-date-range-panel": "calc(var(--sys-space-11) * 7)",

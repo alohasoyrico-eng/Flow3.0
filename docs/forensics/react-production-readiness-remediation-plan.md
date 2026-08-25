@@ -92,7 +92,7 @@ Done when:
 
 ### Iteration 3: P0 Forms Batch 1
 
-Status: test/a11y evidence complete for `input`, `checkbox`, `radio-button`, `switch`, `text-area`, and `slider`. `input`, `checkbox`, `radio-button`, and `switch` also have reviewed runtime demos. `text-area` and `slider` still need runtime demo review before `ready`.
+Status: closed for current P0 review. Test/a11y evidence and reviewed package React runtime demos are complete for `input`, `checkbox`, `radio-button`, `switch`, `text-area`, and `slider`. `text-area` was closed with the shell/counter layout contract in `5356e806`; `slider` was closed with hover/pressed momentum in `b1029bf4`.
 
 Components:
 
@@ -146,6 +146,8 @@ Minimum evidence:
 - role/name assertions.
 
 ### Iteration 5: P0 Forms Batch 3
+
+Status: in progress. `code-input` is closed for current review in `dffa7131` with governed frame geometry, mono/light numerals, visible success momentum, and error shake feedback. The active cursor is `phone-input`; payment-style inputs follow only after Phone Input has the same runtime demo, ZIP-informed visual pass, keyboard/value behavior proof, dark-mode check, and density/frame validation.
 
 Components:
 

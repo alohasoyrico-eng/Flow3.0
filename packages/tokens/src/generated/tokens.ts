@@ -3403,7 +3403,7 @@ export const flowTokens = {
     "cssReference": "--sys-space-11"
   },
   "sys-frame-content-country-listbox-inline": {
-    "value": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
+    "value": "max-content",
     "type": "dimension",
     "scope": "sys",
     "cssVariable": "--sys-frame-content-country-listbox-inline"
