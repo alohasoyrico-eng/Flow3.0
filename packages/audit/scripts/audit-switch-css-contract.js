@@ -94,6 +94,8 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-switch-current-gap: var(--comp-switch-gap-md)",
       "--comp-switch-current-track-bg: var(--comp-switch-track-bg)",
       "--comp-switch-current-focus-width: var(--comp-switch-focus-width)",
+      "--comp-switch-current-label-size: var(--comp-switch-label-size)",
+      "--comp-switch-current-description-size: var(--comp-switch-description-size)",
       "--comp-switch-current-motion-duration: var(--comp-switch-motion-duration)",
       "gap: var(--comp-switch-current-gap)",
     ],
@@ -101,11 +103,29 @@ function checkSwitchCssContract({ text, blocks, packageCssFile, selectorKey, roo
   });
 
   for (const [block, snippets, message] of [
-    [smBlock, ["--comp-switch-current-track-width: var(--comp-switch-track-width-sm)", "--comp-switch-current-gap: var(--comp-switch-gap-sm)"], "Switch small density must set component-scoped current aliases."],
-    [lgBlock, ["--comp-switch-current-track-width: var(--comp-switch-track-width-lg)", "--comp-switch-current-gap: var(--comp-switch-gap-lg)"], "Switch large density must set component-scoped current aliases."],
+    [
+      smBlock,
+      [
+        "--comp-switch-current-track-width: var(--comp-switch-track-width-sm)",
+        "--comp-switch-current-gap: var(--comp-switch-gap-sm)",
+        "--comp-switch-current-label-size: var(--component-density-label-size-sm)",
+        "--comp-switch-current-description-size: var(--component-density-helper-size-sm)",
+      ],
+      "Switch small density must set component-scoped current aliases.",
+    ],
+    [
+      lgBlock,
+      [
+        "--comp-switch-current-track-width: var(--comp-switch-track-width-lg)",
+        "--comp-switch-current-gap: var(--comp-switch-gap-lg)",
+        "--comp-switch-current-label-size: var(--component-density-label-size-lg)",
+        "--comp-switch-current-description-size: var(--component-density-helper-size-lg)",
+      ],
+      "Switch large density must set component-scoped current aliases.",
+    ],
     [inputFocusBlock, ["outline: var(--comp-switch-current-focus-width) solid var(--comp-switch-current-focus-color)", "outline-offset: var(--comp-switch-current-focus-offset)"], "Switch input focus must consume switch focus aliases."],
     [textBlock, ["gap: var(--comp-switch-current-gap)", "line-height: var(--component-line-height-snug-state)"], "Switch text rhythm must consume switch gap alias and stable line-height."],
-    [labelBlock, ["font-weight: var(--comp-switch-current-label-weight)", "line-height: var(--component-line-height-snug-state)"], "Switch label must consume switch voice alias and stable line-height."],
+    [labelBlock, ["font-size: var(--comp-switch-current-label-size)", "font-weight: var(--comp-switch-current-label-weight)", "line-height: var(--component-line-height-snug-state)"], "Switch label must consume switch voice alias and stable line-height."],
     [descriptionBlock, ["color: var(--comp-switch-current-description-fg)", "font-size: var(--comp-switch-current-description-size)"], "Switch description must consume switch voice aliases."],
     [disabledBlock, ["opacity: var(--comp-switch-current-disabled-opacity)"], "Switch disabled state must consume switch disabled alias."],
     [trackBlock, ["background: var(--comp-switch-current-track-bg)", "box-sizing: border-box", "inline-size: var(--comp-switch-current-track-width)", "min-block-size: var(--comp-switch-current-track-block)", "padding: var(--comp-switch-current-track-padding)"], "Switch track must consume current geometry and state aliases."],

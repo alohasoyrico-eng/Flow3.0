@@ -54,6 +54,8 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-choice-current-indicator-size: calc(var(--comp-choice-current-mark-size) / 2)",
       "--comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size)",
       "--comp-choice-current-gap: var(--component-space-sm)",
+      "--comp-choice-current-label-size: var(--component-density-label-size-md)",
+      "--comp-choice-current-description-size: var(--component-density-helper-size-md)",
       "align-items: start",
       "display: grid",
       "gap: var(--comp-choice-current-gap)",
@@ -70,12 +72,32 @@ function checkChoiceCssContract({ text, blocks, packageCssFile, selectorKey, roo
     [hoverBlock, ["border-color: var(--comp-choice-current-mark-hover-border", "transform: scale(var(--comp-choice-current-hover-scale"], "Choice hover state must consume Choice current aliases."],
     [activeBlock, ["transform: scale(var(--comp-choice-current-press-scale"], "Choice pressed state must consume Choice current aliases."],
     [textBlock, ["gap: var(--comp-choice-current-text-gap)", "line-height: var(--component-line-height-snug-state)"], "Choice text rhythm must consume Choice current alias and keep stable vertical alignment."],
-    [labelBlock, ["font-weight: var(--comp-choice-current-label-weight", "line-height: var(--component-line-height-snug-state)"], "Choice label must consume Choice current voice alias and keep stable vertical alignment."],
+    [labelBlock, ["font-size: var(--comp-choice-current-label-size)", "font-weight: var(--comp-choice-current-label-weight", "line-height: var(--component-line-height-snug-state)"], "Choice label must consume Choice current voice alias and keep stable vertical alignment."],
     [copyBlock, ["color: var(--comp-choice-current-description-fg", "font-size: var(--comp-choice-current-description-size"], "Choice description/error copy must consume Choice current voice aliases."],
     [errorBlock, ["color: var(--comp-choice-current-error-fg", "font-weight: var(--comp-choice-current-error-weight"], "Choice error copy must consume Choice current error aliases."],
     [disabledBlock, ["opacity: var(--comp-choice-current-disabled-opacity"], "Choice disabled state must consume Choice current disabled alias."],
   ]) {
     requireIncludes({ block, text, packageCssFile, snippets, message });
+  }
+  for (const [selector, snippets, message] of [
+    [
+      ".choice[data-density=\"sm\"]",
+      [
+        "--comp-choice-current-label-size: var(--component-density-label-size-sm)",
+        "--comp-choice-current-description-size: var(--component-density-helper-size-sm)",
+      ],
+      "Choice small density must scale label and description voice through shared density aliases.",
+    ],
+    [
+      ".choice[data-density=\"lg\"]",
+      [
+        "--comp-choice-current-label-size: var(--component-density-label-size-lg)",
+        "--comp-choice-current-description-size: var(--component-density-helper-size-lg)",
+      ],
+      "Choice large density must scale label and description voice through shared density aliases.",
+    ],
+  ]) {
+    requireIncludes({ block: blockFor(blocks, selectorKey, selector), text, packageCssFile, snippets, message });
   }
   if (!text.includes(".button__icon,\n.material-symbol,") || !text.includes("font-family: var(--component-font-family-icon)")) {
     add("errors", packageCssFile, 1, "Choice material-symbol indicators must be covered by the shared Flow icon font contract.");

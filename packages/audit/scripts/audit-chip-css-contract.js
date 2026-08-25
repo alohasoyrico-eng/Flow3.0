@@ -11,6 +11,8 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 
 function checkChipCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const chipBlock = blockFor(blocks, selectorKey, ".chip");
+  const smBlock = blockFor(blocks, selectorKey, ".chip[data-density=\"sm\"]");
+  const lgBlock = blockFor(blocks, selectorKey, ".chip[data-density=\"lg\"]");
   const buttonChipBlock = blockFor(blocks, selectorKey, "button.chip");
   const hoverButtonBlock = blockFor(blocks, selectorKey, "button.chip:hover:not(:disabled)");
   const hoverStateBlock = blockFor(blocks, selectorKey, ".chip[data-state=\"hover\"]");
@@ -28,7 +30,10 @@ function checkChipCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-chip-border-width: var(--component-border-width)",
       "--comp-chip-radius: var(--component-radius-pill)",
-      "--comp-chip-font-size: var(--component-font-size-label)",
+      "--comp-chip-font-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-chip-font-size-md: var(--component-density-helper-size-md)",
+      "--comp-chip-font-size-lg: var(--component-density-helper-size-lg)",
+      "--comp-chip-font-size: var(--comp-chip-font-size-md)",
       "--comp-chip-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md)",
       "--comp-chip-hover-transform: scale(var(--component-scale-hover))",
       "--comp-chip-press-transform: scale(var(--component-scale-press))",
@@ -38,6 +43,20 @@ function checkChipCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "min-block-size: var(--comp-chip-min-block-size)",
     ],
     message: "Chip base must own and consume component aliases for frame, voice, spacing, and motion.",
+  });
+  requireIncludes({
+    block: smBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-chip-font-size: var(--comp-chip-font-size-sm)"],
+    message: "Chip sm density must scale compact voice through shared density aliases.",
+  });
+  requireIncludes({
+    block: lgBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-chip-font-size: var(--comp-chip-font-size-lg)"],
+    message: "Chip lg density must scale compact voice through shared density aliases.",
   });
   requireIncludes({
     block: buttonChipBlock,

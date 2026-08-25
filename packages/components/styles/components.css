@@ -68,6 +68,18 @@
   --component-control-frame-font-size-sm: var(--component-font-size-small);
   --component-control-frame-font-size-md: var(--component-font-size-label);
   --component-control-frame-font-size-lg: var(--component-font-size-body);
+  --component-density-label-size-sm: var(--component-font-size-caption);
+  --component-density-label-size-md: var(--component-font-size-small);
+  --component-density-label-size-lg: var(--component-font-size-label);
+  --component-density-helper-size-sm: var(--component-font-size-micro);
+  --component-density-helper-size-md: var(--component-font-size-caption);
+  --component-density-helper-size-lg: var(--component-font-size-small);
+  --component-density-counter-size-sm: var(--component-font-size-micro);
+  --component-density-counter-size-md: var(--component-font-size-caption);
+  --component-density-counter-size-lg: var(--component-font-size-small);
+  --component-density-value-size-sm: var(--component-font-size-small);
+  --component-density-value-size-md: var(--component-font-size-label);
+  --component-density-value-size-lg: var(--component-font-size-body);
   --component-control-frame-padding-action-sm: var(--component-space-lg);
   --component-control-frame-padding-action-md: var(--component-density-control-padding-x);
   --component-control-frame-padding-action-lg: calc(var(--component-space-xl) + var(--component-space-xs));
@@ -691,11 +703,19 @@
   --comp-input-font-size-md: var(--component-control-frame-font-size-md);
   --comp-input-font-size-lg: var(--component-control-frame-font-size-lg);
   --comp-input-font-size: var(--comp-input-font-size-md);
+  --comp-input-label-size-sm: var(--component-density-label-size-sm);
+  --comp-input-label-size-md: var(--component-density-label-size-md);
+  --comp-input-label-size-lg: var(--component-density-label-size-lg);
+  --comp-input-label-size: var(--comp-input-label-size-md);
   --comp-input-label-fg: var(--component-color-text);
   --comp-input-label-weight: var(--component-font-weight-semibold);
   --comp-input-surface-bg: var(--component-color-surface);
   --comp-input-surface-border: var(--component-color-border);
   --comp-input-surface-fg: var(--component-color-text);
+  --comp-input-helper-size-sm: var(--component-density-helper-size-sm);
+  --comp-input-helper-size-md: var(--component-density-helper-size-md);
+  --comp-input-helper-size-lg: var(--component-density-helper-size-lg);
+  --comp-input-helper-size: var(--comp-input-helper-size-md);
   --comp-input-helper-fg: var(--component-color-text-muted);
   --comp-input-helper-weight: var(--component-font-weight-medium);
   --comp-input-helper-line-height: var(--component-line-height-snug-state);
@@ -768,7 +788,7 @@
   --comp-text-area-counter-warning-fg: color-mix(in srgb, var(--component-color-warning) 58%, var(--component-color-text));
   --comp-text-area-counter-error-fg: var(--component-color-danger);
   --comp-text-area-counter-family: var(--component-font-family-mono);
-  --comp-text-area-counter-size: var(--component-font-size-micro);
+  --comp-text-area-counter-size: var(--component-density-counter-size-md);
   --comp-text-area-counter-weight: var(--component-font-weight-medium);
   --comp-text-area-focus-width: var(--component-focus-ring-width);
   --comp-text-area-focus-color: color-mix(in srgb, var(--component-color-action) 35%, transparent);
@@ -781,7 +801,7 @@
   --comp-code-input-slot-inline-size-sm: var(--component-code-slot-inline-size-sm);
   --comp-code-input-slot-inline-size-md: var(--component-code-slot-inline-size-md);
   --comp-code-input-slot-inline-size-lg: var(--component-code-slot-inline-size-lg);
-  --comp-code-input-slot-font-size-sm: var(--component-font-size-title-md);
+  --comp-code-input-slot-font-size-sm: var(--component-font-size-label);
   --comp-code-input-slot-font-size-md: var(--component-font-size-title-md);
   --comp-code-input-slot-font-size-lg: var(--component-font-size-icon-md);
   --comp-code-input-helper-fg: var(--component-color-text-muted);
@@ -898,8 +918,9 @@
   --comp-checkbox-focus-width: var(--component-focus-ring-width);
   --comp-checkbox-focus-color: var(--component-color-focus);
   --comp-checkbox-focus-offset: var(--component-focus-ring-offset);
+  --comp-checkbox-label-size: var(--component-density-label-size-md);
   --comp-checkbox-label-weight: var(--component-font-weight-bold);
-  --comp-checkbox-description-size: var(--component-font-size-label);
+  --comp-checkbox-description-size: var(--component-density-helper-size-md);
   --comp-checkbox-description-fg: var(--component-color-text-muted);
   --comp-checkbox-error-fg: var(--component-color-danger);
   --comp-checkbox-error-weight: var(--component-font-weight-bold);
@@ -940,8 +961,9 @@
   --comp-switch-focus-width: var(--component-focus-ring-width);
   --comp-switch-focus-color: var(--component-color-focus);
   --comp-switch-focus-offset: var(--component-focus-ring-offset);
+  --comp-switch-label-size: var(--component-density-label-size-md);
   --comp-switch-label-weight: var(--component-font-weight-bold);
-  --comp-switch-description-size: var(--component-font-size-label);
+  --comp-switch-description-size: var(--component-density-helper-size-md);
   --comp-switch-description-fg: var(--component-color-text-muted);
   --comp-switch-error-fg: var(--component-color-danger);
   --comp-switch-error-weight: var(--component-font-weight-bold);
@@ -979,8 +1001,9 @@
   --comp-radio-button-focus-width: var(--component-focus-ring-width);
   --comp-radio-button-focus-color: var(--component-color-focus);
   --comp-radio-button-focus-offset: var(--component-focus-ring-offset);
+  --comp-radio-button-label-size: var(--component-density-label-size-md);
   --comp-radio-button-label-weight: var(--component-font-weight-bold);
-  --comp-radio-button-description-size: var(--component-font-size-label);
+  --comp-radio-button-description-size: var(--component-density-helper-size-md);
   --comp-radio-button-description-fg: var(--component-color-text-muted);
   --comp-radio-button-error-fg: var(--component-color-danger);
   --comp-radio-button-error-weight: var(--component-font-weight-bold);
@@ -1205,9 +1228,9 @@
   --comp-card-summary-chip-inline-sm: var(--component-card-chip-inline-size-sm);
   --comp-card-summary-chip-inline-md: var(--component-card-chip-inline-size-md);
   --comp-card-summary-chip-inline-lg: var(--component-card-chip-inline-size-lg);
-  --comp-card-summary-number-size-sm: var(--component-font-size-body);
-  --comp-card-summary-number-size-md: var(--component-font-size-body-lg);
-  --comp-card-summary-number-size-lg: var(--component-font-size-title-md);
+  --comp-card-summary-number-size-sm: var(--component-font-size-title-md);
+  --comp-card-summary-number-size-md: var(--component-font-size-data-lg);
+  --comp-card-summary-number-size-lg: var(--component-font-size-display-sm);
   --comp-card-summary-metric-min-sm: var(--component-metric-min-inline-size-xs);
   --comp-card-summary-metric-min-md: var(--component-metric-min-inline-size-md);
   --comp-card-summary-metric-min-lg: var(--component-metric-min-inline-size-lg);
@@ -1303,15 +1326,30 @@
   --comp-movement-row-icon-fg-danger: var(--component-color-danger);
   --comp-movement-row-icon-size: var(--component-movement-icon-size);
   --comp-movement-row-icon-radius: var(--component-radius-md-plus-half-sm);
-  --comp-movement-row-icon-font-size: var(--component-icon-size-lg);
-  --comp-movement-row-title-size: var(--component-font-size-label);
+  --comp-movement-row-icon-font-size-sm: var(--component-density-icon-size-sm);
+  --comp-movement-row-icon-font-size-md: var(--component-density-icon-size-md);
+  --comp-movement-row-icon-font-size-lg: var(--component-density-icon-size-lg);
+  --comp-movement-row-icon-font-size: var(--comp-movement-row-icon-font-size-md);
+  --comp-movement-row-title-size-sm: var(--component-density-label-size-sm);
+  --comp-movement-row-title-size-md: var(--component-density-label-size-md);
+  --comp-movement-row-title-size-lg: var(--component-density-label-size-lg);
+  --comp-movement-row-title-size: var(--comp-movement-row-title-size-md);
   --comp-movement-row-title-weight: var(--component-font-weight-semibold);
-  --comp-movement-row-caption-size: var(--component-font-size-caption);
+  --comp-movement-row-caption-size-sm: var(--component-density-helper-size-sm);
+  --comp-movement-row-caption-size-md: var(--component-density-helper-size-md);
+  --comp-movement-row-caption-size-lg: var(--component-density-helper-size-lg);
+  --comp-movement-row-caption-size: var(--comp-movement-row-caption-size-md);
   --comp-movement-row-caption-weight: var(--component-font-weight-regular);
   --comp-movement-row-amount-family: var(--component-font-family-mono);
-  --comp-movement-row-amount-size: var(--component-font-size-label);
+  --comp-movement-row-amount-size-sm: var(--component-density-value-size-sm);
+  --comp-movement-row-amount-size-md: var(--component-density-value-size-md);
+  --comp-movement-row-amount-size-lg: var(--component-density-value-size-lg);
+  --comp-movement-row-amount-size: var(--comp-movement-row-amount-size-md);
   --comp-movement-row-amount-weight: var(--component-font-weight-semibold);
-  --comp-movement-row-status-size: var(--component-font-size-micro);
+  --comp-movement-row-status-size-sm: var(--component-density-helper-size-sm);
+  --comp-movement-row-status-size-md: var(--component-density-helper-size-md);
+  --comp-movement-row-status-size-lg: var(--component-density-helper-size-lg);
+  --comp-movement-row-status-size: var(--comp-movement-row-status-size-md);
   --comp-movement-row-status-warning: color-mix(in srgb, var(--component-color-warning) 58%, var(--component-color-text));
   --comp-movement-row-status-danger: var(--component-color-danger);
   --comp-movement-row-motion-duration: var(--component-duration-state);
@@ -2329,7 +2367,7 @@
 .field-control__label,
 .field__label {
   color: var(--comp-input-label-fg);
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-input-label-size);
   font-weight: var(--comp-input-label-weight);
 }
 
@@ -2379,12 +2417,12 @@
   --comp-combobox-listbox-radius: var(--component-listbox-radius);
   --comp-combobox-loading-icon-color: var(--component-color-action);
   --comp-combobox-loading-color: var(--component-color-text-muted);
-  --comp-combobox-loading-font-size: var(--component-font-size-caption);
+  --comp-combobox-loading-font-size: var(--component-density-helper-size-md);
   --comp-combobox-loading-font-weight: var(--component-font-weight-semibold);
   --comp-combobox-loading-padding-block: var(--component-space-md);
   --comp-combobox-loading-padding-inline: var(--component-option-row-padding-inline-sm);
   --comp-combobox-empty-color: var(--component-color-text-muted);
-  --comp-combobox-empty-font-size: var(--component-font-size-caption);
+  --comp-combobox-empty-font-size: var(--component-density-helper-size-md);
   --comp-combobox-empty-font-weight: var(--component-font-weight-semibold);
   --comp-combobox-empty-padding-block: var(--component-space-md);
   --comp-combobox-empty-padding-inline: var(--component-option-row-padding-inline-sm);
@@ -2396,9 +2434,15 @@
   --comp-combobox-option-disabled-bg: var(--component-option-row-disabled-bg);
   --comp-combobox-option-disabled-color: var(--component-option-row-disabled-color);
   --comp-combobox-option-disabled-opacity: var(--component-option-row-disabled-opacity);
-  --comp-combobox-option-label-font-size: var(--component-font-size-body);
+  --comp-combobox-option-label-font-size-sm: var(--component-density-label-size-sm);
+  --comp-combobox-option-label-font-size-md: var(--component-density-label-size-md);
+  --comp-combobox-option-label-font-size-lg: var(--component-density-label-size-lg);
+  --comp-combobox-option-label-font-size: var(--comp-combobox-option-label-font-size-md);
   --comp-combobox-option-label-font-weight: var(--component-font-weight-semibold);
-  --comp-combobox-option-meta-font-size: var(--component-font-size-caption);
+  --comp-combobox-option-meta-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-combobox-option-meta-font-size-md: var(--component-density-helper-size-md);
+  --comp-combobox-option-meta-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-combobox-option-meta-font-size: var(--comp-combobox-option-meta-font-size-md);
   --comp-combobox-option-meta-font-weight: var(--component-font-weight-semibold);
   --comp-combobox-option-meta-opacity: var(--component-opacity-muted);
   --comp-combobox-option-min-size-sm: var(--component-option-row-min-block-size-sm);
@@ -2437,12 +2481,20 @@
   --comp-combobox-option-min-size: var(--comp-combobox-option-min-size-sm);
   --comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-sm);
   --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-sm);
+  --comp-combobox-option-label-font-size: var(--comp-combobox-option-label-font-size-sm);
+  --comp-combobox-option-meta-font-size: var(--comp-combobox-option-meta-font-size-sm);
+  --comp-combobox-loading-font-size: var(--component-density-helper-size-sm);
+  --comp-combobox-empty-font-size: var(--component-density-helper-size-sm);
 }
 
 .combobox[data-density="lg"] {
   --comp-combobox-option-min-size: var(--comp-combobox-option-min-size-lg);
   --comp-combobox-option-padding-x: var(--comp-combobox-option-padding-x-lg);
   --comp-combobox-option-check-size: var(--comp-combobox-option-check-size-lg);
+  --comp-combobox-option-label-font-size: var(--comp-combobox-option-label-font-size-lg);
+  --comp-combobox-option-meta-font-size: var(--comp-combobox-option-meta-font-size-lg);
+  --comp-combobox-loading-font-size: var(--component-density-helper-size-lg);
+  --comp-combobox-empty-font-size: var(--component-density-helper-size-lg);
 }
 
 .combobox__input {
@@ -2614,6 +2666,8 @@
   --comp-field-icon-size: var(--comp-input-icon-size-sm);
   --comp-field-icon-action-size: var(--comp-input-action-size-sm);
   --comp-input-font-size: var(--comp-input-font-size-sm);
+  --comp-input-label-size: var(--comp-input-label-size-sm);
+  --comp-input-helper-size: var(--comp-input-helper-size-sm);
   --comp-input-padding-x: var(--comp-input-padding-x-sm);
 }
 
@@ -2623,6 +2677,8 @@
   --comp-field-icon-size: var(--comp-input-icon-size-lg);
   --comp-field-icon-action-size: var(--comp-input-action-size-lg);
   --comp-input-font-size: var(--comp-input-font-size-lg);
+  --comp-input-label-size: var(--comp-input-label-size-lg);
+  --comp-input-helper-size: var(--comp-input-helper-size-lg);
   --comp-input-padding-x: var(--comp-input-padding-x-lg);
 }
 
@@ -2644,7 +2700,7 @@
 .field__helper {
   animation: field-message-enter var(--comp-field-message-motion-duration) var(--component-ease-enter) both;
   color: var(--comp-input-helper-fg);
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-input-helper-size);
   font-weight: var(--comp-input-helper-weight);
   line-height: var(--comp-input-helper-line-height);
   transition:
@@ -2918,6 +2974,7 @@
   --comp-text-area-current-padding-block: var(--comp-text-area-padding-block-sm);
   --comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-sm);
   --comp-text-area-font-size: var(--component-control-frame-font-size-sm);
+  --comp-text-area-counter-size: var(--component-density-counter-size-sm);
 }
 
 .field[data-density="lg"] {
@@ -2925,6 +2982,7 @@
   --comp-text-area-current-padding-block: var(--comp-text-area-padding-block-lg);
   --comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-lg);
   --comp-text-area-font-size: var(--component-control-frame-font-size-lg);
+  --comp-text-area-counter-size: var(--component-density-counter-size-lg);
 }
 
 .text-area__surface:has(.text-area:hover:not(:disabled)) {
@@ -3011,8 +3069,9 @@
   --comp-choice-current-focus-width: var(--component-focus-ring-width);
   --comp-choice-current-focus-color: var(--component-color-focus);
   --comp-choice-current-focus-offset: var(--component-focus-ring-offset);
+  --comp-choice-current-label-size: var(--component-density-label-size-md);
   --comp-choice-current-label-weight: var(--component-font-weight-bold);
-  --comp-choice-current-description-size: var(--component-font-size-label);
+  --comp-choice-current-description-size: var(--component-density-helper-size-md);
   --comp-choice-current-description-fg: var(--component-color-text-muted);
   --comp-choice-current-error-fg: var(--component-color-danger);
   --comp-choice-current-error-weight: var(--component-font-weight-bold);
@@ -3052,6 +3111,7 @@
   --comp-choice-current-focus-width: var(--comp-checkbox-focus-width);
   --comp-choice-current-focus-color: var(--comp-checkbox-focus-color);
   --comp-choice-current-focus-offset: var(--comp-checkbox-focus-offset);
+  --comp-choice-current-label-size: var(--comp-checkbox-label-size);
   --comp-choice-current-label-weight: var(--comp-checkbox-label-weight);
   --comp-choice-current-description-size: var(--comp-checkbox-description-size);
   --comp-choice-current-description-fg: var(--comp-checkbox-description-fg);
@@ -3086,6 +3146,7 @@
   --comp-choice-current-focus-width: var(--comp-radio-button-focus-width);
   --comp-choice-current-focus-color: var(--comp-radio-button-focus-color);
   --comp-choice-current-focus-offset: var(--comp-radio-button-focus-offset);
+  --comp-choice-current-label-size: var(--comp-radio-button-label-size);
   --comp-choice-current-label-weight: var(--comp-radio-button-label-weight);
   --comp-choice-current-description-size: var(--comp-radio-button-description-size);
   --comp-choice-current-description-fg: var(--comp-radio-button-description-fg);
@@ -3106,6 +3167,8 @@
   --comp-choice-current-indicator-size: var(--component-icon-size-sm);
   --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--component-space-xs);
+  --comp-choice-current-label-size: var(--component-density-label-size-sm);
+  --comp-choice-current-description-size: var(--component-density-helper-size-sm);
 }
 
 .checkbox[data-density="sm"] {
@@ -3128,6 +3191,8 @@
   --comp-choice-current-indicator-size: var(--component-density-icon-size-lg);
   --comp-choice-current-indicator-font-size: var(--comp-choice-current-indicator-size);
   --comp-choice-current-gap: var(--component-space-md);
+  --comp-choice-current-label-size: var(--component-density-label-size-lg);
+  --comp-choice-current-description-size: var(--component-density-helper-size-lg);
 }
 
 .checkbox[data-density="lg"] {
@@ -3353,11 +3418,13 @@
 }
 
 .choice__label {
+  font-size: var(--comp-choice-current-label-size);
   font-weight: var(--comp-choice-current-label-weight);
   line-height: var(--component-line-height-snug-state);
 }
 
 .switch__label {
+  font-size: var(--comp-switch-current-label-size);
   font-weight: var(--comp-switch-current-label-weight);
   line-height: var(--component-line-height-snug-state);
 }
@@ -3439,6 +3506,7 @@
   --comp-switch-current-focus-width: var(--comp-switch-focus-width);
   --comp-switch-current-focus-color: var(--comp-switch-focus-color);
   --comp-switch-current-focus-offset: var(--comp-switch-focus-offset);
+  --comp-switch-current-label-size: var(--comp-switch-label-size);
   --comp-switch-current-label-weight: var(--comp-switch-label-weight);
   --comp-switch-current-description-size: var(--comp-switch-description-size);
   --comp-switch-current-description-fg: var(--comp-switch-description-fg);
@@ -3464,6 +3532,8 @@
   --comp-switch-current-thumb-size: var(--comp-switch-thumb-size-sm);
   --comp-switch-current-thumb-press-inline: var(--comp-switch-thumb-press-inline-sm);
   --comp-switch-current-gap: var(--comp-switch-gap-sm);
+  --comp-switch-current-label-size: var(--component-density-label-size-sm);
+  --comp-switch-current-description-size: var(--component-density-helper-size-sm);
 }
 
 .switch[data-density="lg"] {
@@ -3472,6 +3542,8 @@
   --comp-switch-current-thumb-size: var(--comp-switch-thumb-size-lg);
   --comp-switch-current-thumb-press-inline: var(--comp-switch-thumb-press-inline-lg);
   --comp-switch-current-gap: var(--comp-switch-gap-lg);
+  --comp-switch-current-label-size: var(--component-density-label-size-lg);
+  --comp-switch-current-description-size: var(--component-density-helper-size-lg);
 }
 
 .switch__track {
@@ -3568,7 +3640,10 @@
 .badge {
   --comp-badge-border-width: var(--component-border-width);
   --comp-badge-radius: var(--component-radius-pill);
-  --comp-badge-font-size: var(--component-font-size-label);
+  --comp-badge-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-badge-font-size-md: var(--component-density-helper-size-md);
+  --comp-badge-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-badge-font-size: var(--comp-badge-font-size-md);
   --comp-badge-font-weight: var(--component-font-weight-bold);
   --comp-badge-gap: var(--component-space-xs);
   --comp-badge-min-block-size: var(--component-badge-min-size);
@@ -3629,6 +3704,16 @@
     color var(--comp-badge-motion-duration) var(--comp-badge-motion-ease),
     box-shadow var(--comp-badge-motion-duration) var(--comp-badge-motion-ease),
     transform var(--comp-badge-motion-duration) var(--comp-badge-motion-press-ease);
+}
+
+.badge[data-density="sm"] {
+  --comp-badge-font-size: var(--comp-badge-font-size-sm);
+  --comp-badge-icon-size: var(--component-density-icon-size-sm);
+}
+
+.badge[data-density="lg"] {
+  --comp-badge-font-size: var(--comp-badge-font-size-lg);
+  --comp-badge-icon-size: var(--component-density-icon-size-lg);
 }
 
 .badge[data-tone="info"] {
@@ -3747,7 +3832,10 @@
 .tag {
   --comp-tag-border-width: var(--component-border-width);
   --comp-tag-radius: var(--component-radius-sm);
-  --comp-tag-font-size: var(--component-font-size-label);
+  --comp-tag-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-tag-font-size-md: var(--component-density-helper-size-md);
+  --comp-tag-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-tag-font-size: var(--comp-tag-font-size-md);
   --comp-tag-font-weight: var(--component-font-weight-bold);
   --comp-tag-gap: var(--component-space-xs);
   --comp-tag-min-block-size: var(--component-min-text-line);
@@ -3790,6 +3878,14 @@
   padding: 0 var(--comp-tag-padding-inline);
 }
 
+.tag[data-density="sm"] {
+  --comp-tag-font-size: var(--comp-tag-font-size-sm);
+}
+
+.tag[data-density="lg"] {
+  --comp-tag-font-size: var(--comp-tag-font-size-lg);
+}
+
 .tag[data-variant="platform"] {
   border-style: dashed;
 }
@@ -3825,7 +3921,10 @@
 .chip {
   --comp-chip-border-width: var(--component-border-width);
   --comp-chip-radius: var(--component-radius-pill);
-  --comp-chip-font-size: var(--component-font-size-label);
+  --comp-chip-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-chip-font-size-md: var(--component-density-helper-size-md);
+  --comp-chip-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-chip-font-size: var(--comp-chip-font-size-md);
   --comp-chip-font-weight: var(--component-font-weight-bold);
   --comp-chip-min-block-size: var(--component-badge-min-size);
   --comp-chip-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
@@ -3855,6 +3954,14 @@
   gap: var(--comp-chip-gap);
   min-block-size: var(--comp-chip-min-block-size);
   padding-inline: var(--comp-chip-padding-inline);
+}
+
+.chip[data-density="sm"] {
+  --comp-chip-font-size: var(--comp-chip-font-size-sm);
+}
+
+.chip[data-density="lg"] {
+  --comp-chip-font-size: var(--comp-chip-font-size-lg);
 }
 
 .chip[data-chip-remove="true"] {
@@ -4912,11 +5019,17 @@ button.tag:disabled,
   --comp-progress-indicator-min-inline-size: var(--component-progress-indicator-min-inline-size);
   --comp-progress-indicator-max-inline-size: var(--component-progress-indicator-max-inline-size);
   --comp-progress-indicator-text-color: var(--component-color-text);
-  --comp-progress-indicator-label-font-size: var(--component-font-size-small);
+  --comp-progress-indicator-label-font-size-sm: var(--component-density-label-size-sm);
+  --comp-progress-indicator-label-font-size-md: var(--component-density-label-size-md);
+  --comp-progress-indicator-label-font-size-lg: var(--component-density-label-size-lg);
+  --comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-md);
   --comp-progress-indicator-label-font-weight: var(--component-font-weight-semibold);
   --comp-progress-indicator-value-color: var(--component-color-text-muted);
   --comp-progress-indicator-value-font-family: var(--component-font-family-mono);
-  --comp-progress-indicator-value-font-size: var(--component-font-size-caption);
+  --comp-progress-indicator-value-font-size-sm: var(--component-density-counter-size-sm);
+  --comp-progress-indicator-value-font-size-md: var(--component-density-counter-size-md);
+  --comp-progress-indicator-value-font-size-lg: var(--component-density-counter-size-lg);
+  --comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-md);
   --comp-progress-indicator-value-font-weight: var(--component-font-weight-semibold);
   --comp-progress-indicator-track-bg: color-mix(in srgb, var(--component-loading-progress-track) 42%, var(--component-color-surface-raised));
   --comp-progress-indicator-track-border-width: var(--component-border-width);
@@ -4939,10 +5052,14 @@ button.tag:disabled,
 
 .progress[data-density="sm"] {
   --comp-progress-indicator-track-size: var(--component-space-xs);
+  --comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-sm);
+  --comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-sm);
 }
 
 .progress[data-density="lg"] {
   --comp-progress-indicator-track-size: var(--component-space-md);
+  --comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-lg);
+  --comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-lg);
 }
 
 .progress[data-tone="success"] {
@@ -5069,16 +5186,31 @@ button.tag:disabled,
   --comp-accordion-panel-padding-block-end: var(--component-space-md);
   --comp-accordion-panel-fg: var(--component-color-text-muted);
   --comp-accordion-panel-line-height: var(--component-line-height-loose);
-  --comp-accordion-trigger-font-size: var(--component-font-size-label);
-  --comp-accordion-panel-font-size: var(--component-font-size-small);
+  --comp-accordion-trigger-font-size-sm: var(--component-density-label-size-sm);
+  --comp-accordion-trigger-font-size-md: var(--component-density-label-size-md);
+  --comp-accordion-trigger-font-size-lg: var(--component-density-label-size-lg);
+  --comp-accordion-trigger-font-size: var(--comp-accordion-trigger-font-size-md);
+  --comp-accordion-panel-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-accordion-panel-font-size-md: var(--component-density-helper-size-md);
+  --comp-accordion-panel-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-accordion-panel-font-size: var(--comp-accordion-panel-font-size-md);
   --comp-accordion-icon-family: var(--component-font-family-icon);
   --comp-accordion-icon-fg: var(--component-color-text-muted);
-  --comp-accordion-icon-size: var(--component-font-size-title-sm);
+  --comp-accordion-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-accordion-icon-size-md: var(--component-density-icon-size-md);
+  --comp-accordion-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-accordion-icon-size: var(--comp-accordion-icon-size-md);
   --comp-accordion-meta-fg: var(--component-color-text-muted);
-  --comp-accordion-meta-font-size: var(--component-font-size-small);
+  --comp-accordion-meta-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-accordion-meta-font-size-md: var(--component-density-helper-size-md);
+  --comp-accordion-meta-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-accordion-meta-font-size: var(--comp-accordion-meta-font-size-md);
   --comp-accordion-meta-font-weight: var(--component-font-weight-semibold);
   --comp-accordion-chevron-fg: var(--component-color-text-muted);
-  --comp-accordion-chevron-size: var(--component-font-size-title-md);
+  --comp-accordion-chevron-size-sm: var(--component-density-icon-size-sm);
+  --comp-accordion-chevron-size-md: var(--component-density-icon-size-md);
+  --comp-accordion-chevron-size-lg: var(--component-density-icon-size-lg);
+  --comp-accordion-chevron-size: var(--comp-accordion-chevron-size-md);
   --comp-accordion-chevron-expanded-transform: var(--component-transform-rotate-expanded);
   --comp-accordion-focus-ring: var(--component-focus-ring);
   --comp-accordion-focus-ring-offset: var(--component-focus-ring-offset);
@@ -5100,8 +5232,11 @@ button.tag:disabled,
   --comp-accordion-trigger-padding-inline: var(--component-space-sm);
   --comp-accordion-panel-padding-block-start: var(--component-frame-space-none);
   --comp-accordion-panel-padding-block-end: var(--component-space-sm);
-  --comp-accordion-trigger-font-size: var(--component-font-size-small);
-  --comp-accordion-panel-font-size: var(--component-font-size-small);
+  --comp-accordion-trigger-font-size: var(--comp-accordion-trigger-font-size-sm);
+  --comp-accordion-panel-font-size: var(--comp-accordion-panel-font-size-sm);
+  --comp-accordion-icon-size: var(--comp-accordion-icon-size-sm);
+  --comp-accordion-meta-font-size: var(--comp-accordion-meta-font-size-sm);
+  --comp-accordion-chevron-size: var(--comp-accordion-chevron-size-sm);
 }
 
 .accordion[data-density="lg"] {
@@ -5109,8 +5244,11 @@ button.tag:disabled,
   --comp-accordion-trigger-padding-inline: var(--component-space-lg);
   --comp-accordion-panel-padding-block-start: var(--component-space-xs);
   --comp-accordion-panel-padding-block-end: var(--component-space-lg);
-  --comp-accordion-trigger-font-size: var(--component-font-size-body);
-  --comp-accordion-panel-font-size: var(--component-font-size-label);
+  --comp-accordion-trigger-font-size: var(--comp-accordion-trigger-font-size-lg);
+  --comp-accordion-panel-font-size: var(--comp-accordion-panel-font-size-lg);
+  --comp-accordion-icon-size: var(--comp-accordion-icon-size-lg);
+  --comp-accordion-meta-font-size: var(--comp-accordion-meta-font-size-lg);
+  --comp-accordion-chevron-size: var(--comp-accordion-chevron-size-lg);
 }
 
 .accordion__item + .accordion__item {
@@ -5224,13 +5362,13 @@ button.tag:disabled,
   --comp-slider-track-depth: var(--component-depth-inset-track);
   --comp-slider-track-radius: var(--component-radius-pill);
   --comp-slider-fill-color: var(--comp-slider-state-color);
-  --comp-slider-label-font-size: var(--component-font-size-label);
+  --comp-slider-label-font-size: var(--component-density-label-size-md);
   --comp-slider-label-font-weight: var(--component-font-weight-bold);
   --comp-slider-value-fg: var(--component-color-text-muted);
   --comp-slider-value-active-fg: var(--comp-slider-state-color);
   --comp-slider-value-quiet-fg: var(--component-color-text);
   --comp-slider-value-font-family: var(--component-font-family-mono);
-  --comp-slider-value-font-size: var(--component-font-size-label);
+  --comp-slider-value-font-size: var(--component-density-value-size-md);
   --comp-slider-value-font-weight: var(--component-font-weight-bold);
   --comp-slider-thumb-bg: var(--component-color-action-text);
   --comp-slider-thumb-radius: var(--component-radius-pill);
@@ -5267,6 +5405,8 @@ button.tag:disabled,
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 3) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
   --comp-slider-touch-size: var(--component-slider-touch-size-sm);
   --comp-slider-gap: var(--component-space-xs);
+  --comp-slider-label-font-size: var(--component-density-label-size-sm);
+  --comp-slider-value-font-size: var(--component-density-value-size-sm);
 }
 
 .slider[data-density="lg"] {
@@ -5276,6 +5416,8 @@ button.tag:disabled,
   --comp-slider-thumb-halo: 0 0 0 calc(var(--component-border-width) * 5) color-mix(in srgb, var(--comp-slider-state-color) 18%, transparent);
   --comp-slider-touch-size: var(--component-slider-touch-size-lg);
   --comp-slider-gap: var(--component-space-md);
+  --comp-slider-label-font-size: var(--component-density-label-size-lg);
+  --comp-slider-value-font-size: var(--component-density-value-size-lg);
 }
 
 .slider[data-variant="threshold"],
@@ -5915,12 +6057,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-header-justify: var(--component-justify-space-between);
   --comp-kpi-tile-header-letter-spacing: var(--component-letter-spacing-widest);
   --comp-kpi-tile-header-line-height: var(--component-line-height-dense);
-  --comp-kpi-tile-header-size: var(--component-font-size-caption);
+  --comp-kpi-tile-header-size-sm: var(--component-density-label-size-sm);
+  --comp-kpi-tile-header-size-md: var(--component-density-label-size-md);
+  --comp-kpi-tile-header-size-lg: var(--component-density-label-size-lg);
+  --comp-kpi-tile-header-size: var(--comp-kpi-tile-header-size-md);
   --comp-kpi-tile-header-transform: var(--component-text-transform-uppercase);
   --comp-kpi-tile-header-weight: var(--component-font-weight-semibold);
   --comp-kpi-tile-icon-family: var(--component-font-family-icon);
   --comp-kpi-tile-icon-line-height: var(--component-line-height-none);
-  --comp-kpi-tile-icon-size: var(--component-icon-size-md);
+  --comp-kpi-tile-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-kpi-tile-icon-size-md: var(--component-density-icon-size-md);
+  --comp-kpi-tile-icon-size-lg: var(--component-density-icon-size-lg);
+  --comp-kpi-tile-icon-size: var(--comp-kpi-tile-icon-size-md);
   --comp-kpi-tile-interactive-cursor: var(--component-cursor-pointer);
   --comp-kpi-tile-loading-fg: var(--component-color-text-muted);
   --comp-kpi-tile-min-block-size: calc(var(--component-block-size-lg) - var(--component-space-xs));
@@ -5938,12 +6086,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-kpi-tile-value-weight: var(--component-font-weight-semibold);
   --comp-kpi-tile-value-letter-spacing: var(--component-letter-spacing-normal);
   --comp-kpi-tile-value-line-height: var(--component-line-height-crisp);
+  --comp-kpi-tile-delta-size-sm: var(--component-density-helper-size-sm);
+  --comp-kpi-tile-delta-size-md: var(--component-density-helper-size-md);
+  --comp-kpi-tile-delta-size-lg: var(--component-density-helper-size-lg);
   --comp-kpi-tile-delta-color: var(--component-color-text-muted);
+  --comp-kpi-tile-delta-size: var(--comp-kpi-tile-delta-size-md);
   --comp-kpi-tile-delta-weight: var(--component-font-weight-semibold);
   --comp-kpi-tile-icon-weight: var(--component-font-weight-regular);
   --comp-kpi-tile-sparkline-block-size: var(--component-field-icon-action-size-lg);
   --comp-kpi-tile-affordance-family: var(--component-font-family-icon);
   --comp-kpi-tile-affordance-line-height: var(--component-line-height-none);
+  --comp-kpi-tile-affordance-size-sm: var(--component-density-icon-size-sm);
+  --comp-kpi-tile-affordance-size-md: var(--component-density-icon-size-md);
+  --comp-kpi-tile-affordance-size-lg: var(--component-density-icon-size-lg);
+  --comp-kpi-tile-affordance-size: var(--comp-kpi-tile-affordance-size-md);
   --comp-kpi-tile-loading-gradient-start: color-mix(in srgb, var(--component-color-border) 55%, transparent);
   --comp-kpi-tile-loading-gradient-mid: color-mix(in srgb, var(--component-color-text-muted) 14%, transparent);
   --comp-kpi-tile-loading-gradient-end: var(--comp-kpi-tile-loading-gradient-start);
@@ -5962,12 +6118,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .kpi-tile[data-density="sm"] {
+  --comp-kpi-tile-affordance-size: var(--comp-kpi-tile-affordance-size-sm);
+  --comp-kpi-tile-delta-size: var(--comp-kpi-tile-delta-size-sm);
+  --comp-kpi-tile-header-size: var(--comp-kpi-tile-header-size-sm);
+  --comp-kpi-tile-icon-size: var(--comp-kpi-tile-icon-size-sm);
   --comp-kpi-tile-padding: var(--component-space-lg);
   --comp-kpi-tile-value-size: var(--component-font-size-title-lg);
   --comp-kpi-tile-min-block-size: calc(var(--component-block-size-md) + var(--component-space-sm));
 }
 
 .kpi-tile[data-density="lg"] {
+  --comp-kpi-tile-affordance-size: var(--comp-kpi-tile-affordance-size-lg);
+  --comp-kpi-tile-delta-size: var(--comp-kpi-tile-delta-size-lg);
+  --comp-kpi-tile-header-size: var(--comp-kpi-tile-header-size-lg);
+  --comp-kpi-tile-icon-size: var(--comp-kpi-tile-icon-size-lg);
   --comp-kpi-tile-padding: var(--component-space-xl);
   --comp-kpi-tile-value-size: var(--component-font-size-display-sm);
   --comp-kpi-tile-min-block-size: calc(var(--component-block-size-lg) + var(--component-space-sm));
@@ -6028,7 +6192,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   align-items: center;
   color: var(--comp-kpi-tile-delta-color);
   display: inline-flex;
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-kpi-tile-delta-size);
   font-weight: var(--comp-kpi-tile-delta-weight);
   gap: var(--component-focus-ring-width);
   margin: 0;
@@ -6053,7 +6217,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .kpi-tile__trend-icon {
   color: currentColor;
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-kpi-tile-delta-size);
 }
 
 .kpi-tile__sparkline {
@@ -6075,7 +6239,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   bottom: var(--comp-kpi-tile-padding);
   color: var(--comp-kpi-tile-tone);
   font-family: var(--comp-kpi-tile-affordance-family);
-  font-size: var(--component-font-size-title-md);
+  font-size: var(--comp-kpi-tile-affordance-size);
   line-height: var(--comp-kpi-tile-affordance-line-height);
   position: absolute;
   right: var(--comp-kpi-tile-padding);
@@ -7477,7 +7641,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-listbox-gap);
   --comp-menu-item-font-family: var(--component-font-family-inherit);
-  --comp-menu-item-font-size: var(--component-font-size-label);
+  --comp-menu-item-font-size-sm: var(--component-density-label-size-sm);
+  --comp-menu-item-font-size-md: var(--component-density-label-size-md);
+  --comp-menu-item-font-size-lg: var(--component-density-label-size-lg);
+  --comp-menu-item-font-size: var(--comp-menu-item-font-size-md);
   --comp-menu-item-font-weight: var(--component-font-weight-semibold);
   --comp-menu-item-icon-size-sm: var(--component-density-icon-size-sm);
   --comp-menu-item-icon-size-md: var(--component-density-icon-size-md);
@@ -7486,7 +7653,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-icon-family: var(--component-font-family-icon);
   --comp-menu-item-icon-weight: var(--component-font-weight-regular);
   --comp-menu-item-shortcut-fg: var(--component-color-text-muted);
-  --comp-menu-item-shortcut-font-size: var(--component-font-size-helper);
+  --comp-menu-item-shortcut-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-menu-item-shortcut-font-size-md: var(--component-density-helper-size-md);
+  --comp-menu-item-shortcut-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-menu-item-shortcut-font-size: var(--comp-menu-item-shortcut-font-size-md);
   --comp-menu-item-hover-transform: var(--component-transform-inline-nudge);
   --comp-menu-item-disabled-transform: var(--component-transform-none);
   --comp-menu-separator-border: var(--component-color-border);
@@ -7529,8 +7699,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-padding-x: var(--comp-menu-item-padding-x-sm);
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-listbox-gap);
-  --comp-menu-item-font-size: var(--component-font-size-small);
+  --comp-menu-item-font-size: var(--comp-menu-item-font-size-sm);
   --comp-menu-item-icon-size: var(--comp-menu-item-icon-size-sm);
+  --comp-menu-item-shortcut-font-size: var(--comp-menu-item-shortcut-font-size-sm);
 }
 
 .menu[data-density="lg"] {
@@ -7541,8 +7712,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-menu-item-padding-x: var(--comp-menu-item-padding-x-lg);
   --comp-menu-item-radius: var(--component-option-row-radius);
   --comp-menu-item-gap: var(--component-option-row-gap);
-  --comp-menu-item-font-size: var(--component-font-size-body);
+  --comp-menu-item-font-size: var(--comp-menu-item-font-size-lg);
   --comp-menu-item-icon-size: var(--comp-menu-item-icon-size-lg);
+  --comp-menu-item-shortcut-font-size: var(--comp-menu-item-shortcut-font-size-lg);
 }
 
 .menu__panel {
@@ -9150,12 +9322,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-message-margin: var(--component-frame-space-none);
   --comp-inline-validation-message-min-block: var(--component-space-md);
   --comp-inline-validation-message-auto-min-block: var(--component-min-block-size-auto);
-  --comp-inline-validation-message-size: var(--component-font-size-caption);
+  --comp-inline-validation-message-size: var(--component-density-helper-size-md);
   --comp-inline-validation-message-weight: var(--component-font-weight-medium);
   --comp-inline-validation-message-line-height: var(--component-line-height-snug-state);
   --comp-inline-validation-icon-content: "info";
   --comp-inline-validation-icon-family: var(--component-font-family-icon);
-  --comp-inline-validation-icon-size: var(--component-font-size-small);
+  --comp-inline-validation-icon-size: var(--component-density-icon-size-md);
   --comp-inline-validation-icon-weight: var(--component-font-weight-semibold);
   --comp-inline-validation-icon-line-height: var(--component-line-height-none);
   --comp-inline-validation-message-motion-duration: var(--component-duration-state);
@@ -9174,6 +9346,16 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   gap: var(--comp-inline-validation-gap);
   inline-size: var(--comp-inline-validation-width);
   max-inline-size: var(--comp-inline-validation-full-width);
+}
+
+.inline-validation[data-density="sm"] {
+  --comp-inline-validation-message-size: var(--component-density-helper-size-sm);
+  --comp-inline-validation-icon-size: var(--component-density-icon-size-sm);
+}
+
+.inline-validation[data-density="lg"] {
+  --comp-inline-validation-message-size: var(--component-density-helper-size-lg);
+  --comp-inline-validation-icon-size: var(--component-density-icon-size-lg);
 }
 
 .inline-validation[data-full-width="true"] {
@@ -9315,7 +9497,10 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-stepper-marker-radius: var(--component-radius-pill);
   --comp-stepper-marker-fg: var(--component-color-text-muted);
   --comp-stepper-marker-font-family: var(--component-font-family-mono);
-  --comp-stepper-marker-font-size: var(--component-font-size-small);
+  --comp-stepper-marker-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-stepper-marker-font-size-md: var(--component-density-helper-size-md);
+  --comp-stepper-marker-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-stepper-marker-font-size: var(--comp-stepper-marker-font-size-md);
   --comp-stepper-marker-font-weight: var(--component-font-weight-extrabold);
   --comp-stepper-marker-active-bg: var(--component-gradient-stepper-marker-active);
   --comp-stepper-marker-active-border: var(--component-color-action);
@@ -9325,11 +9510,20 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-stepper-marker-complete-border: var(--component-color-success);
   --comp-stepper-marker-complete-fg: var(--component-color-action-text);
   --comp-stepper-marker-complete-font-family: var(--component-font-family-icon);
-  --comp-stepper-marker-complete-font-size: var(--component-font-size-body);
-  --comp-stepper-label-size: var(--component-font-size-small);
+  --comp-stepper-marker-complete-font-size-sm: var(--component-density-icon-size-sm);
+  --comp-stepper-marker-complete-font-size-md: var(--component-density-icon-size-md);
+  --comp-stepper-marker-complete-font-size-lg: var(--component-density-icon-size-lg);
+  --comp-stepper-marker-complete-font-size: var(--comp-stepper-marker-complete-font-size-md);
+  --comp-stepper-label-size-sm: var(--component-density-label-size-sm);
+  --comp-stepper-label-size-md: var(--component-density-label-size-md);
+  --comp-stepper-label-size-lg: var(--component-density-label-size-lg);
+  --comp-stepper-label-size: var(--comp-stepper-label-size-md);
   --comp-stepper-label-font-weight: var(--component-font-weight-semibold);
   --comp-stepper-label-active-font-weight: var(--component-font-weight-extrabold);
-  --comp-stepper-description-size: var(--component-font-size-caption);
+  --comp-stepper-description-size-sm: var(--component-density-helper-size-sm);
+  --comp-stepper-description-size-md: var(--component-density-helper-size-md);
+  --comp-stepper-description-size-lg: var(--component-density-helper-size-lg);
+  --comp-stepper-description-size: var(--comp-stepper-description-size-md);
   --comp-stepper-description-fg: var(--component-color-text-muted);
   --comp-stepper-text-gap: var(--component-visually-hidden-size);
   --comp-stepper-text-max-inline: var(--component-step-text-max-inline-size);
@@ -9490,14 +9684,18 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .stepper[data-density="sm"] {
   --comp-stepper-marker-size: var(--component-step-marker-size-sm);
-  --comp-stepper-label-size: var(--component-font-size-caption);
-  --comp-stepper-description-size: var(--component-font-size-micro);
+  --comp-stepper-marker-font-size: var(--comp-stepper-marker-font-size-sm);
+  --comp-stepper-marker-complete-font-size: var(--comp-stepper-marker-complete-font-size-sm);
+  --comp-stepper-label-size: var(--comp-stepper-label-size-sm);
+  --comp-stepper-description-size: var(--comp-stepper-description-size-sm);
 }
 
 .stepper[data-density="lg"] {
   --comp-stepper-marker-size: var(--component-step-marker-size-lg);
-  --comp-stepper-label-size: var(--component-font-size-body);
-  --comp-stepper-description-size: var(--component-font-size-small);
+  --comp-stepper-marker-font-size: var(--comp-stepper-marker-font-size-lg);
+  --comp-stepper-marker-complete-font-size: var(--comp-stepper-marker-complete-font-size-lg);
+  --comp-stepper-label-size: var(--comp-stepper-label-size-lg);
+  --comp-stepper-description-size: var(--comp-stepper-description-size-lg);
   --comp-stepper-current-scale: var(--component-scale-hover);
 }
 
@@ -10971,6 +11169,15 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-option-check-weight: var(--component-font-weight-medium);
   --comp-select-option-check-visible-opacity: var(--component-opacity-visible);
   --comp-select-option-check-hidden-opacity: var(--component-opacity-hidden);
+  --comp-select-option-label-font-size-sm: var(--component-density-label-size-sm);
+  --comp-select-option-label-font-size-md: var(--component-density-label-size-md);
+  --comp-select-option-label-font-size-lg: var(--component-density-label-size-lg);
+  --comp-select-option-label-font-size: var(--comp-select-option-label-font-size-md);
+  --comp-select-option-meta-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-select-option-meta-font-size-md: var(--component-density-helper-size-md);
+  --comp-select-option-meta-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-select-option-meta-font-size: var(--comp-select-option-meta-font-size-md);
+  --comp-select-option-meta-opacity: var(--component-opacity-muted);
   --comp-select-current-control-size: var(--comp-select-control-size);
   --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
@@ -11006,10 +11213,10 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-country-selector-flag-fallback-bg: var(--component-color-surface-raised);
   --comp-country-selector-flag-fallback-color: var(--component-color-text-muted);
   --comp-country-selector-flag-fallback-weight: var(--component-font-weight-bold);
-  --comp-country-selector-label-font-size: var(--component-font-size-label);
+  --comp-country-selector-label-font-size: var(--comp-select-option-label-font-size);
   --comp-country-selector-label-font-weight: var(--component-font-weight-medium);
   --comp-country-selector-code-color: var(--component-color-text-muted);
-  --comp-country-selector-code-font-size: var(--component-font-size-caption);
+  --comp-country-selector-code-font-size: var(--comp-select-option-meta-font-size);
   --comp-country-selector-code-font-weight: var(--component-font-weight-bold);
   --comp-country-selector-chevron-color: var(--component-color-text-muted);
   --comp-country-selector-chevron-family: var(--comp-select-chevron-family);
@@ -11064,6 +11271,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-option-min-size: var(--comp-select-option-min-size-sm);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-sm);
   --comp-select-option-check-size: var(--comp-select-option-check-size-sm);
+  --comp-select-option-label-font-size: var(--comp-select-option-label-font-size-sm);
+  --comp-select-option-meta-font-size: var(--comp-select-option-meta-font-size-sm);
 }
 
 .select-control[data-density="lg"] {
@@ -11075,6 +11284,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-option-min-size: var(--comp-select-option-min-size-lg);
   --comp-select-option-padding-x: var(--comp-select-option-padding-x-lg);
   --comp-select-option-check-size: var(--comp-select-option-check-size-lg);
+  --comp-select-option-label-font-size: var(--comp-select-option-label-font-size-lg);
+  --comp-select-option-meta-font-size: var(--comp-select-option-meta-font-size-lg);
 }
 
 .select-control--inline,
@@ -11538,14 +11749,18 @@ body[data-contrast="quiet"] .route-summary__icon {
   min-inline-size: 0;
 }
 
-.select-control__option-label,
-.country-selector__option-label {
-  font-size: var(--comp-country-selector-label-font-size);
-  font-weight: var(--comp-country-selector-label-font-weight);
+.select-control__option-label {
+  font-size: var(--comp-select-option-label-font-size);
+  font-weight: var(--component-font-weight-medium);
   min-inline-size: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.country-selector__option-label {
+  font-size: var(--comp-country-selector-label-font-size);
+  font-weight: var(--comp-country-selector-label-font-weight);
 }
 
 .select-control__option[data-selected="true"] .select-control__option-label,
@@ -11553,9 +11768,14 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-weight: var(--comp-country-selector-option-selected-weight);
 }
 
-.select-control__option-code,
-.country-selector__option-code {
+.select-control__option-code {
   color: currentColor;
+  font-size: var(--comp-select-option-meta-font-size);
+  font-weight: var(--component-font-weight-bold);
+  opacity: var(--comp-select-option-meta-opacity);
+}
+
+.country-selector__option-code {
   font-size: var(--comp-country-selector-code-font-size);
   font-weight: var(--comp-country-selector-code-font-weight);
   opacity: var(--comp-country-selector-option-code-opacity);
@@ -11765,7 +11985,22 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-picker-error-bg: color-mix(in srgb, var(--comp-date-picker-danger) 8%, var(--comp-date-picker-bg));
   --comp-date-picker-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--component-space-lg) + var(--component-frame-space-micro));
-  --comp-date-picker-day-font-size: var(--component-font-size-small);
+  --comp-date-picker-value-font-size-sm: var(--component-control-frame-font-size-sm);
+  --comp-date-picker-value-font-size-md: var(--component-control-frame-font-size-md);
+  --comp-date-picker-value-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-date-picker-value-font-size: var(--comp-date-picker-value-font-size-md);
+  --comp-date-picker-helper-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-date-picker-helper-font-size-md: var(--component-density-helper-size-md);
+  --comp-date-picker-helper-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-date-picker-helper-font-size: var(--comp-date-picker-helper-font-size-md);
+  --comp-date-picker-header-font-size-sm: var(--component-density-label-size-sm);
+  --comp-date-picker-header-font-size-md: var(--component-density-label-size-md);
+  --comp-date-picker-header-font-size-lg: var(--component-density-label-size-lg);
+  --comp-date-picker-header-font-size: var(--comp-date-picker-header-font-size-md);
+  --comp-date-picker-day-font-size-sm: var(--component-density-label-size-sm);
+  --comp-date-picker-day-font-size-md: var(--component-density-label-size-md);
+  --comp-date-picker-day-font-size-lg: var(--component-density-label-size-lg);
+  --comp-date-picker-day-font-size: var(--comp-date-picker-day-font-size-md);
   --comp-date-picker-day-hover-bg: var(--component-color-surface-raised);
   --comp-date-picker-day-disabled-fg: color-mix(in srgb, var(--comp-date-picker-muted-fg) 46%, transparent);
   --comp-date-picker-icon-size: var(--component-font-size-title-md);
@@ -11789,11 +12024,19 @@ body[data-contrast="quiet"] .route-summary__icon {
 .date-picker[data-density="sm"] {
   --comp-date-picker-control-size: var(--component-date-picker-control-size-sm);
   --comp-date-picker-day-size: var(--component-date-picker-day-size-sm);
+  --comp-date-picker-value-font-size: var(--comp-date-picker-value-font-size-sm);
+  --comp-date-picker-helper-font-size: var(--comp-date-picker-helper-font-size-sm);
+  --comp-date-picker-header-font-size: var(--comp-date-picker-header-font-size-sm);
+  --comp-date-picker-day-font-size: var(--comp-date-picker-day-font-size-sm);
 }
 
 .date-picker[data-density="lg"] {
   --comp-date-picker-control-size: var(--component-date-picker-control-size-lg);
   --comp-date-picker-day-size: var(--component-date-picker-day-size-lg);
+  --comp-date-picker-value-font-size: var(--comp-date-picker-value-font-size-lg);
+  --comp-date-picker-helper-font-size: var(--comp-date-picker-helper-font-size-lg);
+  --comp-date-picker-header-font-size: var(--comp-date-picker-header-font-size-lg);
+  --comp-date-picker-day-font-size: var(--comp-date-picker-day-font-size-lg);
 }
 
 .date-picker__control {
@@ -11864,7 +12107,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .date-picker__value {
   flex: 1;
-  font-size: var(--component-font-size-label);
+  font-size: var(--comp-date-picker-value-font-size);
   font-weight: var(--comp-date-picker-value-weight);
   min-inline-size: 0;
   overflow: hidden;
@@ -11874,7 +12117,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .date-picker.field .date-picker__helper {
   color: var(--comp-date-picker-muted-fg);
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-date-picker-helper-font-size);
   font-weight: var(--comp-date-picker-helper-weight);
   line-height: var(--comp-date-picker-helper-line-height);
 }
@@ -11927,7 +12170,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .date-picker__header strong {
-  font-size: var(--component-font-size-label);
+  font-size: var(--comp-date-picker-header-font-size);
   font-weight: var(--comp-date-picker-header-weight);
 }
 
@@ -12037,7 +12280,10 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-range-picker-preset-fg: var(--component-color-text-muted);
   --comp-date-range-picker-preset-hover-fg: var(--component-color-text);
   --comp-date-range-picker-preset-radius: var(--component-radius-pill);
-  --comp-date-range-picker-preset-font-size: var(--component-font-size-caption);
+  --comp-date-range-picker-preset-font-size-sm: var(--component-density-helper-size-sm);
+  --comp-date-range-picker-preset-font-size-md: var(--component-density-helper-size-md);
+  --comp-date-range-picker-preset-font-size-lg: var(--component-density-helper-size-lg);
+  --comp-date-range-picker-preset-font-size: var(--comp-date-range-picker-preset-font-size-md);
   --comp-date-range-picker-preset-font-weight: var(--component-font-weight-extrabold);
   --comp-date-range-picker-preset-min-block-size: var(--component-date-range-picker-preset-min-block-size);
   --comp-date-range-picker-preset-padding-inline: var(--component-space-sm);
@@ -12056,6 +12302,14 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-range-picker-motion-press: var(--component-ease-press);
   --comp-date-range-picker-press-transform: var(--component-transform-scale-quiet);
   inline-size: var(--comp-date-range-picker-panel-inline-size);
+}
+
+.date-range-picker[data-density="sm"] .date-range-picker__panel {
+  --comp-date-range-picker-preset-font-size: var(--comp-date-range-picker-preset-font-size-sm);
+}
+
+.date-range-picker[data-density="lg"] .date-range-picker__panel {
+  --comp-date-range-picker-preset-font-size: var(--comp-date-range-picker-preset-font-size-lg);
 }
 
 .date-range-picker__presets {
@@ -12459,7 +12713,10 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-summary-border-warning: color-mix(in srgb, var(--component-color-warning) 38%, var(--component-color-border));
   --comp-card-summary-brand-family: var(--component-font-family-title);
   --comp-card-summary-brand-letter-spacing: var(--component-letter-spacing-widest);
-  --comp-card-summary-brand-size: var(--component-font-size-label);
+  --comp-card-summary-brand-size-sm: var(--component-density-label-size-sm);
+  --comp-card-summary-brand-size-md: var(--component-density-label-size-md);
+  --comp-card-summary-brand-size-lg: var(--component-density-label-size-lg);
+  --comp-card-summary-brand-size: var(--comp-card-summary-brand-size-md);
   --comp-card-summary-brand-transform: var(--component-text-transform-uppercase);
   --comp-card-summary-brand-weight: var(--component-font-weight-black);
   --comp-card-summary-chip-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 24%, transparent);
@@ -12488,6 +12745,10 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-summary-number-weight: var(--component-font-weight-semibold);
   --comp-card-summary-number-letter-spacing: var(--component-letter-spacing-widest);
   --comp-card-summary-expires-family: var(--component-font-family-mono);
+  --comp-card-summary-expires-size-sm: var(--component-density-helper-size-sm);
+  --comp-card-summary-expires-size-md: var(--component-density-helper-size-md);
+  --comp-card-summary-expires-size-lg: var(--component-density-helper-size-lg);
+  --comp-card-summary-expires-size: var(--comp-card-summary-expires-size-md);
   --comp-card-summary-expires-weight: var(--component-font-weight-semibold);
   --comp-card-summary-metrics-bg: color-mix(in srgb, var(--comp-card-summary-current-fg) 10%, transparent);
   --comp-card-summary-metrics-border: color-mix(in srgb, var(--comp-card-summary-current-fg) 14%, transparent);
@@ -12504,6 +12765,14 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-summary-compact-number-row-gap: var(--component-space-2xs);
   --comp-card-summary-compact-number-fg: var(--component-color-text-muted);
   --comp-card-summary-compact-number-letter-spacing: var(--component-letter-spacing-wide);
+  --comp-card-summary-compact-number-size-sm: var(--component-density-helper-size-sm);
+  --comp-card-summary-compact-number-size-md: var(--component-density-helper-size-md);
+  --comp-card-summary-compact-number-size-lg: var(--component-density-helper-size-lg);
+  --comp-card-summary-compact-number-size: var(--comp-card-summary-compact-number-size-md);
+  --comp-card-summary-holder-size-sm: var(--component-density-helper-size-sm);
+  --comp-card-summary-holder-size-md: var(--component-density-helper-size-md);
+  --comp-card-summary-holder-size-lg: var(--component-density-helper-size-lg);
+  --comp-card-summary-holder-size: var(--comp-card-summary-holder-size-md);
   --comp-card-summary-holder-weight: var(--component-font-weight-bold);
   --comp-card-summary-holder-letter-spacing: var(--component-letter-spacing-widest);
   --comp-card-summary-holder-transform: var(--component-text-transform-uppercase);
@@ -12534,6 +12803,8 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .card-summary[data-density="sm"] {
+  --comp-card-summary-brand-size: var(--comp-card-summary-brand-size-sm);
+  --comp-card-summary-compact-number-size: var(--comp-card-summary-compact-number-size-sm);
   --comp-card-summary-current-chip-block: var(--comp-card-summary-chip-block-sm);
   --comp-card-summary-current-chip-inline: var(--comp-card-summary-chip-inline-sm);
   --comp-card-summary-current-gap: var(--comp-card-summary-gap-sm);
@@ -12541,9 +12812,13 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-summary-current-metric-min: var(--comp-card-summary-metric-min-sm);
   --comp-card-summary-current-number-size: var(--comp-card-summary-number-size-sm);
   --comp-card-summary-current-padding: var(--comp-card-summary-padding-sm);
+  --comp-card-summary-expires-size: var(--comp-card-summary-expires-size-sm);
+  --comp-card-summary-holder-size: var(--comp-card-summary-holder-size-sm);
 }
 
 .card-summary[data-density="lg"] {
+  --comp-card-summary-brand-size: var(--comp-card-summary-brand-size-lg);
+  --comp-card-summary-compact-number-size: var(--comp-card-summary-compact-number-size-lg);
   --comp-card-summary-current-chip-block: var(--comp-card-summary-chip-block-lg);
   --comp-card-summary-current-chip-inline: var(--comp-card-summary-chip-inline-lg);
   --comp-card-summary-current-gap: var(--comp-card-summary-gap-lg);
@@ -12551,6 +12826,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-summary-current-metric-min: var(--comp-card-summary-metric-min-lg);
   --comp-card-summary-current-number-size: var(--comp-card-summary-number-size-lg);
   --comp-card-summary-current-padding: var(--comp-card-summary-padding-lg);
+  --comp-card-summary-expires-size: var(--comp-card-summary-expires-size-lg);
+  --comp-card-summary-holder-size: var(--comp-card-summary-holder-size-lg);
 }
 
 .card-summary[data-full-width="true"] {
@@ -12647,7 +12924,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 .card-summary__expires {
   color: var(--comp-card-summary-current-muted);
   font-family: var(--comp-card-summary-expires-family);
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-card-summary-expires-size);
   font-weight: var(--comp-card-summary-expires-weight);
   margin-inline-start: auto;
 }
@@ -12698,7 +12975,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .card-summary[data-variant="compact"] .card-summary__brand {
   color: var(--comp-card-summary-compact-brand-fg);
-  font-size: var(--component-font-size-body);
+  font-size: var(--comp-card-summary-brand-size);
   letter-spacing: var(--comp-card-summary-compact-brand-letter-spacing);
   text-transform: var(--comp-card-summary-compact-brand-transform);
 }
@@ -12710,7 +12987,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .card-summary[data-variant="compact"] .card-summary__number {
   color: var(--comp-card-summary-compact-number-fg);
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-card-summary-compact-number-size);
   letter-spacing: var(--comp-card-summary-compact-number-letter-spacing);
 }
 
@@ -12738,7 +13015,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .card-summary .card-summary__holder {
   color: var(--comp-card-summary-current-muted);
-  font-size: var(--component-font-size-caption);
+  font-size: var(--comp-card-summary-holder-size);
   font-weight: var(--comp-card-summary-holder-weight);
   letter-spacing: var(--comp-card-summary-holder-letter-spacing);
   text-transform: var(--comp-card-summary-holder-transform);
@@ -12806,15 +13083,25 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .movement-row[data-density="sm"],
 .movement-row[data-variant="compact"] {
+  --comp-movement-row-amount-size: var(--comp-movement-row-amount-size-sm);
+  --comp-movement-row-caption-size: var(--comp-movement-row-caption-size-sm);
   --comp-movement-row-current-gap: var(--comp-movement-row-gap-sm);
   --comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-sm);
   --comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-sm);
+  --comp-movement-row-icon-font-size: var(--comp-movement-row-icon-font-size-sm);
+  --comp-movement-row-status-size: var(--comp-movement-row-status-size-sm);
+  --comp-movement-row-title-size: var(--comp-movement-row-title-size-sm);
 }
 
 .movement-row[data-density="lg"] {
+  --comp-movement-row-amount-size: var(--comp-movement-row-amount-size-lg);
+  --comp-movement-row-caption-size: var(--comp-movement-row-caption-size-lg);
   --comp-movement-row-current-gap: var(--comp-movement-row-gap-lg);
   --comp-movement-row-current-min-block-size: var(--comp-movement-row-min-block-size-lg);
   --comp-movement-row-current-padding-block: var(--comp-movement-row-padding-block-lg);
+  --comp-movement-row-icon-font-size: var(--comp-movement-row-icon-font-size-lg);
+  --comp-movement-row-status-size: var(--comp-movement-row-status-size-lg);
+  --comp-movement-row-title-size: var(--comp-movement-row-title-size-lg);
 }
 
 .movement-row[data-category="fuel"] {

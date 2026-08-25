@@ -35,6 +35,14 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
       "--comp-progress-indicator-min-inline-size: var(--component-progress-indicator-min-inline-size)",
       "--comp-progress-indicator-max-inline-size: var(--component-progress-indicator-max-inline-size)",
       "--comp-progress-indicator-value-font-family: var(--component-font-family-mono)",
+      "--comp-progress-indicator-label-font-size-sm: var(--component-density-label-size-sm)",
+      "--comp-progress-indicator-label-font-size-md: var(--component-density-label-size-md)",
+      "--comp-progress-indicator-label-font-size-lg: var(--component-density-label-size-lg)",
+      "--comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-md)",
+      "--comp-progress-indicator-value-font-size-sm: var(--component-density-counter-size-sm)",
+      "--comp-progress-indicator-value-font-size-md: var(--component-density-counter-size-md)",
+      "--comp-progress-indicator-value-font-size-lg: var(--component-density-counter-size-lg)",
+      "--comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-md)",
       "color: var(--comp-progress-indicator-text-color)",
       "gap: var(--comp-progress-indicator-gap)",
     ],
@@ -44,14 +52,22 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-progress-indicator-track-size: var(--component-space-xs)"],
+    snippets: [
+      "--comp-progress-indicator-track-size: var(--component-space-xs)",
+      "--comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-sm)",
+      "--comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-sm)",
+    ],
     message: "Progress Indicator sm density must scale through Progress aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-progress-indicator-track-size: var(--component-space-md)"],
+    snippets: [
+      "--comp-progress-indicator-track-size: var(--component-space-md)",
+      "--comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-lg)",
+      "--comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-lg)",
+    ],
     message: "Progress Indicator lg density must scale through Progress aliases.",
   });
   requireIncludes({
@@ -79,7 +95,11 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     block: labelBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-progress-indicator-text-color)", "font-weight: var(--comp-progress-indicator-label-font-weight)"],
+    snippets: [
+      "color: var(--comp-progress-indicator-text-color)",
+      "font-size: var(--comp-progress-indicator-label-font-size)",
+      "font-weight: var(--comp-progress-indicator-label-font-weight)",
+    ],
     message: "Progress Indicator label must consume Progress voice aliases.",
   });
   requireIncludes({
@@ -132,7 +152,11 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     block: valueBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-progress-indicator-value-color)", "font-family: var(--comp-progress-indicator-value-font-family)"],
+    snippets: [
+      "color: var(--comp-progress-indicator-value-color)",
+      "font-family: var(--comp-progress-indicator-value-font-family)",
+      "font-size: var(--comp-progress-indicator-value-font-size)",
+    ],
     message: "Progress Indicator value must consume Progress value voice aliases.",
   });
 

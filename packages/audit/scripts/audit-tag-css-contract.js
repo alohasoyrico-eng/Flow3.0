@@ -11,6 +11,8 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 
 function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const tagBlock = blockFor(blocks, selectorKey, ".tag");
+  const smBlock = blockFor(blocks, selectorKey, ".tag[data-density=\"sm\"]");
+  const lgBlock = blockFor(blocks, selectorKey, ".tag[data-density=\"lg\"]");
   const buttonTagBlock = blockFor(blocks, selectorKey, "button.tag");
   const hoverBlock = blockFor(blocks, selectorKey, "button.tag:hover:not(:disabled),.tag[data-state=\"hover\"][data-interactive=\"true\"]");
   const focusBlock = blockFor(blocks, selectorKey, "button.tag:focus-visible,.tag[data-state=\"focus\"][data-interactive=\"true\"]");
@@ -27,7 +29,10 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-tag-border-width: var(--component-border-width)",
       "--comp-tag-radius: var(--component-radius-sm)",
-      "--comp-tag-font-size: var(--component-font-size-label)",
+      "--comp-tag-font-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-tag-font-size-md: var(--component-density-helper-size-md)",
+      "--comp-tag-font-size-lg: var(--component-density-helper-size-lg)",
+      "--comp-tag-font-size: var(--comp-tag-font-size-md)",
       "--comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md)",
       "--comp-tag-hover-transform: scale(var(--component-scale-hover))",
       "--comp-tag-press-transform: scale(var(--component-scale-press))",
@@ -38,6 +43,20 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "padding: 0 var(--comp-tag-padding-inline)",
     ],
     message: "Tag base must own and consume component aliases for frame, voice, spacing, and motion.",
+  });
+  requireIncludes({
+    block: smBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-tag-font-size: var(--comp-tag-font-size-sm)"],
+    message: "Tag sm density must scale compact voice through shared density aliases.",
+  });
+  requireIncludes({
+    block: lgBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-tag-font-size: var(--comp-tag-font-size-lg)"],
+    message: "Tag lg density must scale compact voice through shared density aliases.",
   });
   requireIncludes({
     block: buttonTagBlock,

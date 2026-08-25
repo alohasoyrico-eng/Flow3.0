@@ -39,6 +39,12 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     "--component-control-frame-size-sm: var(--sys-space-9);",
     "--component-control-frame-size-md: var(--component-control-min-size);",
     "--component-control-frame-size-lg: calc(var(--sys-space-12) + var(--sys-space-xs));",
+    "--component-density-label-size-sm: var(--component-font-size-caption);",
+    "--component-density-label-size-md: var(--component-font-size-small);",
+    "--component-density-label-size-lg: var(--component-font-size-label);",
+    "--component-density-helper-size-sm: var(--component-font-size-micro);",
+    "--component-density-helper-size-md: var(--component-font-size-caption);",
+    "--component-density-helper-size-lg: var(--component-font-size-small);",
     "--component-control-frame-radius-field: var(--component-radius-control);",
     "--component-field-control-size-sm: var(--component-control-frame-size-sm);",
     "--component-field-control-size-md: var(--component-control-frame-size-md);",
@@ -50,6 +56,12 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     "--comp-input-font-size-sm: var(--component-control-frame-font-size-sm);",
     "--comp-input-font-size-md: var(--component-control-frame-font-size-md);",
     "--comp-input-font-size-lg: var(--component-control-frame-font-size-lg);",
+    "--comp-input-label-size-sm: var(--component-density-label-size-sm);",
+    "--comp-input-label-size-md: var(--component-density-label-size-md);",
+    "--comp-input-label-size-lg: var(--component-density-label-size-lg);",
+    "--comp-input-helper-size-sm: var(--component-density-helper-size-sm);",
+    "--comp-input-helper-size-md: var(--component-density-helper-size-md);",
+    "--comp-input-helper-size-lg: var(--component-density-helper-size-lg);",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, `Field/Input density must keep monotonic sm/md/lg geometry through shared field tokens: missing ${snippet}`);
@@ -119,6 +131,8 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-field-icon-size: var(--comp-input-icon-size-sm)",
       "--comp-field-icon-action-size: var(--comp-input-action-size-sm)",
       "--comp-input-font-size: var(--comp-input-font-size-sm)",
+      "--comp-input-label-size: var(--comp-input-label-size-sm)",
+      "--comp-input-helper-size: var(--comp-input-helper-size-sm)",
       "--comp-input-padding-x: var(--comp-input-padding-x-sm)",
     ],
     message: "Field sm density must cascade through Input size aliases.",
@@ -132,6 +146,8 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-field-icon-size: var(--comp-input-icon-size-lg)",
       "--comp-field-icon-action-size: var(--comp-input-action-size-lg)",
       "--comp-input-font-size: var(--comp-input-font-size-lg)",
+      "--comp-input-label-size: var(--comp-input-label-size-lg)",
+      "--comp-input-helper-size: var(--comp-input-helper-size-lg)",
       "--comp-input-padding-x: var(--comp-input-padding-x-lg)",
     ],
     message: "Field lg density must cascade through Input size aliases.",
@@ -172,6 +188,22 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: ["color: var(--comp-input-field-fg)", "font-size: var(--comp-input-font-size)"],
     message: "Field input text must consume the field foreground and current density font-size aliases.",
+  });
+  const fieldLabelBlock = blockFor(blocks, selectorKey, ".field-control__label,.field__label");
+  const fieldHelperBlock = blockFor(blocks, selectorKey, ".field-control__helper,.field__helper");
+  requireIncludes({
+    block: fieldLabelBlock,
+    text,
+    packageCssFile,
+    snippets: ["font-size: var(--comp-input-label-size)"],
+    message: "Field labels must consume the current density label size alias.",
+  });
+  requireIncludes({
+    block: fieldHelperBlock,
+    text,
+    packageCssFile,
+    snippets: ["font-size: var(--comp-input-helper-size)"],
+    message: "Field helpers must consume the current density helper size alias.",
   });
   requireIncludes({
     block: fieldPlaceholderBlock,

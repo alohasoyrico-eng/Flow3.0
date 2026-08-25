@@ -11,6 +11,8 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 
 function checkDateRangePickerCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const dateRangePanelBlock = blockFor(blocks, selectorKey, ".date-range-picker__panel");
+  const dateRangeSmPanelBlock = blockFor(blocks, selectorKey, ".date-range-picker[data-density=\"sm\"] .date-range-picker__panel");
+  const dateRangeLgPanelBlock = blockFor(blocks, selectorKey, ".date-range-picker[data-density=\"lg\"] .date-range-picker__panel");
   const dateRangePresetBlock = blockFor(blocks, selectorKey, ".date-range-picker__preset");
   const dateRangeDayBlock = blockFor(blocks, selectorKey, ".date-range-picker__day[data-in-range=\"true\"]");
   const localPresetMinBlock = /--comp-date-range-picker-preset-min-block-size:\s*calc\(var\(--component-control-min-size\)\s*[+-][^;]+;/.exec(text);
@@ -26,9 +28,27 @@ function checkDateRangePickerCssContract({ text, blocks, packageCssFile, selecto
       "--comp-date-range-picker-panel-inline-size: var(--component-date-range-picker-panel-inline-size)",
       "--comp-date-range-picker-preset-min-block-size: var(--component-date-range-picker-preset-min-block-size)",
       "--comp-date-range-picker-preset-radius: var(--component-radius-pill)",
+      "--comp-date-range-picker-preset-font-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-date-range-picker-preset-font-size-md: var(--component-density-helper-size-md)",
+      "--comp-date-range-picker-preset-font-size-lg: var(--component-density-helper-size-lg)",
+      "--comp-date-range-picker-preset-font-size: var(--comp-date-range-picker-preset-font-size-md)",
       "--comp-date-range-picker-motion-duration: var(--component-duration-state)",
     ],
     message: "DateRangePicker must extend DatePicker with component-scoped range aliases.",
+  });
+  requireIncludes({
+    block: dateRangeSmPanelBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-date-range-picker-preset-font-size: var(--comp-date-range-picker-preset-font-size-sm)"],
+    message: "DateRangePicker sm density must scale preset voice through DateRange aliases.",
+  });
+  requireIncludes({
+    block: dateRangeLgPanelBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-date-range-picker-preset-font-size: var(--comp-date-range-picker-preset-font-size-lg)"],
+    message: "DateRangePicker lg density must scale preset voice through DateRange aliases.",
   });
   requireIncludes({
     block: dateRangePresetBlock,

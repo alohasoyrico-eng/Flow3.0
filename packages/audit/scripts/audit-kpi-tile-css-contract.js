@@ -35,6 +35,29 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
   if (/\.kpi-tile__delta,\s*\.error-panel p\s*{/m.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".kpi-tile__delta")), "KPI Tile delta must not share text styling with ErrorPanel.");
   }
+  for (const snippet of [
+    "--comp-kpi-tile-header-size-sm: var(--component-density-label-size-sm)",
+    "--comp-kpi-tile-header-size-md: var(--component-density-label-size-md)",
+    "--comp-kpi-tile-header-size-lg: var(--component-density-label-size-lg)",
+    "--comp-kpi-tile-header-size: var(--comp-kpi-tile-header-size-md)",
+    "--comp-kpi-tile-icon-size-sm: var(--component-density-icon-size-sm)",
+    "--comp-kpi-tile-icon-size-md: var(--component-density-icon-size-md)",
+    "--comp-kpi-tile-icon-size-lg: var(--component-density-icon-size-lg)",
+    "--comp-kpi-tile-icon-size: var(--comp-kpi-tile-icon-size-md)",
+    "--comp-kpi-tile-delta-size-sm: var(--component-density-helper-size-sm)",
+    "--comp-kpi-tile-delta-size-md: var(--component-density-helper-size-md)",
+    "--comp-kpi-tile-delta-size-lg: var(--component-density-helper-size-lg)",
+    "--comp-kpi-tile-delta-size: var(--comp-kpi-tile-delta-size-md)",
+    "--comp-kpi-tile-affordance-size-sm: var(--component-density-icon-size-sm)",
+    "--comp-kpi-tile-affordance-size-md: var(--component-density-icon-size-md)",
+    "--comp-kpi-tile-affordance-size-lg: var(--component-density-icon-size-lg)",
+    "--comp-kpi-tile-affordance-size: var(--comp-kpi-tile-affordance-size-md)",
+  ]) {
+    if (!text.includes(snippet)) {
+      add("errors", packageCssFile, 1, "KPI Tile voice/icon density aliases must be defined from shared density aliases.");
+      break;
+    }
+  }
 
   requireIncludes({
     block: rootBlock,
@@ -46,7 +69,6 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-kpi-tile-depth: var(--component-depth-panel)",
       "--comp-kpi-tile-padding:",
       "--comp-kpi-tile-min-block-size:",
-      "--comp-kpi-tile-header-size: var(--component-font-size-caption)",
       "--comp-kpi-tile-value-family: var(--component-font-family-mono)",
       "--comp-kpi-tile-risk-rail-width: var(--component-space-xs)",
       "background: var(--comp-kpi-tile-bg)",
@@ -66,6 +88,10 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     text,
     packageCssFile,
     snippets: [
+      "--comp-kpi-tile-affordance-size: var(--comp-kpi-tile-affordance-size-sm)",
+      "--comp-kpi-tile-delta-size: var(--comp-kpi-tile-delta-size-sm)",
+      "--comp-kpi-tile-header-size: var(--comp-kpi-tile-header-size-sm)",
+      "--comp-kpi-tile-icon-size: var(--comp-kpi-tile-icon-size-sm)",
       "--comp-kpi-tile-padding: var(--component-space-lg)",
       "--comp-kpi-tile-value-size: var(--component-font-size-title-lg)",
       "--comp-kpi-tile-min-block-size:",
@@ -77,6 +103,10 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     text,
     packageCssFile,
     snippets: [
+      "--comp-kpi-tile-affordance-size: var(--comp-kpi-tile-affordance-size-lg)",
+      "--comp-kpi-tile-delta-size: var(--comp-kpi-tile-delta-size-lg)",
+      "--comp-kpi-tile-header-size: var(--comp-kpi-tile-header-size-lg)",
+      "--comp-kpi-tile-icon-size: var(--comp-kpi-tile-icon-size-lg)",
       "--comp-kpi-tile-padding: var(--component-space-xl)",
       "--comp-kpi-tile-value-size: var(--component-font-size-display-sm)",
       "--comp-kpi-tile-min-block-size:",
@@ -161,7 +191,7 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     block: deltaBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-kpi-tile-delta-color)", "margin: 0"],
+    snippets: ["color: var(--comp-kpi-tile-delta-color)", "font-size: var(--comp-kpi-tile-delta-size)", "margin: 0"],
     message: "KPI Tile delta must own its text color and spacing.",
   });
   requireIncludes({

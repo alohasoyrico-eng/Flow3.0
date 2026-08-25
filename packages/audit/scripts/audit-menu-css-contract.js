@@ -86,7 +86,14 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-menu-item-disabled-bg: var(--component-option-row-disabled-bg)",
       "--comp-menu-item-disabled-fg: var(--component-option-row-disabled-color)",
       "--comp-menu-item-disabled-opacity: var(--component-option-row-disabled-opacity)",
-      "--comp-menu-item-font-size: var(--component-font-size-label)",
+      "--comp-menu-item-font-size-sm: var(--component-density-label-size-sm)",
+      "--comp-menu-item-font-size-md: var(--component-density-label-size-md)",
+      "--comp-menu-item-font-size-lg: var(--component-density-label-size-lg)",
+      "--comp-menu-item-font-size: var(--comp-menu-item-font-size-md)",
+      "--comp-menu-item-shortcut-font-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-menu-item-shortcut-font-size-md: var(--component-density-helper-size-md)",
+      "--comp-menu-item-shortcut-font-size-lg: var(--component-density-helper-size-lg)",
+      "--comp-menu-item-shortcut-font-size: var(--comp-menu-item-shortcut-font-size-md)",
       "--comp-menu-item-hover-transform: var(--component-transform-inline-nudge)",
       "--comp-menu-inline-size: var(--component-inline-size-fit-content)",
       "--comp-menu-max-inline-size: var(--component-inline-size-full)",
@@ -101,6 +108,26 @@ function checkMenuCssContract({ text, blocks, packageCssFile, selectorKey }) {
     ],
     message: "Menu root must own panel, item, voice, density, motion, and anchored trigger layout aliases.",
   });
+  for (const [selector, snippets, message] of [
+    [
+      ".menu[data-density=\"sm\"]",
+      [
+        "--comp-menu-item-font-size: var(--comp-menu-item-font-size-sm)",
+        "--comp-menu-item-shortcut-font-size: var(--comp-menu-item-shortcut-font-size-sm)",
+      ],
+      "Menu small density must scale item and shortcut voice through shared density aliases.",
+    ],
+    [
+      ".menu[data-density=\"lg\"]",
+      [
+        "--comp-menu-item-font-size: var(--comp-menu-item-font-size-lg)",
+        "--comp-menu-item-shortcut-font-size: var(--comp-menu-item-shortcut-font-size-lg)",
+      ],
+      "Menu large density must scale item and shortcut voice through shared density aliases.",
+    ],
+  ]) {
+    requireIncludes({ block: blockFor(blocks, selectorKey, selector), text, packageCssFile, snippets, message });
+  }
   requireIncludes({
     block: panelBlock,
     text,

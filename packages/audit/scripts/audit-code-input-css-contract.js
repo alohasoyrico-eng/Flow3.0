@@ -33,6 +33,9 @@ function checkCodeInputCssContract({ text, blocks, packageCssFile, selectorKey }
     "--comp-code-input-slot-inline-size-sm: var(--component-code-slot-inline-size-sm)",
     "--comp-code-input-slot-inline-size-md: var(--component-code-slot-inline-size-md)",
     "--comp-code-input-slot-inline-size-lg: var(--component-code-slot-inline-size-lg)",
+    "--comp-code-input-slot-font-size-sm: var(--component-font-size-label)",
+    "--comp-code-input-slot-font-size-md: var(--component-font-size-title-md)",
+    "--comp-code-input-slot-font-size-lg: var(--component-font-size-icon-md)",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, "Code Input slot geometry must expose component aliases backed by shared Frame code slot roles.");

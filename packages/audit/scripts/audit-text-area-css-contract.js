@@ -41,6 +41,7 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-text-area-font-size: var(--component-font-size-label)",
       "--comp-text-area-line-height: var(--component-line-height-relaxed)",
       "--comp-text-area-counter-family: var(--component-font-family-mono)",
+      "--comp-text-area-counter-size: var(--component-density-counter-size-md)",
       "--comp-text-area-counter-warning-fg:",
       "--comp-text-area-motion-duration: var(--component-duration-state)",
     ],
@@ -90,6 +91,7 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-text-area-current-padding-block: var(--comp-text-area-padding-block-sm)",
       "--comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-sm)",
       "--comp-text-area-font-size: var(--component-control-frame-font-size-sm)",
+      "--comp-text-area-counter-size: var(--component-density-counter-size-sm)",
     ],
     message: "TextArea small density must change min-block, padding, and type through Flow aliases.",
   });
@@ -102,6 +104,7 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-text-area-current-padding-block: var(--comp-text-area-padding-block-lg)",
       "--comp-text-area-current-padding-inline: var(--comp-text-area-padding-inline-lg)",
       "--comp-text-area-font-size: var(--component-control-frame-font-size-lg)",
+      "--comp-text-area-counter-size: var(--component-density-counter-size-lg)",
     ],
     message: "TextArea large density must change min-block, padding, and type through Flow aliases.",
   });

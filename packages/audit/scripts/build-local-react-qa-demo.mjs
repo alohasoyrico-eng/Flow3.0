@@ -90,6 +90,95 @@ const components = {
           )
         )`,
   },
+  "progress": {
+    title: "ProgressIndicator",
+    directory: "progress-2026-08-25",
+    module: "ProgressIndicator.js",
+    exportName: "ProgressIndicator",
+    buildId: "progress-react-runtime-1",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Upload progress", value: 42, showValue: true })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Syncing routes", indeterminate: true })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Complete", value: 100, showValue: true, state: "complete" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", value: 36, showValue: true, state: "disabled" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Tonos"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Success", value: 72, showValue: true, tone: "success" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Warning", value: 52, showValue: true, tone: "warning" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Danger", value: 24, showValue: true, tone: "danger" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Small progress", value: 35, showValue: true, density: "sm" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Medium progress", value: 55, showValue: true, density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Large progress", value: 75, showValue: true, density: "lg" }))
+          )
+        )`,
+  },
+  "accordion": {
+    title: "Accordion",
+    directory: "accordion-2026-08-25",
+    module: "Accordion.js",
+    exportName: "Accordion",
+    buildId: "accordion-react-runtime-1",
+    eventPropName: "onExpandedChange",
+    actionHandler: "(ids, event) => onAction('Accordion=' + ids.join(','))(event)",
+    statefulValueProp: "expandedIds",
+    supportPreamble: `const accordionItems = [
+      { id: "route", title: "Route details", meta: "Fleet", icon: "route", content: "Stops, driver handoff and dispatch notes." },
+      { id: "billing", title: "Billing status", meta: "Ops", icon: "receipt_long", content: "Invoice status, payment method and approval trail." },
+      { id: "disabled", title: "Archive disabled", meta: "Blocked", icon: "block", disabled: true, content: "Disabled rows stay visible but cannot be toggled." }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Interactivo"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"] })),
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route", "billing"], variant: "multiple" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"], density: "sm" })),
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"], density: "md" })),
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"], density: "lg" }))
+          )
+        )`,
+  },
+  "stepper": {
+    title: "Stepper",
+    directory: "stepper-2026-08-25",
+    module: "Stepper.js",
+    exportName: "Stepper",
+    buildId: "stepper-react-runtime-1",
+    supportPreamble: `const steps = [
+      { id: "vehicle", label: "Vehicle", description: "Confirm asset" },
+      { id: "driver", label: "Driver", description: "Assign operator" },
+      { id: "dispatch", label: "Dispatch", description: "Ready to send" }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Orientacion"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Horizontal steps", steps, current: 1 })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Vertical steps", steps, current: 2, orientation: "vertical" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Small steps", steps, current: 1, density: "sm" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Medium steps", steps, current: 1, density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Large steps", steps, current: 1, density: "lg" }))
+          )
+        )`,
+  },
   card: {
     title: "Card",
     directory: "card-2026-08-20",
@@ -501,10 +590,11 @@ const components = {
     directory: "slider-2026-08-24",
     module: "Slider.js",
     exportName: "Slider",
-    buildId: "slider-react-runtime-1",
+    buildId: "slider-stateful-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
     actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "value",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Rangos"),
           e("div", { className: "audit-grid" },
@@ -825,6 +915,77 @@ const components = {
             e("div", { className: "audit-card" }, action({ label: "Focus", state: "focus", value: "focus" })),
             e("div", { className: "audit-card" }, action({ label: "Error", error: "Required", value: "error" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, checked: true, "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "kpi-tile": {
+    title: "KpiTile",
+    directory: "kpi-tile-2026-08-25",
+    module: "KpiTile.js",
+    exportName: "KpiTile",
+    buildId: "kpi-tile-density-runtime-1",
+    eventPropName: "onSelect",
+    actionHandler: "(meta, event) => onAction(meta.label || props.label)(event)",
+    actionSelector: ".kpi-tile[role='button']",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            action({ label: "Revenue", value: "$42.8k", delta: "+12%", trend: "up", tone: "success", variant: "delta" }),
+            action({ label: "Risk", value: "7", delta: "2 alerts", trend: "down", tone: "danger", variant: "threshold", state: "risk" }),
+            action({ label: "Routes", value: "128", tone: "info", variant: "sparkline", values: [8, 12, 10, 18, 24, 22] }),
+            action({ label: "Drill in", value: "24", delta: "Open report", tone: "neutral", variant: "drill-in" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            action({ label: "Small KPI", value: "16", delta: "+4%", trend: "up", density: "sm", variant: "delta" }),
+            action({ label: "Medium KPI", value: "24", delta: "+8%", trend: "up", density: "md", variant: "delta" }),
+            action({ label: "Large KPI", value: "32", delta: "+12%", trend: "up", density: "lg", variant: "delta" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            action({ label: "Selected", value: "88", selected: true }),
+            action({ label: "Hover", value: "64", state: "hover" }),
+            action({ label: "Loading", value: "42", loading: true }),
+            action({ label: "Disabled", value: "11", disabled: true })
+          )
+        )`,
+  },
+  "movement-row": {
+    title: "MovementRow",
+    directory: "movement-row-2026-08-25",
+    module: "MovementRow.js",
+    exportName: "MovementRow",
+    buildId: "movement-row-density-runtime-1",
+    eventPropName: "onSelect",
+    actionHandler: "(meta, event) => onAction(meta.label || props.label)(event)",
+    actionSelector: "button.movement-row",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Categorias"),
+          e("div", { className: "audit-grid" },
+            action({ label: "Fuel stop", meta: "Shell Reforma", amount: "-$840", status: "Pending", category: "fuel", state: "pending" }),
+            action({ label: "Charge session", meta: "EV station", amount: "-$120", status: "Completed", category: "charge" }),
+            action({ label: "Toll road", meta: "MEX-57", amount: "-$96", status: "Posted", category: "toll" }),
+            action({ label: "Refund", meta: "Adjustment", amount: "+$320", status: "Approved", category: "income", variant: "refund" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            action({ label: "Small row", meta: "Compact metadata", amount: "$12", status: "Small", density: "sm", category: "transfer" }),
+            action({ label: "Medium row", meta: "Default metadata", amount: "$24", status: "Medium", density: "md", category: "transfer" }),
+            action({ label: "Large row", meta: "Expanded metadata", amount: "$48", status: "Large", density: "lg", category: "transfer" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            action({ label: "Hover", meta: "Interactive", amount: "$40", status: "Hover", state: "hover" }),
+            action({ label: "Error", meta: "Declined card", amount: "-$58", status: "Declined", state: "error", variant: "declined" }),
+            e(Component, { label: "Disabled", meta: "Unavailable", amount: "$0", status: "Disabled", disabled: true, onSelect: onAction("Disabled") })
           )
         )`,
   },

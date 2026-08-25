@@ -11,6 +11,8 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 
 function checkBadgeCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const badgeBlock = blockFor(blocks, selectorKey, ".badge");
+  const smBlock = blockFor(blocks, selectorKey, ".badge[data-density=\"sm\"]");
+  const lgBlock = blockFor(blocks, selectorKey, ".badge[data-density=\"lg\"]");
   const hoverBlock = blockFor(blocks, selectorKey, ".badge[data-state=\"hover\"],.badge[data-state=\"focus\"]");
   const focusBlock = blockFor(blocks, selectorKey, ".badge[data-state=\"focus\"]");
   const disabledBlock = blockFor(blocks, selectorKey, ".badge[data-state=\"disabled\"]");
@@ -28,7 +30,10 @@ function checkBadgeCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-badge-border-width: var(--component-border-width)",
       "--comp-badge-radius: var(--component-radius-pill)",
       "--comp-badge-dot-size: var(--component-field-gap)",
-      "--comp-badge-font-size: var(--component-font-size-label)",
+      "--comp-badge-font-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-badge-font-size-md: var(--component-density-helper-size-md)",
+      "--comp-badge-font-size-lg: var(--component-density-helper-size-lg)",
+      "--comp-badge-font-size: var(--comp-badge-font-size-md)",
       "--comp-badge-gap: var(--component-space-xs)",
       "--comp-badge-motion-duration: var(--component-duration-state)",
       "border: var(--comp-badge-border-width) solid var(--comp-badge-border)",
@@ -37,6 +42,20 @@ function checkBadgeCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "transform var(--comp-badge-motion-duration) var(--comp-badge-motion-press-ease)",
     ],
     message: "Badge base must own and consume component aliases for frame, voice, spacing, and motion.",
+  });
+  requireIncludes({
+    block: smBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-badge-font-size: var(--comp-badge-font-size-sm)", "--comp-badge-icon-size: var(--component-density-icon-size-sm)"],
+    message: "Badge sm density must scale compact voice and icon through shared density aliases.",
+  });
+  requireIncludes({
+    block: lgBlock,
+    text,
+    packageCssFile,
+    snippets: ["--comp-badge-font-size: var(--comp-badge-font-size-lg)", "--comp-badge-icon-size: var(--component-density-icon-size-lg)"],
+    message: "Badge lg density must scale compact voice and icon through shared density aliases.",
   });
   requireIncludes({
     block: hoverBlock,

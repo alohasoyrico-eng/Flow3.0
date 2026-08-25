@@ -46,6 +46,8 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-slider-fg: var(--component-color-text)",
       "--comp-slider-track-size: var(--component-slider-track-size-md)",
       "--comp-slider-touch-size: var(--component-slider-touch-size-md)",
+      "--comp-slider-label-font-size: var(--component-density-label-size-md)",
+      "--comp-slider-value-font-size: var(--component-density-value-size-md)",
       "--comp-slider-thumb-border-width: calc(var(--component-border-width) * 3)",
       "--comp-slider-focus-ring-width: var(--component-focus-ring-width)",
       "--comp-slider-value-transition:",
@@ -58,14 +60,26 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-sm)", "--comp-slider-touch-size: var(--component-slider-touch-size-sm)", "--comp-slider-gap: var(--component-space-xs)"],
+    snippets: [
+      "--comp-slider-track-size: var(--component-slider-track-size-sm)",
+      "--comp-slider-touch-size: var(--component-slider-touch-size-sm)",
+      "--comp-slider-gap: var(--component-space-xs)",
+      "--comp-slider-label-font-size: var(--component-density-label-size-sm)",
+      "--comp-slider-value-font-size: var(--component-density-value-size-sm)",
+    ],
     message: "Slider sm density must scale through Slider aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-slider-track-size: var(--component-slider-track-size-lg)", "--comp-slider-touch-size: var(--component-slider-touch-size-lg)", "--comp-slider-gap: var(--component-space-md)"],
+    snippets: [
+      "--comp-slider-track-size: var(--component-slider-track-size-lg)",
+      "--comp-slider-touch-size: var(--component-slider-touch-size-lg)",
+      "--comp-slider-gap: var(--component-space-md)",
+      "--comp-slider-label-font-size: var(--component-density-label-size-lg)",
+      "--comp-slider-value-font-size: var(--component-density-value-size-lg)",
+    ],
     message: "Slider lg density must scale through Slider aliases.",
   });
   requireIncludes({
@@ -79,7 +93,7 @@ function checkSliderCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: valueBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-slider-value-fg)", "font-family: var(--comp-slider-value-font-family)", "transition: var(--comp-slider-value-transition)"],
+    snippets: ["color: var(--comp-slider-value-fg)", "font-family: var(--comp-slider-value-font-family)", "font-size: var(--comp-slider-value-font-size)", "transition: var(--comp-slider-value-transition)"],
     message: "Slider value must consume Slider voice and motion aliases.",
   });
   requireIncludes({

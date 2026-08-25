@@ -15,6 +15,8 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
   const sourceFile = path.join(root || process.cwd(), "packages/react/src/InlineValidation.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
   const rootBlock = blockFor(blocks, selectorKey, ".inline-validation");
+  const smBlock = blockFor(blocks, selectorKey, ".inline-validation[data-density=\"sm\"]");
+  const lgBlock = blockFor(blocks, selectorKey, ".inline-validation[data-density=\"lg\"]");
   const fullWidthBlock = blockFor(blocks, selectorKey, ".inline-validation[data-full-width=\"true\"]");
   const fieldBlock = blockFor(blocks, selectorKey, ".inline-validation .field");
   const noFieldBlock = blockFor(blocks, selectorKey, ".inline-validation[data-field=\"false\"]");
@@ -61,8 +63,9 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
       "--comp-inline-validation-display: var(--component-display-grid)",
       "--comp-inline-validation-gap: var(--component-space-xs)",
       "--comp-inline-validation-full-width: var(--component-inline-size-full)",
-      "--comp-inline-validation-message-size: var(--component-font-size-caption)",
+      "--comp-inline-validation-message-size: var(--component-density-helper-size-md)",
       "--comp-inline-validation-icon-family: var(--component-font-family-icon)",
+      "--comp-inline-validation-icon-size: var(--component-density-icon-size-md)",
       "--comp-inline-validation-error-icon: \"error\"",
       "color: var(--comp-inline-validation-color)",
       "display: var(--comp-inline-validation-display)",
@@ -71,6 +74,26 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
       "max-inline-size: var(--comp-inline-validation-full-width)",
     ],
     message: "InlineValidation root must own and consume aliases for layout, width, tone, message, and iconography.",
+  });
+  requireIncludes({
+    block: smBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-inline-validation-message-size: var(--component-density-helper-size-sm)",
+      "--comp-inline-validation-icon-size: var(--component-density-icon-size-sm)",
+    ],
+    message: "InlineValidation sm density must scale message voice and icon through shared density aliases.",
+  });
+  requireIncludes({
+    block: lgBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-inline-validation-message-size: var(--component-density-helper-size-lg)",
+      "--comp-inline-validation-icon-size: var(--component-density-icon-size-lg)",
+    ],
+    message: "InlineValidation lg density must scale message voice and icon through shared density aliases.",
   });
   requireIncludes({
     block: fullWidthBlock,

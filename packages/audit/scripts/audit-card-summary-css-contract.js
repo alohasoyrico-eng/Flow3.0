@@ -49,6 +49,21 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
     "--comp-card-summary-metric-min-sm: var(--component-metric-min-inline-size-xs)",
     "--comp-card-summary-metric-min-md: var(--component-metric-min-inline-size-md)",
     "--comp-card-summary-metric-min-lg: var(--component-metric-min-inline-size-lg)",
+    "--comp-card-summary-number-size-sm: var(--component-font-size-title-md)",
+    "--comp-card-summary-number-size-md: var(--component-font-size-data-lg)",
+    "--comp-card-summary-number-size-lg: var(--component-font-size-display-sm)",
+    "--comp-card-summary-brand-size-sm: var(--component-density-label-size-sm)",
+    "--comp-card-summary-brand-size-md: var(--component-density-label-size-md)",
+    "--comp-card-summary-brand-size-lg: var(--component-density-label-size-lg)",
+    "--comp-card-summary-brand-size: var(--comp-card-summary-brand-size-md)",
+    "--comp-card-summary-expires-size-sm: var(--component-density-helper-size-sm)",
+    "--comp-card-summary-expires-size-md: var(--component-density-helper-size-md)",
+    "--comp-card-summary-expires-size-lg: var(--component-density-helper-size-lg)",
+    "--comp-card-summary-expires-size: var(--comp-card-summary-expires-size-md)",
+    "--comp-card-summary-holder-size-sm: var(--component-density-helper-size-sm)",
+    "--comp-card-summary-holder-size-md: var(--component-density-helper-size-md)",
+    "--comp-card-summary-holder-size-lg: var(--component-density-helper-size-lg)",
+    "--comp-card-summary-holder-size: var(--comp-card-summary-holder-size-md)",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, "CardSummary metric minimum aliases must be defined from shared Frame metric roles.");
@@ -100,6 +115,8 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
       text,
       packageCssFile,
       snippets: [
+        "--comp-card-summary-brand-size:",
+        "--comp-card-summary-compact-number-size:",
         "--comp-card-summary-current-chip-block:",
         "--comp-card-summary-current-chip-inline:",
         "--comp-card-summary-current-gap:",
@@ -107,6 +124,8 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
         "--comp-card-summary-current-metric-min:",
         "--comp-card-summary-current-number-size:",
         "--comp-card-summary-current-padding:",
+        "--comp-card-summary-expires-size:",
+        "--comp-card-summary-holder-size:",
       ],
       message,
     });
@@ -225,7 +244,7 @@ function checkCardSummaryCssContract({ text, blocks, packageCssFile, selectorKey
     block: holderBlock,
     text,
     packageCssFile,
-    snippets: ["color: var(--comp-card-summary-current-muted)"],
+    snippets: ["color: var(--comp-card-summary-current-muted)", "font-size: var(--comp-card-summary-holder-size)"],
     message: "CardSummary holder must consume current muted alias.",
   });
 }
