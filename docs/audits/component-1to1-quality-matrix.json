@@ -1523,8 +1523,8 @@
       ],
       "openIssues": [],
       "lastReviewAt": "2026-08-25",
-      "currentReviewCommit": "pending",
-      "decision": "Phone Input is closed for current review pending commit: runtime demo uses package React and now exposes contract variants and states; the country selector remains a composed CountrySelector, the field frame keeps the shared 36/44/52 density scale, and phone numerals plus inline calling code use the governed mono/light numeric voice with normal tracking. OTP delivery, verification, recovery, and advanced country search remain pattern scope."
+      "currentReviewCommit": "eee430dc",
+      "decision": "Phone Input is closed for current review in eee430dc: runtime demo uses package React and exposes contract variants and states; the country selector remains a composed CountrySelector, CountrySelector searchable mode composes Input variant=search instead of a hardcoded search field, the field frame keeps the shared 36/44/52 density scale, and phone numerals plus inline calling code use the governed mono/light numeric voice with normal tracking. OTP delivery, verification, and recovery remain pattern scope."
     },
     {
       "id": "popover",
@@ -2362,10 +2362,10 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
     "updatedAt": "2026-08-25",
-    "sourceCommit": "b1029bf4 Add Slider hover and pressed momentum",
+    "sourceCommit": "eee430dc Govern PhoneInput country search composition",
     "scope": [],
-    "nextComponent": "phone-input",
-    "nextComponentReason": "P0 Forms Batch 3 continues after Code Input; Phone Input is the remaining first-class form component before payment-form components.",
+    "nextComponent": "input-amount",
+    "nextComponentReason": "P0 Forms Batch 3 continues after Phone Input with payment-style form inputs; InputAmount is first because it shares Input field geometry and formatting/parsing risk before card-specific inputs.",
     "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
   }
 }

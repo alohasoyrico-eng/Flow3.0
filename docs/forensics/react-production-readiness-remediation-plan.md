@@ -147,7 +147,7 @@ Minimum evidence:
 
 ### Iteration 5: P0 Forms Batch 3
 
-Status: in progress. `code-input` is closed for current review in `dffa7131` with governed frame geometry, mono/light numerals, visible success momentum, and error shake feedback. The active cursor is `phone-input`; payment-style inputs follow only after Phone Input has the same runtime demo, ZIP-informed visual pass, keyboard/value behavior proof, dark-mode check, and density/frame validation.
+Status: in progress. `code-input` is closed for current review in `dffa7131` with governed frame geometry, mono/light numerals, visible success momentum, and error shake feedback. `phone-input` is closed for current review in `eee430dc` with governed CountrySelector composition, local Input search, keyboard/value behavior proof, dark-mode and density/frame validation. The active cursor is `input-amount`; card-specific payment inputs follow after amount formatting/parsing has the same runtime demo and contract coverage.
 
 Components:
 
