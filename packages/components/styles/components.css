@@ -90,7 +90,10 @@
   --component-control-frame-padding-navigation-md: var(--component-space-xs);
   --component-control-frame-padding-navigation-lg: var(--component-space-sm);
   --component-control-frame-radius-action: var(--component-radius-pill);
-  --component-control-frame-radius-field: var(--component-radius-control);
+  --component-control-frame-radius-field-sm: var(--component-radius-md);
+  --component-control-frame-radius-field-md: var(--component-radius-control);
+  --component-control-frame-radius-field-lg: var(--component-radius-card);
+  --component-control-frame-radius-field: var(--component-control-frame-radius-field-md);
   --component-control-frame-radius-icon: var(--component-radius-pill);
   --component-control-frame-radius-navigation: var(--component-radius-sm);
   --component-ratio-half: var(--sys-frame-ratio-half);
@@ -426,6 +429,7 @@
   --component-font-weight-black: var(--sys-voice-weight-black);
   --component-font-weight-bold: var(--sys-voice-weight-bold);
   --component-font-weight-extrabold: var(--sys-voice-weight-extrabold);
+  --component-font-weight-light: var(--sys-voice-weight-light);
   --component-font-weight-medium: var(--sys-voice-weight-medium);
   --component-font-weight-regular: var(--sys-voice-weight-regular);
   --component-font-weight-semibold: var(--sys-voice-weight-semibold);
@@ -679,6 +683,8 @@
   --component-field-icon-action-size-lg: calc(var(--component-control-min-size) - var(--sys-space-md));
   --component-field-placeholder-fg: var(--component-color-text-muted);
   --component-field-error-helper-fg: var(--component-color-danger);
+  --component-field-focus-clearance: calc(var(--component-focus-ring-width) + var(--component-focus-ring-offset));
+  --component-field-shell-gap: calc(var(--component-field-gap) + var(--component-field-focus-clearance));
   --component-country-flag-size: calc(var(--component-inline-size-sm) - var(--component-focus-ring-offset));
   --component-country-flag-radius: var(--component-radius-pill);
   --component-country-flag-ring: var(--component-depth-border-ring);
@@ -780,7 +786,7 @@
   --comp-text-area-border-success: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
   --comp-text-area-border-warning: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-border));
   --comp-text-area-fg: var(--component-color-text);
-  --comp-text-area-radius: var(--component-radius-control);
+  --comp-text-area-radius: var(--component-control-frame-radius-field);
   --comp-text-area-font-size: var(--component-font-size-label);
   --comp-text-area-font-weight: var(--component-font-weight-medium);
   --comp-text-area-line-height: var(--component-line-height-relaxed);
@@ -801,9 +807,9 @@
   --comp-code-input-slot-inline-size-sm: var(--component-code-slot-inline-size-sm);
   --comp-code-input-slot-inline-size-md: var(--component-code-slot-inline-size-md);
   --comp-code-input-slot-inline-size-lg: var(--component-code-slot-inline-size-lg);
-  --comp-code-input-slot-font-size-sm: var(--component-font-size-label);
-  --comp-code-input-slot-font-size-md: var(--component-font-size-title-md);
-  --comp-code-input-slot-font-size-lg: var(--component-font-size-icon-md);
+  --comp-code-input-slot-font-size-sm: var(--component-font-size-title-md);
+  --comp-code-input-slot-font-size-md: var(--component-font-size-data-lg);
+  --comp-code-input-slot-font-size-lg: var(--component-font-size-display-sm);
   --comp-code-input-helper-fg: var(--component-color-text-muted);
   --comp-code-input-input-font-size: var(--component-font-size-body);
   --comp-code-input-slot-gap-sm: var(--component-space-xs);
@@ -814,9 +820,11 @@
   --comp-code-input-border-hover: color-mix(in srgb, var(--component-color-action) 28%, var(--component-color-border));
   --comp-code-input-border-filled: color-mix(in srgb, var(--component-color-text) 18%, var(--component-color-border));
   --comp-code-input-border-active: var(--component-color-focus);
-  --comp-code-input-radius: var(--component-radius-control);
+  --comp-code-input-radius: var(--component-control-frame-radius-field);
   --comp-code-input-font-family: var(--component-font-family-mono);
-  --comp-code-input-font-weight: var(--component-font-weight-semibold);
+  --comp-code-input-font-weight: var(--component-font-weight-light);
+  --comp-code-input-active-shadow: var(--component-depth-focus-ring-soft);
+  --comp-code-input-active-transform: var(--component-transform-lift-sm);
   --comp-code-input-focus-width: var(--component-focus-ring-width);
   --comp-code-input-focus-color: var(--component-color-focus);
   --comp-code-input-focus-offset: var(--component-focus-ring-offset);
@@ -826,6 +834,12 @@
   --comp-code-input-complete-bg: color-mix(in srgb, var(--component-color-success) 9%, var(--component-color-surface));
   --comp-code-input-complete-border: color-mix(in srgb, var(--component-color-success) 42%, var(--component-color-border));
   --comp-code-input-complete-shadow: var(--component-depth-success-ring);
+  --comp-code-input-success-bg: color-mix(in srgb, var(--component-color-success) 18%, var(--component-color-surface));
+  --comp-code-input-success-flash-bg: color-mix(in srgb, var(--component-color-success) 28%, var(--component-color-surface));
+  --comp-code-input-success-border: color-mix(in srgb, var(--component-color-success) 64%, var(--component-color-border));
+  --comp-code-input-success-shadow: 0 0 0 var(--component-border-width-indicator) color-mix(in srgb, var(--component-color-success) 24%, transparent);
+  --comp-code-input-success-motion-duration: var(--component-duration-slow);
+  --comp-code-input-success-motion-ease: var(--component-ease-enter);
   --comp-code-input-warning-bg: color-mix(in srgb, var(--component-color-warning) 10%, var(--component-color-surface));
   --comp-code-input-warning-border: color-mix(in srgb, var(--component-color-warning) 38%, var(--component-color-border));
   --comp-code-input-error-bg: color-mix(in srgb, var(--component-color-danger) 9%, var(--component-color-surface));
@@ -841,9 +855,11 @@
   --comp-code-input-caret-radius: var(--component-radius-pill);
   --comp-code-input-caret-block-size: var(--component-inline-size-sm);
   --comp-code-input-caret-inline-size: var(--component-focus-ring-offset);
+  --comp-code-input-caret-motion-duration: var(--component-duration-loop);
+  --comp-code-input-caret-motion-ease: var(--component-ease-state);
   --comp-code-input-motion-duration: var(--component-duration-snappy);
   --comp-code-input-motion-enter-duration: var(--component-duration-state);
-  --comp-code-input-motion-invalid-duration: var(--component-duration-medium);
+  --comp-code-input-motion-invalid-duration: var(--component-duration-slow);
   --comp-code-input-motion-ease: var(--component-ease-state);
   --comp-code-input-motion-enter: var(--component-ease-enter);
   --comp-code-input-invalid-shift: var(--component-space-sm);
@@ -2358,7 +2374,7 @@
   --comp-field-status-enter-transform: var(--component-transform-scale-enter);
   --comp-field-status-rest-transform: var(--component-transform-scale-rest);
   display: grid;
-  gap: var(--comp-input-gap);
+  gap: var(--component-field-shell-gap);
   inline-size: 100%;
   min-inline-size: 0;
   text-align: start;
@@ -2662,6 +2678,7 @@
 
 .field-control[data-density="sm"],
 .field[data-density="sm"] {
+  --component-control-frame-radius-field: var(--component-control-frame-radius-field-sm);
   --comp-field-control-size: var(--comp-input-control-size-sm);
   --comp-field-icon-size: var(--comp-input-icon-size-sm);
   --comp-field-icon-action-size: var(--comp-input-action-size-sm);
@@ -2673,6 +2690,7 @@
 
 .field-control[data-density="lg"],
 .field[data-density="lg"] {
+  --component-control-frame-radius-field: var(--component-control-frame-radius-field-lg);
   --comp-field-control-size: var(--comp-input-control-size-lg);
   --comp-field-icon-size: var(--comp-input-icon-size-lg);
   --comp-field-icon-action-size: var(--comp-input-action-size-lg);
@@ -2934,6 +2952,8 @@
 }
 
 .text-area__surface {
+  --comp-text-area-radius: var(--component-control-frame-radius-field);
+
   background: var(--comp-text-area-bg);
   border: var(--component-border-width) solid var(--comp-text-area-border);
   border-radius: var(--comp-text-area-radius);
@@ -9277,7 +9297,9 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   .inline-validation__message,
   .inline-validation__message::before,
   .code-input__control,
+  .code-input__slot,
   .code-input__digit,
+  .code-input__caret,
   .biometric-prompt__icon,
   .motion-boundary,
   .motion-boundary__cue,
@@ -9298,7 +9320,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .date-picker {
   color: var(--component-color-text);
   display: grid;
-  gap: var(--component-space-xs);
+  gap: var(--component-field-shell-gap);
 }
 
 .inline-validation {
@@ -10893,6 +10915,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .code-input {
+  --comp-code-input-radius: var(--component-control-frame-radius-field);
   --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-md);
   --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-md);
   --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md);
@@ -10905,7 +10928,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   cursor: text;
   display: inline-grid;
   grid-template-columns: minmax(0, 1fr);
-  inline-size: 100%;
+  inline-size: fit-content;
   max-inline-size: 100%;
   position: relative;
 }
@@ -10934,7 +10957,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   align-items: center;
   display: inline-flex;
   gap: var(--comp-code-input-current-slot-gap);
-  inline-size: 100%;
+  inline-size: auto;
   max-inline-size: 100%;
 }
 
@@ -10949,9 +10972,11 @@ body[data-contrast="quiet"] .route-summary__icon {
   font-family: var(--comp-code-input-font-family);
   font-size: var(--comp-code-input-current-slot-font-size);
   font-weight: var(--comp-code-input-font-weight);
+  font-synthesis-weight: none;
+  font-variant-numeric: tabular-nums;
   justify-content: center;
   block-size: var(--comp-code-input-current-slot-block-size);
-  flex: 1 1 var(--comp-code-input-current-slot-inline-size);
+  flex: 0 1 var(--comp-code-input-current-slot-inline-size);
   inline-size: var(--comp-code-input-current-slot-inline-size);
   min-block-size: var(--comp-code-input-current-slot-block-size);
   min-inline-size: 0;
@@ -10964,6 +10989,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .code-input[data-density="sm"] {
+  --component-control-frame-radius-field: var(--component-control-frame-radius-field-sm);
   --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-sm);
   --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-sm);
   --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-sm);
@@ -10971,6 +10997,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .code-input[data-variant="compact"] {
+  --component-control-frame-radius-field: var(--component-control-frame-radius-field-sm);
   --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-sm);
   --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-sm);
   --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-sm);
@@ -10978,6 +11005,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .code-input[data-density="lg"] {
+  --component-control-frame-radius-field: var(--component-control-frame-radius-field-lg);
   --comp-code-input-current-slot-block-size: var(--comp-code-input-slot-block-size-lg);
   --comp-code-input-current-slot-font-size: var(--comp-code-input-slot-font-size-lg);
   --comp-code-input-current-slot-gap: var(--comp-code-input-slot-gap-md);
@@ -10992,8 +11020,10 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .code-input__slot[data-active="true"] {
   border-color: var(--comp-code-input-border-active);
+  box-shadow: var(--comp-code-input-active-shadow);
   outline: var(--comp-code-input-focus-width) solid var(--comp-code-input-focus-color);
   outline-offset: var(--comp-code-input-focus-offset);
+  transform: var(--comp-code-input-active-transform);
 }
 
 .code-input__input:focus-visible + .code-input__slots .code-input__slot[data-active="true"] {
@@ -11013,6 +11043,13 @@ body[data-contrast="quiet"] .route-summary__icon {
   background: var(--comp-code-input-complete-bg);
   border-color: var(--comp-code-input-complete-border);
   box-shadow: var(--comp-code-input-complete-shadow);
+}
+
+.code-input[data-state="success"] .code-input__slot[data-filled="true"] {
+  animation: code-success-fill var(--comp-code-input-success-motion-duration) var(--comp-code-input-success-motion-ease) both;
+  background: var(--comp-code-input-success-bg);
+  border-color: var(--comp-code-input-success-border);
+  box-shadow: var(--comp-code-input-success-shadow);
 }
 
 .code-input[data-state="warning"] .code-input__slot {
@@ -11038,6 +11075,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .code-input__caret {
+  animation: code-caret-pulse var(--comp-code-input-caret-motion-duration) var(--comp-code-input-caret-motion-ease) infinite;
   background: var(--comp-code-input-caret-bg);
   border-radius: var(--comp-code-input-caret-radius);
   block-size: var(--comp-code-input-caret-block-size);
@@ -11065,6 +11103,40 @@ body[data-contrast="quiet"] .route-summary__icon {
 
   to {
     opacity: 1;
+    transform: var(--component-transform-scale-rest);
+  }
+}
+
+@keyframes code-caret-pulse {
+  0%,
+  100% {
+    opacity: var(--component-opacity-visible);
+  }
+
+  50% {
+    opacity: var(--component-opacity-muted);
+  }
+}
+
+@keyframes code-success-fill {
+  0% {
+    background: var(--comp-code-input-bg);
+    border-color: var(--comp-code-input-border-filled);
+    box-shadow: none;
+    transform: var(--component-transform-scale-enter);
+  }
+
+  55% {
+    background: var(--comp-code-input-success-flash-bg);
+    border-color: var(--comp-code-input-success-border);
+    box-shadow: var(--comp-code-input-success-shadow);
+    transform: var(--component-transform-scale-rest);
+  }
+
+  100% {
+    background: var(--comp-code-input-success-bg);
+    border-color: var(--comp-code-input-success-border);
+    box-shadow: var(--comp-code-input-success-shadow);
     transform: var(--component-transform-scale-rest);
   }
 }
@@ -11194,7 +11266,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-country-selector-trigger-hover-bg: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
   --comp-country-selector-trigger-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
   --comp-country-selector-trigger-focus-ring: color-mix(in srgb, var(--component-color-action) 35%, transparent);
-  --comp-country-selector-trigger-radius: var(--component-radius-control);
+  --comp-country-selector-trigger-radius: var(--component-control-frame-radius-field);
   --comp-country-selector-trigger-gap: var(--comp-select-gap);
   --comp-country-selector-trigger-padding-start: var(--comp-select-padding-start);
   --comp-country-selector-trigger-padding-end: var(--comp-select-padding-end);
@@ -11240,7 +11312,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-country-selector-search-gap: var(--component-space-xs);
   --comp-country-selector-search-bg: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
   --comp-country-selector-search-border: var(--component-color-border);
-  --comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro));
+  --comp-country-selector-search-radius: calc(var(--component-control-frame-radius-field) - var(--component-frame-space-micro));
   --comp-country-selector-search-font-size: var(--component-font-size-small);
   --comp-country-selector-search-font-weight: var(--component-font-weight-semibold);
   --comp-country-selector-search-color: var(--component-color-text);
@@ -12010,7 +12082,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-picker-panel-offset: var(--component-space-sm);
   --comp-date-picker-panel-border: color-mix(in srgb, var(--comp-date-picker-border) 80%, transparent);
   --comp-date-picker-nav-hover-bg: var(--component-color-surface-raised);
-  --comp-date-picker-radius: var(--component-radius-control);
+  --comp-date-picker-radius: var(--component-control-frame-radius-field);
   --comp-date-picker-panel-radius: var(--component-radius-surface);
   --comp-date-picker-value-weight: var(--component-font-weight-medium);
   --comp-date-picker-helper-weight: var(--component-font-weight-medium);

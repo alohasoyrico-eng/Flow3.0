@@ -1270,7 +1270,7 @@
     }
   },
   "sys-frame-content-code-slot-block-md": {
-    "$value": "calc(var(--sys-space-11) + var(--sys-frame-border-control))",
+    "$value": "{sys-space-12}",
     "$type": "dimension",
     "$extensions": {
       "flow": {
@@ -1290,7 +1290,7 @@
     }
   },
   "sys-frame-content-code-slot-inline-lg": {
-    "$value": "{sys-space-12}",
+    "$value": "calc(var(--sys-space-11) + var(--sys-space-md))",
     "$type": "dimension",
     "$extensions": {
       "flow": {
@@ -1300,7 +1300,7 @@
     }
   },
   "sys-frame-content-code-slot-inline-md": {
-    "$value": "{sys-space-11}",
+    "$value": "{sys-space-12}",
     "$type": "dimension",
     "$extensions": {
       "flow": {
@@ -1310,7 +1310,7 @@
     }
   },
   "sys-frame-content-code-slot-inline-sm": {
-    "$value": "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))",
+    "$value": "{sys-space-11}",
     "$type": "dimension",
     "$extensions": {
       "flow": {

@@ -552,6 +552,10 @@ try {
     assert.equal(input.value, "1234");
     assert.equal(changes.at(-1).meta.complete, true);
     assert.equal(completions.at(-1).value, "1234");
+    fireEvent.change(input, { target: { value: "98-76 54" } });
+    assert.equal(input.value, "9876");
+    assert.equal(changes.at(-1).value, "9876");
+    assert.equal(completions.at(-1).value, "9876");
     assert.equal(root.dataset.state, "complete");
     assert.equal(root.dataset.focused, "true");
     assert.equal(view.container.querySelectorAll('.code-input__slot[data-filled="true"]').length, 4);
@@ -582,6 +586,18 @@ try {
     assert.equal(root.dataset.state, "error");
     assert.equal(input.getAttribute("aria-invalid"), "true");
     assert.equal(error.getAttribute("role"), "alert");
+
+    view.rerender(React.createElement(CodeInput, {
+      label: "Security code",
+      length: 4,
+      value: "9876",
+      state: "success",
+      helper: "Code accepted",
+      onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
+    }));
+    await waitFor(() => assert.equal(input.value, "9876"));
+    assert.equal(root.dataset.state, "success");
+    assert.equal(view.getByText("Code accepted").getAttribute("role"), "status");
 
     view.rerender(React.createElement(CodeInput, {
       label: "Security code",

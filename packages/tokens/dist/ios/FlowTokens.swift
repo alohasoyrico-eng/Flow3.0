@@ -291,7 +291,7 @@ public enum FlowTokens {
   public static let refToneWeightRepair = "var(--ref-voice-weight-bold)"
   public static let refToneWeightUrgent = "var(--ref-voice-weight-bold)"
   public static let refVoiceFamilyBrand = "\"Edenred\", \"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-  public static let refVoiceFamilyMono = "\"Ubuntu Mono\", \"Ubuntu\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  public static let refVoiceFamilyMono = "\"Ubuntu Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
   public static let refVoiceFamilySans = "\"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
   public static let refVoiceLetterSpacingCaps = "0.12em"
   public static let refVoiceLetterSpacingExpanded = "0.04em"
@@ -334,6 +334,7 @@ public enum FlowTokens {
   public static let refVoiceWeightBlack = "900"
   public static let refVoiceWeightBold = "700"
   public static let refVoiceWeightExtrabold = "800"
+  public static let refVoiceWeightLight = "300"
   public static let refVoiceWeightMedium = "500"
   public static let refVoiceWeightRegular = "400"
   public static let refVoiceWeightSemibold = "600"
@@ -629,11 +630,11 @@ public enum FlowTokens {
   public static let sysFrameContentCardChipInlineSm = "var(--sys-space-9)"
   public static let sysFrameContentCardMediaBlock = "calc((var(--sys-space-11) * 4) + var(--sys-space-xl))"
   public static let sysFrameContentCodeSlotBlockLg = "calc(var(--sys-space-11) + var(--sys-space-md))"
-  public static let sysFrameContentCodeSlotBlockMd = "calc(var(--sys-space-11) + var(--sys-frame-border-control))"
+  public static let sysFrameContentCodeSlotBlockMd = "var(--sys-space-12)"
   public static let sysFrameContentCodeSlotBlockSm = "var(--sys-space-11)"
-  public static let sysFrameContentCodeSlotInlineLg = "var(--sys-space-12)"
-  public static let sysFrameContentCodeSlotInlineMd = "var(--sys-space-11)"
-  public static let sysFrameContentCodeSlotInlineSm = "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))"
+  public static let sysFrameContentCodeSlotInlineLg = "calc(var(--sys-space-11) + var(--sys-space-md))"
+  public static let sysFrameContentCodeSlotInlineMd = "var(--sys-space-12)"
+  public static let sysFrameContentCodeSlotInlineSm = "var(--sys-space-11)"
   public static let sysFrameContentCountryListboxInline = "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))"
   public static let sysFrameContentCountryListboxMaxInline = "calc(var(--sys-space-11) * 6)"
   public static let sysFrameContentDatePanel = "calc(var(--sys-space-11) * 6.5)"
@@ -1155,6 +1156,7 @@ public enum FlowTokens {
   public static let sysVoiceWeightBold = "var(--ref-voice-weight-bold)"
   public static let sysVoiceWeightControl = "var(--ref-voice-weight-semibold)"
   public static let sysVoiceWeightExtrabold = "var(--ref-voice-weight-extrabold)"
+  public static let sysVoiceWeightLight = "var(--ref-voice-weight-light)"
   public static let sysVoiceWeightMedium = "var(--ref-voice-weight-medium)"
   public static let sysVoiceWeightRegular = "var(--ref-voice-weight-regular)"
   public static let sysVoiceWeightSemibold = "var(--ref-voice-weight-semibold)"
@@ -1451,7 +1453,7 @@ public enum FlowTokens {
     "ref-tone-weight-repair": "var(--ref-voice-weight-bold)",
     "ref-tone-weight-urgent": "var(--ref-voice-weight-bold)",
     "ref-voice-family-brand": "\"Edenred\", \"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
-    "ref-voice-family-mono": "\"Ubuntu Mono\", \"Ubuntu\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+    "ref-voice-family-mono": "\"Ubuntu Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
     "ref-voice-family-sans": "\"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
     "ref-voice-letter-spacing-caps": "0.12em",
     "ref-voice-letter-spacing-expanded": "0.04em",
@@ -1494,6 +1496,7 @@ public enum FlowTokens {
     "ref-voice-weight-black": "900",
     "ref-voice-weight-bold": "700",
     "ref-voice-weight-extrabold": "800",
+    "ref-voice-weight-light": "300",
     "ref-voice-weight-medium": "500",
     "ref-voice-weight-regular": "400",
     "ref-voice-weight-semibold": "600",
@@ -1789,11 +1792,11 @@ public enum FlowTokens {
     "sys-frame-content-card-chip-inline-sm": "var(--sys-space-9)",
     "sys-frame-content-card-media-block": "calc((var(--sys-space-11) * 4) + var(--sys-space-xl))",
     "sys-frame-content-code-slot-block-lg": "calc(var(--sys-space-11) + var(--sys-space-md))",
-    "sys-frame-content-code-slot-block-md": "calc(var(--sys-space-11) + var(--sys-frame-border-control))",
+    "sys-frame-content-code-slot-block-md": "var(--sys-space-12)",
     "sys-frame-content-code-slot-block-sm": "var(--sys-space-11)",
-    "sys-frame-content-code-slot-inline-lg": "var(--sys-space-12)",
-    "sys-frame-content-code-slot-inline-md": "var(--sys-space-11)",
-    "sys-frame-content-code-slot-inline-sm": "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))",
+    "sys-frame-content-code-slot-inline-lg": "calc(var(--sys-space-11) + var(--sys-space-md))",
+    "sys-frame-content-code-slot-inline-md": "var(--sys-space-12)",
+    "sys-frame-content-code-slot-inline-sm": "var(--sys-space-11)",
     "sys-frame-content-country-listbox-inline": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
     "sys-frame-content-country-listbox-max-inline": "calc(var(--sys-space-11) * 6)",
     "sys-frame-content-date-panel": "calc(var(--sys-space-11) * 6.5)",
@@ -2315,6 +2318,7 @@ public enum FlowTokens {
     "sys-voice-weight-bold": "var(--ref-voice-weight-bold)",
     "sys-voice-weight-control": "var(--ref-voice-weight-semibold)",
     "sys-voice-weight-extrabold": "var(--ref-voice-weight-extrabold)",
+    "sys-voice-weight-light": "var(--ref-voice-weight-light)",
     "sys-voice-weight-medium": "var(--ref-voice-weight-medium)",
     "sys-voice-weight-regular": "var(--ref-voice-weight-regular)",
     "sys-voice-weight-semibold": "var(--ref-voice-weight-semibold)",

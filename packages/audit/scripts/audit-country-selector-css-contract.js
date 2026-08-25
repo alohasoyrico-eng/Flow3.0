@@ -23,7 +23,7 @@ function checkCountrySelectorCssContract({ text, blocks, packageCssFile, selecto
     snippets: [
       "--comp-country-selector-inline-listbox-max-inline-size: var(--component-country-selector-inline-listbox-max-inline-size)",
       "--comp-country-selector-inline-listbox-inline-size: var(--component-country-selector-inline-listbox-inline-size)",
-      "--comp-country-selector-search-radius: calc(var(--component-radius-control) - var(--component-frame-space-micro))",
+      "--comp-country-selector-search-radius: calc(var(--component-control-frame-radius-field) - var(--component-frame-space-micro))",
     ],
     message: "Country Selector listbox frame and search radius must consume Frame/component aliases instead of local values.",
   });

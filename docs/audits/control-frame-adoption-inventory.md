@@ -6,23 +6,23 @@ This inventory classifies every gold React component by the frame role it should
 
 ## Summary
 
-- Components: 62
-- Covered: 23
+- Components: 59
+- Covered: 22
 - Needs review/debt/partial: 0
-- Not applicable or separate contract: 39
+- Not applicable or separate contract: 37
 
 | Status | Count |
 | --- | ---: |
-| covered | 19 |
+| covered | 18 |
 | covered-via-field | 4 |
 | not-applicable | 25 |
-| separate-contract | 14 |
+| separate-contract | 12 |
 
 ## Iteration Buckets
 
 | Iteration | Components |
 | ---: | ---: |
-| 2 | 12 |
+| 2 | 9 |
 | 3 | 14 |
 | 4 | 7 |
 | 5 | 4 |
@@ -50,10 +50,9 @@ This inventory classifies every gold React component by the frame role it should
 | chat-thread | composition | not-applicable | n/a | Thread layout/composition. |
 | checkbox | choice | separate-contract | 5 | Uses ChoiceMark/IconDensity, not full ControlFrame. |
 | chip | inline-trigger | separate-contract | 2 | Selectable/removable chips use inline trigger sizing, exact border-box frame, and do not consume standard Button ControlFrame. |
-| code-block | content | not-applicable | n/a | Code content surface; CopyButton inside should own action frame. |
+| code-block | content | not-applicable | n/a | Code content surface; copy affordance composes Button and owns no duplicate action frame. |
 | code-input | field-slot | separate-contract | 3 | OTP/code slots use specialized exact border-box slot geometry backed by shared code slot frame roles. |
 | combobox | field-option-overlay | covered | 3 | Input frame inherits Field ControlFrame; listbox/options consume shared Listbox/OptionRow roles with explicit keyboard/selection guards. |
-| copy-button | action-composition | covered | 2 | Composes Button/IconButton; .copy-button is limited to copy feedback and must not own frame geometry. |
 | country-selector | field-option-overlay | covered | 3 | Consumes Select/Field trigger roles plus governed option/listbox/search frames with border-box safeguards. |
 | date-picker | field-overlay-grid | covered | 3 | Trigger consumes Field ControlFrame sizing; calendar grid uses exact calendar-day frame and date panel roles. |
 | date-range-picker | field-overlay-grid | covered | 3 | Inherits DatePicker trigger/day frame and adds exact range preset/date panel roles. |
@@ -61,7 +60,6 @@ This inventory classifies every gold React component by the frame role it should
 | drawer | sheet-panel | separate-contract | 4 | Sheet panel owns drawer-specific frame/motion/z-index aliases with border-box safeguards; close/footer actions compose action controls. |
 | empty-state | display | not-applicable | n/a | Display/empty content; actions inside should compose Button. |
 | error-panel | feedback-surface | not-applicable | n/a | Feedback surface; actions inside should compose Button. |
-| floating-action-button | action-exception | separate-contract | 2 | Uses FAB scale, not standard inline ControlFrame; audit requires exact block-size and border-box. |
 | icon-button | action-icon | covered | 2 | Consumes ControlFrame action/icon sizing and passes runtime frame audit. |
 | inline-validation | feedback | not-applicable | n/a | Validation message, not a control frame. |
 | input | field | covered | 3 | Consumes ControlFrame field size/font/padding/radius. |
@@ -75,7 +73,6 @@ This inventory classifies every gold React component by the frame role it should
 | phone-input | field-composition | covered | 3 | Composes Field, Input, and CountrySelector; compact size overrides Field alias through governed phone input roles. |
 | popover | overlay | covered | 4 | Panel consumes OverlayPanel roles with explicit border-box; trigger remains an external action/control consumer. |
 | progress-indicator | feedback | not-applicable | n/a | Progress display. |
-| quick-action | action-content-frame | separate-contract | 2 | Uses ActionContentFrame roles for circular icon control plus external label; not a standard 36/44/52 inline ControlFrame. |
 | radio-button | choice | separate-contract | 5 | Uses ChoiceMark/IconDensity, not full ControlFrame. |
 | route-summary | display | not-applicable | n/a | Domain summary display. |
 | segmented-control | navigation-action | covered | 2 | Segment items consume ControlFrame action sizing/padding/radius and pass runtime frame audit. |

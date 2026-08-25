@@ -37,7 +37,7 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
       "--comp-text-area-bg-warning:",
       "--comp-text-area-border-success:",
       "--comp-text-area-border-warning:",
-      "--comp-text-area-radius: var(--component-radius-control)",
+      "--comp-text-area-radius: var(--component-control-frame-radius-field)",
       "--comp-text-area-font-size: var(--component-font-size-label)",
       "--comp-text-area-line-height: var(--component-line-height-relaxed)",
       "--comp-text-area-counter-family: var(--component-font-family-mono)",
@@ -52,6 +52,7 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
     text,
     packageCssFile,
     snippets: [
+      "--comp-text-area-radius: var(--component-control-frame-radius-field)",
       "background: var(--comp-text-area-bg)",
       "border: var(--component-border-width) solid var(--comp-text-area-border)",
       "border-radius: var(--comp-text-area-radius)",

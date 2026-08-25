@@ -311,7 +311,7 @@ export default {
         "  --component-option-row-selected-bg: color-mix(in srgb, var(--component-color-action) 30%, var(--component-color-surface-raised));",
         "  --component-option-row-color: var(--component-color-text);",
         "  --component-option-row-selected-color: var(--component-color-text);",
-        "  --component-option-row-disabled-bg: color-mix(in srgb, var(--component-color-text) 8%, transparent);",
+        "  --component-option-row-disabled-bg: var(--component-surface-transparent);",
         "  --component-option-row-disabled-color: var(--component-color-text-subtle);",
         "  --component-option-row-disabled-opacity: var(--component-opacity-visible);",
         "  --component-action-bg-secondary: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));",

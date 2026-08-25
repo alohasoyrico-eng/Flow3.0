@@ -20,7 +20,7 @@
     }
   },
   "ref-voice-family-mono": {
-    "$value": "\"Ubuntu Mono\", \"Ubuntu\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+    "$value": "\"Ubuntu Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
     "$type": "fontFamily",
     "$extensions": {
       "flow": {
@@ -35,6 +35,16 @@
     "$extensions": {
       "flow": {
         "cssVariable": "--ref-voice-weight-regular",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "ref-voice-weight-light": {
+    "$value": "300",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--ref-voice-weight-light",
         "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
       }
     }
@@ -1095,6 +1105,16 @@
     "$extensions": {
       "flow": {
         "cssVariable": "--sys-voice-weight-regular",
+        "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
+      }
+    }
+  },
+  "sys-voice-weight-light": {
+    "$value": "{ref-voice-weight-light}",
+    "$type": "fontWeight",
+    "$extensions": {
+      "flow": {
+        "cssVariable": "--sys-voice-weight-light",
         "legacyBootstrapSource": "packages/tokens/styles/tokens.css"
       }
     }

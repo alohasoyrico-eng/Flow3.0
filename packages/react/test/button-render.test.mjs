@@ -2359,6 +2359,15 @@ const maskedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput
 }));
 assert.match(maskedCodeInputMarkup, /data-masked="true"/);
 
+const successCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
+  label: "Approved code",
+  value: "123456",
+  state: "success",
+  helper: "Code accepted",
+}));
+assert.match(successCodeInputMarkup, /data-state="success"/);
+assert.match(successCodeInputMarkup, /role="status"/);
+
 const inheritedCodeInputMarkup = renderToStaticMarkup(React.createElement(CodeInput, {
   label: "Security code",
   value: "123",

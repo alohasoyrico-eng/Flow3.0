@@ -45,7 +45,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
       "--comp-date-picker-day-font-size-lg: var(--component-density-label-size-lg)",
       "--comp-date-picker-day-font-size: var(--comp-date-picker-day-font-size-md)",
       "--comp-date-picker-panel-inline-size: var(--component-date-picker-panel-inline-size)",
-      "--comp-date-picker-radius: var(--component-radius-control)",
+      "--comp-date-picker-radius: var(--component-control-frame-radius-field)",
       "--comp-date-picker-panel-radius: var(--component-radius-surface)",
     ],
     message: "DatePicker base geometry must derive from the Field ControlFrame and frame cascades, not a baked md size.",

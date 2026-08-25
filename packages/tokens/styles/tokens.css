@@ -333,11 +333,11 @@
   --sys-frame-content-card-chip-inline-sm: var(--sys-space-9);
   --sys-frame-content-card-media-block: calc((var(--sys-space-11) * 4) + var(--sys-space-xl));
   --sys-frame-content-code-slot-block-lg: calc(var(--sys-space-11) + var(--sys-space-md));
-  --sys-frame-content-code-slot-block-md: calc(var(--sys-space-11) + var(--sys-frame-border-control));
+  --sys-frame-content-code-slot-block-md: var(--sys-space-12);
   --sys-frame-content-code-slot-block-sm: var(--sys-space-11);
-  --sys-frame-content-code-slot-inline-lg: var(--sys-space-12);
-  --sys-frame-content-code-slot-inline-md: var(--sys-space-11);
-  --sys-frame-content-code-slot-inline-sm: calc(var(--sys-space-11) - (var(--sys-space-xs) * 2));
+  --sys-frame-content-code-slot-inline-lg: calc(var(--sys-space-11) + var(--sys-space-md));
+  --sys-frame-content-code-slot-inline-md: var(--sys-space-12);
+  --sys-frame-content-code-slot-inline-sm: var(--sys-space-11);
   --sys-frame-content-country-listbox-inline: min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)));
   --sys-frame-content-country-listbox-max-inline: calc(var(--sys-space-11) * 6);
   --sys-frame-content-date-panel: calc(var(--sys-space-11) * 6.5);
@@ -673,8 +673,9 @@
   --sys-tone-repair-weight: var(--ref-tone-weight-repair);
   --ref-voice-family-brand: "Edenred", "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --ref-voice-family-sans: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --ref-voice-family-mono: "Ubuntu Mono", "Ubuntu", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ref-voice-family-mono: "Ubuntu Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --ref-voice-weight-regular: 400;
+  --ref-voice-weight-light: 300;
   --ref-voice-weight-medium: 500;
   --ref-voice-weight-semibold: 600;
   --ref-voice-weight-bold: 700;
@@ -781,6 +782,7 @@
   --sys-voice-family-mono: var(--ref-voice-family-mono);
   --sys-voice-family-brand: var(--ref-voice-family-brand);
   --sys-voice-weight-regular: var(--ref-voice-weight-regular);
+  --sys-voice-weight-light: var(--ref-voice-weight-light);
   --sys-voice-weight-medium: var(--ref-voice-weight-medium);
   --sys-voice-weight-semibold: var(--ref-voice-weight-semibold);
   --sys-voice-weight-bold: var(--ref-voice-weight-bold);

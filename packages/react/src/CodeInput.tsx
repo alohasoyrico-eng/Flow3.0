@@ -15,7 +15,7 @@ import { resolveFieldMessage } from "./internal/field-message.js";
 
 export type CodeInputDensity = FlowDensity;
 export type CodeInputVariant = "sms" | "otp" | "approval" | "masked" | "compact";
-export type CodeInputState = "default" | "hover" | "focus" | "complete" | "warning" | "error" | "disabled";
+export type CodeInputState = "default" | "hover" | "focus" | "complete" | "success" | "warning" | "error" | "disabled";
 
 export interface CodeInputChangeMeta {
   value: string;
@@ -44,7 +44,7 @@ export interface CodeInputComponent extends ForwardRefExoticComponent<CodeInputP
 }
 
 const validVariants = new Set<CodeInputVariant>(["sms", "otp", "approval", "masked", "compact"]);
-const validStates = new Set<CodeInputState>(["default", "hover", "focus", "complete", "warning", "error", "disabled"]);
+const validStates = new Set<CodeInputState>(["default", "hover", "focus", "complete", "success", "warning", "error", "disabled"]);
 
 function normalizeCodeValue(value: unknown, length = 6) {
   return String(value ?? "").replace(/\D/g, "").slice(0, Number(length));
@@ -103,7 +103,8 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(function C
     describedBy: rest["aria-describedby"],
     error,
     helper,
-    state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "disabled" ? "disabled" : "default",
+    state: resolvedState === "error" ? "error" : resolvedState === "warning" ? "warning" : resolvedState === "success" ? "success" : resolvedState === "disabled" ? "disabled" : "default",
+    live: resolvedState === "success",
   });
   const isMasked = Boolean(masked) || resolvedVariant === "masked";
   const activeIndex = Math.min(digits.length, Math.max(resolvedLength - 1, 0));
@@ -136,7 +137,6 @@ export const CodeInput = forwardRef<HTMLInputElement, CodeInputProps>(function C
         inputMode: "numeric",
         autoComplete: "one-time-code",
         pattern: "[0-9]*",
-        maxLength: resolvedLength,
         value: digits,
         disabled: Boolean(disabled),
         "data-code-input": "",

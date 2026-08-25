@@ -31,6 +31,7 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const cardIconBlock = blockFor(blocks, selectorKey, ".card-number-input__icon,.card-expiry-input__icon,.card-security-code-input__icon");
   const cardInputBlock = blockFor(blocks, selectorKey, ".card-number-input__input,.card-expiry-input__input,.card-security-code-input__input");
   const cardSecurityActionBlock = blockFor(blocks, selectorKey, ".card-security-code-input__action");
+  const compoundFieldShellBlock = blockFor(blocks, selectorKey, ".code-input,.phone-input,.card-number-input,.card-expiry-input,.card-security-code-input,.date-picker");
 
   if (!text.includes("--comp-input-control-size: var(--comp-input-control-size-md)")) {
     add("errors", packageCssFile, 1, "Input base control size must default to the field md size, not the global density control height.");
@@ -45,7 +46,12 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     "--component-density-helper-size-sm: var(--component-font-size-micro);",
     "--component-density-helper-size-md: var(--component-font-size-caption);",
     "--component-density-helper-size-lg: var(--component-font-size-small);",
-    "--component-control-frame-radius-field: var(--component-radius-control);",
+    "--component-field-focus-clearance: calc(var(--component-focus-ring-width) + var(--component-focus-ring-offset));",
+    "--component-field-shell-gap: calc(var(--component-field-gap) + var(--component-field-focus-clearance));",
+    "--component-control-frame-radius-field-sm: var(--component-radius-md);",
+    "--component-control-frame-radius-field-md: var(--component-radius-control);",
+    "--component-control-frame-radius-field-lg: var(--component-radius-card);",
+    "--component-control-frame-radius-field: var(--component-control-frame-radius-field-md);",
     "--component-field-control-size-sm: var(--component-control-frame-size-sm);",
     "--component-field-control-size-md: var(--component-control-frame-size-md);",
     "--component-field-control-size-lg: var(--component-control-frame-size-lg);",
@@ -104,9 +110,9 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-field-control-size: var(--comp-input-control-size)",
       "--comp-field-icon-size: var(--comp-input-icon-size)",
       "--comp-field-icon-action-size: var(--comp-input-action-size)",
-      "gap: var(--comp-input-gap)",
+      "gap: var(--component-field-shell-gap)",
     ],
-    message: "Field shell must bridge Input geometry into component-scoped Field aliases.",
+    message: "Field shell must bridge Input geometry and reserve focus-ring clearance between label/control/helper.",
   });
   requireIncludes({
     block: fieldSurfaceBlock,
@@ -123,11 +129,22 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     message: "Field surface must consume Field/Input frame aliases instead of local geometry.",
   });
   requireIncludes({
+    block: compoundFieldShellBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "display: grid",
+      "gap: var(--component-field-shell-gap)",
+    ],
+    message: "Compound field shells must reserve the same focus-ring clearance as Field/Input shells.",
+  });
+  requireIncludes({
     block: fieldSmBlock,
     text,
     packageCssFile,
     snippets: [
       "--comp-field-control-size: var(--comp-input-control-size-sm)",
+      "--component-control-frame-radius-field: var(--component-control-frame-radius-field-sm)",
       "--comp-field-icon-size: var(--comp-input-icon-size-sm)",
       "--comp-field-icon-action-size: var(--comp-input-action-size-sm)",
       "--comp-input-font-size: var(--comp-input-font-size-sm)",
@@ -143,6 +160,7 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-field-control-size: var(--comp-input-control-size-lg)",
+      "--component-control-frame-radius-field: var(--component-control-frame-radius-field-lg)",
       "--comp-field-icon-size: var(--comp-input-icon-size-lg)",
       "--comp-field-icon-action-size: var(--comp-input-action-size-lg)",
       "--comp-input-font-size: var(--comp-input-font-size-lg)",

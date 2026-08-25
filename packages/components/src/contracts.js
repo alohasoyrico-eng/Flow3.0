@@ -1347,7 +1347,7 @@ export const componentContracts = {
         purpose: "Capture SMS, OTP, or approval codes through one logical input with fixed visual slots and helper text.",
         variants: ["sms", "otp", "approval", "masked", "compact"],
         intents: ["security"],
-        states: ["default", "hover", "focus", "complete", "warning", "error", "disabled"],
+        states: ["default", "hover", "focus", "complete", "success", "warning", "error", "disabled"],
         props: [
             { name: "label", type: "string", required: true },
             { name: "value", type: "string", required: false },
@@ -1356,7 +1356,7 @@ export const componentContracts = {
             { name: "masked", type: "boolean", required: false },
             { name: "helper", type: "string", required: false },
             { name: "disabled", type: "boolean", required: false },
-            { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"complete\" | \"warning\" | \"error\" | \"disabled\"", required: false },
+            { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"complete\" | \"success\" | \"warning\" | \"error\" | \"disabled\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "error", type: "string", required: false },
             { name: "onValueChange", type: "(value: string) => void", required: false },
@@ -1365,6 +1365,7 @@ export const componentContracts = {
         accessibility: [
             "Expose one native input with one-time-code autocomplete.",
             "Keep visual slots aria-hidden so screen readers receive one code field.",
+            "Use complete for local filled slots and success only for validated completion feedback.",
             "Keep expiry or recovery helper visible.",
             "Use auth patterns for resend, fallback, passcode keypad, and verification system."
         ]

@@ -292,7 +292,7 @@
   <string name="ref_tone_weight_repair">var(--ref-voice-weight-bold)</string>
   <string name="ref_tone_weight_urgent">var(--ref-voice-weight-bold)</string>
   <string name="ref_voice_family_brand">&quot;Edenred&quot;, &quot;Ubuntu&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif</string>
-  <string name="ref_voice_family_mono">&quot;Ubuntu Mono&quot;, &quot;Ubuntu&quot;, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace</string>
+  <string name="ref_voice_family_mono">&quot;Ubuntu Mono&quot;, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace</string>
   <string name="ref_voice_family_sans">&quot;Ubuntu&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif</string>
   <string name="ref_voice_letter_spacing_caps">0.12em</string>
   <string name="ref_voice_letter_spacing_expanded">0.04em</string>
@@ -335,6 +335,7 @@
   <string name="ref_voice_weight_black">900</string>
   <string name="ref_voice_weight_bold">700</string>
   <string name="ref_voice_weight_extrabold">800</string>
+  <string name="ref_voice_weight_light">300</string>
   <string name="ref_voice_weight_medium">500</string>
   <string name="ref_voice_weight_regular">400</string>
   <string name="ref_voice_weight_semibold">600</string>
@@ -630,11 +631,11 @@
   <string name="sys_frame_content_card_chip_inline_sm">var(--sys-space-9)</string>
   <string name="sys_frame_content_card_media_block">calc((var(--sys-space-11) * 4) + var(--sys-space-xl))</string>
   <string name="sys_frame_content_code_slot_block_lg">calc(var(--sys-space-11) + var(--sys-space-md))</string>
-  <string name="sys_frame_content_code_slot_block_md">calc(var(--sys-space-11) + var(--sys-frame-border-control))</string>
+  <string name="sys_frame_content_code_slot_block_md">var(--sys-space-12)</string>
   <string name="sys_frame_content_code_slot_block_sm">var(--sys-space-11)</string>
-  <string name="sys_frame_content_code_slot_inline_lg">var(--sys-space-12)</string>
-  <string name="sys_frame_content_code_slot_inline_md">var(--sys-space-11)</string>
-  <string name="sys_frame_content_code_slot_inline_sm">calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))</string>
+  <string name="sys_frame_content_code_slot_inline_lg">calc(var(--sys-space-11) + var(--sys-space-md))</string>
+  <string name="sys_frame_content_code_slot_inline_md">var(--sys-space-12)</string>
+  <string name="sys_frame_content_code_slot_inline_sm">var(--sys-space-11)</string>
   <string name="sys_frame_content_country_listbox_inline">min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))</string>
   <string name="sys_frame_content_country_listbox_max_inline">calc(var(--sys-space-11) * 6)</string>
   <string name="sys_frame_content_date_panel">calc(var(--sys-space-11) * 6.5)</string>
@@ -1156,6 +1157,7 @@
   <string name="sys_voice_weight_bold">var(--ref-voice-weight-bold)</string>
   <string name="sys_voice_weight_control">var(--ref-voice-weight-semibold)</string>
   <string name="sys_voice_weight_extrabold">var(--ref-voice-weight-extrabold)</string>
+  <string name="sys_voice_weight_light">var(--ref-voice-weight-light)</string>
   <string name="sys_voice_weight_medium">var(--ref-voice-weight-medium)</string>
   <string name="sys_voice_weight_regular">var(--ref-voice-weight-regular)</string>
   <string name="sys_voice_weight_semibold">var(--ref-voice-weight-semibold)</string>

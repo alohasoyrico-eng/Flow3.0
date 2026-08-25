@@ -333,6 +333,7 @@ export type FlowTokenName =
   | "ref-voice-weight-black"
   | "ref-voice-weight-bold"
   | "ref-voice-weight-extrabold"
+  | "ref-voice-weight-light"
   | "ref-voice-weight-medium"
   | "ref-voice-weight-regular"
   | "ref-voice-weight-semibold"
@@ -1154,6 +1155,7 @@ export type FlowTokenName =
   | "sys-voice-weight-bold"
   | "sys-voice-weight-control"
   | "sys-voice-weight-extrabold"
+  | "sys-voice-weight-light"
   | "sys-voice-weight-medium"
   | "sys-voice-weight-regular"
   | "sys-voice-weight-semibold";
@@ -3363,10 +3365,12 @@ export const flowTokens = {
     "cssVariable": "--sys-frame-content-code-slot-block-lg"
   },
   "sys-frame-content-code-slot-block-md": {
-    "value": "calc(var(--sys-space-11) + var(--sys-frame-border-control))",
+    "value": "var(--sys-space-12)",
     "type": "dimension",
     "scope": "sys",
-    "cssVariable": "--sys-frame-content-code-slot-block-md"
+    "cssVariable": "--sys-frame-content-code-slot-block-md",
+    "reference": "sys-space-12",
+    "cssReference": "--sys-space-12"
   },
   "sys-frame-content-code-slot-block-sm": {
     "value": "var(--sys-space-11)",
@@ -3377,26 +3381,26 @@ export const flowTokens = {
     "cssReference": "--sys-space-11"
   },
   "sys-frame-content-code-slot-inline-lg": {
+    "value": "calc(var(--sys-space-11) + var(--sys-space-md))",
+    "type": "dimension",
+    "scope": "sys",
+    "cssVariable": "--sys-frame-content-code-slot-inline-lg"
+  },
+  "sys-frame-content-code-slot-inline-md": {
     "value": "var(--sys-space-12)",
     "type": "dimension",
     "scope": "sys",
-    "cssVariable": "--sys-frame-content-code-slot-inline-lg",
+    "cssVariable": "--sys-frame-content-code-slot-inline-md",
     "reference": "sys-space-12",
     "cssReference": "--sys-space-12"
   },
-  "sys-frame-content-code-slot-inline-md": {
+  "sys-frame-content-code-slot-inline-sm": {
     "value": "var(--sys-space-11)",
     "type": "dimension",
     "scope": "sys",
-    "cssVariable": "--sys-frame-content-code-slot-inline-md",
+    "cssVariable": "--sys-frame-content-code-slot-inline-sm",
     "reference": "sys-space-11",
     "cssReference": "--sys-space-11"
-  },
-  "sys-frame-content-code-slot-inline-sm": {
-    "value": "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))",
-    "type": "dimension",
-    "scope": "sys",
-    "cssVariable": "--sys-frame-content-code-slot-inline-sm"
   },
   "sys-frame-content-country-listbox-inline": {
     "value": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
@@ -5741,7 +5745,7 @@ export const flowTokens = {
     "cssVariable": "--ref-voice-family-sans"
   },
   "ref-voice-family-mono": {
-    "value": "\"Ubuntu Mono\", \"Ubuntu\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+    "value": "\"Ubuntu Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
     "type": "fontFamily",
     "scope": "ref",
     "cssVariable": "--ref-voice-family-mono"
@@ -5751,6 +5755,12 @@ export const flowTokens = {
     "type": "fontWeight",
     "scope": "ref",
     "cssVariable": "--ref-voice-weight-regular"
+  },
+  "ref-voice-weight-light": {
+    "value": "300",
+    "type": "fontWeight",
+    "scope": "ref",
+    "cssVariable": "--ref-voice-weight-light"
   },
   "ref-voice-weight-medium": {
     "value": "500",
@@ -6513,6 +6523,14 @@ export const flowTokens = {
     "cssVariable": "--sys-voice-weight-regular",
     "reference": "ref-voice-weight-regular",
     "cssReference": "--ref-voice-weight-regular"
+  },
+  "sys-voice-weight-light": {
+    "value": "var(--ref-voice-weight-light)",
+    "type": "fontWeight",
+    "scope": "sys",
+    "cssVariable": "--sys-voice-weight-light",
+    "reference": "ref-voice-weight-light",
+    "cssReference": "--ref-voice-weight-light"
   },
   "sys-voice-weight-medium": {
     "value": "var(--ref-voice-weight-medium)",
@@ -9709,6 +9727,7 @@ export const flowTokenNames = [
   "ref-voice-weight-black",
   "ref-voice-weight-bold",
   "ref-voice-weight-extrabold",
+  "ref-voice-weight-light",
   "ref-voice-weight-medium",
   "ref-voice-weight-regular",
   "ref-voice-weight-semibold",
@@ -10530,6 +10549,7 @@ export const flowTokenNames = [
   "sys-voice-weight-bold",
   "sys-voice-weight-control",
   "sys-voice-weight-extrabold",
+  "sys-voice-weight-light",
   "sys-voice-weight-medium",
   "sys-voice-weight-regular",
   "sys-voice-weight-semibold"

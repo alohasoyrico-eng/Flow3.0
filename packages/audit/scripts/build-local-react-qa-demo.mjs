@@ -625,10 +625,39 @@ const components = {
     directory: "code-input-2026-08-24",
     module: "CodeInput.js",
     exportName: "CodeInput",
-    buildId: "code-input-react-runtime-1",
+    buildId: "code-input-success-motion-runtime-3",
+    indexImports: ["Button"],
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
     actionSelector: "input[data-runtime-action]",
+    supportPreamble: `function CodeInputMotionDemo() {
+      const [value, setValue] = React.useState("9876");
+      const [feedback, setFeedback] = React.useState("default");
+      const [nonce, setNonce] = React.useState(0);
+      const trigger = (nextFeedback) => {
+        setFeedback("default");
+        setValue(nextFeedback === "error" ? "12" : "9876");
+        window.setTimeout(() => {
+          setFeedback(nextFeedback);
+          setNonce((current) => current + 1);
+        }, 48);
+      };
+      return e("div", { className: "audit-motion-demo" },
+        e(Component, {
+          key: feedback + "-" + nonce,
+          label: "Motion feedback",
+          length: 4,
+          value,
+          state: feedback === "default" ? undefined : feedback,
+          error: feedback === "error" ? "Invalid security code" : "",
+          helper: feedback === "success" ? "Code accepted" : "Trigger semantic feedback"
+        }),
+        e("div", { className: "audit-row" },
+          e(Button, { label: "Trigger success", variant: "secondary", onClick: () => trigger("success") }),
+          e(Button, { label: "Trigger error", variant: "secondary", intent: "danger", onClick: () => trigger("error") })
+        )
+      );
+    }`,
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Longitudes"),
           e("div", { className: "audit-grid" },
@@ -648,7 +677,10 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(CodeInputMotionDemo)),
             e("div", { className: "audit-card" }, action({ label: "Complete", length: 4, value: "9876" })),
+            e("div", { className: "audit-card" }, action({ label: "Success", length: 4, value: "9876", state: "success", helper: "Code accepted" })),
+            e("div", { className: "audit-card" }, action({ label: "Masked", length: 4, value: "1234", variant: "masked" })),
             e("div", { className: "audit-card" }, action({ label: "Error", length: 4, value: "12", error: "Invalid security code" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", length: 4, value: "1234", disabled: true, "data-runtime-action": "true" }))
           )
@@ -1303,6 +1335,12 @@ const html = `<!doctype html>
       gap: var(--component-space-md);
       min-block-size: 11rem;
       padding: var(--component-space-lg);
+    }
+
+    .audit-motion-demo {
+      display: grid;
+      gap: var(--component-space-md);
+      inline-size: 100%;
     }
 
     h1,

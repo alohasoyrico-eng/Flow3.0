@@ -292,7 +292,7 @@ class FlowTokens {
   static const String refToneWeightRepair = "var(--ref-voice-weight-bold)";
   static const String refToneWeightUrgent = "var(--ref-voice-weight-bold)";
   static const String refVoiceFamilyBrand = "\"Edenred\", \"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif";
-  static const String refVoiceFamilyMono = "\"Ubuntu Mono\", \"Ubuntu\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+  static const String refVoiceFamilyMono = "\"Ubuntu Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
   static const String refVoiceFamilySans = "\"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif";
   static const String refVoiceLetterSpacingCaps = "0.12em";
   static const String refVoiceLetterSpacingExpanded = "0.04em";
@@ -335,6 +335,7 @@ class FlowTokens {
   static const String refVoiceWeightBlack = "900";
   static const String refVoiceWeightBold = "700";
   static const String refVoiceWeightExtrabold = "800";
+  static const String refVoiceWeightLight = "300";
   static const String refVoiceWeightMedium = "500";
   static const String refVoiceWeightRegular = "400";
   static const String refVoiceWeightSemibold = "600";
@@ -630,11 +631,11 @@ class FlowTokens {
   static const String sysFrameContentCardChipInlineSm = "var(--sys-space-9)";
   static const String sysFrameContentCardMediaBlock = "calc((var(--sys-space-11) * 4) + var(--sys-space-xl))";
   static const String sysFrameContentCodeSlotBlockLg = "calc(var(--sys-space-11) + var(--sys-space-md))";
-  static const String sysFrameContentCodeSlotBlockMd = "calc(var(--sys-space-11) + var(--sys-frame-border-control))";
+  static const String sysFrameContentCodeSlotBlockMd = "var(--sys-space-12)";
   static const String sysFrameContentCodeSlotBlockSm = "var(--sys-space-11)";
-  static const String sysFrameContentCodeSlotInlineLg = "var(--sys-space-12)";
-  static const String sysFrameContentCodeSlotInlineMd = "var(--sys-space-11)";
-  static const String sysFrameContentCodeSlotInlineSm = "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))";
+  static const String sysFrameContentCodeSlotInlineLg = "calc(var(--sys-space-11) + var(--sys-space-md))";
+  static const String sysFrameContentCodeSlotInlineMd = "var(--sys-space-12)";
+  static const String sysFrameContentCodeSlotInlineSm = "var(--sys-space-11)";
   static const String sysFrameContentCountryListboxInline = "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))";
   static const String sysFrameContentCountryListboxMaxInline = "calc(var(--sys-space-11) * 6)";
   static const String sysFrameContentDatePanel = "calc(var(--sys-space-11) * 6.5)";
@@ -1156,6 +1157,7 @@ class FlowTokens {
   static const String sysVoiceWeightBold = "var(--ref-voice-weight-bold)";
   static const String sysVoiceWeightControl = "var(--ref-voice-weight-semibold)";
   static const String sysVoiceWeightExtrabold = "var(--ref-voice-weight-extrabold)";
+  static const String sysVoiceWeightLight = "var(--ref-voice-weight-light)";
   static const String sysVoiceWeightMedium = "var(--ref-voice-weight-medium)";
   static const String sysVoiceWeightRegular = "var(--ref-voice-weight-regular)";
   static const String sysVoiceWeightSemibold = "var(--ref-voice-weight-semibold)";
@@ -1452,7 +1454,7 @@ class FlowTokens {
     "ref-tone-weight-repair": "var(--ref-voice-weight-bold)",
     "ref-tone-weight-urgent": "var(--ref-voice-weight-bold)",
     "ref-voice-family-brand": "\"Edenred\", \"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
-    "ref-voice-family-mono": "\"Ubuntu Mono\", \"Ubuntu\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+    "ref-voice-family-mono": "\"Ubuntu Mono\", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
     "ref-voice-family-sans": "\"Ubuntu\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
     "ref-voice-letter-spacing-caps": "0.12em",
     "ref-voice-letter-spacing-expanded": "0.04em",
@@ -1495,6 +1497,7 @@ class FlowTokens {
     "ref-voice-weight-black": "900",
     "ref-voice-weight-bold": "700",
     "ref-voice-weight-extrabold": "800",
+    "ref-voice-weight-light": "300",
     "ref-voice-weight-medium": "500",
     "ref-voice-weight-regular": "400",
     "ref-voice-weight-semibold": "600",
@@ -1790,11 +1793,11 @@ class FlowTokens {
     "sys-frame-content-card-chip-inline-sm": "var(--sys-space-9)",
     "sys-frame-content-card-media-block": "calc((var(--sys-space-11) * 4) + var(--sys-space-xl))",
     "sys-frame-content-code-slot-block-lg": "calc(var(--sys-space-11) + var(--sys-space-md))",
-    "sys-frame-content-code-slot-block-md": "calc(var(--sys-space-11) + var(--sys-frame-border-control))",
+    "sys-frame-content-code-slot-block-md": "var(--sys-space-12)",
     "sys-frame-content-code-slot-block-sm": "var(--sys-space-11)",
-    "sys-frame-content-code-slot-inline-lg": "var(--sys-space-12)",
-    "sys-frame-content-code-slot-inline-md": "var(--sys-space-11)",
-    "sys-frame-content-code-slot-inline-sm": "calc(var(--sys-space-11) - (var(--sys-space-xs) * 2))",
+    "sys-frame-content-code-slot-inline-lg": "calc(var(--sys-space-11) + var(--sys-space-md))",
+    "sys-frame-content-code-slot-inline-md": "var(--sys-space-12)",
+    "sys-frame-content-code-slot-inline-sm": "var(--sys-space-11)",
     "sys-frame-content-country-listbox-inline": "min(var(--sys-frame-content-country-listbox-max-inline), calc(100vw - (var(--sys-frame-gap-component-lg) * 2)))",
     "sys-frame-content-country-listbox-max-inline": "calc(var(--sys-space-11) * 6)",
     "sys-frame-content-date-panel": "calc(var(--sys-space-11) * 6.5)",
@@ -2316,6 +2319,7 @@ class FlowTokens {
     "sys-voice-weight-bold": "var(--ref-voice-weight-bold)",
     "sys-voice-weight-control": "var(--ref-voice-weight-semibold)",
     "sys-voice-weight-extrabold": "var(--ref-voice-weight-extrabold)",
+    "sys-voice-weight-light": "var(--ref-voice-weight-light)",
     "sys-voice-weight-medium": "var(--ref-voice-weight-medium)",
     "sys-voice-weight-regular": "var(--ref-voice-weight-regular)",
     "sys-voice-weight-semibold": "var(--ref-voice-weight-semibold)",
