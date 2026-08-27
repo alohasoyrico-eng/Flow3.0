@@ -101,7 +101,7 @@
       "--component-focus-ring-offset"
     ],
     "missing": [],
-    "radiusAliasUseCount": 235,
+    "radiusAliasUseCount": 225,
     "directRefFrameRadiusConsumerUses": [],
     "rawRadius": []
   },
@@ -151,7 +151,7 @@
   },
   "cascadeCoverage": {
     "components": {
-      "count": 62,
+      "count": 59,
       "ids": [
         "accordion",
         "animated-moment",
@@ -175,7 +175,6 @@
         "code-block",
         "code-input",
         "combobox",
-        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -183,7 +182,6 @@
         "drawer",
         "empty-state",
         "error-panel",
-        "floating-action-button",
         "icon-button",
         "inline-validation",
         "input",
@@ -197,7 +195,6 @@
         "phone-input",
         "popover",
         "progress-indicator",
-        "quick-action",
         "radio-button",
         "route-summary",
         "segmented-control",

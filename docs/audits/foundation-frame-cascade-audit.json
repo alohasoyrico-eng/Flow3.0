@@ -133,7 +133,7 @@
       ]
     },
     "components": {
-      "count": 62,
+      "count": 59,
       "ids": [
         "accordion",
         "animated-moment",
@@ -157,7 +157,6 @@
         "code-block",
         "code-input",
         "combobox",
-        "copy-button",
         "country-selector",
         "date-picker",
         "date-range-picker",
@@ -165,7 +164,6 @@
         "drawer",
         "empty-state",
         "error-panel",
-        "floating-action-button",
         "icon-button",
         "inline-validation",
         "input",
@@ -179,7 +177,6 @@
         "phone-input",
         "popover",
         "progress-indicator",
-        "quick-action",
         "radio-button",
         "route-summary",
         "segmented-control",
@@ -340,7 +337,7 @@
         "packages/specs/specs/unison-system/artifacts/templates/internal-operations-console.json"
       ]
     },
-    "packageCssDirectUses": 1496,
+    "packageCssDirectUses": 1767,
     "docsCssDirectUses": 0
   },
   "geometryDeclarations": {

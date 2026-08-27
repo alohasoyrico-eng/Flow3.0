@@ -6,8 +6,8 @@ Every component must render through the React package, consume Flow visual roles
 
 ## Inventory
 
-- Components audited: 60
-- Pass: 60
+- Components audited: 59
+- Pass: 59
 - Review: 0
 - Fail: 0
 - Visual cascade debt: 0

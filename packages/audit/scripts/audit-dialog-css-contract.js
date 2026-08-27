@@ -24,8 +24,12 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     snippets: [
       "--comp-dialog-panel-border-width: var(--component-border-width)",
       "--comp-dialog-panel-inline: var(--component-dialog-panel-inline)",
-      "--comp-dialog-panel-padding: var(--component-space-lg)",
-      "--comp-dialog-panel-gap: var(--component-space-md)",
+      "--comp-dialog-panel-padding: var(--component-space-7)",
+      "--comp-dialog-panel-radius: var(--component-radius-overlay)",
+      "--comp-dialog-panel-gap: calc(var(--component-space-lg) + var(--component-frame-space-micro))",
+      "--comp-dialog-header-gap: calc(var(--component-space-md) + var(--component-frame-space-micro))",
+      "--comp-dialog-content-gap: calc(var(--component-space-sm) - var(--component-frame-space-micro))",
+      "--comp-dialog-footer-gap: calc(var(--component-space-sm) + var(--component-frame-space-micro))",
       "--comp-dialog-z-index: var(--component-z-dialog)",
       "--comp-dialog-enter-ease: var(--component-ease-enter)",
       "--comp-dialog-exit-ease: var(--component-ease-exit)",
@@ -50,7 +54,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-dialog-panel-padding: var(--component-space-md)",
+      "--comp-dialog-panel-padding: var(--component-space-xl)",
       "--comp-dialog-icon-size: var(--component-dialog-icon-size-sm)",
       "--comp-dialog-title-font-size: var(--component-font-size-body)",
     ],
@@ -61,7 +65,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
     text,
     packageCssFile,
     snippets: [
-      "--comp-dialog-panel-padding: var(--component-space-xl)",
+      "--comp-dialog-panel-padding: var(--component-space-8)",
       "--comp-dialog-icon-size: var(--component-dialog-icon-size-lg)",
       "--comp-dialog-title-font-size: var(--component-font-size-title-md)",
     ],
@@ -91,6 +95,12 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
   }
   if (/--comp-dialog-panel-inline:\s*min\(100%,\s*var\(--sys-frame-content-dialog/.test(text)) {
     add("errors", packageCssFile, 1, "Dialog panel inline size must route through the component dialog panel alias.");
+  }
+  if (!text.includes("--component-dialog-panel-inline: min(100%, var(--component-overlay-compact-inline-lg));")) {
+    add("errors", packageCssFile, 1, "Dialog panel inline size must use the shared compact overlay Frame alias.");
+  }
+  if (!text.includes("--component-radius-overlay: calc(var(--component-radius-xl) - var(--component-radius-xs));")) {
+    add("errors", packageCssFile, 1, "Dialog overlay radius must flow through a component radius alias instead of a local panel value.");
   }
 }
 

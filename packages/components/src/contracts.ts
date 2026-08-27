@@ -720,7 +720,8 @@ export const componentContracts = {
       { name: "expandedIds", type: "string[]", required: false },
       { name: "onExpandedChange", type: "(expandedIds: string[]) => void", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-      { name: "variant", type: "\"single\" | \"multiple\"", required: false }
+      { name: "variant", type: "\"single\" | \"multiple\"", required: false },
+      { name: "surface", type: "\"raised\" | \"flat\"", required: false }
     ],
     accessibility: [
       "Use buttons for section triggers.",
@@ -816,6 +817,7 @@ export const componentContracts = {
     props: [
       { name: "label", type: "string", required: true },
       { name: "description", type: "string", required: false },
+      { name: "children", type: "ReactNode", required: false },
       { name: "triggerLabel", type: "string", required: false },
       { name: "actions", type: "DialogAction[]", required: false },
       { name: "open", type: "boolean", required: false },
@@ -878,6 +880,7 @@ export const componentContracts = {
     props: [
       { name: "label", type: "string", required: true },
       { name: "description", type: "string", required: false },
+      { name: "children", type: "ReactNode", required: false },
       { name: "triggerLabel", type: "string", required: false },
       { name: "variant", type: "\"side-sheet\" | \"filter\" | \"detail\" | \"edit\" | \"review\"", required: false },
       { name: "state", type: "\"closed\" | \"default\" | \"open\" | \"focus\" | \"closing\"", required: false },

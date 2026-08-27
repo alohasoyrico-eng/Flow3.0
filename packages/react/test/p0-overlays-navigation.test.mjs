@@ -23,7 +23,7 @@ const React = await import("react");
 const axe = await import("axe-core");
 const userEvent = await import("@testing-library/user-event");
 const { cleanup, fireEvent, render, waitFor } = await import("@testing-library/react");
-const { Dialog, Drawer, Menu, Popover, Tabs } = await import("../dist/index.js");
+const { Accordion, Dialog, Drawer, Menu, Popover, Tabs } = await import("../dist/index.js");
 
 async function assertNoAxeViolations(container) {
   const results = await axe.default.run(container, {
@@ -93,6 +93,34 @@ try {
     await user.click(view.getByRole("button", { name: /close review/i }));
     assert.equal(openChanges.at(-1).open, false);
     assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const user = createUser();
+    const view = render(React.createElement(Drawer, {
+      label: "Ana Sosa",
+      triggerLabel: "Abrir drawer",
+      closeLabel: "Cerrar",
+      actions: [{ key: "close", label: "Cerrar" }, { key: "save", label: "Guardar" }],
+      children: React.createElement(Accordion, {
+        surface: "flat",
+        items: [
+          { id: "docs", title: "Documentos", meta: "3 de 4", open: true, content: "Verificación 75%" },
+          { id: "hist", title: "Historial de viajes", content: "128 viajes este mes." },
+        ],
+      }),
+    }));
+    const trigger = view.getByRole("button", { name: /abrir drawer/i });
+
+    await user.click(trigger);
+    const drawer = view.getByRole("dialog", { name: /ana sosa/i });
+    assert.equal(drawer.hidden, false);
+    assert.equal(drawer.querySelector(".accordion")?.getAttribute("data-surface"), "flat");
+    assert.equal(view.getByRole("button", { name: /documentos/i }).getAttribute("aria-expanded"), "true");
+    assert.equal(drawer.textContent.includes("Historial de viajes"), true);
+    assert.equal(drawer.textContent.includes("Guardar"), true);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

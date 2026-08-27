@@ -26,8 +26,9 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     text,
     packageCssFile,
     snippets: [
+      "--comp-date-picker-gap: var(--component-field-shell-gap)",
       "--comp-date-picker-control-size: var(--component-field-control-size-md)",
-      "--comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--component-space-lg) + var(--component-frame-space-micro))",
+      "--comp-date-picker-day-size: var(--component-date-picker-day-size)",
       "--comp-date-picker-value-font-size-sm: var(--component-control-frame-font-size-sm)",
       "--comp-date-picker-value-font-size-md: var(--component-control-frame-font-size-md)",
       "--comp-date-picker-value-font-size-lg: var(--component-control-frame-font-size-lg)",
@@ -48,7 +49,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
       "--comp-date-picker-radius: var(--component-control-frame-radius-field)",
       "--comp-date-picker-panel-radius: var(--component-radius-surface)",
     ],
-    message: "DatePicker base geometry must derive from the Field ControlFrame and frame cascades, not a baked md size.",
+    message: "DatePicker base geometry must derive from Field shell clearance, Field ControlFrame, and frame cascades, not local spacing or a baked md size.",
   });
   requireIncludes({
     block: datePickerSmBlock,
@@ -152,6 +153,7 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
   for (const required of [
     "--component-date-picker-control-size-sm: var(--component-field-control-size-sm);",
     "--component-date-picker-control-size-lg: var(--component-field-control-size-lg);",
+    "--component-date-picker-day-size: calc(var(--component-control-min-size) - var(--component-space-3));",
   ]) {
     if (!text.includes(required)) {
       add("errors", packageCssFile, 1, `DatePicker trigger density sizes must derive from field ControlFrame aliases. Missing: ${required}`);

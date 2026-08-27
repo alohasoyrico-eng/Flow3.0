@@ -4,6 +4,7 @@ import { accordionPlatformContract } from "#flow/platforms";
 
 export type AccordionDensity = "sm" | "md" | "lg";
 export type AccordionVariant = "single" | "multiple";
+export type AccordionSurface = "raised" | "flat";
 
 export interface AccordionItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "aria-controls" | "aria-expanded" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   id: string;
@@ -18,6 +19,7 @@ export interface AccordionItem extends Omit<ButtonHTMLAttributes<HTMLButtonEleme
 export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   items: AccordionItem[];
   variant?: AccordionVariant;
+  surface?: AccordionSurface;
   multiple?: boolean;
   expandedIds?: string[];
   density?: AccordionDensity;

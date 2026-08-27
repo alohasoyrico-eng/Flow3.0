@@ -12,7 +12,7 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
 function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const tokenBlock = blocks.find((block) => block.body.includes("--comp-text-area-min-block-md:")) ?? { body: text, index: 0 };
   const surfaceBlock = blocks.find((block) => selectorKey(block) === ".text-area__surface" && block.body.includes("--comp-text-area-bg"));
-  const textAreaBlock = blocks.find((block) => selectorKey(block) === ".text-area" && block.body.includes("background: transparent"));
+  const textAreaBlock = blocks.find((block) => selectorKey(block) === ".text-area" && block.body.includes("background: var(--component-surface-transparent)"));
   const densitySmBlock = blockFor(blocks, selectorKey, ".field[data-density=\"sm\"]");
   const densityLgBlock = blockFor(blocks, selectorKey, ".field[data-density=\"lg\"]");
   const focusBlock = blockFor(blocks, selectorKey, ".text-area__surface:focus-within,.field[data-state=\"focus\"] .text-area__surface");
@@ -72,13 +72,13 @@ function checkTextAreaCssContract({ text, blocks, packageCssFile, selectorKey })
     text,
     packageCssFile,
     snippets: [
-      "background: transparent",
+      "background: var(--component-surface-transparent)",
       "border: 0",
       "box-sizing: border-box",
       "inline-size: 100%",
       "max-inline-size: 100%",
       "min-inline-size: 0",
-      "outline: 0",
+      "outline: var(--component-outline-none)",
       "padding: 0 0 var(--comp-text-area-counter-row-block)",
     ],
     message: "TextArea inner textarea must stay transparent so focus, border, and counter belong to the shell.",

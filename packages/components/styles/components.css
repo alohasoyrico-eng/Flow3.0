@@ -56,6 +56,10 @@
   --component-radius-control: calc(var(--sys-radius-md) + var(--sys-radius-sm));
   --component-radius-card: var(--sys-radius-lg);
   --component-radius-surface: var(--sys-radius-surface);
+  --component-radius-xl: var(--sys-radius-xl);
+  --component-radius-xs: var(--sys-radius-xs);
+  --component-radius-sheet: calc(var(--component-radius-xl) - var(--component-radius-sm));
+  --component-radius-overlay: calc(var(--component-radius-xl) - var(--component-radius-xs));
   --component-radius-md: var(--sys-radius-md);
   --component-radius-sm: var(--sys-frame-radius-sm);
   --component-radius-full: var(--sys-radius-full);
@@ -127,7 +131,10 @@
   --component-space-3: var(--sys-space-3);
   --component-space-4: var(--sys-space-4);
   --component-space-5: var(--sys-space-5);
+  --component-space-8: var(--sys-space-8);
+  --component-space-10: var(--sys-space-10);
   --component-space-32: var(--sys-space-32);
+  --component-space-7: var(--sys-space-7);
   --component-space-xs: var(--sys-space-xs);
   --component-space-sm: var(--sys-space-sm);
   --component-space-md: var(--sys-space-md);
@@ -204,16 +211,19 @@
   --component-content-size-xl: var(--sys-frame-content-dialog);
   --component-progress-indicator-min-inline-size: var(--sys-frame-content-narrow);
   --component-progress-indicator-max-inline-size: var(--sys-frame-content-dialog);
-  --component-dialog-panel-inline: min(100%, var(--sys-frame-content-dialog));
+  --component-overlay-compact-inline-sm: calc(var(--sys-frame-content-dialog) - (var(--component-space-10) * 3));
+  --component-overlay-compact-inline-md: calc(var(--sys-frame-content-dialog) - (var(--component-space-10) * 2));
+  --component-overlay-compact-inline-lg: calc(var(--sys-frame-content-dialog) - var(--component-space-10));
+  --component-dialog-panel-inline: min(100%, var(--component-overlay-compact-inline-lg));
   --component-toast-inline-size-sm: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-page)));
   --component-toast-inline-size-md: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-section)));
   --component-toast-inline-size-lg: min(100%, calc(var(--sys-frame-content-dialog) - var(--sys-frame-gap-component-lg)));
   --component-illustration-asset-max-size-sm: min(100%, calc(var(--sys-frame-content-callout) - var(--sys-frame-gap-component)));
   --component-illustration-asset-max-size-md: min(100%, var(--sys-frame-content-callout));
   --component-illustration-asset-max-size-lg: min(100%, calc(var(--sys-frame-content-callout) + var(--sys-frame-gap-component)));
-  --component-drawer-panel-inline-sm: var(--sys-frame-content-drawer-sm);
-  --component-drawer-panel-inline-md: var(--sys-frame-content-drawer-md);
-  --component-drawer-panel-inline-lg: var(--sys-frame-content-drawer-lg);
+  --component-drawer-panel-inline-sm: var(--component-overlay-compact-inline-sm);
+  --component-drawer-panel-inline-md: var(--component-overlay-compact-inline-md);
+  --component-drawer-panel-inline-lg: var(--component-overlay-compact-inline-lg);
   --component-date-picker-panel-inline-size: var(--sys-frame-content-date-panel);
   --component-date-range-picker-panel-inline-size: var(--sys-frame-content-date-range-panel);
   --component-date-range-picker-preset-min-block-size: var(--sys-frame-content-date-range-preset-min-block);
@@ -700,7 +710,7 @@
   --comp-input-action-size-sm: var(--component-field-icon-action-size-sm);
   --comp-input-action-size-md: var(--component-field-icon-action-size-md);
   --comp-input-action-size-lg: var(--component-field-icon-action-size-lg);
-  --comp-input-action-size: calc(var(--component-density-control-height) - var(--component-space-lg));
+  --comp-input-action-size: var(--comp-input-action-size-md);
   --comp-input-gap: var(--component-field-gap);
   --comp-input-padding-x-sm: var(--component-control-frame-padding-field-sm);
   --comp-input-padding-x-md: var(--component-control-frame-padding-field-md);
@@ -1393,8 +1403,9 @@
   --component-phone-compact-control-size: var(--component-field-control-size-sm);
   --component-date-picker-control-size-sm: var(--component-field-control-size-sm);
   --component-date-picker-control-size-lg: var(--component-field-control-size-lg);
+  --component-date-picker-day-size: calc(var(--component-control-min-size) - var(--component-space-3));
   --component-date-picker-day-size-sm: var(--component-field-icon-action-size-md);
-  --component-date-picker-day-size-lg: var(--component-list-icon-box-size);
+  --component-date-picker-day-size-lg: var(--component-inline-size-md);
   --component-icon-button-size-sm: var(--component-control-frame-size-sm);
   --component-icon-button-size-md: var(--component-control-frame-size-md);
   --component-icon-button-size-lg: var(--component-control-frame-size-lg);
@@ -2816,6 +2827,7 @@
   cursor: var(--comp-input-action-cursor);
   display: inline-flex;
   flex: none;
+  block-size: var(--comp-field-icon-action-size);
   inline-size: var(--comp-field-icon-action-size);
   justify-content: center;
   min-block-size: var(--comp-field-icon-action-size);
@@ -2984,7 +2996,7 @@
 }
 
 .text-area {
-  background: transparent;
+  background: var(--component-surface-transparent);
   border: 0;
   box-sizing: border-box;
   color: var(--comp-text-area-fg);
@@ -2996,7 +3008,7 @@
   max-inline-size: 100%;
   min-block-size: calc(var(--comp-text-area-current-min-block) - (var(--comp-text-area-current-padding-block) * 2));
   min-inline-size: 0;
-  outline: 0;
+  outline: var(--component-outline-none);
   padding: 0 0 var(--comp-text-area-counter-row-block);
   resize: vertical;
 }
@@ -5283,6 +5295,15 @@ button.tag:disabled,
   --comp-accordion-chevron-size: var(--comp-accordion-chevron-size-lg);
 }
 
+.accordion[data-surface="flat"] {
+  --comp-accordion-bg: var(--component-surface-transparent);
+  --comp-accordion-border-width: var(--component-border-width-none);
+  --comp-accordion-depth: var(--component-depth-none);
+  --comp-accordion-radius: var(--component-radius-none);
+  --comp-accordion-trigger-bg: var(--component-surface-transparent);
+  overflow: visible;
+}
+
 .accordion__item + .accordion__item {
   border-block-start: var(--comp-accordion-item-divider-width) solid var(--comp-accordion-item-divider);
 }
@@ -7456,30 +7477,37 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-drawer-panel-bg: var(--component-color-surface);
   --comp-drawer-panel-border-width: var(--component-border-width);
   --comp-drawer-panel-border: var(--component-color-border);
-  --comp-drawer-panel-radius: var(--component-radius-surface);
+  --comp-drawer-panel-radius: var(--component-radius-sheet);
   --comp-drawer-panel-color: var(--component-color-text);
   --comp-drawer-panel-depth: var(--component-depth-panel-strong);
   --comp-drawer-panel-inline: var(--component-drawer-panel-inline-md);
-  --comp-drawer-panel-padding: calc(var(--component-space-xl) + var(--component-space-md));
-  --comp-drawer-panel-gap: var(--component-space-md);
+  --comp-drawer-panel-padding: var(--component-frame-space-none);
+  --comp-drawer-panel-gap: var(--component-frame-space-none);
   --comp-drawer-title-font-family: var(--component-font-family-title);
   --comp-drawer-title-font-size: var(--component-font-size-title-md);
-  --comp-drawer-title-font-weight: var(--component-font-weight-black);
+  --comp-drawer-title-font-weight: var(--component-font-weight-bold);
   --comp-drawer-title-letter-spacing: var(--component-letter-spacing-normal);
   --comp-drawer-title-line-height: var(--component-line-height-tightest);
-  --comp-drawer-header-gap: var(--component-space-sm);
+  --comp-drawer-header-gap: var(--component-space-md);
+  --comp-drawer-header-padding-block-start: calc(var(--component-space-xl) - var(--component-frame-space-micro));
+  --comp-drawer-header-padding-inline: var(--component-space-xl);
+  --comp-drawer-header-padding-block-end: calc(var(--component-space-lg) - var(--component-frame-space-micro));
   --comp-drawer-description-color: var(--component-color-text-muted);
-  --comp-drawer-description-font-size: var(--component-font-size-body);
+  --comp-drawer-description-font-size: var(--component-font-size-small);
   --comp-drawer-description-line-height: var(--component-line-height-reading);
-  --comp-drawer-body-gap: var(--component-space-xl);
-  --comp-drawer-body-padding-start: var(--component-space-xl);
+  --comp-drawer-body-gap: var(--component-space-lg);
+  --comp-drawer-body-padding-block-start: var(--component-space-xs);
+  --comp-drawer-body-padding-inline: var(--component-space-xl);
+  --comp-drawer-body-padding-block-end: var(--component-space-xl);
   --comp-drawer-supporting-copy-color: var(--component-color-text-muted);
-  --comp-drawer-supporting-copy-font-size: var(--component-font-size-body);
+  --comp-drawer-supporting-copy-font-size: var(--component-font-size-small);
   --comp-drawer-supporting-copy-line-height: var(--component-line-height-reading);
-  --comp-drawer-footer-gap: var(--component-space-sm);
+  --comp-drawer-footer-gap: calc(var(--component-space-sm) + var(--component-frame-space-micro));
   --comp-drawer-footer-border-width: var(--component-border-width);
   --comp-drawer-footer-border: var(--component-color-border);
-  --comp-drawer-footer-padding-block-start: var(--component-space-xl);
+  --comp-drawer-footer-padding-block-start: calc(var(--component-space-lg) - var(--component-frame-space-micro));
+  --comp-drawer-footer-padding-inline: var(--component-space-xl);
+  --comp-drawer-footer-padding-block-end: calc(var(--component-space-xl) - var(--component-frame-space-micro));
   --comp-drawer-panel-viewport-gap: var(--component-space-sm);
   --comp-drawer-enter-duration: var(--component-duration-overlay);
   --comp-drawer-enter-ease: var(--component-ease-enter);
@@ -7496,12 +7524,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-panel-bg: var(--component-color-surface);
   --comp-dialog-panel-border-width: var(--component-border-width);
   --comp-dialog-panel-border: var(--component-color-border);
-  --comp-dialog-panel-radius: var(--component-radius-surface);
+  --comp-dialog-panel-radius: var(--component-radius-overlay);
   --comp-dialog-panel-color: var(--component-color-text);
   --comp-dialog-panel-depth: var(--component-depth-panel-strong);
   --comp-dialog-panel-inline: var(--component-dialog-panel-inline);
-  --comp-dialog-panel-padding: var(--component-space-lg);
-  --comp-dialog-panel-gap: var(--component-space-md);
+  --comp-dialog-panel-padding: var(--component-space-7);
+  --comp-dialog-panel-gap: calc(var(--component-space-lg) + var(--component-frame-space-micro));
   --comp-dialog-panel-viewport-gap: var(--component-space-lg);
   --comp-dialog-icon-size: var(--component-dialog-icon-size);
   --comp-dialog-icon-font-size: var(--component-font-size-icon-md);
@@ -7510,13 +7538,13 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-icon-color: var(--component-color-action);
   --comp-dialog-title-font-family: var(--component-font-family-title);
   --comp-dialog-title-font-size: var(--component-font-size-title-md);
-  --comp-dialog-title-font-weight: var(--component-font-weight-black);
+  --comp-dialog-title-font-weight: var(--component-font-weight-bold);
   --comp-dialog-description-color: var(--component-color-text-muted);
-  --comp-dialog-description-font-size: var(--component-font-size-body);
+  --comp-dialog-description-font-size: var(--component-font-size-small);
   --comp-dialog-description-line-height: var(--component-line-height-reading);
-  --comp-dialog-header-gap: var(--component-space-sm);
-  --comp-dialog-content-gap: var(--component-space-sm);
-  --comp-dialog-footer-gap: var(--component-space-sm);
+  --comp-dialog-header-gap: calc(var(--component-space-md) + var(--component-frame-space-micro));
+  --comp-dialog-content-gap: calc(var(--component-space-sm) - var(--component-frame-space-micro));
+  --comp-dialog-footer-gap: calc(var(--component-space-sm) + var(--component-frame-space-micro));
   --comp-dialog-enter-duration: var(--component-duration-enter);
   --comp-dialog-enter-ease: var(--component-ease-enter);
   --comp-dialog-exit-duration: var(--component-duration-exit);
@@ -7566,7 +7594,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .dialog[data-density="sm"] {
-  --comp-dialog-panel-padding: var(--component-space-md);
+  --comp-dialog-panel-padding: var(--component-space-xl);
   --comp-dialog-panel-gap: var(--component-space-sm);
   --comp-dialog-icon-size: var(--component-dialog-icon-size-sm);
   --comp-dialog-icon-font-size: var(--component-font-size-title-sm);
@@ -7575,7 +7603,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .dialog[data-density="lg"] {
-  --comp-dialog-panel-padding: var(--component-space-xl);
+  --comp-dialog-panel-padding: var(--component-space-8);
   --comp-dialog-panel-gap: var(--component-space-lg);
   --comp-dialog-icon-size: var(--component-dialog-icon-size-lg);
   --comp-dialog-icon-font-size: var(--component-font-size-icon-md);
@@ -7959,9 +7987,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-drawer-panel-color);
   animation: drawer-enter var(--comp-drawer-enter-duration) var(--comp-drawer-enter-ease);
   block-size: 100dvh;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--comp-drawer-panel-gap);
-  grid-template-rows: auto 1fr auto;
   inline-size: min(var(--comp-drawer-panel-inline), 92vw);
   border-radius: var(--comp-drawer-panel-radius) 0 0 var(--comp-drawer-panel-radius);
   padding: var(--comp-drawer-panel-padding);
@@ -7969,16 +7997,28 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .drawer[data-density="sm"] {
   --comp-drawer-panel-inline: var(--component-drawer-panel-inline-sm);
-  --comp-drawer-panel-padding: var(--component-space-xl);
-  --comp-drawer-panel-gap: var(--component-space-sm);
-  --comp-drawer-title-font-size: var(--component-font-size-title-md);
+  --comp-drawer-header-padding-block-start: var(--component-space-lg);
+  --comp-drawer-header-padding-inline: var(--component-space-lg);
+  --comp-drawer-header-padding-block-end: var(--component-space-md);
+  --comp-drawer-body-padding-inline: var(--component-space-lg);
+  --comp-drawer-body-padding-block-end: var(--component-space-lg);
+  --comp-drawer-footer-padding-block-start: var(--component-space-md);
+  --comp-drawer-footer-padding-inline: var(--component-space-lg);
+  --comp-drawer-footer-padding-block-end: var(--component-space-lg);
+  --comp-drawer-title-font-size: var(--component-font-size-body);
 }
 
 .drawer[data-density="lg"] {
   --comp-drawer-panel-inline: var(--component-drawer-panel-inline-lg);
-  --comp-drawer-panel-padding: calc(var(--component-space-xl) + var(--component-space-lg));
-  --comp-drawer-panel-gap: var(--component-space-lg);
-  --comp-drawer-title-font-size: var(--component-font-size-display-sm);
+  --comp-drawer-header-padding-block-start: var(--component-space-7);
+  --comp-drawer-header-padding-inline: var(--component-space-7);
+  --comp-drawer-header-padding-block-end: var(--component-space-lg);
+  --comp-drawer-body-padding-inline: var(--component-space-7);
+  --comp-drawer-body-padding-block-end: var(--component-space-7);
+  --comp-drawer-footer-padding-block-start: var(--component-space-lg);
+  --comp-drawer-footer-padding-inline: var(--component-space-7);
+  --comp-drawer-footer-padding-block-end: var(--component-space-7);
+  --comp-drawer-title-font-size: var(--component-font-size-title-md);
 }
 
 .drawer[data-state="closing"] .drawer__panel {
@@ -7990,10 +8030,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .drawer__panel header {
-  align-items: start;
+  align-items: center;
   display: grid;
   gap: var(--comp-drawer-header-gap);
   grid-template-columns: minmax(0, 1fr) auto;
+  padding: var(--comp-drawer-header-padding-block-start) var(--comp-drawer-header-padding-inline) var(--comp-drawer-header-padding-block-end);
 }
 
 .drawer__panel header strong {
@@ -8018,8 +8059,9 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .drawer__body {
   align-content: start;
   gap: var(--comp-drawer-body-gap);
+  flex: 1 1 auto;
   overflow: auto;
-  padding-block-start: var(--comp-drawer-body-padding-start);
+  padding: var(--comp-drawer-body-padding-block-start) var(--comp-drawer-body-padding-inline) var(--comp-drawer-body-padding-block-end);
 }
 
 .drawer__status-row {
@@ -8046,8 +8088,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   align-items: center;
   border-block-start: var(--comp-drawer-footer-border-width) solid var(--comp-drawer-footer-border);
   gap: var(--comp-drawer-footer-gap);
-  margin-inline: calc(var(--comp-drawer-panel-padding) * -1);
-  padding: var(--comp-drawer-footer-padding-block-start) var(--comp-drawer-panel-padding) 0;
+  padding: var(--comp-drawer-footer-padding-block-start) var(--comp-drawer-footer-padding-inline) var(--comp-drawer-footer-padding-block-end);
 }
 
 .drawer--danger .drawer__panel {
@@ -12098,7 +12139,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   inline-size: 100%;
   min-inline-size: 0;
   position: relative;
-  --comp-date-picker-gap: var(--component-space-xs);
+  --comp-date-picker-gap: var(--component-field-shell-gap);
   --comp-date-picker-bg: var(--component-color-surface);
   --comp-date-picker-border: var(--component-color-border);
   --comp-date-picker-fg: var(--component-color-text);
@@ -12115,7 +12156,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-picker-focus-ring: color-mix(in srgb, var(--comp-date-picker-action) 35%, transparent);
   --comp-date-picker-error-bg: color-mix(in srgb, var(--comp-date-picker-danger) 8%, var(--comp-date-picker-bg));
   --comp-date-picker-disabled-opacity: var(--component-disabled-readable-opacity);
-  --comp-date-picker-day-size: calc(var(--component-density-control-height) - var(--component-space-lg) + var(--component-frame-space-micro));
+  --comp-date-picker-day-size: var(--component-date-picker-day-size);
   --comp-date-picker-value-font-size-sm: var(--component-control-frame-font-size-sm);
   --comp-date-picker-value-font-size-md: var(--component-control-frame-font-size-md);
   --comp-date-picker-value-font-size-lg: var(--component-control-frame-font-size-lg);
@@ -12730,9 +12771,9 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-popover-enter-ease: var(--component-ease-enter);
   --comp-popover-title-family: var(--component-font-family-title);
   --comp-popover-title-size: var(--component-font-size-title-sm);
-  --comp-popover-title-weight: var(--component-font-weight-black);
+  --comp-popover-title-weight: var(--component-font-weight-bold);
   --comp-popover-body-fg: var(--component-color-text-muted);
-  --comp-popover-body-size: var(--component-font-size-body-sm);
+  --comp-popover-body-size: var(--component-font-size-small);
   --comp-popover-body-line-height: var(--component-line-height-normal);
   --comp-popover-actions-gap: var(--comp-popover-gap);
   --comp-popover-actions-padding-block-start: var(--comp-popover-gap);
@@ -12763,7 +12804,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-popover-panel-padding: var(--component-space-lg);
   --comp-popover-panel-width: var(--component-content-size-md);
   --comp-popover-title-size: var(--component-font-size-title-md);
-  --comp-popover-body-size: var(--component-font-size-body-md);
+  --comp-popover-body-size: var(--component-font-size-body);
 }
 
 .popover__panel {

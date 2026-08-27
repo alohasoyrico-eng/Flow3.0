@@ -13,6 +13,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
   const rootBlock = blockFor(blocks, selectorKey, ".accordion");
   const smBlock = blockFor(blocks, selectorKey, ".accordion[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".accordion[data-density=\"lg\"]");
+  const flatBlock = blockFor(blocks, selectorKey, ".accordion[data-surface=\"flat\"]");
   const dividerBlock = blockFor(blocks, selectorKey, ".accordion__item + .accordion__item");
   const triggerBlock = blockFor(blocks, selectorKey, ".accordion__trigger");
   const triggerFocusBlock = blockFor(blocks, selectorKey, ".accordion__trigger:focus-visible");
@@ -96,6 +97,20 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
       "--comp-accordion-chevron-size: var(--comp-accordion-chevron-size-lg)",
     ],
     message: "Accordion lg density must use the shared large disclosure trigger Frame role.",
+  });
+  requireIncludes({
+    block: flatBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-accordion-bg: var(--component-surface-transparent)",
+      "--comp-accordion-border-width: var(--component-border-width-none)",
+      "--comp-accordion-depth: var(--component-depth-none)",
+      "--comp-accordion-radius: var(--component-radius-none)",
+      "--comp-accordion-trigger-bg: var(--component-surface-transparent)",
+      "overflow: visible",
+    ],
+    message: "Accordion flat surface must remove nested elevation through shared surface, border, depth, and radius tokens.",
   });
   requireIncludes({
     block: dividerBlock,

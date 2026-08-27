@@ -53,9 +53,10 @@ export type DrawerContent =
   | { type: "progress"; key: string; label?: string; value?: number; max?: number; showValue?: boolean; tone?: "accent" | "success" | "warning" | "danger" | "ink"; density?: DrawerDensity }
   | { type: "text"; key: string; label?: string; copy?: string };
 
-export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "children" | "content" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
+export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "content" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
+  children?: ReactNode;
   triggerLabel?: string;
   closeLabel?: string;
   variant?: DrawerVariant;
@@ -166,6 +167,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
   tone = "neutral",
   density,
   side = "right",
+  children,
   fields,
   content,
   actions,
@@ -310,6 +312,7 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
         React.createElement(
           "div",
           { className: "drawer__body" },
+          children,
           sourceContent.map((item) => renderContentItem(item, resolvedDensity)),
           visibleFields.map((field) => {
             const normalized = field ?? {};

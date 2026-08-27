@@ -16,6 +16,7 @@ import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps
 
 export type AccordionDensity = FlowDensity;
 export type AccordionVariant = "single" | "multiple";
+export type AccordionSurface = "raised" | "flat";
 
 export interface AccordionItem extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "type" | "children" | "content" | "aria-controls" | "aria-expanded" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable"> {
   id: string;
@@ -30,6 +31,7 @@ export interface AccordionItem extends Omit<ButtonHTMLAttributes<HTMLButtonEleme
 export interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   items: AccordionItem[];
   variant?: AccordionVariant;
+  surface?: AccordionSurface;
   multiple?: boolean;
   expandedIds?: string[];
   density?: AccordionDensity;
@@ -47,6 +49,7 @@ interface NormalizedAccordionItem extends AccordionItem {
 }
 
 const validVariants = new Set<AccordionVariant>(["single", "multiple"]);
+const validSurfaces = new Set<AccordionSurface>(["raised", "flat"]);
 
 const hasStableItemId: (item: AccordionItem | null | undefined) => boolean = function hasStableItemId(item) {
   return item?.id !== undefined && item?.id !== null && item?.id !== "";
@@ -73,6 +76,7 @@ function renderContent(content: ReactNode): ReactNode {
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Accordion({
   items,
   variant,
+  surface = "raised",
   multiple = false,
   expandedIds,
   density,
@@ -83,6 +87,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Acc
   const reactId = useId();
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedVariant = variant && validVariants.has(variant) ? variant : multiple ? "multiple" : "single";
+  const resolvedSurface = surface && validSurfaces.has(surface) ? surface : "raised";
   const allowsMultiple = resolvedVariant === "multiple";
   const normalizedItems = useMemo(() => normalizeItems(items), [items]);
   const isExpandedIdsControlled = expandedIds !== undefined;
@@ -116,6 +121,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(function Acc
       ref,
       className: ["accordion", className].filter(Boolean).join(" "),
       ...flowVariantProps(resolvedVariant),
+      "data-surface": resolvedSurface,
       "data-multiple": String(allowsMultiple),
       ...flowDensityProps(resolvedDensity),
     },

@@ -4,6 +4,7 @@ export type {
   AccordionDensity,
   AccordionItem,
   AccordionProps,
+  AccordionSurface,
 } from "./Accordion.js";
 export { ActionSheet } from "./patterns/ActionSheet.js";
 export type {

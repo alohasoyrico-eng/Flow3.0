@@ -6,6 +6,7 @@ import React, { forwardRef, useId, useMemo, useState, } from "react";
 import { accordionPlatformContract } from "@design-system/components/platforms";
 import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validVariants = new Set(["single", "multiple"]);
+const validSurfaces = new Set(["raised", "flat"]);
 const hasStableItemId = function hasStableItemId(item) {
     return item?.id !== undefined && item?.id !== null && item?.id !== "";
 };
@@ -28,10 +29,11 @@ function renderContent(content) {
         return content;
     return String(content);
 }
-export const Accordion = forwardRef(function Accordion({ items, variant, multiple = false, expandedIds, density, onExpandedChange, className = "", ...rest }, ref) {
+export const Accordion = forwardRef(function Accordion({ items, variant, surface = "raised", multiple = false, expandedIds, density, onExpandedChange, className = "", ...rest }, ref) {
     const reactId = useId();
     const resolvedDensity = normalizeFlowDensity(density);
     const resolvedVariant = variant && validVariants.has(variant) ? variant : multiple ? "multiple" : "single";
+    const resolvedSurface = surface && validSurfaces.has(surface) ? surface : "raised";
     const allowsMultiple = resolvedVariant === "multiple";
     const normalizedItems = useMemo(() => normalizeItems(items), [items]);
     const isExpandedIdsControlled = expandedIds !== undefined;
@@ -63,6 +65,7 @@ export const Accordion = forwardRef(function Accordion({ items, variant, multipl
         ref,
         className: ["accordion", className].filter(Boolean).join(" "),
         ...flowVariantProps(resolvedVariant),
+        "data-surface": resolvedSurface,
         "data-multiple": String(allowsMultiple),
         ...flowDensityProps(resolvedDensity),
     }, normalizedItems.map((item) => {

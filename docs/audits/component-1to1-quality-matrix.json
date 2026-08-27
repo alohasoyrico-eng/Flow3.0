@@ -495,9 +495,16 @@
         "packages/components/test/smoke.test.mjs",
         "docs/audits/card-expiry-input-1to1-visual-metrics.json",
         "docs/audits/card-expiry-input-1to1-light.png",
-        "docs/audits/card-expiry-input-1to1-dark.png"
+        "docs/audits/card-expiry-input-1to1-dark.png",
+        "packages/react/src/CardExpiryInput.tsx",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../../local-visual-snapshots/Flow3-component-qa/card-expiry-input-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": []
+      "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Card Expiry Input remains a payment-form component over the shared Field cascade. Current review confirms ZIP InputDate plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular MM/YY numerals, cc-exp autocomplete, local month and expiry validation, distinct invalid/expired recovery copy, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo."
     },
     {
       "id": "card-number-input",
@@ -526,9 +533,16 @@
         "docs/audits/card-number-input-1to1-visual-metrics.json",
         "docs/audits/card-number-input-1to1-dark-quiet-metrics.json",
         "docs/audits/card-number-input-1to1-light.png",
-        "docs/audits/card-number-input-1to1-dark-quiet.png"
+        "docs/audits/card-number-input-1to1-dark-quiet.png",
+        "packages/react/src/CardNumberInput.tsx",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../../local-visual-snapshots/Flow3-component-qa/card-number-input-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": []
+      "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Card Number Input remains a payment-form component over the shared Field cascade, not a PaymentCard/CardSummary surface. Current review confirms ZIP Input plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular grouped numerals, cc-number autocomplete, local brand detection, Luhn-derived valid/error states, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo."
     },
     {
       "id": "card-security-code-input",
@@ -556,9 +570,16 @@
         "packages/components/test/smoke.test.mjs",
         "docs/audits/card-security-code-input-1to1-visual-metrics.json",
         "docs/audits/card-security-code-input-1to1-light.png",
-        "docs/audits/card-security-code-input-1to1-dark.png"
+        "docs/audits/card-security-code-input-1to1-dark.png",
+        "packages/react/src/CardSecurityCodeInput.tsx",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../../local-visual-snapshots/Flow3-component-qa/card-security-code-input-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": []
+      "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Card Security Code Input remains a payment-form component over the shared Field cascade, not an OTP CodeInput. Current review confirms ZIP InputPassword plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular CVV/CVC numerals, cc-csc autocomplete, expectedLength 3/4 validation, optional reveal through the shared Field Action primitive, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo. The systemic Field Action contract now uses monotonic target sizing 20/28/32 with 16/20/24 glyph sizing."
     },
     {
       "id": "card-summary",
@@ -873,14 +894,23 @@
         "validation": "pass"
       },
       "evidence": [
+        ".audit-reference/components/forms/DatePicker.jsx",
         "docs/audits/date-picker-1to1-quality-audit.json",
         "docs/audits/date-picker-1to1-light-open-qa.png",
         "docs/audits/date-picker-1to1-dark-open-qa.png",
         "docs/audits/component-motion-role-audit.json",
+        "packages/react/src/DatePicker.tsx",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/audit/scripts/audit-date-picker-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../local-visual-snapshots/Flow3-component-qa/date-picker-2026-08-24/interactive/react-runtime.html",
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": []
+      "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Closed for current review after regression correction. The prior demo fixture mounted open calendars inside the interactive section, which contaminated layout/focus review; the runtime demo now starts all interactive DatePicker examples closed and proves opening through keyboard/pointer. DatePicker keeps calendar semantics in React, uses Field frame/radius 36/44/52 and 12/16/20, binds Field shell spacing to the shared focus-ring clearance contract so labels and helper/inline validation cannot collide with focused controls, binds calendar day size to governed frame-derived tokens instead of ambiguous space aliases, and validates initial closed state, Enter open, ArrowDown traversal, Escape close with focus return, no panel overflow, measured label/helper focus clearance, and clean console in the package-backed runtime demo."
     },
     {
       "id": "date-range-picker",
@@ -907,6 +937,11 @@
         "docs/audits/date-range-picker-1to1-visual-metrics.json",
         "docs/audits/date-range-picker-1to1-light-open.png",
         "docs/audits/date-range-picker-1to1-dark-open.png",
+        "packages/react/src/DateRangePicker.tsx",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/audit/scripts/audit-date-range-picker-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../local-visual-snapshots/Flow3-component-qa/date-range-picker-2026-08-24/interactive/react-runtime.html",
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/styles/components.css",
         "packages/components/src/contracts.js",
@@ -914,6 +949,9 @@
         "packages/components/test/smoke.test.mjs"
       ],
       "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Closed for current review after regression correction. The prior demo fixture mounted an open range inside the interactive section, which contaminated spacing/layout review; the runtime demo now starts the interactive DateRangePicker examples closed and exposes partial/preset cases without forced-open layout. DateRangePicker remains a bounded sibling to DatePicker, inherits governed Field trigger frame/radius, shared Field shell focus clearance, and calendar day geometry, keeps range and preset semantics in React, and validates initial closed state, Enter open, ArrowDown traversal, Escape close with focus return, preset rendering, no panel overflow, measured label/helper focus clearance, and clean console in the package-backed runtime demo.",
       "inventoryEscalations": [
         "Dashboard refresh, URL persistence, saved views, comparison ranges, fiscal calendars, and report synchronization remain pattern responsibilities.",
         "Date Range Picker is a bounded sibling component to Date Picker because the ZIP reference exposes DateRangePicker as a reusable control."
@@ -946,6 +984,11 @@
         "docs/audits/dialog-1to1-visual-metrics.json",
         "docs/audits/dialog-1to1-light.png",
         "docs/audits/dialog-1to1-dark.png",
+        "packages/react/src/Dialog.tsx",
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/audit/scripts/audit-dialog-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html",
         "packages/specs/specs/unison-system/artifacts/components/dialog.json",
         "packages/content/content/component-copy/components/dialog/all.json",
         "packages/components/src/components/overlays.js",
@@ -957,6 +1000,9 @@
         "apps/docs/overlay-demo-interactions.js"
       ],
       "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Closed for current review after overlay visual-parity regression. Dialog keeps overlay semantics in React, composes Button/IconButton/Input, preserves Flow frame ownership through the shared compact overlay inline alias, and now matches the ZIP compact panel anatomy at 440px runtime width, 28px padding, 24px radius, 18px panel rhythm, 14px header gap, 10px footer gap, 18/700 title, and compact description. Runtime validation proves initial closed state, Enter open, focus to close control, Escape close with focus return, outside click close, action close, density trigger sizing, no page overflow, and clean console in the package-backed runtime demo.",
       "inventoryEscalations": [
         "Confirmation policy, destructive decision rules, multi-step recovery, and required review orchestration remain pattern responsibilities."
       ]
@@ -988,6 +1034,11 @@
         "docs/audits/drawer-1to1-visual-metrics.json",
         "docs/audits/drawer-1to1-light.png",
         "docs/audits/drawer-1to1-dark.png",
+        "packages/react/src/Drawer.tsx",
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/audit/scripts/audit-drawer-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "../local-visual-snapshots/Flow3-component-qa/drawer-2026-08-25/interactive/react-runtime.html",
         "packages/specs/specs/unison-system/artifacts/components/drawer.json",
         "packages/content/content/component-copy/components/drawer/all.json",
         "packages/components/src/components/overlays.js",
@@ -1000,12 +1051,14 @@
         "apps/docs/overlay-demo-interactions.js"
       ],
       "openIssues": [],
-      "decision": "Drawer now matches the ZIP side-detail composition closely enough while keeping Flow as source of truth for color, spacing, radius, density, typography, motion, and composed controls.",
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Closed for current review after overlay visual-parity regression and reference behavior correction. Drawer keeps sheet semantics in React, supports governed children composition like the ZIP reference, composes Button/IconButton/Input/Badge/ProgressIndicator/Accordion, preserves left/right placement, and now aligns ZIP sheet anatomy through governed Drawer aliases: compact md runtime width is 400px, component-radius-sheet maps to ref-frame-radius-7, the panel uses flex-column sheet layout with no global padding or negative footer compensation, and header/body/footer own slot padding with 12px header gap and 10px footer gap. The package-backed runtime demo now starts from the Overlays/Fleet Dashboard ZIP behavior: trigger Abrir drawer, title Ana Sosa, En ruta badge, supporting driver copy, flat Accordion sections for Documentos/Historial/Métodos de pago, Verificación progress inside Documentos, and Cerrar/Guardar footer actions. Runtime validation proves initial closed state, Enter open, focus to close control, Escape close with focus return, outside click close, side placement, density trigger sizing, no page overflow, Accordion flat-surface composition, and clean console in the package-backed demo.",
       "inventoryEscalations": [
         "Drawer Adapter remains a pattern when drawer behavior coordinates with menus, dialogs, toasts, or route-level state.",
         "Filter drawers, detail inspection flows, and edit lifecycles must compose Drawer with existing Flow inputs/buttons instead of redefining overlay structure."
       ],
-      "updatedAt": "2026-07-22"
+      "updatedAt": "2026-08-25"
     },
     {
       "id": "empty-state",
@@ -1219,6 +1272,39 @@
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "bd954d05",
       "decision": "Input is closed for current review: Field/Input density is monotonic through shared aliases, helper/a11y semantics distinguish info/success/warning/error/loading/disabled, InlineValidation remains the systematic validation composition path, base input motion avoids Button-style transforms, and dark semantic field states now measure >= 4.56 contrast after adding governed dark aliases."
+    },
+    {
+      "id": "input-amount",
+      "status": "pass",
+      "steps": {
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
+      },
+      "evidence": [
+        ".audit-reference/components/forms/InputAmount.jsx",
+        "packages/react/src/InputAmount.tsx",
+        "packages/components/src/platforms/input-amount.ts",
+        "packages/components/src/contracts.ts",
+        "packages/components/styles/components.css",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/react/test/p2-final-partials.test.mjs",
+        "../../local-visual-snapshots/Flow3-component-qa/input-amount-2026-08-25/interactive/react-runtime.html"
+      ],
+      "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Input Amount is closed for current review: ZIP InputAmount confirms Field-owned monetary input anatomy; Flow keeps it as a component over the shared Field cascade, with 36/44/52 control frame, 12/16/20 field radius, density-scaled label/helper text, mono right-aligned numerals, visible currency prefix/suffix context, native decimal input/paste behavior, aria-describedby validation, loading and disabled precedence, and a package-backed React runtime demo."
     },
     {
       "id": "kpi-tile",
@@ -1547,19 +1633,27 @@
       "evidence": [
         ".audit-reference/components/feedback/Tooltip.jsx",
         ".audit-reference/components/actions/Menu.jsx",
+        ".audit-reference/components/feedback/Dialog.jsx",
         ".audit-reference/components/feedback/overlays.card.html",
         "docs/audits/popover-1to1-quality-audit.json",
         "docs/audits/popover-1to1-light.png",
         "docs/audits/popover-1to1-dark.png",
+        "packages/react/src/Popover.tsx",
+        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "packages/components/src/components/overlays.js",
         "packages/components/src/registry.js",
         "packages/components/src/contracts.js",
         "packages/components/styles/components.css",
         "packages/components/test/smoke.test.mjs",
         "apps/docs/stateful-component-interactions.js",
-        "apps/docs/styles/04i-simple-component-layout.css"
+        "apps/docs/styles/04i-simple-component-layout.css",
+        "../../local-visual-snapshots/Flow3-component-qa/popover-2026-08-25/interactive/react-runtime.html"
       ],
       "openIssues": [],
+      "lastReviewAt": "2026-08-25",
+      "currentReviewCommit": "working-tree",
+      "decision": "Closed for current review. Popover has no direct ZIP component, so the review triangulates Tooltip lightweight disclosure, Menu anchored overlay behavior, and Dialog overlay surface anatomy. The React runtime demo composes Flow Button/Input/actions, opens with Enter, closes with Escape and outside/action paths, keeps compact governed panel typography, preserves overlay depth/radius through shared tokens, and runs clean with no console errors or failed requests.",
       "inventoryEscalations": [
         "Escalate long forms, search, multi-step decisions, and persistent detail panels to patterns instead of Popover."
       ]
@@ -2353,8 +2447,8 @@
     }
   ],
   "summary": {
-    "total": 56,
-    "pass": 56,
+    "total": 57,
+    "pass": 57,
     "partial": 0,
     "fail": 0,
     "qualityDebt": 0
@@ -2362,10 +2456,10 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
     "updatedAt": "2026-08-25",
-    "sourceCommit": "eee430dc Govern PhoneInput country search composition",
+    "sourceCommit": "88e8f56b Advance component QA cursor to InputAmount",
     "scope": [],
-    "nextComponent": "input-amount",
-    "nextComponentReason": "P0 Forms Batch 3 continues after Phone Input with payment-style form inputs; InputAmount is first because it shares Input field geometry and formatting/parsing risk before card-specific inputs.",
+    "nextComponent": "accordion",
+    "nextComponentReason": "Iteration 6 overlays are closed in the working tree: Dialog, Drawer, Popover, and prior Menu have package-backed runtime demos with keyboard/dismissal proof and passing contracts. Accordion is next from Iteration 7 P1 navigation because it is the highest-impact remaining disclosure/navigation primitive after Tabs and shares the same keyboard, disabled, density, foundation, and demo-verification risks.",
     "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
   }
 }

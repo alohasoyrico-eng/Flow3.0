@@ -550,6 +550,150 @@ const components = {
           )
         )`,
   },
+  "input-amount": {
+    title: "InputAmount",
+    directory: "input-amount-2026-08-25",
+    module: "InputAmount.js",
+    exportName: "InputAmount",
+    buildId: "input-amount-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.formatted)(event)",
+    actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "value",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Formato"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Transfer amount", value: "1250.50", helper: "Maximum $5,000.", prefix: "$", suffix: "MXN", currency: "MXN", locale: "es-MX" })),
+            e("div", { className: "audit-card" }, action({ label: "Fuel budget", value: "840", helper: "Aligned right with currency context", prefix: "$", suffix: "USD", currency: "USD", locale: "en-US" })),
+            e("div", { className: "audit-card" }, action({ label: "Empty amount", placeholder: "0.00", helper: "Decimal keyboard and native paste" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", value: "120.00", prefix: "$", suffix: "MXN" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", value: "240.00", prefix: "$", suffix: "MXN" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", value: "480.00", prefix: "$", suffix: "MXN" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Filled", value: "320.75", prefix: "$", suffix: "MXN" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", loading: true, value: "120.00", prefix: "$", suffix: "USD" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", value: "0", error: "Enter a larger amount.", prefix: "$", suffix: "MXN" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "500.00", prefix: "$", suffix: "MXN", helper: "Locked by policy", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "card-number-input": {
+    title: "CardNumberInput",
+    directory: "card-number-input-2026-08-25",
+    module: "CardNumberInput.js",
+    exportName: "CardNumberInput",
+    buildId: "card-number-input-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(digits, meta, event) => onAction(props.label + '=' + meta.formatted + ':' + meta.validity)(event)",
+    actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "value",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Formato"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Card number", helper: "Paste or type a card number", placeholder: "0000 0000 0000 0000", validationMessage: "Invalid card number" })),
+            e("div", { className: "audit-card" }, action({ label: "Visa", value: "4111111111111111", helper: "Valid test number", validationMessage: "Invalid card number" })),
+            e("div", { className: "audit-card" }, action({ label: "Mastercard", value: "5555555555554444", helper: "Brand is detected locally", validationMessage: "Invalid card number" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", value: "4111111111111111" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", value: "4111111111111111" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", value: "4111111111111111" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Filled", value: "4242424242424242", validationMessage: "Invalid card number" })),
+            e("div", { className: "audit-card" }, action({ label: "Invalid", value: "4111111111111112", validationMessage: "Invalid card number" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", loading: true, value: "4111111111111111" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "4111111111111111", helper: "Locked by issuer", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "card-expiry-input": {
+    title: "CardExpiryInput",
+    directory: "card-expiry-input-2026-08-25",
+    module: "CardExpiryInput.js",
+    exportName: "CardExpiryInput",
+    buildId: "card-expiry-input-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(value, meta, event) => onAction(props.label + '=' + value + ':' + meta.validity)(event)",
+    actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "value",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Formato"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Expiry date", helper: "Use MM/YY", placeholder: "MM/YY", validationMessage: "Invalid expiry", expiredMessage: "Expired" })),
+            e("div", { className: "audit-card" }, action({ label: "Valid expiry", value: "1299", helper: "Valid future date", validationMessage: "Invalid expiry", expiredMessage: "Expired" })),
+            e("div", { className: "audit-card" }, action({ label: "Partial expiry", value: "12", helper: "Keeps native correction", validationMessage: "Invalid expiry", expiredMessage: "Expired" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", value: "1299" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", value: "1299" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", value: "1299" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Invalid month", value: "1399", validationMessage: "Invalid expiry", expiredMessage: "Expired" })),
+            e("div", { className: "audit-card" }, action({ label: "Expired", value: "0120", validationMessage: "Invalid expiry", expiredMessage: "Expired" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", loading: true, value: "1299" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "1299", helper: "Locked by issuer", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
+  "card-security-code-input": {
+    title: "CardSecurityCodeInput",
+    directory: "card-security-code-input-2026-08-25",
+    module: "CardSecurityCodeInput.js",
+    exportName: "CardSecurityCodeInput",
+    buildId: "card-security-code-input-react-runtime-1",
+    eventPropName: "onValueChange",
+    actionHandler: "(digits, meta, event) => onAction(props.label + '=' + digits + ':' + meta.validity)(event)",
+    actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "value",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Formato"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Security code", helper: "3 digits", placeholder: "CVC", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, action({ label: "Amex security code", expectedLength: 4, value: "1234", helper: "4 digits", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, action({ label: "Plain CVV", value: "999", revealable: false, helper: "Reveal disabled by product policy" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small", density: "sm", value: "123", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", density: "md", value: "123", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", density: "lg", value: "123", revealLabel: "Show security code", hideLabel: "Hide security code" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Incomplete", value: "12", helper: "Needs one more digit", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", value: "12", error: "Invalid security code", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", loading: true, value: "123", revealLabel: "Show security code", hideLabel: "Hide security code" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "123", helper: "Locked by issuer", revealLabel: "Show security code", hideLabel: "Hide security code", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
   "text-area": {
     title: "TextArea",
     directory: "text-area-2026-08-24",
@@ -875,8 +1019,8 @@ const components = {
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Service date", value: "2026-01-15" })),
-            e("div", { className: "audit-card" }, action({ label: "Open date", value: "2026-01-15", open: true })),
-            e("div", { className: "audit-card" }, action({ label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25", open: true }))
+            e("div", { className: "audit-card" }, action({ label: "Empty date", placeholder: "Select date" })),
+            e("div", { className: "audit-card" }, action({ label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25" }))
           )
         ),
         e("section", { className: "audit-section" },
@@ -908,7 +1052,7 @@ const components = {
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Billing window", value: { from: "2026-02-10", to: "2026-02-15" } })),
-            e("div", { className: "audit-card" }, action({ label: "Open range", value: { from: "2026-02-10", to: "" }, open: true })),
+            e("div", { className: "audit-card" }, action({ label: "Partial range", value: { from: "2026-02-10", to: "" } })),
             e("div", { className: "audit-card" }, action({ label: "With presets", value: { from: "2026-02-10", to: "2026-02-15" }, presets: true, presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }] }))
           )
         ),
@@ -1208,12 +1352,121 @@ const components = {
           )
         ),
         e("section", { className: "audit-section" },
-          e("h2", null, "Densidades / estados"),
+          e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Small dialog", triggerLabel: "Open small", closeLabel: "Close dialog", density: "sm", actions })),
             e("div", { className: "audit-card" }, action({ label: "Medium dialog", triggerLabel: "Open medium", closeLabel: "Close dialog", density: "md", actions })),
-            e("div", { className: "audit-card" }, action({ label: "Large dialog", triggerLabel: "Open large", closeLabel: "Close dialog", density: "lg", actions })),
-            e("div", { className: "audit-card" }, action({ label: "Default state", description: "Opens through the trigger for interaction testing.", triggerLabel: "Open default state", closeLabel: "Close dialog", state: "default", actions }))
+            e("div", { className: "audit-card" }, action({ label: "Large dialog", triggerLabel: "Open large", closeLabel: "Close dialog", density: "lg", actions }))
+          )
+        )`,
+  },
+  drawer: {
+    title: "Drawer",
+    directory: "drawer-2026-08-25",
+    module: "Drawer.js",
+    exportName: "Drawer",
+    buildId: "drawer-flat-accordion-runtime-3",
+    indexImports: ["Accordion", "Badge", "ProgressIndicator"],
+    eventPropName: "onAction",
+    actionHandler: "(key, event) => onAction(props.label + '=' + key)(event)",
+    actionSelector: "[data-overlay-open]:not(:disabled)",
+    supportPreamble: `const fields = [
+      { label: "Route", name: "route", value: "MX-45", state: "filled" },
+      { label: "Driver", name: "driver", value: "Ana Sosa", state: "filled" }
+    ];
+    const content = [
+      { type: "badge", key: "status", label: "Active", tone: "success" },
+      { type: "progress", key: "progress", label: "Inspection", value: 68, showValue: true },
+      { type: "text", key: "copy", copy: "Operational detail belongs inside the sheet body and keeps the footer actions stable." }
+    ];
+    const referenceActions = [
+      { key: "close", label: "Cerrar", variant: "ghost" },
+      { key: "save", label: "Guardar", variant: "primary" }
+    ];
+    const drawerReferenceBody = (density) => e("div", { className: "audit-stack audit-stack--drawer" },
+      e(Badge, { label: "En ruta", tone: "success", variant: "status", live: true, density }),
+      e("p", { className: "drawer__supporting-copy" }, "Conductora desde 2024 · 1,240 viajes · rating 4.96. Unidad asignada JMX-214-B."),
+      e(Accordion, { surface: "flat", items: [
+        { id: "docs", title: "Documentos", icon: "description", meta: "3 de 4", open: true, content: e(ProgressIndicator, { label: "Verificación", value: 3, max: 4, showValue: true, fullWidth: true, density }) },
+        { id: "hist", title: "Historial de viajes", icon: "history", content: "128 viajes este mes. Último: hoy 14:32, Roma Norte → Polanco." },
+        { id: "pagos", title: "Métodos de pago", icon: "payments", content: "Depósito semanal a cuenta terminación 4821." }
+      ] })
+    );
+    const actions = [
+      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "save", label: "Save", variant: "primary" }
+    ];
+    const destructiveActions = [
+      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "delete", label: "Delete", variant: "danger" }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Abrir drawer", closeLabel: "Cerrar", children: drawerReferenceBody(), actions: referenceActions }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Detail drawer", description: "Review vehicle details.", triggerLabel: "Open detail", closeLabel: "Close drawer", variant: "detail", content, fields, actions })),
+            e("div", { className: "audit-card" }, action({ label: "Filter drawer", description: "Adjust filters before applying.", triggerLabel: "Open filters", closeLabel: "Close drawer", variant: "filter", fields, actions })),
+            e("div", { className: "audit-card" }, action({ label: "Danger drawer", description: "This action changes the route state.", triggerLabel: "Open danger", closeLabel: "Close drawer", variant: "review", tone: "danger", content, actions: destructiveActions }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Lados / densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open left", closeLabel: "Close drawer", side: "left", children: drawerReferenceBody(), actions: referenceActions })),
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open small", closeLabel: "Close drawer", density: "sm", children: drawerReferenceBody("sm"), actions: referenceActions })),
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open medium", closeLabel: "Close drawer", density: "md", children: drawerReferenceBody("md"), actions: referenceActions })),
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open large", closeLabel: "Close drawer", density: "lg", children: drawerReferenceBody("lg"), actions: referenceActions }))
+          )
+        )`,
+  },
+  popover: {
+    title: "Popover",
+    directory: "popover-2026-08-25",
+    module: "Popover.js",
+    exportName: "Popover",
+    buildId: "popover-react-runtime-1",
+    eventPropName: "onAction",
+    actionHandler: "(key, event) => onAction(props.title + '=' + key)(event)",
+    actionSelector: "[data-popover-trigger]:not(:disabled)",
+    supportPreamble: `const actions = [
+      { key: "dismiss", label: "Dismiss", variant: "secondary" },
+      { key: "apply", label: "Apply", variant: "primary" }
+    ];
+    const dangerActions = [
+      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "remove", label: "Remove", variant: "danger" }
+    ];
+    const field = { label: "Driver note", value: "Requires review", helper: "Read-only in this popover." };`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Info", title: "Route details", description: "Lightweight context without leaving the current workflow." })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Actions", title: "Quick actions", description: "Use actions only when the popover owns a small local decision.", variant: "action", actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Form", title: "Review note", description: "Composes Field/Input instead of local HTML.", variant: "form", field, actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Metric", title: "Fleet utilization", description: "82% active this hour.", variant: "metric" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Placement / density"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Top", title: "Top placement", placement: "top", actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Right", title: "Right placement", placement: "right", actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Left", title: "Left placement", placement: "left", actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Small", title: "Small popover", density: "sm", actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Medium", title: "Medium popover", density: "md", actions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Large", title: "Large popover", density: "lg", actions }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Warning", title: "Warning popover", description: "Border should show warning state without dark-mode override.", state: "warning", actions: dangerActions })),
+            e("div", { className: "audit-card" }, action({ triggerLabel: "Disabled", title: "Disabled popover", disabled: true }))
           )
         )`,
   },
@@ -1224,11 +1477,11 @@ const requestedComponents = requestedComponent === "all-actions"
   : requestedComponent === "all-fields"
     ? ["input", "select", "combobox"]
   : requestedComponent === "all-p0-forms"
-    ? ["text-area", "slider", "code-input", "phone-input", "country-selector", "date-picker", "date-range-picker"]
+    ? ["text-area", "slider", "code-input", "phone-input", "country-selector", "input-amount", "card-number-input", "card-expiry-input", "card-security-code-input", "date-picker", "date-range-picker"]
   : requestedComponent === "all-choice-nav"
     ? ["checkbox", "radio-button", "switch", "tabs", "menu"]
   : requestedComponent === "all-overlays"
-    ? ["dialog"]
+    ? ["dialog", "drawer", "popover"]
   : requestedComponent === "all"
     ? Object.keys(components)
   : [requestedComponent];
@@ -1237,6 +1490,18 @@ const invalidComponent = requestedComponents.find((component) => !components[com
 if (invalidComponent) {
   console.error(`Unsupported component: ${invalidComponent}`);
   process.exit(1);
+}
+
+const mustStartClosedInRuntimeDemo = new Set(["date-picker", "date-range-picker"]);
+for (const component of requestedComponents) {
+  if (mustStartClosedInRuntimeDemo.has(component) && /\bopen:\s*true\b/.test(components[component].demoBody)) {
+    console.error(`${component} runtime demo must start closed; validate open state through keyboard/pointer interaction instead of forced-open fixtures.`);
+    process.exit(1);
+  }
+  if (component === "dialog" && /Densidades\s*\/\s*estados|label:\s*"Default state"|state:\s*"default"/.test(components[component].demoBody)) {
+    console.error("dialog runtime demo must not present default state as a density or user-context variant.");
+    process.exit(1);
+  }
 }
 
 function copyFlagAssets(config, outDir) {
@@ -1355,6 +1620,16 @@ const html = `<!doctype html>
       display: grid;
       gap: var(--component-space-md);
       inline-size: 100%;
+    }
+
+    .audit-stack {
+      display: grid;
+      gap: var(--component-space-md);
+    }
+
+    .audit-stack--drawer {
+      align-content: start;
+      gap: var(--component-space-xl);
     }
 
     h1,

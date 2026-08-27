@@ -11,6 +11,18 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
   add("errors", packageCssFile, block ? lineNumber(text, block.index) : 1, message);
 }
 
+function gapDeclaration(block) {
+  return /(?:^|[;\n]\s*)gap:\s*([^;]+);/.exec(block?.body ?? "");
+}
+
+function consumesFieldShellGap(block) {
+  const declaration = gapDeclaration(block);
+  if (!declaration) return true;
+  if (declaration[1].trim() === "var(--component-field-shell-gap)") return true;
+  const gapAlias = /var\((--[^)]+)\)/.exec(declaration[1])?.[1];
+  return Boolean(gapAlias && block.body.includes(`${gapAlias}: var(--component-field-shell-gap)`));
+}
+
 function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const tokenContextsCssFile = path.join(process.cwd(), "packages/tokens/styles/token-contexts.css");
   const tokenContexts = fs.existsSync(tokenContextsCssFile) ? fs.readFileSync(tokenContextsCssFile, "utf8") : "";
@@ -138,6 +150,22 @@ function checkFieldCssContract({ text, blocks, packageCssFile, selectorKey }) {
     ],
     message: "Compound field shells must reserve the same focus-ring clearance as Field/Input shells.",
   });
+  for (const selector of [
+    ".code-input",
+    ".phone-input",
+    ".card-number-input,.card-expiry-input,.card-security-code-input",
+    ".date-picker",
+  ]) {
+    const block = blockFor(blocks, selectorKey, selector);
+    if (!consumesFieldShellGap(block)) {
+      add(
+        "errors",
+        packageCssFile,
+        lineNumber(text, block.index),
+        `${selector} must not override the shared Field shell clearance with local gap spacing; any root gap must resolve to --component-field-shell-gap.`,
+      );
+    }
+  }
   requireIncludes({
     block: fieldSmBlock,
     text,

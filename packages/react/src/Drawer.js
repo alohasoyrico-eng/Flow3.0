@@ -74,7 +74,7 @@ function renderContentItem(item, inheritedDensity) {
     }
     return null;
 }
-export const Drawer = forwardRef(function Drawer({ label, description, triggerLabel, closeLabel, variant = "side-sheet", state = "closed", tone = "neutral", density, side = "right", fields, content, actions, open: openProp, showCloseButton = true, id, onOpenChange, onAction, className = "", ...rest }, ref) {
+export const Drawer = forwardRef(function Drawer({ label, description, triggerLabel, closeLabel, variant = "side-sheet", state = "closed", tone = "neutral", density, side = "right", children, fields, content, actions, open: openProp, showCloseButton = true, id, onOpenChange, onAction, className = "", ...rest }, ref) {
     const reactId = useId();
     const triggerRef = useRef(null);
     const closeRef = useRef(null);
@@ -190,7 +190,7 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
         className: "drawer__close",
         "data-overlay-close": "",
         onClick: (event) => closeDrawer({ event }),
-    }) : null, description ? React.createElement("p", null, description) : null), React.createElement("div", { className: "drawer__body" }, sourceContent.map((item) => renderContentItem(item, resolvedDensity)), visibleFields.map((field) => {
+    }) : null, description ? React.createElement("p", null, description) : null), React.createElement("div", { className: "drawer__body" }, children, sourceContent.map((item) => renderContentItem(item, resolvedDensity)), visibleFields.map((field) => {
         const normalized = field ?? {};
         const { variant: fieldVariant, state: fieldState, density: fieldDensity, readOnly, ...fieldProps } = normalized;
         const mappedVariant = inputVariantForField(fieldVariant);
