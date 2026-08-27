@@ -1,22 +1,23 @@
 import React, {
+  type ChangeEvent,
   type ForwardRefExoticComponent,
   type MouseEvent,
   type RefAttributes,
   forwardRef,
+  useRef,
+  useState,
 } from "react";
 import { Button } from "../Button.js";
 import type { ButtonProps } from "../Button.js";
 import type { CardDensity } from "../Card.js";
-import { EmptyState } from "../EmptyState.js";
-import type { EmptyStateProps, EmptyStateState } from "../EmptyState.js";
+import type { EmptyStateProps } from "../EmptyState.js";
+import { IconButton } from "../IconButton.js";
+import type { IconButtonProps } from "../IconButton.js";
 import { InlineValidation } from "../InlineValidation.js";
 import type { InlineValidationProps } from "../InlineValidation.js";
 import { ProgressIndicator } from "../ProgressIndicator.js";
 import type { ProgressIndicatorProps } from "../ProgressIndicator.js";
-import { Surface } from "../Surface.js";
-import type { SurfaceProps } from "../Surface.js";
-import { Tag } from "../Tag.js";
-import type { TagProps, TagTone } from "../Tag.js";
+import type { TagTone } from "../Tag.js";
 import { Toast } from "../Toast.js";
 import type { ToastProps } from "../Toast.js";
 
@@ -62,6 +63,7 @@ export interface FileUploadProps {
   loading?: boolean;
   multiple?: boolean;
   files?: FileUploadFile[];
+  accept?: string;
   progress?: FileUploadProgress;
   chooseAction?: FileUploadAction;
   removeAction?: FileUploadAction;
@@ -70,7 +72,8 @@ export interface FileUploadProps {
   validation?: FileUploadValidation;
   feedback?: FileUploadFeedback;
   className?: string;
-  onChoose?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onChoose?: (event: MouseEvent<HTMLElement>) => void;
+  onChange?: (files: FileUploadFile[], event?: ChangeEvent<HTMLInputElement>) => void;
   onRemove?: (key: string, event?: MouseEvent<HTMLElement>) => void;
   onRetry?: (event?: MouseEvent<HTMLElement>) => void;
   [key: `data-${string}`]: string | number | boolean | undefined;
@@ -88,12 +91,6 @@ type SafeRootProps = {
 
 function sanitizeRestProps(rest: Record<string, unknown>): SafeRootProps {
   return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-"))) as SafeRootProps;
-}
-
-function fileLabel(file: FileUploadFile | undefined): string {
-  if (!file) return "";
-  const parts = [file.name, file.size, file.type].filter(Boolean);
-  return parts.join(" · ");
 }
 
 function resolveState({
@@ -128,7 +125,7 @@ function progressTone(state: FileUploadState): ProgressIndicatorProps["tone"] {
   return "accent";
 }
 
-function statusTone(state: FileUploadState): TagProps["tone"] {
+function statusTone(state: FileUploadState): ToastProps["tone"] {
   if (state === "complete") return "success";
   if (state === "error" || state === "invalid") return "danger";
   if (state === "validating") return "warning";
@@ -143,7 +140,8 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   disabled = false,
   loading = false,
   multiple = false,
-  files = [],
+  files,
+  accept,
   progress,
   chooseAction,
   removeAction,
@@ -152,27 +150,55 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   validation,
   feedback,
   onChoose,
+  onChange,
   onRemove,
   onRetry,
   className = "",
   ...rest
 }, ref) {
-  const normalizedFiles = Array.isArray(files) ? files : [];
+  const inputRef = useRef<HTMLInputElement>(null);
+  const isFilesControlled = files !== undefined;
+  const [internalFiles, setInternalFiles] = useState<FileUploadFile[]>([]);
+  const [dragging, setDragging] = useState(false);
+  const normalizedFiles = Array.isArray(files) ? files : internalFiles;
   const resolvedState = resolveState({ disabled, loading, state, files: normalizedFiles });
   const selectedCount = normalizedFiles.length;
-  const firstFile = normalizedFiles[0];
   const title = label || empty?.title;
   const progressValue = typeof progress?.value === "number" ? progress.value : undefined;
-  const canShowProgress = ["validating", "uploading", "complete", "invalid", "error"].includes(resolvedState);
-  const statusLabel = firstFile?.status ?? progress?.label ?? (resolvedState === "empty" ? "Ready" : resolvedState);
+  const canShowProgress = Boolean(progress) || ["validating", "uploading", "invalid", "error"].includes(resolvedState);
+  const dropzoneLabel = chooseAction?.label ?? title;
+  const dropzoneDescription = empty?.description ?? description;
 
   if (!title) return null;
+
+  const commitFiles = (nextFiles: FileUploadFile[], event?: ChangeEvent<HTMLInputElement>) => {
+    if (!isFilesControlled) setInternalFiles(nextFiles);
+    onChange?.(nextFiles, event);
+  };
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const inputFiles: FileUploadFile[] = Array.from(event.currentTarget.files ?? []).map((file) => ({
+      name: file.name,
+      size: file.size >= 1024 * 1024 ? `${(file.size / (1024 * 1024)).toFixed(1)} MB` : `${Math.max(1, Math.round(file.size / 1024))} KB`,
+      ...(file.type ? { type: file.type } : {}),
+    }));
+    if (!inputFiles.length) return;
+    commitFiles(multiple ? [...normalizedFiles, ...inputFiles] : inputFiles.slice(0, 1), event);
+    event.currentTarget.value = "";
+  };
+
+  const openFilePicker = (event: MouseEvent<HTMLElement>) => {
+    chooseAction?.onClick?.(event as unknown as MouseEvent<HTMLButtonElement>);
+    if (event.defaultPrevented) return;
+    onChoose?.(event);
+    if (!event.defaultPrevented) inputRef.current?.click();
+  };
 
   return React.createElement(
     "div",
     {
       ref,
-      className,
+      className: ["file-upload", className].filter(Boolean).join(" "),
       role: "group",
       "aria-label": label,
       "aria-busy": resolvedState === "uploading" || resolvedState === "validating" ? "true" : undefined,
@@ -181,66 +207,19 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
       "data-density": density,
       "data-file-count": String(selectedCount),
       "data-multiple": String(Boolean(multiple)),
+      "data-dragging": String(dragging),
       ...sanitizeRestProps(rest),
     },
-    selectedCount
-      ? React.createElement(
-        Surface,
-        {
-          surfaceRole: "panel",
-          state: resolvedState === "disabled" ? "disabled" : resolvedState === "error" || resolvedState === "invalid" ? "selected" : "default",
-          density,
-          "data-flow-slot": "surface",
-        } as SurfaceProps,
-        React.createElement("h3", null, title),
-        React.createElement("p", null, description ?? fileLabel(firstFile)),
-        React.createElement("p", null, selectedCount > 1 ? `${selectedCount} files selected` : fileLabel(firstFile)),
-        React.createElement(Tag, {
-          label: statusLabel,
-          tone: statusTone(resolvedState),
-          variant: "status",
-          state: disabled ? "disabled" : "default",
-          density,
-        } as TagProps),
-        removeAction?.label
-          ? React.createElement(Button, {
-            ...removeAction,
-            label: removeAction.label,
-            variant: removeAction.variant ?? "ghost",
-            density: removeAction.density ?? density,
-            disabled: disabled || removeAction.disabled,
-            onClick: (event: MouseEvent<HTMLButtonElement>) => {
-              removeAction.onClick?.(event);
-              if (event.defaultPrevented) return;
-              onRemove?.(firstFile?.key ?? firstFile?.name ?? "", event);
-            },
-          } as ButtonProps)
-          : null,
-        retryAction?.label && (resolvedState === "error" || resolvedState === "invalid")
-          ? React.createElement(Button, {
-            ...retryAction,
-            label: retryAction.label,
-            variant: retryAction.variant ?? "secondary",
-            density: retryAction.density ?? density,
-            disabled: disabled || retryAction.disabled,
-            onClick: (event: MouseEvent<HTMLButtonElement>) => {
-              retryAction.onClick?.(event);
-              if (event.defaultPrevented) return;
-              onRetry?.(event);
-            },
-          } as ButtonProps)
-          : null,
-      )
-      : React.createElement(EmptyState, {
-        title,
-        description: empty?.description ?? description,
-        icon: empty?.icon ?? "upload",
-        action: empty?.action,
-        variant: empty?.variant ?? "no-data",
-        state: (disabled ? "disabled" : "no-data") as EmptyStateState,
-        density,
-        onAction: empty?.onAction,
-      } as EmptyStateProps),
+    React.createElement("input", {
+      ref: inputRef,
+      type: "file",
+      accept,
+      multiple,
+      disabled,
+      hidden: true,
+      tabIndex: -1,
+      onChange: handleInputChange,
+    }),
     canShowProgress
       ? React.createElement(ProgressIndicator, {
         label: progress?.label ?? `${title} status`,
@@ -255,6 +234,80 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
         fullWidth: true,
       } as ProgressIndicatorProps)
       : null,
+    React.createElement(
+      "div",
+      {
+        role: "button",
+        tabIndex: disabled ? -1 : 0,
+        className: "file-upload__dropzone",
+        "data-flow-slot": "dropzone",
+        "aria-label": dropzoneLabel,
+        "aria-disabled": disabled ? "true" : undefined,
+        onClick: (event: MouseEvent<HTMLElement>) => {
+          if (disabled) return;
+          openFilePicker(event);
+        },
+        onKeyDown: (event: React.KeyboardEvent<HTMLElement>) => {
+          if (disabled) return;
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openFilePicker(event as unknown as MouseEvent<HTMLElement>);
+          }
+        },
+        onDragOver: (event: React.DragEvent<HTMLElement>) => {
+          event.preventDefault();
+          if (!disabled) setDragging(true);
+        },
+        onDragLeave: () => setDragging(false),
+        onDrop: (event: React.DragEvent<HTMLElement>) => {
+          event.preventDefault();
+          setDragging(false);
+          if (disabled) return;
+          const droppedFiles: FileUploadFile[] = Array.from(event.dataTransfer.files ?? []).map((file) => ({
+            name: file.name,
+            size: file.size >= 1024 * 1024 ? `${(file.size / (1024 * 1024)).toFixed(1)} MB` : `${Math.max(1, Math.round(file.size / 1024))} KB`,
+            ...(file.type ? { type: file.type } : {}),
+          }));
+          if (!droppedFiles.length) return;
+          commitFiles(multiple ? [...normalizedFiles, ...droppedFiles] : droppedFiles.slice(0, 1));
+        },
+      },
+      React.createElement("span", { className: "file-upload__dropzone-icon material-symbol", "aria-hidden": "true" }, empty?.icon ?? "upload_file"),
+      React.createElement("span", { className: "file-upload__dropzone-label" }, dropzoneLabel),
+      dropzoneDescription ? React.createElement("span", { className: "file-upload__dropzone-description" }, dropzoneDescription) : null,
+    ),
+    selectedCount
+      ? React.createElement(
+        "ul",
+        { className: "file-upload__list", "data-flow-slot": "file-list" },
+        normalizedFiles.map((file, index) => {
+          const fileKey = file.key ?? `${file.name}-${index}`;
+          return React.createElement(
+            "li",
+            { key: fileKey, className: "file-upload__item", "data-flow-slot": "file-item" },
+            React.createElement("span", { className: "file-upload__item-icon material-symbol", "aria-hidden": "true" }, "draft"),
+            React.createElement("span", { className: "file-upload__item-name" }, file.name),
+            file.size ? React.createElement("span", { className: "file-upload__item-size" }, file.size) : null,
+            removeAction?.label
+              ? React.createElement(IconButton, {
+                ...removeAction,
+                ariaLabel: `${removeAction.label} ${file.name}`,
+                icon: typeof removeAction.icon === "string" ? removeAction.icon : "close",
+                variant: removeAction.variant ?? "ghost",
+                density: removeAction.density ?? density,
+                disabled: disabled || removeAction.disabled,
+                onClick: (event: MouseEvent<HTMLButtonElement>) => {
+                  removeAction.onClick?.(event);
+                  if (event.defaultPrevented) return;
+                  commitFiles(normalizedFiles.filter((candidate, candidateIndex) => (candidate.key ?? `${candidate.name}-${candidateIndex}`) !== fileKey));
+                  onRemove?.(file.key ?? file.name, event);
+                },
+              } as IconButtonProps)
+              : null,
+          );
+        }),
+      )
+      : null,
     validation?.message
       ? React.createElement(InlineValidation, {
         label: validation.label ?? title,
@@ -264,18 +317,17 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
         live: validation.live,
       } as InlineValidationProps)
       : null,
-    chooseAction?.label
+    retryAction?.label && (resolvedState === "error" || resolvedState === "invalid")
       ? React.createElement(Button, {
-        ...chooseAction,
-        label: chooseAction.label,
-        variant: chooseAction.variant ?? "secondary",
-        density: chooseAction.density ?? density,
-        disabled: disabled || chooseAction.disabled,
-        loading: loading || chooseAction.loading,
+        ...retryAction,
+        label: retryAction.label,
+        variant: retryAction.variant ?? "secondary",
+        density: retryAction.density ?? density,
+        disabled: disabled || retryAction.disabled,
         onClick: (event: MouseEvent<HTMLButtonElement>) => {
-          chooseAction.onClick?.(event);
+          retryAction.onClick?.(event);
           if (event.defaultPrevented) return;
-          onChoose?.(event);
+          onRetry?.(event);
         },
       } as ButtonProps)
       : null,

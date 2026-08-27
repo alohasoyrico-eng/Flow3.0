@@ -620,6 +620,7 @@ const accordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
 assert.match(accordionMarkup, /class="accordion"/);
 assert.match(accordionMarkup, /data-density="sm"/);
 assert.match(accordionMarkup, /data-variant="single"/);
+assert.match(accordionMarkup, /data-surface="solid"/);
 assert.match(accordionMarkup, /data-multiple="false"/);
 assert.match(accordionMarkup, /data-accordion-trigger=""/);
 assert.match(accordionMarkup, /aria-expanded="true"/);
@@ -631,7 +632,19 @@ assert.match(accordionMarkup, /class="accordion__chevron"/);
 assert.match(accordionMarkup, /class="accordion__panel"/);
 assert.match(accordionMarkup, /role="region"/);
 assert.match(accordionMarkup, /class="accordion__panel-body">Insurance<\/div>/);
-assert.match(accordionMarkup, /hidden="">/);
+assert.match(accordionMarkup, /aria-hidden="true"/);
+assert.match(accordionMarkup, /inert=""/);
+assert.doesNotMatch(accordionMarkup, /hidden="">/);
+const defaultOpenAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
+  defaultOpen: "limits",
+  surface: "transparent",
+  items: [
+    { id: "docs", title: "Documents", content: "Insurance", open: true },
+    { id: "limits", title: "Limits", content: "Daily limit" },
+  ],
+}));
+assert.match(defaultOpenAccordionMarkup, /data-surface="transparent"/);
+assert.match(defaultOpenAccordionMarkup, /aria-expanded="true" aria-controls="[^"]+-limits"[\s\S]+?class="accordion__title">Limits<\/span>/);
 const inheritedAccordionMarkup = renderToStaticMarkup(React.createElement(Accordion, {
   items: [{ id: "billing", title: "Billing", content: "Cards" }],
 }));

@@ -105,7 +105,7 @@ try {
       closeLabel: "Cerrar",
       actions: [{ key: "close", label: "Cerrar" }, { key: "save", label: "Guardar" }],
       children: React.createElement(Accordion, {
-        surface: "flat",
+        surface: "transparent",
         items: [
           { id: "docs", title: "Documentos", meta: "3 de 4", open: true, content: "Verificación 75%" },
           { id: "hist", title: "Historial de viajes", content: "128 viajes este mes." },
@@ -117,7 +117,7 @@ try {
     await user.click(trigger);
     const drawer = view.getByRole("dialog", { name: /ana sosa/i });
     assert.equal(drawer.hidden, false);
-    assert.equal(drawer.querySelector(".accordion")?.getAttribute("data-surface"), "flat");
+    assert.equal(drawer.querySelector(".accordion")?.getAttribute("data-surface"), "transparent");
     assert.equal(view.getByRole("button", { name: /documentos/i }).getAttribute("aria-expanded"), "true");
     assert.equal(drawer.textContent.includes("Historial de viajes"), true);
     assert.equal(drawer.textContent.includes("Guardar"), true);

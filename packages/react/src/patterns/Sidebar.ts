@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useMemo, useState } from "react";
-import type { ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import { Accordion } from "../Accordion.js";
 import type { AccordionDensity } from "../Accordion.js";
 import { Badge } from "../Badge.js";
@@ -69,7 +69,7 @@ export interface SidebarProps extends FlowDataAttributes {
   expandedIds?: string[];
   collapseAction?: SidebarCollapseAction;
   drawer?: SidebarDrawer | false;
-  onExpandedChange?: (expandedIds: string[], event: MouseEvent<HTMLButtonElement>) => void;
+  onExpandedChange?: (expandedIds: string[], event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void;
   onDrawerOpenChange?: (open: boolean, event?: DrawerOpenChangeEvent) => void;
   onRouteSelect?: (key: string, route: SidebarRoute, event: MouseEvent<HTMLButtonElement>) => void;
   onCollapse?: (collapsed: boolean, event: MouseEvent<HTMLButtonElement>) => void;
@@ -215,7 +215,7 @@ export const Sidebar: SidebarComponent = forwardRef<HTMLDivElement, SidebarProps
     setInternalOpenIds((current) => [...new Set([...current, ...derivedOpenIds])]);
   }, [derivedOpenIdsKey, isExpandedIdsControlled]);
   const openIds = isExpandedIdsControlled ? expandedIds.map(String) : internalOpenIds;
-  const handleExpandedChange = (nextExpandedIds: string[], event: MouseEvent<HTMLButtonElement>) => {
+  const handleExpandedChange = (nextExpandedIds: string[], event: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => {
     const fallbackGroupKey = normalizedGroups[0]?.key;
     const resolvedExpandedIds = nextExpandedIds.length || !fallbackGroupKey ? nextExpandedIds : [fallbackGroupKey];
     if (!isExpandedIdsControlled) setInternalOpenIds(resolvedExpandedIds);

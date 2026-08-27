@@ -308,10 +308,19 @@ function checkFieldContractOwnership() {
     path.join(reactDir, "patterns"),
     path.join(reactDir, "templates"),
   ];
+  const isAllowedNativeFileInput = (file, source, matchIndex) => {
+    if (!file.endsWith(path.join("patterns", "FileUpload.js"))) return false;
+    const slice = source.slice(matchIndex, matchIndex + 260);
+    return slice.includes('type: "file"') &&
+      slice.includes("hidden: true") &&
+      slice.includes("tabIndex: -1") &&
+      slice.includes("onChange: handleInputChange");
+  };
   for (const dir of compositionDirs) {
     for (const file of walkFiles(dir, (candidate) => /\.js$/.test(candidate))) {
       const source = read(file);
       for (const match of source.matchAll(/React\.createElement\(\s*["'`](input|select|textarea)["'`]/g)) {
+        if (match[1] === "input" && isAllowedNativeFileInput(file, source, match.index)) continue;
         add(
           "errors",
           file,

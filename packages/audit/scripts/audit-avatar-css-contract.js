@@ -72,15 +72,15 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
     message: "Avatar root must own and consume aliases for voice, frame, depth, density, status, disabled state, and motion.",
   });
 
-  for (const [selector, message] of [
-    [".avatar[data-density=\"sm\"]", "Avatar small density must route through the Avatar size alias."],
-    [".avatar[data-density=\"lg\"]", "Avatar large density must route through the Avatar size alias."],
+  for (const [selector, snippet, message] of [
+    [".avatar[data-density=\"sm\"]", "--comp-avatar-size: var(--component-inline-size-sm)", "Avatar small density must route through the Avatar inline-size scale."],
+    [".avatar[data-density=\"lg\"]", "--comp-avatar-size: var(--component-inline-size-lg)", "Avatar large density must route through the Avatar inline-size scale."],
   ]) {
     requireIncludes({
       block: blockFor(blocks, selectorKey, selector),
       text,
       packageCssFile,
-      snippets: ["--comp-avatar-size:"],
+      snippets: [snippet],
       message,
     });
   }

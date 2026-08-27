@@ -13,7 +13,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
   const rootBlock = blockFor(blocks, selectorKey, ".accordion");
   const smBlock = blockFor(blocks, selectorKey, ".accordion[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".accordion[data-density=\"lg\"]");
-  const flatBlock = blockFor(blocks, selectorKey, ".accordion[data-surface=\"flat\"]");
+  const transparentBlock = blockFor(blocks, selectorKey, ".accordion[data-surface=\"transparent\"]");
   const dividerBlock = blockFor(blocks, selectorKey, ".accordion__item + .accordion__item");
   const triggerBlock = blockFor(blocks, selectorKey, ".accordion__trigger");
   const triggerFocusBlock = blockFor(blocks, selectorKey, ".accordion__trigger:focus-visible");
@@ -23,11 +23,21 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
   const chevronBlock = blockFor(blocks, selectorKey, ".accordion__chevron");
   const chevronOpenBlock = blockFor(blocks, selectorKey, ".accordion__item[data-open=\"true\"] .accordion__chevron");
   const panelBlock = blockFor(blocks, selectorKey, ".accordion__panel");
+  const panelHiddenBlock = blockFor(blocks, selectorKey, ".accordion__panel[hidden]");
+  const panelClipBlock = blockFor(blocks, selectorKey, ".accordion__panel-clip");
+  const panelClipOpenBlock = blockFor(blocks, selectorKey, ".accordion__item[data-open=\"true\"] .accordion__panel-clip");
 
   const accordionBlocks = blocks.filter((block) => selectorKey(block).includes(".accordion"));
+  if (panelHiddenBlock) {
+    add("errors", packageCssFile, lineNumber(text, panelHiddenBlock.index), "Accordion panels must not use hidden/display:none because it disables the ZIP motion contract.");
+  }
   const buttonAliasBlock = accordionBlocks.find((block) => block.body.includes("--button-size-"));
   if (buttonAliasBlock) {
     add("errors", packageCssFile, lineNumber(text, buttonAliasBlock.index), "Accordion must not consume Button sizing aliases.");
+  }
+  const localDepthBlock = accordionBlocks.find((block) => block.body.includes("--component-depth-panel") || block.body.includes("--component-depth-raised"));
+  if (localDepthBlock) {
+    add("errors", packageCssFile, lineNumber(text, localDepthBlock.index), "Accordion must not own overlay/raised elevation; solid root may only use card-rest depth.");
   }
   const localTriggerSize = /--comp-accordion-trigger-min-block:\s*calc\(var\(--component-control-min-size\)[^;]+;/.exec(text);
   if (localTriggerSize) {
@@ -41,7 +51,9 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     snippets: [
       "--comp-accordion-bg: var(--component-color-surface)",
       "--comp-accordion-border-width: var(--component-border-width)",
+      "--comp-accordion-depth: var(--component-depth-card-rest)",
       "--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-md)",
+      "--comp-accordion-trigger-padding-inline: var(--component-space-lg)",
       "--comp-accordion-trigger-font-weight: var(--component-font-weight-bold)",
       "--comp-accordion-trigger-font-size-sm: var(--component-density-label-size-sm)",
       "--comp-accordion-trigger-font-size-md: var(--component-density-label-size-md)",
@@ -76,6 +88,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     packageCssFile,
     snippets: [
       "--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-sm)",
+      "--comp-accordion-trigger-padding-inline: var(--component-space-md)",
       "--comp-accordion-trigger-font-size: var(--comp-accordion-trigger-font-size-sm)",
       "--comp-accordion-panel-font-size: var(--comp-accordion-panel-font-size-sm)",
       "--comp-accordion-icon-size: var(--comp-accordion-icon-size-sm)",
@@ -90,6 +103,7 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     packageCssFile,
     snippets: [
       "--comp-accordion-trigger-min-block: var(--component-disclosure-trigger-min-block-size-lg)",
+      "--comp-accordion-trigger-padding-inline: var(--component-space-xl)",
       "--comp-accordion-trigger-font-size: var(--comp-accordion-trigger-font-size-lg)",
       "--comp-accordion-panel-font-size: var(--comp-accordion-panel-font-size-lg)",
       "--comp-accordion-icon-size: var(--comp-accordion-icon-size-lg)",
@@ -99,18 +113,18 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
     message: "Accordion lg density must use the shared large disclosure trigger Frame role.",
   });
   requireIncludes({
-    block: flatBlock,
+    block: transparentBlock,
     text,
     packageCssFile,
     snippets: [
       "--comp-accordion-bg: var(--component-surface-transparent)",
       "--comp-accordion-border-width: var(--component-border-width-none)",
-      "--comp-accordion-depth: var(--component-depth-none)",
       "--comp-accordion-radius: var(--component-radius-none)",
+      "--comp-accordion-depth: var(--component-depth-none)",
       "--comp-accordion-trigger-bg: var(--component-surface-transparent)",
       "overflow: visible",
     ],
-    message: "Accordion flat surface must remove nested elevation through shared surface, border, depth, and radius tokens.",
+    message: "Accordion transparent surface must remove nested surface chrome through shared surface, border, and radius tokens.",
   });
   requireIncludes({
     block: dividerBlock,
@@ -190,6 +204,20 @@ function checkAccordionCssContract({ text, blocks, packageCssFile, selectorKey }
       "transition: grid-template-rows var(--comp-accordion-motion-duration) var(--comp-accordion-motion-ease)",
     ],
     message: "Accordion panel must consume Accordion voice and motion aliases.",
+  });
+  requireIncludes({
+    block: panelClipBlock,
+    text,
+    packageCssFile,
+    snippets: ["overflow: hidden", "visibility: hidden"],
+    message: "Accordion closed content must be clipped and hidden without disabling panel motion.",
+  });
+  requireIncludes({
+    block: panelClipOpenBlock,
+    text,
+    packageCssFile,
+    snippets: ["visibility: visible"],
+    message: "Accordion open content must become visible through the open item state.",
   });
 }
 

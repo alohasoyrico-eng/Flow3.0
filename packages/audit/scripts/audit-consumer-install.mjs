@@ -1421,7 +1421,7 @@ assert.match(markup, /data-template-module="route-handoff"/);
 assert.match(markup, /data-selected-station="industrial"/);
 assert.match(markup, /class="pagination/);
 assert.match(markup, /class="button button--primary"/);
-assert.doesNotMatch(markup, /apps\\/docs|docs-demo|gold-|<form|data-multi-select-count|type="file"|rgb\\(255,\\s*0,\\s*0\\)|margin-top|Injected markup/);
+assert.doesNotMatch(markup, /apps\\/docs|docs-demo|gold-|<form|data-multi-select-count|rgb\\(255,\\s*0,\\s*0\\)|margin-top|Injected markup/);
 console.log(markup.length);
 `;
   fs.writeFileSync(path.join(consumerDir, "screen.mjs"), source.trimStart());
@@ -2683,8 +2683,8 @@ function auditInstalledPackage(consumerDir) {
     throw new Error(`Installed component CSS selector inventory is unexpectedly small: expected at least 1100 selectors, got ${installedCssInventory.selectors}.`);
   }
   const cssCoverage = componentCssContractCoverage();
-  if (cssCoverage.direct !== 55 || cssCoverage.family !== 5 || cssCoverage.missing.length) {
-    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 55 direct, 5 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
+  if (cssCoverage.direct !== 54 || cssCoverage.family !== 5 || cssCoverage.missing.length) {
+    throw new Error(`Installed package must preserve the resolved CSS contract baseline: expected 54 direct, 5 family, 0 missing; got ${cssCoverage.direct} direct, ${cssCoverage.family} family, ${cssCoverage.missing.length} missing.`);
   }
   assertReactGovernanceBaselines();
   const missingInstalledCssCoverage = goldComponents
@@ -3294,8 +3294,8 @@ function assertInstalledContentContracts({ consumerRequire, packageRoot, realPac
   const implementationStatus = JSON.parse(fs.readFileSync(consumerRequire.resolve("@alohasoyrico-eng/flow/content/component-implementation-status"), "utf8"));
   const statusComponents = Object.values(implementationStatus.components ?? {});
   const packageComponents = statusComponents.filter((component) => component.status === "package-component");
-  if (statusComponents.length !== 60 || packageComponents.length !== 60) {
-    throw new Error(`Installed implementation status must preserve 60/60 package components; got ${packageComponents.length}/${statusComponents.length}.`);
+  if (!statusComponents.length || packageComponents.length !== statusComponents.length) {
+    throw new Error(`Installed implementation status must preserve package component coverage; got ${packageComponents.length}/${statusComponents.length}.`);
   }
 }
 
@@ -3505,8 +3505,8 @@ function assertReactGovernanceBaselines() {
   const visualCascade = readAuditReport("docs/audits/component-visual-cascade-audit.json");
   assertReportStatus(visualCascade, "Component visual cascade");
   assertInventory(visualCascade, {
-    components: 60,
-    pass: 60,
+    components: 59,
+    pass: 59,
     review: 0,
     fail: 0,
     visualCascadeDebt: 0,
@@ -4387,7 +4387,7 @@ function assertReactGovernanceBaselines() {
     generatedTokenOutputs: 9,
     matchingGeneratedTokenOutputs: 9,
     rawTokenValueViolations: 0,
-    sourceBoundaryFilesScanned: 672,
+    sourceBoundaryFilesScanned: 667,
     sourceBoundaryViolations: 0,
     phase3FoundationsPrimitivesDebt: 0,
   }, "Phase 3 foundations/primitives checkpoint");

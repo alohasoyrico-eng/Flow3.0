@@ -82,7 +82,7 @@ try {
     assert.equal(accordion.dataset.density, "sm");
     assert.equal(profile.getAttribute("aria-expanded"), "true");
     assert.equal(profile.getAttribute("aria-controls"), view.container.querySelector("[data-accordion-panel]")?.id);
-    assert.equal(globalThis.document.getElementById(profile.getAttribute("aria-controls"))?.hidden, false);
+    assert.equal(globalThis.document.getElementById(profile.getAttribute("aria-controls"))?.getAttribute("aria-hidden"), "false");
 
     await user.click(documents);
     await waitFor(() => assert.equal(documents.getAttribute("aria-expanded"), "true"));
@@ -91,6 +91,21 @@ try {
 
     documents.focus();
     assert.equal(globalThis.document.activeElement, documents);
+    await user.keyboard("[ArrowDown]");
+    assert.equal(globalThis.document.activeElement, profile);
+    await user.keyboard("[ArrowUp]");
+    assert.equal(globalThis.document.activeElement, documents);
+    await user.keyboard("[Home]");
+    assert.equal(globalThis.document.activeElement, profile);
+    await user.keyboard("[End]");
+    assert.equal(globalThis.document.activeElement, documents);
+    await user.keyboard("[Escape]");
+    await waitFor(() => assert.equal(documents.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(changes.at(-1), { expandedIds: ["profile"], eventType: "keydown" });
+
+    await user.click(documents);
+    await waitFor(() => assert.equal(documents.getAttribute("aria-expanded"), "true"));
+    documents.focus();
     await user.keyboard("[Space]");
     await waitFor(() => assert.equal(documents.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(changes.at(-1), { expandedIds: ["profile"], eventType: "click" });
@@ -120,6 +135,19 @@ try {
     }));
     assert.equal(view.container.textContent, "");
     await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const view = render(React.createElement(Accordion, {
+      defaultOpen: "documents",
+      items: [
+        { id: "profile", title: "Profile", content: "Driver profile", open: true },
+        { id: "documents", title: "Documents", content: "Insurance" },
+      ],
+    }));
+    assert.equal(view.getByRole("button", { name: /profile/i }).getAttribute("aria-expanded"), "false");
+    assert.equal(view.getByRole("button", { name: /documents/i }).getAttribute("aria-expanded"), "true");
     cleanup();
   }
 

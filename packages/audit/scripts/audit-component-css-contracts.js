@@ -31,6 +31,7 @@ const { checkDatePickerCssContract } = require("./audit-date-picker-css-contract
 const { checkEmptyStateCssContract } = require("./audit-empty-state-css-contract.js");
 const { checkErrorPanelCssContract } = require("./audit-error-panel-css-contract.js");
 const { checkFieldCssContract } = require("./audit-field-css-contract.js");
+const { checkFileUploadCssContract } = require("./audit-file-upload-css-contract.js");
 const { checkIconButtonCssContract } = require("./audit-icon-button-css-contract.js");
 const { checkInlineValidationCssContract } = require("./audit-inline-validation-css-contract.js");
 const { checkKpiTileCssContract } = require("./audit-kpi-tile-css-contract.js");
@@ -221,6 +222,7 @@ function checkComponentCssContracts(context) {
   checkEmptyStateCssContract(context);
   checkErrorPanelCssContract(context);
   checkFieldCssContract(context);
+  checkFileUploadCssContract(context);
   checkIconButtonCssContract(context);
   checkInlineValidationCssContract(context);
   checkKpiTileCssContract(context);

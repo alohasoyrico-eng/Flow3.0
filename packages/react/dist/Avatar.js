@@ -3,6 +3,7 @@ import { avatarPlatformContract } from "#flow/platforms";
 import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
 const validStates = new Set(["default", "online", "busy", "offline", "disabled", "unknown"]);
+const validIdentityTones = new Set(["auto", "action", "success", "danger", "warning", "purple", "teal"]);
 function initialsFromName(name) {
     return String(name ?? "")
         .split(" ")
@@ -30,20 +31,34 @@ function identityColorFromName(name) {
     ];
     return palettes[colorIndexFromName(name)] ?? { bg: "var(--comp-avatar-identity-action-bg)", fg: "var(--comp-avatar-identity-default-fg)" };
 }
-export const Avatar = forwardRef(function Avatar({ name, src = "", density, status = "none", state = "default", className = "", ...rest }, ref) {
+function identityColorFromTone(tone, name) {
+    if (!validIdentityTones.has(tone) || tone === "auto")
+        return identityColorFromName(name);
+    const toneMap = {
+        action: { bg: "var(--comp-avatar-identity-action-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+        success: { bg: "var(--comp-avatar-identity-success-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+        danger: { bg: "var(--comp-avatar-identity-danger-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+        warning: { bg: "var(--comp-avatar-identity-warning-bg)", fg: "var(--comp-avatar-identity-warning-fg)" },
+        purple: { bg: "var(--comp-avatar-identity-purple-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+        teal: { bg: "var(--comp-avatar-identity-teal-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    };
+    return toneMap[tone];
+}
+export const Avatar = forwardRef(function Avatar({ name, src = "", density, identityTone = "auto", status = "none", state = "default", className = "", ...rest }, ref) {
     const resolvedDensity = normalizeFlowDensity(density);
     const resolvedStatus = validStatuses.has(status) ? status : "none";
     const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
     const sourceName = String(name ?? "");
     if (!sourceName)
         return null;
-    const identityColor = identityColorFromName(sourceName);
+    const identityColor = identityColorFromTone(identityTone, sourceName);
     return React.createElement("span", {
         ...flowRestProps(rest),
         ref,
         className: ["avatar", className].filter(Boolean).join(" "),
         "aria-label": sourceName,
         ...flowDensityProps(resolvedDensity),
+        "data-identity-tone": validIdentityTones.has(identityTone) ? identityTone : "auto",
         "data-status": resolvedStatus,
         ...flowStateProps(resolvedState),
         style: {

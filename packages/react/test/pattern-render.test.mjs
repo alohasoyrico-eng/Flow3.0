@@ -491,14 +491,17 @@ const fileUploadMarkup = renderToStaticMarkup(React.createElement(FileUpload, {
 
 assert.match(fileUploadMarkup, /data-flow-pattern="file-upload"/);
 assert.match(fileUploadMarkup, /data-file-count="1"/);
-assert.match(fileUploadMarkup, /data-flow-primitive="surface"/);
-assert.match(fileUploadMarkup, /class="surface"/);
-assert.match(fileUploadMarkup, /class="tag/);
+assert.match(fileUploadMarkup, /type="file"/);
+assert.match(fileUploadMarkup, /class="file-upload/);
+assert.match(fileUploadMarkup, /class="file-upload__dropzone"/);
+assert.match(fileUploadMarkup, /class="file-upload__list"/);
+assert.match(fileUploadMarkup, /class="file-upload__item"/);
+assert.match(fileUploadMarkup, /class="file-upload__item-name"/);
 assert.match(fileUploadMarkup, /class="progress/);
 assert.match(fileUploadMarkup, /class="inline-validation/);
-assert.match(fileUploadMarkup, /class="button button--secondary"/);
+assert.match(fileUploadMarkup, /class="icon-button icon-button--ghost/);
 assert.match(fileUploadMarkup, /class="toast/);
-assert.doesNotMatch(fileUploadMarkup, /type="file"|rgb\(255,\s*0,\s*0\)|margin-top|Injected markup|contenteditable=|apps\/docs|docs-demo|gold-/i);
+assert.doesNotMatch(fileUploadMarkup, /data-flow-primitive="surface"|class="surface"|class="tag|class="empty-state|rgb\(255,\s*0,\s*0\)|margin-top|Injected markup|contenteditable=|apps\/docs|docs-demo|gold-/i);
 
 const fileUploadEmptyMarkup = renderToStaticMarkup(React.createElement(FileUpload, {
   label: "Proof of delivery",
@@ -506,7 +509,8 @@ const fileUploadEmptyMarkup = renderToStaticMarkup(React.createElement(FileUploa
   empty: { title: "No file selected", description: "Choose a file to continue." },
 }));
 assert.match(fileUploadEmptyMarkup, /data-flow-pattern="file-upload"/);
-assert.match(fileUploadEmptyMarkup, /class="empty-state/);
+assert.match(fileUploadEmptyMarkup, /class="file-upload__dropzone"/);
+assert.doesNotMatch(fileUploadEmptyMarkup, /class="empty-state|data-flow-primitive="surface"/);
 
 const multiSelectMarkup = renderToStaticMarkup(React.createElement(MultiSelect, {
   label: "Regions",

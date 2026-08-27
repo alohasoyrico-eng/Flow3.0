@@ -127,28 +127,62 @@ const components = {
     directory: "accordion-2026-08-25",
     module: "Accordion.js",
     exportName: "Accordion",
-    buildId: "accordion-react-runtime-1",
+    buildId: "accordion-dashboard-runtime-3",
+    indexImports: ["ProgressIndicator", "FileUpload"],
     eventPropName: "onExpandedChange",
     actionHandler: "(ids, event) => onAction('Accordion=' + ids.join(','))(event)",
     statefulValueProp: "expandedIds",
-    supportPreamble: `const accordionItems = [
-      { id: "route", title: "Route details", meta: "Fleet", icon: "route", content: "Stops, driver handoff and dispatch notes." },
-      { id: "billing", title: "Billing status", meta: "Ops", icon: "receipt_long", content: "Invoice status, payment method and approval trail." },
+    supportPreamble: `const documentUploadFiles = [{ key: "license", name: "licencia-conducir.pdf", size: "668 KB", type: "PDF", status: "Revisado", tone: "success" }];
+    function DashboardDocumentsPanel({ density }) {
+      const [files, setFiles] = React.useState(documentUploadFiles);
+      return e("div", { className: "audit-stack", "data-flow-slot": "accordion-dashboard-documents" },
+      e(ProgressIndicator, { label: "Verificación", value: 3, max: 4, showValue: true, fullWidth: true, tone: "danger", density }),
+      e(FileUpload, {
+        label: "Sube un documento",
+        description: "PDF o foto · máx 10 MB",
+        files,
+        accept: ".pdf,image/*",
+        multiple: true,
+        chooseAction: { key: "choose", label: "Sube un documento", icon: "upload_file" },
+        removeAction: { key: "remove", label: "Quitar", icon: "close", variant: "ghost" },
+        onChange: setFiles,
+        density
+      }));
+    }
+    const documentPanel = (density) => e(DashboardDocumentsPanel, { density });
+    const accordionItems = [
+      { id: "docs", title: "Documentos", meta: "3 de 4", icon: "description", content: documentPanel() },
+      { id: "hist", title: "Historial de viajes", meta: "128", icon: "history", content: "128 viajes este mes. Último: hoy 14:32." },
+      { id: "pagos", title: "Pagos", meta: "Activos", icon: "payments", content: "Depósito semanal a cuenta terminación 4821." },
       { id: "disabled", title: "Archive disabled", meta: "Blocked", icon: "block", disabled: true, content: "Disabled rows stay visible but cannot be toggled." }
     ];`,
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ items: accordionItems, defaultOpen: "docs" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"] })),
-            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route", "billing"], variant: "multiple" }))
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["docs"] })),
+            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["docs", "hist"], variant: "multiple" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"], density: "sm" })),
-            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"], density: "md" })),
-            e("div", { className: "audit-card" }, action({ items: accordionItems, expandedIds: ["route"], density: "lg" }))
+            e("div", { className: "audit-card" }, action({ items: accordionItems, defaultOpen: "docs", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ items: [
+              { id: "docs", title: "Documentos", meta: "3 de 4", icon: "description", content: documentPanel("md") },
+              { id: "hist", title: "Historial de viajes", meta: "128", icon: "history", content: "128 viajes este mes. Último: hoy 14:32." },
+              { id: "pagos", title: "Pagos", meta: "Activos", icon: "payments", content: "Depósito semanal a cuenta terminación 4821." }
+            ], defaultOpen: "docs", density: "md" })),
+            e("div", { className: "audit-card" }, action({ items: [
+              { id: "docs", title: "Documentos", meta: "3 de 4", icon: "description", content: documentPanel("lg") },
+              { id: "hist", title: "Historial de viajes", meta: "128", icon: "history", content: "128 viajes este mes. Último: hoy 14:32." },
+              { id: "pagos", title: "Pagos", meta: "Activos", icon: "payments", content: "Depósito semanal a cuenta terminación 4821." }
+            ], defaultOpen: "docs", density: "lg" }))
           )
         )`,
   },
@@ -1365,8 +1399,8 @@ const components = {
     directory: "drawer-2026-08-25",
     module: "Drawer.js",
     exportName: "Drawer",
-    buildId: "drawer-flat-accordion-runtime-3",
-    indexImports: ["Accordion", "Badge", "ProgressIndicator"],
+    buildId: "drawer-reference-header-runtime-6",
+    indexImports: ["Accordion", "Avatar", "Badge", "FileUpload", "KpiTile", "ProgressIndicator"],
     eventPropName: "onAction",
     actionHandler: "(key, event) => onAction(props.label + '=' + key)(event)",
     actionSelector: "[data-overlay-open]:not(:disabled)",
@@ -1383,11 +1417,32 @@ const components = {
       { key: "close", label: "Cerrar", variant: "ghost" },
       { key: "save", label: "Guardar", variant: "primary" }
     ];
+    const drawerHeaderSummary = (density) => e("div", { className: "drawer-demo__header-summary" },
+      e(Avatar, { name: "Ana Sosa", identityTone: "action", status: "busy", density: "lg" }),
+      e("div", { className: "drawer-demo__identity-copy" },
+        e(Badge, { label: "En ruta", tone: "success", variant: "status", live: true, density }),
+        e("p", { className: "drawer__supporting-copy" }, "Desde 2024 · unidad JMX-214-B")
+      )
+    );
+    const drawerMetrics = (density) => e("div", { className: "drawer-demo__metrics" },
+      e(KpiTile, { label: "RATING", value: "4.96", tone: "neutral", variant: "compact", density }),
+      e(KpiTile, { label: "VIAJES", value: "1240", tone: "neutral", variant: "compact", density }),
+      e(KpiTile, { label: "DOCS", value: "3/4", tone: "neutral", variant: "compact", density })
+    );
     const drawerReferenceBody = (density) => e("div", { className: "audit-stack audit-stack--drawer" },
-      e(Badge, { label: "En ruta", tone: "success", variant: "status", live: true, density }),
-      e("p", { className: "drawer__supporting-copy" }, "Conductora desde 2024 · 1,240 viajes · rating 4.96. Unidad asignada JMX-214-B."),
-      e(Accordion, { surface: "flat", items: [
-        { id: "docs", title: "Documentos", icon: "description", meta: "3 de 4", open: true, content: e(ProgressIndicator, { label: "Verificación", value: 3, max: 4, showValue: true, fullWidth: true, density }) },
+      drawerMetrics(density),
+      e(Accordion, { items: [
+        { id: "docs", title: "Documentos", icon: "description", meta: "3 de 4", open: true, content: e("div", { className: "audit-stack", "data-flow-slot": "drawer-documents" },
+          e(ProgressIndicator, { label: "Verificación", value: 3, max: 4, showValue: true, fullWidth: true, tone: "danger", density }),
+          e(FileUpload, {
+            label: "Sube un documento",
+            description: "PDF o foto · máx 10 MB",
+            files: [{ key: "license", name: "licencia-conducir.pdf", size: "668 KB" }],
+            chooseAction: { key: "choose", label: "Sube un documento", icon: "upload_file" },
+            removeAction: { key: "remove", label: "Quitar", icon: "close", variant: "ghost" },
+            density
+          })
+        ) },
         { id: "hist", title: "Historial de viajes", icon: "history", content: "128 viajes este mes. Último: hoy 14:32, Roma Norte → Polanco." },
         { id: "pagos", title: "Métodos de pago", icon: "payments", content: "Depósito semanal a cuenta terminación 4821." }
       ] })
@@ -1403,7 +1458,7 @@ const components = {
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Referencia ZIP aplicada a Flow"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Abrir drawer", closeLabel: "Cerrar", children: drawerReferenceBody(), actions: referenceActions }))
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Abrir drawer", closeLabel: "Cerrar", summary: drawerHeaderSummary(), children: drawerReferenceBody(), actions: referenceActions }))
           )
         ),
         e("section", { className: "audit-section" },
@@ -1417,10 +1472,10 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Lados / densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open left", closeLabel: "Close drawer", side: "left", children: drawerReferenceBody(), actions: referenceActions })),
-            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open small", closeLabel: "Close drawer", density: "sm", children: drawerReferenceBody("sm"), actions: referenceActions })),
-            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open medium", closeLabel: "Close drawer", density: "md", children: drawerReferenceBody("md"), actions: referenceActions })),
-            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open large", closeLabel: "Close drawer", density: "lg", children: drawerReferenceBody("lg"), actions: referenceActions }))
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open left", closeLabel: "Close drawer", side: "left", summary: drawerHeaderSummary(), children: drawerReferenceBody(), actions: referenceActions })),
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open small", closeLabel: "Close drawer", density: "sm", summary: drawerHeaderSummary("sm"), children: drawerReferenceBody("sm"), actions: referenceActions })),
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open medium", closeLabel: "Close drawer", density: "md", summary: drawerHeaderSummary("md"), children: drawerReferenceBody("md"), actions: referenceActions })),
+            e("div", { className: "audit-card" }, action({ label: "Ana Sosa", triggerLabel: "Open large", closeLabel: "Close drawer", density: "lg", summary: drawerHeaderSummary("lg"), children: drawerReferenceBody("lg"), actions: referenceActions }))
           )
         )`,
   },
@@ -1630,6 +1685,29 @@ const html = `<!doctype html>
     .audit-stack--drawer {
       align-content: start;
       gap: var(--component-space-xl);
+    }
+
+    .drawer-demo__header-summary {
+      align-items: center;
+      display: flex;
+      gap: var(--component-space-md);
+    }
+
+    .drawer-demo__identity-copy {
+      align-items: start;
+      display: grid;
+      gap: var(--component-space-xs);
+      min-inline-size: 0;
+    }
+
+    .drawer-demo__identity-copy .badge {
+      justify-self: start;
+    }
+
+    .drawer-demo__metrics {
+      display: grid;
+      gap: var(--component-space-sm);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     h1,

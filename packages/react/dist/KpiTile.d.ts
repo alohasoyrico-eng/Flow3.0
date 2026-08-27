@@ -2,7 +2,7 @@ import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEve
 import type { FlowDataAttributes } from "./internal/props.js";
 import type { kpiTilePlatformContract } from "#flow/platforms";
 
-export type KpiTileVariant = "standard" | "delta" | "threshold" | "sparkline" | "drill-in";
+export type KpiTileVariant = "standard" | "compact" | "delta" | "threshold" | "sparkline" | "drill-in";
 export type KpiTileState = "default" | "hover" | "focus" | "selected" | "loading" | "risk" | "disabled";
 export type KpiTileDensity = "sm" | "md" | "lg";
 export type KpiTileTone = "neutral" | "info" | "success" | "warning" | "danger";

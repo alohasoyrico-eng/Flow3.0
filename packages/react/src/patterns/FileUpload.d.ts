@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
+import type { ChangeEvent, ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
 import type { ButtonProps } from "../Button.js";
 import type { CardDensity } from "../Card.js";
 import type { EmptyStateProps } from "../EmptyState.js";
@@ -49,6 +49,7 @@ export interface FileUploadProps {
   loading?: boolean;
   multiple?: boolean;
   files?: FileUploadFile[];
+  accept?: string;
   progress?: FileUploadProgress;
   chooseAction?: FileUploadAction;
   removeAction?: FileUploadAction;
@@ -57,7 +58,8 @@ export interface FileUploadProps {
   validation?: FileUploadValidation;
   feedback?: FileUploadFeedback;
   className?: string;
-  onChoose?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onChoose?: (event: MouseEvent<HTMLElement>) => void;
+  onChange?: (files: FileUploadFile[], event?: ChangeEvent<HTMLInputElement>) => void;
   onRemove?: (key: string, event?: MouseEvent<HTMLElement>) => void;
   onRetry?: (event?: MouseEvent<HTMLElement>) => void;
   [key: `data-${string}`]: string | number | boolean | undefined;

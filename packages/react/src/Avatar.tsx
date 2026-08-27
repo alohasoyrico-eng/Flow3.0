@@ -7,11 +7,13 @@ import type { FlowDataAttributes } from "./internal/props.js";
 export type AvatarDensity = "sm" | "md" | "lg";
 export type AvatarStatus = "none" | "online" | "busy" | "offline";
 export type AvatarState = "default" | "online" | "busy" | "offline" | "disabled" | "unknown";
+export type AvatarIdentityTone = "auto" | "action" | "success" | "danger" | "warning" | "purple" | "teal";
 
 export interface AvatarProps extends Omit<HTMLAttributes<HTMLSpanElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   name: string;
   src?: string;
   density?: AvatarDensity;
+  identityTone?: AvatarIdentityTone;
   status?: AvatarStatus;
   state?: AvatarState;
 }
@@ -28,6 +30,7 @@ type AvatarIdentityStyle = CSSProperties & {
 
 const validStatuses = new Set<AvatarStatus>(["none", "online", "busy", "offline"]);
 const validStates = new Set<AvatarState>(["default", "online", "busy", "offline", "disabled", "unknown"]);
+const validIdentityTones = new Set<AvatarIdentityTone>(["auto", "action", "success", "danger", "warning", "purple", "teal"]);
 
 function initialsFromName(name: string): string {
   return String(name ?? "")
@@ -58,10 +61,24 @@ function identityColorFromName(name: string): { bg: string; fg: string } {
   return palettes[colorIndexFromName(name)] ?? { bg: "var(--comp-avatar-identity-action-bg)", fg: "var(--comp-avatar-identity-default-fg)" };
 }
 
+function identityColorFromTone(tone: AvatarIdentityTone, name: string): { bg: string; fg: string } {
+  if (!validIdentityTones.has(tone) || tone === "auto") return identityColorFromName(name);
+  const toneMap: Record<Exclude<AvatarIdentityTone, "auto">, { bg: string; fg: string }> = {
+    action: { bg: "var(--comp-avatar-identity-action-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    success: { bg: "var(--comp-avatar-identity-success-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    danger: { bg: "var(--comp-avatar-identity-danger-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    warning: { bg: "var(--comp-avatar-identity-warning-bg)", fg: "var(--comp-avatar-identity-warning-fg)" },
+    purple: { bg: "var(--comp-avatar-identity-purple-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+    teal: { bg: "var(--comp-avatar-identity-teal-bg)", fg: "var(--comp-avatar-identity-default-fg)" },
+  };
+  return toneMap[tone];
+}
+
 export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar({
   name,
   src = "",
   density,
+  identityTone = "auto",
   status = "none",
   state = "default",
   className = "",
@@ -73,7 +90,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar({
   const sourceName = String(name ?? "");
 
   if (!sourceName) return null;
-  const identityColor = identityColorFromName(sourceName);
+  const identityColor = identityColorFromTone(identityTone, sourceName);
 
   return React.createElement(
     "span",
@@ -83,6 +100,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar({
       className: ["avatar", className].filter(Boolean).join(" "),
       "aria-label": sourceName,
       ...flowDensityProps(resolvedDensity),
+      "data-identity-tone": validIdentityTones.has(identityTone) ? identityTone : "auto",
       "data-status": resolvedStatus,
       ...flowStateProps(resolvedState),
       style: {

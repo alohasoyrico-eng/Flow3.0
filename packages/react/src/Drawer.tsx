@@ -56,6 +56,7 @@ export type DrawerContent =
 export interface DrawerProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "content" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
+  summary?: ReactNode;
   children?: ReactNode;
   triggerLabel?: string;
   closeLabel?: string;
@@ -160,6 +161,7 @@ function renderContentItem(item: DrawerContent, inheritedDensity: FlowDensity | 
 export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
   label,
   description,
+  summary,
   triggerLabel,
   closeLabel,
   variant = "side-sheet",
@@ -295,18 +297,23 @@ export const Drawer = forwardRef<HTMLDivElement, DrawerProps>(function Drawer({
         },
         React.createElement(
           "header",
-          null,
-          React.createElement("strong", { id: titleId }, label),
-          showCloseButton && closeLabel ? React.createElement(IconButton, {
-            ref: closeRef,
-            icon: "close",
-            label: closeLabel,
-            ...(resolvedDensity ? { density: resolvedDensity as FlowDensity } : {}),
-            variant: "ghost",
-            className: "drawer__close",
-            "data-overlay-close": "",
-            onClick: (event: MouseEvent<HTMLButtonElement>) => closeDrawer({ event }),
-          }) : null,
+          { className: "drawer__header" },
+          React.createElement(
+            "div",
+            { className: "drawer__header-row" },
+            React.createElement("strong", { id: titleId, className: "drawer__title" }, label),
+            showCloseButton && closeLabel ? React.createElement(IconButton, {
+              ref: closeRef,
+              icon: "close",
+              label: closeLabel,
+              ...(resolvedDensity ? { density: resolvedDensity as FlowDensity } : {}),
+              variant: "ghost",
+              className: "drawer__close",
+              "data-overlay-close": "",
+              onClick: (event: MouseEvent<HTMLButtonElement>) => closeDrawer({ event }),
+            }) : null,
+          ),
+          summary ? React.createElement("div", { className: "drawer__summary" }, summary) : null,
           description ? React.createElement("p", null, description) : null,
         ),
         React.createElement(

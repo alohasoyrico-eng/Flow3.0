@@ -866,7 +866,6 @@ export type {
   CodeBlockVariant,
 } from "./CodeBlock.js";
 export type {
-export type {
   ButtonComponent,
   ButtonDensity,
   ButtonIntent,

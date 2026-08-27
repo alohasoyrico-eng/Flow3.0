@@ -78,6 +78,15 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "BiometricPrompt" && /actionLabel\s*\?\s*React\.createElement\(Button|fallback\s*\?\s*React\.createElement\(Button/.test(source)) add("errors", sourceFile, 1, "BiometricPrompt controls must be gated by executable action contracts, not copy alone.");
   if (name === "ProgressIndicator" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "ProgressIndicator must require a visible progress label before rendering.");
   if (name === "ProgressIndicator" && /"aria-label":\s*label\s*\?\s*undefined\s*:\s*rest\["aria-label"\]|label \? React\.createElement\("span", \{ className: "progress__label"/.test(source)) add("errors", sourceFile, 1, "ProgressIndicator must not replace its required visible label with an aria-only fallback.");
+  if (name === "FileUpload" && /React\.createElement\(\s*Surface|React\.createElement\(\s*Tag|React\.createElement\(\s*EmptyState/.test(source)) add("errors", sourceFile, 1, "FileUpload must keep the ZIP dropzone/list anatomy instead of composing a nested Surface, Tag, or EmptyState card.");
+  if (name === "FileUpload" && !source.includes('className: "file-upload__dropzone"')) add("errors", sourceFile, 1, "FileUpload must render the ZIP dropzone affordance as its visual upload target.");
+  if (name === "FileUpload" && !source.includes('className: "file-upload__list"')) add("errors", sourceFile, 1, "FileUpload must render selected files as a removable list below the dropzone.");
+  if (name === "FileUpload" && !source.includes("const inputRef = useRef<HTMLInputElement>(null);")) add("errors", sourceFile, 1, "FileUpload must own a hidden native file input ref for the OS file picker instead of shipping a fake upload action.");
+  if (name === "FileUpload" && !source.includes('type: "file"')) add("errors", sourceFile, 1, "FileUpload must render a native file input for real upload selection.");
+  if (name === "FileUpload" && (!source.includes("hidden: true") || !source.includes("tabIndex: -1"))) add("errors", sourceFile, 1, "FileUpload native file input must stay hidden and outside the keyboard order; visual interaction belongs to the ZIP dropzone.");
+  if (name === "FileUpload" && !source.includes("onChange?.(nextFiles, event);")) add("errors", sourceFile, 1, "FileUpload must expose selected files through onChange with the original input event.");
+  if (name === "FileUpload" && !source.includes("inputRef.current?.click();")) add("errors", sourceFile, 1, "FileUpload choose action must open the native file picker after preserving consumer handlers.");
+  if (name === "FileUpload" && !source.includes('event.key === "Enter" || event.key === " "')) add("errors", sourceFile, 1, "FileUpload dropzone must support Enter and Space for keyboard upload selection.");
   if (name === "Spinner" && !source.includes("const isDecorative = decorative || resolvedState === \"decorative\" || !label;")) add("errors", sourceFile, 1, "Spinner must become decorative when it has no accessible loading label.");
   if (name === "Spinner" && /label\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Spinner must use absent labels to become decorative instead of hiding label behind an empty default.");
   if (name === "CodeInput" && !source.includes("if (!label) return null;")) add("errors", sourceFile, 1, "CodeInput must require a visible field label before rendering.");
@@ -204,7 +213,13 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Accordion" && !source.includes("const openIds = isExpandedIdsControlled")) add("errors", sourceFile, 1, "Accordion expandedIds must control open panels in render instead of syncing through a later effect.");
   if (name === "Accordion" && !source.includes("if (!isExpandedIdsControlled) setInternalOpenIds(next);")) add("errors", sourceFile, 1, "Accordion must not mutate internal expanded state when expandedIds is controlled.");
   if (name === "Accordion" && !source.includes("onClick?.(event);\n              if (event.defaultPrevented) return;\n              setItemOpen(item, !open, event);")) add("errors", sourceFile, 1, "Accordion triggers must preserve item onClick and respect prevented clicks before expansion changes.");
-  if (name === "Accordion" && !source.includes("onExpandedChange?.(next, event);")) add("errors", sourceFile, 1, "Accordion must pass the original click event through onExpandedChange.");
+  if (name === "Accordion" && !source.includes("onKeyDown?.(event);\n              if (event.defaultPrevented) return;")) add("errors", sourceFile, 1, "Accordion triggers must preserve item onKeyDown before keyboard header navigation.");
+  if (name === "Accordion") {
+    const supportsHeaderKeyboard = source.includes("function focusAccordionTrigger(event") &&
+      ["ArrowDown", "ArrowUp", "Home", "End", "Escape"].every((key) => source.includes(`event.key === "${key}"`));
+    if (!supportsHeaderKeyboard) add("errors", sourceFile, 1, "Accordion must support ArrowUp/ArrowDown/Home/End header navigation and Escape collapse.");
+  }
+  if (name === "Accordion" && !source.includes("onExpandedChange?.(next, event);")) add("errors", sourceFile, 1, "Accordion must pass the original click or keyboard event through onExpandedChange.");
   if (name === "Tabs" && /label:\s*item\?\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Tabs must not render unlabeled tabs; filter items without visible labels before normalizing.");
   if (name === "Tabs" && /item\?\.key\s*\?\?\s*item\?\.value\s*\?\?\s*item\?\.label|`tab-\$\{index \+ 1\}`/.test(source)) add("errors", sourceFile, 1, "Tabs must not synthesize tab keys from labels or indexes.");
   if (name === "Tabs" && !source.includes("function hasStableItemKey(item")) add("errors", sourceFile, 1, "Tabs must centralize stable tab key validation before composing tabs.");

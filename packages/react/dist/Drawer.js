@@ -70,7 +70,7 @@ function renderContentItem(item, inheritedDensity) {
     }
     return null;
 }
-export const Drawer = forwardRef(function Drawer({ label, description, triggerLabel, closeLabel, variant = "side-sheet", state = "closed", tone = "neutral", density, side = "right", children, fields, content, actions, open: openProp, showCloseButton = true, id, onOpenChange, onAction, className = "", ...rest }, ref) {
+export const Drawer = forwardRef(function Drawer({ label, description, summary, triggerLabel, closeLabel, variant = "side-sheet", state = "closed", tone = "neutral", density, side = "right", children, fields, content, actions, open: openProp, showCloseButton = true, id, onOpenChange, onAction, className = "", ...rest }, ref) {
     const reactId = useId();
     const triggerRef = useRef(null);
     const closeRef = useRef(null);
@@ -177,7 +177,7 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
         "aria-labelledby": titleId,
         tabIndex: -1,
         onClick: (event) => event.stopPropagation(),
-    }, React.createElement("header", null, React.createElement("strong", { id: titleId }, label), showCloseButton && closeLabel ? React.createElement(IconButton, {
+    }, React.createElement("header", { className: "drawer__header" }, React.createElement("div", { className: "drawer__header-row" }, React.createElement("strong", { id: titleId, className: "drawer__title" }, label), showCloseButton && closeLabel ? React.createElement(IconButton, {
         ref: closeRef,
         icon: "close",
         label: closeLabel,
@@ -186,7 +186,7 @@ export const Drawer = forwardRef(function Drawer({ label, description, triggerLa
         className: "drawer__close",
         "data-overlay-close": "",
         onClick: (event) => closeDrawer({ event }),
-    }) : null, description ? React.createElement("p", null, description) : null), React.createElement("div", { className: "drawer__body" }, children, sourceContent.map((item) => renderContentItem(item, resolvedDensity)), visibleFields.map((field) => {
+    }) : null), summary ? React.createElement("div", { className: "drawer__summary" }, summary) : null, description ? React.createElement("p", null, description) : null), React.createElement("div", { className: "drawer__body" }, children, sourceContent.map((item) => renderContentItem(item, resolvedDensity)), visibleFields.map((field) => {
         const normalized = field ?? {};
         const { variant: fieldVariant, state: fieldState, density: fieldDensity, readOnly, ...fieldProps } = normalized;
         const mappedVariant = inputVariantForField(fieldVariant);

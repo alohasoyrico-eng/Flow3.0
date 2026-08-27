@@ -716,19 +716,21 @@ export const componentContracts = {
     states: ["closed", "open", "disabled"],
     props: [
       { name: "items", type: "AccordionItem[]", required: true },
+      { name: "defaultOpen", type: "string", required: false },
       { name: "multiple", type: "boolean", required: false },
       { name: "expandedIds", type: "string[]", required: false },
-      { name: "onExpandedChange", type: "(expandedIds: string[]) => void", required: false },
+      { name: "onExpandedChange", type: "(expandedIds: string[], event?: MouseEvent | KeyboardEvent) => void", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
       { name: "variant", type: "\"single\" | \"multiple\"", required: false },
-      { name: "surface", type: "\"raised\" | \"flat\"", required: false }
+      { name: "surface", type: "\"solid\" | \"transparent\"", required: false }
     ],
     accessibility: [
       "Use buttons for section triggers.",
       "Connect triggers and panels with aria-controls and aria-labelledby.",
       "Require stable item ids before composing triggers and panels.",
       "Use title and content as the only AccordionItem title and panel sources; do not alias label or description.",
-      "Expose open state with aria-expanded."
+      "Expose open state with aria-expanded.",
+      "Support ArrowDown/ArrowUp/Home/End navigation between enabled triggers and Escape collapse for the focused open trigger."
     ]
   },
   slider: {
@@ -772,6 +774,7 @@ export const componentContracts = {
       { name: "name", type: "string", required: true },
       { name: "src", type: "string", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "identityTone", type: "\"auto\" | \"action\" | \"success\" | \"danger\" | \"warning\" | \"purple\" | \"teal\"", required: false },
       { name: "status", type: "AvatarStatus", required: false },
       { name: "state", type: "AvatarState", required: false }
     ],
@@ -1092,7 +1095,7 @@ export const componentContracts = {
     factory: "@design-system/react/kpi-tile",
     element: "article",
     purpose: "Show one compact operational metric with label, value, optional delta, trend, threshold tone, sparkline hint, and optional drill-in affordance.",
-    variants: ["standard", "delta", "threshold", "sparkline", "drill-in"],
+    variants: ["standard", "compact", "delta", "threshold", "sparkline", "drill-in"],
     intents: ["neutral", "info", "success", "warning", "danger"],
     states: ["default", "hover", "focus", "selected", "loading", "risk", "disabled"],
     props: [

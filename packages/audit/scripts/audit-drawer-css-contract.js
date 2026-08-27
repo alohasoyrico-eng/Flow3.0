@@ -30,6 +30,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-drawer-panel-padding: var(--component-frame-space-none)",
       "--comp-drawer-header-gap: var(--component-space-md)",
       "--comp-drawer-header-padding-inline: var(--component-space-xl)",
+      "--comp-drawer-title-font-size: var(--component-font-size-title-lg)",
       "--comp-drawer-body-padding-inline: var(--component-space-xl)",
       "--comp-drawer-footer-gap: calc(var(--component-space-sm) + var(--component-frame-space-micro))",
       "--comp-drawer-footer-padding-inline: var(--component-space-xl)",
@@ -65,7 +66,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-drawer-header-padding-inline: var(--component-space-lg)",
       "--comp-drawer-body-padding-inline: var(--component-space-lg)",
       "--comp-drawer-footer-padding-inline: var(--component-space-lg)",
-      "--comp-drawer-title-font-size: var(--component-font-size-body)",
+      "--comp-drawer-title-font-size: var(--component-font-size-title-md)",
     ],
     message: "Drawer sm density must set aliases on the Drawer root.",
   });
@@ -78,7 +79,7 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-drawer-header-padding-inline: var(--component-space-7)",
       "--comp-drawer-body-padding-inline: var(--component-space-7)",
       "--comp-drawer-footer-padding-inline: var(--component-space-7)",
-      "--comp-drawer-title-font-size: var(--component-font-size-title-md)",
+      "--comp-drawer-title-font-size: var(--component-font-size-title-lg)",
     ],
     message: "Drawer lg density must set aliases on the Drawer root.",
   });
@@ -126,6 +127,11 @@ function checkDrawerCssContract({ text, blocks, packageCssFile, selectorKey }) {
   for (const staleSelector of ['.drawer[data-density="sm"] .drawer__panel', '.drawer[data-density="lg"] .drawer__panel']) {
     if (blockFor(blocks, selectorKey, staleSelector)) {
       add("errors", packageCssFile, 1, "Drawer density aliases must live on the root, not on the panel selector.");
+    }
+  }
+  for (const leakedSelector of [".drawer__panel header", ".drawer__panel header strong", ".drawer__panel header p"]) {
+    if (blockFor(blocks, selectorKey, leakedSelector)) {
+      add("errors", packageCssFile, 1, "Drawer must not target generic nested header selectors; use Drawer slot classes so child components keep their own anatomy.");
     }
   }
   if (/--comp-drawer-z-index:\s*var\(--component-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--component-z-dialog,\s*\d+\)/.test(text) || /--comp-drawer-z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text) || /z-index:\s*var\(--sys-depth-z-dialog,\s*\d+\)/.test(text)) {

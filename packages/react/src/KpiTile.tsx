@@ -5,7 +5,7 @@ import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDens
 import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
-export type KpiTileVariant = "standard" | "delta" | "threshold" | "sparkline" | "drill-in";
+export type KpiTileVariant = "standard" | "compact" | "delta" | "threshold" | "sparkline" | "drill-in";
 export type KpiTileState = "default" | "hover" | "focus" | "selected" | "loading" | "risk" | "disabled";
 export type KpiTileDensity = FlowDensity;
 export type KpiTileTone = "neutral" | "info" | "success" | "warning" | "danger";
@@ -43,7 +43,7 @@ export interface KpiTileComponent extends ForwardRefExoticComponent<KpiTileProps
   platformContract: typeof kpiTilePlatformContract;
 }
 
-const validVariants = new Set<KpiTileVariant>(["standard", "delta", "threshold", "sparkline", "drill-in"]);
+const validVariants = new Set<KpiTileVariant>(["standard", "compact", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set<KpiTileState>(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
 const validTones = new Set<KpiTileTone>(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set<KpiTileTrend>(["up", "down", "flat"]);

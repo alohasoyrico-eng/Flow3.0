@@ -18,6 +18,9 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
   const rootBlock = rootBlocks[0];
   const densitySmBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-density=\"sm\"]");
   const densityLgBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-density=\"lg\"]");
+  const compactBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"compact\"]");
+  const compactHeaderBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"compact\"] header");
+  const compactValueBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"compact\"] .kpi-tile__label,\n.kpi-tile[data-variant=\"compact\"] .kpi-tile__value");
   const interactiveBlock = blocks.find((block) => block.selector.includes(".kpi-tile:is(a, [role=\"button\"])"));
   const hoverBlock = blocks.find((block) => block.selector.includes(".kpi-tile[data-state=\"hover\"]"));
   const focusBlock = blocks.find((block) => block.selector.includes(".kpi-tile:focus-visible"));
@@ -112,6 +115,41 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "--comp-kpi-tile-min-block-size:",
     ],
     message: "KPI Tile large density must set aliases instead of direct layout properties.",
+  });
+  requireIncludes({
+    block: compactBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-kpi-tile-depth: var(--component-depth-none)",
+      "--comp-kpi-tile-header-size: var(--component-font-size-caption)",
+      "--comp-kpi-tile-value-size: var(--component-font-size-data-lg)",
+      "--comp-kpi-tile-value-weight: var(--component-font-weight-light)",
+      "justify-items: start",
+    ],
+    message: "KPI Tile compact variant must use light dashboard metric voice instead of inheriting the heavier KPI standard.",
+  });
+  requireIncludes({
+    block: compactHeaderBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "display: grid",
+      "inline-size: 100%",
+      "justify-content: flex-start",
+      "justify-items: start",
+    ],
+    message: "KPI Tile compact header must align label and value on the same axis.",
+  });
+  requireIncludes({
+    block: compactValueBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "justify-self: start",
+      "text-align: start",
+    ],
+    message: "KPI Tile compact label/value must be start-aligned as a reusable metric anatomy.",
   });
   requireIncludes({
     block: interactiveBlock,

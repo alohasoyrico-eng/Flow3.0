@@ -5,7 +5,7 @@
 import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
-const validVariants = new Set(["standard", "delta", "threshold", "sparkline", "drill-in"]);
+const validVariants = new Set(["standard", "compact", "delta", "threshold", "sparkline", "drill-in"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set(["up", "down", "flat"]);
