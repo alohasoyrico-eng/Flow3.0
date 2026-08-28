@@ -6,12 +6,15 @@ import React, {
   type ReactElement,
   type ReactNode,
   type RefAttributes,
+  type CSSProperties,
   forwardRef,
   useMemo,
   useState,
 } from "react";
 import { tablePlatformContract } from "@design-system/components/platforms";
 import { Badge } from "./Badge.js";
+import { Checkbox } from "./Checkbox.js";
+import { EmptyState } from "./EmptyState.js";
 import {
   type FlowDataAttributes,
   type FlowDensity,
@@ -25,14 +28,16 @@ import {
 
 const validVariants = new Set(["standard", "dense", "sortable", "selectable", "expandable"]);
 const validStates = new Set(["default", "hover", "focus", "selected", "sorted", "expanded"]);
-const validColumnAlignments = new Set(["right"]);
+const validColumnAlignments = new Set(["center", "right"]);
 const validColumnPriorities = new Set(["primary", "secondary", "tertiary"]);
+const validSurfaces = new Set(["card", "embedded"]);
 
 export type TableVariant = "standard" | "dense" | "sortable" | "selectable" | "expandable";
 export type TableState = "default" | "hover" | "focus" | "selected" | "sorted" | "expanded";
 export type TableDensity = "sm" | "md" | "lg";
+export type TableSurface = "card" | "embedded";
 export type TableSortDirection = "ascending" | "descending";
-export type TableColumnAlign = "left" | "right";
+export type TableColumnAlign = "left" | "center" | "right";
 export type TableColumnPriority = "primary" | "secondary" | "tertiary";
 
 export type TableBadgeCell = {
@@ -48,9 +53,15 @@ export type TableSort = {
   key: string;
   direction: TableSortDirection;
 };
+export type TableDefaultSort = {
+  key: string;
+  direction?: TableSortDirection;
+  dir?: 1 | -1;
+};
 export type TableSortEvent = MouseEvent<HTMLButtonElement>;
 export type TableRowSelectEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
-export type TableExpandedEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLTableRowElement>;
+export type TableRowClickEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
+export type TableExpandedEvent = MouseEvent<HTMLButtonElement> | MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
 
 export interface TableColumn {
   key: string;
@@ -59,6 +70,8 @@ export interface TableColumn {
   align?: TableColumnAlign;
   mono?: boolean;
   priority?: TableColumnPriority;
+  width?: string | number;
+  editable?: boolean;
   sortValue?: (row: TableRow) => string | number | null | undefined;
   render?: (row: TableRow) => ReactNode;
 }
@@ -72,15 +85,29 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"
   variant?: TableVariant;
   state?: TableState;
   density?: TableDensity;
+  surface?: TableSurface;
   dense?: boolean;
+  zebra?: boolean;
+  stickyHeader?: boolean;
+  emptyLabel?: string;
+  emptyDescription?: string;
+  emptyIcon?: string;
+  tree?: boolean;
+  childrenKey?: string;
+  selection?: string[];
   sortKey?: string;
   sortDir?: TableSortDirection;
+  defaultSort?: TableDefaultSort;
   selectedKey?: string;
   expandedKey?: string;
+  defaultExpandedKey?: string;
   renderDetail?: (row: TableRow) => ReactNode;
   onSortChange?: (sort: TableSort, event: TableSortEvent) => void;
   onRowSelect?: (key: string, event: TableRowSelectEvent) => void;
+  onRowClick?: (row: TableRow, event: TableRowClickEvent) => void;
   onExpandedChange?: (key: string, event: TableExpandedEvent) => void;
+  onSelectionChange?: (keys: string[]) => void;
+  onCellEdit?: (key: string, columnKey: string, value: string) => void;
 }
 
 export interface TableComponent extends ForwardRefExoticComponent<TableProps & RefAttributes<HTMLDivElement>> {
@@ -104,8 +131,12 @@ function badgeVariantFor(variant: TableBadgeCell["variant"]): "status" | "count"
   return variant ?? "status";
 }
 
-function normalizedColumnAlignment(align: TableColumn["align"]): "right" | undefined {
-  return align === "right" ? "right" : undefined;
+function badgeDensityForTable(inheritedDensity: FlowDensity | undefined): FlowDensity {
+  return inheritedDensity === "lg" ? "md" : "sm";
+}
+
+function normalizedColumnAlignment(align: TableColumn["align"]): "center" | "right" | undefined {
+  return align && validColumnAlignments.has(align) ? align as "center" | "right" : undefined;
 }
 
 function normalizedColumnPriority(priority: TableColumn["priority"]): "primary" | "secondary" | "tertiary" | undefined {
@@ -117,6 +148,17 @@ function rowDataLabel(row: TableRow, key: string): string {
   return typeof label === "string" || typeof label === "number" ? String(label) : key;
 }
 
+function rowKeyFor(row: TableRow, rowKey: string, index: number): string {
+  const key = row?.[rowKey];
+  if (key !== undefined && key !== null && key !== "") return String(key);
+  if (row.__group) return `group-${String(row.__group)}`;
+  return String(index);
+}
+
+function columnWidthStyle(width: TableColumn["width"]): CSSProperties | undefined {
+  return width !== undefined ? { "--comp-table-column-width": typeof width === "number" ? `${width}px` : width } as CSSProperties : undefined;
+}
+
 function renderCell(value: TableCellValue, inheritedDensity: FlowDensity | undefined): ReactNode {
   if (React.isValidElement(value)) return value;
   if (isTableBadgeCell(value)) {
@@ -125,10 +167,16 @@ function renderCell(value: TableCellValue, inheritedDensity: FlowDensity | undef
       tone: value.tone ?? "neutral",
       variant: badgeVariantFor(value.variant),
       icon: value.icon ?? "",
-      ...(inheritedDensity ? { density: inheritedDensity } : {}),
+      density: badgeDensityForTable(inheritedDensity),
     });
   }
   return value ?? "";
+}
+
+function normalizeDefaultSort(defaultSort: TableDefaultSort | undefined): TableSort {
+  if (!defaultSort?.key) return { key: "", direction: "ascending" };
+  const direction = defaultSort.direction ?? (defaultSort.dir === -1 ? "descending" : "ascending");
+  return { key: defaultSort.key, direction };
 }
 
 export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
@@ -140,39 +188,59 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
   variant = "standard",
   state = "default",
   density,
+  surface = "card",
   dense = false,
+  zebra = false,
+  stickyHeader = false,
+  emptyLabel = "",
+  emptyDescription = "",
+  emptyIcon = "search_off",
+  tree = false,
+  childrenKey = "children",
+  selection,
   sortKey,
   sortDir = "ascending",
+  defaultSort,
   selectedKey,
   expandedKey,
+  defaultExpandedKey,
   renderDetail,
   onSortChange,
   onRowSelect,
+  onRowClick,
   onExpandedChange,
+  onSelectionChange,
+  onCellEdit,
   className = "",
   ...rest
 }, ref) {
   const resolvedVariant = (dense ? "dense" : normalizeFlowValue(variant, validVariants, "standard")) as TableVariant;
+  const resolvedSurface = normalizeFlowValue(surface, validSurfaces, "card") as TableSurface;
   const initialState = normalizeFlowValue(state, validStates, "default") as TableState;
   const resolvedDensity = normalizeFlowDensity(density);
   const resolvedColumns = useMemo<TableColumn[]>(() => (Array.isArray(columns) ? columns : []).filter((column) => column?.key && column?.label), [columns]);
   const resolvedRows = useMemo<TableRow[]>(() => (Array.isArray(rows) ? rows : []).filter((row) => {
+    if (row?.__group) return true;
     const key = row?.[rowKey];
     return key !== undefined && key !== null && key !== "";
   }), [rowKey, rows]);
   const sortable = resolvedVariant === "sortable" || resolvedColumns.some((column) => column.sortable);
   const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
+  const bulkSelectable = Array.isArray(selection);
   const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
-  const canRenderExpanders = expandable && typeof getExpandLabel === "function";
+  const canRenderDetailExpanders = expandable && typeof getExpandLabel === "function";
+  const hasExpanderColumn = tree || canRenderDetailExpanders;
   const isSelectedKeyControlled = selectedKey !== undefined;
   const isSortControlled = sortKey !== undefined;
   const isExpandedKeyControlled = expandedKey !== undefined;
-  const [internalSort, setInternalSort] = useState<TableSort>({ key: sortKey ?? "", direction: sortDir });
+  const [internalSort, setInternalSort] = useState<TableSort>(() => sortKey ? { key: sortKey, direction: sortDir } : normalizeDefaultSort(defaultSort));
   const [internalSelected, setInternalSelected] = useState<string>(String(selectedKey ?? ""));
-  const [internalExpanded, setInternalExpanded] = useState<string>(String(expandedKey ?? ""));
+  const [internalExpanded, setInternalExpanded] = useState<string>(String(expandedKey ?? defaultExpandedKey ?? ""));
+  const [editCell, setEditCell] = useState<{ key: string; columnKey: string; value: string } | null>(null);
   const currentSort = isSortControlled ? { key: sortKey ?? "", direction: sortDir } : internalSort;
   const currentSelected = isSelectedKeyControlled ? String(selectedKey ?? "") : internalSelected;
   const currentExpanded = isExpandedKeyControlled ? String(expandedKey ?? "") : internalExpanded;
+  const selectedKeys = new Set((selection ?? []).map(String));
 
   const sortedRows = useMemo(() => {
     if (!currentSort.key) return [...resolvedRows];
@@ -180,6 +248,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
     if (!column) return [...resolvedRows];
     const direction = currentSort.direction === "descending" ? -1 : 1;
     return [...resolvedRows].sort((a, b) => {
+      if (a.__group || b.__group) return 0;
       const aValue = sortValue(a, column);
       const bValue = sortValue(b, column);
       if (aValue == null) return 1;
@@ -189,8 +258,26 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
     });
   }, [currentSort.direction, currentSort.key, resolvedColumns, resolvedRows]);
 
+  const visibleRows = useMemo(() => {
+    if (!tree) return sortedRows.map((row, index) => ({ row, depth: 0, index }));
+    const output: Array<{ row: TableRow; depth: number; index: number }> = [];
+    const walk = (items: TableRow[], depth: number) => {
+      items.forEach((row, index) => {
+        output.push({ row, depth, index: output.length });
+        const key = rowKeyFor(row, rowKey, index);
+        const children = Array.isArray(row[childrenKey]) ? row[childrenKey] as TableRow[] : [];
+        if (children.length && currentExpanded === key) walk(children, depth + 1);
+      });
+    };
+    walk(sortedRows, 0);
+    return output;
+  }, [childrenKey, currentExpanded, rowKey, sortedRows, tree]);
+
+  const selectableRowKeys = visibleRows.filter(({ row }) => !row.__group).map(({ row, index }) => rowKeyFor(row, rowKey, index));
+  const allSelected = bulkSelectable && selectableRowKeys.length > 0 && selectableRowKeys.every((key) => selectedKeys.has(key));
+  const someSelected = bulkSelectable && selectableRowKeys.some((key) => selectedKeys.has(key)) && !allSelected;
   const interactionState = currentExpanded ? "expanded" : currentSort.key ? "sorted" : currentSelected ? "selected" : initialState;
-  if (!label || !resolvedColumns.length || !resolvedRows.length) return null;
+  if (!label || !resolvedColumns.length) return null;
 
   const changeSort = (key: string, event: TableSortEvent): void => {
     const direction = currentSort.key === key && currentSort.direction !== "descending" ? "descending" : "ascending";
@@ -201,10 +288,27 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
     if (!isSelectedKeyControlled) setInternalSelected(String(key));
     onRowSelect?.(String(key), event);
   };
+  const clickRow = (row: TableRow, event: TableRowClickEvent): void => {
+    onRowClick?.(row, event);
+  };
   const toggleExpanded = (key: string, event: TableExpandedEvent): void => {
     const next = currentExpanded === String(key) ? "" : String(key);
     if (!isExpandedKeyControlled) setInternalExpanded(next);
     onExpandedChange?.(next, event);
+  };
+  const toggleSelection = (key: string, checked: boolean): void => {
+    const next = new Set(selectedKeys);
+    if (checked) next.add(key);
+    else next.delete(key);
+    onSelectionChange?.(selectableRowKeys.filter((item) => next.has(item)));
+  };
+  const toggleAllSelection = (checked: boolean): void => {
+    onSelectionChange?.(checked ? selectableRowKeys : []);
+  };
+  const commitCellEdit = (): void => {
+    if (!editCell) return;
+    onCellEdit?.(editCell.key, editCell.columnKey, editCell.value);
+    setEditCell(null);
   };
 
   return React.createElement(
@@ -216,17 +320,43 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(interactionState),
       ...flowDensityProps(resolvedDensity),
+      "data-surface": resolvedSurface,
+      "data-zebra": zebra ? "true" : undefined,
+      "data-sticky": stickyHeader ? "true" : undefined,
     },
     React.createElement(
       "table",
-      { "aria-label": label },
+      { "aria-label": label, role: tree ? "treegrid" : undefined },
+      React.createElement(
+        "colgroup",
+        null,
+        bulkSelectable ? React.createElement("col", { className: "table__selection-col" }) : null,
+        hasExpanderColumn ? React.createElement("col", { className: "table__expander-col" }) : null,
+        resolvedColumns.map((column) => React.createElement("col", { key: column.key, style: columnWidthStyle(column.width) })),
+      ),
       React.createElement(
         "thead",
         null,
         React.createElement(
           "tr",
           null,
-          canRenderExpanders ? React.createElement("th", { className: "table__expander-head", scope: "col" }) : null,
+          bulkSelectable ? React.createElement(
+            "th",
+            { className: "table__selection-head", scope: "col" },
+            React.createElement(Checkbox, {
+              label: "Select all rows",
+              variant: "select-all",
+              density: resolvedDensity ?? "sm",
+              checked: allSelected,
+              indeterminate: someSelected,
+              onCheckedChange: (checked) => toggleAllSelection(checked),
+            }),
+          ) : null,
+          hasExpanderColumn ? React.createElement(
+            "th",
+            { className: "table__expander-head", scope: "col" },
+            React.createElement("span", { className: "table__expander-label" }, tree ? "Hierarchy" : "Details"),
+          ) : null,
           resolvedColumns.map((column) => {
             const active = currentSort.key === column.key;
             const canSort = column.sortable || sortable;
@@ -238,6 +368,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
                 "data-align": normalizedColumnAlignment(column.align),
                 "data-priority": normalizedColumnPriority(column.priority),
                 "aria-sort": canSort ? (active ? currentSort.direction : "none") : undefined,
+                style: columnWidthStyle(column.width),
               },
               canSort
                 ? React.createElement(
@@ -260,14 +391,69 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
       React.createElement(
         "tbody",
         null,
-        sortedRows.flatMap<ReactElement>((row, index) => {
-          const key = String(row[rowKey]);
+        visibleRows.length === 0
+          ? React.createElement(
+            "tr",
+            { className: "table__empty-row" },
+            React.createElement(
+              "td",
+              { className: "table__empty", colSpan: resolvedColumns.length + (bulkSelectable ? 1 : 0) + (hasExpanderColumn ? 1 : 0) },
+              React.createElement(EmptyState, {
+                title: emptyLabel || "No rows available",
+                icon: emptyIcon,
+                variant: "search-empty",
+                state: "search-empty",
+                density: resolvedDensity ?? "sm",
+                fullWidth: true,
+                ...(emptyDescription ? { description: emptyDescription } : {}),
+              }),
+            ),
+          )
+          : visibleRows.flatMap<ReactElement>(({ row, depth, index }) => {
+          const key = rowKeyFor(row, rowKey, index);
+          if (row.__group) {
+            return [React.createElement(
+              "tr",
+              { key, className: "table__group-row", "data-group-row": "true" },
+              React.createElement("td", { className: "table__group", colSpan: resolvedColumns.length + (bulkSelectable ? 1 : 0) + (hasExpanderColumn ? 1 : 0) }, String(row.__group)),
+            )];
+          }
           const selected = currentSelected === key;
+          const checked = selectedKeys.has(key);
           const expanded = currentExpanded === key;
           const expandLabel = typeof getExpandLabel === "function" ? getExpandLabel(row, { expanded, key }) : undefined;
           const detail = typeof renderDetail === "function" ? renderDetail(row) : renderCell(row.detail, resolvedDensity);
-          const rowCanExpand = canRenderExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== "";
-          const interactive = selectable || rowCanExpand;
+          const treeChildren = tree && Array.isArray(row[childrenKey]) ? row[childrenKey] as TableRow[] : [];
+          const rowHasDetail = canRenderDetailExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== "";
+          const rowCanExpand = rowHasDetail || treeChildren.length > 0;
+          const resolvedExpandLabel = expandLabel ?? `${expanded ? "Collapse" : "Expand"} ${rowDataLabel(row, key)}`;
+          const interactive = selectable || rowCanExpand || Boolean(onRowClick);
+          const activateRowClick = (event: MouseEvent<HTMLTableRowElement>): void => {
+            if (onRowSelect) {
+              selectRow(key, event);
+              return;
+            }
+            if (onRowClick) {
+              clickRow(row, event);
+              return;
+            }
+            if (rowCanExpand) {
+              toggleExpanded(key, event);
+              return;
+            }
+            if (selectable) selectRow(key, event);
+          };
+          const activateRowKey = (event: KeyboardEvent<HTMLTableRowElement>): void => {
+            if (onRowClick) {
+              clickRow(row, event);
+              return;
+            }
+            if (rowCanExpand) {
+              toggleExpanded(key, event);
+              return;
+            }
+            if (selectable) selectRow(key, event);
+          };
           const rowNode = React.createElement(
             "tr",
             {
@@ -275,27 +461,41 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
               "data-key": key,
               "data-label": rowDataLabel(row, key),
               "data-selected": String(selected),
+              "data-selection-checked": bulkSelectable ? String(checked) : undefined,
+              "data-tree-depth": tree ? String(depth) : undefined,
+              "aria-selected": selectable ? String(selected) : undefined,
               ...flowStateProps(initialState === "hover" && index === 0 ? "hover" : initialState === "focus" && index === 0 ? "focus" : undefined),
               tabIndex: interactive ? 0 : undefined,
               "aria-expanded": rowCanExpand ? String(expanded) : undefined,
-              onClick: selectable ? (event: MouseEvent<HTMLTableRowElement>) => selectRow(key, event) : undefined,
+              "aria-level": tree ? depth + 1 : undefined,
+              onClick: interactive ? activateRowClick : undefined,
               onKeyDown: interactive ? (event: KeyboardEvent<HTMLTableRowElement>) => {
                 if (event.key !== "Enter" && event.key !== " ") return;
                 event.preventDefault();
-                if (rowCanExpand) toggleExpanded(key, event);
-                else selectRow(key, event);
+                activateRowKey(event);
               } : undefined,
             },
-            rowCanExpand ? React.createElement(
+            bulkSelectable ? React.createElement(
               "td",
-              { className: "table__expander-cell" },
-              React.createElement(
+              { className: "table__selection-cell", onClick: (event: MouseEvent<HTMLTableCellElement>) => event.stopPropagation() },
+              React.createElement(Checkbox, {
+                label: `Select ${rowDataLabel(row, key)}`,
+                variant: "compact",
+                density: resolvedDensity ?? "sm",
+                checked,
+                onCheckedChange: (nextChecked) => toggleSelection(key, nextChecked),
+              }),
+            ) : null,
+            hasExpanderColumn ? React.createElement(
+              "td",
+              { className: "table__expander-cell", style: { "--comp-table-tree-depth": depth } as CSSProperties },
+              rowCanExpand ? React.createElement(
                 "button",
                 {
                   type: "button",
                   className: "table__expander",
                   "data-table-expand": "",
-                  "aria-label": expandLabel,
+                  "aria-label": resolvedExpandLabel,
                   "aria-expanded": String(expanded),
                   onClick: (event: MouseEvent<HTMLButtonElement>) => {
                     event.stopPropagation();
@@ -303,7 +503,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
                   },
                 },
                 "chevron_right",
-              ),
+              ) : null,
             ) : null,
             resolvedColumns.map((column) => React.createElement(
               "td",
@@ -312,17 +512,37 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
                 "data-align": normalizedColumnAlignment(column.align),
                 "data-mono": column.mono ? "true" : undefined,
                 "data-priority": normalizedColumnPriority(column.priority),
+                onDoubleClick: column.editable && onCellEdit ? () => setEditCell({ key, columnKey: column.key, value: String(row[column.key] ?? "") }) : undefined,
+                style: { ...columnWidthStyle(column.width), ...(tree ? { "--comp-table-tree-depth": depth } as CSSProperties : {}) },
               },
-              renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity),
+              editCell?.key === key && editCell.columnKey === column.key
+                ? React.createElement("input", {
+                  className: "table__edit-input",
+                  autoFocus: true,
+                  value: editCell.value,
+                  onChange: (event: React.ChangeEvent<HTMLInputElement>) => setEditCell({ ...editCell, value: event.currentTarget.value }),
+                  onBlur: commitCellEdit,
+                  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
+                    if (event.key === "Enter") {
+                      event.preventDefault();
+                      commitCellEdit();
+                    }
+                    if (event.key === "Escape") {
+                      event.preventDefault();
+                      setEditCell(null);
+                    }
+                  },
+                })
+                : renderCell(typeof column.render === "function" ? column.render(row) : row[column.key], resolvedDensity),
             )),
           );
-          if (!rowCanExpand) return [rowNode];
+          if (!rowHasDetail) return [rowNode];
           return [
             rowNode,
             React.createElement(
               "tr",
               { key: `${key}-detail`, className: "table__detail-row", hidden: !expanded },
-              React.createElement("td", { className: "table__detail", colSpan: resolvedColumns.length + 1 }, detail),
+              React.createElement("td", { className: "table__detail", colSpan: resolvedColumns.length + (bulkSelectable ? 1 : 0) + (hasExpanderColumn ? 1 : 0) }, detail),
             ),
           ];
         }),

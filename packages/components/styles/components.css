@@ -1274,9 +1274,12 @@
   --comp-card-summary-disabled-border: var(--component-disabled-border);
   --comp-card-summary-disabled-text: var(--component-disabled-text);
   --comp-card-summary-disabled-opacity: var(--component-opacity-disabled);
-  --comp-table-cell-padding-block-sm: var(--component-space-xs);
-  --comp-table-cell-padding-block-md: var(--component-space-sm);
-  --comp-table-cell-padding-block-lg: var(--component-space-md);
+  --comp-table-header-padding-block-sm: var(--component-space-xs);
+  --comp-table-header-padding-block-md: var(--component-space-md);
+  --comp-table-header-padding-block-lg: calc(var(--component-space-md) + var(--component-space-xs));
+  --comp-table-cell-padding-block-sm: var(--component-space-sm);
+  --comp-table-cell-padding-block-md: calc(var(--component-space-md) + (var(--component-space-xs) / 2));
+  --comp-table-cell-padding-block-lg: var(--component-space-lg);
   --comp-table-cell-padding-inline-sm: var(--component-space-sm);
   --comp-table-cell-padding-inline-md: var(--component-space-md);
   --comp-table-cell-padding-inline-lg: var(--component-space-lg);
@@ -1292,19 +1295,41 @@
   --comp-table-bg: var(--component-color-surface);
   --comp-table-fg: var(--component-color-text);
   --comp-table-radius: var(--component-radius-surface);
-  --comp-table-depth: var(--component-depth-panel-strong);
+  --comp-table-depth: var(--component-depth-card-rest);
+  --comp-table-data-font-family: var(--component-font-family-mono);
   --comp-table-header-bg: color-mix(in srgb, var(--component-color-surface-raised) 80%, var(--component-color-surface));
   --comp-table-header-fg: var(--component-color-text-muted);
-  --comp-table-header-weight: var(--component-font-weight-extrabold);
+  --comp-table-header-weight: var(--component-font-weight-semibold);
   --comp-table-header-letter-spacing: var(--component-letter-spacing-normal);
   --comp-table-header-transform: var(--component-text-transform-uppercase);
+  --comp-table-group-bg: var(--component-color-surface);
+  --comp-table-group-fg: var(--component-color-text-muted);
+  --comp-table-group-size: var(--component-font-size-caption);
+  --comp-table-group-weight: var(--component-font-weight-medium);
+  --comp-table-group-letter-spacing: var(--component-letter-spacing-normal);
+  --comp-table-group-transform: var(--component-text-transform-uppercase);
+  --comp-table-group-padding-block: var(--component-space-sm);
   --comp-table-row-hover-bg: color-mix(in srgb, var(--component-color-action) 5%, var(--component-color-surface));
   --comp-table-row-selected-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
   --comp-table-row-selected-accent: var(--component-color-action);
   --comp-table-row-selected-rail-width: var(--component-focus-ring-width);
+  --comp-table-row-zebra-bg: var(--component-color-surface-sunken);
   --comp-table-focus-color: var(--component-color-focus);
   --comp-table-focus-width: var(--component-focus-ring-width);
   --comp-table-focus-offset: var(--component-focus-ring-offset);
+  --comp-table-empty-padding-block: var(--component-space-2xl);
+  --comp-table-empty-fg: var(--component-color-text-muted);
+  --comp-table-selection-cell-inline-size: var(--component-control-frame-size-sm);
+  --comp-table-selection-cell-padding-inline: var(--component-space-xs);
+  --comp-table-edit-input-min-block-size: var(--component-control-frame-size-sm);
+  --comp-table-edit-input-padding-inline: var(--component-space-sm);
+  --comp-table-edit-input-border-width: var(--component-focus-ring-width);
+  --comp-table-edit-input-border: var(--component-color-focus);
+  --comp-table-edit-input-radius: var(--component-radius-sm);
+  --comp-table-edit-input-bg: var(--component-color-surface);
+  --comp-table-edit-input-fg: var(--component-color-text);
+  --comp-table-edit-input-shadow: var(--component-focus-ring);
+  --comp-table-tree-indent: var(--component-space-xl);
   --comp-table-detail-bg: var(--comp-table-header-bg);
   --comp-table-detail-fg: var(--component-color-text-muted);
   --comp-table-detail-padding-block: var(--component-space-md);
@@ -3690,7 +3715,10 @@
   --comp-badge-font-size: var(--comp-badge-font-size-md);
   --comp-badge-font-weight: var(--component-font-weight-bold);
   --comp-badge-gap: var(--component-space-xs);
-  --comp-badge-min-block-size: var(--component-badge-min-size);
+  --comp-badge-min-block-size-sm: var(--component-space-xl);
+  --comp-badge-min-block-size-md: var(--component-badge-min-size);
+  --comp-badge-min-block-size-lg: var(--component-control-frame-size-sm);
+  --comp-badge-min-block-size: var(--comp-badge-min-block-size-md);
   --comp-badge-padding-inline: var(--component-space-sm);
   --comp-badge-bg-neutral: var(--component-color-surface-raised);
   --comp-badge-border-neutral: var(--component-color-border);
@@ -3753,11 +3781,13 @@
 .badge[data-density="sm"] {
   --comp-badge-font-size: var(--comp-badge-font-size-sm);
   --comp-badge-icon-size: var(--component-density-icon-size-sm);
+  --comp-badge-min-block-size: var(--comp-badge-min-block-size-sm);
 }
 
 .badge[data-density="lg"] {
   --comp-badge-font-size: var(--comp-badge-font-size-lg);
   --comp-badge-icon-size: var(--component-density-icon-size-lg);
+  --comp-badge-min-block-size: var(--comp-badge-min-block-size-lg);
 }
 
 .badge[data-tone="info"] {
@@ -8321,6 +8351,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table {
   --comp-table-current-cell-block-padding: var(--comp-table-cell-padding-block-md);
+  --comp-table-current-header-block-padding: var(--comp-table-header-padding-block-md);
   --comp-table-current-cell-inline-padding: var(--comp-table-cell-padding-inline-md);
   --comp-table-current-header-size: var(--comp-table-header-size-md);
   --comp-table-current-body-size: var(--comp-table-body-size-md);
@@ -8359,9 +8390,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   overflow: auto;
 }
 
+.table[data-surface="embedded"] {
+  --comp-table-bg: var(--component-surface-transparent);
+  --comp-table-depth: none;
+  border-color: var(--component-surface-transparent);
+}
+
 .table[data-density="sm"],
 .table[data-variant="dense"] {
   --comp-table-current-cell-block-padding: var(--comp-table-cell-padding-block-sm);
+  --comp-table-current-header-block-padding: var(--comp-table-header-padding-block-sm);
   --comp-table-current-cell-inline-padding: var(--comp-table-cell-padding-inline-sm);
   --comp-table-current-header-size: var(--comp-table-header-size-sm);
   --comp-table-current-body-size: var(--comp-table-body-size-sm);
@@ -8369,6 +8407,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table[data-density="lg"] {
   --comp-table-current-cell-block-padding: var(--comp-table-cell-padding-block-lg);
+  --comp-table-current-header-block-padding: var(--comp-table-header-padding-block-lg);
   --comp-table-current-cell-inline-padding: var(--comp-table-cell-padding-inline-lg);
   --comp-table-current-header-size: var(--comp-table-header-size-lg);
   --comp-table-current-body-size: var(--comp-table-body-size-lg);
@@ -8378,14 +8417,33 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   border-collapse: collapse;
   inline-size: 100%;
   min-inline-size: var(--comp-table-min-inline-size);
+  table-layout: fixed;
+}
+
+.table col {
+  inline-size: var(--comp-table-column-width, auto);
+  width: var(--comp-table-column-width, auto);
+}
+
+.table col.table__selection-col {
+  inline-size: var(--comp-table-selection-cell-inline-size);
+  width: var(--comp-table-selection-cell-inline-size);
+}
+
+.table col.table__expander-col {
+  inline-size: var(--comp-table-current-expander-cell-inline-size);
+  width: var(--comp-table-current-expander-cell-inline-size);
 }
 
 .table th,
 .table td {
   border-block-end: var(--comp-table-current-border-width) solid var(--comp-table-current-border);
   font-size: var(--comp-table-current-body-size);
+  inline-size: var(--comp-table-column-width, auto);
+  overflow: hidden;
   padding: var(--comp-table-current-cell-block-padding) var(--comp-table-current-cell-inline-padding);
   text-align: start;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -8395,7 +8453,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-size: var(--comp-table-current-header-size);
   font-weight: var(--comp-table-current-header-weight);
   letter-spacing: var(--comp-table-header-letter-spacing);
+  padding-block: var(--comp-table-current-header-block-padding);
   text-transform: var(--comp-table-current-header-transform);
+}
+
+.table[data-sticky="true"] th {
+  inset-block-start: 0;
+  position: sticky;
+  z-index: var(--component-z-raised);
+}
+
+.table[data-zebra="true"] tbody tr:nth-child(even):not(.table__detail-row):not(.table__group-row) {
+  background: var(--comp-table-row-zebra-bg);
 }
 
 .table tbody tr {
@@ -8417,13 +8486,108 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   text-align: end;
 }
 
+.table [data-align="center"] {
+  text-align: center;
+}
+
+.table [data-align="right"] .table__sort {
+  justify-content: flex-end;
+}
+
+.table [data-align="right"] .table__sort::after {
+  order: -1;
+}
+
+.table [data-align="center"] .table__sort {
+  justify-content: center;
+}
+
 .table [data-mono="true"] {
+  font-family: var(--comp-table-data-font-family);
   font-variant-numeric: tabular-nums;
 }
 
 .table tr[data-selected="true"] {
   background: var(--comp-table-current-row-selected-bg);
   box-shadow: inset var(--comp-table-current-row-selected-rail-width) 0 0 var(--comp-table-current-row-selected-accent);
+}
+
+.table__empty {
+  color: var(--comp-table-empty-fg);
+  padding-block: var(--comp-table-empty-padding-block);
+  text-align: center;
+}
+
+.table__empty .empty-state {
+  --comp-empty-state-padding-block: var(--component-space-md);
+  --comp-empty-state-padding-inline: var(--component-space-md);
+  --comp-empty-state-gap: var(--component-space-xs);
+  --comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm);
+  --comp-empty-state-icon-glyph-size: var(--component-icon-size-lg-plus);
+  margin-inline: auto;
+  max-inline-size: var(--component-content-size-md);
+}
+
+.table__group {
+  background: var(--comp-table-group-bg);
+  color: var(--comp-table-group-fg);
+  font-size: var(--comp-table-group-size);
+  font-weight: var(--comp-table-group-weight);
+  letter-spacing: var(--comp-table-group-letter-spacing);
+  padding-block: var(--comp-table-group-padding-block);
+  text-transform: var(--comp-table-group-transform);
+}
+
+.table__selection-head,
+.table__selection-cell {
+  inline-size: var(--comp-table-selection-cell-inline-size);
+  max-inline-size: var(--comp-table-selection-cell-inline-size);
+  min-inline-size: var(--comp-table-selection-cell-inline-size);
+  padding-inline: var(--comp-table-selection-cell-padding-inline);
+  text-align: center;
+  width: var(--comp-table-selection-cell-inline-size);
+}
+
+.table__selection-head .choice,
+.table__selection-cell .choice {
+  justify-content: center;
+  min-block-size: auto;
+}
+
+.table__selection-head .choice__text,
+.table__selection-cell .choice__text,
+.table__expander-label {
+  block-size: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  inline-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.table__edit-input {
+  background: var(--comp-table-edit-input-bg);
+  border: var(--comp-table-edit-input-border-width) solid var(--comp-table-edit-input-border);
+  border-radius: var(--comp-table-edit-input-radius);
+  box-shadow: var(--comp-table-edit-input-shadow);
+  box-sizing: border-box;
+  color: var(--comp-table-edit-input-fg);
+  font: inherit;
+  inline-size: 100%;
+  min-block-size: var(--comp-table-edit-input-min-block-size);
+  outline: none;
+  padding-inline: var(--comp-table-edit-input-padding-inline);
+}
+
+.table[data-sticky="true"] .table__empty,
+.table[data-sticky="true"] .table__group {
+  position: static;
+}
+
+.table tr[aria-level] td:first-of-type:not(.table__selection-cell):not(.table__expander-cell),
+.table tr[aria-level] .table__expander-cell + td {
+  padding-inline-start: calc(var(--comp-table-current-cell-inline-padding) + (var(--comp-table-tree-depth, 0) * var(--comp-table-tree-indent)));
 }
 
 .table__sort {
@@ -8471,7 +8635,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .table__expander-head,
 .table__expander-cell {
   inline-size: var(--comp-table-current-expander-cell-inline-size);
+  max-inline-size: var(--comp-table-current-expander-cell-inline-size);
+  min-inline-size: var(--comp-table-current-expander-cell-inline-size);
   padding-inline-end: var(--comp-table-current-expander-cell-padding-inline-end);
+  width: var(--comp-table-current-expander-cell-inline-size);
 }
 
 .table__expander {

@@ -1309,6 +1309,132 @@ const components = {
           )
         )`,
   },
+  table: {
+    title: "Table",
+    directory: "table-2026-08-27",
+    module: "Table.js",
+    exportName: "Table",
+    buildId: "table-datagrid-runtime-1",
+    eventPropName: "onRowClick",
+    actionHandler: "(row, event) => onAction((row && (row.label || row.driver || row.plate || row.id)) || props.label)(event)",
+    actionSelector: "tr[data-key]",
+    supportPreamble: `const tableColumns = [
+      { key: "plate", label: "Plate", mono: true, sortable: true, width: 132 },
+      { key: "driver", label: "Driver", sortable: true, width: 184 },
+      { key: "region", label: "Region", sortable: true, width: 132 },
+      { key: "route", label: "Route", width: 144 },
+      { key: "trips", label: "Trips", align: "right", mono: true, sortable: true, sortValue: (row) => row.trips, width: 88 },
+      { key: "utilization", label: "Use", align: "right", mono: true, sortable: true, sortValue: (row) => row.utilization, width: 88 },
+      { key: "updated", label: "Updated", mono: true, sortable: true, width: 116 },
+      { key: "status", label: "Status", width: 132 }
+    ];
+    const tableRows = [
+      { id: "u2", plate: "KTR-882-A", driver: "Luis Perez", region: "CDMX", route: "Centro", trips: 42, utilization: "86%", updated: "10:24", status: { label: "Ready", tone: "success" } },
+      { id: "u1", plate: "JMX-214-B", driver: "Ana Sosa", region: "CDMX", route: "Norte", trips: 18, utilization: "64%", updated: "09:48", status: { label: "Review", tone: "warning" } },
+      { id: "u4", plate: "PLQ-472-D", driver: "Mario Ruiz", region: "QRO", route: "Industrial", trips: 31, utilization: "72%", updated: "09:12", status: { label: "Ready", tone: "success" } },
+      { id: "u3", plate: "MVD-101-C", driver: "Maria Torres", region: "GDL", route: "Poniente", trips: 8, utilization: "28%", updated: "08:31", status: { label: "Blocked", tone: "danger" } }
+    ];
+    const centeredTableColumns = tableColumns.map((column) => column.key === "driver" ? { ...column, align: "center" } : column);
+    const editableTableColumns = tableColumns.map((column) => column.key === "driver" ? { ...column, editable: true } : column);
+    const densityTableColumns = tableColumns.filter((column) => ["plate", "driver", "trips", "status"].includes(column.key));
+    const treeTableRows = [
+      { id: "cdmx", plate: "CDMX", driver: "Central", region: "CDMX", route: "All routes", trips: 12, utilization: "71%", updated: "10:24", status: { label: "Ready", tone: "success" }, children: [
+        { id: "cdmx-a", plate: "JMX-214-B", driver: "Ana Sosa", region: "CDMX", route: "Norte", trips: 8, utilization: "64%", updated: "09:48", status: { label: "Ready", tone: "success" } },
+        { id: "cdmx-b", plate: "KTR-882-A", driver: "Luis Perez", region: "CDMX", route: "Centro", trips: 4, utilization: "86%", updated: "10:24", status: { label: "Review", tone: "warning" } }
+      ] },
+      { id: "gdl", plate: "GDL", driver: "West", region: "GDL", route: "Poniente", trips: 9, utilization: "31%", updated: "08:31", status: { label: "Blocked", tone: "danger" } }
+    ];
+    function TableDataGridCoverage() {
+      const [selection, setSelection] = React.useState(["u2"]);
+      const [rows, setRows] = React.useState(tableRows);
+      const onCellEdit = (key, columnKey, value) => {
+        setRows((currentRows) => currentRows.map((row) => row.id === key ? { ...row, [columnKey]: value } : row));
+        onAction(key + ":" + columnKey + "=" + value)({ type: "edit" });
+      };
+      return e("div", { className: "audit-grid" },
+        e("div", { className: "audit-card audit-card--wide" }, e(Component, {
+          label: "Bulk selectable table",
+          columns: tableColumns,
+          rows: tableRows,
+          rowKey: "id",
+          selection,
+          onSelectionChange: setSelection,
+          zebra: true,
+          stickyHeader: true
+        })),
+        e("div", { className: "audit-card audit-card--wide" }, e(Component, {
+          label: "Embedded editable table",
+          columns: editableTableColumns,
+          rows,
+          rowKey: "id",
+          surface: "embedded",
+          onCellEdit
+        })),
+        e("div", { className: "audit-card audit-card--wide" }, e(Component, {
+          label: "Tree rows",
+          columns: tableColumns,
+          rows: treeTableRows,
+          rowKey: "id",
+          tree: true,
+          defaultExpandedKey: "cdmx"
+        })),
+        e("div", { className: "audit-card audit-card--wide" }, e(Component, {
+          label: "Empty filtered table",
+          columns: tableColumns,
+          rows: [],
+          rowKey: "id",
+          emptyLabel: "No vehicles match the filter"
+        }))
+      );
+    }`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia DataGrid"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card audit-card--wide" }, action({
+              label: "Fleet vehicles",
+              columns: tableColumns,
+              rows: tableRows,
+              rowKey: "id",
+              selectedKey: "u2",
+              defaultSort: { key: "trips", dir: -1 }
+            })),
+            e("div", { className: "audit-card audit-card--wide" }, action({
+              label: "Dense vehicles",
+              columns: tableColumns,
+              rows: tableRows,
+              rowKey: "id",
+              dense: true,
+              defaultSort: { key: "driver", direction: "ascending" }
+            })),
+            e("div", { className: "audit-card audit-card--wide" }, action({
+              label: "Center alignment capability",
+              columns: centeredTableColumns,
+              rows: tableRows,
+              rowKey: "id"
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Cobertura DataGrid"),
+          e(TableDataGridCoverage)
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small table", columns: densityTableColumns, rows: tableRows, rowKey: "id", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium table", columns: densityTableColumns, rows: tableRows, rowKey: "id", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large table", columns: densityTableColumns, rows: tableRows, rowKey: "id", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Hover table", columns: tableColumns, rows: tableRows, rowKey: "id", state: "hover" })),
+            e("div", { className: "audit-card" }, action({ label: "Focus table", columns: tableColumns, rows: tableRows, rowKey: "id", state: "focus" })),
+            e("div", { className: "audit-card" }, action({ label: "Selected table", columns: tableColumns, rows: tableRows, rowKey: "id", selectedKey: "u1" }))
+          )
+        )`,
+  },
   menu: {
     title: "Menu",
     directory: "menu-2026-08-18",
@@ -1669,6 +1795,13 @@ const html = `<!doctype html>
       gap: var(--component-space-md);
       min-block-size: 11rem;
       padding: var(--component-space-lg);
+    }
+
+    .audit-card--wide {
+      align-items: stretch;
+      grid-column: 1 / -1;
+      min-block-size: auto;
+      overflow-x: auto;
     }
 
     .audit-motion-demo {

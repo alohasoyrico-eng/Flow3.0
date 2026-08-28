@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1.0",
-  "updatedAt": "2026-08-25",
+  "updatedAt": "2026-08-27",
   "scope": "priority components touched in the 1:1 review; no active component scope is currently blocked",
   "status": "pass",
   "rule": "A component can be pass only when all 13 steps are pass and current evidence exists, including light and dark visual QA, keyboard behavior, density order, icon scale, and demo/manual verification. Historical pass evidence is downgraded when a newer 1:1 review finds unresolved bugs.",
@@ -2193,25 +2193,33 @@
         "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/display/Table.jsx",
-        ".audit-reference/components/display/Table.d.ts",
-        ".audit-reference/components/display/Table.prompt.md",
-        ".audit-reference/docs/demos/table.html",
-        ".audit-reference/docs/demos/tables-extended.html",
-        "packages/specs/specs/unison-system/artifacts/components/table.json",
-        "packages/components/src/components/commerce.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/Table.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/shells/DataGrid.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/table.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/data-grid.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/table.html",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/tables-extended.html",
+        "packages/react/src/Table.tsx",
+        "packages/react/src/Table.d.ts",
+        "packages/react/src/index.ts",
         "packages/components/styles/components.css",
-        "packages/components/src/contracts.js",
-        "packages/components/src/registry.js",
-        "packages/components/test/smoke.test.mjs",
-        "packages/content/content/component-copy/components/table/all.json",
-        "apps/docs/display-demo-interactions.js",
-        "docs/audits/table-1to1-visual-metrics.json",
-        "docs/audits/table-1to1-light.png",
-        "docs/audits/table-1to1-dark.png"
+        "packages/audit/scripts/audit-table-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/react/test/p1-data-display.test.mjs",
+        "local-visual-snapshots/Flow3-component-qa/table-2026-08-27/interactive/react-runtime.html",
+        "/private/tmp/table-reference-parity-runtime.png",
+        "/private/tmp/zip-table-reference.png",
+        "/private/tmp/flow-table-datagrid-runtime-1.png",
+        "node packages/react/test/p1-data-display.test.mjs",
+        "node packages/audit/scripts/audit-component-css-contracts.js",
+        "node packages/audit/scripts/audit-component-demo-registry.mjs",
+        "npm run typecheck",
+        "git diff --check"
       ],
-      "decision": "Kept Table as a component for comparable records, sort, single selection, dense rows, and bounded row detail. Kept filters, bulk actions, editable workflows, table trees, timelines, remote data, and pagination outside the component boundary. Replaced oversized Button-based sort controls with Table-owned header sort buttons governed by Flow tokens. Composed status cells through Badge when row values provide semantic label/tone objects. Fixed docs hydration so sort visual state, aria-sort, and row order stay synchronized after user interaction. Added declarative column priority so Table adapts in narrow demo frames without page overflow or hardcoded ZIP colors. Expand/collapse now synchronizes aria-expanded and hidden detail rows.",
-      "openIssues": []
+      "decision": "Table remains the semantic component for comparable records and consumes the DataGrid contract from the ZIP. The 2026-08-27 pass keeps the existing Flow behavior axes for backward compatibility, but aligns the public API and runtime with the ZIP: defaultSort supports dir/direction, onRowClick receives the row object, center/right alignment is supported including sortable numeric headers, column width is applied through a component-scoped CSS custom property, selected rows expose aria-selected, mono cells consume the governed mono/type-data family, Table depth is card-rest, and status badges use compact density without inflating rows. DataGrid mechanics now covered in Table are zebra, stickyHeader, emptyLabel, embedded surface, multi-selection with real Checkbox/indeterminate header, editable cells with Enter/Escape, group rows, tree rows with treegrid semantics, governed indentation, and horizontal overflow. Bulk action toolbar and filter bar remain patterns composed above Table; timeline and virtualization remain non-goals.",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-27",
+      "currentReviewCommit": "working-tree"
     },
     {
       "id": "tabs",
@@ -2457,11 +2465,11 @@
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA consolidation",
-    "updatedAt": "2026-08-25",
-    "sourceCommit": "88e8f56b Advance component QA cursor to InputAmount",
+    "updatedAt": "2026-08-27",
+    "sourceCommit": "0b193efb Align drawer reference parity contracts",
     "scope": [],
-    "nextComponent": "accordion",
-    "nextComponentReason": "Iteration 6 overlays are closed in the working tree: Dialog, Drawer, Popover, and prior Menu have package-backed runtime demos with keyboard/dismissal proof and passing contracts. Accordion is next from Iteration 7 P1 navigation because it is the highest-impact remaining disclosure/navigation primitive after Tabs and shares the same keyboard, disabled, density, foundation, and demo-verification risks.",
+    "nextComponent": "table",
+    "nextComponentReason": "All active component entries are pass, but Table is the highest-impact next review target because it anchors comparable records, sorting, selection, responsive density, status composition, and dashboard/template data surfaces. Drawer and Accordion are closed in the current review and must not remain as the cursor.",
     "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
   }
 }

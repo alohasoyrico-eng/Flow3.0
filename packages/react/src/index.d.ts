@@ -1237,9 +1237,12 @@ export { Table } from "./Table.js";
 export type {
   TableColumn,
   TableComponent,
+  TableDefaultSort,
   TableDensity,
   TableProps,
   TableRow,
+  TableRowClickEvent,
+  TableSurface,
   TableSortDirection,
   TableState,
   TableVariant,
