@@ -1,9 +1,9 @@
 {
-  "schemaVersion": "0.1.0",
-  "updatedAt": "2026-08-27",
-  "scope": "priority components touched in the 1:1 review; no active component scope is currently blocked",
-  "status": "pass",
-  "rule": "A component can be pass only when all 13 steps are pass and current evidence exists, including light and dark visual QA, keyboard behavior, density order, icon scale, and demo/manual verification. Historical pass evidence is downgraded when a newer 1:1 review finds unresolved bugs.",
+  "schemaVersion": "0.2.0-truth-reset",
+  "updatedAt": "2026-08-28",
+  "scope": "truthful Flow3 component 1:1 QA matrix; ZIP reference always applies; Docs/FlowDocs are excluded from current execution scope except local review demos",
+  "status": "partial",
+  "rule": "A component can be pass only with recent 1:1 evidence: ZIP reference checked first, package-backed React runtime demo, light/dark visual QA, accessibility/keyboard behavior where applicable, density/layout/typography/iconography verified, automated validation passed, and a commit captured in evidence. Stale or inferred pass evidence must be downgraded to partial.",
   "relatedAudits": [
     "docs/audits/component-variant-pattern-boundary-matrix.json"
   ],
@@ -96,30 +96,33 @@
         "packages/components/test/smoke.test.mjs"
       ],
       "openIssues": [],
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "0b193efb Align drawer reference parity contracts",
       "decision": "Reopened after Drawer nested-surface review and closed in the working tree for the current Accordion pass. Accordion now preserves the ZIP motion contract by replacing hidden/display-none closed panels with grid-row motion, aria-hidden, inert, and visibility gating. The React API also accepts defaultOpen from the ZIP reference while preserving controlled expandedIds and item.open behavior. Accordion no longer owns elevation: the default surface is solid with governed background, border, and radius but depth none; transparent is reserved for composition inside parent-owned surfaces such as Drawer. Keyboard behavior is now explicit in the contract: ArrowDown/ArrowUp/Home/End move between enabled triggers, disabled triggers are skipped, Escape collapses the focused open trigger, and onExpandedChange receives the original click or keyboard event. Runtime demo now starts from the ZIP Documentos/Historial/Pagos example and includes the Fleet Dashboard heavy drawer case: Documentos composes ProgressIndicator plus FileUpload with selected file, validation, choose/remove actions, native file input, density propagation, solid/transparent surfaces, disabled row visibility, no nested upload elevation, and cache-busted build accordion-dashboard-runtime-2.",
       "inventoryEscalations": [
         "Primary navigation remains Sidebar/Topbar pattern work; Accordion only owns bounded secondary disclosure.",
         "Nested accordions, required-content policies, and multi-step progress remain pattern or template responsibilities."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after solid/transparent surface decision, no-raised default, keyboard semantics, dashboard document case, and runtime demo review."
     },
     {
       "id": "animated-moment",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/tokens/motion.css",
@@ -134,30 +137,35 @@
         "packages/components/styles/components.css",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "The onboarding card with skip, CTA, pagination dots, and slide sequencing is a pattern, not Animated Moment.",
         "A real animation-player runtime remains outside this component until Flow defines an asset/player contract."
       ],
-      "decision": "Closed Animated Moment as a bounded component: density and fullWidth are package props, halo/icon/copy scale with Flow component tokens, mobile remains vertical, desktop-capable full-width composition is available, and onboarding controls remain pattern scope."
+      "decision": "Closed Animated Moment as a bounded component: density and fullWidth are package props, halo/icon/copy scale with Flow component tokens, mobile remains vertical, desktop-capable full-width composition is available, and onboarding controls remain pattern scope.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "audit-event",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/Timeline.jsx",
@@ -174,7 +182,9 @@
         "docs/audits/audit-event-1to1-light.png",
         "docs/audits/audit-event-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Ordered histories, connector rails, filters, approvals, audit tables, and investigations belong to Timeline/Table/workflow patterns.",
         "Business variants such as permission, vehicle, card, and finance are not Audit Event variants; use tone/state/status text."
@@ -214,25 +224,28 @@
           "overflowX": false,
           "overflowY": false
         }
-      }
+      },
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "avatar",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/Avatar.jsx",
@@ -251,27 +264,32 @@
         "docs/audits/avatar-1to1-dark.png",
         "docs/audits/avatar-1to1-quality-audit.json"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Avatar remains a component; Avatar Group remains a separate boundary review item.",
-      "lastValidation": "npm run validate pass"
+      "lastValidation": "npm run validate pass",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "badge",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/Badge.jsx",
@@ -289,27 +307,32 @@
         "docs/audits/badge-1to1-visual-metrics.json",
         "docs/audits/badge-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Badge remains a bounded component for compact counts, dots, status labels, and icon markers attached to a parent. Flow owns color tokens, density, typography, focus, and motion; the ZIP reference informs subtle pill surfaces, live marker rhythm, icon/dot anatomy, and overflow behavior without changing foundations.",
-      "updatedAt": "2026-07-22"
+      "updatedAt": "2026-07-22",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "biometric-prompt",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/feedback/BiometricPrompt.jsx",
@@ -326,28 +349,33 @@
         "packages/specs/specs/unison-system/artifacts/components/biometric-prompt.json",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Authentication orchestration, enrollment, retry policy, risk scoring, and recovery remain authentication patterns, not Biometric Prompt variants."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "breadcrumbs",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/navigation/Breadcrumb.jsx",
@@ -365,29 +393,34 @@
         "packages/components/src/contracts.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Route architecture, app navigation shell, and responsive navigation drawer remain pattern candidates.",
         "Pagination appears with Breadcrumbs in the ZIP demo but remains a separate component."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "button",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/button-current-light-dark-review.json",
@@ -404,13 +437,18 @@
         "packages/react/test/p1-actions.test.mjs",
         "docs/audits/react-interaction-coverage-audit.json"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Action groups, toolbar layout, and step navigation remain patterns/templates; Button only owns the action trigger."
       ],
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "0e65c781",
-      "decision": "Button is closed for current review: React native button activation is covered by p1-actions, CSS contracts guard monotonic density, semantic danger/warning hover/pressed tone, disabled/loading separation, focus and motion aliases, and current light/dark QA measured sm/md/lg as 36/44/52 with icon scale 16/20/24 and contrast >= 5.37 for semantic tone cases."
+      "decision": "Button is closed for current review: React native button activation is covered by p1-actions, CSS contracts guard monotonic density, semantic danger/warning hover/pressed tone, disabled/loading separation, focus and motion aliases, and current light/dark QA measured sm/md/lg as 36/44/52 with icon scale 16/20/24 and contrast >= 5.37 for semantic tone cases.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "card",
@@ -469,25 +507,29 @@
         "CardElevated was rechecked against the ZIP original and now uses a 2px Flow action border, float depth, no added icon, title 16/700, detail 13/1.5, and 4px text gap.",
         "CardMinimal was rechecked against the ZIP original and now uses transparent surface, no shadow, muted 20px icon without pill background, title 16/700, detail 13/1.5, and detail aligned under the title.",
         "CardGhost was rechecked against the ZIP original and now renders in an inverse context with 40% translucent surface, blur(10px), translucent border, no shadow, no icon, and white 13/400 text."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "currentReviewCommit": "8e409842 Close action and card component contracts",
+      "truthResetDecision": "Closed after ZIP-informed card anatomy, media, keyboard, pressed state, KPI typography, and runtime demo parity review."
     },
     {
       "id": "card-expiry-input",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/Input.jsx",
@@ -503,28 +545,33 @@
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "../../local-visual-snapshots/Flow3-component-qa/card-expiry-input-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
-      "decision": "Card Expiry Input remains a payment-form component over the shared Field cascade. Current review confirms ZIP InputDate plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular MM/YY numerals, cc-exp autocomplete, local month and expiry validation, distinct invalid/expired recovery copy, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo."
+      "decision": "Card Expiry Input remains a payment-form component over the shared Field cascade. Current review confirms ZIP InputDate plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular MM/YY numerals, cc-exp autocomplete, local month and expiry validation, distinct invalid/expired recovery copy, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "card-number-input",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/Input.jsx",
@@ -541,28 +588,33 @@
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "../../local-visual-snapshots/Flow3-component-qa/card-number-input-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
-      "decision": "Card Number Input remains a payment-form component over the shared Field cascade, not a PaymentCard/CardSummary surface. Current review confirms ZIP Input plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular grouped numerals, cc-number autocomplete, local brand detection, Luhn-derived valid/error states, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo."
+      "decision": "Card Number Input remains a payment-form component over the shared Field cascade, not a PaymentCard/CardSummary surface. Current review confirms ZIP Input plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular grouped numerals, cc-number autocomplete, local brand detection, Luhn-derived valid/error states, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "card-security-code-input",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/Input.jsx",
@@ -578,28 +630,33 @@
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "../../local-visual-snapshots/Flow3-component-qa/card-security-code-input-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
-      "decision": "Card Security Code Input remains a payment-form component over the shared Field cascade, not an OTP CodeInput. Current review confirms ZIP InputPassword plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular CVV/CVC numerals, cc-csc autocomplete, expectedLength 3/4 validation, optional reveal through the shared Field Action primitive, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo. The systemic Field Action contract now uses monotonic target sizing 20/28/32 with 16/20/24 glyph sizing."
+      "decision": "Card Security Code Input remains a payment-form component over the shared Field cascade, not an OTP CodeInput. Current review confirms ZIP InputPassword plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular CVV/CVC numerals, cc-csc autocomplete, expectedLength 3/4 validation, optional reveal through the shared Field Action primitive, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo. The systemic Field Action contract now uses monotonic target sizing 20/28/32 with 16/20/24 glyph sizing.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "card-summary",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "packages/specs/specs/unison-system/artifacts/components/card-summary.json",
@@ -618,30 +675,35 @@
         ".audit-reference/ui_kits/onboarding-driver/index.html",
         ".audit-reference/ui_kits/wallet/index.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Wallet carousel, card lifecycle actions, quick actions, transaction detail, and card-detail orchestration remain pattern responsibilities.",
         "Card Summary owns one safe payment-card snapshot only."
       ],
-      "decision": "Reclosed Card Summary after ZIP parity correction: default physical/virtual now follow PaymentCard geometry/anatomy, compact follows CardCompact row, limit owns metrics, and wallet/card-detail behavior remains pattern scope."
+      "decision": "Reclosed Card Summary after ZIP parity correction: default physical/virtual now follow PaymentCard geometry/anatomy, compact follows CardCompact row, limit owns metrics, and wallet/card-detail behavior remains pattern scope.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "chart-panel",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/Charts.jsx",
@@ -663,7 +725,9 @@
         "docs/audits/chart-panel-expanded-types-design.png",
         "docs/audits/chart-panel-parity-595.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Chart Panel now covers ZIP-equivalent single-panel variants: sparkline, bars, line, area, donut, pareto, bullet, comparison, compact.",
         "Treemap, scatter, heatmap, small multiples, gantt, waterfall, polar, and kanban exceed one panel and remain separate component/pattern inventory decisions.",
@@ -674,25 +738,28 @@
         "Live browser QA corrected geometry and hierarchy against ZIP chart cards.",
         "Default chart color is Flow action/primary by semantic decision; ZIP red is visual reference, not a token override.",
         "Component-level variants now remain distinct; dashboard orchestration remains pattern/template work."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "checkbox",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/Checkbox.jsx",
@@ -717,30 +784,35 @@
         "packages/react/test/p0-forms-basic.test.mjs",
         "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Checkbox Group remains separate because it owns group validation, select-all orchestration, and multi-row relationships."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "709c5401"
+      "currentReviewCommit": "709c5401",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "chip",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/Chip.jsx",
@@ -760,9 +832,14 @@
         "docs/audits/chip-1to1-light.png",
         "docs/audits/chip-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Chip remains a component; groups/filter orchestration remain patterns.",
-      "lastValidation": "npm run validate pass"
+      "lastValidation": "npm run validate pass",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "code-input",
@@ -798,26 +875,29 @@
         "PasscodeKeypad from the ZIP reference is tracked outside Code Input as an authentication pattern backlog item, not as a component variant."
       ],
       "lastReviewAt": "2026-08-25",
-      "currentReviewCommit": "dffa7131",
-      "decision": "Code Input is closed for current review: runtime demo uses package React, slots keep square frame geometry across density, numerals use the governed mono stack with light weight, paste/backspace/complete behavior remains package-owned, success state has visible green momentum and error state has shake feedback. Masked entry exists; eye reveal remains composition/auth pattern scope unless Card Security Code Input owns it."
+      "currentReviewCommit": "dffa7131 Govern form frame and CodeInput feedback",
+      "decision": "Code Input is closed for current review: runtime demo uses package React, slots keep square frame geometry across density, numerals use the governed mono stack with light weight, paste/backspace/complete behavior remains package-owned, success state has visible green momentum and error state has shake feedback. Masked entry exists; eye reveal remains composition/auth pattern scope unless Card Security Code Input owns it.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after square frame contract, mono numeral treatment, paste behavior, success fade, error shake, and runtime demo review."
     },
     {
       "id": "combobox",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/SelectCombo.jsx",
@@ -835,31 +915,36 @@
         "packages/react/test/p0-forms-advanced.test.mjs",
         "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Select Input in the ZIP is now covered by Combobox.",
         "Country Select and Multiple Select remain separate inventory decisions."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "currentReviewCommit": "5c264331",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "country-selector",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/SelectCountry.jsx",
@@ -870,30 +955,35 @@
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Country Select in the ZIP is now covered by Country Selector.",
         "Phone Input consumes Country Selector and remains responsible only for phone number capture and formatting.",
         "Currency, language, and region filtering remain outside Country Selector."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "date-picker",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/DatePicker.jsx",
@@ -909,28 +999,33 @@
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
-      "decision": "Closed for current review after regression correction. The prior demo fixture mounted open calendars inside the interactive section, which contaminated layout/focus review; the runtime demo now starts all interactive DatePicker examples closed and proves opening through keyboard/pointer. DatePicker keeps calendar semantics in React, uses Field frame/radius 36/44/52 and 12/16/20, binds Field shell spacing to the shared focus-ring clearance contract so labels and helper/inline validation cannot collide with focused controls, binds calendar day size to governed frame-derived tokens instead of ambiguous space aliases, and validates initial closed state, Enter open, ArrowDown traversal, Escape close with focus return, no panel overflow, measured label/helper focus clearance, and clean console in the package-backed runtime demo."
+      "decision": "Closed for current review after regression correction. The prior demo fixture mounted open calendars inside the interactive section, which contaminated layout/focus review; the runtime demo now starts all interactive DatePicker examples closed and proves opening through keyboard/pointer. DatePicker keeps calendar semantics in React, uses Field frame/radius 36/44/52 and 12/16/20, binds Field shell spacing to the shared focus-ring clearance contract so labels and helper/inline validation cannot collide with focused controls, binds calendar day size to governed frame-derived tokens instead of ambiguous space aliases, and validates initial closed state, Enter open, ArrowDown traversal, Escape close with focus return, no panel overflow, measured label/helper focus clearance, and clean console in the package-backed runtime demo.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "date-range-picker",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/DateRangePicker.jsx",
@@ -950,32 +1045,37 @@
         "packages/components/src/registry.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
       "decision": "Closed for current review after regression correction. The prior demo fixture mounted an open range inside the interactive section, which contaminated spacing/layout review; the runtime demo now starts the interactive DateRangePicker examples closed and exposes partial/preset cases without forced-open layout. DateRangePicker remains a bounded sibling to DatePicker, inherits governed Field trigger frame/radius, shared Field shell focus clearance, and calendar day geometry, keeps range and preset semantics in React, and validates initial closed state, Enter open, ArrowDown traversal, Escape close with focus return, preset rendering, no panel overflow, measured label/helper focus clearance, and clean console in the package-backed runtime demo.",
       "inventoryEscalations": [
         "Dashboard refresh, URL persistence, saved views, comparison ranges, fiscal calendars, and report synchronization remain pattern responsibilities.",
         "Date Range Picker is a bounded sibling component to Date Picker because the ZIP reference exposes DateRangePicker as a reusable control."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "dialog",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/feedback/Dialog.jsx",
@@ -1001,13 +1101,18 @@
         "apps/docs/gold-dialog-docs.js",
         "apps/docs/overlay-demo-interactions.js"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
       "decision": "Closed for current review after overlay visual-parity regression. Dialog keeps overlay semantics in React, composes Button/IconButton/Input, preserves Flow frame ownership through the shared compact overlay inline alias, and now matches the ZIP compact panel anatomy at 440px runtime width, 28px padding, 24px radius, 18px panel rhythm, 14px header gap, 10px footer gap, 18/700 title, and compact description. Runtime validation proves initial closed state, Enter open, focus to close control, Escape close with focus return, outside click close, action close, density trigger sizing, no page overflow, and clean console in the package-backed runtime demo.",
       "inventoryEscalations": [
         "Confirmation policy, destructive decision rules, multi-step recovery, and required review orchestration remain pattern responsibilities."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "drawer",
@@ -1054,31 +1159,34 @@
       ],
       "openIssues": [],
       "lastReviewAt": "2026-08-25",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "0b193efb Align drawer reference parity contracts",
       "decision": "Closed for current review after overlay visual-parity regression and reference behavior correction. Drawer keeps sheet semantics in React, supports governed children composition like the ZIP reference, composes Button/IconButton/Input/Badge/ProgressIndicator/Accordion, preserves left/right placement, and now aligns ZIP sheet anatomy through governed Drawer aliases: compact md runtime width is 400px, component-radius-sheet maps to ref-frame-radius-7, the panel uses flex-column sheet layout with no global padding or negative footer compensation, and header/body/footer own slot padding with 12px header gap and 10px footer gap. The package-backed runtime demo now starts from the Overlays/Fleet Dashboard ZIP behavior: trigger Abrir drawer, title Ana Sosa, En ruta badge, supporting driver copy, transparent Accordion sections for Documentos/Historial/Métodos de pago, Verificación progress inside Documentos, and Cerrar/Guardar footer actions. Runtime validation proves initial closed state, Enter open, focus to close control, Escape close with focus return, outside click close, side placement, density trigger sizing, no page overflow, Accordion transparent-surface composition, and clean console in the package-backed demo.",
       "inventoryEscalations": [
         "Drawer Adapter remains a pattern when drawer behavior coordinates with menus, dialogs, toasts, or route-level state.",
         "Filter drawers, detail inspection flows, and edit lifecycles must compose Drawer with existing Flow inputs/buttons instead of redefining overlay structure."
       ],
-      "updatedAt": "2026-08-25"
+      "updatedAt": "2026-08-25",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after ZIP drawer functionality review, accordion composition, header parity, KPI typography correction, and runtime demo review."
     },
     {
       "id": "empty-state",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/EmptyState.jsx",
@@ -1094,28 +1202,33 @@
         "packages/components/styles/components.css",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Escalate onboarding sequences, multi-step education, repeated first-use guidance, and data setup journeys to patterns/templates instead of Empty State."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "error-panel",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/error-panel-1to1-quality-audit.json",
@@ -1127,28 +1240,33 @@
         "packages/components/styles/components.css",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Escalate incident dashboards, retry orchestration, multi-error queues, and recovery workflows to patterns/templates instead of Error Panel."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "floating-action-button",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/actions/Button.jsx",
@@ -1166,28 +1284,33 @@
         "packages/specs/specs/unison-system/artifacts/components/floating-action-button.json",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Speed dial, multi-action clusters, action rails, and safe-area placement remain pattern/template responsibilities; Floating Action Button owns one command only."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "icon-button",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "packages/react/src/IconButton.tsx",
@@ -1203,30 +1326,35 @@
         "packages/specs/specs/unison-system/artifacts/components/icon-button.json",
         "packages/audit/scripts/audit-icon-button-runtime.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Search, Switch, and multi-option controls stay outside Icon Button even when they use compact controls in a toolbar."
       ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "811a600f"
+      "currentReviewCommit": "811a600f",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "inline-validation",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/inline-validation-1to1-quality-audit.json",
@@ -1235,25 +1363,30 @@
         "docs/audits/inline-validation-1to1-dark-qa.png",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "input",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/input-current-light-dark-review.json",
@@ -1270,28 +1403,33 @@
         "packages/react/test/p0-forms-basic.test.mjs",
         "packages/react/test/button-render.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "bd954d05",
-      "decision": "Input is closed for current review: Field/Input density is monotonic through shared aliases, helper/a11y semantics distinguish info/success/warning/error/loading/disabled, InlineValidation remains the systematic validation composition path, base input motion avoids Button-style transforms, and dark semantic field states now measure >= 4.56 contrast after adding governed dark aliases."
+      "decision": "Input is closed for current review: Field/Input density is monotonic through shared aliases, helper/a11y semantics distinguish info/success/warning/error/loading/disabled, InlineValidation remains the systematic validation composition path, base input motion avoids Button-style transforms, and dark semantic field states now measure >= 4.56 contrast after adding governed dark aliases.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "input-amount",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/InputAmount.jsx",
@@ -1303,28 +1441,33 @@
         "packages/react/test/p2-final-partials.test.mjs",
         "../../local-visual-snapshots/Flow3-component-qa/input-amount-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
-      "decision": "Input Amount is closed for current review: ZIP InputAmount confirms Field-owned monetary input anatomy; Flow keeps it as a component over the shared Field cascade, with 36/44/52 control frame, 12/16/20 field radius, density-scaled label/helper text, mono right-aligned numerals, visible currency prefix/suffix context, native decimal input/paste behavior, aria-describedby validation, loading and disabled precedence, and a package-backed React runtime demo."
+      "decision": "Input Amount is closed for current review: ZIP InputAmount confirms Field-owned monetary input anatomy; Flow keeps it as a component over the shared Field cascade, with 36/44/52 control frame, 12/16/20 field radius, density-scaled label/helper text, mono right-aligned numerals, visible currency prefix/suffix context, native decimal input/paste behavior, aria-describedby validation, loading and disabled precedence, and a package-backed React runtime demo.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "kpi-tile",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/StatTile.jsx",
@@ -1340,7 +1483,9 @@
         "packages/audit/scripts/audit-package-css-contracts.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "StatTile ZIP-equivalent local variants are covered as standard, delta, threshold, sparkline, and drill-in.",
         "Stat + Donut composition, KPI groups, dashboard formulas, shared filters, and cross-panel drill-down are pattern candidates, not KPI Tile variants."
@@ -1372,25 +1517,28 @@
         ]
       },
       "lastValidation": "npm run validate pass",
-      "updatedAt": "2026-07-24"
+      "updatedAt": "2026-07-24",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "list",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/TransactionRow.jsx",
@@ -1408,25 +1556,30 @@
         "docs/audits/list-1to1-dark.png"
       ],
       "decision": "Kept List as a component: a bounded collection of repeated rows, not a workflow pattern. Aligned package implementation with documented variants and states: standard, compact, action, status, media; default, hover, selected, loading, error, disabled. Interactive rows render as buttons only for action/onSelect cases; static rows stay non-clickable list items. Overview now shows one action List and docs hydration selects action rows on click. Kept Flow primary/action and semantic danger tokens; ZIP did not override color tokens. State demos now apply row-level state to one representative row instead of contaminating the full list.",
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "menu",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/actions/Menu.jsx",
@@ -1452,30 +1605,35 @@
         "docs/audits/react-interaction-coverage-audit.md",
         "packages/audit/scripts/report-react-interaction-coverage.js"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "decision": "Menu remains a component for compact contextual action lists anchored to a trigger. Current review closes the repo-side blockers: shared overlay/listbox geometry is enforced by the Menu CSS contract, keyboard coverage now requires ArrowDown, ArrowUp, Home, End, Enter, Escape and focus return, and React P0 overlay/navigation tests cover selection and close behavior. Local demo refresh remains outside repo, but package evidence is now governed.",
       "updatedAt": "2026-07-22",
       "lastValidation": "npm run validate pass",
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "currentReviewCommit": "5c264331",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "motion-boundary",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/guidelines/motion.html",
@@ -1489,25 +1647,30 @@
         "docs/audits/motion-boundary-1to1-final-light.png",
         "docs/audits/motion-boundary-1to1-final-dark.png"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "movement-row",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/TransactionRow.jsx",
@@ -1526,28 +1689,33 @@
         "docs/audits/movement-row-1to1-light.png",
         "docs/audits/movement-row-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Movement Row stays a component: one movement record with category icon, merchant/context, signed amount, and optional pending/error status. Removed redundant approved state to match ZIP TransactionRow behavior. ZIP reference informs row anatomy, density, typography, and rhythm; Flow owns color, tokens, focus, state precedence, and package implementation.",
       "lastValidation": "npm run validate pass",
-      "updatedAt": "2026-07-23"
+      "updatedAt": "2026-07-23",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "pagination",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/navigation/Pagination.jsx",
@@ -1566,11 +1734,16 @@
         "packages/components/src/contracts.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Cursor and simple pagination are not closed component variants.",
         "Data table/search result pagination and infinite loading are pattern candidates."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "phone-input",
@@ -1611,26 +1784,29 @@
       ],
       "openIssues": [],
       "lastReviewAt": "2026-08-25",
-      "currentReviewCommit": "eee430dc",
-      "decision": "Phone Input is closed for current review in eee430dc: runtime demo uses package React and exposes contract variants and states; the country selector remains a composed CountrySelector, CountrySelector searchable mode composes Input variant=search instead of a hardcoded search field, the field frame keeps the shared 36/44/52 density scale, and phone numerals plus inline calling code use the governed mono/light numeric voice with normal tracking. OTP delivery, verification, and recovery remain pattern scope."
+      "currentReviewCommit": "eee430dc Govern PhoneInput country search composition",
+      "decision": "Phone Input is closed for current review in eee430dc: runtime demo uses package React and exposes contract variants and states; the country selector remains a composed CountrySelector, CountrySelector searchable mode composes Input variant=search instead of a hardcoded search field, the field frame keeps the shared 36/44/52 density scale, and phone numerals plus inline calling code use the governed mono/light numeric voice with normal tracking. OTP delivery, verification, and recovery remain pattern scope.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after country selector layout, composed Search, ArrowUp/ArrowDown behavior, sizing parity, and runtime demo review."
     },
     {
       "id": "popover",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/feedback/Tooltip.jsx",
@@ -1652,31 +1828,36 @@
         "apps/docs/styles/04i-simple-component-layout.css",
         "../../local-visual-snapshots/Flow3-component-qa/popover-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-25",
       "currentReviewCommit": "working-tree",
       "decision": "Closed for current review. Popover has no direct ZIP component, so the review triangulates Tooltip lightweight disclosure, Menu anchored overlay behavior, and Dialog overlay surface anatomy. The React runtime demo composes Flow Button/Input/actions, opens with Enter, closes with Escape and outside/action paths, keeps compact governed panel typography, preserves overlay depth/radius through shared tokens, and runs clean with no console errors or failed requests.",
       "inventoryEscalations": [
         "Escalate long forms, search, multi-step decisions, and persistent detail panels to patterns instead of Popover."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "progress-indicator",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/progress-indicator-1to1-quality-audit.json",
@@ -1687,25 +1868,30 @@
         "docs/audits/progress-indicator-1to1-states-qa.png",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "quick-action",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/actions/Button.jsx",
@@ -1723,7 +1909,9 @@
         "docs/audits/quick-action-1to1-visual-metrics.json",
         "docs/audits/quick-action-1to1-dark-metrics.json"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Quick Actions Grid remains a pattern because it owns multiple shortcuts, ordering, blocked states, confirmation, and feedback orchestration.",
         "Destructive or high-risk Quick Action usage should compose Dialog/Toast in a pattern, not inside the component."
@@ -1761,28 +1949,31 @@
         "labelOutsideCircle": true,
         "wrapperHasNoSurface": true,
         "labelTopGap": 12
-      }
+      },
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "radio-button",
       "name": "Radio Button",
-      "status": "pass",
+      "status": "partial",
       "platformPriority": "cross-platform",
       "auditedAt": "2026-07-21",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/forms/Radio.jsx",
@@ -1812,26 +2003,31 @@
         "All docs demos are package-sourced and hydrated for real selection behavior."
       ],
       "lastReviewAt": "2026-08-19",
-      "openIssues": [],
-      "currentReviewCommit": "5c264331"
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
+      "currentReviewCommit": "5c264331",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "route-summary",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "packages/specs/specs/unison-system/artifacts/components/route-summary.json",
@@ -1850,32 +2046,37 @@
         ".audit-reference/components/display/MapCanvas.jsx",
         ".audit-reference/docs/demos/map-canvas.html"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Map routing, route ranking, filters, sequencing, and multi-route comparison remain pattern responsibilities.",
         "Route Summary owns one route option with visible metrics and local actions only."
       ],
       "decision": "Route Summary stays a component for one route option or active ETA banner. Compact mirrors the ZIP Rutas banner with navigation icon, destination, distance + ETA, and Flow Icon Button close action. Standard/compare/policy remain one-option metric summaries; map, sheet, filters, route engine, ranking, and multi-route comparison stay pattern/template scope.",
       "lastValidation": "npm run validate pass",
-      "updatedAt": "2026-07-24"
+      "updatedAt": "2026-07-24",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "segmented-control",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/segmented-control-1to1-quality-audit.json",
@@ -1887,25 +2088,30 @@
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-component-demo-interactions.mjs"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "select",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/select-current-light-dark-review.json",
@@ -1929,32 +2135,37 @@
         "packages/audit/scripts/audit-menu-css-contract.js",
         "packages/audit/scripts/audit-dark-mode-css-contract.js"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Select Input / Combobox exists in the ZIP reference and is not covered by base Select.",
         "Country Select exists in the ZIP reference and is currently covered only as Phone Input composition.",
         "Multiple Select exists in the ZIP reference and must stay outside base Select."
       ],
       "lastReviewAt": "2026-08-19",
-      "decision": "Closed Select current QA: keyboard skip/commit/escape verified in local interactive demo; density scales monotonically; selected check scales 16/20/24; option-row colors and disabled affordance now cascade through shared Flow roles consumed by Select, Combobox, and Menu."
+      "decision": "Closed Select current QA: keyboard skip/commit/escape verified in local interactive demo; density scales monotonically; selected check scales 16/20/24; option-row colors and disabled affordance now cascade through shared Flow roles consumed by Select, Combobox, and Menu.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "skeleton",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "not-applicable",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/skeleton-1to1-quality-audit.json",
@@ -1965,7 +2176,12 @@
         "docs/audits/skeleton-1to1-variants-qa.png",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "slider",
@@ -2006,26 +2222,29 @@
         "Exact numeric entry, financial entry, and multi-field range workflows remain Input or pattern concerns; Slider only owns bounded numeric adjustment."
       ],
       "lastReviewAt": "2026-08-25",
-      "currentReviewCommit": "b1029bf4",
-      "decision": "Slider is closed for current review: runtime demo uses package React, keyboard semantics keep native range behavior, hover/focus/pressed/dragging states now produce distinguishable token-backed motion and depth, and the CSS contract routes center-press transform through component aliases instead of reaching into raw foundation values."
+      "currentReviewCommit": "b1029bf4 Add Slider hover and pressed momentum",
+      "decision": "Slider is closed for current review: runtime demo uses package React, keyboard semantics keep native range behavior, hover/focus/pressed/dragging states now produce distinguishable token-backed motion and depth, and the CSS contract routes center-press transform through component aliases instead of reaching into raw foundation values.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after keyboard semantics review, density text contract pass, hover/pressed momentum, and runtime demo validation."
     },
     {
       "id": "spinner",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "not-applicable",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/spinner-1to1-quality-audit.json",
@@ -2036,25 +2255,30 @@
         "packages/audit/scripts/audit-package-css-contracts.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": []
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "station-pin",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/display/MapCanvas.jsx",
@@ -2071,7 +2295,9 @@
         "docs/audits/station-pin-1to1-light.png",
         "docs/audits/station-pin-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Map positioning, route drawing, filters, detail sheets, zoom behavior, and clustering rules remain patterns/templates.",
         "Station Pin remains one compact actionable marker with visible value, accessible station identity, state, density, pointer geometry, and Flow-governed color."
@@ -2096,25 +2322,28 @@
         "darkMode": "quiet verified; cluster contrast 9.9",
         "prefixLeaks": 0
       },
-      "updatedAt": "2026-07-24"
+      "updatedAt": "2026-07-24",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "stepper",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/navigation/Stepper.jsx",
@@ -2130,29 +2359,34 @@
         "packages/components/src/contracts.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Wizard routing, validation, future-step navigation, blockers, errors, and recovery remain pattern candidates.",
         "Review, optional, and compact are not closed Stepper variants; density and orientation cover component-scale needs."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "switch",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/switch-1to1-quality-audit.json",
@@ -2170,27 +2404,32 @@
         "packages/react/test/p0-forms-basic.test.mjs",
         "commit 5c264331"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331"
+      "currentReviewCommit": "5c264331",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "table",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/Table.jsx",
@@ -2217,27 +2456,32 @@
         "git diff --check"
       ],
       "decision": "Table remains the semantic component for comparable records and consumes the DataGrid contract from the ZIP. The 2026-08-27 pass keeps the existing Flow behavior axes for backward compatibility, but aligns the public API and runtime with the ZIP: defaultSort supports dir/direction, onRowClick receives the row object, center/right alignment is supported including sortable numeric headers, column width is applied through a component-scoped CSS custom property, selected rows expose aria-selected, mono cells consume the governed mono/type-data family, Table depth is card-rest, and status badges use compact density without inflating rows. DataGrid mechanics now covered in Table are zebra, stickyHeader, emptyLabel, embedded surface, multi-selection with real Checkbox/indeterminate header, editable cells with Enter/Escape, group rows, tree rows with treegrid semantics, governed indentation, and horizontal overflow. Bulk action toolbar and filter bar remain patterns composed above Table; timeline and virtualization remain non-goals.",
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: Table remains active because audit:flow-core-gate still reports CSS/React contract debt: local var() fallbacks, inline dynamic style governance, density fallback, expandable/detail gating, unnamed empty table shell, and undeclared Checkbox/EmptyState composition."
+      ],
       "lastReviewAt": "2026-08-27",
-      "currentReviewCommit": "working-tree"
+      "currentReviewCommit": "595eac91 Strengthen Table DataGrid parity contract",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "in-review",
+      "truthResetDecision": "Keep Table as the active remediation cursor until the flow-core gate no longer reports Table contract errors and the runtime demo is re-shared for review."
     },
     {
       "id": "tabs",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/tabs-1to1-quality-audit.json",
@@ -2257,31 +2501,36 @@
         "packages/audit/scripts/report-react-interaction-coverage.js",
         "packages/components/styles/components.css"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+      ],
       "inventoryEscalations": [
         "Tabs stays a component for local view switching; documentation shell navigation is a separate docs implementation, and segmented choices stay in Segmented Control."
       ],
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "5c264331",
-      "decision": "Tabs stays a component for local view switching. Current review closes the repo-side blockers: disabled tabs are native disabled buttons with visible disabled styling, keyboard roving excludes disabled items, Home/End and Arrow navigation are covered by P0 overlay/navigation tests, and Tabs CSS contract guards density, selected, disabled, focus, and motion aliases."
+      "decision": "Tabs stays a component for local view switching. Current review closes the repo-side blockers: disabled tabs are native disabled buttons with visible disabled styling, keyboard roving excludes disabled items, Home/End and Arrow navigation are covered by P0 overlay/navigation tests, and Tabs CSS contract guards density, selected, disabled, focus, and motion aliases.",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-revalidation",
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
       "id": "tag",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/docs/registry-components.js",
@@ -2298,9 +2547,14 @@
         "docs/audits/tag-1to1-visual-metrics.json",
         "docs/audits/tag-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Tag remains a component because it owns one compact metadata label. Taxonomy orchestration, filtering groups, selected/removable tokens, and navigation IA remain pattern responsibilities.",
-      "updatedAt": "2026-07-22"
+      "updatedAt": "2026-07-22",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "text-area",
@@ -2327,25 +2581,29 @@
         "docs/audits/component-motion-role-audit.json",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": []
+      "openIssues": [],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "closed-with-recent-evidence",
+      "currentReviewCommit": "5356e806 Align TextArea shell counter contract",
+      "truthResetDecision": "Closed after field shell clearance, counter/resize alignment, density propagation, validation layout, and runtime demo review."
     },
     {
       "id": "toast",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/feedback/Toast.jsx",
@@ -2370,28 +2628,33 @@
         "docs/audits/toast-1to1-light.png",
         "docs/audits/toast-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Toast remains a component. It owns one non-blocking event message with optional single Flow Button action and Icon Button dismiss; queueing, stacking policy, placement orchestration, and notification center behavior remain patterns.",
       "lastValidation": "npm run validate pass",
-      "updatedAt": "2026-07-23"
+      "updatedAt": "2026-07-23",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "tooltip",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         ".audit-reference/components/feedback/Tooltip.jsx",
@@ -2411,28 +2674,33 @@
         "docs/audits/tooltip-1to1-light.png",
         "docs/audits/tooltip-1to1-dark.png"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "decision": "Tooltip remains a component. It owns non-interactive contextual disclosure for hover/focus and package-backed demos; Popover/Menu/Dialog remain separate overlay components or patterns by behavior.",
       "lastValidation": "npm run validate pass",
-      "updatedAt": "2026-07-22"
+      "updatedAt": "2026-07-22",
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     },
     {
       "id": "tree-view",
-      "status": "pass",
+      "status": "partial",
       "steps": {
-        "zip-reference": "pass",
-        "system-architecture": "pass",
-        "package-source": "pass",
-        "docs-source": "pass",
-        "foundations-primitives": "pass",
-        "states-variants": "pass",
-        "interaction-logic": "pass",
-        "motion": "pass",
-        "density-layout": "pass",
-        "typography-iconography": "pass",
-        "accessibility": "pass",
-        "visual-qa": "pass",
-        "validation": "pass"
+        "zip-reference": "partial",
+        "system-architecture": "partial",
+        "package-source": "partial",
+        "docs-source": "partial",
+        "foundations-primitives": "partial",
+        "states-variants": "partial",
+        "interaction-logic": "partial",
+        "motion": "partial",
+        "density-layout": "partial",
+        "typography-iconography": "partial",
+        "accessibility": "partial",
+        "visual-qa": "partial",
+        "validation": "partial"
       },
       "evidence": [
         "docs/audits/tree-view-reclassification.md",
@@ -2449,27 +2717,48 @@
         "packages/audit/scripts/audit-component-demo-interactions.mjs",
         "packages/audit/scripts/audit-component-demo-registry.mjs"
       ],
-      "openIssues": [],
+      "openIssues": [
+        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+      ],
       "inventoryEscalations": [
         "Sidebar remains a pattern because it owns shell navigation, logo/footer slots, routing groups, and drawer behavior.",
         "Permission trees, drag sorting, virtualized trees, and tree tables remain pattern/template candidates; Tree View only owns bounded hierarchical disclosure and selection."
-      ]
+      ],
+      "previousStatusBeforeTruthReset": "pass",
+      "reviewState": "needs-1to1-review",
+      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
     }
   ],
   "summary": {
     "total": 57,
-    "pass": 57,
-    "partial": 0,
+    "pass": 7,
+    "partial": 50,
     "fail": 0,
-    "qualityDebt": 0
+    "qualityDebt": 50,
+    "reviewStates": {
+      "closed-with-recent-evidence": 7,
+      "needs-1to1-review": 26,
+      "needs-revalidation": 23,
+      "in-review": 1
+    }
   },
   "currentReview": {
-    "name": "Flow3 component 1:1 QA consolidation",
-    "updatedAt": "2026-08-27",
-    "sourceCommit": "0b193efb Align drawer reference parity contracts",
-    "scope": [],
+    "name": "Flow3 component 1:1 QA truth reset",
+    "updatedAt": "2026-08-28",
+    "sourceCommit": "595eac91 Strengthen Table DataGrid parity contract",
+    "scope": [
+      "table"
+    ],
     "nextComponent": "table",
-    "nextComponentReason": "All active component entries are pass, but Table is the highest-impact next review target because it anchors comparable records, sorting, selection, responsive density, status composition, and dashboard/template data surfaces. Drawer and Accordion are closed in the current review and must not remain as the cursor.",
-    "nextRule": "Do not start a new component until currentReview scope has no critical functional, accessibility, density, dark-mode, or demo-verification debt recorded in this matrix."
+    "nextComponentReason": "Table is still the active cursor: the latest flow-core gate reports contract debt after the table visual pass, so it cannot be counted as closed yet.",
+    "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
+  },
+  "truthReset": {
+    "updatedAt": "2026-08-28",
+    "reason": "The previous matrix claimed 57/57 pass while user-visible review found unresolved bugs and stale working-tree evidence. This reset stops using historical pass as proof of closure.",
+    "docsScope": "excluded for now",
+    "localDemosScope": "included; local review demos are required evidence for reviewed components",
+    "closedComponentPolicy": "Only components with recent ZIP-informed runtime/demo review and commit evidence remain pass.",
+    "partialComponentPolicy": "Partial means not trusted yet, not necessarily broken; it blocks production-ready claims until the 1:1 contract is rerun."
   }
 }

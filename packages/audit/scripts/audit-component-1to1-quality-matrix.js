@@ -91,7 +91,7 @@ function checkComponent1to1QualityMatrix() {
     } else {
       for (const evidencePath of evidence) {
         const evidenceIsMissing = !evidenceExists(evidencePath);
-        if (evidenceIsMissing && currentReviewScope.has(component.id)) {
+        if (evidenceIsMissing && currentReviewScope.has(component.id) && component.status === "pass") {
           add("errors", matrixFile, 1, `${component.id} references missing evidence: ${evidencePath}.`);
         } else if (evidenceIsMissing) {
           staleEvidenceCount += 1;
@@ -156,6 +156,7 @@ function checkComponent1to1QualityMatrix() {
   }
 
   if (partialCount || failCount) {
+    result.status = "partial";
     add("warnings", matrixFile, 1, `Component 1:1 quality matrix is not closed: ${partialCount} partial, ${failCount} fail.`);
   }
 }
