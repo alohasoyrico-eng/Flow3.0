@@ -18,7 +18,7 @@ const components = {
     directory: "button-2026-08-17",
     module: "Button.js",
     exportName: "Button",
-    buildId: "button-depth-dark-runtime-1",
+    buildId: "button-warning-secondary-runtime-1",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Variantes de accion"),
           e("div", { className: "audit-row" },
@@ -41,9 +41,9 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-row" },
-            action({ label: "Small", density: "sm" }),
-            action({ label: "Medium", density: "md" }),
-            action({ label: "Large", density: "lg" })
+            action({ label: "Small", icon: "add", density: "sm" }),
+            action({ label: "Medium", icon: "add", density: "md" }),
+            action({ label: "Large", icon: "add", density: "lg" })
           )
         ),
         e("section", { className: "audit-section" },

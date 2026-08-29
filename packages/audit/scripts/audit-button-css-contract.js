@@ -102,6 +102,10 @@ function checkButtonCssContract({ text, blocks, packageCssFile, selectorKey, roo
       add("errors", packageCssFile, match ? lineNumber(text, match.index) : 1, `${token} must stay inside its semantic tone family instead of falling back to action/blue tokens.`);
     }
   }
+  const warningSecondaryFg = text.match(/--component-action-fg-warning-secondary:\s*([^;]+);/);
+  if (!warningSecondaryFg || !warningSecondaryFg[1].trim().startsWith("color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-text))")) {
+    add("errors", packageCssFile, warningSecondaryFg ? lineNumber(text, warningSecondaryFg.index) : 1, "--component-action-fg-warning-secondary must be legible on surface in light and dark instead of reusing the filled warning foreground.");
+  }
   const loadingStateBlock = blockFor(blocks, selectorKey, ".button[data-state=\"loading\"]");
   const loadingUsesDisabledVisualAlias = loadingStateBlock && /--comp-button-disabled-|background:\s*var\(--comp-button-disabled-|color:\s*var\(--comp-button-disabled-/.test(loadingStateBlock.body);
   if (loadingUsesDisabledVisualAlias) {

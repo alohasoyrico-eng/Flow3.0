@@ -65,6 +65,10 @@ function checkIconButtonCssContract({ text, blocks, packageCssFile, selectorKey,
       add("errors", packageCssFile, 1, `IconButton action variants must consume shared action appearance roles: missing ${snippet}`);
     }
   }
+  const warningSecondaryFg = text.match(/--component-action-fg-warning-secondary:\s*([^;]+);/);
+  if (!warningSecondaryFg || !warningSecondaryFg[1].trim().startsWith("color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-text))")) {
+    add("errors", packageCssFile, warningSecondaryFg ? lineNumber(text, warningSecondaryFg.index) : 1, "IconButton warning intent must inherit a surface-legible warning foreground from the shared action role.");
+  }
 
   requireIncludes({
     block: rootBlock,

@@ -30,6 +30,9 @@ const validStepStatuses = new Set(["pass", "partial", "fail", "not-applicable"])
 const validComponentStatuses = new Set(["pass", "partial", "fail"]);
 
 function evidenceExists(evidencePath) {
+  if (path.isAbsolute(evidencePath)) {
+    return fs.existsSync(evidencePath);
+  }
   return fs.existsSync(path.join(root, evidencePath));
 }
 

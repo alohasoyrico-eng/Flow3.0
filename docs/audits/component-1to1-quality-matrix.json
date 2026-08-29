@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.2.0-truth-reset",
-  "updatedAt": "2026-08-28",
+  "updatedAt": "2026-08-29",
   "scope": "truthful Flow3 component 1:1 QA matrix; ZIP reference always applies; Docs/FlowDocs are excluded from current execution scope except local review demos",
   "status": "partial",
   "rule": "A component can be pass only with recent 1:1 evidence: ZIP reference checked first, package-backed React runtime demo, light/dark visual QA, accessibility/keyboard behavior where applicable, density/layout/typography/iconography verified, automated validation passed, and a commit captured in evidence. Stale or inferred pass evidence must be downgraded to partial.",
@@ -406,23 +406,26 @@
     },
     {
       "id": "button",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Button.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/button.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/button.html",
         "docs/audits/button-current-light-dark-review.json",
         "docs/audits/button-current-light-dark-review.md",
         "packages/react/src/Button.tsx",
@@ -430,25 +433,27 @@
         "packages/components/styles/components.css",
         "packages/components/src/contracts.js",
         "packages/content/content/component-copy/components/button/variants.json",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "packages/audit/scripts/audit-package-css-contracts.js",
         "packages/components/test/smoke.test.mjs",
         "packages/audit/scripts/audit-button-css-contract.js",
+        "packages/audit/scripts/audit-icon-button-css-contract.js",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p1-actions.test.mjs",
-        "docs/audits/react-interaction-coverage-audit.json"
+        "docs/audits/react-interaction-coverage-audit.json",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/react-runtime.html",
+        "/private/tmp/button-warning-secondary-runtime-1.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Action groups, toolbar layout, and step navigation remain patterns/templates; Button only owns the action trigger."
       ],
-      "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "0e65c781",
-      "decision": "Button is closed for current review: React native button activation is covered by p1-actions, CSS contracts guard monotonic density, semantic danger/warning hover/pressed tone, disabled/loading separation, focus and motion aliases, and current light/dark QA measured sm/md/lg as 36/44/52 with icon scale 16/20/24 and contrast >= 5.37 for semantic tone cases.",
+      "lastReviewAt": "2026-08-29",
+      "currentReviewCommit": "pending-current-commit",
+      "decision": "Button is closed for the current commit. ZIP reference was checked first. Runtime demo is package-backed React and now exposes density icon evidence. Playwright measured sm/md/lg as 36/44/52, icon scale as 16/20/24, no console errors or failed requests, and secondary warning contrast as 5.43 light / 14.81 dark through the shared action role. User visually validated the regenerated Button runtime demo on 2026-08-29. Validation passed: build-local-react-qa-demo --component=button, audit-button-css-contract, audit-icon-button-css-contract, p1-actions, build:react, typecheck, audit:flow-core-gate, and git diff --check.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after strict ZIP/runtime/dark/accessibility/keyboard/density evidence and user visual review on 2026-08-29."
     },
     {
       "id": "card",
@@ -2415,21 +2420,21 @@
     },
     {
       "id": "table",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/Table.jsx",
@@ -2449,23 +2454,15 @@
         "/private/tmp/table-reference-parity-runtime.png",
         "/private/tmp/zip-table-reference.png",
         "/private/tmp/flow-table-datagrid-runtime-1.png",
-        "/private/tmp/table-cascade-runtime-1.png",
-        "node packages/react/test/p1-data-display.test.mjs",
-        "node packages/audit/scripts/audit-component-css-contracts.js",
-        "node packages/audit/scripts/audit-component-demo-registry.mjs",
-        "npm run audit:flow-core-gate",
-        "npm run typecheck",
-        "git diff --check"
+        "/private/tmp/table-cascade-runtime-1.png"
       ],
-      "decision": "Table remains the semantic component for comparable records and consumes the DataGrid contract from the ZIP. The 2026-08-27 pass keeps the existing Flow behavior axes for backward compatibility, but aligns the public API and runtime with the ZIP: defaultSort supports dir/direction, onRowClick receives the row object, center/right alignment is supported including sortable numeric headers, column width is applied through a component-scoped CSS custom property, selected rows expose aria-selected, mono cells consume the governed mono/type-data family, Table depth is card-rest, and status badges use compact density without inflating rows. DataGrid mechanics now covered in Table are zebra, stickyHeader, emptyLabel, embedded surface, multi-selection with real Checkbox/indeterminate header, editable cells with Enter/Escape, group rows, tree rows with treegrid semantics, governed indentation, and horizontal overflow. Bulk action toolbar and filter bar remain patterns composed above Table; timeline and virtualization remain non-goals.",
-      "openIssues": [
-        "Pending user visual review of the regenerated runtime demo before restoring pass status."
-      ],
+      "decision": "Table remains the semantic component for comparable records and consumes the DataGrid contract from the ZIP. The 2026-08-27 pass keeps the existing Flow behavior axes for backward compatibility, but aligns the public API and runtime with the ZIP: defaultSort supports dir/direction, onRowClick receives the row object, center/right alignment is supported including sortable numeric headers, column width is applied through a component-scoped CSS custom property, selected rows expose aria-selected, mono cells consume the governed mono/type-data family, Table depth is card-rest, and status badges use compact density without inflating rows. DataGrid mechanics now covered in Table are zebra, stickyHeader, emptyLabel, embedded surface, multi-selection with real Checkbox/indeterminate header, editable cells with Enter/Escape, group rows, tree rows with treegrid semantics, governed indentation, and horizontal overflow. Bulk action toolbar and filter bar remain patterns composed above Table; timeline and virtualization remain non-goals. User visually validated the regenerated Table runtime demo on 2026-08-29. Validation passed: p1-data-display, audit-component-css-contracts, audit-component-demo-registry, audit:flow-core-gate, typecheck, and git diff --check.",
+      "openIssues": [],
       "lastReviewAt": "2026-08-29",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "pending-current-commit",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "ready-for-visual-review",
-      "truthResetDecision": "Keep Table partial until the regenerated runtime demo is visually accepted; Table contract debt is closed by flow-core gate, typecheck, style governance, and matrix validation."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after strict ZIP/runtime/dark/accessibility/keyboard/density evidence and user visual review on 2026-08-29."
     },
     {
       "id": "tabs",
@@ -2733,26 +2730,27 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 7,
-    "partial": 50,
+    "pass": 9,
+    "partial": 48,
     "fail": 0,
-    "qualityDebt": 50,
+    "qualityDebt": 48,
     "reviewStates": {
       "closed-with-recent-evidence": 7,
       "needs-1to1-review": 26,
-      "needs-revalidation": 23,
-      "in-review": 1
+      "needs-revalidation": 22,
+      "in-review": 0,
+      "closed-with-user-visual-review": 2
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
-    "updatedAt": "2026-08-28",
-    "sourceCommit": "595eac91 Strengthen Table DataGrid parity contract",
+    "updatedAt": "2026-08-29",
+    "sourceCommit": "pending-current-commit",
     "scope": [
-      "table"
+      "input"
     ],
-    "nextComponent": "table",
-    "nextComponentReason": "Table is still the active cursor: the latest flow-core gate reports contract debt after the table visual pass, so it cannot be counted as closed yet.",
+    "nextComponent": "input",
+    "nextComponentReason": "Input is the next high-impact base component because fields, validation spacing, density, dark mode, and composed form controls depend on it.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

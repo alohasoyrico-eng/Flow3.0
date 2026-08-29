@@ -295,7 +295,7 @@
   --component-action-border-danger-secondary-pressed: var(--component-tone-danger-border-pressed);
   --component-action-bg-warning-secondary: var(--component-color-surface);
   --component-action-border-warning-secondary: var(--component-color-warning);
-  --component-action-fg-warning-secondary: var(--component-action-fg-warning);
+  --component-action-fg-warning-secondary: color-mix(in srgb, var(--component-color-warning) 42%, var(--component-color-text));
   --component-action-bg-warning-secondary-hover: color-mix(in srgb, var(--component-color-warning) 14%, var(--component-color-surface));
   --component-action-bg-warning-secondary-pressed: color-mix(in srgb, var(--component-color-warning) 22%, var(--component-color-surface));
   --component-action-border-warning-secondary-hover: color-mix(in srgb, var(--component-color-warning) 64%, var(--component-color-border));
