@@ -68,6 +68,12 @@ const classifiedNonComponentRoots = {
     note: "Material Symbols font hook used by icon-bearing components.",
     reactSupport: true,
   },
+  "payment-brand-mark": {
+    type: "primitive-asset",
+    owner: "packages/components/src/primitives/payment-brand-assets.js",
+    note: "Reusable payment card brand asset primitive consumed by payment field components.",
+    reactSupport: true,
+  },
   surface: {
     type: "structural-primitive",
     owner: "packages/react/src/Surface.js",

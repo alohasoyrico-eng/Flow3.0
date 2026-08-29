@@ -121,6 +121,7 @@
     "createChartsPrimitive",
     "createMapsPrimitive",
     "countryFlagAssetPath",
+    "paymentBrandAssetPath",
     "countryCallingCodeOptions",
     "normalizeCountryCallingCodeOptions",
     "resolveCountryCallingCodeOption"

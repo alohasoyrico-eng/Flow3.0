@@ -23,6 +23,22 @@ const librarySources = Object.freeze({
     ]),
     fallback: "Country name and calling code remain visible.",
   }),
+  "payment-brand-assets": Object.freeze({
+    id: "payment-brand-assets",
+    library: "svg-credit-card-payment-icons",
+    license: "Apache-2.0",
+    primitive: "Payment Brand Assets",
+    runtime: "asset",
+    vendorFiles: Object.freeze([
+      "svg-credit-card-payment-icons/LICENSE",
+      "svg-credit-card-payment-icons/logo/visa.svg",
+      "svg-credit-card-payment-icons/logo/mastercard.svg",
+      "svg-credit-card-payment-icons/logo/amex.svg",
+      "svg-credit-card-payment-icons/logo/discover.svg",
+      "svg-credit-card-payment-icons/logo/generic.svg",
+    ]),
+    fallback: "Payment brand text remains the required meaning; logos are decorative brand reinforcement.",
+  }),
   "animation-assets": Object.freeze({
     id: "animation-assets",
     library: "lottie-web",

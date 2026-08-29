@@ -1238,8 +1238,9 @@ const unstableRowTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   columns: tableColumns.slice(0, 2),
   rows: [{ plate: "NO-ID", status: "Draft" }],
 }));
-assert.equal(unstableRowTableMarkup, "");
 assert.doesNotMatch(unstableRowTableMarkup, /NO-ID|data-key="undefined"/);
+assert.match(unstableRowTableMarkup, /class="table__empty-row"/);
+assert.match(unstableRowTableMarkup, /No rows available/);
 
 const decorativeSelectedTableMarkup = renderToStaticMarkup(React.createElement(Table, {
   label: "Decorative selected table",
@@ -2236,8 +2237,11 @@ assert.match(cardNumberInputMarkup, /class="field__control card-number-input__co
 assert.match(cardNumberInputMarkup, /class="input card-number-input__input"/);
 assert.match(cardNumberInputMarkup, /autoComplete="cc-number"|autocomplete="cc-number"/);
 assert.match(cardNumberInputMarkup, /value="4111 1111 1111 1111"/);
-assert.match(cardNumberInputMarkup, /class="field__suffix card-number-input__brand"/);
-assert.match(cardNumberInputMarkup, /Visa/);
+assert.match(cardNumberInputMarkup, /class="field__suffix card-number-input__brand payment-brand-mark"/);
+assert.match(cardNumberInputMarkup, /data-payment-brand="visa"/);
+assert.match(cardNumberInputMarkup, /data-payment-brand-library="svg-credit-card-payment-icons"/);
+assert.match(cardNumberInputMarkup, /data-payment-brand-license="Apache-2.0"/);
+assert.match(cardNumberInputMarkup, /src=".\/vendor\/payment-card-icons\/logo\/visa.svg"/);
 
 const inheritedCardNumberInputMarkup = renderToStaticMarkup(React.createElement(CardNumberInput, {
   label: "Card number",

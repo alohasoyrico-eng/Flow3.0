@@ -626,7 +626,8 @@ const components = {
     directory: "card-number-input-2026-08-25",
     module: "CardNumberInput.js",
     exportName: "CardNumberInput",
-    buildId: "card-number-input-react-runtime-1",
+    buildId: "card-number-input-brand-assets-runtime-2",
+    paymentBrandAssets: ["visa", "mastercard", "amex", "discover", "generic"],
     eventPropName: "onValueChange",
     actionHandler: "(digits, meta, event) => onAction(props.label + '=' + meta.formatted + ':' + meta.validity)(event)",
     actionSelector: "input[data-runtime-action]",
@@ -1703,6 +1704,30 @@ function copyFlagAssets(config, outDir) {
   }
 }
 
+function copyPaymentBrandAssets(config, outDir) {
+  if (!Array.isArray(config.paymentBrandAssets) || !config.paymentBrandAssets.length) return;
+
+  const sourceDir = path.join(repoRoot, "packages/components/src/vendor/payment-card-icons");
+  const targetDir = path.join(outDir, "vendor/payment-card-icons");
+  const sourceLogoDir = path.join(sourceDir, "logo");
+  const targetLogoDir = path.join(targetDir, "logo");
+  if (!fs.existsSync(sourceLogoDir)) {
+    console.error(`Missing payment brand asset directory: ${sourceLogoDir}`);
+    process.exit(1);
+  }
+
+  fs.mkdirSync(targetLogoDir, { recursive: true });
+  fs.copyFileSync(path.join(sourceDir, "LICENSE"), path.join(targetDir, "LICENSE"));
+  for (const brand of config.paymentBrandAssets) {
+    const source = path.join(sourceLogoDir, `${brand}.svg`);
+    if (!fs.existsSync(source)) {
+      console.error(`Missing payment brand asset: ${source}`);
+      process.exit(1);
+    }
+    fs.copyFileSync(source, path.join(targetLogoDir, `${brand}.svg`));
+  }
+}
+
 function copyMaterialSymbolsAssets(outDir) {
   const sourceDir = path.join(workspaceRoot, "apps/docs/vendor/material-symbols");
   const targetDir = path.join(outDir, "vendor/material-symbols");
@@ -1735,6 +1760,7 @@ const config = components[component];
 const outDir = path.join(localQaRoot, config.directory, "interactive");
 fs.mkdirSync(outDir, { recursive: true });
 copyFlagAssets(config, outDir);
+copyPaymentBrandAssets(config, outDir);
 copyMaterialSymbolsAssets(outDir);
 copyReferenceAssets(config, outDir);
 

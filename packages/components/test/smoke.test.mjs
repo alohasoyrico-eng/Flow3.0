@@ -4,9 +4,15 @@ import {
   createAnimationAsset,
   createChartsPrimitive,
   createMapsPrimitive,
+  createPaymentBrandAsset,
   countryFlagAssetPath,
+  hasPaymentBrandAsset,
   hasCountryFlag,
   listCountryFlags,
+  listPaymentBrandAssets,
+  normalizePaymentBrand,
+  paymentBrandAssetPath,
+  paymentBrandLabel,
   resolveAnimationRuntime,
   animatedMomentPlatformAdapters,
   animatedMomentPlatformContract,
@@ -832,6 +838,19 @@ assert.ok(listCountryFlags().length > 200);
 assert.equal(hasCountryFlag("MX"), true);
 assert.equal(hasCountryFlag("ZZ"), false);
 assert.equal(countryFlagAssetPath("MX"), "./vendor/country-flag-icons/3x2/MX.svg");
+assert.deepEqual(listPaymentBrandAssets(), ["visa", "mastercard", "amex", "discover", "generic"]);
+assert.equal(normalizePaymentBrand("American Express"), "amex");
+assert.equal(paymentBrandLabel("master_card"), "Mastercard");
+assert.equal(hasPaymentBrandAsset("mc"), true);
+assert.equal(hasPaymentBrandAsset(""), false);
+assert.equal(hasPaymentBrandAsset("dank-card"), false);
+assert.equal(paymentBrandAssetPath("Discover"), "./vendor/payment-card-icons/logo/discover.svg");
+const primitivePaymentBrand = createPaymentBrandAsset("Visa");
+assert.equal(primitivePaymentBrand.className, "payment-brand-mark");
+assert.equal(primitivePaymentBrand.dataset.paymentBrand, "visa");
+assert.equal(primitivePaymentBrand.dataset.paymentBrandLibrary, "svg-credit-card-payment-icons");
+assert.equal(primitivePaymentBrand.dataset.paymentBrandLicense, "Apache-2.0");
+assert.match(primitivePaymentBrand.querySelector(".payment-brand-mark__asset").src, /\/vendor\/payment-card-icons\/logo\/visa\.svg$/);
 
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");

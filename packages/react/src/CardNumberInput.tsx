@@ -8,6 +8,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { paymentBrandAssetPath } from "@design-system/components";
 import { cardNumberInputPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
 import {
@@ -84,7 +85,13 @@ function cardNumberBrand(digits: string): string {
   if (/^4/.test(value)) return "Visa";
   if (/^5[1-5]/.test(value) || /^2(2[2-9]|[3-6]|7[01]|720)/.test(value)) return "Mastercard";
   if (/^3[47]/.test(value)) return "American Express";
+  if (/^6(?:011|5)/.test(value)) return "Discover";
   return "";
+}
+
+function cardNumberBrandAsset(brand: string): string {
+  if (brand === "American Express") return "amex";
+  return brand.toLowerCase();
 }
 
 function resolveCardNumberState({
@@ -207,16 +214,32 @@ export const CardNumberInput = forwardRef<HTMLInputElement, CardNumberInputProps
           }, event);
         },
       }),
-      React.createElement(
-        "span",
-        {
-          className: "field__suffix card-number-input__brand",
-          "data-card-number-brand": "",
-          "aria-hidden": "true",
-          hidden: !brand,
-        },
-        brand,
-      ),
+      brand
+        ? React.createElement(
+          "span",
+          {
+            className: "field__suffix card-number-input__brand payment-brand-mark",
+            "data-payment-brand": cardNumberBrandAsset(brand),
+            "data-payment-brand-library": "svg-credit-card-payment-icons",
+            "data-payment-brand-license": "Apache-2.0",
+            "data-card-number-brand": "",
+            "aria-hidden": "true",
+          },
+          React.createElement("img", {
+            className: "payment-brand-mark__asset",
+            src: paymentBrandAssetPath(cardNumberBrandAsset(brand)),
+            alt: "",
+            decoding: "async",
+            loading: "lazy",
+            "aria-hidden": "true",
+          }),
+          React.createElement("span", { className: "payment-brand-mark__fallback", "aria-hidden": "true", hidden: true }, brand),
+        )
+        : React.createElement("span", {
+            className: "field__suffix card-number-input__brand card-number-input__brand--placeholder",
+            "data-card-number-brand": "",
+            "aria-hidden": "true",
+          }),
       loading ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true, className: "field__icon field__icon--loading" }) : null,
     ),
     fieldMessage.message

@@ -12433,6 +12433,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-number-input-brand-fg: var(--component-color-text-muted);
   --comp-card-number-input-brand-weight: var(--component-font-weight-extrabold);
   --comp-card-number-input-brand-letter-spacing: var(--component-letter-spacing-normal);
+  --comp-card-number-input-brand-block-size: var(--component-icon-size-sm);
+  --comp-card-number-input-brand-inline-size: var(--component-inline-size-md);
   --comp-card-number-input-value-spacing: 0.02em;
   --comp-card-expiry-input-control-size: var(--comp-field-control-size);
   --comp-card-expiry-input-icon-size: var(--comp-field-icon-size);
@@ -12500,16 +12502,36 @@ body[data-contrast="quiet"] .route-summary__icon {
   letter-spacing: var(--comp-card-security-code-input-value-spacing);
 }
 
-.card-number-input__brand {
+.payment-brand-mark {
+  align-items: center;
+  block-size: var(--comp-card-number-input-brand-block-size);
+  display: inline-flex;
+  inline-size: var(--comp-card-number-input-brand-inline-size);
+  justify-content: flex-end;
+  min-inline-size: var(--comp-card-number-input-brand-inline-size);
+  overflow: hidden;
+}
+
+.payment-brand-mark__asset {
+  block-size: 100%;
+  display: block;
+  inline-size: 100%;
+  object-fit: contain;
+}
+
+.payment-brand-mark__fallback {
   color: var(--comp-card-number-input-brand-fg);
   font-size: var(--component-font-size-caption);
   font-weight: var(--comp-card-number-input-brand-weight);
   letter-spacing: var(--comp-card-number-input-brand-letter-spacing);
-  min-inline-size: calc(var(--component-control-min-size) + var(--component-inline-size-sm));
   text-align: end;
 }
 
-.card-number-input__brand[hidden] {
+.card-number-input__brand {
+  min-inline-size: var(--comp-card-number-input-brand-inline-size);
+}
+
+.card-number-input__brand--placeholder {
   display: inline-block;
   visibility: hidden;
 }

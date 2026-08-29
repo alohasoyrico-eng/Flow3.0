@@ -562,26 +562,33 @@
     },
     {
       "id": "card-number-input",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/forms/Input.jsx",
-        ".audit-reference/components/display/PaymentCard.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Input.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/PaymentCard.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/payment-card.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/payment-card.html",
         "packages/components/src/components/specialized-inputs.js",
+        "packages/components/src/primitives/payment-brand-assets.ts",
+        "packages/components/src/vendor/payment-card-icons/logo/visa.svg",
+        "packages/components/src/vendor/payment-card-icons/logo/mastercard.svg",
+        "packages/components/src/vendor/payment-card-icons/logo/amex.svg",
+        "packages/components/src/vendor/payment-card-icons/logo/discover.svg",
         "packages/components/styles/components.css",
         "packages/components/test/smoke.test.mjs",
         "docs/audits/card-number-input-1to1-visual-metrics.json",
@@ -591,17 +598,17 @@
         "packages/react/src/CardNumberInput.tsx",
         "packages/react/test/p0-forms-advanced.test.mjs",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
-        "../../local-visual-snapshots/Flow3-component-qa/card-number-input-2026-08-25/interactive/react-runtime.html"
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-number-input-2026-08-25/interactive/react-runtime.html",
+        "/private/tmp/card-number-input-1to1-runtime-1.png",
+        "/private/tmp/card-number-input-brand-assets-runtime-2.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
-      "lastReviewAt": "2026-08-25",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-29",
       "currentReviewCommit": "working-tree",
-      "decision": "Card Number Input remains a payment-form component over the shared Field cascade, not a PaymentCard/CardSummary surface. Current review confirms ZIP Input plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular grouped numerals, cc-number autocomplete, local brand detection, Luhn-derived valid/error states, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo.",
+      "decision": "Card Number Input is closed for current review. The ZIP has no standalone CardNumberInput, so the review triangulates ZIP Input shell behavior with PaymentCard numeric/brand constraints: full PAN belongs only in the editable field, display uses grouped data numerals, emitted value remains raw digits, and PaymentCard/CardSummary surface semantics stay out of this component. Payment brands now use the governed payment-brand-assets primitive over versioned Apache-2.0 SVG assets, not hardcoded text, a new duplicate React component, or ad hoc HTML. Runtime demo is package-backed React and copies the vendor assets locally. Playwright confirms typing 4111111111111111 renders 4111 1111 1111 1111, emits valid Visa metadata, invalid Luhn input moves to error with aria-invalid=true, Visa/Amex/Discover resolve to their SVG assets with no failed requests, brand marks render in a compact 36x16 slot, dark mode keeps governed field error colors, inputMode remains numeric, autocomplete is cc-number, and sm/md/lg controls measure 36/44/52 with 12/16/20 radius and 13/14/16 font sizes.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after ZIP-informed runtime validation of grouping, raw emitted digits, brand detection, Luhn states, density, dark mode, and accessibility."
     },
     {
       "id": "card-security-code-input",
@@ -2737,13 +2744,13 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 11,
-    "partial": 46,
+    "pass": 12,
+    "partial": 45,
     "fail": 0,
-    "qualityDebt": 46,
+    "qualityDebt": 45,
     "reviewStates": {
-      "closed-with-recent-evidence": 8,
-      "needs-1to1-review": 26,
+      "closed-with-recent-evidence": 9,
+      "needs-1to1-review": 25,
       "needs-revalidation": 21,
       "in-review": 0,
       "closed-with-user-visual-review": 2
@@ -2754,10 +2761,10 @@
     "updatedAt": "2026-08-29",
     "sourceCommit": "44717537",
     "scope": [
-      "card-number-input"
+      "card-expiry-input"
     ],
-    "nextComponent": "card-number-input",
-    "nextComponentReason": "Card Number Input is next because it shares the Field/payment-input cascade with Input Amount and must prove grouped numeric display, raw emitted value, paste behavior, local validation, and accessibility before payment patterns can be trusted.",
+    "nextComponent": "card-expiry-input",
+    "nextComponentReason": "Card Expiry Input is next because it shares the payment Field cascade and must prove grouped date entry, local expiry validation, keyboard behavior, density, and accessibility before payment patterns can be trusted.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

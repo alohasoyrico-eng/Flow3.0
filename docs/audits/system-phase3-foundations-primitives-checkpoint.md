@@ -19,7 +19,7 @@ Foundations and primitives can close only when source tokens, generated outputs,
 - Exported primitives: 24
 - Generated token outputs: 9/9
 - Raw token value violations: 0
-- Source boundary files scanned: 667
+- Source boundary files scanned: 669
 - Source boundary violations: 0
 - Phase 3 debt: 0
 
