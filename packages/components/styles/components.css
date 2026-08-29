@@ -1296,6 +1296,9 @@
   --comp-table-fg: var(--component-color-text);
   --comp-table-radius: var(--component-radius-surface);
   --comp-table-depth: var(--component-depth-card-rest);
+  --comp-table-embedded-depth: var(--component-depth-none);
+  --comp-table-column-width: var(--component-inline-size-auto);
+  --comp-table-tree-depth: var(--component-offset-zero);
   --comp-table-data-font-family: var(--component-font-family-mono);
   --comp-table-header-bg: color-mix(in srgb, var(--component-color-surface-raised) 80%, var(--component-color-surface));
   --comp-table-header-fg: var(--component-color-text-muted);
@@ -8365,6 +8368,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-table-current-row-selected-bg: var(--comp-table-row-selected-bg);
   --comp-table-current-row-selected-accent: var(--comp-table-row-selected-accent);
   --comp-table-current-row-selected-rail-width: var(--comp-table-row-selected-rail-width);
+  --comp-table-current-row-zebra-bg: var(--comp-table-row-zebra-bg);
   --comp-table-current-focus-color: var(--comp-table-focus-color);
   --comp-table-current-focus-width: var(--comp-table-focus-width);
   --comp-table-current-focus-offset: var(--comp-table-focus-offset);
@@ -8374,6 +8378,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-table-current-expander-cell-padding-inline-end: var(--comp-table-expander-cell-padding-inline-end);
   --comp-table-current-expander-icon-size: var(--comp-table-expander-icon-size);
   --comp-table-current-expander-expanded-transform: var(--comp-table-expander-expanded-transform);
+  --comp-table-current-selection-cell-inline-size: var(--comp-table-selection-cell-inline-size);
+  --comp-table-current-edit-input-min-block-size: var(--comp-table-edit-input-min-block-size);
+  --comp-table-current-tree-indent: var(--comp-table-tree-indent);
+  --comp-table-current-group-bg: var(--comp-table-group-bg);
   --comp-table-current-detail-bg: var(--comp-table-detail-bg);
   --comp-table-current-detail-fg: var(--comp-table-detail-fg);
   --comp-table-current-detail-padding-block: var(--comp-table-detail-padding-block);
@@ -8392,7 +8400,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table[data-surface="embedded"] {
   --comp-table-bg: var(--component-surface-transparent);
-  --comp-table-depth: none;
+  --comp-table-depth: var(--comp-table-embedded-depth);
   border-color: var(--component-surface-transparent);
 }
 
@@ -8421,8 +8429,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table col {
-  inline-size: var(--comp-table-column-width, auto);
-  width: var(--comp-table-column-width, auto);
+  inline-size: var(--comp-table-column-width);
+  width: var(--comp-table-column-width);
 }
 
 .table col.table__selection-col {
@@ -8439,7 +8447,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .table td {
   border-block-end: var(--comp-table-current-border-width) solid var(--comp-table-current-border);
   font-size: var(--comp-table-current-body-size);
-  inline-size: var(--comp-table-column-width, auto);
+  inline-size: var(--comp-table-column-width);
   overflow: hidden;
   padding: var(--comp-table-current-cell-block-padding) var(--comp-table-current-cell-inline-padding);
   text-align: start;
@@ -8464,7 +8472,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table[data-zebra="true"] tbody tr:nth-child(even):not(.table__detail-row):not(.table__group-row) {
-  background: var(--comp-table-row-zebra-bg);
+  background: var(--comp-table-current-row-zebra-bg);
 }
 
 .table tbody tr {
@@ -8529,7 +8537,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .table__group {
-  background: var(--comp-table-group-bg);
+  background: var(--comp-table-current-group-bg);
   color: var(--comp-table-group-fg);
   font-size: var(--comp-table-group-size);
   font-weight: var(--comp-table-group-weight);
@@ -8540,12 +8548,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table__selection-head,
 .table__selection-cell {
-  inline-size: var(--comp-table-selection-cell-inline-size);
-  max-inline-size: var(--comp-table-selection-cell-inline-size);
-  min-inline-size: var(--comp-table-selection-cell-inline-size);
+  inline-size: var(--comp-table-current-selection-cell-inline-size);
+  max-inline-size: var(--comp-table-current-selection-cell-inline-size);
+  min-inline-size: var(--comp-table-current-selection-cell-inline-size);
   padding-inline: var(--comp-table-selection-cell-padding-inline);
   text-align: center;
-  width: var(--comp-table-selection-cell-inline-size);
+  width: var(--comp-table-current-selection-cell-inline-size);
 }
 
 .table__selection-head .choice,
@@ -8575,7 +8583,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-table-edit-input-fg);
   font: inherit;
   inline-size: 100%;
-  min-block-size: var(--comp-table-edit-input-min-block-size);
+  min-block-size: var(--comp-table-current-edit-input-min-block-size);
   outline: none;
   padding-inline: var(--comp-table-edit-input-padding-inline);
 }
@@ -8587,7 +8595,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .table tr[aria-level] td:first-of-type:not(.table__selection-cell):not(.table__expander-cell),
 .table tr[aria-level] .table__expander-cell + td {
-  padding-inline-start: calc(var(--comp-table-current-cell-inline-padding) + (var(--comp-table-tree-depth, 0) * var(--comp-table-tree-indent)));
+  padding-inline-start: calc(var(--comp-table-current-cell-inline-padding) + (var(--comp-table-tree-depth) * var(--comp-table-current-tree-indent)));
 }
 
 .table__sort {

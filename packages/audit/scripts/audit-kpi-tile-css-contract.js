@@ -20,7 +20,10 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
   const densityLgBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-density=\"lg\"]");
   const compactBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"compact\"]");
   const compactHeaderBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"compact\"] header");
-  const compactValueBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"compact\"] .kpi-tile__label,\n.kpi-tile[data-variant=\"compact\"] .kpi-tile__value");
+  const compactValueBlock = blocks.find((block) => (
+    block.selector.includes(".kpi-tile[data-variant=\"compact\"] .kpi-tile__label")
+    && block.selector.includes(".kpi-tile[data-variant=\"compact\"] .kpi-tile__value")
+  ));
   const interactiveBlock = blocks.find((block) => block.selector.includes(".kpi-tile:is(a, [role=\"button\"])"));
   const hoverBlock = blocks.find((block) => block.selector.includes(".kpi-tile[data-state=\"hover\"]"));
   const focusBlock = blocks.find((block) => block.selector.includes(".kpi-tile:focus-visible"));

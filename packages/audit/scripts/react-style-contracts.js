@@ -10,6 +10,7 @@ const allowedDynamicStyleKeysByComponent = {
     "--comp-skeleton-bone-current-radius",
   ],
   Slider: ["--comp-slider-percent"],
+  Table: ["--comp-table-column-width", "--comp-table-tree-depth"],
   Tabs: ["--comp-tabs-indicator-left", "--comp-tabs-indicator-width"],
   TreeView: ["--comp-tree-view-level"],
 };

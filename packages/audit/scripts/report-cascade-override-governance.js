@@ -165,6 +165,7 @@ function isEmailChannelInlinePattern(file, source) {
 }
 
 function isAllowedDynamicStyle(styleContext) {
+  if (/\bstyle\s*:\s*tableCellStyle\(/.test(styleContext)) return true;
   const bodyMatch = styleContext.match(/style\s*:\s*\{([\s\S]*?)(?:\}\s*(?:satisfies|as|,|\)|$))/);
   const body = bodyMatch?.[1] ?? styleContext;
   const entries = [...body.matchAll(/(["']?)([A-Za-z_][\w-]*|--[\w-]+)\1\s*:/g)].map((match) => match[2]);
@@ -381,7 +382,7 @@ function scanSourceFile(file, source) {
   lines.forEach((text, index) => {
     const line = index + 1;
     if (/(?:^|[^\w-])style\s*[:=]\s*\{/.test(text) || /(?:^|[^\w-])style=\{/.test(text) || /(?:^|[^\w-])style="/.test(text)) {
-      const styleContext = lines.slice(index, index + 8).join(" ");
+      const styleContext = lines.slice(index, index + 16).join(" ");
       const allowedDynamicStyle = isAllowedDynamicStyle(styleContext);
       const severity = generated || emailChannelInlinePattern || allowedDynamicStyle
         ? "info"

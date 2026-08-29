@@ -342,8 +342,9 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Chip" && /label\s*\?\?\s*""|onRemoveLabel\s*=\s*""|label \? React\.createElement\("span", \{ className: "chip__label"/.test(source)) add("errors", sourceFile, 1, "Chip must not synthesize empty remove payloads or remove labels, or render its required label conditionally after the guard.");
   if (name === "Chip" && !source.includes("onRemove?.(label, event);")) add("errors", sourceFile, 1, "Chip removable actions must pass the original click event through onRemove.");
   if (name === "Chip" && !source.includes("onSelectedChange(!isSelected, event);")) add("errors", sourceFile, 1, "Chip selected changes must pass the original click event through onSelectedChange.");
-  if (name === "Table" && !source.includes("const canRenderExpanders = expandable && typeof getExpandLabel === \"function\";")) add("errors", sourceFile, 1, "Table must gate expandable controls on getExpandLabel instead of expandable alone.");
-  if (name === "Table" && !source.includes("const rowCanExpand = canRenderExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== \"\";")) add("errors", sourceFile, 1, "Table must not render expandable controls or detail rows without real detail content.");
+  if (name === "Table" && !source.includes("const canRenderExpanders = expandable && typeof getExpandLabel === \"function\";")) add("errors", sourceFile, 1, "Table must gate detail expandable controls on getExpandLabel instead of expandable alone.");
+  if (name === "Table" && !source.includes("const rowHasDetail = canRenderExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== \"\";")) add("errors", sourceFile, 1, "Table must not render detail rows without real detail content.");
+  if (name === "Table" && !source.includes("const rowCanExpand = rowHasDetail || treeChildren.length > 0;")) add("errors", sourceFile, 1, "Table tree rows may render hierarchy expanders only when real child rows exist.");
   if (name === "Table" && /"aria-label":\s*expandLabel\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table expander labels must be required before composing expandable controls.");
   if (name === "Table" && !(
     source.includes("const resolvedColumns = useMemo(() => (Array.isArray(columns) ? columns : []).filter((column) => column?.key && column?.label), [columns]);")
@@ -354,7 +355,10 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
     source.includes("const resolvedRows = useMemo(() => (Array.isArray(rows) ? rows : []).filter((row) => {")
     || source.includes("const resolvedRows = useMemo<TableRow[]>(() => (Array.isArray(rows) ? rows : []).filter((row) => {")
   )) add("errors", sourceFile, 1, "Table must filter rows without stable row keys before rendering.");
-  if (name === "Table" && !source.includes("if (!label || !resolvedColumns.length || !resolvedRows.length) return null;")) add("errors", sourceFile, 1, "Table must not render an unnamed or empty table shell.");
+  if (name === "Table" && !source.includes("if (!label || !resolvedColumns.length) return null;")) add("errors", sourceFile, 1, "Table must not render an unnamed table shell or headers without visible columns.");
+  if (name === "Table" && !(source.includes("React.createElement(EmptyState") && source.includes("visibleRows.length === 0"))) add("errors", sourceFile, 1, "Table empty data must render through Flow EmptyState instead of an empty shell.");
+  if (name === "Table" && !source.includes("function tableDensityProps(density: FlowDensity | undefined): { density: FlowDensity } | Record<string, never>")) add("errors", sourceFile, 1, "Table must inherit density by omitting child density props when the context is unset.");
+  if (name === "Table" && /density:\s*(?:resolvedDensity|inheritedDensity)/.test(source)) add("errors", sourceFile, 1, "Table must not pass undefined density props into composed Flow controls.");
   if (name === "Table" && /columns\s*=\s*\[\]|rows\s*=\s*\[\]|label\s*=\s*""|"aria-label":\s*label\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Table must not hide required label, columns, or rows behind empty defaults.");
   if (name === "Table" && /initialState === "selected" && index === 1|initialState === "expanded" \? rows\[0\]/.test(source)) add("errors", sourceFile, 1, "Table must not derive selected or expanded rows from visual state or row position.");
   if (name === "Table" && /String\(selectedKey \|\| ""\)|String\(expandedKey \|\| ""\)/.test(source)) add("errors", sourceFile, 1, "Table must preserve controlled selected and expanded keys with nullish checks instead of truthy fallbacks.");

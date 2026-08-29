@@ -4,12 +4,12 @@
   "principle": "React visual styling must flow through classes and tokens; inline style is reserved for approved dynamic CSS custom properties and DOM style/class/data mutation is blocked. The actionable debt metric is styleEscapeDebt.",
   "baseline": {
     "inventory": {
-      "components": 60,
+      "components": 59,
       "styleEscapeDebt": 0,
-      "componentsWithApprovedInlineVars": 6,
+      "componentsWithApprovedInlineVars": 7,
       "componentsWithRuntimeVars": 1,
-      "approvedInlineVars": 12,
-      "styleProps": 10,
+      "approvedInlineVars": 14,
+      "styleProps": 14,
       "setPropertyCalls": 2,
       "violations": 0,
       "reactGovernancePolicyIssues": 0
@@ -56,12 +56,12 @@
     }
   },
   "inventory": {
-    "components": 60,
+    "components": 59,
     "styleEscapeDebt": 0,
-    "componentsWithApprovedInlineVars": 6,
+    "componentsWithApprovedInlineVars": 7,
     "componentsWithRuntimeVars": 1,
-    "approvedInlineVars": 12,
-    "styleProps": 10,
+    "approvedInlineVars": 14,
+    "styleProps": 14,
     "setPropertyCalls": 2,
     "violations": 0,
     "reactGovernancePolicyIssues": 0
@@ -370,16 +370,6 @@
       "status": "pass"
     },
     {
-      "component": "FloatingActionButton",
-      "file": "packages/react/src/FloatingActionButton.tsx",
-      "allowedInlineStyleKeys": [],
-      "approvedVars": [],
-      "styleProps": 0,
-      "setPropertyCalls": [],
-      "violations": [],
-      "status": "pass"
-    },
-    {
       "component": "IconButton",
       "file": "packages/react/src/IconButton.tsx",
       "allowedInlineStyleKeys": [],
@@ -630,9 +620,15 @@
     {
       "component": "Table",
       "file": "packages/react/src/Table.tsx",
-      "allowedInlineStyleKeys": [],
-      "approvedVars": [],
-      "styleProps": 0,
+      "allowedInlineStyleKeys": [
+        "--comp-table-column-width",
+        "--comp-table-tree-depth"
+      ],
+      "approvedVars": [
+        "--comp-table-column-width",
+        "--comp-table-tree-depth"
+      ],
+      "styleProps": 4,
       "setPropertyCalls": [],
       "violations": [],
       "status": "pass"

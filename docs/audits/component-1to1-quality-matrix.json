@@ -2449,21 +2449,23 @@
         "/private/tmp/table-reference-parity-runtime.png",
         "/private/tmp/zip-table-reference.png",
         "/private/tmp/flow-table-datagrid-runtime-1.png",
+        "/private/tmp/table-cascade-runtime-1.png",
         "node packages/react/test/p1-data-display.test.mjs",
         "node packages/audit/scripts/audit-component-css-contracts.js",
         "node packages/audit/scripts/audit-component-demo-registry.mjs",
+        "npm run audit:flow-core-gate",
         "npm run typecheck",
         "git diff --check"
       ],
       "decision": "Table remains the semantic component for comparable records and consumes the DataGrid contract from the ZIP. The 2026-08-27 pass keeps the existing Flow behavior axes for backward compatibility, but aligns the public API and runtime with the ZIP: defaultSort supports dir/direction, onRowClick receives the row object, center/right alignment is supported including sortable numeric headers, column width is applied through a component-scoped CSS custom property, selected rows expose aria-selected, mono cells consume the governed mono/type-data family, Table depth is card-rest, and status badges use compact density without inflating rows. DataGrid mechanics now covered in Table are zebra, stickyHeader, emptyLabel, embedded surface, multi-selection with real Checkbox/indeterminate header, editable cells with Enter/Escape, group rows, tree rows with treegrid semantics, governed indentation, and horizontal overflow. Bulk action toolbar and filter bar remain patterns composed above Table; timeline and virtualization remain non-goals.",
       "openIssues": [
-        "Truth reset 2026-08-28: Table remains active because audit:flow-core-gate still reports CSS/React contract debt: local var() fallbacks, inline dynamic style governance, density fallback, expandable/detail gating, unnamed empty table shell, and undeclared Checkbox/EmptyState composition."
+        "Pending user visual review of the regenerated runtime demo before restoring pass status."
       ],
-      "lastReviewAt": "2026-08-27",
-      "currentReviewCommit": "595eac91 Strengthen Table DataGrid parity contract",
+      "lastReviewAt": "2026-08-29",
+      "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "in-review",
-      "truthResetDecision": "Keep Table as the active remediation cursor until the flow-core gate no longer reports Table contract errors and the runtime demo is re-shared for review."
+      "reviewState": "ready-for-visual-review",
+      "truthResetDecision": "Keep Table partial until the regenerated runtime demo is visually accepted; Table contract debt is closed by flow-core gate, typecheck, style governance, and matrix validation."
     },
     {
       "id": "tabs",

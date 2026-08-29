@@ -30,9 +30,6 @@ function badgeVariantFor(variant) {
         return "status";
     return variant ?? "status";
 }
-function badgeDensityForTable(inheritedDensity) {
-    return inheritedDensity === "lg" ? "md" : "sm";
-}
 function normalizedColumnAlignment(align) {
     return align && validColumnAlignments.has(align) ? align : undefined;
 }
@@ -51,8 +48,20 @@ function rowKeyFor(row, rowKey, index) {
         return `group-${String(row.__group)}`;
     return String(index);
 }
-function columnWidthStyle(width) {
-    return width !== undefined ? { "--comp-table-column-width": typeof width === "number" ? `${width}px` : width } : undefined;
+function tableCellStyle(width, depth) {
+    if (width === undefined && depth === undefined)
+        return undefined;
+    const dynamicStyle = {};
+    if (width !== undefined) {
+        dynamicStyle["--comp-table-column-width"] = typeof width === "number" ? `${width}px` : width;
+    }
+    if (depth !== undefined) {
+        dynamicStyle["--comp-table-tree-depth"] = String(depth);
+    }
+    return dynamicStyle;
+}
+function tableDensityProps(density) {
+    return density ? { density } : {};
 }
 function renderCell(value, inheritedDensity) {
     if (React.isValidElement(value))
@@ -63,7 +72,7 @@ function renderCell(value, inheritedDensity) {
             tone: value.tone ?? "neutral",
             variant: badgeVariantFor(value.variant),
             icon: value.icon ?? "",
-            density: badgeDensityForTable(inheritedDensity),
+            ...tableDensityProps(inheritedDensity),
         });
     }
     return value ?? "";
@@ -90,8 +99,8 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
     const selectable = resolvedVariant === "selectable" || Boolean(onRowSelect || selectedKey);
     const bulkSelectable = Array.isArray(selection);
     const expandable = resolvedVariant === "expandable" || Boolean(renderDetail || expandedKey);
-    const canRenderDetailExpanders = expandable && typeof getExpandLabel === "function";
-    const hasExpanderColumn = tree || canRenderDetailExpanders;
+    const canRenderExpanders = expandable && typeof getExpandLabel === "function";
+    const hasExpanderColumn = tree || canRenderExpanders;
     const isSelectedKeyControlled = selectedKey !== undefined;
     const isSortControlled = sortKey !== undefined;
     const isExpandedKeyControlled = expandedKey !== undefined;
@@ -193,13 +202,13 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
         "data-surface": resolvedSurface,
         "data-zebra": zebra ? "true" : undefined,
         "data-sticky": stickyHeader ? "true" : undefined,
-    }, React.createElement("table", { "aria-label": label, role: tree ? "treegrid" : undefined }, React.createElement("colgroup", null, bulkSelectable ? React.createElement("col", { className: "table__selection-col" }) : null, hasExpanderColumn ? React.createElement("col", { className: "table__expander-col" }) : null, resolvedColumns.map((column) => React.createElement("col", { key: column.key, style: columnWidthStyle(column.width) }))), React.createElement("thead", null, React.createElement("tr", null, bulkSelectable ? React.createElement("th", { className: "table__selection-head", scope: "col" }, React.createElement(Checkbox, {
+    }, React.createElement("table", { "aria-label": label, role: tree ? "treegrid" : undefined }, React.createElement("colgroup", null, bulkSelectable ? React.createElement("col", { className: "table__selection-col" }) : null, hasExpanderColumn ? React.createElement("col", { className: "table__expander-col" }) : null, resolvedColumns.map((column) => React.createElement("col", { key: column.key, style: tableCellStyle(column.width) }))), React.createElement("thead", null, React.createElement("tr", null, bulkSelectable ? React.createElement("th", { className: "table__selection-head", scope: "col" }, React.createElement(Checkbox, {
         label: "Select all rows",
         variant: "select-all",
-        density: resolvedDensity ?? "sm",
         checked: allSelected,
         indeterminate: someSelected,
         onCheckedChange: (checked) => toggleAllSelection(checked),
+        ...tableDensityProps(resolvedDensity),
     })) : null, hasExpanderColumn ? React.createElement("th", { className: "table__expander-head", scope: "col" }, React.createElement("span", { className: "table__expander-label" }, tree ? "Hierarchy" : "Details")) : null, resolvedColumns.map((column) => {
         const active = currentSort.key === column.key;
         const canSort = column.sortable || sortable;
@@ -209,7 +218,7 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
             "data-align": normalizedColumnAlignment(column.align),
             "data-priority": normalizedColumnPriority(column.priority),
             "aria-sort": canSort ? (active ? currentSort.direction : "none") : undefined,
-            style: columnWidthStyle(column.width),
+            style: tableCellStyle(column.width),
         }, canSort
             ? React.createElement("button", {
                 type: "button",
@@ -226,8 +235,8 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
             icon: emptyIcon,
             variant: "search-empty",
             state: "search-empty",
-            density: resolvedDensity ?? "sm",
             fullWidth: true,
+            ...tableDensityProps(resolvedDensity),
             ...(emptyDescription ? { description: emptyDescription } : {}),
         })))
         : visibleRows.flatMap(({ row, depth, index }) => {
@@ -241,7 +250,7 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
             const expandLabel = typeof getExpandLabel === "function" ? getExpandLabel(row, { expanded, key }) : undefined;
             const detail = typeof renderDetail === "function" ? renderDetail(row) : renderCell(row.detail, resolvedDensity);
             const treeChildren = tree && Array.isArray(row[childrenKey]) ? row[childrenKey] : [];
-            const rowHasDetail = canRenderDetailExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== "";
+            const rowHasDetail = canRenderExpanders && Boolean(expandLabel) && detail !== undefined && detail !== null && detail !== "";
             const rowCanExpand = rowHasDetail || treeChildren.length > 0;
             const resolvedExpandLabel = expandLabel ?? `${expanded ? "Collapse" : "Expand"} ${rowDataLabel(row, key)}`;
             const interactive = selectable || rowCanExpand || Boolean(onRowClick);
@@ -295,10 +304,10 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
             }, bulkSelectable ? React.createElement("td", { className: "table__selection-cell", onClick: (event) => event.stopPropagation() }, React.createElement(Checkbox, {
                 label: `Select ${rowDataLabel(row, key)}`,
                 variant: "compact",
-                density: resolvedDensity ?? "sm",
                 checked,
                 onCheckedChange: (nextChecked) => toggleSelection(key, nextChecked),
-            })) : null, hasExpanderColumn ? React.createElement("td", { className: "table__expander-cell", style: { "--comp-table-tree-depth": depth } }, rowCanExpand ? React.createElement("button", {
+                ...tableDensityProps(resolvedDensity),
+            })) : null, hasExpanderColumn ? React.createElement("td", { className: "table__expander-cell", style: tableCellStyle(undefined, depth) }, rowCanExpand ? React.createElement("button", {
                 type: "button",
                 className: "table__expander",
                 "data-table-expand": "",
@@ -314,7 +323,7 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
                 "data-mono": column.mono ? "true" : undefined,
                 "data-priority": normalizedColumnPriority(column.priority),
                 onDoubleClick: column.editable && onCellEdit ? () => setEditCell({ key, columnKey: column.key, value: String(row[column.key] ?? "") }) : undefined,
-                style: { ...columnWidthStyle(column.width), ...(tree ? { "--comp-table-tree-depth": depth } : {}) },
+                style: tableCellStyle(column.width, tree ? depth : undefined),
             }, editCell?.key === key && editCell.columnKey === column.key
                 ? React.createElement("input", {
                     className: "table__edit-input",

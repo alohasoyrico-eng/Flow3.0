@@ -63,6 +63,15 @@ function checkTableCssContract({ text, blocks, packageCssFile, selectorKey }) {
   if (!text.includes("--comp-table-depth: var(--component-depth-card-rest)")) {
     add("errors", packageCssFile, 1, "Table must map depth to --component-depth-card-rest for DataGrid parity.");
   }
+  if (!text.includes("--comp-table-embedded-depth: var(--component-depth-none)")) {
+    add("errors", packageCssFile, 1, "Table embedded depth must map to --component-depth-none instead of hardcoding none.");
+  }
+  if (!text.includes("--comp-table-column-width: var(--component-inline-size-auto)")) {
+    add("errors", packageCssFile, 1, "Table must declare --comp-table-column-width default in the component contract before runtime column overrides consume it.");
+  }
+  if (!text.includes("--comp-table-tree-depth: var(--component-offset-zero)")) {
+    add("errors", packageCssFile, 1, "Table must declare --comp-table-tree-depth default in the component contract before runtime tree overrides consume it.");
+  }
 
   requireIncludes({
     block: tableBlock,
@@ -75,11 +84,11 @@ function checkTableCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-table-current-border-width: var(--comp-table-border-width)",
       "--comp-table-current-header-bg: var(--comp-table-header-bg)",
       "--comp-table-current-row-selected-rail-width: var(--comp-table-row-selected-rail-width)",
-      "--comp-table-row-zebra-bg: var(--component-color-surface-sunken)",
-      "--comp-table-group-bg: var(--component-color-surface)",
-      "--comp-table-selection-cell-inline-size: var(--component-control-frame-size-sm)",
-      "--comp-table-edit-input-min-block-size: var(--component-control-frame-size-sm)",
-      "--comp-table-tree-indent: var(--component-space-xl)",
+      "--comp-table-current-row-zebra-bg: var(--comp-table-row-zebra-bg)",
+      "--comp-table-current-selection-cell-inline-size: var(--comp-table-selection-cell-inline-size)",
+      "--comp-table-current-edit-input-min-block-size: var(--comp-table-edit-input-min-block-size)",
+      "--comp-table-current-tree-indent: var(--comp-table-tree-indent)",
+      "--comp-table-current-group-bg: var(--comp-table-group-bg)",
       "--comp-table-current-sort-gap: var(--comp-table-sort-gap)",
       "--comp-table-current-expander-cell-inline-size: calc(var(--comp-table-expander-size) + var(--comp-table-expander-cell-gap))",
       "--comp-table-current-detail-padding-inline-start: calc(var(--comp-table-expander-size) + var(--comp-table-current-cell-inline-padding))",
@@ -89,26 +98,26 @@ function checkTableCssContract({ text, blocks, packageCssFile, selectorKey }) {
   });
 
   const contracts = [
-    [embeddedBlock, ["--comp-table-bg: var(--component-surface-transparent)", "--comp-table-depth: none", "border-color: var(--component-surface-transparent)"], "Table embedded surface must replace inline border/shadow overrides with a governed surface mode."],
+    [embeddedBlock, ["--comp-table-bg: var(--component-surface-transparent)", "--comp-table-depth: var(--comp-table-embedded-depth)", "border-color: var(--component-surface-transparent)"], "Table embedded surface must replace inline border/shadow overrides with a governed surface mode."],
     [nativeTableBlock, ["table-layout: fixed"], "Table native grid must use fixed layout so governed column widths remain contractual."],
-    [colBlock, ["inline-size: var(--comp-table-column-width, auto)", "width: var(--comp-table-column-width, auto)"], "Table colgroup data columns must consume governed column width aliases."],
+    [colBlock, ["inline-size: var(--comp-table-column-width)", "width: var(--comp-table-column-width)"], "Table colgroup data columns must consume governed column width aliases."],
     [selectionColBlock, ["inline-size: var(--comp-table-selection-cell-inline-size)", "width: var(--comp-table-selection-cell-inline-size)"], "Table colgroup selection column must consume the governed selection frame alias."],
     [expanderColBlock, ["inline-size: var(--comp-table-current-expander-cell-inline-size)", "width: var(--comp-table-current-expander-cell-inline-size)"], "Table colgroup expander column must consume the governed expander frame alias."],
-    [cellBlock, ["border-block-end: var(--comp-table-current-border-width) solid var(--comp-table-current-border)", "font-size: var(--comp-table-current-body-size)", "inline-size: var(--comp-table-column-width, auto)", "overflow: hidden", "text-overflow: ellipsis", "padding: var(--comp-table-current-cell-block-padding) var(--comp-table-current-cell-inline-padding)"], "Table cells must consume component-scoped current density, width, overflow, and border aliases."],
+    [cellBlock, ["border-block-end: var(--comp-table-current-border-width) solid var(--comp-table-current-border)", "font-size: var(--comp-table-current-body-size)", "inline-size: var(--comp-table-column-width)", "overflow: hidden", "text-overflow: ellipsis", "padding: var(--comp-table-current-cell-block-padding) var(--comp-table-current-cell-inline-padding)"], "Table cells must consume component-scoped current density, width, overflow, and border aliases."],
     [headerBlock, ["background: var(--comp-table-current-header-bg)", "font-weight: var(--comp-table-current-header-weight)", "padding-block: var(--comp-table-current-header-block-padding)", "text-transform: var(--comp-table-current-header-transform)"], "Table header surface, rhythm, and voice must consume component-scoped current aliases."],
     [stickyBlock, ["position: sticky", "z-index: var(--component-z-raised)"], "Table sticky header must use the governed raised z-index token."],
-    [zebraBlock, ["background: var(--comp-table-row-zebra-bg)"], "Table zebra rows must consume the governed sunken row alias."],
+    [zebraBlock, ["background: var(--comp-table-current-row-zebra-bg)"], "Table zebra rows must consume the governed sunken row alias."],
     [hoverBlock, ["background: var(--comp-table-current-row-hover-bg)"], "Table hover rows must consume the component-scoped row-hover alias."],
     [focusBlock, ["outline: var(--comp-table-current-focus-width) solid var(--comp-table-current-focus-color)", "outline-offset: calc(var(--comp-table-current-focus-offset) * -1)"], "Table focus rows must consume component-scoped focus aliases."],
     [selectedBlock, ["background: var(--comp-table-current-row-selected-bg)", "box-shadow: inset var(--comp-table-current-row-selected-rail-width) 0 0 var(--comp-table-current-row-selected-accent)"], "Table selected rows must consume component-scoped selection aliases."],
     [emptyBlock, ["color: var(--comp-table-empty-fg)", "padding-block: var(--comp-table-empty-padding-block)", "text-align: center"], "Table empty state must render in-table with governed spacing and text color."],
     [emptyStateBlock, ["--comp-empty-state-padding-block: var(--component-space-md)", "--comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm)", "max-inline-size: var(--component-content-size-md)"], "Table empty state must compose Flow EmptyState with table-scoped compact spacing instead of plain text or manual HTML."],
-    [groupBlock, ["background: var(--comp-table-group-bg)", "font-size: var(--comp-table-group-size)", "font-weight: var(--comp-table-group-weight)", "padding-block: var(--comp-table-group-padding-block)", "text-transform: var(--comp-table-group-transform)"], "Table group rows must use their own section-label aliases instead of mimicking the table header."],
-    [selectionBlock, ["inline-size: var(--comp-table-selection-cell-inline-size)", "max-inline-size: var(--comp-table-selection-cell-inline-size)", "min-inline-size: var(--comp-table-selection-cell-inline-size)", "width: var(--comp-table-selection-cell-inline-size)"], "Table selection column must use governed fixed frame aliases."],
+    [groupBlock, ["background: var(--comp-table-current-group-bg)", "font-size: var(--comp-table-group-size)", "font-weight: var(--comp-table-group-weight)", "padding-block: var(--comp-table-group-padding-block)", "text-transform: var(--comp-table-group-transform)"], "Table group rows must use their own section-label aliases instead of mimicking the table header."],
+    [selectionBlock, ["inline-size: var(--comp-table-current-selection-cell-inline-size)", "max-inline-size: var(--comp-table-current-selection-cell-inline-size)", "min-inline-size: var(--comp-table-current-selection-cell-inline-size)", "width: var(--comp-table-current-selection-cell-inline-size)"], "Table selection column must use governed fixed frame aliases."],
     [selectionChoiceBlock, ["justify-content: center", "min-block-size: auto"], "Table selection checkbox composition must not inflate row height."],
     [selectionTextBlock, ["clip-path: inset(50%)", "position: absolute"], "Table selection and expander header labels must stay accessible without visible duplicate text."],
-    [editInputBlock, ["border: var(--comp-table-edit-input-border-width) solid var(--comp-table-edit-input-border)", "box-shadow: var(--comp-table-edit-input-shadow)", "min-block-size: var(--comp-table-edit-input-min-block-size)"], "Table editable cells must use governed edit input frame and focus aliases."],
-    [treeIndentBlock, ["padding-inline-start: calc(var(--comp-table-current-cell-inline-padding) + (var(--comp-table-tree-depth, 0) * var(--comp-table-tree-indent)))"], "Table tree rows must use governed indentation aliases."],
+    [editInputBlock, ["border: var(--comp-table-edit-input-border-width) solid var(--comp-table-edit-input-border)", "box-shadow: var(--comp-table-edit-input-shadow)", "min-block-size: var(--comp-table-current-edit-input-min-block-size)"], "Table editable cells must use governed edit input frame and focus aliases."],
+    [treeIndentBlock, ["padding-inline-start: calc(var(--comp-table-current-cell-inline-padding) + (var(--comp-table-tree-depth) * var(--comp-table-current-tree-indent)))"], "Table tree rows must use governed indentation aliases."],
     [alignRightSortBlock, ["justify-content: flex-end"], "Table sortable right-aligned headers must align their internal sort trigger to the column end."],
     [alignRightSortIconBlock, ["order: -1"], "Table sortable right-aligned header icons must sit before the label so numeric labels align to cell values."],
     [alignCenterBlock, ["text-align: center"], "Table must support the DataGrid center alignment contract."],

@@ -67,7 +67,11 @@ const reactComponentCompositionContracts = {
     { component: "Button", reason: "route action slot" },
     { component: "IconButton", reason: "compact action slot" },
   ],
-  Table: [{ component: "Badge", reason: "cell status badge slot" }],
+  Table: [
+    { component: "Badge", reason: "cell status badge slot" },
+    { component: "Checkbox", reason: "bulk and row selection slot" },
+    { component: "EmptyState", reason: "empty table feedback slot" },
+  ],
   Tabs: [{ component: "Badge", reason: "tab badge slot" }],
   Toast: [
     { component: "Button", reason: "toast action slot" },
