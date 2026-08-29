@@ -1377,23 +1377,29 @@
     },
     {
       "id": "input",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Input.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Field.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/input.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/field.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/input.html",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/field.html",
         "docs/audits/input-current-light-dark-review.json",
         "docs/audits/input-current-light-dark-review.md",
         "packages/react/src/Input.tsx",
@@ -1402,21 +1408,22 @@
         "packages/components/src/platforms/input.ts",
         "packages/components/styles/components.css",
         "packages/components/src/contracts.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "packages/audit/scripts/audit-field-css-contract.js",
         "packages/audit/scripts/audit-input-motion-css-contract.js",
         "packages/audit/scripts/audit-package-css-contracts.js",
         "packages/react/test/p0-forms-basic.test.mjs",
-        "packages/react/test/button-render.test.mjs"
+        "packages/react/test/button-render.test.mjs",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/react-runtime.html",
+        "/private/tmp/input-currency-stateful-runtime-1.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
-      "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "bd954d05",
-      "decision": "Input is closed for current review: Field/Input density is monotonic through shared aliases, helper/a11y semantics distinguish info/success/warning/error/loading/disabled, InlineValidation remains the systematic validation composition path, base input motion avoids Button-style transforms, and dark semantic field states now measure >= 4.56 contrast after adding governed dark aliases.",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-29",
+      "currentReviewCommit": "working-tree",
+      "decision": "Input is closed for current review. ZIP Input and Field references were checked first. Flow keeps Field/Input as a governed integrated label-control-helper shell while preserving the ZIP contract: label association, required, helper/error, revealable password, mono/numeric variants, disabled/loading/error semantic states, and Field-owned validation messaging. Runtime demo is package-backed React. Playwright measured sm/md/lg field controls as 36/44/52, radius as 12/16/20, font as 13/14/16, label-to-control clearance as 18px, password reveal toggling from password to text, no console errors or failed requests, and error helper contrast as 5.88 light / 5.62 dark. Currency demo bug found during review: Input examples with value were rendered as frozen controlled inputs; build-local-react-qa-demo now treats Input value as stateful runtime data and Playwright confirms Currency changes from 1234.50 to 9876.54 with runtime log Currency=9876.54:change.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after ZIP/runtime revalidation and stateful Currency demo fix."
     },
     {
       "id": "input-amount",
@@ -2730,10 +2737,10 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 9,
-    "partial": 48,
+    "pass": 10,
+    "partial": 47,
     "fail": 0,
-    "qualityDebt": 48,
+    "qualityDebt": 47,
     "reviewStates": {
       "closed-with-recent-evidence": 7,
       "needs-1to1-review": 26,
@@ -2747,10 +2754,10 @@
     "updatedAt": "2026-08-29",
     "sourceCommit": "44717537",
     "scope": [
-      "input"
+      "input-amount"
     ],
-    "nextComponent": "input",
-    "nextComponentReason": "Input is the next high-impact base component because fields, validation spacing, density, dark mode, and composed form controls depend on it.",
+    "nextComponent": "input-amount",
+    "nextComponentReason": "Input Amount is the next high-impact form component because it shares the Field cascade with Input and owns the money-formatting path that must stay distinct from base Input currency display.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {
