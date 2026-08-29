@@ -1427,41 +1427,41 @@
     },
     {
       "id": "input-amount",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/forms/InputAmount.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/InputAmount.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/input-amount.json",
         "packages/react/src/InputAmount.tsx",
         "packages/components/src/platforms/input-amount.ts",
         "packages/components/src/contracts.ts",
         "packages/components/styles/components.css",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "packages/react/test/p2-final-partials.test.mjs",
-        "../../local-visual-snapshots/Flow3-component-qa/input-amount-2026-08-25/interactive/react-runtime.html"
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-amount-2026-08-25/interactive/react-runtime.html",
+        "/private/tmp/input-amount-locale-draft-runtime-1.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
-      "lastReviewAt": "2026-08-25",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-29",
       "currentReviewCommit": "working-tree",
-      "decision": "Input Amount is closed for current review: ZIP InputAmount confirms Field-owned monetary input anatomy; Flow keeps it as a component over the shared Field cascade, with 36/44/52 control frame, 12/16/20 field radius, density-scaled label/helper text, mono right-aligned numerals, visible currency prefix/suffix context, native decimal input/paste behavior, aria-describedby validation, loading and disabled precedence, and a package-backed React runtime demo.",
+      "decision": "Input Amount is closed for current review. ZIP InputAmount confirms a monetary component over the shared control shell/Field cascade: visible currency context is decorative, value emits without currency or separators, numeric entry is right-aligned, decimal keyboard is preserved, and locale formatting must not jump the caret while editing. Flow now keeps draft input while focused and formats display on blur; Playwright confirms Transfer amount renders 1,250.50, accepts 9876.54 while focused, formats to 9,876.54 on blur, emits runtime log Transfer amount=$9,876.54:change, and preserves sm/md/lg control frames at 36/44/52 with 12/16/20 radius and 13/14/16 font sizes. Loading, disabled, error helper, aria-describedby, and Field-owned validation remain governed by the shared field cascade.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after ZIP/runtime revalidation and locale draft/display formatting fix."
     },
     {
       "id": "kpi-tile",
@@ -2737,14 +2737,14 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 10,
-    "partial": 47,
+    "pass": 11,
+    "partial": 46,
     "fail": 0,
-    "qualityDebt": 47,
+    "qualityDebt": 46,
     "reviewStates": {
-      "closed-with-recent-evidence": 7,
+      "closed-with-recent-evidence": 8,
       "needs-1to1-review": 26,
-      "needs-revalidation": 22,
+      "needs-revalidation": 21,
       "in-review": 0,
       "closed-with-user-visual-review": 2
     }
@@ -2754,10 +2754,10 @@
     "updatedAt": "2026-08-29",
     "sourceCommit": "44717537",
     "scope": [
-      "input-amount"
+      "card-number-input"
     ],
-    "nextComponent": "input-amount",
-    "nextComponentReason": "Input Amount is the next high-impact form component because it shares the Field cascade with Input and owns the money-formatting path that must stay distinct from base Input currency display.",
+    "nextComponent": "card-number-input",
+    "nextComponentReason": "Card Number Input is next because it shares the Field/payment-input cascade with Input Amount and must prove grouped numeric display, raw emitted value, paste behavior, local validation, and accessibility before payment patterns can be trusted.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

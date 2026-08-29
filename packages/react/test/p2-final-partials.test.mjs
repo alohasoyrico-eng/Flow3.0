@@ -22,7 +22,7 @@ globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
 const React = await import("react");
 const axe = await import("axe-core");
 const userEvent = await import("@testing-library/user-event");
-const { cleanup, render } = await import("@testing-library/react");
+const { cleanup, fireEvent, render } = await import("@testing-library/react");
 const {
   AuditEvent,
   BiometricPrompt,
@@ -69,7 +69,7 @@ try {
     assert.equal(fieldRoot?.dataset.currency, "MXN");
     assert.equal(fieldRoot?.dataset.align, "end");
     assert.equal(fieldRoot?.dataset.mono, "true");
-    assert.equal(input.value, "1250.50");
+    assert.equal(input.value, "1,250.50");
     assert.equal(input.inputMode, "decimal");
     assert.equal(input.required, true);
     assert.equal(view.getByText("$").className, "field__prefix input-amount__currency");
@@ -95,6 +95,9 @@ try {
     assert.equal(changes.at(-1)?.meta.currency, "MXN");
     assert.match(changes.at(-1)?.meta.formatted, /\$987\.65/);
     assert.equal(changes.at(-1)?.eventType, "change");
+    assert.equal(editableInput.value, "$987.65");
+    fireEvent.blur(editableInput);
+    assert.equal(editableInput.value, "987.65");
 
     view.rerender(React.createElement(InputAmount, {
       label: "Locked amount",

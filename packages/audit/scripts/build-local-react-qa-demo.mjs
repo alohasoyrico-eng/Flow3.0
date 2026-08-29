@@ -590,7 +590,7 @@ const components = {
     directory: "input-amount-2026-08-25",
     module: "InputAmount.js",
     exportName: "InputAmount",
-    buildId: "input-amount-react-runtime-1",
+    buildId: "input-amount-locale-draft-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.formatted)(event)",
     actionSelector: "input[data-runtime-action]",

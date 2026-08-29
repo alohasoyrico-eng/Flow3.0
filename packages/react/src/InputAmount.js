@@ -2,18 +2,29 @@
  * Do not edit this compatibility runtime directly.
  * Authored source of truth is the paired .ts/.tsx file.
  */
-import React, { forwardRef, useId, useState, } from "react";
+import React, { forwardRef, useMemo, useId, useState, } from "react";
 import { inputAmountPlatformContract } from "@design-system/components/platforms";
 import { Spinner } from "./Spinner.js";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity } from "./internal/props.js";
 import { resolveFieldMessage } from "./internal/field-message.js";
 const validStates = new Set(["default", "filled", "loading", "error", "disabled"]);
-function normalizeAmount(value) {
-    const normalized = String(value ?? "").replace(/[^\d.,-]/g, "").replace(/,/g, "");
+function localeSeparators(locale) {
+    const parts = new Intl.NumberFormat(locale, { minimumFractionDigits: 2 }).formatToParts(1234.5);
+    return {
+        group: parts.find((part) => part.type === "group")?.value ?? ",",
+        decimal: parts.find((part) => part.type === "decimal")?.value ?? ".",
+    };
+}
+function normalizeAmount(value, locale) {
+    const { group, decimal } = localeSeparators(locale);
+    const normalized = String(value ?? "")
+        .split(group).join("")
+        .split(decimal).join(".")
+        .replace(/[^\d.-]/g, "");
     return normalized;
 }
 function amountMeta(value, currency, locale) {
-    const normalized = normalizeAmount(value);
+    const normalized = normalizeAmount(value, locale);
     const numericValue = normalized === "" || normalized === "-" ? null : Number(normalized);
     const finiteNumericValue = typeof numericValue === "number" && Number.isFinite(numericValue) ? numericValue : null;
     const formatOptions = {
@@ -32,6 +43,12 @@ function amountMeta(value, currency, locale) {
         formatted: finiteNumericValue !== null ? formatter.format(finiteNumericValue) : "",
     };
 }
+function formatAmountDisplay(value, currency, locale) {
+    const meta = amountMeta(value, currency, locale);
+    return meta.numericValue !== null
+        ? new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(meta.numericValue)
+        : "";
+}
 function resolveAmountState({ disabled = false, loading = false, error = "", state, value = "" } = {}) {
     if (disabled)
         return "disabled";
@@ -43,14 +60,16 @@ function resolveAmountState({ disabled = false, loading = false, error = "", sta
         return state;
     return value ? "filled" : "default";
 }
-export const InputAmount = forwardRef(function InputAmount({ label, value, helper = "", helperText, error = "", disabled = false, loading = false, required = false, density, state, name = "", placeholder = "", currency = "MXN", locale, prefix, suffix = "", validationMessage, onValueChange, className = "", id, ...rest }, ref) {
+export const InputAmount = forwardRef(function InputAmount({ label, value, helper = "", helperText, error = "", disabled = false, loading = false, required = false, density, state, name = "", placeholder = "", currency = "MXN", locale, prefix, suffix = "", validationMessage, onValueChange, onFocus, onBlur, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const inputId = id ?? `input-amount-${generatedId}`;
     const resolvedCurrency = String(currency || "MXN").toUpperCase();
     const isValueControlled = value !== undefined;
     const [internalValue, setInternalValue] = useState(value ?? "");
+    const [draftValue, setDraftValue] = useState(null);
     const currentValue = isValueControlled ? value ?? "" : internalValue;
-    const normalizedValue = normalizeAmount(currentValue);
+    const normalizedValue = normalizeAmount(currentValue, locale);
+    const displayValue = useMemo(() => draftValue ?? formatAmountDisplay(currentValue, resolvedCurrency, locale), [currentValue, draftValue, locale, resolvedCurrency]);
     const resolvedError = error || validationMessage || "";
     const resolvedState = resolveAmountState({ disabled, loading, error: resolvedError, ...(state !== undefined ? { state } : {}), value: normalizedValue });
     const resolvedDensity = normalizeFlowDensity(density);
@@ -82,7 +101,7 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
         inputMode: "decimal",
         autoComplete: "off",
         placeholder,
-        value: normalizedValue,
+        value: displayValue,
         disabled: Boolean(disabled || loading),
         required,
         "aria-labelledby": `${inputId}-label`,
@@ -90,9 +109,18 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => {
             const meta = amountMeta(event.target.value, resolvedCurrency, locale);
+            setDraftValue(event.target.value);
             if (!isValueControlled)
                 setInternalValue(meta.value);
             onValueChange?.(meta.value, meta, event);
+        },
+        onFocus: (event) => {
+            setDraftValue(event.currentTarget.value);
+            onFocus?.(event);
+        },
+        onBlur: (event) => {
+            setDraftValue(null);
+            onBlur?.(event);
         },
     }), suffix
         ? React.createElement("span", { className: "field__suffix input-amount__suffix", "aria-hidden": "true" }, suffix)

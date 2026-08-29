@@ -3,7 +3,9 @@ import React, {
   type ForwardRefExoticComponent,
   type InputHTMLAttributes,
   type RefAttributes,
+  type FocusEvent,
   forwardRef,
+  useMemo,
   useId,
   useState,
 } from "react";
@@ -48,13 +50,25 @@ export interface InputAmountComponent extends ForwardRefExoticComponent<InputAmo
 
 const validStates = new Set<InputAmountState>(["default", "filled", "loading", "error", "disabled"]);
 
-function normalizeAmount(value: unknown) {
-  const normalized = String(value ?? "").replace(/[^\d.,-]/g, "").replace(/,/g, "");
+function localeSeparators(locale: string | string[] | undefined) {
+  const parts = new Intl.NumberFormat(locale, { minimumFractionDigits: 2 }).formatToParts(1234.5);
+  return {
+    group: parts.find((part) => part.type === "group")?.value ?? ",",
+    decimal: parts.find((part) => part.type === "decimal")?.value ?? ".",
+  };
+}
+
+function normalizeAmount(value: unknown, locale: string | string[] | undefined) {
+  const { group, decimal } = localeSeparators(locale);
+  const normalized = String(value ?? "")
+    .split(group).join("")
+    .split(decimal).join(".")
+    .replace(/[^\d.-]/g, "");
   return normalized;
 }
 
 function amountMeta(value: unknown, currency: string, locale: string | string[] | undefined): InputAmountMeta {
-  const normalized = normalizeAmount(value);
+  const normalized = normalizeAmount(value, locale);
   const numericValue = normalized === "" || normalized === "-" ? null : Number(normalized);
   const finiteNumericValue = typeof numericValue === "number" && Number.isFinite(numericValue) ? numericValue : null;
   const formatOptions: Intl.NumberFormatOptions = {
@@ -72,6 +86,13 @@ function amountMeta(value: unknown, currency: string, locale: string | string[] 
     currency,
     formatted: finiteNumericValue !== null ? formatter.format(finiteNumericValue) : "",
   };
+}
+
+function formatAmountDisplay(value: unknown, currency: string, locale: string | string[] | undefined) {
+  const meta = amountMeta(value, currency, locale);
+  return meta.numericValue !== null
+    ? new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(meta.numericValue)
+    : "";
 }
 
 function resolveAmountState({ disabled = false, loading = false, error = "", state, value = "" }: {
@@ -107,6 +128,8 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
   suffix = "",
   validationMessage,
   onValueChange,
+  onFocus,
+  onBlur,
   className = "",
   id,
   ...rest
@@ -116,8 +139,13 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
   const resolvedCurrency = String(currency || "MXN").toUpperCase();
   const isValueControlled = value !== undefined;
   const [internalValue, setInternalValue] = useState(value ?? "");
+  const [draftValue, setDraftValue] = useState<string | null>(null);
   const currentValue = isValueControlled ? value ?? "" : internalValue;
-  const normalizedValue = normalizeAmount(currentValue);
+  const normalizedValue = normalizeAmount(currentValue, locale);
+  const displayValue = useMemo(
+    () => draftValue ?? formatAmountDisplay(currentValue, resolvedCurrency, locale),
+    [currentValue, draftValue, locale, resolvedCurrency],
+  );
   const resolvedError = error || validationMessage || "";
   const resolvedState = resolveAmountState({ disabled, loading, error: resolvedError, ...(state !== undefined ? { state } : {}), value: normalizedValue });
   const resolvedDensity = normalizeFlowDensity(density);
@@ -158,7 +186,7 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
         inputMode: "decimal",
         autoComplete: "off",
         placeholder,
-        value: normalizedValue,
+        value: displayValue,
         disabled: Boolean(disabled || loading),
         required,
         "aria-labelledby": `${inputId}-label`,
@@ -166,8 +194,17 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           const meta = amountMeta(event.target.value, resolvedCurrency, locale);
+          setDraftValue(event.target.value);
           if (!isValueControlled) setInternalValue(meta.value);
           onValueChange?.(meta.value, meta, event);
+        },
+        onFocus: (event: FocusEvent<HTMLInputElement>) => {
+          setDraftValue(event.currentTarget.value);
+          onFocus?.(event);
+        },
+        onBlur: (event: FocusEvent<HTMLInputElement>) => {
+          setDraftValue(null);
+          onBlur?.(event);
         },
       }),
       suffix
