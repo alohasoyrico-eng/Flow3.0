@@ -449,7 +449,7 @@
         "Action groups, toolbar layout, and step navigation remain patterns/templates; Button only owns the action trigger."
       ],
       "lastReviewAt": "2026-08-29",
-      "currentReviewCommit": "pending-current-commit",
+      "currentReviewCommit": "44717537",
       "decision": "Button is closed for the current commit. ZIP reference was checked first. Runtime demo is package-backed React and now exposes density icon evidence. Playwright measured sm/md/lg as 36/44/52, icon scale as 16/20/24, no console errors or failed requests, and secondary warning contrast as 5.43 light / 14.81 dark through the shared action role. User visually validated the regenerated Button runtime demo on 2026-08-29. Validation passed: build-local-react-qa-demo --component=button, audit-button-css-contract, audit-icon-button-css-contract, p1-actions, build:react, typecheck, audit:flow-core-gate, and git diff --check.",
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "closed-with-user-visual-review",
@@ -2459,7 +2459,7 @@
       "decision": "Table remains the semantic component for comparable records and consumes the DataGrid contract from the ZIP. The 2026-08-27 pass keeps the existing Flow behavior axes for backward compatibility, but aligns the public API and runtime with the ZIP: defaultSort supports dir/direction, onRowClick receives the row object, center/right alignment is supported including sortable numeric headers, column width is applied through a component-scoped CSS custom property, selected rows expose aria-selected, mono cells consume the governed mono/type-data family, Table depth is card-rest, and status badges use compact density without inflating rows. DataGrid mechanics now covered in Table are zebra, stickyHeader, emptyLabel, embedded surface, multi-selection with real Checkbox/indeterminate header, editable cells with Enter/Escape, group rows, tree rows with treegrid semantics, governed indentation, and horizontal overflow. Bulk action toolbar and filter bar remain patterns composed above Table; timeline and virtualization remain non-goals. User visually validated the regenerated Table runtime demo on 2026-08-29. Validation passed: p1-data-display, audit-component-css-contracts, audit-component-demo-registry, audit:flow-core-gate, typecheck, and git diff --check.",
       "openIssues": [],
       "lastReviewAt": "2026-08-29",
-      "currentReviewCommit": "pending-current-commit",
+      "currentReviewCommit": "44717537",
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "closed-with-user-visual-review",
       "truthResetDecision": "Closed after strict ZIP/runtime/dark/accessibility/keyboard/density evidence and user visual review on 2026-08-29."
@@ -2745,7 +2745,7 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-29",
-    "sourceCommit": "pending-current-commit",
+    "sourceCommit": "44717537",
     "scope": [
       "input"
     ],
