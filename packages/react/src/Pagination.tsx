@@ -145,6 +145,13 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
     if (typeof onPageChange === "function") onPageChange(next, event);
   };
 
+  const focusPageButton = (pageNumber: number, container: HTMLElement) => {
+    const frame = container.ownerDocument.defaultView;
+    frame?.requestAnimationFrame(() => {
+      container.querySelector<HTMLButtonElement>(`.pagination__button[data-page="${pageNumber}"]`)?.focus({ preventScroll: true });
+    });
+  };
+
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (typeof onKeyDown === "function") onKeyDown(event);
     if (event.defaultPrevented || disabled) return;
@@ -162,8 +169,9 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
     const nextPage = keyTargets[event.key];
     if (nextPage === undefined) return;
     event.preventDefault();
-    requestPage(nextPage, event);
-    event.currentTarget.focus({ preventScroll: true });
+    const next = normalizePage(nextPage, totalPages).currentPage;
+    requestPage(next, event);
+    focusPageButton(next, event.currentTarget);
   };
 
   return React.createElement(

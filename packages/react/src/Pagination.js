@@ -74,6 +74,12 @@ export const Pagination = forwardRef(function Pagination({ page, pageCount, page
         if (typeof onPageChange === "function")
             onPageChange(next, event);
     };
+    const focusPageButton = (pageNumber, container) => {
+        const frame = container.ownerDocument.defaultView;
+        frame?.requestAnimationFrame(() => {
+            container.querySelector(`.pagination__button[data-page="${pageNumber}"]`)?.focus({ preventScroll: true });
+        });
+    };
     const handleKeyDown = (event) => {
         if (typeof onKeyDown === "function")
             onKeyDown(event);
@@ -93,8 +99,9 @@ export const Pagination = forwardRef(function Pagination({ page, pageCount, page
         if (nextPage === undefined)
             return;
         event.preventDefault();
-        requestPage(nextPage, event);
-        event.currentTarget.focus({ preventScroll: true });
+        const next = normalizePage(nextPage, totalPages).currentPage;
+        requestPage(next, event);
+        focusPageButton(next, event.currentTarget);
     };
     return React.createElement("nav", {
         ...flowRestProps(rest),
