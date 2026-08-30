@@ -32,8 +32,14 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
   if (!source.includes("const currentPage = isPageControlled ? normalized.currentPage : internalPage;") || !source.includes("if (!isPageControlled) setInternalPage(next);") || !/onPageChange(?:\?\.)?\(next, event\)/.test(source)) {
     add("errors", sourceFile, 1, "Pagination must keep real controlled/uncontrolled page behavior and pass the source event.");
   }
-  if (!source.includes("if (!hasLabels || !hasPages) return null;") || !source.includes("\"aria-current\": current ? \"page\" : undefined")) {
-    add("errors", sourceFile, 1, "Pagination must require accessible labels and expose aria-current for the selected page.");
+  if (!source.includes("defaultPaginationLabel = \"Paginación\"") || !source.includes("if (!hasPages) return null;") || !source.includes("\"aria-current\": current ? \"page\" : undefined")) {
+    add("errors", sourceFile, 1, "Pagination must expose ZIP-compatible default accessible labels and aria-current for the selected page.");
+  }
+  if (!source.includes("variant === \"jump\" ? \"jump\" : \"numbered\"") || !source.includes("defaultNextJumpLabel") || !source.includes("requestPage(currentPage + resolvedJumpSize, event)") || !source.includes("requestPage(totalPages, event)")) {
+    add("errors", sourceFile, 1, "Pagination must support governed jump pagination with first/last and fixed range controls.");
+  }
+  if (!source.includes("const handleKeyDown = (event: KeyboardEvent<HTMLElement>)") || !source.includes("ArrowLeft: currentPage - 1") || !source.includes("ArrowRight: currentPage + 1") || !source.includes("Home: 1") || !source.includes("End: totalPages") || !source.includes("keyTargets.PageUp = currentPage - resolvedJumpSize") || !source.includes("keyTargets.PageDown = currentPage + resolvedJumpSize") || !source.includes("event.currentTarget.focus({ preventScroll: true })") || !source.includes("tabIndex: disabled ? undefined : tabIndex ?? -1") || !source.includes("onKeyDown: handleKeyDown")) {
+    add("errors", sourceFile, 1, "Pagination must support keyboard page navigation from the nav container.");
   }
   if (/\.breadcrumbs ol,\s*\.pagination\s*{/.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".breadcrumbs ol")), "Pagination must not share its root layout block with Breadcrumbs.");
@@ -57,13 +63,14 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-pagination-size-md: var(--component-control-frame-size-md)",
       "--comp-pagination-size-lg: var(--component-control-frame-size-lg)",
       "--comp-pagination-size: var(--comp-pagination-size-md)",
-      "--comp-pagination-radius: var(--component-control-frame-radius-action)",
-      "--comp-pagination-font-size-sm: var(--component-control-frame-font-size-sm)",
-      "--comp-pagination-font-size-md: var(--component-control-frame-font-size-md)",
-      "--comp-pagination-font-size-lg: var(--component-control-frame-font-size-lg)",
-      "--comp-pagination-padding-inline-sm: var(--component-control-frame-padding-action-sm)",
-      "--comp-pagination-padding-inline-md: var(--component-control-frame-padding-action-md)",
-      "--comp-pagination-padding-inline-lg: var(--component-control-frame-padding-action-lg)",
+      "--comp-pagination-gap-sm: var(--component-space-sm)",
+      "--comp-pagination-gap-md: var(--component-space-md)",
+      "--comp-pagination-gap-lg: var(--component-space-lg)",
+      "--comp-pagination-radius: var(--component-radius-pill)",
+      "--comp-pagination-font-size-sm: var(--component-density-label-size-sm)",
+      "--comp-pagination-font-size-md: var(--component-density-label-size-md)",
+      "--comp-pagination-font-size-lg: var(--component-density-label-size-lg)",
+      "--comp-pagination-padding-inline: var(--component-frame-space-none)",
       "--comp-pagination-ellipsis-inline-size: var(--component-navigation-ellipsis-inline-size)",
       "--comp-pagination-gap:",
       "--comp-pagination-wrap: var(--component-flex-wrap-wrap)",
@@ -101,6 +108,7 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
       "justify-content: var(--comp-pagination-button-justify)",
       "block-size: var(--comp-pagination-size)",
       "box-sizing: border-box",
+      "inline-size: var(--comp-pagination-size)",
       "min-block-size: var(--comp-pagination-size)",
       "min-inline-size: var(--comp-pagination-size)",
       "padding-inline: var(--comp-pagination-padding-inline)",
@@ -182,7 +190,6 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
       [
         "--comp-pagination-size: var(--comp-pagination-size-sm)",
         "--comp-pagination-font-size: var(--comp-pagination-font-size-sm)",
-        "--comp-pagination-padding-inline: var(--comp-pagination-padding-inline-sm)",
       ],
       "Pagination small density must set size, font, gap, and padding aliases from ControlFrame.",
     ],
@@ -191,7 +198,6 @@ function checkPaginationCssContract({ text, blocks, packageCssFile, selectorKey,
       [
         "--comp-pagination-size: var(--comp-pagination-size-lg)",
         "--comp-pagination-font-size: var(--comp-pagination-font-size-lg)",
-        "--comp-pagination-padding-inline: var(--comp-pagination-padding-inline-lg)",
       ],
       "Pagination large density must set size, font, gap, and padding aliases from ControlFrame.",
     ],

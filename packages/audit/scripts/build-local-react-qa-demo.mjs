@@ -180,6 +180,54 @@ const components = {
           )
         )`,
   },
+  "pagination": {
+    title: "Pagination",
+    directory: "pagination-2026-08-29",
+    module: "Pagination.js",
+    exportName: "Pagination",
+    buildId: "pagination-keyboard-runtime-1",
+    eventPropName: "onPageChange",
+    actionHandler: "(page, event) => onAction('Page=' + page)(event)",
+    statefulValueProp: "page",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12 }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Rangos"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ page: 1, pages: 12, label: "Inicio de páginas" })),
+            e("div", { className: "audit-card" }, action({ page: 6, pages: 12, label: "Páginas medias" })),
+            e("div", { className: "audit-card" }, action({ page: 12, pages: 12, label: "Final de páginas" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Saltos"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ page: 14, pages: 42, variant: "jump", jumpSize: 10, label: "Saltos de 10 páginas" })),
+            e("div", { className: "audit-card" }, action({ page: 37, pages: 42, variant: "jump", jumpSize: 5, label: "Saltos de 5 páginas" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12, density: "sm", label: "Pagination small" })),
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12, density: "md", label: "Pagination medium" })),
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12, density: "lg", label: "Pagination large" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12, state: "hover", label: "Pagination hover" })),
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12, state: "focus", label: "Pagination focus" })),
+            e("div", { className: "audit-card" }, action({ page: 4, pages: 12, state: "selected", label: "Pagination selected" })),
+            e("div", { className: "audit-card" }, e(Component, { page: 4, pages: 12, disabled: true, label: "Pagination disabled", "data-runtime-action": "true" }))
+          )
+        )`,
+  },
   "accordion": {
     title: "Accordion",
     directory: "accordion-2026-08-25",

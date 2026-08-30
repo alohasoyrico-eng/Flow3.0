@@ -1,9 +1,9 @@
 {
   "status": "pass",
   "inventory": {
-    "total": 61,
+    "total": 59,
     "cssContractDebt": 0,
-    "direct": 56,
+    "direct": 54,
     "family": 5,
     "missing": 0,
     "directRootGaps": 0,
@@ -13,9 +13,9 @@
   },
   "baseline": {
     "inventory": {
-      "total": 61,
+      "total": 59,
       "cssContractDebt": 0,
-      "direct": 56,
+      "direct": 54,
       "family": 5,
       "missing": 0,
       "directRootGaps": 0,
@@ -24,9 +24,9 @@
       "componentCssGovernanceIssues": 0
     },
     "actual": {
-      "total": 61,
+      "total": 59,
       "cssContractDebt": 0,
-      "direct": 56,
+      "direct": 54,
       "family": 5,
       "missing": 0,
       "directRootGaps": 0,
@@ -63,8 +63,8 @@
     "issues": []
   },
   "cssContractDebt": 0,
-  "total": 61,
-  "direct": 56,
+  "total": 59,
+  "direct": 54,
   "family": 5,
   "missing": [],
   "directRootGaps": [],
@@ -410,16 +410,6 @@
       "requiredRootObserved": true
     },
     {
-      "component": "floating-action-button",
-      "coverage": "direct",
-      "contract": "floating-action-button",
-      "requiredRoot": "fab",
-      "observedRoots": [
-        "fab"
-      ],
-      "requiredRootObserved": true
-    },
-    {
       "component": "icon-button",
       "coverage": "direct",
       "contract": "icon-button",
@@ -554,16 +544,6 @@
       "requiredRoot": "progress",
       "observedRoots": [
         "progress"
-      ],
-      "requiredRootObserved": true
-    },
-    {
-      "component": "quick-action",
-      "coverage": "direct",
-      "contract": "quick-action",
-      "requiredRoot": "quick-action",
-      "observedRoots": [
-        "quick-action"
       ],
       "requiredRootObserved": true
     },

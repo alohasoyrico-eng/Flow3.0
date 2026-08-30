@@ -1177,13 +1177,28 @@ assert.match(paginationMarkup, /aria-label="Previous fleet page"/);
 assert.match(paginationMarkup, /aria-label="Fleet page 4"/);
 assert.match(paginationMarkup, /aria-label="Next fleet page"/);
 const unnamedPaginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
-  pageCount: 3,
+  page: 2,
+  pages: 3,
 }));
-assert.equal(unnamedPaginationMarkup, "");
-assert.doesNotMatch(unnamedPaginationMarkup, /Pagination|Previous page|Next page|Page 1/);
-assert.doesNotMatch(unnamedPaginationMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
-assert.doesNotMatch(unnamedPaginationMarkup, /data-kind="prev"|data-kind="next"/);
-assert.doesNotMatch(unnamedPaginationMarkup, /class="pagination__icon"/);
+assert.match(unnamedPaginationMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label="Paginación"/);
+assert.match(unnamedPaginationMarkup, /aria-label="Página anterior"/);
+assert.match(unnamedPaginationMarkup, /aria-label="Página 2"/);
+assert.match(unnamedPaginationMarkup, /aria-label="Página siguiente"/);
+assert.match(unnamedPaginationMarkup, /data-page-count="3"/);
+assert.match(unnamedPaginationMarkup, /class="pagination__icon"/);
+const jumpPaginationMarkup = renderToStaticMarkup(React.createElement(Pagination, {
+  page: 14,
+  pages: 42,
+  variant: "jump",
+  jumpSize: 10,
+}));
+assert.match(jumpPaginationMarkup, /data-variant="jump"/);
+assert.match(jumpPaginationMarkup, /aria-label="Primera página"/);
+assert.match(jumpPaginationMarkup, /aria-label="Retroceder 10 páginas"/);
+assert.match(jumpPaginationMarkup, /aria-label="Avanzar 10 páginas"/);
+assert.match(jumpPaginationMarkup, /aria-label="Última página"/);
+assert.match(jumpPaginationMarkup, /first_page/);
+assert.match(jumpPaginationMarkup, /last_page/);
 
 const tableColumns = [
   { key: "plate", label: "Plate", mono: true, sortable: true },

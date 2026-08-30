@@ -6865,30 +6865,33 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-pagination-size-md: var(--component-control-frame-size-md);
   --comp-pagination-size-lg: var(--component-control-frame-size-lg);
   --comp-pagination-size: var(--comp-pagination-size-md);
-  --comp-pagination-gap: var(--component-space-xs);
-  --comp-pagination-radius: var(--component-control-frame-radius-action);
+  --comp-pagination-gap-sm: var(--component-space-sm);
+  --comp-pagination-gap-md: var(--component-space-md);
+  --comp-pagination-gap-lg: var(--component-space-lg);
+  --comp-pagination-gap: var(--comp-pagination-gap-md);
+  --comp-pagination-radius: var(--component-radius-pill);
   --comp-pagination-cursor: var(--component-cursor-pointer);
   --comp-pagination-disabled-cursor: var(--component-cursor-default);
   --comp-pagination-fg: var(--component-color-text-subtle);
   --comp-pagination-font-family: var(--component-font-family-mono);
-  --comp-pagination-font-size-sm: var(--component-control-frame-font-size-sm);
-  --comp-pagination-font-size-md: var(--component-control-frame-font-size-md);
-  --comp-pagination-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-pagination-font-size-sm: var(--component-density-label-size-sm);
+  --comp-pagination-font-size-md: var(--component-density-label-size-md);
+  --comp-pagination-font-size-lg: var(--component-density-label-size-lg);
   --comp-pagination-font-size: var(--comp-pagination-font-size-md);
   --comp-pagination-font-weight: var(--component-font-weight-semibold);
   --comp-pagination-padding-inline-sm: var(--component-control-frame-padding-action-sm);
   --comp-pagination-padding-inline-md: var(--component-control-frame-padding-action-md);
   --comp-pagination-padding-inline-lg: var(--component-control-frame-padding-action-lg);
-  --comp-pagination-padding-inline: var(--comp-pagination-padding-inline-md);
-  --comp-pagination-hover-bg: var(--component-color-surface-muted);
+  --comp-pagination-padding-inline: var(--component-frame-space-none);
+  --comp-pagination-hover-bg: var(--component-color-surface-sunken);
   --comp-pagination-hover-fg: var(--component-color-text);
   --comp-pagination-focus-width: var(--component-focus-ring-width);
   --comp-pagination-focus-color: var(--component-color-focus);
   --comp-pagination-focus-offset: var(--component-focus-ring-offset);
-  --comp-pagination-current-bg: var(--component-color-action);
-  --comp-pagination-current-fg: var(--component-color-action-text);
+  --comp-pagination-current-bg: var(--component-color-text);
+  --comp-pagination-current-fg: var(--component-color-surface);
   --comp-pagination-current-weight: var(--component-font-weight-extrabold);
-  --comp-pagination-current-shadow: 0 0 0 var(--component-space-sm) color-mix(in srgb, var(--component-color-action) 16%, transparent), var(--component-depth-pill);
+  --comp-pagination-current-shadow: var(--component-depth-pill);
   --comp-pagination-disabled-opacity: var(--component-opacity-disabled);
   --comp-pagination-icon-family: var(--component-font-family-icon);
   --comp-pagination-icon-size: var(--component-font-size-title-sm);
@@ -6929,6 +6932,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   block-size: var(--comp-pagination-size);
   box-sizing: border-box;
   min-block-size: var(--comp-pagination-size);
+  inline-size: var(--comp-pagination-size);
   min-inline-size: var(--comp-pagination-size);
   padding-inline: var(--comp-pagination-padding-inline);
   transition:
@@ -6990,16 +6994,14 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .pagination[data-density="sm"] {
   --comp-pagination-size: var(--comp-pagination-size-sm);
-  --comp-pagination-gap: var(--component-focus-ring-offset);
+  --comp-pagination-gap: var(--comp-pagination-gap-sm);
   --comp-pagination-font-size: var(--comp-pagination-font-size-sm);
-  --comp-pagination-padding-inline: var(--comp-pagination-padding-inline-sm);
 }
 
 .pagination[data-density="lg"] {
   --comp-pagination-size: var(--comp-pagination-size-lg);
-  --comp-pagination-gap: var(--component-space-sm);
+  --comp-pagination-gap: var(--comp-pagination-gap-lg);
   --comp-pagination-font-size: var(--comp-pagination-font-size-lg);
-  --comp-pagination-padding-inline: var(--comp-pagination-padding-inline-lg);
 }
 
 @keyframes pagination-current-enter {

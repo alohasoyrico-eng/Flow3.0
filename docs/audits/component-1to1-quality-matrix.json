@@ -108,21 +108,21 @@
     },
     {
       "id": "animated-moment",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/tokens/motion.css",
@@ -1731,21 +1731,21 @@
     },
     {
       "id": "pagination",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/navigation/Pagination.jsx",
@@ -1762,18 +1762,22 @@
         "packages/components/src/components/navigation.js",
         "packages/components/styles/components.css",
         "packages/components/src/contracts.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "packages/react/src/Pagination.tsx",
+        "packages/react/test/button-render.test.mjs",
+        "packages/audit/scripts/audit-pagination-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "local-visual-snapshots/Flow3-component-qa/pagination-2026-08-29/interactive/react-runtime.html",
+        "/private/tmp/pagination-keyboard-runtime.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Cursor and simple pagination are not closed component variants.",
         "Data table/search result pagination and infinite loading are pattern candidates."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed 2026-08-29 against the ZIP Pagination reference, then corrected after visual review: Flow keeps onPageChange per callback governance, supports the ZIP pages prop alias/default Spanish labels, renders every pagination control as a circular Frame target with density-aware focus spacing, adds governed jump pagination for first/last and fixed page ranges, preserves ellipsis as non-interactive text, validates runtime click and keyboard navigation with ArrowLeft/ArrowRight, Home/End, and PageUp/PageDown in jump mode with no console or request failures, and regenerates the local React runtime demo."
     },
     {
       "id": "phone-input",
@@ -2755,14 +2759,14 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 15,
-    "partial": 42,
+    "pass": 17,
+    "partial": 40,
     "fail": 0,
-    "qualityDebt": 42,
+    "qualityDebt": 40,
     "reviewStates": {
-      "closed-with-recent-evidence": 12,
-      "needs-1to1-review": 22,
-      "needs-revalidation": 21,
+      "closed-with-recent-evidence": 14,
+      "needs-1to1-review": 21,
+      "needs-revalidation": 20,
       "in-review": 0,
       "closed-with-user-visual-review": 2
     }
@@ -2770,12 +2774,12 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-29",
-    "sourceCommit": "6c859f7d",
+    "sourceCommit": "f93d0c8d",
     "scope": [
-      "breadcrumbs"
+      "pagination"
     ],
-    "nextComponent": "pagination",
-    "nextComponentReason": "Pagination is the next web-priority component because it shares the ZIP Breadcrumb/Pagination reference demo, owns bounded-result navigation, and should be closed before returning to lower-impact display/payment summaries.",
+    "nextComponent": "select",
+    "nextComponentReason": "Select is the next web-priority component because it still needs revalidation after repeated issues in menu layout, disabled state, dark mode, keyboard escape handling, and stateful runtime behavior.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

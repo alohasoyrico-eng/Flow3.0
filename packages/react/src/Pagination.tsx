@@ -1,26 +1,32 @@
 import React, { forwardRef, useMemo, useState } from "react";
-import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEvent, ReactNode, RefAttributes } from "react";
 import { paginationPlatformContract } from "@design-system/components/platforms";
 import type { FlowDataAttributes } from "./internal/props.js";
 import { flowStateProps, flowVariantProps, flowDensityProps, flowRestProps, normalizeFlowDensity } from "./internal/props.js";
 
-export type PaginationVariant = "numbered";
+export type PaginationVariant = "numbered" | "jump";
 export type PaginationState = "default" | "hover" | "focus" | "selected" | "disabled";
 export type PaginationDensity = "sm" | "md" | "lg";
 
 export interface PaginationProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   page?: number;
-  pageCount: number;
-  label: string;
-  previousLabel: string;
-  nextLabel: string;
-  getPageLabel: (page: number) => string;
+  pageCount?: number;
+  pages?: number;
+  label?: string;
+  previousLabel?: string;
+  nextLabel?: string;
+  firstLabel?: string;
+  lastLabel?: string;
+  previousJumpLabel?: string;
+  nextJumpLabel?: string;
+  getPageLabel?: (page: number) => string;
   variant?: PaginationVariant;
+  jumpSize?: number;
   state?: PaginationState;
   density?: PaginationDensity;
   fullWidth?: boolean;
   disabled?: boolean;
-  onPageChange?: (page: number, event: MouseEvent<HTMLButtonElement>) => void;
+  onPageChange?: (page: number, event: KeyboardEvent<HTMLElement> | MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface PaginationButtonProps {
@@ -40,6 +46,14 @@ export interface PaginationComponent extends ForwardRefExoticComponent<Paginatio
 }
 
 const allowedStates = new Set<PaginationState>(["default", "hover", "focus", "selected", "disabled"]);
+const defaultPaginationLabel = "Paginación";
+const defaultPreviousLabel = "Página anterior";
+const defaultNextLabel = "Página siguiente";
+const defaultFirstLabel = "Primera página";
+const defaultLastLabel = "Última página";
+const defaultPreviousJumpLabel = (jumpSize: number) => `Retroceder ${jumpSize} páginas`;
+const defaultNextJumpLabel = (jumpSize: number) => `Avanzar ${jumpSize} páginas`;
+const defaultGetPageLabel = (page: number) => `Página ${page}`;
 
 function normalizePage(page: number | undefined, pageCount: number) {
   const totalPages = Math.max(1, Number(pageCount) || 1);
@@ -83,43 +97,73 @@ function PaginationButton({ label, children, icon, kind, page, current = false, 
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination({
   page,
   pageCount,
-  label,
-  previousLabel,
-  nextLabel,
-  getPageLabel,
+  pages,
+  label = defaultPaginationLabel,
+  previousLabel = defaultPreviousLabel,
+  nextLabel = defaultNextLabel,
+  firstLabel = defaultFirstLabel,
+  lastLabel = defaultLastLabel,
+  previousJumpLabel,
+  nextJumpLabel,
+  getPageLabel = defaultGetPageLabel,
   variant = "numbered",
+  jumpSize = 10,
   state = "default",
   density,
   fullWidth = false,
   disabled = false,
   onPageChange,
+  onKeyDown,
+  tabIndex,
   className = "",
   ...rest
 }, ref) {
   const isPageControlled = page !== undefined;
-  const normalized = useMemo(() => normalizePage(page ?? 1, pageCount), [page, pageCount]);
+  const resolvedPageCount = pageCount ?? pages ?? 1;
+  const normalized = useMemo(() => normalizePage(page ?? 1, resolvedPageCount), [page, resolvedPageCount]);
   const [internalPage, setInternalPage] = useState(normalized.currentPage);
   const currentPage = isPageControlled ? normalized.currentPage : internalPage;
   const resolvedState = disabled ? "disabled" : allowedStates.has(state) ? state : "default";
-  const resolvedVariant: PaginationVariant = "numbered";
+  const resolvedVariant: PaginationVariant = variant === "jump" ? "jump" : "numbered";
   const totalPages = normalized.totalPages;
+  const resolvedJumpSize = Math.max(1, Math.floor(Number(jumpSize) || 10));
 
   const visibleItems = useMemo(
     () => resolvePaginationItems(currentPage, totalPages),
     [currentPage, totalPages],
   );
-  const hasLabels = Boolean(label && previousLabel && nextLabel && typeof getPageLabel === "function");
-  const hasPages = Number(pageCount) >= 1;
+  const hasPages = Number(resolvedPageCount) >= 1;
   const resolvedDensity = normalizeFlowDensity(density);
 
-  if (!hasLabels || !hasPages) return null;
+  if (!hasPages) return null;
 
-  const requestPage = (nextPage: number, event: MouseEvent<HTMLButtonElement>) => {
+  const requestPage = (nextPage: number, event: KeyboardEvent<HTMLElement> | MouseEvent<HTMLButtonElement>) => {
     if (disabled) return;
     const next = normalizePage(nextPage, totalPages).currentPage;
     if (next === currentPage) return;
     if (!isPageControlled) setInternalPage(next);
     if (typeof onPageChange === "function") onPageChange(next, event);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (typeof onKeyDown === "function") onKeyDown(event);
+    if (event.defaultPrevented || disabled) return;
+
+    const keyTargets: Record<string, number> = {
+      ArrowLeft: currentPage - 1,
+      ArrowRight: currentPage + 1,
+      Home: 1,
+      End: totalPages,
+    };
+    if (resolvedVariant === "jump") {
+      keyTargets.PageUp = currentPage - resolvedJumpSize;
+      keyTargets.PageDown = currentPage + resolvedJumpSize;
+    }
+    const nextPage = keyTargets[event.key];
+    if (nextPage === undefined) return;
+    event.preventDefault();
+    requestPage(nextPage, event);
+    event.currentTarget.focus({ preventScroll: true });
   };
 
   return React.createElement(
@@ -136,7 +180,23 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
       "data-page": String(currentPage),
       "data-page-count": String(totalPages),
       "data-full-width": fullWidth ? "true" : undefined,
+      tabIndex: disabled ? undefined : tabIndex ?? -1,
+      onKeyDown: handleKeyDown,
     },
+    resolvedVariant === "jump" && React.createElement(PaginationButton, {
+      icon: "first_page",
+      label: firstLabel,
+      kind: "prev",
+      disabled: disabled || currentPage <= 1,
+      onClick: (event) => requestPage(1, event),
+    }),
+    resolvedVariant === "jump" && React.createElement(PaginationButton, {
+      icon: "keyboard_double_arrow_left",
+      label: previousJumpLabel ?? defaultPreviousJumpLabel(resolvedJumpSize),
+      kind: "prev",
+      disabled: disabled || currentPage <= 1,
+      onClick: (event) => requestPage(currentPage - resolvedJumpSize, event),
+    }),
     React.createElement(PaginationButton, {
       icon: "chevron_left",
       label: previousLabel,
@@ -170,6 +230,20 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
       kind: "next",
       disabled: disabled || currentPage >= totalPages,
       onClick: (event) => requestPage(currentPage + 1, event),
+    }),
+    resolvedVariant === "jump" && React.createElement(PaginationButton, {
+      icon: "keyboard_double_arrow_right",
+      label: nextJumpLabel ?? defaultNextJumpLabel(resolvedJumpSize),
+      kind: "next",
+      disabled: disabled || currentPage >= totalPages,
+      onClick: (event) => requestPage(currentPage + resolvedJumpSize, event),
+    }),
+    resolvedVariant === "jump" && React.createElement(PaginationButton, {
+      icon: "last_page",
+      label: lastLabel,
+      kind: "next",
+      disabled: disabled || currentPage >= totalPages,
+      onClick: (event) => requestPage(totalPages, event),
     }),
   );
 }) as PaginationComponent;

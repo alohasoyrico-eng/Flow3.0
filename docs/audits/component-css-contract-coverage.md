@@ -2,9 +2,9 @@
 
 Status: pass
 
-- Components: 61
+- Components: 59
 - CSS contract debt: 0
-- Direct contracts: 56
+- Direct contracts: 54
 - Family contracts: 5
 - Missing contracts: 0
 - Direct root gaps: 0
@@ -19,9 +19,9 @@ Changing these numbers is a contract decision. cssContractDebt must stay at 0; a
 
 | Metric | Expected | Actual |
 | --- | ---: | ---: |
-| total | 61 | 61 |
+| total | 59 | 59 |
 | cssContractDebt | 0 | 0 |
-| direct | 56 | 56 |
+| direct | 54 | 54 |
 | family | 5 | 5 |
 | missing | 0 | 0 |
 | directRootGaps | 0 | 0 |
@@ -104,7 +104,6 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | drawer | direct | drawer | drawer | true | n/a | None |
 | empty-state | direct | empty-state | empty-state | true | n/a | None |
 | error-panel | direct | error-panel | error-panel | true | n/a | None |
-| floating-action-button | direct | floating-action-button | fab | true | n/a | None |
 | icon-button | direct | icon-button | icon-button | true | n/a | None |
 | inline-validation | direct | inline-validation | inline-validation | true | n/a | None |
 | input | family | field | field | true | n/a | None |
@@ -118,7 +117,6 @@ Family CSS contracts are allowed only when multiple accepted components intentio
 | phone-input | direct | phone-input | phone-input | true | n/a | None |
 | popover | direct | popover | popover | true | n/a | None |
 | progress-indicator | direct | progress-indicator | progress | true | n/a | None |
-| quick-action | direct | quick-action | quick-action | true | n/a | None |
 | radio-button | direct | radio-button | radio | true | n/a | None |
 | route-summary | direct | route-summary | route-summary | true | n/a | None |
 | segmented-control | direct | segmented-control | segmented-control | true | n/a | None |
