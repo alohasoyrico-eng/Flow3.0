@@ -1127,7 +1127,7 @@ export const componentContracts = {
         accessibility: [
             "Use nav with an accessible label.",
             "Mark the current page with aria-current.",
-            "Require stable item id or href before composing breadcrumb targets.",
+            "Use item id or href as the preferred key; label-only ancestors render as non-navigable text.",
             "Use links only for navigable ancestors.",
             "Escalate route guards, side navigation, IA, and history behavior to navigation patterns."
         ]

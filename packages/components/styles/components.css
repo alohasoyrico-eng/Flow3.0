@@ -6674,35 +6674,43 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-item-gap: var(--component-space-xs);
   --comp-breadcrumbs-target-align: var(--component-align-center);
   --comp-breadcrumbs-target-display: var(--component-display-inline-flex);
+  --comp-breadcrumbs-target-gap: var(--component-space-2xs);
   --comp-breadcrumbs-target-justify: var(--component-justify-center);
   --comp-breadcrumbs-target-decoration: var(--component-text-decoration-none);
   --comp-breadcrumbs-target-block-sm: var(--component-control-frame-size-sm);
   --comp-breadcrumbs-target-block-md: var(--component-control-frame-size-md);
   --comp-breadcrumbs-target-block-lg: var(--component-control-frame-size-lg);
   --comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-md);
-  --comp-breadcrumbs-target-padding-inline-sm: var(--component-control-frame-padding-navigation-sm);
-  --comp-breadcrumbs-target-padding-inline-md: var(--component-control-frame-padding-navigation-md);
-  --comp-breadcrumbs-target-padding-inline-lg: var(--component-control-frame-padding-navigation-lg);
+  --comp-breadcrumbs-target-padding-inline-sm: calc(var(--component-control-frame-padding-navigation-sm) + var(--component-space-xs));
+  --comp-breadcrumbs-target-padding-inline-md: calc(var(--component-control-frame-padding-navigation-md) + var(--component-space-sm));
+  --comp-breadcrumbs-target-padding-inline-lg: calc(var(--component-control-frame-padding-navigation-lg) + var(--component-space-md));
   --comp-breadcrumbs-target-padding-inline: var(--comp-breadcrumbs-target-padding-inline-md);
   --comp-breadcrumbs-target-radius: var(--component-control-frame-radius-navigation);
-  --comp-breadcrumbs-font-size-sm: var(--component-control-frame-font-size-sm);
-  --comp-breadcrumbs-font-size-md: var(--component-control-frame-font-size-md);
-  --comp-breadcrumbs-font-size-lg: var(--component-control-frame-font-size-lg);
+  --comp-breadcrumbs-font-size-sm: var(--component-density-label-size-sm);
+  --comp-breadcrumbs-font-size-md: var(--component-density-label-size-md);
+  --comp-breadcrumbs-font-size-lg: var(--component-density-label-size-lg);
   --comp-breadcrumbs-font-size: var(--comp-breadcrumbs-font-size-md);
   --comp-breadcrumbs-target-fg: var(--component-color-text-muted);
-  --comp-breadcrumbs-target-weight: var(--component-font-weight-extrabold);
+  --comp-breadcrumbs-target-weight: var(--component-font-weight-regular);
   --comp-breadcrumbs-target-line-height: var(--component-line-height-tight);
-  --comp-breadcrumbs-hover-bg: color-mix(in srgb, var(--component-color-text-muted) 10%, transparent);
-  --comp-breadcrumbs-hover-fg: var(--component-color-action);
+  --comp-breadcrumbs-hover-bg: color-mix(in srgb, var(--component-color-action) 20%, var(--component-color-surface-raised));
+  --comp-breadcrumbs-hover-fg: var(--component-color-text);
   --comp-breadcrumbs-current-fg: var(--component-color-text);
-  --comp-breadcrumbs-current-weight: var(--component-font-weight-black);
+  --comp-breadcrumbs-current-weight: var(--component-font-weight-semibold);
   --comp-breadcrumbs-separator-fg: color-mix(in srgb, var(--component-color-text-muted) 72%, transparent);
   --comp-breadcrumbs-separator-family: var(--component-font-family-icon);
   --comp-breadcrumbs-separator-size: var(--component-font-size-label);
   --comp-breadcrumbs-separator-weight: var(--component-font-weight-regular);
   --comp-breadcrumbs-separator-line-height: var(--component-line-height-none);
+  --comp-breadcrumbs-icon-family: var(--component-font-family-icon);
+  --comp-breadcrumbs-icon-size: var(--component-font-size-label);
+  --comp-breadcrumbs-icon-weight: var(--component-font-weight-regular);
+  --comp-breadcrumbs-icon-line-height: var(--component-line-height-none);
+  --comp-breadcrumbs-icon-fg: currentColor;
+  --comp-breadcrumbs-icon-only-padding-inline: var(--component-control-frame-padding-navigation-sm);
+  --comp-breadcrumbs-label-hidden-size: var(--component-visually-hidden-size);
   --comp-breadcrumbs-collapsed-fg: var(--component-color-text-muted);
-  --comp-breadcrumbs-collapsed-letter-spacing: var(--component-letter-spacing-expanded);
+  --comp-breadcrumbs-collapsed-letter-spacing: var(--component-letter-spacing-normal);
   --comp-breadcrumbs-collapsed-bg: color-mix(in srgb, var(--component-color-text-muted) 10%, transparent);
   --comp-breadcrumbs-focus-width: var(--component-focus-ring-width);
   --comp-breadcrumbs-focus-color: var(--component-color-focus);
@@ -6747,6 +6755,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   display: var(--comp-breadcrumbs-target-display);
   font-size: var(--comp-breadcrumbs-font-size);
   font-weight: var(--comp-breadcrumbs-target-weight);
+  gap: var(--comp-breadcrumbs-target-gap);
   justify-content: var(--comp-breadcrumbs-target-justify);
   line-height: var(--comp-breadcrumbs-target-line-height);
   min-block-size: var(--comp-breadcrumbs-target-block);
@@ -6758,13 +6767,39 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
     color var(--comp-breadcrumbs-motion-duration) var(--comp-breadcrumbs-motion-ease);
 }
 
-.breadcrumbs a.breadcrumbs__target:focus-visible {
+.breadcrumbs__icon {
+  color: var(--comp-breadcrumbs-icon-fg);
+  font-family: var(--comp-breadcrumbs-icon-family);
+  font-size: var(--comp-breadcrumbs-icon-size);
+  font-weight: var(--comp-breadcrumbs-icon-weight);
+  line-height: var(--comp-breadcrumbs-icon-line-height);
+}
+
+.breadcrumbs__target--icon-only {
+  padding-inline: var(--comp-breadcrumbs-icon-only-padding-inline);
+}
+
+.breadcrumbs__label--hidden {
+  block-size: var(--comp-breadcrumbs-label-hidden-size);
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  inline-size: var(--comp-breadcrumbs-label-hidden-size);
+  margin: calc(var(--comp-breadcrumbs-label-hidden-size) * -1);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.breadcrumbs a.breadcrumbs__target:focus-visible,
+.breadcrumbs button.breadcrumbs__target:focus-visible {
   outline: var(--comp-breadcrumbs-focus-width) solid var(--comp-breadcrumbs-focus-color);
   outline-offset: var(--comp-breadcrumbs-focus-offset);
 }
 
 .breadcrumbs a.breadcrumbs__target:hover,
-.breadcrumbs[data-state="hover"] a.breadcrumbs__target:first-of-type {
+.breadcrumbs button.breadcrumbs__target:hover,
+.breadcrumbs[data-state="hover"] a.breadcrumbs__target:first-of-type,
+.breadcrumbs[data-state="hover"] button.breadcrumbs__target:first-of-type {
   background: var(--comp-breadcrumbs-hover-bg);
   color: var(--comp-breadcrumbs-hover-fg);
 }
@@ -6801,7 +6836,8 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-breadcrumbs-font-size: var(--comp-breadcrumbs-font-size-lg);
 }
 
-.breadcrumbs[data-state="focus"] a.breadcrumbs__target:first-of-type {
+.breadcrumbs[data-state="focus"] a.breadcrumbs__target:first-of-type,
+.breadcrumbs[data-state="focus"] button.breadcrumbs__target:first-of-type {
   outline: var(--comp-breadcrumbs-focus-width) solid var(--comp-breadcrumbs-focus-color);
   outline-offset: var(--comp-breadcrumbs-focus-offset);
 }

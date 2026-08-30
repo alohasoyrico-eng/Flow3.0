@@ -11,6 +11,8 @@ export type BreadcrumbsDensity = "sm" | "md" | "lg";
 export interface BreadcrumbItem {
   id?: string;
   label: string;
+  icon?: string;
+  iconOnly?: boolean;
   href?: string;
   current?: boolean;
   collapsed?: boolean;
@@ -37,6 +39,8 @@ export interface BreadcrumbsComponent extends ForwardRefExoticComponent<Breadcru
 
 const allowedVariants = new Set<BreadcrumbsVariant>(["standard", "compact", "overflow", "mobile"]);
 const allowedStates = new Set<BreadcrumbsState>(["default", "hover", "focus", "collapsed", "current", "disabled"]);
+const defaultBreadcrumbsLabel = "Ruta";
+const defaultCollapsedLabel = "Rutas intermedias ocultas";
 
 function resolveBreadcrumbItems(items: BreadcrumbItem[], { variant, maxItems, collapsedLabel }: { variant: BreadcrumbsVariant; maxItems?: number | undefined; collapsedLabel?: string | undefined }) {
   if (variant === "mobile" && items.length > 2) {
@@ -50,24 +54,20 @@ function resolveBreadcrumbItems(items: BreadcrumbItem[], { variant, maxItems, co
   }
   const limit = Number(maxItems ?? (variant === "overflow" ? 4 : items.length));
   if (!Number.isFinite(limit) || limit < 3 || items.length <= limit) return items;
-  if (!collapsedLabel) return items;
   const head = items[0];
   if (!head) return items;
   const tailCount = Math.max(1, limit - 2);
   const tail = items.slice(-tailCount);
   return [
     { ...head, current: false },
-    { id: "__collapsed", label: collapsedLabel, collapsed: true, current: false },
+    { id: "__collapsed", label: collapsedLabel ?? defaultCollapsedLabel, collapsed: true, current: false },
     ...tail.map((item, index) => ({ ...item, current: index === tail.length - 1 })),
   ];
 }
 
 function normalizeItems(items: BreadcrumbItem[] | undefined): BreadcrumbItem[] {
   const sourceItems = Array.isArray(items) ? items : [];
-  const labeledItems = sourceItems.filter((item) => {
-    const stableKey = item?.id ?? item?.href;
-    return item?.label && stableKey !== undefined && stableKey !== null && stableKey !== "";
-  });
+  const labeledItems = sourceItems.filter((item) => item?.label);
   return labeledItems.map((item, index) => ({
     ...item,
     label: item.label,
@@ -75,9 +75,39 @@ function normalizeItems(items: BreadcrumbItem[] | undefined): BreadcrumbItem[] {
   }));
 }
 
+function renderBreadcrumbContent(item: BreadcrumbItem) {
+  return React.createElement(
+    React.Fragment,
+    null,
+    item.icon
+      ? React.createElement(
+          "span",
+          {
+            className: "breadcrumbs__icon",
+            "aria-hidden": "true",
+          },
+          item.icon,
+        )
+      : null,
+    React.createElement(
+      "span",
+      { className: item.iconOnly ? "breadcrumbs__label breadcrumbs__label--hidden" : "breadcrumbs__label" },
+      item.label,
+    ),
+  );
+}
+
+function breadcrumbTargetClassName(item: BreadcrumbItem) {
+  return ["breadcrumbs__target", item.iconOnly ? "breadcrumbs__target--icon-only" : ""].filter(Boolean).join(" ");
+}
+
+function breadcrumbTargetAriaLabel(item: BreadcrumbItem) {
+  return item.iconOnly ? item.label : undefined;
+}
+
 export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Breadcrumbs({
   items,
-  label,
+  label = defaultBreadcrumbsLabel,
   collapsedLabel,
   variant = "standard",
   state = "default",
@@ -116,7 +146,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Br
       "ol",
       null,
       visibleItems.map((item, index) => {
-        const key = item.id ?? item.href;
+        const key = item.id ?? item.href ?? item.label;
         const isLast = index === visibleItems.length - 1;
         const hasAction = typeof item.onClick === "function";
         const target = item.collapsed
@@ -132,26 +162,29 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Br
             ? React.createElement(
                 "span",
                 {
-                  className: "breadcrumbs__target",
+                  className: breadcrumbTargetClassName(item),
+                  "aria-label": breadcrumbTargetAriaLabel(item),
                   "aria-current": item.current ? "page" : undefined,
                 },
-                item.label,
+                renderBreadcrumbContent(item),
               )
             : !item.href && hasAction
             ? React.createElement(
                 "button",
                 {
                   type: "button",
-                  className: "breadcrumbs__target",
+                  className: breadcrumbTargetClassName(item),
+                  "aria-label": breadcrumbTargetAriaLabel(item),
                   onClick: (event: MouseEvent<HTMLButtonElement>) => item.onClick?.(item, event),
                 },
-                item.label,
+                renderBreadcrumbContent(item),
               )
             : React.createElement(
                 "a",
                 {
-                  className: "breadcrumbs__target",
+                  className: breadcrumbTargetClassName(item),
                   href: item.href,
+                  "aria-label": breadcrumbTargetAriaLabel(item),
                   onClick: hasAction
                     ? (event: MouseEvent<HTMLAnchorElement>) => {
                         event.preventDefault();
@@ -159,7 +192,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Br
                       }
                     : undefined,
                 },
-                item.label,
+                renderBreadcrumbContent(item),
               );
         return React.createElement(
           "li",

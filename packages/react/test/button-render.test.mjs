@@ -1065,16 +1065,17 @@ const unnamedBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadc
     { href: "#/empty" },
     { label: "Fleet", href: "#/fleet" },
     { label: "Regions", href: "#/regions" },
+    { label: "North", href: "#/north" },
     { id: "cards", label: "Cards", current: true },
   ],
 }));
-assert.doesNotMatch(unnamedBreadcrumbsMarkup, /Breadcrumbs|Collapsed breadcrumb items/);
-assert.doesNotMatch(unnamedBreadcrumbsMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label=/);
+assert.match(unnamedBreadcrumbsMarkup.match(/^<nav[^>]+>/)?.[0] ?? "", /aria-label="Ruta"/);
+assert.match(unnamedBreadcrumbsMarkup, /Rutas intermedias ocultas/);
 assert.doesNotMatch(unnamedBreadcrumbsMarkup, /#\/empty/);
 const nonNavigableBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
   items: [
-    { id: "fleet", label: "Fleet" },
-    { id: "vehicle", label: "Vehicle", current: true },
+    { label: "Fleet" },
+    { label: "Vehicle", current: true },
   ],
 }));
 assert.doesNotMatch(nonNavigableBreadcrumbsMarkup, /href="#"/);
@@ -1085,15 +1086,25 @@ const actionBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcr
     { id: "vehicle", label: "Vehicle", current: true },
   ],
 }));
-assert.match(actionBreadcrumbsMarkup, /<button type="button" class="breadcrumbs__target">Fleet<\/button>/);
+assert.match(actionBreadcrumbsMarkup, /<button type="button" class="breadcrumbs__target"><span class="breadcrumbs__label">Fleet<\/span><\/button>/);
 assert.doesNotMatch(actionBreadcrumbsMarkup, /href="#"/);
-const unstableBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+const iconBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
   items: [
-    { label: "Fleet" },
+    { label: "Inicio", icon: "home", iconOnly: true, href: "#/" },
+    { label: "Fleet", href: "#/fleet" },
     { label: "Vehicle", current: true },
   ],
 }));
-assert.doesNotMatch(unstableBreadcrumbsMarkup, /Fleet|Vehicle|breadcrumbs__target/);
+assert.match(iconBreadcrumbsMarkup, /class="breadcrumbs__target breadcrumbs__target--icon-only" href="#\/" aria-label="Inicio"/);
+assert.match(iconBreadcrumbsMarkup, /class="breadcrumbs__icon" aria-hidden="true">home<\/span>/);
+assert.match(iconBreadcrumbsMarkup, /class="breadcrumbs__label breadcrumbs__label--hidden">Inicio<\/span>/);
+const unstableBreadcrumbsMarkup = renderToStaticMarkup(React.createElement(Breadcrumbs, {
+  items: [
+    { href: "#/empty" },
+    { id: "", label: "" },
+  ],
+}));
+assert.doesNotMatch(unstableBreadcrumbsMarkup, /breadcrumbs__target|#\/empty/);
 
 const tabsMarkup = renderToStaticMarkup(React.createElement(Tabs, {
   label: "Fleet views",

@@ -122,6 +122,64 @@ const components = {
           )
         )`,
   },
+  "breadcrumbs": {
+    title: "Breadcrumbs",
+    directory: "breadcrumbs-2026-08-29",
+    module: "Breadcrumbs.js",
+    exportName: "Breadcrumbs",
+    buildId: "breadcrumbs-padding-home-runtime-1",
+    eventPropName: "onClick",
+    supportPreamble: `const fleetPath = [
+      { label: "Flota", href: "#/fleet" },
+      { label: "Unidades", href: "#/fleet/units" },
+      { label: "JMX-214-B", current: true }
+    ];
+    const homePath = [
+      { label: "Inicio", icon: "home", iconOnly: true, href: "#/" },
+      { label: "Flota", href: "#/fleet" },
+      { label: "Unidades", href: "#/fleet/units" },
+      { label: "JMX-214-B", current: true }
+    ];
+    const longPath = [
+      { label: "Operaciones", href: "#/ops" },
+      { label: "Norte", href: "#/ops/north" },
+      { label: "Flota", href: "#/ops/north/fleet" },
+      { label: "Unidades", href: "#/ops/north/fleet/units" },
+      { label: "JMX-214-B", current: true }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta", variant: "standard" })),
+            e("div", { className: "audit-card" }, e(Component, { items: homePath, label: "Ruta con inicio", variant: "standard" })),
+            e("div", { className: "audit-card" }, e(Component, { items: longPath, label: "Ruta larga", variant: "overflow", maxItems: 4 })),
+            e("div", { className: "audit-card" }, e(Component, { items: longPath, label: "Ruta movil", variant: "mobile" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta small", density: "sm" })),
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta medium", density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta large", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta hover", state: "hover" })),
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta focus", state: "focus" })),
+            e("div", { className: "audit-card" }, e(Component, { items: longPath, label: "Ruta collapsed", variant: "overflow", maxItems: 4, state: "collapsed" })),
+            e("div", { className: "audit-card" }, e(Component, { items: fleetPath, label: "Ruta disabled", disabled: true }))
+          )
+        )`,
+  },
   "accordion": {
     title: "Accordion",
     directory: "accordion-2026-08-25",

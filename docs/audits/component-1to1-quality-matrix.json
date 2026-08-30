@@ -361,21 +361,21 @@
     },
     {
       "id": "breadcrumbs",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/navigation/Breadcrumb.jsx",
@@ -391,18 +391,23 @@
         "packages/components/src/components/navigation.js",
         "packages/components/styles/components.css",
         "packages/components/src/contracts.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/react/src/Breadcrumbs.tsx",
+        "packages/react/test/button-render.test.mjs",
+        "packages/components/test/smoke.test.mjs",
+        "packages/audit/scripts/audit-breadcrumbs-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "local-visual-snapshots/Flow3-component-qa/breadcrumbs-2026-08-29/interactive/react-runtime.html",
+        "/private/tmp/breadcrumbs-home-light-2.png",
+        "/private/tmp/breadcrumbs-home-dark-2.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Route architecture, app navigation shell, and responsive navigation drawer remain pattern candidates.",
         "Pagination appears with Breadcrumbs in the ZIP demo but remains a separate component."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed 2026-08-29 with ZIP reference, React runtime demo, accessibility behavior, typography alignment, icon-only home variant, dark hover contrast verification, local gate, typecheck, smoke, and render tests."
     },
     {
       "id": "button",
@@ -2750,13 +2755,13 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 14,
-    "partial": 43,
+    "pass": 15,
+    "partial": 42,
     "fail": 0,
-    "qualityDebt": 43,
+    "qualityDebt": 42,
     "reviewStates": {
-      "closed-with-recent-evidence": 11,
-      "needs-1to1-review": 23,
+      "closed-with-recent-evidence": 12,
+      "needs-1to1-review": 22,
       "needs-revalidation": 21,
       "in-review": 0,
       "closed-with-user-visual-review": 2
@@ -2765,12 +2770,12 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-29",
-    "sourceCommit": "8ddc5982",
+    "sourceCommit": "6c859f7d",
     "scope": [
-      "card-summary"
+      "breadcrumbs"
     ],
-    "nextComponent": "card-summary",
-    "nextComponentReason": "Card Summary is next because it shares payment display semantics with CardNumberInput, CardExpiryInput, CardSecurityCodeInput, and PaymentCard, and must prove whether it is a distinct component, a Card composition, or redundant before payment patterns can be trusted.",
+    "nextComponent": "pagination",
+    "nextComponentReason": "Pagination is the next web-priority component because it shares the ZIP Breadcrumb/Pagination reference demo, owns bounded-result navigation, and should be closed before returning to lower-impact display/payment summaries.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

@@ -21,21 +21,26 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
   const listBlock = blockFor(blocks, selectorKey, ".breadcrumbs ol");
   const itemBlock = blockFor(blocks, selectorKey, ".breadcrumbs__item");
   const targetBlock = blockFor(blocks, selectorKey, ".breadcrumbs__target");
-  const focusBlock = blockFor(blocks, selectorKey, ".breadcrumbs a.breadcrumbs__target:focus-visible");
-  const hoverBlock = blockFor(blocks, selectorKey, ".breadcrumbs a.breadcrumbs__target:hover,.breadcrumbs[data-state=\"hover\"] a.breadcrumbs__target:first-of-type");
+  const focusBlock = blockFor(blocks, selectorKey, ".breadcrumbs a.breadcrumbs__target:focus-visible") ??
+    blocks.find((block) => selectorKey(block).includes(".breadcrumbs a.breadcrumbs__target:focus-visible") && selectorKey(block).includes(".breadcrumbs button.breadcrumbs__target:focus-visible"));
+  const hoverBlock = blockFor(blocks, selectorKey, ".breadcrumbs a.breadcrumbs__target:hover,.breadcrumbs[data-state=\"hover\"] a.breadcrumbs__target:first-of-type") ??
+    blocks.find((block) => selectorKey(block).includes(".breadcrumbs a.breadcrumbs__target:hover") && selectorKey(block).includes(".breadcrumbs button.breadcrumbs__target:hover"));
   const currentBlock = blockFor(blocks, selectorKey, ".breadcrumbs [aria-current=\"page\"]");
   const separatorBlock = blockFor(blocks, selectorKey, ".breadcrumbs__separator");
+  const iconBlock = blockFor(blocks, selectorKey, ".breadcrumbs__icon");
+  const hiddenLabelBlock = blockFor(blocks, selectorKey, ".breadcrumbs__label--hidden");
   const collapsedBlock = blockFor(blocks, selectorKey, ".breadcrumbs__target--collapsed");
   const densitySmBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-variant=\"compact\"],.breadcrumbs[data-density=\"sm\"]");
   const densityLgBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-variant=\"mobile\"],.breadcrumbs[data-density=\"lg\"]");
-  const stateFocusBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-state=\"focus\"] a.breadcrumbs__target:first-of-type");
+  const stateFocusBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-state=\"focus\"] a.breadcrumbs__target:first-of-type") ??
+    blocks.find((block) => selectorKey(block).includes(".breadcrumbs[data-state=\"focus\"] a.breadcrumbs__target:first-of-type") && selectorKey(block).includes(".breadcrumbs[data-state=\"focus\"] button.breadcrumbs__target:first-of-type"));
   const stateCollapsedBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-state=\"collapsed\"] .breadcrumbs__target--collapsed");
   const disabledBlock = blockFor(blocks, selectorKey, ".breadcrumbs[data-state=\"disabled\"],.breadcrumbs[aria-disabled=\"true\"]");
 
   if (!source.includes("forwardRef") || !source.includes("flowVariantProps(resolvedVariant)") || !source.includes("flowDensityProps(")) {
     add("errors", sourceFile, 1, "Breadcrumbs must expose real React ref, variant/state, and density props.");
   }
-  if (!source.includes("if (!visibleItems.length) return null;") || !source.includes("return item?.label && stableKey !== undefined && stableKey !== null && stableKey !== \"\";")) {
+  if (!source.includes("if (!visibleItems.length) return null;") || !source.includes("const labeledItems = sourceItems.filter((item) => item?.label);")) {
     add("errors", sourceFile, 1, "Breadcrumbs must filter invalid path items and avoid empty navigation shells.");
   }
   if (/href:\s*item\.href\s*\?\?\s*"#"/.test(source)) {
@@ -59,17 +64,21 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       "--comp-breadcrumbs-list-wrap: var(--component-flex-wrap-wrap)",
       "--comp-breadcrumbs-item-display: var(--component-display-inline-flex)",
       "--comp-breadcrumbs-target-display: var(--component-display-inline-flex)",
+      "--comp-breadcrumbs-target-gap: var(--component-space-2xs)",
       "--comp-breadcrumbs-target-block-sm: var(--component-control-frame-size-sm)",
       "--comp-breadcrumbs-target-block-md: var(--component-control-frame-size-md)",
       "--comp-breadcrumbs-target-block-lg: var(--component-control-frame-size-lg)",
       "--comp-breadcrumbs-target-block: var(--comp-breadcrumbs-target-block-md)",
-      "--comp-breadcrumbs-target-padding-inline-sm: var(--component-control-frame-padding-navigation-sm)",
-      "--comp-breadcrumbs-target-padding-inline-md: var(--component-control-frame-padding-navigation-md)",
-      "--comp-breadcrumbs-target-padding-inline-lg: var(--component-control-frame-padding-navigation-lg)",
+      "--comp-breadcrumbs-target-padding-inline-sm: calc(var(--component-control-frame-padding-navigation-sm) + var(--component-space-xs))",
+      "--comp-breadcrumbs-target-padding-inline-md: calc(var(--component-control-frame-padding-navigation-md) + var(--component-space-sm))",
+      "--comp-breadcrumbs-target-padding-inline-lg: calc(var(--component-control-frame-padding-navigation-lg) + var(--component-space-md))",
       "--comp-breadcrumbs-target-radius: var(--component-control-frame-radius-navigation)",
-      "--comp-breadcrumbs-font-size-sm: var(--component-control-frame-font-size-sm)",
-      "--comp-breadcrumbs-font-size-md: var(--component-control-frame-font-size-md)",
-      "--comp-breadcrumbs-font-size-lg: var(--component-control-frame-font-size-lg)",
+      "--comp-breadcrumbs-icon-family: var(--component-font-family-icon)",
+      "--comp-breadcrumbs-icon-only-padding-inline: var(--component-control-frame-padding-navigation-sm)",
+      "--comp-breadcrumbs-label-hidden-size: var(--component-visually-hidden-size)",
+      "--comp-breadcrumbs-font-size-sm: var(--component-density-label-size-sm)",
+      "--comp-breadcrumbs-font-size-md: var(--component-density-label-size-md)",
+      "--comp-breadcrumbs-font-size-lg: var(--component-density-label-size-lg)",
       "--comp-breadcrumbs-width: var(--component-inline-size-fit-content)",
       "--comp-breadcrumbs-full-width: var(--component-inline-size-full)",
       "color: var(--comp-breadcrumbs-target-fg)",
@@ -123,6 +132,7 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       "display: var(--comp-breadcrumbs-target-display)",
       "font-size: var(--comp-breadcrumbs-font-size)",
       "font-weight: var(--comp-breadcrumbs-target-weight)",
+      "gap: var(--comp-breadcrumbs-target-gap)",
       "justify-content: var(--comp-breadcrumbs-target-justify)",
       "line-height: var(--comp-breadcrumbs-target-line-height)",
       "min-inline-size: var(--comp-breadcrumbs-target-block)",
@@ -167,6 +177,30 @@ function checkBreadcrumbsCssContract({ text, blocks, packageCssFile, selectorKey
       "line-height: var(--comp-breadcrumbs-separator-line-height)",
     ],
     message: "Breadcrumbs separator must consume iconography aliases.",
+  });
+  requireIncludes({
+    block: iconBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "color: var(--comp-breadcrumbs-icon-fg)",
+      "font-family: var(--comp-breadcrumbs-icon-family)",
+      "font-size: var(--comp-breadcrumbs-icon-size)",
+      "line-height: var(--comp-breadcrumbs-icon-line-height)",
+    ],
+    message: "Breadcrumbs icon item must consume iconography aliases.",
+  });
+  requireIncludes({
+    block: hiddenLabelBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "clip-path: inset(50%)",
+      "inline-size: var(--comp-breadcrumbs-label-hidden-size)",
+      "position: absolute",
+      "white-space: nowrap",
+    ],
+    message: "Breadcrumbs icon-only label must remain visually hidden but accessible.",
   });
   requireIncludes({
     block: collapsedBlock,

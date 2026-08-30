@@ -14,6 +14,8 @@ export type BreadcrumbsDensity = "sm" | "md" | "lg";
 export interface BreadcrumbItem {
   id?: string;
   label: string;
+  icon?: string;
+  iconOnly?: boolean;
   href?: string;
   current?: boolean;
   collapsed?: boolean;

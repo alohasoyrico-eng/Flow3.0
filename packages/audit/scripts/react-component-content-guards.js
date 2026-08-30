@@ -258,8 +258,8 @@ function checkReactComponentContentGuards({ add, name, sourceFile, source }) {
   if (name === "Breadcrumbs" && /item\.label\s*\?\?\s*""/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must render filtered labels directly instead of carrying empty fallbacks into targets.");
   if (name === "Breadcrumbs" && /href:\s*item\.href\s*\?\?\s*"#"/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not synthesize href=\"#\" for non-navigable items.");
   if (name === "Breadcrumbs" && /"aria-label":\s*item\.label\s*\|\|\s*undefined/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must use filtered collapsed labels directly instead of falling back to unnamed targets.");
-  if (name === "Breadcrumbs" && /`\$\{item\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not synthesize item keys from labels or indexes.");
-  if (name === "Breadcrumbs" && !source.includes("return item?.label && stableKey !== undefined && stableKey !== null && stableKey !== \"\";")) add("errors", sourceFile, 1, "Breadcrumbs must require visible labels and stable ids or hrefs before composing targets.");
+  if (name === "Breadcrumbs" && /`\$\{item\.label\}-\$\{index\}`/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not synthesize item keys from indexes.");
+  if (name === "Breadcrumbs" && !source.includes("const labeledItems = sourceItems.filter((item) => item?.label);")) add("errors", sourceFile, 1, "Breadcrumbs must require visible labels before composing path items.");
   if (name === "Breadcrumbs" && /label:\s*collapsedLabel\s*\?\?\s*""|collapsedLabel\s*=\s*""/.test(source)) add("errors", sourceFile, 1, "Breadcrumbs must not render unnamed overflow targets.");
   if (name === "Card" && /actions\.map\(\(action,\s*index\)\s*=>\s*cardAction/.test(source)) add("errors", sourceFile, 1, "Card must filter actions that cannot render a visible or accessible control before composing Button or IconButton.");
   if (name === "Card" && /ariaLabel|action\.ariaLabel/.test(source)) add("errors", sourceFile, 1, "Card actions must use action.label as the single accessible-name source.");
