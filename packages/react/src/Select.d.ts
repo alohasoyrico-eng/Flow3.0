@@ -30,6 +30,7 @@ export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   optionsLabel?: string;
   value?: string;
   name?: string;
+  placeholder?: string;
   disabled?: boolean;
   loading?: boolean;
   density?: SelectDensity;

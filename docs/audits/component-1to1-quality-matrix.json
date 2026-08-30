@@ -613,27 +613,30 @@
     },
     {
       "id": "card-security-code-input",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/forms/Input.jsx",
-        ".audit-reference/components/forms/InputPassword.jsx",
-        ".audit-reference/components/display/PaymentCard.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Input.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/input.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/PaymentCard.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/payment-card.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/otpinput.json",
         "packages/components/src/components/specialized-inputs.js",
+        "packages/components/src/contracts.ts",
         "packages/components/test/smoke.test.mjs",
         "docs/audits/card-security-code-input-1to1-visual-metrics.json",
         "docs/audits/card-security-code-input-1to1-light.png",
@@ -641,17 +644,19 @@
         "packages/react/src/CardSecurityCodeInput.tsx",
         "packages/react/test/p0-forms-advanced.test.mjs",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
-        "../../local-visual-snapshots/Flow3-component-qa/card-security-code-input-2026-08-25/interactive/react-runtime.html"
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-security-code-input-2026-08-25/interactive/react-runtime.html",
+        "/private/tmp/card-security-code-input-review-1.png",
+        "/private/tmp/card-security-code-input-mask-voice-runtime-1.png",
+        "/private/tmp/input-mask-voice-runtime-1.png",
+        "/private/tmp/card-security-code-input-placeholder-mask-fix-1.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
-      "lastReviewAt": "2026-08-25",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-29",
       "currentReviewCommit": "working-tree",
-      "decision": "Card Security Code Input remains a payment-form component over the shared Field cascade, not an OTP CodeInput. Current review confirms ZIP InputPassword plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular CVV/CVC numerals, cc-csc autocomplete, expectedLength 3/4 validation, optional reveal through the shared Field Action primitive, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo. The systemic Field Action contract now uses monotonic target sizing 20/28/32 with 16/20/24 glyph sizing.",
+      "decision": "Card Security Code Input is closed for current review. The ZIP has no standalone CardSecurityCodeInput, so the review triangulates ZIP Input revealable shell behavior with PaymentCard security requirements and OTPInput non-goals: CVV/CVC remains one editable payment field, not a multi-cell authentication code. Runtime demo is package-backed React. Playwright confirms pasted mixed input 12a345 normalizes before truncation to 123, expectedLength 4 accepts 1234, reveal toggles password/text with aria-pressed, inputMode remains numeric, autocomplete is cc-csc, loading and disabled block input and reveal actions, dark mode inherits the governed disabled field state, and sm/md/lg controls measure 36/44/52 with 12/16/20 radius, 13/14/16 font sizes, and 20/28/32 reveal targets. Masked value voice is now Field-owned through data-masked-value and shared with Input password: hidden md renders at 24px with 4px spacing, sm/lg at 18/32px, revealed values return to normal field text sizing, and empty password fields keep placeholder text at normal field size.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after ZIP-informed runtime validation of CVV/CVC masking, reveal policy, normalization-before-length, masked-value visual voice, density, dark mode, and accessibility."
     },
     {
       "id": "card-summary",
@@ -2745,13 +2750,13 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 13,
-    "partial": 44,
+    "pass": 14,
+    "partial": 43,
     "fail": 0,
-    "qualityDebt": 44,
+    "qualityDebt": 43,
     "reviewStates": {
-      "closed-with-recent-evidence": 10,
-      "needs-1to1-review": 24,
+      "closed-with-recent-evidence": 11,
+      "needs-1to1-review": 23,
       "needs-revalidation": 21,
       "in-review": 0,
       "closed-with-user-visual-review": 2
@@ -2760,12 +2765,12 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-29",
-    "sourceCommit": "44717537",
+    "sourceCommit": "8ddc5982",
     "scope": [
-      "card-security-code-input"
+      "card-summary"
     ],
-    "nextComponent": "card-security-code-input",
-    "nextComponentReason": "Card Security Code Input is next because it shares the payment Field cascade and must prove CVV/CVC masking or reveal policy, numeric entry, length validation, keyboard behavior, density, and accessibility before payment patterns can be trusted.",
+    "nextComponent": "card-summary",
+    "nextComponentReason": "Card Summary is next because it shares payment display semantics with CardNumberInput, CardExpiryInput, CardSecurityCodeInput, and PaymentCard, and must prove whether it is a distinct component, a Card composition, or redundant before payment patterns can be trusted.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

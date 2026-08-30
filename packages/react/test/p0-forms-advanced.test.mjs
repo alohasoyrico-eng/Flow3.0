@@ -767,6 +767,14 @@ try {
     const input = view.getByLabelText(/^Security code$/i);
     const root = view.container.querySelector(".card-security-code-input");
 
+    fireEvent.change(input, { target: { value: "12a345" } });
+    assert.equal(input.value, "1234");
+    assert.equal(changes.at(-1).meta.complete, true);
+    assert.equal(changes.at(-1).meta.expectedLength, 4);
+    assert.equal(root.dataset.state, "valid");
+    assert.equal(root.dataset.validity, "valid");
+    assert.equal(root.dataset.length, "4");
+
     fireEvent.change(input, { target: { value: "12345" } });
     assert.equal(input.value, "1234");
     assert.equal(changes.at(-1).meta.complete, true);

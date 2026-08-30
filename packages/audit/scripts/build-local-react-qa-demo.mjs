@@ -546,7 +546,7 @@ const components = {
     directory: "input-2026-08-17",
     module: "Input.js",
     exportName: "Input",
-    buildId: "input-currency-stateful-runtime-1",
+    buildId: "input-placeholder-contract-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
     actionSelector: "input[data-runtime-action]",
@@ -563,17 +563,17 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Small", placeholder: "sm", density: "sm" })),
-            e("div", { className: "audit-card" }, action({ label: "Medium", placeholder: "md", density: "md" })),
-            e("div", { className: "audit-card" }, action({ label: "Large", placeholder: "lg", density: "lg" }))
+            e("div", { className: "audit-card" }, action({ label: "Small", placeholder: "Driver name", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", placeholder: "Driver name", density: "md" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", placeholder: "Driver name", density: "lg" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Success", state: "success", helper: "Saved" })),
-            e("div", { className: "audit-card" }, action({ label: "Warning", state: "warning", helper: "Review format" })),
-            e("div", { className: "audit-card" }, action({ label: "Error", error: "Required field" })),
+            e("div", { className: "audit-card" }, action({ label: "Success", state: "success", placeholder: "Driver name", helper: "Saved" })),
+            e("div", { className: "audit-card" }, action({ label: "Warning", state: "warning", placeholder: "Driver name", helper: "Review format" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", placeholder: "Driver name", error: "Required field" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", disabled: true, value: "Disabled value", "data-runtime-action": "true" })),
             e("div", { className: "audit-card" }, action({ label: "Loading", loading: true, value: "Loading" }))
           )
@@ -699,7 +699,7 @@ const components = {
     directory: "card-security-code-input-2026-08-25",
     module: "CardSecurityCodeInput.js",
     exportName: "CardSecurityCodeInput",
-    buildId: "card-security-code-input-react-runtime-1",
+    buildId: "card-security-code-input-mask-voice-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(digits, meta, event) => onAction(props.label + '=' + digits + ':' + meta.validity)(event)",
     actionSelector: "input[data-runtime-action]",
@@ -873,7 +873,7 @@ const components = {
     directory: "select-2026-08-17",
     module: "Select.js",
     exportName: "Select",
-    buildId: "select-depth-dark-runtime-1",
+    buildId: "select-placeholder-contract-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.label)(event)",
     actionSelector: "button[data-runtime-action]",
@@ -887,7 +887,7 @@ const components = {
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Default select", options, value: "priority", helper: "ArrowDown/ArrowUp skip disabled options." })),
+            e("div", { className: "audit-card" }, action({ label: "Default select", options, placeholder: "Choose team", helper: "ArrowDown/ArrowUp skip disabled options." })),
             e("div", { className: "audit-card" }, action({ label: "Open select", options, value: "dispatch", state: "open" })),
             e("div", { className: "audit-card" }, action({ label: "Inline select", options, value: "route", variant: "inline" }))
           )
@@ -903,8 +903,8 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Loading", options, loading: true })),
-            e("div", { className: "audit-card" }, action({ label: "Error", options, state: "error", helper: "Selection required" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", options, placeholder: "Choose team", loading: true })),
+            e("div", { className: "audit-card" }, action({ label: "Error", options, placeholder: "Choose team", state: "error", helper: "Selection required" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", options, value: "priority", disabled: true, "data-runtime-action": "true" }))
           )
         )`,
@@ -914,7 +914,7 @@ const components = {
     directory: "combobox-2026-08-17",
     module: "Combobox.js",
     exportName: "Combobox",
-    buildId: "combobox-depth-dark-runtime-1",
+    buildId: "combobox-placeholder-contract-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + (meta.label || value))(event)",
     actionSelector: "input[data-runtime-action]",
@@ -930,7 +930,7 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Driver", options, placeholder: "Search driver", clearSelectionLabel: "Clear selection", emptyText: "No results" })),
             e("div", { className: "audit-card" }, action({ label: "Selected driver", options, value: "luis", clearSelectionLabel: "Clear selection" })),
-            e("div", { className: "audit-card" }, action({ label: "Open driver", options, state: "open", clearSelectionLabel: "Clear selection" }))
+            e("div", { className: "audit-card" }, action({ label: "Open driver", options, placeholder: "Search driver", state: "open", clearSelectionLabel: "Clear selection" }))
           )
         ),
         e("section", { className: "audit-section" },
@@ -944,8 +944,8 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Loading", options, loading: true, loadingText: "Loading drivers" })),
-            e("div", { className: "audit-card" }, action({ label: "Error", options, state: "error", helper: "Select a driver" })),
+            e("div", { className: "audit-card" }, action({ label: "Loading", options, placeholder: "Search driver", loading: true, loadingText: "Loading drivers" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", options, placeholder: "Search driver", state: "error", helper: "Select a driver" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", options, value: "ana", disabled: true, clearSelectionLabel: "Clear selection", "data-runtime-action": "true" }))
           )
         )`,
@@ -955,7 +955,7 @@ const components = {
     directory: "country-selector-2026-08-24",
     module: "CountrySelector.js",
     exportName: "CountrySelector",
-    buildId: "country-selector-react-runtime-1",
+    buildId: "country-selector-placeholder-contract-runtime-1",
     flagAssets: ["MX", "US", "CO", "BR"],
     eventPropName: "onValueChange",
     actionHandler: "(countryCode, country, event) => onAction(props.label + '=' + countryCode)(event)",
@@ -970,24 +970,24 @@ const components = {
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Country code", countries, country: "MX" })),
-            e("div", { className: "audit-card" }, action({ label: "Open country", countries, country: "US", state: "open" })),
-            e("div", { className: "audit-card" }, action({ label: "Search country", countries, searchable: true, country: "CO" }))
+            e("div", { className: "audit-card" }, action({ label: "Country code", countries, country: "MX", searchPlaceholder: "Search country or code" })),
+            e("div", { className: "audit-card" }, action({ label: "Open country", countries, country: "US", state: "open", searchPlaceholder: "Search country or code" })),
+            e("div", { className: "audit-card" }, action({ label: "Search country", countries, searchable: true, searchPlaceholder: "Search country or code", country: "CO" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Small", countries, country: "MX", density: "sm" })),
-            e("div", { className: "audit-card" }, action({ label: "Medium", countries, country: "MX", density: "md" })),
-            e("div", { className: "audit-card" }, action({ label: "Large", countries, country: "MX", density: "lg" }))
+            e("div", { className: "audit-card" }, action({ label: "Small", countries, country: "MX", density: "sm", searchPlaceholder: "Search country or code" })),
+            e("div", { className: "audit-card" }, action({ label: "Medium", countries, country: "MX", density: "md", searchPlaceholder: "Search country or code" })),
+            e("div", { className: "audit-card" }, action({ label: "Large", countries, country: "MX", density: "lg", searchPlaceholder: "Search country or code" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", state: "error", helper: "Country required" })),
-            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", countries, country: "MX", disabled: true, "data-runtime-action": "true" }))
+            e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", state: "error", helper: "Country required", searchPlaceholder: "Search country or code" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", countries, country: "MX", disabled: true, searchPlaceholder: "Search country or code", "data-runtime-action": "true" }))
           )
         )`,
   },
@@ -996,7 +996,7 @@ const components = {
     directory: "phone-input-2026-08-24",
     module: "PhoneInput.js",
     exportName: "PhoneInput",
-    buildId: "phone-input-country-search-runtime-1",
+    buildId: "phone-input-placeholder-contract-runtime-1",
     flagAssets: ["MX", "US", "CO"],
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value)(event)",
@@ -1011,7 +1011,7 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Mobile phone", countries, country: "MX", placeholder: "55 1234 5678" })),
             e("div", { className: "audit-card" }, action({ label: "US phone", countries, country: "US", value: "+15512345678" })),
-            e("div", { className: "audit-card" }, action({ label: "With helper", countries, country: "CO", helper: "Include area code" }))
+            e("div", { className: "audit-card" }, action({ label: "With helper", countries, country: "CO", placeholder: "300 111 2233", helper: "Include area code" }))
           )
         ),
         e("section", { className: "audit-section" },
@@ -1037,7 +1037,7 @@ const components = {
             e("div", { className: "audit-card" }, action({ label: "Focus", countries, country: "MX", value: "+525512345678", state: "focus" })),
             e("div", { className: "audit-card" }, action({ label: "Valid", countries, country: "MX", value: "+525512345678", state: "valid", helper: "Number can receive OTP." })),
             e("div", { className: "audit-card" }, action({ label: "Warning", countries, country: "US", value: "+1555123", state: "warning", helper: "Confirm this number before inviting." })),
-            e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", error: "Invalid phone number" })),
+            e("div", { className: "audit-card" }, action({ label: "Error", countries, country: "MX", placeholder: "55 1234 5678", error: "Invalid phone number" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", countries, country: "MX", value: "+525512345678", disabled: true, "data-runtime-action": "true" }))
           )
         )`,
@@ -1080,7 +1080,7 @@ const components = {
     directory: "date-range-picker-2026-08-24",
     module: "DateRangePicker.js",
     exportName: "DateRangePicker",
-    buildId: "date-range-picker-react-runtime-1",
+    buildId: "date-range-picker-placeholder-contract-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, event) => onAction(props.label + '=' + [value.from, value.to].filter(Boolean).join('/'))(event)",
     actionSelector: "button[data-runtime-action]",
@@ -1088,7 +1088,8 @@ const components = {
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Billing window", value: { from: "2026-02-10", to: "2026-02-15" } })),
-            e("div", { className: "audit-card" }, action({ label: "Partial range", value: { from: "2026-02-10", to: "" } })),
+            e("div", { className: "audit-card" }, action({ label: "Empty range", placeholder: "Select date range" })),
+            e("div", { className: "audit-card" }, action({ label: "Partial range", value: { from: "2026-02-10", to: "" }, placeholder: "Select date range" })),
             e("div", { className: "audit-card" }, action({ label: "With presets", value: { from: "2026-02-10", to: "2026-02-15" }, presets: true, presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }] }))
           )
         ),

@@ -51,6 +51,7 @@ export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   optionsLabel?: string;
   value?: string;
   name?: string;
+  placeholder?: string;
   disabled?: boolean;
   loading?: boolean;
   density?: SelectDensity;
@@ -110,6 +111,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   optionsLabel,
   value,
   name = "",
+  placeholder = "",
   disabled = false,
   loading = false,
   density,
@@ -254,7 +256,11 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
           onKeyDown: handleTriggerKeyDown,
         },
         icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null,
-        selectedLabel ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel) : null,
+        selectedLabel
+          ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel)
+          : placeholder
+            ? React.createElement("span", { className: "select-control__value select-control__placeholder", "data-select-placeholder": "" }, placeholder)
+            : null,
         selectedOption?.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null,
         React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more"),
       ),

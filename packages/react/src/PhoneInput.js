@@ -50,7 +50,7 @@ function countryMeta(country, digits) {
         nationalNumber: digits,
     };
 }
-export const PhoneInput = forwardRef(function PhoneInput({ label, value, prefix = "", country, countries, variant = "country-code", helper = "", disabled = false, state, density, error = "", name = "", emptyText, onValueChange, className = "", id, ...rest }, ref) {
+export const PhoneInput = forwardRef(function PhoneInput({ label, value, prefix = "", country, countries, variant = "country-code", helper = "", placeholder = "", disabled = false, state, density, error = "", name = "", emptyText, onValueChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const inputId = id ?? `phone-input-${generatedId}`;
     const countryOptions = useMemo(() => normalizeCountries(countries), [countries]);
@@ -121,6 +121,7 @@ export const PhoneInput = forwardRef(function PhoneInput({ label, value, prefix 
         inputMode: "tel",
         autoComplete: "tel-national",
         value: formattedValue,
+        placeholder,
         disabled,
         readOnly: isReadonly,
         "data-phone-input": "",

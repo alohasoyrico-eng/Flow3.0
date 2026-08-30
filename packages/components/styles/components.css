@@ -720,6 +720,11 @@
   --comp-input-font-size-md: var(--component-control-frame-font-size-md);
   --comp-input-font-size-lg: var(--component-control-frame-font-size-lg);
   --comp-input-font-size: var(--comp-input-font-size-md);
+  --comp-input-masked-font-size-sm: var(--component-font-size-title-md);
+  --comp-input-masked-font-size-md: var(--component-font-size-data-lg);
+  --comp-input-masked-font-size-lg: var(--component-font-size-display-sm);
+  --comp-input-masked-font-size: var(--comp-input-masked-font-size-md);
+  --comp-input-masked-letter-spacing: var(--component-space-xs);
   --comp-input-label-size-sm: var(--component-density-label-size-sm);
   --comp-input-label-size-md: var(--component-density-label-size-md);
   --comp-input-label-size-lg: var(--component-density-label-size-lg);
@@ -2734,6 +2739,7 @@
   --comp-field-icon-size: var(--comp-input-icon-size-sm);
   --comp-field-icon-action-size: var(--comp-input-action-size-sm);
   --comp-input-font-size: var(--comp-input-font-size-sm);
+  --comp-input-masked-font-size: var(--comp-input-masked-font-size-sm);
   --comp-input-label-size: var(--comp-input-label-size-sm);
   --comp-input-helper-size: var(--comp-input-helper-size-sm);
   --comp-input-padding-x: var(--comp-input-padding-x-sm);
@@ -2746,6 +2752,7 @@
   --comp-field-icon-size: var(--comp-input-icon-size-lg);
   --comp-field-icon-action-size: var(--comp-input-action-size-lg);
   --comp-input-font-size: var(--comp-input-font-size-lg);
+  --comp-input-masked-font-size: var(--comp-input-masked-font-size-lg);
   --comp-input-label-size: var(--comp-input-label-size-lg);
   --comp-input-helper-size: var(--comp-input-helper-size-lg);
   --comp-input-padding-x: var(--comp-input-padding-x-lg);
@@ -3001,6 +3008,11 @@
 .field-control[data-mono="true"] .field-input,
 .field[data-mono="true"] .input {
   font-family: var(--comp-input-affix-family);
+}
+
+.field .input[data-masked-value="true"] {
+  font-size: var(--comp-input-masked-font-size);
+  letter-spacing: var(--comp-input-masked-letter-spacing);
 }
 
 .text-area__surface {
@@ -11653,6 +11665,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-bg: var(--component-color-surface);
   --comp-select-border: var(--component-color-border);
   --comp-select-fg: var(--component-color-text);
+  --comp-select-placeholder-fg: var(--component-field-placeholder-fg);
   --comp-select-outline-reset: var(--component-a11y-outline-reset);
   --comp-select-trigger-z: var(--component-z-dropdown);
   --comp-select-hover-bg: color-mix(in srgb, var(--component-color-surface-raised) 72%, var(--component-color-surface));
@@ -12005,6 +12018,10 @@ body[data-contrast="quiet"] .route-summary__icon {
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.select-control__placeholder {
+  color: var(--comp-select-placeholder-fg);
 }
 
 .country-selector__value {
@@ -12442,7 +12459,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-card-security-code-input-control-size: var(--comp-field-control-size);
   --comp-card-security-code-input-icon-size: var(--comp-field-icon-size);
   --comp-card-security-code-input-action-size: var(--comp-field-icon-action-size);
-  --comp-card-security-code-input-value-spacing: var(--comp-card-number-input-value-spacing);
+  --comp-card-security-code-input-value-spacing: var(--component-letter-spacing-normal);
 
   inline-size: 100%;
 }

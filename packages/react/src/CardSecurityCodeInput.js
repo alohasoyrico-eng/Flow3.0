@@ -52,6 +52,7 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
     const resolvedError = error;
     const isDisabled = Boolean(disabled || loading);
     const canReveal = Boolean(revealable && revealLabel && hideLabel);
+    const isMaskedValue = Boolean(revealable && !isRevealed && digits);
     const resolvedState = resolveCardSecurityCodeState({ disabled, loading, error: resolvedError, state, value: digits, validity });
     const resolvedDensity = normalizeFlowDensity(density);
     const fieldMessage = resolveFieldMessage({
@@ -96,11 +97,11 @@ export const CardSecurityCodeInput = forwardRef(function CardSecurityCodeInput({
         value: digits,
         disabled: isDisabled,
         required,
-        maxLength: resolvedLength,
         pattern: "[0-9]*",
         enterKeyHint: "next",
         spellCheck: false,
         "data-card-security-code-input": "",
+        "data-masked-value": isMaskedValue ? "true" : undefined,
         "aria-labelledby": `${inputId}-label`,
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],

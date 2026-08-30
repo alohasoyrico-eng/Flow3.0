@@ -39,7 +39,7 @@ function lastEnabledIndex(options) {
     }
     return firstEnabledIndex(options);
 }
-export const Select = forwardRef(function Select({ label, helper = "", icon = "", options, optionsLabel, value, name = "", disabled = false, loading = false, density, variant = "default", state = "default", open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
+export const Select = forwardRef(function Select({ label, helper = "", icon = "", options, optionsLabel, value, name = "", placeholder = "", disabled = false, loading = false, density, variant = "default", state = "default", open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const selectId = id ?? `select-${generatedId}`;
     const normalizedOptions = normalizeOptions(options);
@@ -168,7 +168,11 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         "aria-activedescendant": isOpen && activeOption && resolvedActiveIndex !== null ? `${selectId}-option-${resolvedActiveIndex}` : undefined,
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
-    }, icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null, selectedLabel ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel) : null, selectedOption?.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null, React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more")), React.createElement("span", {
+    }, icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null, selectedLabel
+        ? React.createElement("span", { className: "select-control__value", "data-select-value-label": "" }, selectedLabel)
+        : placeholder
+            ? React.createElement("span", { className: "select-control__value select-control__placeholder", "data-select-placeholder": "" }, placeholder)
+            : null, selectedOption?.meta ? React.createElement("span", { className: "select-control__option-code", "data-select-value-meta": "" }, selectedOption.meta) : null, React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more")), React.createElement("span", {
         id: `${selectId}-listbox`,
         className: "select-control__listbox",
         role: "listbox",

@@ -2166,6 +2166,34 @@ assert.match(inputMarkup, /inputMode="decimal"|inputmode="decimal"/);
 assert.match(inputMarkup, /class="field__suffix"/);
 assert.match(inputMarkup, /class="field__helper"/);
 
+const passwordInputMarkup = renderToStaticMarkup(React.createElement(Input, {
+  label: "Password",
+  value: "secret",
+  variant: "password",
+  revealLabel: "Reveal password",
+  hideLabel: "Hide password",
+}));
+assert.match(passwordInputMarkup, /data-masked-value="true"/);
+
+const emptyPasswordInputMarkup = renderToStaticMarkup(React.createElement(Input, {
+  label: "Password",
+  placeholder: "Password",
+  variant: "password",
+  revealLabel: "Reveal password",
+  hideLabel: "Hide password",
+}));
+assert.doesNotMatch(emptyPasswordInputMarkup, /data-masked-value="true"/);
+
+const revealedPasswordInputMarkup = renderToStaticMarkup(React.createElement(Input, {
+  label: "Password",
+  value: "secret",
+  variant: "password",
+  revealed: true,
+  revealLabel: "Reveal password",
+  hideLabel: "Hide password",
+}));
+assert.doesNotMatch(revealedPasswordInputMarkup, /data-masked-value="true"/);
+
 const inheritedInputMarkup = renderToStaticMarkup(React.createElement(Input, {
   label: "Driver",
   value: "Alex",
@@ -2325,6 +2353,7 @@ assert.match(cardSecurityCodeInputMarkup, /class="input card-security-code-input
 assert.match(cardSecurityCodeInputMarkup, /autoComplete="cc-csc"|autocomplete="cc-csc"/);
 assert.match(cardSecurityCodeInputMarkup, /type="password"/);
 assert.match(cardSecurityCodeInputMarkup, /value="482"/);
+assert.match(cardSecurityCodeInputMarkup, /data-masked-value="true"/);
 assert.match(cardSecurityCodeInputMarkup, /class="field-action card-security-code-input__action"/);
 assert.match(cardSecurityCodeInputMarkup, /aria-pressed="false"/);
 
@@ -2338,8 +2367,17 @@ const revealedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createEle
 }));
 assert.match(revealedCardSecurityCodeInputMarkup, /data-expected-length="4"/);
 assert.match(revealedCardSecurityCodeInputMarkup, /type="text"/);
-assert.match(revealedCardSecurityCodeInputMarkup, /maxlength="4"|maxLength="4"/);
+assert.doesNotMatch(revealedCardSecurityCodeInputMarkup, /maxlength=|maxLength=/);
+assert.doesNotMatch(revealedCardSecurityCodeInputMarkup, /data-masked-value="true"/);
 assert.match(revealedCardSecurityCodeInputMarkup, /aria-pressed="true"/);
+
+const emptyCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
+  label: "Security code",
+  placeholder: "CVC",
+  revealLabel: "Reveal CVC",
+  hideLabel: "Conceal CVC",
+}));
+assert.doesNotMatch(emptyCardSecurityCodeInputMarkup, /data-masked-value="true"/);
 
 const inheritedCardSecurityCodeInputMarkup = renderToStaticMarkup(React.createElement(CardSecurityCodeInput, {
   label: "Security code",
@@ -2432,6 +2470,7 @@ const phoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
   helper: "Used for OTP and support recovery.",
   value: "+52 55 1842 9011",
   country: "MX",
+  placeholder: "55 1234 5678",
   density: "sm",
 }));
 assert.match(phoneInputMarkup, /class="field phone-input"/);
@@ -2451,6 +2490,7 @@ assert.match(phoneInputMarkup, /class="select-control__option country-selector__
 assert.match(phoneInputMarkup, /class="input phone-input__input"/);
 assert.match(phoneInputMarkup, /type="tel"/);
 assert.match(phoneInputMarkup, /autoComplete="tel-national"|autocomplete="tel-national"/);
+assert.match(phoneInputMarkup, /placeholder="55 1234 5678"/);
 assert.match(phoneInputMarkup, /value="55 1842 9011"/);
 assert.match(phoneInputMarkup, /class="field__helper"/);
 const consumerDefaultPhoneInputMarkup = renderToStaticMarkup(React.createElement(PhoneInput, {
@@ -2590,6 +2630,15 @@ const inheritedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(
   value: { from: "2026-07-01", to: "2026-07-15" },
 }));
 assert.doesNotMatch(inheritedDateRangePickerMarkup.match(/^<div[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const emptyDateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker, {
+  label: "Reporting range",
+  placeholder: "Select date range",
+}));
+assert.match(emptyDateRangePickerMarkup, /class="date-picker__value date-range-picker__value"/);
+assert.match(emptyDateRangePickerMarkup, />Select date range<\/span>/);
+assert.match(emptyDateRangePickerMarkup, /data-from=""/);
+assert.match(emptyDateRangePickerMarkup, /data-to=""/);
 
 const unnamedDateRangePickerMarkup = renderToStaticMarkup(React.createElement(DateRangePicker));
 assert.equal(unnamedDateRangePickerMarkup, "");
@@ -2947,12 +2996,15 @@ assert.doesNotMatch(unnamedSelectMarkup, /select-control|role="combobox"|role="l
 
 const unselectedSelectMarkup = renderToStaticMarkup(React.createElement(Select, {
   label: "Fleet",
+  placeholder: "Choose fleet",
   options: [
     { label: "North", value: "north" },
     { label: "South", value: "south" },
   ],
 }));
-assert.doesNotMatch(unselectedSelectMarkup, /class="select-control__value"/);
+assert.match(unselectedSelectMarkup, /class="select-control__value select-control__placeholder"/);
+assert.match(unselectedSelectMarkup, /data-select-placeholder=""/);
+assert.match(unselectedSelectMarkup, />Choose fleet<\/span>/);
 assert.match(unselectedSelectMarkup, /class="select-control"[^>]*data-value=""/);
 assert.doesNotMatch(unselectedSelectMarkup, /aria-activedescendant=/);
 assert.doesNotMatch(unselectedSelectMarkup, /aria-selected="true"/);

@@ -183,6 +183,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
     state: resolvedState as FieldMessageState,
   });
   const inputType = canReveal && revealed ? "text" : resolvedType;
+  const isMaskedValue = inputType === "password" && Boolean(currentValue);
 
   if (!label) return null;
 
@@ -237,6 +238,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input({
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-busy": resolvedState === "loading" ? "true" : undefined,
+        "data-masked-value": isMaskedValue ? "true" : undefined,
         onChange: handleChange,
       }),
       suffix

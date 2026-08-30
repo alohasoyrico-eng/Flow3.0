@@ -108,6 +108,7 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
         state: resolvedState,
     });
     const inputType = canReveal && revealed ? "text" : resolvedType;
+    const isMaskedValue = inputType === "password" && Boolean(currentValue);
     if (!label)
         return null;
     const handleChange = (event) => {
@@ -152,6 +153,7 @@ export const Input = forwardRef(function Input({ label, helper = "", helperText,
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-busy": resolvedState === "loading" ? "true" : undefined,
+        "data-masked-value": isMaskedValue ? "true" : undefined,
         onChange: handleChange,
     }), suffix
         ? React.createElement("span", { className: "field__suffix", "aria-hidden": "true" }, suffix)

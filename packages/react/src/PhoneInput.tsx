@@ -41,6 +41,7 @@ export interface PhoneInputProps extends Omit<InputHTMLAttributes<HTMLInputEleme
   countries?: PhoneCountry[];
   variant?: PhoneInputVariant;
   helper?: string;
+  placeholder?: string;
   disabled?: boolean;
   state?: PhoneInputState;
   density?: PhoneInputDensity;
@@ -108,6 +109,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(function
   countries,
   variant = "country-code",
   helper = "",
+  placeholder = "",
   disabled = false,
   state,
   density,
@@ -200,6 +202,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(function
         inputMode: "tel",
         autoComplete: "tel-national",
         value: formattedValue,
+        placeholder,
         disabled,
         readOnly: isReadonly,
         "data-phone-input": "",
