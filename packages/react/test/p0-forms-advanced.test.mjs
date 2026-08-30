@@ -57,6 +57,12 @@ const selectOptions = [
   { label: "Disabled fleet", value: "disabled", disabled: true },
 ];
 
+const selectOptionsWithDisabledMiddle = [
+  { label: "Fleet MX", value: "mx", meta: "MX" },
+  { label: "Disabled fleet", value: "disabled", disabled: true },
+  { label: "Fleet US", value: "us", meta: "US" },
+];
+
 const countries = [
   { country: "MX", label: "Mexico", callingCode: "+52", nationalLength: 10 },
   { country: "US", label: "United States", callingCode: "+1", nationalLength: 10 },
@@ -71,7 +77,7 @@ try {
       label: "Fleet",
       helper: "Choose a fleet",
       name: "fleet",
-      options: selectOptions,
+      options: selectOptionsWithDisabledMiddle,
       onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
@@ -91,20 +97,24 @@ try {
     assert.equal(view.container.querySelectorAll('.select-control__option[data-active="true"]').length, 1);
     assert.equal(view.container.querySelectorAll('.select-control__option[data-selected="true"]').length, 0);
     fireEvent.keyDown(trigger, { key: "ArrowDown" });
-    assert.match(trigger.getAttribute("aria-activedescendant") || "", /option-1/);
+    assert.match(trigger.getAttribute("aria-activedescendant") || "", /option-2/);
+    assert.equal(view.getByRole("option", { name: /disabled fleet/i }).getAttribute("data-active"), "false");
     fireEvent.keyDown(trigger, { key: "Enter" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(changes.at(-1), { value: "us", meta: { label: "Fleet US", meta: "US" }, eventType: "keydown" });
     assert.equal(view.container.querySelector("[data-select-input]").value, "us");
 
     await user.click(trigger);
+    await user.click(view.getByRole("option", { name: /disabled fleet/i }));
+    assert.equal(view.container.querySelector("[data-select-input]").value, "us");
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
     await user.click(view.getByRole("option", { name: /fleet us/i }));
     assert.deepEqual(changes.at(-1), { value: "us", meta: { label: "Fleet US", meta: "US" }, eventType: "click" });
     assert.equal(view.container.querySelector("[data-select-input]").value, "us");
 
     view.rerender(React.createElement(Select, {
       label: "Fleet",
-      options: selectOptions,
+      options: selectOptionsWithDisabledMiddle,
       value: "mx",
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
@@ -116,7 +126,7 @@ try {
 
     view.rerender(React.createElement(Select, {
       label: "Fleet",
-      options: selectOptions,
+      options: selectOptionsWithDisabledMiddle,
       disabled: true,
       onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
     }));

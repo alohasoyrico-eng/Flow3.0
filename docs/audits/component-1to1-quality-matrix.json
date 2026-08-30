@@ -2131,21 +2131,21 @@
     },
     {
       "id": "select",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         "docs/audits/select-current-light-dark-review.json",
@@ -2167,20 +2167,29 @@
         "packages/audit/scripts/audit-select-css-contract.js",
         "packages/audit/scripts/audit-combobox-css-contract.js",
         "packages/audit/scripts/audit-menu-css-contract.js",
-        "packages/audit/scripts/audit-dark-mode-css-contract.js"
+        "packages/audit/scripts/audit-dark-mode-css-contract.js",
+        "packages/react/src/Select.tsx",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/tokens/styles/token-contexts.css",
+        "local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/react-runtime.html?fresh=select-dark-disabled-runtime-1",
+        "node packages/react/test/p0-forms-advanced.test.mjs",
+        "npm run typecheck",
+        "npm run audit:flow-core-gate",
+        "Playwright runtime smoke 2026-08-29: closed initial state, disabled skip, Enter commit, Escape close, dark disabled option styling, 0 console/page errors",
+        "packages/components/styles/components.css",
+        "Playwright runtime smoke 2026-08-29: inline trigger padding 12/12, compact option row 52px, trigger 135px, listbox 163px x 232px, 0 console/page errors",
+        "local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/react-runtime.html?fresh=select-inline-proportional-runtime-3"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Select Input / Combobox exists in the ZIP reference and is not covered by base Select.",
         "Country Select exists in the ZIP reference and is currently covered only as Phone Input composition.",
         "Multiple Select exists in the ZIP reference and must stay outside base Select."
       ],
-      "lastReviewAt": "2026-08-19",
-      "decision": "Closed Select current QA: keyboard skip/commit/escape verified in local interactive demo; density scales monotonically; selected check scales 16/20/24; option-row colors and disabled affordance now cascade through shared Flow roles consumed by Select, Combobox, and Menu.",
+      "lastReviewAt": "2026-08-29",
+      "decision": "Closed Select 1:1 revalidation against ZIP Select/Listbox contract: runtime demo starts closed, supports click/Escape/ArrowUp/ArrowDown/Enter, skips disabled options, keeps disabled distinct from selected through shared option-row roles, scales density through ControlFrame/Listbox aliases, and keeps inline trigger spacing plus compact listbox sizing governed by Select aliases.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
+      "reviewState": "closed-with-recent-evidence",
       "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
     },
     {
@@ -2759,16 +2768,15 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 17,
-    "partial": 40,
+    "pass": 18,
+    "partial": 39,
     "fail": 0,
-    "qualityDebt": 40,
+    "qualityDebt": 39,
     "reviewStates": {
-      "closed-with-recent-evidence": 14,
+      "closed-with-recent-evidence": 15,
       "needs-1to1-review": 21,
-      "needs-revalidation": 20,
-      "in-review": 0,
-      "closed-with-user-visual-review": 2
+      "closed-with-user-visual-review": 2,
+      "needs-revalidation": 19
     }
   },
   "currentReview": {
@@ -2776,10 +2784,11 @@
     "updatedAt": "2026-08-29",
     "sourceCommit": "f93d0c8d",
     "scope": [
-      "pagination"
+      "pagination",
+      "select"
     ],
-    "nextComponent": "select",
-    "nextComponentReason": "Select is the next web-priority component because it still needs revalidation after repeated issues in menu layout, disabled state, dark mode, keyboard escape handling, and stateful runtime behavior.",
+    "nextComponent": "combobox",
+    "nextComponentReason": "Combobox is next because it shares Select/Listbox option-row foundations and remains partial after visible icon, keyboard, disabled, and runtime-state issues.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

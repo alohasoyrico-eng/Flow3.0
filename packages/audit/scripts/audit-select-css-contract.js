@@ -50,7 +50,7 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-select-listbox-radius: var(--component-listbox-radius)",
       "--comp-select-listbox-depth: var(--component-listbox-depth)",
       "--comp-select-inline-listbox-inline: var(--component-inline-size-max-content)",
-      "--comp-select-inline-listbox-min-inline: var(--component-menu-panel-min-inline-md)",
+      "--comp-select-inline-listbox-min-inline: var(--component-inline-size-max-content)",
       "--comp-select-option-min-size-sm: var(--component-option-row-min-block-size-sm)",
       "--comp-select-option-min-size-md: var(--component-option-row-min-block-size-md)",
       "--comp-select-option-min-size-lg: var(--component-option-row-min-block-size-lg)",
@@ -194,6 +194,18 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "min-inline-size: var(--comp-select-inline-listbox-min-inline)",
     ],
     message: "Select inline listbox must stay readable through governed inline-listbox sizing instead of inheriting the compact trigger width.",
+  });
+  const inlineRootBlock = blockFor(blocks, selectorKey, ".select-control--inline,.country-selector.select-control--inline,.phone-input__country");
+  requireIncludes({
+    block: inlineRootBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-select-option-min-size: var(--comp-select-option-min-size-sm)",
+      "--comp-select-option-padding-x: var(--comp-select-option-padding-x-sm)",
+      "--comp-select-option-check-size: var(--comp-select-option-check-size-sm)",
+    ],
+    message: "Select inline must use compact option-row geometry so the menu remains proportional to the inline trigger.",
   });
   if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex")) {
     add("errors", sourceFile, 1, "Select must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");

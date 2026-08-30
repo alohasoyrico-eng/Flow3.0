@@ -979,7 +979,7 @@ const components = {
     directory: "select-2026-08-17",
     module: "Select.js",
     exportName: "Select",
-    buildId: "select-placeholder-contract-runtime-1",
+    buildId: "select-inline-proportional-runtime-3",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.label)(event)",
     actionSelector: "button[data-runtime-action]",
@@ -994,7 +994,7 @@ const components = {
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Default select", options, placeholder: "Choose team", helper: "ArrowDown/ArrowUp skip disabled options." })),
-            e("div", { className: "audit-card" }, action({ label: "Open select", options, value: "dispatch", state: "open" })),
+            e("div", { className: "audit-card" }, action({ label: "Selected select", options, value: "dispatch", helper: "Click, Escape, ArrowDown/ArrowUp and Enter are stateful." })),
             e("div", { className: "audit-card" }, action({ label: "Inline select", options, value: "route", variant: "inline" }))
           )
         ),

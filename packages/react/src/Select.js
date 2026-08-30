@@ -47,7 +47,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     const [internalValue, setInternalValue] = useState(value ?? "");
     const currentValue = isValueControlled ? value ?? "" : internalValue;
     const isOpenControlled = openProp !== undefined;
-    const [internalOpen, setInternalOpen] = useState(state === "open");
+    const [internalOpen, setInternalOpen] = useState(false);
     const open = isOpenControlled ? Boolean(openProp) : internalOpen;
     const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
     const selectedValue = selectedOption ? selectedOption.value : "";
@@ -55,7 +55,6 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     const isOpen = open;
     const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : state || "default";
     const isLoading = resolvedState === "loading";
-    const selectedIndex = selectedOption ? Math.max(normalizedOptions.indexOf(selectedOption), 0) : null;
     const [activeIndex, setActiveIndex] = useState(null);
     const resolvedActiveIndex = activeIndex !== null && !normalizedOptions[activeIndex]?.disabled ? activeIndex : null;
     const activeOption = resolvedActiveIndex !== null ? normalizedOptions[resolvedActiveIndex] ?? null : null;

@@ -11695,7 +11695,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-padding-end-md: calc(var(--component-control-frame-padding-field-md) - var(--component-frame-space-micro));
   --comp-select-padding-end-lg: calc(var(--component-control-frame-padding-field-lg) - var(--component-frame-space-micro));
   --comp-select-padding-end: var(--comp-select-padding-end-md);
-  --comp-select-inline-padding-end: var(--component-space-sm);
+  --comp-select-inline-trigger-gap: var(--component-space-md);
+  --comp-select-inline-padding-x: var(--component-space-md);
   --comp-select-font-size-sm: var(--component-control-frame-font-size-sm);
   --comp-select-font-size-md: var(--component-control-frame-font-size-md);
   --comp-select-font-size-lg: var(--component-control-frame-font-size-lg);
@@ -11733,7 +11734,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-listbox-border: var(--component-listbox-border);
   --comp-select-listbox-inline: min(100%, calc(100vw - (var(--component-space-md) * 2)));
   --comp-select-inline-listbox-inline: var(--component-inline-size-max-content);
-  --comp-select-inline-listbox-min-inline: var(--component-menu-panel-min-inline-md);
+  --comp-select-inline-listbox-min-inline: var(--component-inline-size-max-content);
   --comp-select-listbox-offset: var(--component-listbox-offset);
   --comp-select-listbox-depth: var(--component-listbox-depth);
   --comp-select-listbox-max-block-size: var(--component-listbox-max-block-size);
@@ -11889,6 +11890,9 @@ body[data-contrast="quiet"] .route-summary__icon {
 .select-control--inline,
 .country-selector.select-control--inline,
 .phone-input__country {
+  --comp-select-option-min-size: var(--comp-select-option-min-size-sm);
+  --comp-select-option-padding-x: var(--comp-select-option-padding-x-sm);
+  --comp-select-option-check-size: var(--comp-select-option-check-size-sm);
   align-items: center;
   display: inline-grid;
   flex: 0 0 auto;
@@ -11987,13 +11991,17 @@ body[data-contrast="quiet"] .route-summary__icon {
   border: 0;
   box-sizing: border-box;
   color: var(--comp-country-selector-inline-trigger-color);
-  gap: var(--comp-country-selector-inline-trigger-gap);
+  gap: var(--comp-select-inline-trigger-gap);
   block-size: var(--comp-country-selector-inline-trigger-size);
   inline-size: max-content;
   justify-content: flex-start;
   min-block-size: var(--comp-country-selector-inline-trigger-size);
   min-inline-size: 0;
-  padding: 0 var(--comp-select-inline-padding-end) 0 0;
+  padding: 0 var(--comp-select-inline-padding-x);
+}
+
+.select-control--inline .select-control__value {
+  flex: 0 1 auto;
 }
 
 .country-selector.select-control--inline .country-selector__trigger,
