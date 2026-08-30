@@ -11,6 +11,11 @@ const allowedReactEffects = {
     reasons: ["outside click closes an open listbox"],
     snippets: ["document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
   },
+  Combobox: {
+    count: 1,
+    reasons: ["outside click closes an open listbox"],
+    snippets: ["document.addEventListener(\"mousedown\", handleDocumentMouseDown);"],
+  },
   DatePicker: {
     count: 2,
     reasons: ["calendar viewport follows controlled selected date", "outside click closes an open panel"],

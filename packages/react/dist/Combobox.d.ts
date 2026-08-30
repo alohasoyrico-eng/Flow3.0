@@ -28,8 +28,10 @@ export type ComboboxOpenChangeEvent =
   | FocusEvent<HTMLInputElement>
   | ChangeEvent<HTMLInputElement>
   | KeyboardEvent<HTMLInputElement>
+  | MouseEvent<HTMLInputElement>
   | MouseEvent<HTMLSpanElement>
-  | MouseEvent<HTMLButtonElement>;
+  | MouseEvent<HTMLButtonElement>
+  | globalThis.MouseEvent;
 
 export interface ComboboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "style" | "onChange" | "value" | "size" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;

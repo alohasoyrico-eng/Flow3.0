@@ -1925,6 +1925,12 @@
 .tabs__icon,
 .field__icon,
 .field-action__icon,
+.select-control__chevron,
+.country-selector__chevron,
+.combobox__chevron,
+.select-control__option-check,
+.country-selector__option-check,
+.combobox__option-check,
 .chip__icon,
 .tag__icon,
 .biometric-prompt__icon,
@@ -1935,6 +1941,7 @@
 .list__icon,
 .kpi-tile__icon,
 .audit-event__icon,
+.accordion__chevron,
 .segmented-control__icon {
   direction: ltr;
   display: inline-block;

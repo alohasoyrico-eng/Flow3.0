@@ -173,6 +173,9 @@ try {
     const user = createUser();
     const changes = [];
     const openChanges = [];
+    const outsideButton = globalThis.document.createElement("button");
+    outsideButton.textContent = "Outside combobox";
+    globalThis.document.body.appendChild(outsideButton);
     const view = render(React.createElement(Combobox, {
       label: "Depot",
       placeholder: "Search depots",
@@ -188,6 +191,16 @@ try {
     assert.equal(input.getAttribute("aria-activedescendant"), null);
     assert.equal(view.container.querySelectorAll('.combobox__option[data-active="true"]').length, 0);
     assert.equal(view.container.querySelectorAll('.combobox__option[data-selected="true"]').length, 0);
+    await user.click(outsideButton);
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+    await user.click(input);
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "true"));
+    fireEvent.keyDown(input, { key: "Tab" });
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "false"));
+    assert.equal(input.getAttribute("aria-activedescendant"), null);
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
+    await user.click(input);
     await user.type(input, "US");
     assert.equal(changes.at(-1).value, "US");
     assert.equal(input.getAttribute("aria-activedescendant"), null);
@@ -199,8 +212,16 @@ try {
     assert.equal(changes.at(-1).value, "us");
     assert.equal(input.value, "Fleet US");
 
-    await user.click(view.getByRole("button", { name: /clear depot/i }));
+    await user.tab();
+    assert.equal(globalThis.document.activeElement, view.getByRole("button", { name: /clear depot/i }));
+    await user.keyboard("{Enter}");
     assert.equal(changes.at(-1).meta.cleared, true);
+    assert.equal(globalThis.document.activeElement, input);
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "true"));
+    await user.keyboard("{ArrowDown}");
+    assert.match(input.getAttribute("aria-activedescendant") || "", /option-0/);
+    await user.keyboard("{Escape}");
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "false"));
 
     view.rerender(React.createElement(Combobox, {
       label: "Depot",
@@ -209,6 +230,18 @@ try {
       onValueChange: (value, meta, event) => changes.push({ value, meta, eventType: event.type }),
     }));
     await waitFor(() => assert.equal(input.value, "Fleet MX"));
+    await user.click(input);
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "true"));
+    fireEvent.keyDown(input, { key: "ArrowDown" });
+    await waitFor(() => assert.match(input.getAttribute("aria-activedescendant") || "", /option-1/));
+    fireEvent.keyDown(input, { key: "ArrowUp" });
+    await waitFor(() => assert.match(input.getAttribute("aria-activedescendant") || "", /option-0/));
+    fireEvent.keyDown(input, { key: "Escape" });
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "false"));
+    await user.click(input);
+    await user.click(view.getByRole("option", { name: /fleet us/i }));
+    await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(changes.at(-1), { value: "us", meta: { label: "Fleet US", meta: "US", inputValue: "Fleet US" }, eventType: "click" });
     fireEvent.change(input, { target: { value: "free text" } });
     assert.equal(changes.at(-1).value, "free text");
     assert.equal(input.value, "free text");
@@ -225,6 +258,7 @@ try {
     await user.click(input);
     assert.equal(openChanges.length, before);
     await assertNoAxeViolations(view.container);
+    outsideButton.remove();
     cleanup();
   }
 

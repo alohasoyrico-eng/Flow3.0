@@ -2,7 +2,7 @@
  * Do not edit this compatibility runtime directly.
  * Authored source of truth is the paired .ts/.tsx file.
  */
-import React, { forwardRef, useId, useMemo, useState, } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useRef, useState, } from "react";
 import { comboboxPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
 import { resolveFieldMessage } from "./internal/field-message.js";
@@ -34,9 +34,20 @@ function normalizedState({ disabled, loading, state, currentValue, visibleCount,
         return "empty";
     return state ?? (currentValue ? "filled" : "default");
 }
+function assignInputRef(ref, node) {
+    if (typeof ref === "function") {
+        ref(node);
+        return;
+    }
+    if (ref) {
+        ref.current = node;
+    }
+}
 export const Combobox = forwardRef(function Combobox({ label, helper = "", icon = "search", options, optionsLabel, clearSelectionLabel, value, name = "", placeholder = "", emptyText, loadingText = "Loading results", disabled = false, loading = false, density, state, open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const comboboxId = id ?? `combobox-${generatedId}`;
+    const rootRef = useRef(null);
+    const inputRef = useRef(null);
     const normalizedOptions = useMemo(() => normalizeOptions(options), [options]);
     const isValueControlled = value !== undefined;
     const initialValue = value ?? "";
@@ -51,14 +62,18 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
     const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
     const selectedValue = selectedOption ? optionValue(selectedOption) : "";
     const isOpen = Boolean(open) && !disabled;
+    const openStateRef = useRef(isOpen);
+    openStateRef.current = isOpen;
     const controlledSelectionLabel = selectedOption ? optionLabel(selectedOption) : currentValue;
     const displayInputValue = isValueControlled && (!isOpen || (selectedOption && inputValue === "")) ? controlledSelectionLabel : inputValue;
-    const query = displayInputValue.trim().toLowerCase();
+    const isShowingSelectedValue = Boolean(selectedOption && displayInputValue === optionLabel(selectedOption));
+    const query = isShowingSelectedValue ? "" : displayInputValue.trim().toLowerCase();
     const filteredOptions = useMemo(() => normalizedOptions.filter((option) => {
         const haystack = `${optionLabel(option)} ${option.meta ?? ""}`.toLowerCase();
         return !query || haystack.includes(query);
     }), [normalizedOptions, query]);
     const enabledOptions = filteredOptions.filter((option) => !option.disabled);
+    const selectedEnabledIndex = selectedOption ? enabledOptions.findIndex((option) => optionValue(option) === selectedValue) : -1;
     const activeOption = activeIndex === null ? null : enabledOptions[activeIndex] ?? null;
     const resolvedState = normalizedState({ disabled, loading, state, currentValue: displayInputValue, visibleCount: filteredOptions.length });
     const isLoading = resolvedState === "loading";
@@ -69,16 +84,34 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         helper,
         state: resolvedState === "error" ? "error" : resolvedState === "disabled" ? "disabled" : "default",
     });
-    if (!label || !normalizedOptions.length)
-        return null;
     const setOpen = (nextOpen, event) => {
         if (disabled)
             return;
         const normalizedOpen = Boolean(nextOpen);
+        if (normalizedOpen === openStateRef.current)
+            return;
+        openStateRef.current = normalizedOpen;
         if (!isOpenControlled)
             setInternalOpen(normalizedOpen);
         onOpenChange?.(normalizedOpen, event);
     };
+    useEffect(() => {
+        if (!isOpen)
+            return undefined;
+        const handleDocumentMouseDown = (event) => {
+            const target = event.target;
+            if (!(target instanceof Node))
+                return;
+            if (rootRef.current?.contains(target))
+                return;
+            setActiveIndex(null);
+            setOpen(false, event);
+        };
+        document.addEventListener("mousedown", handleDocumentMouseDown);
+        return () => document.removeEventListener("mousedown", handleDocumentMouseDown);
+    });
+    if (!label || !normalizedOptions.length)
+        return null;
     const commitOption = (option, event) => {
         if (!option || option.disabled)
             return;
@@ -92,11 +125,13 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         onValueChange?.(nextValue, { label: nextLabel, meta: option.meta ?? "", inputValue: nextLabel }, event);
     };
     const clearValue = (event) => {
+        event.preventDefault();
         if (!isValueControlled)
             setInternalValue("");
         setInputValue("");
         setOpen(true, event);
         setActiveIndex(null);
+        inputRef.current?.focus();
         onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true }, event);
     };
     const handleInputFocus = (event) => {
@@ -105,10 +140,21 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             return;
         setOpen(true, event);
     };
+    const handleInputClick = (event) => {
+        rest.onClick?.(event);
+        if (event.defaultPrevented || disabled)
+            return;
+        setOpen(true, event);
+    };
     const handleInputKeyDown = (event) => {
         rest.onKeyDown?.(event);
         if (event.defaultPrevented)
             return;
+        if (event.key === "Tab") {
+            setActiveIndex(null);
+            setOpen(false, event);
+            return;
+        }
         if (event.key === "ArrowDown") {
             event.preventDefault();
             setOpen(true, event);
@@ -116,7 +162,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
                 if (!enabledOptions.length)
                     return null;
                 if (index === null)
-                    return 0;
+                    return selectedEnabledIndex >= 0 ? Math.min(enabledOptions.length - 1, selectedEnabledIndex + 1) : 0;
                 return Math.min(enabledOptions.length - 1, index + 1);
             });
         }
@@ -127,7 +173,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
                 if (!enabledOptions.length)
                     return null;
                 if (index === null)
-                    return Math.max(0, enabledOptions.length - 1);
+                    return selectedEnabledIndex >= 0 ? Math.max(0, selectedEnabledIndex - 1) : Math.max(0, enabledOptions.length - 1);
                 return Math.max(0, index - 1);
             });
         }
@@ -142,6 +188,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         }
     };
     return React.createElement("label", {
+        ref: rootRef,
         className: ["field", className].filter(Boolean).join(" "),
         ...flowDataProps(rest),
         ...flowStateProps(resolvedState),
@@ -155,7 +202,10 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         "data-combobox-control": "",
     }, icon ? React.createElement("span", { className: "field__icon combobox__icon", "aria-hidden": "true" }, icon) : null, React.createElement("input", {
         ...flowRestProps(rest),
-        ref,
+        ref: (node) => {
+            inputRef.current = node;
+            assignInputRef(ref, node);
+        },
         id: comboboxId,
         className: "input combobox__input",
         name,
@@ -176,6 +226,7 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
         "aria-busy": isLoading ? "true" : undefined,
         "aria-activedescendant": isOpen && activeOption && activeIndex !== null ? `${comboboxId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onFocus: handleInputFocus,
+        onClick: handleInputClick,
         onChange: (event) => {
             const nextValue = event.target.value;
             setInputValue(nextValue);
@@ -222,7 +273,10 @@ export const Combobox = forwardRef(function Combobox({ label, helper = "", icon 
             "data-meta": option.meta || undefined,
             "data-disabled": option.disabled ? "true" : undefined,
             onMouseDown: (event) => event.preventDefault(),
-            onClick: option.disabled ? undefined : (event) => commitOption(option, event),
+            onClick: option.disabled ? undefined : (event) => {
+                event.preventDefault();
+                commitOption(option, event);
+            },
         }, React.createElement("span", { className: "combobox__option-label" }, optionLabel(option)), option.meta ? React.createElement("span", { className: "combobox__option-meta" }, option.meta) : null, React.createElement("span", { className: "combobox__option-check", "aria-hidden": "true" }, isSelected ? "check" : ""));
     }), isLoading ? React.createElement("span", { className: "combobox__loading", "data-combobox-loading": "", role: "status" }, loadingText) : null, emptyText ? React.createElement("span", { className: "combobox__empty", "data-combobox-empty": "", role: "status", hidden: filteredOptions.length > 0 }, emptyText) : null)), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
 });

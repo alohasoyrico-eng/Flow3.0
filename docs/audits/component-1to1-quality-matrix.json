@@ -936,20 +936,31 @@
         "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-advanced.test.mjs",
-        "commit 5c264331"
+        "commit 5c264331",
+        "packages/components/styles/components.css",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/audit/scripts/audit-combobox-css-contract.js",
+        "local-visual-snapshots/Flow3-component-qa/combobox-2026-08-17/interactive/react-runtime.html?fresh=combobox-clear-keyboard-runtime-1",
+        "Runtime smoke 2026-08-30: Material Symbols ligature recipe applied to Combobox chevron/check, no demo starts open, Escape closes, Tab closes without trapping focus, ArrowDown/ArrowUp navigate from an existing selected value instead of collapsing to one filtered option, Enter commits, option click closes without label reactivation, keyboard clear returns focus to the input so ArrowDown keeps working, document mousedown closes outside click, disabled option is transparent/legible, 0 console/page errors",
+        "/private/tmp/combobox-tab-outside-runtime-1.png",
+        "node packages/react/test/p0-forms-advanced.test.mjs",
+        "npm run typecheck",
+        "npm run audit:flow-core-gate"
       ],
       "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+        "ZIP reference says Combobox should be absorbed by Select searchable/clearable rather than remain an independent source of truth.",
+        "Select in Flow still lacks searchable and clearable props, so deleting Combobox now would break current Autocomplete/export consumers."
       ],
       "inventoryEscalations": [
         "Select Input in the ZIP is now covered by Combobox.",
         "Country Select and Multiple Select remain separate inventory decisions."
       ],
-      "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331",
+      "lastReviewAt": "2026-08-30",
+      "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "in-review",
+      "decision": "Combobox runtime was revalidated as the current exported component: icon ligatures now consume the shared Material Symbols recipe, keyboard smoke covers Escape/Tab/ArrowDown/ArrowUp/Enter including an existing selected value, option click closes without label reactivation, keyboard clear returns focus to the input before navigation continues, click-outside closes on document mousedown, no review demo starts open, disabled option styling inherits shared option-row roles, and the demo uses a fresh React runtime build. It remains partial because the ZIP contract's architectural closure is absorption into Select searchable/clearable.",
+      "truthResetDecision": "Do not close Combobox as a final component until Select owns searchable/clearable or the divergence from the ZIP contract is explicitly accepted."
     },
     {
       "id": "country-selector",
@@ -2776,7 +2787,8 @@
       "closed-with-recent-evidence": 15,
       "needs-1to1-review": 21,
       "closed-with-user-visual-review": 2,
-      "needs-revalidation": 19
+      "needs-revalidation": 18,
+      "in-review": 1
     }
   },
   "currentReview": {
@@ -2785,10 +2797,11 @@
     "sourceCommit": "f93d0c8d",
     "scope": [
       "pagination",
-      "select"
+      "select",
+      "combobox"
     ],
     "nextComponent": "combobox",
-    "nextComponentReason": "Combobox is next because it shares Select/Listbox option-row foundations and remains partial after visible icon, keyboard, disabled, and runtime-state issues.",
+    "nextComponentReason": "Combobox remains in review because the exported runtime now passes visible icon, keyboard, disabled, and state smoke checks, but the ZIP contract says its final closure is absorption into Select searchable/clearable rather than keeping a duplicate source of truth.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

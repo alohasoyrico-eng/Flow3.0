@@ -1020,7 +1020,7 @@ const components = {
     directory: "combobox-2026-08-17",
     module: "Combobox.js",
     exportName: "Combobox",
-    buildId: "combobox-placeholder-contract-runtime-1",
+    buildId: "combobox-clear-keyboard-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + (meta.label || value))(event)",
     actionSelector: "input[data-runtime-action]",
@@ -1036,7 +1036,7 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Driver", options, placeholder: "Search driver", clearSelectionLabel: "Clear selection", emptyText: "No results" })),
             e("div", { className: "audit-card" }, action({ label: "Selected driver", options, value: "luis", clearSelectionLabel: "Clear selection" })),
-            e("div", { className: "audit-card" }, action({ label: "Open driver", options, placeholder: "Search driver", state: "open", clearSelectionLabel: "Clear selection" }))
+            e("div", { className: "audit-card" }, action({ label: "Filtered driver", options, placeholder: "Search driver", helper: "Type to filter, ArrowDown/ArrowUp, Enter, Escape, and click outside are stateful.", clearSelectionLabel: "Clear selection" }))
           )
         ),
         e("section", { className: "audit-section" },
