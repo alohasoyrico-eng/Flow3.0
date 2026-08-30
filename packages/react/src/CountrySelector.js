@@ -34,10 +34,21 @@ function matchesQuery(option, query) {
 function countryResolverInput(countryValue) {
     return countryValue !== undefined ? { country: countryValue } : {};
 }
+function assignInputRef(ref, node) {
+    if (typeof ref === "function") {
+        ref(node);
+        return;
+    }
+    if (ref) {
+        ref.current = node;
+    }
+}
 export const CountrySelector = forwardRef(function CountrySelector({ label, value, country, countries, disabled = false, invalid = false, density, inline = false, searchable = true, searchPlaceholder = "", emptyText, open: openProp, className = "", onValueChange, onOpenChange, id, ...rest }, ref) {
     const generatedId = useId();
     const selectorId = id ?? `country-selector-${generatedId}`;
     const rootRef = useRef(null);
+    const triggerRef = useRef(null);
+    const searchRef = useRef(null);
     const options = useMemo(() => normalizeCountryCallingCodeOptions(countries), [countries]);
     const isValueControlled = country !== undefined || value !== undefined;
     const initialCountry = resolveCountryCallingCodeOption(countryResolverInput(country ?? value), options);
@@ -91,6 +102,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
         setActiveCountryCode(option.country);
         setOpen(false, event);
         setQuery("");
+        triggerRef.current?.focus();
         onValueChange?.(option.country, option, event);
     };
     const moveActive = (direction) => {
@@ -104,6 +116,11 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
             return;
         const target = event.target;
         const isSearchTarget = target?.matches?.("[data-country-selector-search], input[type='search']") ?? false;
+        if (event.key === "Tab" && open && !isSearchTarget && searchable) {
+            event.preventDefault();
+            searchRef.current?.focus();
+            return;
+        }
         if (event.key === "Tab" && open) {
             setOpen(false, event);
             return;
@@ -111,6 +128,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
         if (event.key === "Escape") {
             event.preventDefault();
             setOpen(false, event);
+            triggerRef.current?.focus();
             return;
         }
         if (event.key === "ArrowDown") {
@@ -157,6 +175,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
     }, React.createElement("span", {
         className: "select-control__trigger country-selector__trigger",
         "data-country-selector-trigger": "",
+        ref: triggerRef,
         role: "combobox",
         tabIndex: disabled ? -1 : 0,
         "aria-expanded": String(open),
@@ -186,6 +205,7 @@ export const CountrySelector = forwardRef(function CountrySelector({ label, valu
             placeholder: searchPlaceholder,
             value: query,
             ...(resolvedDensity ? { density: resolvedDensity } : {}),
+            ref: (node) => assignInputRef(searchRef, node),
             onValueChange: (nextQuery) => setQuery(nextQuery),
         }))
         : null, React.createElement("span", {

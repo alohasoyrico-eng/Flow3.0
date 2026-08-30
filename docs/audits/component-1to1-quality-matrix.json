@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.2.0-truth-reset",
-  "updatedAt": "2026-08-29",
+  "updatedAt": "2026-08-30",
   "scope": "truthful Flow3 component 1:1 QA matrix; ZIP reference always applies; Docs/FlowDocs are excluded from current execution scope except local review demos",
   "status": "partial",
   "rule": "A component can be pass only with recent 1:1 evidence: ZIP reference checked first, package-backed React runtime demo, light/dark visual QA, accessibility/keyboard behavior where applicable, density/layout/typography/iconography verified, automated validation passed, and a commit captured in evidence. Stale or inferred pass evidence must be downgraded to partial.",
@@ -964,42 +964,50 @@
     },
     {
       "id": "country-selector",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/forms/SelectCountry.jsx",
-        "docs/audits/country-selector-1to1-quality-audit.json",
-        "docs/audits/country-selector-visual-qa.json",
-        "docs/audits/country-selector-desktop-light-open-qa.png",
-        "docs/audits/country-selector-mobile-dark-open-qa.png",
-        "packages/components/src/components/specialized-inputs.js",
-        "packages/components/test/smoke.test.mjs"
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/country-select-pattern.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/select.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Select.jsx",
+        "packages/react/src/CountrySelector.tsx",
+        "packages/react/src/CountrySelector.js",
+        "packages/react/dist/CountrySelector.js",
+        "packages/audit/scripts/audit-country-selector-css-contract.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/react/test/p0-forms-advanced.test.mjs",
+        "local-visual-snapshots/Flow3-component-qa/country-selector-2026-08-24/interactive/react-runtime.html?fresh=country-selector-search-tab-runtime-1",
+        "Runtime smoke 2026-08-30: CountrySelector demo no longer mounts an open overlay by default; searchable mode composes Flow Input variant=search; click outside, Tab from trigger into search, Tab from search out/close, Escape, ArrowDown/ArrowUp, Enter, option click, controlled value, disabled state, and focus return to trigger are covered in P0 forms tests.",
+        "node packages/react/test/p0-forms-advanced.test.mjs",
+        "node packages/audit/scripts/audit-country-selector-css-contract.js",
+        "npm run typecheck"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
-        "Country Select in the ZIP is now covered by Country Selector.",
+        "ZIP reference defines Country Select as a recipe composed from Select searchable, renderOption, Flag, and InputPhone; Flow CountrySelector is accepted as the governed bridge component used by PhoneInput, not as a copied SelectCountry source of truth.",
         "Phone Input consumes Country Selector and remains responsible only for phone number capture and formatting.",
         "Currency, language, and region filtering remain outside Country Selector."
       ],
+      "lastReviewAt": "2026-08-30",
+      "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "decision": "Closed CountrySelector 1:1 revalidation against the ZIP country-select recipe and Select/Listbox contract. The component remains as Flow's governed bridge for PhoneInput while preserving the reference architecture: country data stays product-owned, flags come from the country flag primitive, searchable mode composes Input search, listbox/option geometry inherits Select roles, and runtime review starts closed. Interaction coverage includes click outside, Tab from open trigger into the search field, Tab from search out/close without trapping focus, Escape close with focus return, ArrowDown/ArrowUp active option movement, Enter commit, option click commit, controlled value protection, disabled no-op, and accessibility smoke.",
+      "truthResetDecision": "CountrySelector may remain in Flow as a governed bridge component while PhoneInput depends on it; do not reintroduce a separate ZIP SelectCountry clone."
     },
     {
       "id": "date-picker",
@@ -2779,13 +2787,13 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 18,
-    "partial": 39,
+    "pass": 19,
+    "partial": 38,
     "fail": 0,
-    "qualityDebt": 39,
+    "qualityDebt": 38,
     "reviewStates": {
-      "closed-with-recent-evidence": 15,
-      "needs-1to1-review": 21,
+      "closed-with-recent-evidence": 16,
+      "needs-1to1-review": 20,
       "closed-with-user-visual-review": 2,
       "needs-revalidation": 18,
       "in-review": 1
@@ -2793,15 +2801,16 @@
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
-    "updatedAt": "2026-08-29",
-    "sourceCommit": "f93d0c8d",
+    "updatedAt": "2026-08-30",
+    "sourceCommit": "working-tree",
     "scope": [
       "pagination",
       "select",
-      "combobox"
+      "combobox",
+      "country-selector"
     ],
-    "nextComponent": "combobox",
-    "nextComponentReason": "Combobox remains in review because the exported runtime now passes visible icon, keyboard, disabled, and state smoke checks, but the ZIP contract says its final closure is absorption into Select searchable/clearable rather than keeping a duplicate source of truth.",
+    "nextComponent": "date-picker",
+    "nextComponentReason": "DatePicker is the next high-impact web form overlay after Select, Combobox, CountrySelector, PhoneInput, and Table work because it shares overlay/listbox/calendar keyboard risks and currently only has stale post-truth-reset evidence.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

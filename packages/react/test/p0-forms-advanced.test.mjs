@@ -309,12 +309,24 @@ try {
     }));
     const trigger = view.getByRole("combobox", { name: /country code/i });
 
+    assert.equal(trigger.getAttribute("aria-expanded"), "false");
+    assert.equal(trigger.getAttribute("aria-activedescendant"), null);
     await user.click(trigger);
     assert.deepEqual(openChanges.at(-1), { open: true, eventType: "click", key: undefined });
     assert.equal(trigger.getAttribute("aria-expanded"), "true");
     await user.click(outsideButton);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
+
+    await user.click(trigger);
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
+    await user.tab();
+    const tabSearchbox = view.getByRole("searchbox", { name: /country code search/i });
+    assert.equal(globalThis.document.activeElement, tabSearchbox);
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    await user.tab();
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
 
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
@@ -346,12 +358,16 @@ try {
     assert.equal(mexicoOption.getAttribute("data-active"), "true");
     fireEvent.keyDown(searchbox, { key: "Enter" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.equal(globalThis.document.activeElement, trigger);
     assert.equal(changes.at(-1).countryCode, "MX");
     await user.click(trigger);
     fireEvent.keyDown(searchbox, { key: "Escape" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.equal(globalThis.document.activeElement, trigger);
     await user.click(trigger);
     await user.click(view.getByRole("option", { name: /United States/ }));
+    await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
+    assert.equal(globalThis.document.activeElement, trigger);
     assert.equal(changes.at(-1).countryCode, "US");
     assert.equal(view.container.querySelector("[data-country-selector]").dataset.country, "US");
 
@@ -480,6 +496,10 @@ try {
     await user.click(countryTrigger);
     await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "true"));
     fireEvent.keyDown(countryTrigger, { key: "Tab" });
+    const phoneCountrySearchbox = view.getByRole("searchbox", { name: /search country or code/i });
+    assert.equal(globalThis.document.activeElement, phoneCountrySearchbox);
+    assert.equal(countryTrigger.getAttribute("aria-expanded"), "true");
+    fireEvent.keyDown(phoneCountrySearchbox, { key: "Tab" });
     await waitFor(() => assert.equal(countryTrigger.getAttribute("aria-expanded"), "false"));
 
     await user.click(countryTrigger);

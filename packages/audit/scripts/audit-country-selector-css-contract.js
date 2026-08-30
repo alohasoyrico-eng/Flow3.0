@@ -15,7 +15,10 @@ function checkCountrySelectorCssContract({ text, blocks, packageCssFile, selecto
   const sourceRoot = root || process.cwd();
   const tsxSourceFile = path.join(sourceRoot, "packages/react/src/CountrySelector.tsx");
   const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/CountrySelector.js");
+  const demoFile = path.join(sourceRoot, "packages/audit/scripts/build-local-react-qa-demo.mjs");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
+  const demo = fs.existsSync(demoFile) ? fs.readFileSync(demoFile, "utf8") : "";
+  const countryDemo = demo.match(/"country-selector":\s*\{[\s\S]*?\n  "phone-input":/)?.[0] ?? "";
   const countrySelectorBlock = blockFor(blocks, selectorKey, ".country-selector");
   const triggerBlock = blockFor(blocks, selectorKey, ".country-selector__trigger");
   const inlineTriggerBlock = blockFor(blocks, selectorKey, ".select-control--inline .select-control__trigger,.country-selector.select-control--inline .country-selector__trigger,.phone-input__country-trigger");
@@ -57,6 +60,15 @@ function checkCountrySelectorCssContract({ text, blocks, packageCssFile, selecto
   }
   if (!source.includes("import { Input } from \"./Input.js\"") || !source.includes("variant: \"search\"") || !source.includes("labelHidden: true")) {
     add("errors", sourceFile, 1, "Country Selector searchable mode must compose Input variant=\"search\" with hidden visual label instead of rendering a native input directly.");
+  }
+  if (countryDemo.includes('label: "Open country"') || countryDemo.includes('state: "open"')) {
+    add("errors", demoFile, 1, "Country Selector runtime demo must not mount an initially open overlay during 1:1 review.");
+  }
+  if (!source.includes("const triggerRef = useRef") || !source.includes("triggerRef.current?.focus()")) {
+    add("errors", sourceFile, 1, "Country Selector must return focus to its combobox trigger after Escape or selection from the searchable overlay.");
+  }
+  if (!source.includes("const searchRef = useRef") || !source.includes('event.key === "Tab" && open && !isSearchTarget && searchable') || !source.includes("searchRef.current?.focus()")) {
+    add("errors", sourceFile, 1, "Country Selector must let Tab move from the open trigger into the composed search input before Tab closes the overlay from search.");
   }
   requireIncludes({
     block: searchFieldBlock,

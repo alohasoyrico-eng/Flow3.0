@@ -3,6 +3,8 @@ import React, {
   type HTMLAttributes,
   type KeyboardEvent,
   type MouseEvent,
+  type MutableRefObject,
+  type Ref,
   type RefAttributes,
   forwardRef,
   useEffect,
@@ -94,6 +96,16 @@ function countryResolverInput(countryValue: string | undefined): CountryResolver
   return countryValue !== undefined ? { country: countryValue } : {};
 }
 
+function assignInputRef(ref: Ref<HTMLInputElement> | undefined, node: HTMLInputElement | null): void {
+  if (typeof ref === "function") {
+    ref(node);
+    return;
+  }
+  if (ref) {
+    (ref as MutableRefObject<HTMLInputElement | null>).current = node;
+  }
+}
+
 export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>(function CountrySelector({
   label,
   value,
@@ -116,6 +128,8 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
   const generatedId = useId();
   const selectorId = id ?? `country-selector-${generatedId}`;
   const rootRef = useRef<HTMLSpanElement | null>(null);
+  const triggerRef = useRef<HTMLSpanElement | null>(null);
+  const searchRef = useRef<HTMLInputElement | null>(null);
   const options = useMemo(() => normalizeCountryCallingCodeOptions(countries), [countries]);
   const isValueControlled = country !== undefined || value !== undefined;
   const initialCountry = resolveCountryCallingCodeOption(countryResolverInput(country ?? value), options);
@@ -165,6 +179,7 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
     setActiveCountryCode(option.country);
     setOpen(false, event);
     setQuery("");
+    triggerRef.current?.focus();
     onValueChange?.(option.country, option, event);
   };
   const moveActive = (direction: number) => {
@@ -177,6 +192,11 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
     const target = event.target as HTMLElement | null;
     const isSearchTarget = target?.matches?.("[data-country-selector-search], input[type='search']") ?? false;
 
+    if (event.key === "Tab" && open && !isSearchTarget && searchable) {
+      event.preventDefault();
+      searchRef.current?.focus();
+      return;
+    }
     if (event.key === "Tab" && open) {
       setOpen(false, event);
       return;
@@ -184,6 +204,7 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
     if (event.key === "Escape") {
       event.preventDefault();
       setOpen(false, event);
+      triggerRef.current?.focus();
       return;
     }
     if (event.key === "ArrowDown") {
@@ -236,6 +257,7 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
       {
         className: "select-control__trigger country-selector__trigger",
         "data-country-selector-trigger": "",
+        ref: triggerRef,
         role: "combobox",
         tabIndex: disabled ? -1 : 0,
         "aria-expanded": String(open),
@@ -281,6 +303,7 @@ export const CountrySelector = forwardRef<HTMLSpanElement, CountrySelectorProps>
             placeholder: searchPlaceholder,
             value: query,
             ...(resolvedDensity ? { density: resolvedDensity } : {}),
+            ref: (node: HTMLInputElement | null) => assignInputRef(searchRef, node),
             onValueChange: (nextQuery: string) => setQuery(nextQuery),
           }),
         )

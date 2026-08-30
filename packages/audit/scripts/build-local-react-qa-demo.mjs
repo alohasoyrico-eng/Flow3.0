@@ -1061,7 +1061,7 @@ const components = {
     directory: "country-selector-2026-08-24",
     module: "CountrySelector.js",
     exportName: "CountrySelector",
-    buildId: "country-selector-placeholder-contract-runtime-1",
+    buildId: "country-selector-search-tab-runtime-1",
     flagAssets: ["MX", "US", "CO", "BR"],
     eventPropName: "onValueChange",
     actionHandler: "(countryCode, country, event) => onAction(props.label + '=' + countryCode)(event)",
@@ -1077,7 +1077,7 @@ const components = {
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Country code", countries, country: "MX", searchPlaceholder: "Search country or code" })),
-            e("div", { className: "audit-card" }, action({ label: "Open country", countries, country: "US", state: "open", searchPlaceholder: "Search country or code" })),
+            e("div", { className: "audit-card" }, action({ label: "Selected country", countries, country: "US", searchPlaceholder: "Search country or code" })),
             e("div", { className: "audit-card" }, action({ label: "Search country", countries, searchable: true, searchPlaceholder: "Search country or code", country: "CO" }))
           )
         ),
