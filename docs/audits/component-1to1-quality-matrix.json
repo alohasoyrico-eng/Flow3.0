@@ -520,26 +520,28 @@
     },
     {
       "id": "card-expiry-input",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/forms/Input.jsx",
-        ".audit-reference/components/forms/InputDate.jsx",
-        ".audit-reference/components/display/PaymentCard.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Input.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/input.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/PaymentCard.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/payment-card.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/payment-card.html",
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/test/smoke.test.mjs",
         "docs/audits/card-expiry-input-1to1-visual-metrics.json",
@@ -548,17 +550,16 @@
         "packages/react/src/CardExpiryInput.tsx",
         "packages/react/test/p0-forms-advanced.test.mjs",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
-        "../../local-visual-snapshots/Flow3-component-qa/card-expiry-input-2026-08-25/interactive/react-runtime.html"
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-expiry-input-2026-08-25/interactive/react-runtime.html",
+        "/private/tmp/card-expiry-input-review-1.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
-      "lastReviewAt": "2026-08-25",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-29",
       "currentReviewCommit": "working-tree",
-      "decision": "Card Expiry Input remains a payment-form component over the shared Field cascade. Current review confirms ZIP InputDate plus PaymentCard reference alignment, 36/44/52 field frame, 12/16/20 field radius, mono tabular MM/YY numerals, cc-exp autocomplete, local month and expiry validation, distinct invalid/expired recovery copy, loading/disabled precedence, aria-describedby validation, and a package-backed React runtime demo.",
+      "decision": "Card Expiry Input is closed for current review. The ZIP has no standalone CardExpiryInput, so the review triangulates ZIP Input shell behavior with PaymentCard expires semantics: it owns only editable MM/YY capture, not PaymentCard display or card surface behavior. Runtime demo is package-backed React. Playwright confirms typing 1228 renders 12/28, emits valid metadata with month=12 and year=28, 1399 renders 13/99 with data-validity=invalid and aria-invalid=true, expired values use the expired recovery path, inputMode remains numeric, autocomplete is cc-exp, and sm/md/lg controls measure 36/44/52 with 12/16/20 radius and 13/14/16 font sizes.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed after ZIP-informed runtime validation of MM/YY formatting, local month/expiry states, density, dark mode inheritance, and accessibility."
     },
     {
       "id": "card-number-input",
@@ -2744,13 +2745,13 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 12,
-    "partial": 45,
+    "pass": 13,
+    "partial": 44,
     "fail": 0,
-    "qualityDebt": 45,
+    "qualityDebt": 44,
     "reviewStates": {
-      "closed-with-recent-evidence": 9,
-      "needs-1to1-review": 25,
+      "closed-with-recent-evidence": 10,
+      "needs-1to1-review": 24,
       "needs-revalidation": 21,
       "in-review": 0,
       "closed-with-user-visual-review": 2
@@ -2761,10 +2762,10 @@
     "updatedAt": "2026-08-29",
     "sourceCommit": "44717537",
     "scope": [
-      "card-expiry-input"
+      "card-security-code-input"
     ],
-    "nextComponent": "card-expiry-input",
-    "nextComponentReason": "Card Expiry Input is next because it shares the payment Field cascade and must prove grouped date entry, local expiry validation, keyboard behavior, density, and accessibility before payment patterns can be trusted.",
+    "nextComponent": "card-security-code-input",
+    "nextComponentReason": "Card Security Code Input is next because it shares the payment Field cascade and must prove CVV/CVC masking or reveal policy, numeric entry, length validation, keyboard behavior, density, and accessibility before payment patterns can be trusted.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

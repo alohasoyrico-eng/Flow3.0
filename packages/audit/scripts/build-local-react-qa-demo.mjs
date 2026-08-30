@@ -663,7 +663,7 @@ const components = {
     directory: "card-expiry-input-2026-08-25",
     module: "CardExpiryInput.js",
     exportName: "CardExpiryInput",
-    buildId: "card-expiry-input-react-runtime-1",
+    buildId: "card-expiry-input-1to1-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + value + ':' + meta.validity)(event)",
     actionSelector: "input[data-runtime-action]",
