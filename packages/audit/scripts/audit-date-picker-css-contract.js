@@ -1,4 +1,6 @@
 const { add, lineNumber } = require("./audit-context.js");
+const fs = require("fs");
+const path = require("path");
 
 function blockFor(blocks, selectorKey, selector) {
   return blocks.find((block) => selectorKey(block) === selector);
@@ -9,7 +11,14 @@ function requireIncludes({ block, text, packageCssFile, snippets, message }) {
   add("errors", packageCssFile, block ? lineNumber(text, block.index) : 1, message);
 }
 
-function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey }) {
+function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey, root }) {
+  const sourceRoot = root || process.cwd();
+  const tsxSourceFile = path.join(sourceRoot, "packages/react/src/DatePicker.tsx");
+  const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/DatePicker.js");
+  const demoFile = path.join(sourceRoot, "packages/audit/scripts/build-local-react-qa-demo.mjs");
+  const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
+  const demo = fs.existsSync(demoFile) ? fs.readFileSync(demoFile, "utf8") : "";
+  const datePickerDemo = demo.match(/"date-picker":\s*\{[\s\S]*?\n  "date-range-picker":/)?.[0] ?? "";
   const datePickerBlock = blockFor(blocks, selectorKey, ".date-picker");
   const datePickerSmBlock = blockFor(blocks, selectorKey, ".date-picker[data-density=\"sm\"]");
   const datePickerLgBlock = blockFor(blocks, selectorKey, ".date-picker[data-density=\"lg\"]");
@@ -20,6 +29,10 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
   const datePickerHelperBlock = blockFor(blocks, selectorKey, ".date-picker.field .date-picker__helper");
   const datePickerHeaderBlock = blockFor(blocks, selectorKey, ".date-picker__header strong");
   const datePickerWeekdayBlock = blockFor(blocks, selectorKey, ".date-picker__weekday");
+  const datePickerSelectorPanelBlock = blockFor(blocks, selectorKey, ".date-picker__selector-panel");
+  const datePickerSelectorListboxBlock = blockFor(blocks, selectorKey, ".date-picker__selector-listbox");
+  const datePickerMonthSelectorListboxBlock = blockFor(blocks, selectorKey, ".date-picker__selector-panel--month .date-picker__selector-listbox");
+  const datePickerYearSelectorListboxBlock = blockFor(blocks, selectorKey, ".date-picker__selector-panel--year .date-picker__selector-listbox");
 
   requireIncludes({
     block: datePickerBlock,
@@ -147,6 +160,41 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
     ],
     message: "DatePicker days must consume the shared calendar day aliases.",
   });
+  requireIncludes({
+    block: datePickerSelectorPanelBlock,
+    text,
+    packageCssFile,
+    snippets: ["box-sizing: border-box", "display: grid", "padding-block-start: var(--component-space-2)"],
+    message: "DatePicker month/year selectors must render as an in-panel chooser instead of overlaying the calendar grid.",
+  });
+  requireIncludes({
+    block: datePickerSelectorListboxBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "background: var(--comp-date-picker-surface)",
+      "border: var(--component-border-width) solid var(--comp-date-picker-border)",
+      "border-radius: var(--component-radius-lg)",
+      "box-sizing: border-box",
+      "inline-size: 100%",
+      "overflow: visible",
+    ],
+    message: "DatePicker selector listboxes must use Flow surface geometry and avoid local scroll/absolute overlay behavior.",
+  });
+  requireIncludes({
+    block: datePickerMonthSelectorListboxBlock,
+    text,
+    packageCssFile,
+    snippets: ["grid-template-columns: repeat(3, minmax(var(--component-inline-size-lg), 1fr))"],
+    message: "DatePicker month selector must use a compact in-panel grid that keeps month labels readable.",
+  });
+  requireIncludes({
+    block: datePickerYearSelectorListboxBlock,
+    text,
+    packageCssFile,
+    snippets: ["grid-template-columns: repeat(4, minmax(var(--component-inline-size-md), 1fr))"],
+    message: "DatePicker year selector must use a compact in-panel grid so the default year range does not require scroll.",
+  });
   if (/--component-date-picker-(?:control|day)-size-md/.test(text)) {
     add("errors", packageCssFile, 1, "DatePicker must not keep md-only size aliases; base trigger size comes from --component-field-control-size-md.");
   }
@@ -162,6 +210,35 @@ function checkDatePickerCssContract({ text, blocks, packageCssFile, selectorKey 
   const rawDatePanelInline = text.match(/\.date-picker__panel\s*{[^}]*inline-size:\s*calc\(var\(--component-control-min-size\) \* [0-9.]+\)/s);
   if (rawDatePanelInline) {
     add("errors", packageCssFile, lineNumber(text, rawDatePanelInline.index), "DatePicker panel inline sizes must flow through Frame date panel roles instead of local control multipliers.");
+  }
+  for (const [snippet, message] of [
+    ["function addDays", "DatePicker grid keyboard navigation must move by calendar dates, not by wrapping visible button indexes."],
+    ["function addMonthsClamped", "DatePicker PageUp/PageDown must preserve a valid day across month changes."],
+    ["event.shiftKey ? 12 : 1", "DatePicker must support year jumps with Shift+PageUp/Shift+PageDown instead of forcing keyboard users to move month by month."],
+    ["previousYearLabel", "DatePicker must expose previousYearLabel instead of hardcoding visible year-navigation copy."],
+    ["nextYearLabel", "DatePicker must expose nextYearLabel instead of hardcoding visible year-navigation copy."],
+    ["monthSelectLabel", "DatePicker must expose monthSelectLabel instead of hardcoding month-selector copy."],
+    ["yearSelectLabel", "DatePicker must expose yearSelectLabel instead of hardcoding year-selector copy."],
+    ["date-picker__selector date-picker__selector--month", "DatePicker must expose a keyboard-native month selector in the calendar header."],
+    ["date-picker__selector date-picker__selector--year", "DatePicker must expose a keyboard-native year selector in the calendar header."],
+    ["date-picker__selector-panel date-picker__selector-panel--month", "DatePicker month selector must render in the panel body instead of inside the header trigger."],
+    ["date-picker__selector-panel date-picker__selector-panel--year", "DatePicker year selector must render in the panel body instead of inside the header trigger."],
+    ["moveMonth(-12)", "DatePicker must expose visible previous-year navigation in the calendar header."],
+    ["moveMonth(12)", "DatePicker must expose visible next-year navigation in the calendar header."],
+    ["keepTabInsidePanel", "DatePicker must keep header controls keyboard-reachable instead of closing the panel on Tab."],
+    ["currentIndex + direction + tabbables.length", "DatePicker Tab handling must cycle through every reachable panel control, not only boundary exits."],
+    ['event.key === "Home"', "DatePicker must support Home to move to the first enabled day in the current month."],
+    ['event.key === "End"', "DatePicker must support End to move to the last enabled day in the current month."],
+  ]) {
+    if (!source.includes(snippet)) add("errors", sourceFile, 1, message);
+  }
+  for (const [snippet, message] of [
+    ['locale: "es-MX"', "DatePicker runtime 1:1 demo must pass Spanish locale from the consumer layer."],
+    ['weekdays: ["L", "M", "X", "J", "V", "S", "D"]', "DatePicker runtime 1:1 demo must pass Monday-first weekday labels from the consumer layer."],
+    ['monthSelectLabel: "Seleccionar mes"', "DatePicker runtime 1:1 demo must pass month-selector copy from the consumer layer."],
+    ['yearSelectLabel: "Seleccionar año"', "DatePicker runtime 1:1 demo must pass year-selector copy from the consumer layer."],
+  ]) {
+    if (!datePickerDemo.includes(snippet)) add("errors", demoFile, 1, message);
   }
 }
 

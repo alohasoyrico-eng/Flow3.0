@@ -2548,8 +2548,12 @@ const datePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
   min: "2026-01-01",
   max: "2026-12-31",
   calendarLabel: "Service date calendar",
+  monthSelectLabel: "Select service month",
+  yearSelectLabel: "Select service year",
+  previousYearLabel: "Previous service year",
   previousMonthLabel: "Previous service month",
   nextMonthLabel: "Next service month",
+  nextYearLabel: "Next service year",
   density: "lg",
   state: "focus",
 }));
@@ -2574,8 +2578,16 @@ assert.match(datePickerMarkup, /class="date-picker__panel"/);
 assert.match(datePickerMarkup, /role="dialog"/);
 assert.match(datePickerMarkup, /aria-modal="false"/);
 assert.match(datePickerMarkup, /aria-label="Service date calendar"/);
+assert.match(datePickerMarkup, /aria-label="Select service month"/);
+assert.match(datePickerMarkup, /aria-label="Select service year"/);
+assert.match(datePickerMarkup, /class="date-picker__selector date-picker__selector--month"/);
+assert.match(datePickerMarkup, /class="date-picker__selector date-picker__selector--year"/);
+assert.match(datePickerMarkup, /aria-label="Previous service year"/);
 assert.match(datePickerMarkup, /aria-label="Previous service month"/);
 assert.match(datePickerMarkup, /aria-label="Next service month"/);
+assert.match(datePickerMarkup, /aria-label="Next service year"/);
+assert.match(datePickerMarkup, /keyboard_double_arrow_left/);
+assert.match(datePickerMarkup, /keyboard_double_arrow_right/);
 assert.match(datePickerMarkup, /class="date-picker__grid"/);
 assert.match(datePickerMarkup, /role="grid"/);
 assert.match(datePickerMarkup, /class="date-picker__weekday"/);

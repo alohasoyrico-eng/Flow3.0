@@ -1153,31 +1153,37 @@ const components = {
     directory: "date-picker-2026-08-24",
     module: "DatePicker.js",
     exportName: "DatePicker",
-    buildId: "date-picker-react-runtime-1",
+    buildId: "date-picker-selector-panel-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, event) => onAction(props.label + '=' + value)(event)",
     actionSelector: "button[data-runtime-action]",
+    supportPreamble: `const dateLocaleProps = {
+      locale: "es-MX",
+      weekdays: ["L", "M", "X", "J", "V", "S", "D"],
+      monthSelectLabel: "Seleccionar mes",
+      yearSelectLabel: "Seleccionar año"
+    };`,
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Service date", value: "2026-01-15" })),
-            e("div", { className: "audit-card" }, action({ label: "Empty date", placeholder: "Select date" })),
-            e("div", { className: "audit-card" }, action({ label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25" }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Service date", value: "2026-01-15" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Empty date", placeholder: "Select date" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Small", value: "2026-01-15", density: "sm" })),
-            e("div", { className: "audit-card" }, action({ label: "Medium", value: "2026-01-15", density: "md" })),
-            e("div", { className: "audit-card" }, action({ label: "Large", value: "2026-01-15", density: "lg" }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Small", value: "2026-01-15", density: "sm" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Medium", value: "2026-01-15", density: "md" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Large", value: "2026-01-15", density: "lg" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Error", value: "2026-01-15", error: "Choose a valid date" })),
-            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", value: "2026-01-15", disabled: true, "data-runtime-action": "true" }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Error", value: "2026-01-15", error: "Choose a valid date" })),
+            e("div", { className: "audit-card" }, e(Component, { ...dateLocaleProps, label: "Disabled", value: "2026-01-15", disabled: true, "data-runtime-action": "true" }))
           )
         )`,
   },

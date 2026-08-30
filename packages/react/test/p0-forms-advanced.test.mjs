@@ -146,19 +146,60 @@ try {
     const view = render(React.createElement(DatePicker, {
       label: "Service date",
       value: "2026-01-15",
+      locale: "es-MX",
+      weekdays: ["L", "M", "X", "J", "V", "S", "D"],
+      monthSelectLabel: "Seleccionar mes",
+      yearSelectLabel: "Seleccionar año",
       onOpenChange: (open, event) => openChanges.push({ open, eventType: event?.type, key: event?.key }),
     }));
     const trigger = view.getByRole("button", { name: /service date/i });
 
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
-    await waitFor(() => assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-picker-day="2026-01-15"]')));
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2026-01-15"));
     assert.equal(view.container.querySelectorAll('[data-date-picker-day]:not([tabindex="-1"])').length, 1);
+    assert.deepEqual([...view.container.querySelectorAll(".date-picker__weekday")].map((node) => node.textContent), ["L", "M", "X", "J", "V", "S", "D"]);
     fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowRight" });
-    assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-picker-day="2026-01-16"]'));
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2026-01-16"));
+    assert.equal(view.container.querySelector('[data-date-picker-day="2026-01-16"]').getAttribute("tabindex"), "0");
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Home" });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2026-01-01"));
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowLeft" });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2025-12-31"));
+    assert.match(view.container.querySelector("[data-date-picker-month]").textContent, /diciembre de 2025/i);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "End" });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2025-12-31"));
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "PageDown" });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2026-01-31"));
+    assert.match(view.container.querySelector("[data-date-picker-month]").textContent, /enero de 2026/i);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "PageDown", shiftKey: true });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2027-01-31"));
+    assert.match(view.container.querySelector("[data-date-picker-month]").textContent, /enero de 2027/i);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "PageUp", shiftKey: true });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2026-01-31"));
+    assert.match(view.container.querySelector("[data-date-picker-month]").textContent, /enero de 2026/i);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Tab" });
+    await waitFor(() => assert.match(globalThis.document.activeElement?.getAttribute("aria-label") ?? "", /seleccionar mes/i));
     await user.tab();
+    await waitFor(() => assert.match(globalThis.document.activeElement?.getAttribute("aria-label") ?? "", /seleccionar año/i));
+    await user.keyboard("{Enter}");
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.getAttribute("aria-expanded"), "true"));
+    await user.click(view.getByRole("option", { name: "2027" }));
+    assert.match(view.container.querySelector("[data-date-picker-month]").textContent, /enero de 2027/i);
+    view.container.querySelector('[data-date-picker-day="2027-01-31"]').focus();
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Tab", shiftKey: true });
+    await waitFor(() => assert.match(globalThis.document.activeElement?.getAttribute("aria-label") ?? "", /seleccionar año/i));
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Tab", shiftKey: true });
+    await waitFor(() => assert.match(globalThis.document.activeElement?.getAttribute("aria-label") ?? "", /seleccionar mes/i));
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Tab", shiftKey: true });
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.datePickerDay, "2027-01-31"));
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Tab" });
+    await waitFor(() => assert.match(globalThis.document.activeElement?.getAttribute("aria-label") ?? "", /seleccionar mes/i));
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    await user.keyboard("{Escape}");
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
-    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
 
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
@@ -277,10 +318,10 @@ try {
 
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
-    await waitFor(() => assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-range-picker-day="2026-02-10"]')));
+    await waitFor(() => assert.equal(globalThis.document.activeElement?.dataset?.dateRangePickerDay, "2026-02-10"));
     assert.equal(view.container.querySelectorAll('[data-date-range-picker-day]:not([tabindex="-1"])').length, 1);
     fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowDown" });
-    assert.equal(globalThis.document.activeElement, view.container.querySelector('[data-date-range-picker-day="2026-02-17"]'));
+    assert.equal(globalThis.document.activeElement?.dataset?.dateRangePickerDay, "2026-02-17");
     await user.tab();
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });

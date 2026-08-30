@@ -1028,28 +1028,34 @@
         "validation": "partial"
       },
       "evidence": [
-        ".audit-reference/components/forms/DatePicker.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/datepicker.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/DatePicker.jsx",
         "docs/audits/date-picker-1to1-quality-audit.json",
         "docs/audits/date-picker-1to1-light-open-qa.png",
         "docs/audits/date-picker-1to1-dark-open-qa.png",
         "docs/audits/component-motion-role-audit.json",
         "packages/react/src/DatePicker.tsx",
+        "packages/react/src/DatePicker.js",
+        "packages/react/dist/DatePicker.js",
         "packages/react/test/p0-forms-advanced.test.mjs",
+        "packages/react/test/button-render.test.mjs",
         "packages/audit/scripts/audit-date-picker-css-contract.js",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
-        "../local-visual-snapshots/Flow3-component-qa/date-picker-2026-08-24/interactive/react-runtime.html",
+        "../local-visual-snapshots/Flow3-component-qa/date-picker-2026-08-24/interactive/react-runtime.html?fresh=date-picker-selector-panel-runtime-1",
+        "/private/tmp/date-picker-selector-panel-year-runtime-1.png",
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/test/smoke.test.mjs"
       ],
       "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+        "ZIP reference defines DatePicker as the only calendar and says mode=\"range\" supersedes DateRangePicker/InputDate. Flow still exposes DateRangePicker as a separate component and DatePicker only accepts a single ISO string, so DatePicker remains partial until that source-of-truth split is resolved.",
+        "DatePicker single mode has fresh runtime evidence for keyboard/date-grid behavior and Flow inline month/year selectors with proportional listbox layouts, but needs visual user review before final closure."
       ],
-      "lastReviewAt": "2026-08-25",
+      "lastReviewAt": "2026-08-30",
       "currentReviewCommit": "working-tree",
-      "decision": "Closed for current review after regression correction. The prior demo fixture mounted open calendars inside the interactive section, which contaminated layout/focus review; the runtime demo now starts all interactive DatePicker examples closed and proves opening through keyboard/pointer. DatePicker keeps calendar semantics in React, uses Field frame/radius 36/44/52 and 12/16/20, binds Field shell spacing to the shared focus-ring clearance contract so labels and helper/inline validation cannot collide with focused controls, binds calendar day size to governed frame-derived tokens instead of ambiguous space aliases, and validates initial closed state, Enter open, ArrowDown traversal, Escape close with focus return, no panel overflow, measured label/helper focus clearance, and clean console in the package-backed runtime demo.",
+      "decision": "DatePicker single-mode revalidation advanced on 2026-08-30 against the ZIP DatePicker contract. The component now keeps roving calendar focus in React refs, not DOM dataset/querySelector mutation; ArrowLeft/Right move one day, ArrowUp/Down move one week, Home/End move to month edges, PageUp/PageDown move by month with day clamping, and Shift+PageUp/Shift+PageDown jump by year. The calendar header now exposes Flow-styled inline month/year selectors with consumer-provided labels, so users can navigate directly by month or year without relying on small arrow controls or browser-native select styling. Tab cycles inside the calendar panel; Escape and click outside remain the explicit close paths. The runtime demo passes Spanish locale, Monday-first weekday labels, and month/year selector labels from the consumer layer to respect the React copy contract while matching the ZIP visual behavior. Package tests now cover initial closed state, active date focus, one tab stop, weekday labels, month crossing, Home/End, PageDown, Shift+PageDown, Shift+PageUp, visible year navigation through the inline selector, Tab/Shift+Tab panel cycling, click outside, min/max disabled days, and accessibility smoke.",
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "truthResetDecision": "Keep DatePicker in the prioritized revalidation queue until mode=\"range\" absorbs DateRangePicker or the split is explicitly rejected in the source-of-truth contract."
     },
     {
       "id": "date-range-picker",

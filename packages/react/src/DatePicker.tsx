@@ -47,8 +47,12 @@ export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   locale?: string | string[];
   weekdays?: string[];
   calendarLabel?: string;
+  monthSelectLabel?: string;
+  yearSelectLabel?: string;
+  previousYearLabel?: string;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
+  nextYearLabel?: string;
   open?: boolean;
   onValueChange?: (value: string, event: DatePickerValueChangeEvent) => void;
   onOpenChange?: (open: boolean, event?: DatePickerOpenChangeEvent) => void;
@@ -71,6 +75,15 @@ function dateIso(date: Date): string {
   return `${date.getFullYear()}-${month}-${day}`;
 }
 
+function addDays(date: Date, days: number): Date {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate() + days);
+}
+
+function addMonthsClamped(date: Date, months: number): Date {
+  const target = new Date(date.getFullYear(), date.getMonth() + months + 1, 0);
+  return new Date(target.getFullYear(), target.getMonth(), Math.min(date.getDate(), target.getDate()));
+}
+
 function formatDateLabel(value: string | undefined, locale: DatePickerLocale): string {
   const date = parseDate(value);
   if (!date) return "";
@@ -90,6 +103,11 @@ function formatMonthLabel(date: Date, locale: DatePickerLocale): string {
   return label.charAt(0).toUpperCase() + label.slice(1);
 }
 
+function formatMonthName(month: number, locale: DatePickerLocale): string {
+  const label = new Intl.DateTimeFormat(locale, { month: "long" }).format(new Date(2026, month, 1));
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
+
 function dateCells(viewDate: Date): Array<Date | null> {
   const year = viewDate.getFullYear();
   const month = viewDate.getMonth();
@@ -100,10 +118,6 @@ function dateCells(viewDate: Date): Array<Date | null> {
   for (let day = 1; day <= days; day += 1) cells.push(new Date(year, month, day));
   while (cells.length % 7) cells.push(null);
   return cells;
-}
-
-function enabledDateButtons(panel: HTMLElement | null, selector: string): HTMLButtonElement[] {
-  return [...(panel?.querySelectorAll?.<HTMLButtonElement>(`${selector}:not(:disabled)`) ?? [])];
 }
 
 function resolveDatePickerState({
@@ -144,8 +158,12 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   locale,
   weekdays,
   calendarLabel,
+  monthSelectLabel,
+  yearSelectLabel,
+  previousYearLabel,
   previousMonthLabel,
   nextMonthLabel,
+  nextYearLabel,
   open: openProp,
   onValueChange,
   onOpenChange,
@@ -160,6 +178,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const rootRef = useRef<HTMLDivElement | null>(null);
   const controlRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const dayButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const isValueControlled = value !== undefined;
   const [internalValue, setInternalValue] = useState<string>(value ?? "");
   const selectedValue = isValueControlled ? value ?? "" : internalValue;
@@ -167,6 +186,10 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const [internalOpen, setInternalOpen] = useState<boolean>(false);
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
   const [viewDate, setViewDate] = useState(() => clampViewDate(value));
+  const [focusedDateValue, setFocusedDateValue] = useState<string>("");
+  const [openSelector, setOpenSelector] = useState<"month" | "year" | null>(null);
+  const [activeMonth, setActiveMonth] = useState<number>(() => clampViewDate(value).getMonth());
+  const [activeYear, setActiveYear] = useState<number>(() => clampViewDate(value).getFullYear());
   const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: selectedValue });
   const fieldMessage = resolveFieldMessage({
     controlId,
@@ -181,13 +204,30 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     .filter((cell): cell is Date => Boolean(cell))
     .map((cell) => dateIso(cell))
     .filter((isoValue) => !((min && isoValue < min) || (max && isoValue > max)));
-  const activeDateValue = enabledDateValues.includes(selectedValue)
-    ? selectedValue
-    : enabledDateValues.includes(todayValue)
-      ? todayValue
-      : enabledDateValues[0] ?? "";
+  const activeDateValue = focusedDateValue && enabledDateValues.includes(focusedDateValue)
+    ? focusedDateValue
+    : enabledDateValues.includes(selectedValue)
+      ? selectedValue
+      : enabledDateValues.includes(todayValue)
+        ? todayValue
+        : enabledDateValues[0] ?? "";
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
   const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
+  const minDate = parseDate(min);
+  const maxDate = parseDate(max);
+  const monthOptions = Array.from({ length: 12 }, (_, month) => ({
+    label: formatMonthName(month, locale),
+    value: month,
+    disabled: Boolean(
+      (minDate && viewDate.getFullYear() === minDate.getFullYear() && month < minDate.getMonth())
+        || (maxDate && viewDate.getFullYear() === maxDate.getFullYear() && month > maxDate.getMonth()),
+    ),
+  }));
+  const yearStart = minDate ? minDate.getFullYear() : viewDate.getFullYear() - 10;
+  const yearEnd = maxDate ? maxDate.getFullYear() : viewDate.getFullYear() + 10;
+  const yearOptions = Array.from({ length: Math.max(1, yearEnd - yearStart + 1) }, (_, index) => yearStart + index);
+  const currentMonthOption = monthOptions[viewDate.getMonth()] ?? monthOptions[0];
+  const activeYearIndex = Math.max(yearOptions.indexOf(activeYear), 0);
 
   useEffect(() => {
     if (isValueControlled && value) setViewDate(clampViewDate(value));
@@ -202,6 +242,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     document.addEventListener("mousedown", onPointerDown);
     return () => document.removeEventListener("mousedown", onPointerDown);
   }, [open]);
+
   const resolvedDensity = normalizeFlowDensity(density);
 
   if (!label) return null;
@@ -209,26 +250,80 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const focusActiveDate = (): void => {
     if (!activeDateValue) return;
     requestAnimationFrame(() => {
-      panelRef.current?.querySelector<HTMLButtonElement>(`[data-date-picker-day="${activeDateValue}"]`)?.focus();
+      dayButtonRefs.current.get(activeDateValue)?.focus();
     });
   };
 
   const setOpen = (nextOpen: boolean, restoreFocus = false, event?: DatePickerOpenChangeEvent, focusActive = false): void => {
     const normalizedOpen = Boolean(nextOpen);
     if (!isOpenControlled) setInternalOpen(normalizedOpen);
+    if (!normalizedOpen) setOpenSelector(null);
     onOpenChange?.(normalizedOpen, event);
     if (restoreFocus) requestAnimationFrame(() => controlRef.current?.focus());
-    if (normalizedOpen && focusActive) focusActiveDate();
+    if (normalizedOpen && focusActive) {
+      setFocusedDateValue(activeDateValue);
+      focusActiveDate();
+    }
+  };
+
+  const keepTabInsidePanel = (event: KeyboardEvent<HTMLDivElement>): void => {
+    const panel = panelRef.current;
+    if (!panel) return;
+    const tabbables = [
+      ...panel.querySelectorAll<HTMLElement>(
+        ".date-picker__nav:not(:disabled), .date-picker__selector-trigger:not(:disabled), [data-date-picker-day][tabindex='0']:not(:disabled)",
+      ),
+    ].filter((element) => !element.hasAttribute("hidden") && element.tabIndex >= 0);
+    if (!tabbables.length) return;
+    const currentIndex = tabbables.indexOf(event.target as HTMLElement);
+    if (currentIndex < 0) return;
+    event.preventDefault();
+    const direction = event.shiftKey ? -1 : 1;
+    tabbables[(currentIndex + direction + tabbables.length) % tabbables.length]?.focus();
+  };
+
+  const focusDateValue = (nextValue: string): void => {
+    const nextDate = parseDate(nextValue);
+    if (!nextDate) return;
+    setFocusedDateValue(nextValue);
+    setViewDate(nextDate);
+    requestAnimationFrame(() => {
+      dayButtonRefs.current.get(nextValue)?.focus();
+    });
+  };
+
+  const closestEnabledValue = (startDate: Date, direction: number): string => {
+    let candidate = startDate;
+    for (let attempt = 0; attempt < 370; attempt += 1) {
+      const nextValue = dateIso(candidate);
+      if (!((min && nextValue < min) || (max && nextValue > max))) return nextValue;
+      candidate = addDays(candidate, direction);
+    }
+    return activeDateValue;
   };
 
   const moveDateFocus = (event: KeyboardEvent<HTMLElement>, delta: number): void => {
-    const enabled = enabledDateButtons(panelRef.current, "[data-date-picker-day]");
-    if (!enabled.length) return;
     const active = event.target as HTMLButtonElement;
-    const index = enabled.indexOf(active);
-    if (index < 0) return;
+    const currentValue = active.getAttribute("data-date-picker-day") ?? "";
+    const currentDate = parseDate(currentValue);
+    if (!currentDate) return;
     event.preventDefault();
-    enabled[(index + delta + enabled.length) % enabled.length]?.focus();
+    focusDateValue(closestEnabledValue(addDays(currentDate, delta), Math.sign(delta) || 1));
+  };
+
+  const moveDateFocusToMonthEdge = (event: KeyboardEvent<HTMLElement>, edge: "start" | "end"): void => {
+    const current = parseDate((event.target as HTMLButtonElement).getAttribute("data-date-picker-day") ?? "") ?? viewDate;
+    const target = edge === "start"
+      ? new Date(current.getFullYear(), current.getMonth(), 1)
+      : new Date(current.getFullYear(), current.getMonth() + 1, 0);
+    event.preventDefault();
+    focusDateValue(closestEnabledValue(target, edge === "start" ? 1 : -1));
+  };
+
+  const moveDateFocusByMonth = (event: KeyboardEvent<HTMLElement>, delta: number): void => {
+    const current = parseDate((event.target as HTMLButtonElement).getAttribute("data-date-picker-day") ?? "") ?? viewDate;
+    event.preventDefault();
+    focusDateValue(closestEnabledValue(addMonthsClamped(current, delta), delta > 0 ? 1 : -1));
   };
 
   const commitValue = (nextValue: string, event: DatePickerValueChangeEvent): void => {
@@ -240,6 +335,77 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
 
   const moveMonth = (delta: number): void => {
     setViewDate((current) => new Date(current.getFullYear(), current.getMonth() + delta, 1));
+  };
+  const moveToMonth = (month: number): void => {
+    const current = parseDate(focusedDateValue) ?? parseDate(selectedValue) ?? viewDate;
+    const target = addMonthsClamped(new Date(current.getFullYear(), current.getMonth(), current.getDate()), month - current.getMonth());
+    const nextValue = closestEnabledValue(target, 1);
+    setFocusedDateValue(nextValue);
+    setViewDate(new Date(target.getFullYear(), target.getMonth(), 1));
+    setOpenSelector(null);
+  };
+  const moveToYear = (year: number): void => {
+    const current = parseDate(focusedDateValue) ?? parseDate(selectedValue) ?? viewDate;
+    const minMonth = minDate && year === minDate.getFullYear() ? minDate.getMonth() : 0;
+    const maxMonth = maxDate && year === maxDate.getFullYear() ? maxDate.getMonth() : 11;
+    const month = Math.min(Math.max(current.getMonth(), minMonth), maxMonth);
+    const target = new Date(year, month, Math.min(current.getDate(), new Date(year, month + 1, 0).getDate()));
+    const nextValue = closestEnabledValue(target, 1);
+    setFocusedDateValue(nextValue);
+    setViewDate(new Date(year, month, 1));
+    setOpenSelector(null);
+  };
+
+  const openMonthSelector = (): void => {
+    setActiveMonth(viewDate.getMonth());
+    setOpenSelector("month");
+  };
+
+  const openYearSelector = (): void => {
+    setActiveYear(viewDate.getFullYear());
+    setOpenSelector("year");
+  };
+
+  const moveActiveMonth = (direction: 1 | -1): void => {
+    setActiveMonth((current) => {
+      const enabled = monthOptions.filter((option) => !option.disabled).map((option) => option.value);
+      const index = Math.max(enabled.indexOf(current), 0);
+      return enabled[(index + direction + enabled.length) % enabled.length] ?? current;
+    });
+  };
+
+  const moveActiveYear = (direction: 1 | -1): void => {
+    setActiveYear((current) => yearOptions[Math.max(0, Math.min(yearOptions.length - 1, yearOptions.indexOf(current) + direction))] ?? current);
+  };
+
+  const handleMonthSelectorKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpenSelector(null);
+    } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      if (openSelector !== "month") openMonthSelector();
+      else moveActiveMonth(event.key === "ArrowDown" ? 1 : -1);
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      if (openSelector === "month") moveToMonth(activeMonth);
+      else openMonthSelector();
+    }
+  };
+
+  const handleYearSelectorKeyDown = (event: KeyboardEvent<HTMLButtonElement>): void => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpenSelector(null);
+    } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      if (openSelector !== "year") openYearSelector();
+      else moveActiveYear(event.key === "ArrowDown" ? 1 : -1);
+    } else if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      if (openSelector === "year") moveToYear(activeYear);
+      else openYearSelector();
+    }
   };
   const handleTriggerClick = (event: MouseEvent<HTMLButtonElement>): void => {
     rest.onClick?.(event);
@@ -275,6 +441,10 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
       type: "button",
       className: "date-picker__day",
       role: "gridcell",
+      ref: (node: HTMLButtonElement | null): void => {
+        if (node) dayButtonRefs.current.set(isoValue, node);
+        else dayButtonRefs.current.delete(isoValue);
+      },
       disabled: isDisabled,
       "data-date-picker-day": isoValue,
       "data-today": isoValue === todayValue ? "true" : undefined,
@@ -290,8 +460,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
           event.preventDefault();
           if (!isDisabled) commitValue(isoValue, event);
         } else if (event.key === "PageUp" || event.key === "PageDown") {
-          event.preventDefault();
-          moveMonth(event.key === "PageUp" ? -1 : 1);
+          moveDateFocusByMonth(event, (event.key === "PageUp" ? -1 : 1) * (event.shiftKey ? 12 : 1));
         } else if (event.key === "Escape") {
           event.preventDefault();
           setOpen(false, true, event);
@@ -368,7 +537,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
             event.preventDefault();
             setOpen(false, true, event);
           } else if (event.key === "Tab") {
-            setOpen(false, false, event);
+            keepTabInsidePanel(event);
           } else if (event.key === "ArrowRight") {
             moveDateFocus(event, 1);
           } else if (event.key === "ArrowLeft") {
@@ -377,27 +546,132 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
             moveDateFocus(event, 7);
           } else if (event.key === "ArrowUp") {
             moveDateFocus(event, -7);
+          } else if (event.key === "Home") {
+            moveDateFocusToMonthEdge(event, "start");
+          } else if (event.key === "End") {
+            moveDateFocusToMonthEdge(event, "end");
           }
         },
       },
       React.createElement(
         "div",
         { className: "date-picker__header" },
-        previousMonthLabel ? React.createElement("button", {
-          type: "button",
-          className: "date-picker__nav",
-          "aria-label": previousMonthLabel,
-          onClick: () => moveMonth(-1),
-        }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_left")) : null,
-        React.createElement("strong", { id: monthId, "data-date-picker-month": "" }, formatMonthLabel(viewDate, locale)),
-        nextMonthLabel ? React.createElement("button", {
-          type: "button",
-          className: "date-picker__nav",
-          "aria-label": nextMonthLabel,
-          onClick: () => moveMonth(1),
-        }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_right")) : null,
+        React.createElement(
+          "div",
+          { className: "date-picker__nav-group date-picker__nav-group--start" },
+          previousYearLabel ? React.createElement("button", {
+            type: "button",
+            className: "date-picker__nav",
+            "aria-label": previousYearLabel,
+            onClick: () => moveMonth(-12),
+          }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "keyboard_double_arrow_left")) : null,
+          previousMonthLabel ? React.createElement("button", {
+            type: "button",
+            className: "date-picker__nav",
+            "aria-label": previousMonthLabel,
+            onClick: () => moveMonth(-1),
+          }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_left")) : null,
+        ),
+        React.createElement(
+          "div",
+          { className: "date-picker__selector-group" },
+          React.createElement("strong", { className: "date-picker__month-label", id: monthId, "data-date-picker-month": "" }, formatMonthLabel(viewDate, locale)),
+          React.createElement(
+            "span",
+            { className: "date-picker__selector date-picker__selector--month" },
+            React.createElement(
+              "button",
+              {
+                type: "button",
+                className: "date-picker__selector-trigger",
+                "aria-label": monthSelectLabel,
+                "aria-haspopup": "listbox",
+                "aria-expanded": openSelector === "month",
+                "aria-controls": `${controlId}-month-listbox`,
+                "aria-activedescendant": openSelector === "month" ? `${controlId}-month-option-${activeMonth}` : undefined,
+                onClick: () => (openSelector === "month" ? setOpenSelector(null) : openMonthSelector()),
+                onKeyDown: handleMonthSelectorKeyDown,
+              },
+              React.createElement("span", { className: "date-picker__selector-value" }, currentMonthOption?.label ?? ""),
+              React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, openSelector === "month" ? "expand_less" : "expand_more"),
+            ),
+          ),
+          React.createElement(
+            "span",
+            { className: "date-picker__selector date-picker__selector--year" },
+            React.createElement(
+              "button",
+              {
+                type: "button",
+                className: "date-picker__selector-trigger",
+                "aria-label": yearSelectLabel,
+                "aria-haspopup": "listbox",
+                "aria-expanded": openSelector === "year",
+                "aria-controls": `${controlId}-year-listbox`,
+                "aria-activedescendant": openSelector === "year" ? `${controlId}-year-option-${yearOptions[activeYearIndex]}` : undefined,
+                onClick: () => (openSelector === "year" ? setOpenSelector(null) : openYearSelector()),
+                onKeyDown: handleYearSelectorKeyDown,
+              },
+              React.createElement("span", { className: "date-picker__selector-value" }, viewDate.getFullYear()),
+              React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, openSelector === "year" ? "expand_less" : "expand_more"),
+            ),
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "date-picker__nav-group date-picker__nav-group--end" },
+          nextMonthLabel ? React.createElement("button", {
+            type: "button",
+            className: "date-picker__nav",
+            "aria-label": nextMonthLabel,
+            onClick: () => moveMonth(1),
+          }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "chevron_right")) : null,
+          nextYearLabel ? React.createElement("button", {
+            type: "button",
+            className: "date-picker__nav",
+            "aria-label": nextYearLabel,
+            onClick: () => moveMonth(12),
+          }, React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "keyboard_double_arrow_right")) : null,
+        ),
       ),
-      React.createElement(
+      openSelector === "month" ? React.createElement(
+        "div",
+        { className: "date-picker__selector-panel date-picker__selector-panel--month" },
+        React.createElement(
+          "span",
+          { className: "date-picker__selector-listbox", id: `${controlId}-month-listbox`, role: "listbox", "aria-label": monthSelectLabel },
+          monthOptions.map((option) => React.createElement("button", {
+            key: option.value,
+            type: "button",
+            id: `${controlId}-month-option-${option.value}`,
+            className: "date-picker__selector-option",
+            role: "option",
+            disabled: option.disabled,
+            "aria-selected": option.value === viewDate.getMonth(),
+            "data-active": option.value === activeMonth ? "true" : undefined,
+            onClick: () => moveToMonth(option.value),
+          }, option.label)),
+        ),
+      ) : null,
+      openSelector === "year" ? React.createElement(
+        "div",
+        { className: "date-picker__selector-panel date-picker__selector-panel--year" },
+        React.createElement(
+          "span",
+          { className: "date-picker__selector-listbox", id: `${controlId}-year-listbox`, role: "listbox", "aria-label": yearSelectLabel },
+          yearOptions.map((year) => React.createElement("button", {
+            key: year,
+            type: "button",
+            id: `${controlId}-year-option-${year}`,
+            className: "date-picker__selector-option",
+            role: "option",
+            "aria-selected": year === viewDate.getFullYear(),
+            "data-active": year === activeYear ? "true" : undefined,
+            onClick: () => moveToYear(year),
+          }, year)),
+        ),
+      ) : null,
+      openSelector === null ? React.createElement(
         "div",
         {
           className: "date-picker__grid",
@@ -407,7 +681,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
         },
         sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
         dayButtons,
-      ),
+      ) : null,
     ),
     fieldMessage.message
       ? React.createElement("span", { className: "field__helper date-picker__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
