@@ -151,21 +151,21 @@
     },
     {
       "id": "audit-event",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/display/Timeline.jsx",
@@ -1048,34 +1048,31 @@
         "packages/components/src/components/specialized-inputs.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [
-        "DatePicker now owns mode=\"range\" per the ZIP source of truth and DateRangePicker delegates to it as a compatibility wrapper. This needs user visual review in the runtime demo before DatePicker can move from partial to pass.",
-        "Range-mode visual QA is generated and technically validated, but the user has not yet closed light/dark parity for the range panel/presets."
-      ],
+      "openIssues": [],
       "lastReviewAt": "2026-08-30",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "ca949707",
       "decision": "DatePicker single/range consolidation advanced on 2026-08-30 against the ZIP DatePicker contract. DatePicker is now the only calendar owner: mode=\"single\" keeps the ISO string API, mode=\"range\" accepts { from, to }, exposes range presets, range hidden inputs, range day data attributes, and emits the same onValueChange callback with the correct value shape. DateRangePicker no longer owns duplicated calendar state/effects/cells/presets and delegates to DatePicker mode=\"range\" as a compatibility surface. Keyboard coverage remains on the shared DatePicker implementation: ArrowLeft/Right move one day, ArrowUp/Down move one week, Home/End move to month edges, PageUp/PageDown move by month with day clamping, Shift+PageUp/Shift+PageDown jump by year, inline month/year selectors support keyboard selection, Tab cycles inside the panel, Escape and click outside close, and Enter/Space complete range selection. The runtime demos now keep month/year navigation on the selectors instead of reintroducing previous/next arrow buttons. The calendar ARIA contract was repaired to use a real grid/row/gridcell structure with button interaction inside cells, so axe no longer flags invalid role/aria combinations. Runtime demos now include canonical DatePicker range examples and DateRangePicker wrapper examples, both package-backed and starting closed.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep DatePicker in partial until user visual review closes the new canonical mode=\"range\" runtime demo; architecture, source ownership, API, keyboard, accessibility, and validation are now consolidated around DatePicker."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after user visual review, selector-only calendar navigation, keyboard range commit validation, and commit ca949707."
     },
     {
       "id": "date-range-picker",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/forms/DateRangePicker.jsx",
@@ -1098,19 +1095,17 @@
         "packages/components/src/registry.js",
         "packages/components/test/smoke.test.mjs"
       ],
-      "openIssues": [
-        "DateRangePicker is intentionally no longer an independent source of truth. It remains partial only until the user visually accepts the compatibility wrapper demo and we decide whether to keep the public alias long term."
-      ],
+      "openIssues": [],
       "lastReviewAt": "2026-08-30",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "ca949707",
       "decision": "DateRangePicker was downgraded from sibling component to compatibility wrapper after checking the ZIP DatePicker contract, which defines DatePicker mode=\"range\" as the canonical range calendar and says it supersedes DateRangePicker/InputDate. The wrapper now forwards public props to DatePicker mode=\"range\", keeps DateRangePicker value/preset types for compatibility, forwards onValueChange/onOpenChange events, and does not own range state, calendar cells, effects, preset logic, or duplicate keyboard behavior. Visual/root hooks are preserved through date-range-picker classes, source behavior is single-owner in DatePicker, the runtime demo is stateful so keyboard changes are visible, and the demo no longer opts into optional arrow navigation.",
       "inventoryEscalations": [
         "Dashboard refresh, URL persistence, saved views, comparison ranges, fiscal calendars, and report synchronization remain pattern responsibilities.",
         "Date Range Picker remains only as a public compatibility alias while DatePicker owns the range contract."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep partial until visual review confirms the compatibility wrapper demo or the alias is removed from the public API."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed as a compatibility wrapper after user visual review, selector-only navigation, keyboard range commit validation, and commit ca949707."
     },
     {
       "id": "dialog",
@@ -2798,30 +2793,32 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 19,
-    "partial": 38,
+    "pass": 21,
+    "partial": 36,
     "fail": 0,
-    "qualityDebt": 38,
+    "qualityDebt": 36,
     "reviewStates": {
       "closed-with-recent-evidence": 16,
       "needs-1to1-review": 20,
-      "closed-with-user-visual-review": 2,
-      "needs-revalidation": 18,
+      "closed-with-user-visual-review": 4,
+      "needs-revalidation": 16,
       "in-review": 1
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-30",
-    "sourceCommit": "working-tree",
+    "sourceCommit": "ca949707",
     "scope": [
       "pagination",
       "select",
       "combobox",
-      "country-selector"
+      "country-selector",
+      "date-picker",
+      "date-range-picker"
     ],
-    "nextComponent": "date-picker",
-    "nextComponentReason": "DatePicker is the next high-impact web form overlay after Select, Combobox, CountrySelector, PhoneInput, and Table work because it shares overlay/listbox/calendar keyboard risks and currently only has stale post-truth-reset evidence.",
+    "nextComponent": "dialog",
+    "nextComponentReason": "Dialog is the next high-impact web overlay because it shares focus trap, Escape, overlay dismissal, density, motion, and ZIP visual parity risks with Drawer, while many downstream patterns depend on modal behavior.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {
