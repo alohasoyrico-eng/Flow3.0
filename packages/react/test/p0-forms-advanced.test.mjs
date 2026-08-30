@@ -322,9 +322,12 @@ try {
     assert.equal(view.container.querySelectorAll('[data-date-range-picker-day]:not([tabindex="-1"])').length, 1);
     fireEvent.keyDown(globalThis.document.activeElement, { key: "ArrowDown" });
     assert.equal(globalThis.document.activeElement?.dataset?.dateRangePickerDay, "2026-02-17");
-    await user.tab();
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Tab" });
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    assert.equal(globalThis.document.activeElement?.classList.contains("date-picker__selector-trigger"), true);
+    fireEvent.keyDown(globalThis.document.activeElement, { key: "Escape" });
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "false"));
-    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Tab" });
+    assert.deepEqual(openChanges.at(-1), { open: false, eventType: "keydown", key: "Escape" });
 
     await user.click(trigger);
     await waitFor(() => assert.equal(trigger.getAttribute("aria-expanded"), "true"));
@@ -470,6 +473,110 @@ try {
     const before = openChanges.length;
     await user.click(trigger);
     assert.equal(openChanges.length, before);
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const view = render(React.createElement(DatePicker, {
+      label: "Keyboard date",
+      value: "2026-01-15",
+      open: true,
+      monthSelectLabel: "Choose month",
+      yearSelectLabel: "Choose year",
+      previousMonthLabel: "Previous month",
+      nextMonthLabel: "Next month",
+    }));
+    const monthSelector = view.getByRole("button", { name: /choose month/i });
+    const yearSelector = view.getByRole("button", { name: /choose year/i });
+
+    fireEvent.keyDown(monthSelector, { key: "Enter" });
+    assert.equal(monthSelector.getAttribute("aria-expanded"), "true");
+    fireEvent.keyDown(monthSelector, { key: "ArrowDown" });
+    assert.equal(view.container.querySelector(".date-picker__selector-option[data-active='true']")?.textContent, "February");
+    fireEvent.keyDown(monthSelector, { key: "ArrowLeft" });
+    assert.equal(view.container.querySelector(".date-picker__selector-option[data-active='true']")?.textContent, "January");
+    fireEvent.keyDown(monthSelector, { key: "ArrowRight" });
+    assert.equal(view.container.querySelector(".date-picker__selector-option[data-active='true']")?.textContent, "February");
+    fireEvent.keyDown(monthSelector, { key: "Enter" });
+    assert.match(view.container.querySelector("[data-date-picker-month]")?.textContent ?? "", /February 2026/);
+
+    fireEvent.keyDown(yearSelector, { key: "Enter" });
+    assert.equal(yearSelector.getAttribute("aria-expanded"), "true");
+    fireEvent.keyDown(yearSelector, { key: "ArrowDown" });
+    assert.equal(view.container.querySelector(".date-picker__selector-option[data-active='true']")?.textContent, "2027");
+    fireEvent.keyDown(yearSelector, { key: "ArrowLeft" });
+    assert.equal(view.container.querySelector(".date-picker__selector-option[data-active='true']")?.textContent, "2026");
+    fireEvent.keyDown(yearSelector, { key: "ArrowRight" });
+    assert.equal(view.container.querySelector(".date-picker__selector-option[data-active='true']")?.textContent, "2027");
+    fireEvent.keyDown(yearSelector, { key: "Enter" });
+    assert.match(view.container.querySelector("[data-date-picker-month]")?.textContent ?? "", /February 2027/);
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const changes = [];
+    const openChanges = [];
+    const view = render(React.createElement(DateRangePicker, {
+      label: "Keyboard billing window",
+      value: { from: "2026-02-10", to: "" },
+      open: true,
+      onOpenChange: (open) => openChanges.push(open),
+      onValueChange: (value, event) => changes.push({ value, eventType: event.type, key: event.key }),
+    }));
+    const endDay = view.container.querySelector('[data-date-range-picker-day="2026-02-15"]');
+
+    fireEvent.keyDown(endDay, { key: "Enter" });
+    assert.deepEqual(changes.at(-1), {
+      value: { from: "2026-02-10", to: "2026-02-15" },
+      eventType: "keydown",
+      key: "Enter",
+    });
+    assert.equal(openChanges.at(-1), false);
+
+    view.rerender(React.createElement(DateRangePicker, {
+      label: "Keyboard billing window",
+      value: { from: "2026-02-10", to: "" },
+      open: true,
+      onOpenChange: (open) => openChanges.push(open),
+      onValueChange: (value, event) => changes.push({ value, eventType: event.type, key: event.key }),
+    }));
+
+    fireEvent.keyDown(view.container.querySelector('[data-date-range-picker-day="2026-02-15"]'), { key: " " });
+    assert.deepEqual(changes.at(-1), {
+      value: { from: "2026-02-10", to: "2026-02-15" },
+      eventType: "keydown",
+      key: " ",
+    });
+    assert.equal(openChanges.at(-1), false);
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const user = createUser();
+    const changes = [];
+    const openChanges = [];
+    const view = render(React.createElement(DatePicker, {
+      label: "Reporting range",
+      mode: "range",
+      value: { from: "2026-02-10", to: "" },
+      open: true,
+      presets: true,
+      presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }],
+      onOpenChange: (open) => openChanges.push(open),
+      onValueChange: (value, event) => changes.push({ value, eventType: event.type }),
+    }));
+    const trigger = view.getByRole("button", { name: /reporting range/i });
+    const endDay = view.container.querySelector('[data-date-range-picker-day="2026-02-15"]');
+
+    assert.equal(trigger.getAttribute("aria-expanded"), "true");
+    assert.equal(view.container.querySelector("[data-mode]")?.getAttribute("data-mode"), "range");
+    assert.ok(view.container.querySelector(".date-range-picker__preset"));
+    await user.click(endDay);
+    assert.deepEqual(changes.at(-1), { value: { from: "2026-02-10", to: "2026-02-15" }, eventType: "click" });
+    assert.equal(openChanges.at(-1), false);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

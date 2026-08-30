@@ -14,8 +14,8 @@ This checklist is the release gate for interactive Flow components that cannot b
 | select | Confirm combobox trigger, listbox/options, selected state, active option, Escape, selection commit, screen reader value, light/dark, density, and reduced motion. |
 | combobox | Confirm editable value, aria-autocomplete, active descendant, filtering announcement, keyboard selection, clear action, empty result, light/dark, density, and reduced motion. |
 | country-selector | Confirm country name, calling code, flag decorative behavior, search field, active option, keyboard selection, Escape, screen reader value, light/dark, density, and reduced motion. |
-| date-picker | Confirm trigger state, calendar dialog, grid semantics, day names, today/current date, month navigation, Escape/focus return, light/dark, density, and reduced motion. |
-| date-range-picker | Confirm trigger state, range start/end, calendar dialog, grid semantics, preset buttons, month navigation, Escape/focus return, light/dark, density, and reduced motion. |
+| date-picker | Confirm trigger state, calendar dialog, grid semantics, day names, today/current date, selector navigation, Escape/focus return, light/dark, density, and reduced motion. |
+| date-range-picker | Confirm trigger state, range start/end, calendar dialog, grid semantics, preset buttons, selector navigation, keyboard range commit, Escape/focus return, light/dark, density, and reduced motion. |
 
 ## Release Rule
 
@@ -35,5 +35,5 @@ Each release candidate must update this table before publishing. `Not run` is al
 | select | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, Arrow keys, selection, Escape | Not run | Not run | TBD |
 | combobox | Not run | desktop + mobile | sm/md/lg | light/dark | type, Arrow keys, Enter, clear, Escape | Not run | Not run | TBD |
 | country-selector | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, search, Arrow keys, selection, Escape | Not run | Not run | TBD |
-| date-picker | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, grid navigation, month navigation, Escape, focus return | Not run | Not run | TBD |
-| date-range-picker | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, start/end selection, presets, month navigation, Escape | Not run | Not run | TBD |
+| date-picker | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, grid navigation, selector navigation, Escape, focus return | Not run | Not run | TBD |
+| date-range-picker | Not run | desktop + mobile | sm/md/lg | light/dark | trigger, start/end selection, presets, selector navigation, keyboard range commit, Escape | Not run | Not run | TBD |

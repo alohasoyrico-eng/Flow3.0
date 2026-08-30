@@ -50,8 +50,12 @@ function checkDensityContracts() {
     }
 
     const source = read(component.file);
+    const delegatesDensity = component.name === "DateRangePicker"
+      && source.includes("React.createElement(DatePicker")
+      && source.includes("...props")
+      && source.includes("mode: \"range\"");
     if (!source.includes("flowDensityProps(")) {
-      add("errors", component.file, 1, `${component.name} must route density through flowDensityProps() so theme/density cascade stays centralized.`);
+      if (!delegatesDensity) add("errors", component.file, 1, `${component.name} must route density through flowDensityProps() so theme/density cascade stays centralized.`);
     }
     if (source.includes('"data-density"')) {
       add("errors", component.file, 1, `${component.name} must not write data-density directly; use flowDensityProps().`);

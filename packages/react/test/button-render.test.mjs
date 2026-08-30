@@ -2595,6 +2595,26 @@ assert.match(datePickerMarkup, /data-date-picker-day="2026-07-13"/);
 assert.match(datePickerMarkup, /aria-pressed="true"/);
 assert.match(datePickerMarkup, /class="field__helper date-picker__helper"/);
 
+const datePickerRangeMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
+  label: "Reporting range",
+  mode: "range",
+  value: { from: "2026-07-01", to: "2026-07-15" },
+  locale: "es-MX",
+  weekdays: ["L", "M", "X", "J", "V", "S", "D"],
+  presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }],
+  open: true,
+}));
+assert.match(datePickerRangeMarkup, /class="field date-picker date-range-picker"/);
+assert.match(datePickerRangeMarkup, /data-mode="range"/);
+assert.match(datePickerRangeMarkup, /data-from="2026-07-01"/);
+assert.match(datePickerRangeMarkup, /data-to="2026-07-15"/);
+assert.match(datePickerRangeMarkup, /class="date-range-picker__presets"/);
+assert.match(datePickerRangeMarkup, /data-key="last-7"/);
+assert.match(datePickerRangeMarkup, /data-date-range-picker-day="2026-07-01"/);
+assert.match(datePickerRangeMarkup, /data-range-edge="start"/);
+assert.match(datePickerRangeMarkup, /data-range-edge="end"/);
+assert.match(datePickerRangeMarkup, /data-in-range="true"/);
+
 const inheritedDatePickerMarkup = renderToStaticMarkup(React.createElement(DatePicker, {
   label: "Service date",
   value: "2026-07-13",

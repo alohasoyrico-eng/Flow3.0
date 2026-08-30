@@ -1153,9 +1153,10 @@ const components = {
     directory: "date-picker-2026-08-24",
     module: "DatePicker.js",
     exportName: "DatePicker",
-    buildId: "date-picker-selector-panel-runtime-1",
+    buildId: "date-picker-selector-keyboard-runtime-1",
     eventPropName: "onValueChange",
-    actionHandler: "(value, event) => onAction(props.label + '=' + value)(event)",
+    statefulValueProp: "value",
+    actionHandler: "(value, event) => onAction(props.label + '=' + (typeof value === 'object' ? [value.from, value.to].filter(Boolean).join('/') : value))(event)",
     actionSelector: "button[data-runtime-action]",
     supportPreamble: `const dateLocaleProps = {
       locale: "es-MX",
@@ -1168,7 +1169,9 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Service date", value: "2026-01-15" })),
             e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Empty date", placeholder: "Select date" })),
-            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25" }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Constrained date", value: "2026-01-15", min: "2026-01-10", max: "2026-01-25" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Reporting range", mode: "range", value: { from: "2026-02-10", to: "2026-02-15" }, presets: true, presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }, { key: "last-30", label: "Last 30 days", days: 30 }] })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Partial range", mode: "range", value: { from: "2026-02-10", to: "" }, placeholder: "Select date range" }))
           )
         ),
         e("section", { className: "audit-section" },
@@ -1192,32 +1195,39 @@ const components = {
     directory: "date-range-picker-2026-08-24",
     module: "DateRangePicker.js",
     exportName: "DateRangePicker",
-    buildId: "date-range-picker-placeholder-contract-runtime-1",
+    buildId: "date-range-picker-selector-keyboard-runtime-1",
     eventPropName: "onValueChange",
+    statefulValueProp: "value",
     actionHandler: "(value, event) => onAction(props.label + '=' + [value.from, value.to].filter(Boolean).join('/'))(event)",
     actionSelector: "button[data-runtime-action]",
+    supportPreamble: `const dateLocaleProps = {
+      locale: "es-MX",
+      weekdays: ["L", "M", "X", "J", "V", "S", "D"],
+      monthSelectLabel: "Seleccionar mes",
+      yearSelectLabel: "Seleccionar año"
+    };`,
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Interactivo"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Billing window", value: { from: "2026-02-10", to: "2026-02-15" } })),
-            e("div", { className: "audit-card" }, action({ label: "Empty range", placeholder: "Select date range" })),
-            e("div", { className: "audit-card" }, action({ label: "Partial range", value: { from: "2026-02-10", to: "" }, placeholder: "Select date range" })),
-            e("div", { className: "audit-card" }, action({ label: "With presets", value: { from: "2026-02-10", to: "2026-02-15" }, presets: true, presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }] }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Billing window", value: { from: "2026-02-10", to: "2026-02-15" } })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Empty range", placeholder: "Select date range" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Partial range", value: { from: "2026-02-10", to: "" }, placeholder: "Select date range" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "With presets", value: { from: "2026-02-10", to: "2026-02-15" }, presets: true, presetItems: [{ key: "last-7", label: "Last 7 days", days: 7 }] }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Small", value: { from: "2026-02-10", to: "2026-02-15" }, density: "sm" })),
-            e("div", { className: "audit-card" }, action({ label: "Medium", value: { from: "2026-02-10", to: "2026-02-15" }, density: "md" })),
-            e("div", { className: "audit-card" }, action({ label: "Large", value: { from: "2026-02-10", to: "2026-02-15" }, density: "lg" }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Small", value: { from: "2026-02-10", to: "2026-02-15" }, density: "sm" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Medium", value: { from: "2026-02-10", to: "2026-02-15" }, density: "md" })),
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Large", value: { from: "2026-02-10", to: "2026-02-15" }, density: "lg" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Error", value: { from: "2026-02-10", to: "" }, error: "Choose an end date" })),
-            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", value: { from: "2026-02-10", to: "2026-02-15" }, disabled: true, "data-runtime-action": "true" }))
+            e("div", { className: "audit-card" }, action({ ...dateLocaleProps, label: "Error", value: { from: "2026-02-10", to: "" }, error: "Choose an end date" })),
+            e("div", { className: "audit-card" }, e(Component, { ...dateLocaleProps, label: "Disabled", value: { from: "2026-02-10", to: "2026-02-15" }, disabled: true, "data-runtime-action": "true" }))
           )
         )`,
   },

@@ -1082,7 +1082,7 @@ function allowedClassRootsForReactComponent(componentName) {
     CodeInput: ["code-input", "field"],
     Combobox: ["combobox", "field", "select-control"],
     CountrySelector: ["country-flag", "country-selector", "select-control"],
-    DatePicker: ["date-picker", "field"],
+    DatePicker: ["date-picker", "date-range-picker", "field"],
     DateRangePicker: ["date-picker", "date-range-picker", "field"],
     InlineValidation: ["inline-validation"],
     Input: ["field"],

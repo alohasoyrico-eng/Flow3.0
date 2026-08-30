@@ -18,17 +18,9 @@ const allowedReactEffects = {
   },
   DatePicker: {
     count: 2,
-    reasons: ["calendar viewport follows controlled selected date", "outside click closes an open panel"],
+    reasons: ["calendar viewport follows controlled selected date or range", "outside click closes an open panel"],
     snippets: [
-      "if (isValueControlled && value) setViewDate(clampViewDate(value));",
-      "document.addEventListener(\"mousedown\", onPointerDown);",
-    ],
-  },
-  DateRangePicker: {
-    count: 2,
-    reasons: ["calendar viewport follows controlled selected range", "outside click closes an open panel"],
-    snippets: [
-      "if (isValueControlled && (nextFrom || nextTo)) setViewDate(clampViewDate(nextFrom || nextTo));",
+      "const nextViewValue = isRange ? selectedRange.from || selectedRange.to : selectedValue;",
       "document.addEventListener(\"mousedown\", onPointerDown);",
     ],
   },

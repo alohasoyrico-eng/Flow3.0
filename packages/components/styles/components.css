@@ -12655,6 +12655,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-picker-panel-offset: var(--component-space-sm);
   --comp-date-picker-panel-border: color-mix(in srgb, var(--comp-date-picker-border) 80%, transparent);
   --comp-date-picker-nav-hover-bg: var(--component-color-surface-raised);
+  --comp-date-picker-nav-size: var(--component-control-frame-size-sm);
   --comp-date-picker-radius: var(--component-control-frame-radius-field);
   --comp-date-picker-panel-radius: var(--component-radius-surface);
   --comp-date-picker-value-weight: var(--component-font-weight-medium);
@@ -12867,6 +12868,7 @@ body[data-contrast="quiet"] .route-summary__icon {
   gap: var(--component-space-1);
   inline-size: 100%;
   justify-content: center;
+  block-size: var(--component-inline-size-sm);
   min-block-size: var(--component-inline-size-sm);
   padding-block: 0;
   padding-inline: var(--component-space-2);
@@ -12923,7 +12925,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .date-picker__selector-option {
   background: var(--component-surface-transparent);
-  border: 0;
+  border: var(--component-border-width) solid transparent;
   border-radius: var(--component-radius-md);
   color: var(--comp-date-picker-fg);
   cursor: pointer;
@@ -12939,7 +12941,9 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .date-picker__selector-option:hover,
 .date-picker__selector-option[data-active="true"] {
-  background: var(--comp-date-picker-day-hover-bg);
+  background: color-mix(in srgb, var(--comp-date-picker-action) 14%, var(--comp-date-picker-surface));
+  border-color: color-mix(in srgb, var(--comp-date-picker-action) 28%, transparent);
+  color: var(--comp-date-picker-fg);
 }
 
 .date-picker__selector-option[aria-selected="true"] {
@@ -12970,9 +12974,12 @@ body[data-contrast="quiet"] .route-summary__icon {
   color: var(--comp-date-picker-muted-fg);
   cursor: pointer;
   display: inline-flex;
-  inline-size: var(--component-inline-size-md);
+  aspect-ratio: 1;
+  block-size: var(--comp-date-picker-nav-size);
+  inline-size: var(--comp-date-picker-nav-size);
   justify-content: center;
-  min-block-size: var(--component-inline-size-md);
+  min-block-size: var(--comp-date-picker-nav-size);
+  min-inline-size: var(--comp-date-picker-nav-size);
   padding: 0;
   transition:
     background-color var(--component-duration-instant) var(--component-ease-state),
@@ -12981,7 +12988,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .date-picker__nav:hover {
-  background: var(--comp-date-picker-nav-hover-bg);
+  background: color-mix(in srgb, var(--comp-date-picker-action) 14%, var(--comp-date-picker-surface));
   color: var(--comp-date-picker-action);
 }
 
@@ -12998,6 +13005,16 @@ body[data-contrast="quiet"] .route-summary__icon {
   display: grid;
   gap: var(--component-focus-ring-offset);
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.date-picker__row {
+  display: contents;
+}
+
+.date-picker__cell {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .date-picker__weekday {
@@ -13075,9 +13092,9 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-date-range-picker-preset-font-weight: var(--component-font-weight-extrabold);
   --comp-date-range-picker-preset-min-block-size: var(--component-date-range-picker-preset-min-block-size);
   --comp-date-range-picker-preset-padding-inline: var(--component-space-sm);
-  --comp-date-range-picker-range-bg: color-mix(in srgb, var(--component-color-action) 14%, var(--component-color-surface));
+  --comp-date-range-picker-range-bg: color-mix(in srgb, var(--component-color-action) 18%, var(--component-color-surface));
   --comp-date-range-picker-range-fg: var(--component-color-text);
-  --comp-date-range-picker-range-radius: calc(var(--component-radius-pill) / 2);
+  --comp-date-range-picker-range-radius: var(--component-radius-pill);
   --comp-date-range-picker-edge-bg: var(--component-color-action);
   --comp-date-range-picker-edge-fg: var(--component-color-action-text);
   --comp-date-range-picker-edge-font-weight: var(--component-font-weight-extrabold);
@@ -13145,22 +13162,14 @@ body[data-contrast="quiet"] .route-summary__icon {
   background: var(--comp-date-range-picker-range-bg);
   border-radius: var(--comp-date-range-picker-range-radius);
   color: var(--comp-date-range-picker-range-fg);
+  font-weight: var(--component-font-weight-bold);
 }
 
 .date-range-picker__day[data-range-edge] {
   background: var(--comp-date-range-picker-edge-bg);
+  border-radius: var(--component-radius-pill);
   color: var(--comp-date-range-picker-edge-fg);
   font-weight: var(--comp-date-range-picker-edge-font-weight);
-}
-
-.date-range-picker__day[data-range-edge="start"] {
-  border-start-end-radius: var(--comp-date-range-picker-range-radius);
-  border-end-end-radius: var(--comp-date-range-picker-range-radius);
-}
-
-.date-range-picker__day[data-range-edge="end"] {
-  border-start-start-radius: var(--comp-date-range-picker-range-radius);
-  border-end-start-radius: var(--comp-date-range-picker-range-radius);
 }
 
 .segmented-control {

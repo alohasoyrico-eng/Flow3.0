@@ -26,6 +26,10 @@ import { resolveFieldMessage } from "./internal/field-message.js";
 export type DatePickerDensity = "sm" | "md" | "lg";
 export type DatePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
 export type DatePickerLocale = string | string[] | undefined;
+export type DatePickerMode = "single" | "range";
+export type DatePickerRangeValue = { from?: string; to?: string };
+export type DatePickerValue = string | DatePickerRangeValue;
+export type DatePickerPreset = { key: string; label: string; days: number };
 export type DatePickerValueChangeEvent =
   | MouseEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLButtonElement>
@@ -34,7 +38,10 @@ export type DatePickerOpenChangeEvent = DatePickerValueChangeEvent | KeyboardEve
 
 export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
-  value?: string;
+  mode?: DatePickerMode;
+  value?: DatePickerValue;
+  from?: string;
+  to?: string;
   placeholder?: string;
   helper?: string;
   error?: string;
@@ -53,8 +60,10 @@ export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   nextYearLabel?: string;
+  presets?: boolean;
+  presetItems?: DatePickerPreset[];
   open?: boolean;
-  onValueChange?: (value: string, event: DatePickerValueChangeEvent) => void;
+  onValueChange?: (value: DatePickerValue, event: DatePickerValueChangeEvent) => void;
   onOpenChange?: (open: boolean, event?: DatePickerOpenChangeEvent) => void;
 }
 
@@ -90,6 +99,11 @@ function formatDateLabel(value: string | undefined, locale: DatePickerLocale): s
   return new Intl.DateTimeFormat(locale, { day: "2-digit", month: "short", year: "numeric" })
     .format(date)
     .replace(".", "");
+}
+
+function formatRangeLabel({ from, to, placeholder, locale }: { from: string; to: string; placeholder: string; locale: DatePickerLocale }): string {
+  if (!from) return placeholder;
+  return `${formatDateLabel(from, locale)} - ${to ? formatDateLabel(to, locale) : "..."}`;
 }
 
 function formatDateLongLabel(value: string | undefined, locale: DatePickerLocale): string {
@@ -145,7 +159,10 @@ function clampViewDate(value: string | undefined): Date {
 
 export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(function DatePicker({
   label,
+  mode = "single",
   value,
+  from,
+  to,
   placeholder = "",
   helper = "",
   error = "",
@@ -164,6 +181,8 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   previousMonthLabel,
   nextMonthLabel,
   nextYearLabel,
+  presets,
+  presetItems,
   open: openProp,
   onValueChange,
   onOpenChange,
@@ -179,18 +198,30 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const controlRef = useRef<HTMLButtonElement | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const dayButtonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
-  const isValueControlled = value !== undefined;
-  const [internalValue, setInternalValue] = useState<string>(value ?? "");
-  const selectedValue = isValueControlled ? value ?? "" : internalValue;
+  const isRange = mode === "range";
+  const propRange = typeof value === "object" && value !== null ? value : undefined;
+  const propSingleValue = typeof value === "string" ? value : "";
+  const isValueControlled = value !== undefined || from !== undefined || to !== undefined;
+  const initialSingleValue = propSingleValue;
+  const initialRange = { from: from ?? propRange?.from ?? "", to: to ?? propRange?.to ?? "" };
+  const [internalValue, setInternalValue] = useState<string>(initialSingleValue);
+  const [internalRange, setInternalRange] = useState<{ from: string; to: string }>(initialRange);
+  const selectedValue = isRange ? "" : isValueControlled ? propSingleValue : internalValue;
+  const selectedRange = isRange
+    ? isValueControlled
+      ? { from: from ?? propRange?.from ?? "", to: to ?? propRange?.to ?? "" }
+      : internalRange
+    : { from: "", to: "" };
   const isOpenControlled = openProp !== undefined;
   const [internalOpen, setInternalOpen] = useState<boolean>(false);
   const open = isOpenControlled ? Boolean(openProp) : internalOpen;
-  const [viewDate, setViewDate] = useState(() => clampViewDate(value));
+  const initialViewValue = isRange ? initialRange.from || initialRange.to : initialSingleValue;
+  const [viewDate, setViewDate] = useState(() => clampViewDate(initialViewValue));
   const [focusedDateValue, setFocusedDateValue] = useState<string>("");
   const [openSelector, setOpenSelector] = useState<"month" | "year" | null>(null);
-  const [activeMonth, setActiveMonth] = useState<number>(() => clampViewDate(value).getMonth());
-  const [activeYear, setActiveYear] = useState<number>(() => clampViewDate(value).getFullYear());
-  const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: selectedValue });
+  const [activeMonth, setActiveMonth] = useState<number>(() => clampViewDate(initialViewValue).getMonth());
+  const [activeYear, setActiveYear] = useState<number>(() => clampViewDate(initialViewValue).getFullYear());
+  const resolvedState = resolveDatePickerState({ disabled, error, invalid, state, value: isRange ? selectedRange.from || selectedRange.to : selectedValue });
   const fieldMessage = resolveFieldMessage({
     controlId,
     describedBy: rest["aria-describedby"],
@@ -204,15 +235,23 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     .filter((cell): cell is Date => Boolean(cell))
     .map((cell) => dateIso(cell))
     .filter((isoValue) => !((min && isoValue < min) || (max && isoValue > max)));
+  const preferredDateValue = isRange ? selectedRange.to || selectedRange.from : selectedValue;
   const activeDateValue = focusedDateValue && enabledDateValues.includes(focusedDateValue)
     ? focusedDateValue
-    : enabledDateValues.includes(selectedValue)
-      ? selectedValue
+    : enabledDateValues.includes(preferredDateValue)
+      ? preferredDateValue
       : enabledDateValues.includes(todayValue)
         ? todayValue
         : enabledDateValues[0] ?? "";
   const sourceWeekdays = Array.isArray(weekdays) ? weekdays : [];
-  const visibleValue = formatDateLabel(selectedValue, locale) || placeholder;
+  const visibleValue = isRange
+    ? formatRangeLabel({ ...selectedRange, placeholder: placeholder || "Select date range", locale })
+    : formatDateLabel(selectedValue, locale) || placeholder;
+  const presetOptions = Array.isArray(presetItems)
+    ? presetItems.filter((preset) => preset?.key !== undefined && preset.key !== null && preset.key !== "" && preset?.label && Number.isFinite(Number(preset.days)))
+    : [];
+  const showPresets = isRange && (presets ?? presetOptions.length > 0);
+  const hasRangeClassName = className.split(/\s+/).includes("date-range-picker");
   const minDate = parseDate(min);
   const maxDate = parseDate(max);
   const monthOptions = Array.from({ length: 12 }, (_, month) => ({
@@ -230,8 +269,9 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
   const activeYearIndex = Math.max(yearOptions.indexOf(activeYear), 0);
 
   useEffect(() => {
-    if (isValueControlled && value) setViewDate(clampViewDate(value));
-  }, [isValueControlled, value]);
+    const nextViewValue = isRange ? selectedRange.from || selectedRange.to : selectedValue;
+    if (isValueControlled && nextViewValue) setViewDate(clampViewDate(nextViewValue));
+  }, [isRange, isValueControlled, selectedRange.from, selectedRange.to, selectedValue]);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -287,6 +327,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     if (!nextDate) return;
     setFocusedDateValue(nextValue);
     setViewDate(nextDate);
+    dayButtonRefs.current.get(nextValue)?.focus();
     requestAnimationFrame(() => {
       dayButtonRefs.current.get(nextValue)?.focus();
     });
@@ -326,18 +367,52 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     focusDateValue(closestEnabledValue(addMonthsClamped(current, delta), delta > 0 ? 1 : -1));
   };
 
+  const emitValue = (nextValue: DatePickerValue, event: DatePickerValueChangeEvent): void => {
+    onValueChange?.(nextValue, event);
+  };
+
   const commitValue = (nextValue: string, event: DatePickerValueChangeEvent): void => {
     if (!isValueControlled) setInternalValue(nextValue);
     setViewDate(clampViewDate(nextValue));
-    onValueChange?.(nextValue, event);
+    emitValue(nextValue, event);
     setOpen(false, true, event);
+  };
+
+  const commitRange = (nextRange: { from: string; to: string }, close: boolean, event: DatePickerValueChangeEvent): void => {
+    if (!isValueControlled) setInternalRange(nextRange);
+    if (nextRange.from || nextRange.to) setViewDate(clampViewDate(nextRange.from || nextRange.to));
+    emitValue(nextRange, event);
+    if (close) setOpen(false, true, event);
+  };
+
+  const selectDate = (nextValue: string, event: DatePickerValueChangeEvent): void => {
+    if (!isRange) {
+      commitValue(nextValue, event);
+      return;
+    }
+    if (!selectedRange.from || selectedRange.to) {
+      commitRange({ from: nextValue, to: "" }, false, event);
+      return;
+    }
+    if (nextValue < selectedRange.from) {
+      commitRange({ from: nextValue, to: selectedRange.from }, true, event);
+      return;
+    }
+    commitRange({ from: selectedRange.from, to: nextValue }, true, event);
+  };
+
+  const applyPreset = (preset: DatePickerPreset, event: MouseEvent<HTMLButtonElement>): void => {
+    const end = new Date();
+    const start = new Date(end);
+    start.setDate(end.getDate() - Number(preset.days ?? 1) + 1);
+    commitRange({ from: dateIso(start), to: dateIso(end) }, true, event);
   };
 
   const moveMonth = (delta: number): void => {
     setViewDate((current) => new Date(current.getFullYear(), current.getMonth() + delta, 1));
   };
   const moveToMonth = (month: number): void => {
-    const current = parseDate(focusedDateValue) ?? parseDate(selectedValue) ?? viewDate;
+    const current = parseDate(focusedDateValue) ?? parseDate(preferredDateValue) ?? viewDate;
     const target = addMonthsClamped(new Date(current.getFullYear(), current.getMonth(), current.getDate()), month - current.getMonth());
     const nextValue = closestEnabledValue(target, 1);
     setFocusedDateValue(nextValue);
@@ -345,7 +420,7 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     setOpenSelector(null);
   };
   const moveToYear = (year: number): void => {
-    const current = parseDate(focusedDateValue) ?? parseDate(selectedValue) ?? viewDate;
+    const current = parseDate(focusedDateValue) ?? parseDate(preferredDateValue) ?? viewDate;
     const minMonth = minDate && year === minDate.getFullYear() ? minDate.getMonth() : 0;
     const maxMonth = maxDate && year === maxDate.getFullYear() ? maxDate.getMonth() : 11;
     const month = Math.min(Math.max(current.getMonth(), minMonth), maxMonth);
@@ -382,10 +457,10 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     if (event.key === "Escape") {
       event.preventDefault();
       setOpenSelector(null);
-    } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    } else if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "ArrowUp" || event.key === "ArrowLeft") {
       event.preventDefault();
       if (openSelector !== "month") openMonthSelector();
-      else moveActiveMonth(event.key === "ArrowDown" ? 1 : -1);
+      else moveActiveMonth(event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1);
     } else if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       if (openSelector === "month") moveToMonth(activeMonth);
@@ -397,10 +472,10 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     if (event.key === "Escape") {
       event.preventDefault();
       setOpenSelector(null);
-    } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    } else if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "ArrowUp" || event.key === "ArrowLeft") {
       event.preventDefault();
       if (openSelector !== "year") openYearSelector();
-      else moveActiveYear(event.key === "ArrowDown" ? 1 : -1);
+      else moveActiveYear(event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1);
     } else if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       if (openSelector === "year") moveToYear(activeYear);
@@ -425,61 +500,79 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     }
   };
 
-  const dayButtons = cells.map((cell, index) => {
+  const dayCells = cells.map((cell, index) => {
     if (!cell) {
       return React.createElement("span", {
         key: `empty-${index}`,
-        className: "date-picker__empty",
+        className: "date-picker__cell date-picker__empty",
         role: "gridcell",
         "aria-hidden": "true",
       });
     }
     const isoValue = dateIso(cell);
     const isDisabled = Boolean((min && isoValue < min) || (max && isoValue > max));
-    return React.createElement("button", {
-      key: isoValue,
-      type: "button",
-      className: "date-picker__day",
-      role: "gridcell",
-      ref: (node: HTMLButtonElement | null): void => {
-        if (node) dayButtonRefs.current.set(isoValue, node);
-        else dayButtonRefs.current.delete(isoValue);
+    const isRangeStart = isRange && isoValue === selectedRange.from;
+    const isRangeEnd = isRange && isoValue === selectedRange.to;
+    const isInRange = Boolean(isRange && selectedRange.from && selectedRange.to && isoValue > selectedRange.from && isoValue < selectedRange.to);
+    const isSelected = isRange ? isRangeStart || isRangeEnd : isoValue === selectedValue;
+    return React.createElement(
+      "span",
+      { key: isoValue, className: "date-picker__cell", role: "gridcell" },
+      React.createElement("button", {
+        type: "button",
+        className: ["date-picker__day", isRange ? "date-range-picker__day" : ""].filter(Boolean).join(" "),
+        ref: (node: HTMLButtonElement | null): void => {
+          if (node) dayButtonRefs.current.set(isoValue, node);
+          else dayButtonRefs.current.delete(isoValue);
+        },
+        disabled: isDisabled,
+        "data-date-picker-day": isoValue,
+        "data-date-range-picker-day": isRange ? isoValue : undefined,
+        "data-today": isoValue === todayValue ? "true" : undefined,
+        "data-range-edge": isRangeStart ? "start" : isRangeEnd ? "end" : undefined,
+        "data-in-range": isInRange ? "true" : undefined,
+        "aria-current": isoValue === todayValue ? "date" : undefined,
+        "aria-label": formatDateLongLabel(isoValue, locale),
+        "aria-pressed": String(isSelected),
+        tabIndex: isoValue === activeDateValue ? 0 : -1,
+        onClick: (event: MouseEvent<HTMLButtonElement>) => {
+          if (!isDisabled) selectDate(isoValue, event);
+        },
+        onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            if (!isDisabled) selectDate(isoValue, event);
+          } else if (event.key === "PageUp" || event.key === "PageDown") {
+            moveDateFocusByMonth(event, (event.key === "PageUp" ? -1 : 1) * (event.shiftKey ? 12 : 1));
+          } else if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false, true, event);
+          }
+        },
       },
-      disabled: isDisabled,
-      "data-date-picker-day": isoValue,
-      "data-today": isoValue === todayValue ? "true" : undefined,
-      "aria-current": isoValue === todayValue ? "date" : undefined,
-      "aria-label": formatDateLongLabel(isoValue, locale),
-      "aria-pressed": String(isoValue === selectedValue),
-      tabIndex: isoValue === activeDateValue ? 0 : -1,
-      onClick: (event: MouseEvent<HTMLButtonElement>) => {
-        if (!isDisabled) commitValue(isoValue, event);
-      },
-      onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          if (!isDisabled) commitValue(isoValue, event);
-        } else if (event.key === "PageUp" || event.key === "PageDown") {
-          moveDateFocusByMonth(event, (event.key === "PageUp" ? -1 : 1) * (event.shiftKey ? 12 : 1));
-        } else if (event.key === "Escape") {
-          event.preventDefault();
-          setOpen(false, true, event);
-        }
-      },
-    }, String(cell.getDate()));
+      String(cell.getDate())),
+    );
   });
+  const dayRows = Array.from({ length: Math.ceil(dayCells.length / 7) }, (_, rowIndex) => React.createElement(
+    "div",
+    { key: `row-${rowIndex}`, className: "date-picker__row", role: "row" },
+    dayCells.slice(rowIndex * 7, rowIndex * 7 + 7),
+  ));
 
   return React.createElement(
     "div",
     {
-      className: ["field date-picker", className].filter(Boolean).join(" "),
+      className: ["field date-picker", isRange && !hasRangeClassName ? "date-range-picker" : "", className].filter(Boolean).join(" "),
       ...flowDataProps(rest),
       ref: rootRef,
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-open": String(open),
+      "data-mode": mode,
+      "data-from": isRange ? selectedRange.from : undefined,
+      "data-to": isRange ? selectedRange.to : undefined,
     },
-    React.createElement("span", { className: "field__label date-picker__label", id: `${controlId}-label` }, label),
+    React.createElement("span", { className: ["field__label date-picker__label", isRange ? "date-range-picker__label" : ""].filter(Boolean).join(" "), id: `${controlId}-label` }, label),
     React.createElement(
       "button",
       {
@@ -490,10 +583,11 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
           else if (ref) ref.current = node;
         },
         type: "button",
-        className: "field__control date-picker__control",
+        className: ["field__control date-picker__control", isRange ? "date-range-picker__control" : ""].filter(Boolean).join(" "),
         id: controlId,
         disabled,
         "data-date-picker-trigger": "",
+        "data-date-range-picker-trigger": isRange ? "" : undefined,
         "aria-haspopup": "dialog",
         "aria-expanded": String(open),
         "aria-controls": panelId,
@@ -503,10 +597,39 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
       },
-      React.createElement("span", { className: "field__icon date-picker__icon", "aria-hidden": "true" }, "calendar_month"),
-      visibleValue ? React.createElement("span", { className: "date-picker__value", "data-date-picker-value": "" }, visibleValue) : null,
+      React.createElement("span", { className: ["field__icon date-picker__icon", isRange ? "date-range-picker__icon" : ""].filter(Boolean).join(" "), "aria-hidden": "true" }, isRange ? "date_range" : "calendar_month"),
+      visibleValue ? React.createElement("span", {
+        className: ["date-picker__value", isRange ? "date-range-picker__value" : ""].filter(Boolean).join(" "),
+        "data-date-picker-value": "",
+        "data-date-range-picker-value": isRange ? "" : undefined,
+      }, visibleValue) : null,
     ),
-    React.createElement("input", {
+    isRange ? React.createElement(React.Fragment, null,
+      React.createElement("input", {
+        type: "date",
+        className: "date-picker__input date-range-picker__input",
+        value: selectedRange.from,
+        disabled,
+        min,
+        max,
+        tabIndex: -1,
+        "data-date-range-picker-from": "",
+        "aria-hidden": "true",
+        onChange: (event: ChangeEvent<HTMLInputElement>) => commitRange({ from: event.target.value, to: selectedRange.to }, false, event),
+      }),
+      React.createElement("input", {
+        type: "date",
+        className: "date-picker__input date-range-picker__input",
+        value: selectedRange.to,
+        disabled,
+        min,
+        max,
+        tabIndex: -1,
+        "data-date-range-picker-to": "",
+        "aria-hidden": "true",
+        onChange: (event: ChangeEvent<HTMLInputElement>) => commitRange({ from: selectedRange.from, to: event.target.value }, false, event),
+      }),
+    ) : React.createElement("input", {
       type: "date",
       className: "date-picker__input",
       value: selectedValue,
@@ -523,11 +646,12 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
     React.createElement(
       "div",
       {
-        className: "date-picker__panel",
+        className: ["date-picker__panel", isRange ? "date-range-picker__panel" : ""].filter(Boolean).join(" "),
         ref: panelRef,
         id: panelId,
         hidden: !open,
         "data-date-picker-panel": "",
+        "data-date-range-picker-panel": isRange ? "" : undefined,
         role: "dialog",
         "aria-modal": "false",
         "aria-label": calendarLabel || undefined,
@@ -553,9 +677,18 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
           }
         },
       },
+      showPresets
+        ? React.createElement("div", { className: "date-range-picker__presets" }, presetOptions.map((preset) => React.createElement("button", {
+          key: preset.key,
+          type: "button",
+          className: "date-range-picker__preset",
+          "data-key": preset.key,
+          onClick: (event: MouseEvent<HTMLButtonElement>) => applyPreset(preset, event),
+        }, preset.label)))
+        : null,
       React.createElement(
         "div",
-        { className: "date-picker__header" },
+        { className: ["date-picker__header", isRange ? "date-range-picker__header" : ""].filter(Boolean).join(" ") },
         React.createElement(
           "div",
           { className: "date-picker__nav-group date-picker__nav-group--start" },
@@ -575,7 +708,12 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
         React.createElement(
           "div",
           { className: "date-picker__selector-group" },
-          React.createElement("strong", { className: "date-picker__month-label", id: monthId, "data-date-picker-month": "" }, formatMonthLabel(viewDate, locale)),
+          React.createElement("strong", {
+            className: "date-picker__month-label",
+            id: monthId,
+            "data-date-picker-month": "",
+            "data-date-range-picker-month": isRange ? "" : undefined,
+          }, formatMonthLabel(viewDate, locale)),
           React.createElement(
             "span",
             { className: "date-picker__selector date-picker__selector--month" },
@@ -674,17 +812,22 @@ export const DatePicker = forwardRef<HTMLButtonElement, DatePickerProps>(functio
       openSelector === null ? React.createElement(
         "div",
         {
-          className: "date-picker__grid",
+          className: ["date-picker__grid", isRange ? "date-range-picker__grid" : ""].filter(Boolean).join(" "),
           "data-date-picker-grid": "",
+          "data-date-range-picker-grid": isRange ? "" : undefined,
           role: "grid",
           "aria-labelledby": monthId,
         },
-        sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
-        dayButtons,
+        sourceWeekdays.length ? React.createElement(
+          "div",
+          { className: "date-picker__row date-picker__row--weekdays", role: "row" },
+          sourceWeekdays.map((day, index) => React.createElement("span", { key: `${day}-${index}`, className: "date-picker__weekday", role: "columnheader" }, day)),
+        ) : null,
+        dayRows,
       ) : null,
     ),
     fieldMessage.message
-      ? React.createElement("span", { className: "field__helper date-picker__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
+      ? React.createElement("span", { className: ["field__helper date-picker__helper", isRange ? "date-range-picker__helper" : ""].filter(Boolean).join(" "), id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message)
       : null,
   );
 }) as DatePickerComponent;

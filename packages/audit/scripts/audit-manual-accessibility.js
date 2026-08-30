@@ -157,11 +157,11 @@ const interactiveComponents = [
       ["Escape"],
       ["controlRef.current?.focus"],
     ],
-    checklist: ["trigger state", "calendar dialog", "grid semantics", "day names", "today/current date", "month navigation", "Escape/focus return"],
+    checklist: ["trigger state", "calendar dialog", "grid semantics", "day names", "today/current date", "selector navigation", "Escape/focus return"],
   },
   {
     id: "date-range-picker",
-    source: "DateRangePicker.js",
+    source: "DatePicker.js",
     contract: "date-range-picker.md",
     sourceRequirements: [
       ["aria-haspopup\": \"dialog\"", "aria-haspopup=\"dialog\""],
@@ -177,7 +177,7 @@ const interactiveComponents = [
       ["Escape"],
       ["controlRef.current?.focus"],
     ],
-    checklist: ["trigger state", "range start/end", "calendar dialog", "grid semantics", "preset buttons", "month navigation", "Escape/focus return"],
+    checklist: ["trigger state", "range start/end", "calendar dialog", "grid semantics", "preset buttons", "selector navigation", "keyboard range commit", "Escape/focus return"],
   },
 ];
 

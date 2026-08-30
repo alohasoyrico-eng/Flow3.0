@@ -4,6 +4,10 @@ import { datePickerPlatformContract } from "@design-system/components/platforms"
 
 export type DatePickerDensity = "sm" | "md" | "lg";
 export type DatePickerState = "default" | "hover" | "focus" | "selected" | "warning" | "error" | "disabled";
+export type DatePickerMode = "single" | "range";
+export type DatePickerRangeValue = { from?: string; to?: string };
+export type DatePickerValue = string | DatePickerRangeValue;
+export type DatePickerPreset = { key: string; label: string; days: number };
 export type DatePickerValueChangeEvent =
   | MouseEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLButtonElement>
@@ -12,7 +16,10 @@ export type DatePickerOpenChangeEvent = DatePickerValueChangeEvent | KeyboardEve
 
 export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
-  value?: string;
+  mode?: DatePickerMode;
+  value?: DatePickerValue;
+  from?: string;
+  to?: string;
   placeholder?: string;
   helper?: string;
   error?: string;
@@ -31,8 +38,10 @@ export interface DatePickerProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   nextYearLabel?: string;
+  presets?: boolean;
+  presetItems?: DatePickerPreset[];
   open?: boolean;
-  onValueChange?: (value: string, event: DatePickerValueChangeEvent) => void;
+  onValueChange?: (value: DatePickerValue, event: DatePickerValueChangeEvent) => void;
   onOpenChange?: (open: boolean, event?: DatePickerOpenChangeEvent) => void;
 }
 
