@@ -322,8 +322,8 @@
     },
     {
       "file": "packages/components/styles/components.css",
-      "snippet": "--comp-checkbox-indicator-size-lg: var(--component-density-icon-size-lg);",
-      "message": "Checkbox indicator lg must consume density icon lg.",
+      "snippet": "--comp-checkbox-indicator-size-lg: var(--component-icon-size-md-plus);",
+      "message": "Checkbox indicator lg must use the contained selection icon size.",
       "status": "pass"
     },
     {

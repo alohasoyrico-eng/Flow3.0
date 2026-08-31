@@ -8,7 +8,7 @@ import { chromium } from "playwright";
 
 const root = process.cwd();
 const cssFile = path.join(root, "packages/components/styles/components.css");
-const expectedChoiceIndicator = { sm: 16, md: 20, lg: 24 };
+const expectedChoiceIndicator = { sm: 16, md: 20, lg: 22 };
 const browserCandidates = [
   process.env.FLOW_RUNTIME_BROWSER_EXECUTABLE,
   "/Users/r1c0/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
@@ -151,7 +151,7 @@ const results = await page.evaluate(() => {
     const sliderTrack = rectOf(slider.querySelector(".slider__track"));
     const sliderThumb = rectOf(slider.querySelector(".slider__thumb"));
     return [
-      { component: "checkbox", theme, density, mark: checkboxMark.height, indicatorFont: checkboxIndicator.fontSize, markBoxSizing: checkboxMark.boxSizing, markTopDelta: Math.abs(checkboxMark.top - checkboxLabel.top) },
+      { component: "checkbox", theme, density, mark: checkboxMark.height, indicatorFont: checkboxIndicator.fontSize, markBoxSizing: checkboxMark.boxSizing, markCenterDelta: Math.abs((checkboxMark.top + checkboxMark.height / 2) - (checkboxLabel.top + checkboxLabel.height / 2)) },
       {
         component: "radioButton",
         theme,
@@ -161,7 +161,7 @@ const results = await page.evaluate(() => {
         indicatorOpacity: radioIndicator.opacity,
         indicatorTransformScale: transformScale(radioIndicator.transform),
         markBoxSizing: radioMark.boxSizing,
-        markTopDelta: Math.abs(radioMark.top - radioLabel.top),
+        markCenterDelta: Math.abs((radioMark.top + radioMark.height / 2) - (radioLabel.top + radioLabel.height / 2)),
       },
       {
         component: "radioButtonRest",
@@ -175,7 +175,7 @@ const results = await page.evaluate(() => {
         markBorderColor: radioRestMark.borderTopColor,
         markBoxShadow: radioRestMark.boxShadow,
         markBoxSizing: radioRestMark.boxSizing,
-        markTopDelta: Math.abs(radioRestMark.top - radioRestLabel.top),
+        markCenterDelta: Math.abs((radioRestMark.top + radioRestMark.height / 2) - (radioRestLabel.top + radioRestLabel.height / 2)),
       },
       {
         component: "switch",
@@ -215,8 +215,8 @@ for (const result of results) {
     if (result.markBoxSizing !== "border-box") {
       errors.push(`${result.component} ${result.theme} ${result.density} mark must use border-box; got ${result.markBoxSizing}.`);
     }
-    if (result.markTopDelta > 1) {
-      errors.push(`${result.component} ${result.theme} ${result.density} mark must align to the first label line; got ${result.markTopDelta}px top delta.`);
+    if (result.markCenterDelta > 1) {
+      errors.push(`${result.component} ${result.theme} ${result.density} mark must center-align with the first label line; got ${result.markCenterDelta}px center delta.`);
     }
   }
   if (result.component === "radioButton" && !(result.indicator > 0 && result.indicator < result.mark)) {

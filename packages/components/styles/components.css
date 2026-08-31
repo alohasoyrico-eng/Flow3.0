@@ -928,12 +928,12 @@
   --component-empty-state-icon-size-md: calc(var(--component-control-min-size) + var(--sys-space-xl));
   --component-empty-state-icon-size-lg: var(--sys-frame-height-control-lg);
   --comp-checkbox-mark-size-sm: var(--component-inline-size-xs);
-  --comp-checkbox-mark-size-md: var(--component-inline-size-sm);
-  --comp-checkbox-mark-size-lg: var(--component-inline-size-md);
+  --comp-checkbox-mark-size-md: var(--component-symbol-size-md-plus);
+  --comp-checkbox-mark-size-lg: var(--component-symbol-size-lg-plus);
   --comp-checkbox-mark-size-compact: var(--comp-checkbox-mark-size-sm);
   --comp-checkbox-indicator-size-sm: var(--component-density-icon-size-sm);
   --comp-checkbox-indicator-size-md: var(--component-density-icon-size-md);
-  --comp-checkbox-indicator-size-lg: var(--component-density-icon-size-lg);
+  --comp-checkbox-indicator-size-lg: var(--component-icon-size-md-plus);
   --comp-checkbox-gap-sm: var(--component-space-xs);
   --comp-checkbox-gap-md: var(--component-space-sm);
   --comp-checkbox-gap-lg: var(--component-space-md);
@@ -1007,12 +1007,12 @@
   --comp-switch-press-scale: var(--component-scale-press);
   --comp-switch-disabled-opacity: var(--component-disabled-readable-opacity);
   --comp-radio-button-mark-size-sm: var(--component-inline-size-xs);
-  --comp-radio-button-mark-size-md: var(--component-inline-size-sm);
-  --comp-radio-button-mark-size-lg: var(--component-inline-size-md);
+  --comp-radio-button-mark-size-md: var(--component-symbol-size-md-plus);
+  --comp-radio-button-mark-size-lg: var(--component-symbol-size-lg-plus);
   --comp-radio-button-mark-size-compact: var(--comp-radio-button-mark-size-sm);
   --comp-radio-button-indicator-size-sm: var(--component-space-sm);
-  --comp-radio-button-indicator-size-md: var(--component-space-md);
-  --comp-radio-button-indicator-size-lg: calc(var(--component-space-md) + var(--component-space-sm) - var(--component-space-2xs));
+  --comp-radio-button-indicator-size-md: calc(var(--comp-radio-button-mark-size-md) / 2);
+  --comp-radio-button-indicator-size-lg: calc(var(--comp-radio-button-mark-size-lg) / 2);
   --comp-radio-button-indicator-size-compact: var(--comp-radio-button-indicator-size-sm);
   --comp-radio-button-gap-sm: var(--component-space-xs);
   --comp-radio-button-gap-md: var(--component-space-sm);
@@ -3180,6 +3180,10 @@
   gap: var(--comp-choice-current-gap);
   padding-block: var(--comp-choice-current-padding-block);
   position: relative;
+}
+
+.choice:not(:has(.choice__description)):not(:has(.choice__error)) {
+  align-items: center;
 }
 
 .checkbox {

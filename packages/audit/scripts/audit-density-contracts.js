@@ -118,7 +118,7 @@ function checkOrderedComponentDensityAliases(css, tokens) {
     {
       label: "Checkbox indicator icon size",
       names: ["--comp-checkbox-indicator-size-sm", "--comp-checkbox-indicator-size-md", "--comp-checkbox-indicator-size-lg"],
-      expected: [16, 20, 24],
+      expected: [16, 20, 22],
     },
     {
       label: "RadioButton mark size",

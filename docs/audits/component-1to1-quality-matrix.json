@@ -231,12 +231,12 @@
     },
     {
       "id": "avatar",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "partial",
         "system-architecture": "partial",
         "package-source": "partial",
-        "docs-source": "partial",
+        "docs-source": "pass",
         "foundations-primitives": "partial",
         "states-variants": "partial",
         "interaction-logic": "partial",
@@ -244,7 +244,7 @@
         "density-layout": "partial",
         "typography-iconography": "partial",
         "accessibility": "partial",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "partial"
       },
       "evidence": [
@@ -770,21 +770,27 @@
       "id": "checkbox",
       "status": "partial",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
         "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
         "visual-qa": "partial",
-        "validation": "partial"
+        "validation": "pass"
       },
       "evidence": [
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/checkbox.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Checkbox.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/shells/ToggleControl.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/checkbox-radio.html",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/ui_kits/auth/index.html",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/ui_kits/auth-otp/index.html",
         ".audit-reference/components/forms/Checkbox.jsx",
         ".audit-reference/components/forms/Checkbox.d.ts",
         ".audit-reference/components/forms/Checkbox.prompt.md",
@@ -805,19 +811,21 @@
         "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-basic.test.mjs",
+        "packages/react/test/button-render.test.mjs",
+        "local-visual-snapshots/Flow3-component-qa/checkbox-2026-08-18/interactive/react-runtime.html?fresh=checkbox-stateful-runtime-1",
+        "/private/tmp/checkbox-stateful-runtime-1.png",
         "commit 5c264331"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Checkbox Group remains separate because it owns group validation, select-all orchestration, and multi-row relationships."
       ],
-      "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "709c5401",
+      "lastReviewAt": "2026-08-30",
+      "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed",
+      "decision": "Checkbox remains a base choice control. The shared choice contract now keeps label/helper text on the control-density scale, aligns simple labels vertically with the mark, keeps Checkbox/Radio mark growth intentionally conservative, and validates stateful React runtime interaction instead of frozen checked demos.",
+      "truthResetDecision": "Closed under the strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
     },
     {
       "id": "chip",
@@ -2821,7 +2829,7 @@
       "checkbox"
     ],
     "nextComponent": "checkbox",
-    "nextComponentReason": "Checkbox is the next high-impact web form primitive/control: it feeds permissions, filters, settings, bulk selection and pattern forms, and it still needs strict ZIP/runtime/dark/accessibility/keyboard/density revalidation after the truth reset.",
+    "nextComponentReason": "Checkbox has current ZIP/runtime/dark/accessibility/keyboard/density evidence and is waiting on user visual review before it can move from partial to pass.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

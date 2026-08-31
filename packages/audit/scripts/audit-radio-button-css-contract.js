@@ -128,8 +128,8 @@ function checkRadioButtonCssContract({ text, blocks, packageCssFile, selectorKey
     "--comp-radio-button-selected-shadow:",
     "--comp-radio-button-dot-bg: var(--component-color-action-indicator)",
     "--comp-radio-button-indicator-size-sm: var(--component-space-sm)",
-    "--comp-radio-button-indicator-size-md: var(--component-space-md)",
-    "--comp-radio-button-indicator-size-lg:",
+    "--comp-radio-button-indicator-size-md: calc(var(--comp-radio-button-mark-size-md) / 2)",
+    "--comp-radio-button-indicator-size-lg: calc(var(--comp-radio-button-mark-size-lg) / 2)",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, "RadioButton must define explicit indicator sizes for each density and use the shared action indicator color.");

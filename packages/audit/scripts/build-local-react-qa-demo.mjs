@@ -1236,11 +1236,20 @@ const components = {
     directory: "checkbox-2026-08-18",
     module: "Checkbox.js",
     exportName: "Checkbox",
-    buildId: "checkbox-react-runtime-1",
+    buildId: "checkbox-1to1-runtime-1",
     eventPropName: "onCheckedChange",
     actionHandler: "(checked, meta, event) => onAction(props.label + '=' + checked)(event)",
     actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "checked",
+    runtimeInstruction: "Click o Space sobre un Checkbox interactivo.",
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Recordarme", checked: true, value: "remember" })),
+            e("div", { className: "audit-card" }, action({ label: "Seleccionar todo", description: "3 de 12 seleccionados", indeterminate: true, value: "select-all-reference" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Variantes"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Default", value: "default" })),
@@ -2104,7 +2113,7 @@ const html = `<!doctype html>
         ${config.demoBody},
         e("section", { className: "audit-section" },
           e("h2", null, "Runtime log"),
-          e("div", { className: "audit-log", "data-audit-log": "" }, "Click, Enter o Space sobre un ${config.title} interactivo.")
+          e("div", { className: "audit-log", "data-audit-log": "" }, "${config.runtimeInstruction ?? `Click, Enter o Space sobre un ${config.title} interactivo.`}")
         )
       );
     }

@@ -121,7 +121,7 @@ const requiredScaleSnippets = [
   [componentCssFile, "--comp-input-icon-size-lg: var(--component-density-icon-size-lg);", "Field icon lg must consume density icon lg."],
   [componentCssFile, "--comp-checkbox-indicator-size-sm: var(--component-density-icon-size-sm);", "Checkbox indicator sm must consume density icon sm."],
   [componentCssFile, "--comp-checkbox-indicator-size-md: var(--component-density-icon-size-md);", "Checkbox indicator md must consume density icon md."],
-  [componentCssFile, "--comp-checkbox-indicator-size-lg: var(--component-density-icon-size-lg);", "Checkbox indicator lg must consume density icon lg."],
+  [componentCssFile, "--comp-checkbox-indicator-size-lg: var(--component-icon-size-md-plus);", "Checkbox indicator lg must use the contained selection icon size."],
   [componentCssFile, "--component-option-row-check-size-sm: var(--component-density-icon-size-sm);", "Option check sm must consume density icon sm."],
   [componentCssFile, "--component-option-row-check-size-md: var(--component-density-icon-size-md);", "Option check md must consume density icon md."],
   [componentCssFile, "--component-option-row-check-size-lg: var(--component-density-icon-size-lg);", "Option check lg must consume density icon lg."],
