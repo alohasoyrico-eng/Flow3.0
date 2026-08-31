@@ -121,15 +121,15 @@ function checkRadioButtonCssContract({ text, blocks, packageCssFile, selectorKey
     message: "Radio selected mark must expose visible selected container feedback, not only the center dot.",
   });
   for (const snippet of [
-    "--comp-radio-button-selected-bg: color-mix(in srgb, var(--component-color-action-indicator)",
+    "--comp-radio-button-selected-bg: var(--component-color-surface)",
     "--comp-radio-button-border: var(--component-color-border-strong)",
     "--comp-radio-button-rest-shadow:",
     "--comp-radio-button-selected-border: var(--component-color-action-indicator)",
     "--comp-radio-button-selected-shadow:",
     "--comp-radio-button-dot-bg: var(--component-color-action-indicator)",
     "--comp-radio-button-indicator-size-sm: var(--component-space-sm)",
-    "--comp-radio-button-indicator-size-md: calc(var(--comp-radio-button-mark-size-md) / 2)",
-    "--comp-radio-button-indicator-size-lg: calc(var(--comp-radio-button-mark-size-lg) / 2)",
+    "--comp-radio-button-indicator-size-md: calc(var(--component-space-sm) + var(--component-border-width-medium))",
+    "--comp-radio-button-indicator-size-lg: var(--component-space-md)",
   ]) {
     if (!text.includes(snippet)) {
       add("errors", packageCssFile, 1, "RadioButton must define explicit indicator sizes for each density and use the shared action indicator color.");

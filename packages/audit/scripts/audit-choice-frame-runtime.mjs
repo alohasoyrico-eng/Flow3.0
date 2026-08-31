@@ -9,6 +9,7 @@ import { chromium } from "playwright";
 const root = process.cwd();
 const cssFile = path.join(root, "packages/components/styles/components.css");
 const expectedChoiceIndicator = { sm: 16, md: 20, lg: 22 };
+const expectedRadioButtonIndicator = { sm: 8, md: 10, lg: 12 };
 const browserCandidates = [
   process.env.FLOW_RUNTIME_BROWSER_EXECUTABLE,
   "/Users/r1c0/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
@@ -222,6 +223,9 @@ for (const result of results) {
   if (result.component === "radioButton" && !(result.indicator > 0 && result.indicator < result.mark)) {
     errors.push(`radioButton ${result.theme} ${result.density} dot must be visible and smaller than the mark; got dot ${result.indicator}px / mark ${result.mark}px.`);
   }
+  if (result.component === "radioButton" && result.indicator !== expectedRadioButtonIndicator[result.density]) {
+    errors.push(`radioButton ${result.theme} ${result.density} dot rendered ${result.indicator}px; expected optical dot size ${expectedRadioButtonIndicator[result.density]}px.`);
+  }
   if (result.component === "radioButton" && !(result.indicatorOpacity === 1 && result.indicatorTransformScale >= 1)) {
     errors.push(`radioButton ${result.theme} ${result.density} selected dot must render at rest scale; got opacity ${result.indicatorOpacity}, scale ${result.indicatorTransformScale}.`);
   }
@@ -279,6 +283,7 @@ assertIncreasing(results, "slider", "thumb", errors);
 const report = {
   status: errors.length ? "fail" : "pass",
   expectedChoiceIndicator,
+  expectedRadioButtonIndicator,
   results: results.map((result) => Object.fromEntries(Object.entries(result).map(([key, value]) => [key, typeof value === "number" ? round(value) : value]))),
   errors,
 };

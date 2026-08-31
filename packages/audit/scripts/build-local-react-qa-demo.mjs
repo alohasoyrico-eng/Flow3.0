@@ -1352,11 +1352,29 @@ const components = {
     directory: "radio-button-2026-08-18",
     module: "RadioButton.js",
     exportName: "RadioButton",
-    buildId: "radio-button-react-runtime-1",
+    buildId: "radio-button-optical-center-runtime-1",
     eventPropName: "onCheckedChange",
     actionHandler: "(checked, meta, event) => onAction(props.label + '=' + checked)(event)",
     actionSelector: "input[data-runtime-action]",
+    runtimeInstruction: "Click o Space sobre un RadioButton interactivo.",
+    supportPreamble: `function ReferenceRadioSet() {
+      const [plan, setPlan] = React.useState("pro");
+      const selectPlan = (value, label) => (checked, meta, event) => {
+        if (checked) setPlan(value);
+        onAction(label + "=" + checked)(event);
+      };
+      return e("div", { className: "audit-stack" },
+        e(Component, { label: "Basico", name: "reference-plan", value: "basic", checked: plan === "basic", onCheckedChange: selectPlan("basic", "Basico"), "data-runtime-action": "true" }),
+        e(Component, { label: "Pro", description: "Flotas de 10+ unidades", name: "reference-plan", value: "pro", checked: plan === "pro", onCheckedChange: selectPlan("pro", "Pro"), "data-runtime-action": "true" })
+      );
+    }`,
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(ReferenceRadioSet))
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Variantes"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Default", name: "radio-variant", value: "default" })),
@@ -1388,11 +1406,21 @@ const components = {
     directory: "switch-2026-08-18",
     module: "Switch.js",
     exportName: "Switch",
-    buildId: "switch-react-runtime-1",
+    buildId: "switch-stateful-runtime-1",
     eventPropName: "onCheckedChange",
     actionHandler: "(checked, meta, event) => onAction(props.label + '=' + checked)(event)",
     actionSelector: "input[data-runtime-action]",
+    statefulValueProp: "checked",
+    runtimeInstruction: "Click o Space sobre un Switch interactivo.",
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Notificaciones push", checked: true, name: "reference-push" })),
+            e("div", { className: "audit-card" }, action({ label: "Modo silencioso", name: "reference-silent" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Deshabilitado", disabled: true, name: "reference-disabled", "data-runtime-action": "true" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Off", name: "switch-off" })),

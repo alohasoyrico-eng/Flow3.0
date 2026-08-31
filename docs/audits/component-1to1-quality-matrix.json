@@ -2025,23 +2025,23 @@
     {
       "id": "radio-button",
       "name": "Radio Button",
-      "status": "partial",
+      "status": "pass",
       "platformPriority": "cross-platform",
       "auditedAt": "2026-07-21",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/forms/Radio.jsx",
@@ -2064,20 +2064,29 @@
         "docs/audits/choice-current-local-review.md",
         "packages/react/src/RadioButton.tsx",
         "packages/react/test/p0-forms-basic.test.mjs",
-        "commit 5c264331"
+        "commit 5c264331",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/radio.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Radio.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/shells/ToggleControl.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/checkbox-radio.html",
+        "packages/specs/specs/unison-system/artifacts/components/radio-button.json",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/audit/scripts/audit-density-contracts.js",
+        "local-visual-snapshots/Flow3-component-qa/radio-button-2026-08-18/interactive/react-runtime.html?fresh=radio-button-optical-center-runtime-1",
+        "/private/tmp/radio-button-optical-center-runtime-1.png"
       ],
       "notes": [
-        "Atomic Radio Button is closed; Radio Group remains pattern scope, not component scope.",
-        "All docs demos are package-sourced and hydrated for real selection behavior."
+        "Atomic RadioButton is closed; Radio Group remains pattern scope for group label, validation, and multi-option orchestration.",
+        "ZIP reference selected surface is preserved, but the md/lg dot sizes use even optical sizes (8/10/12px) so the indicator raster centers cleanly instead of landing on half-pixel insets.",
+        "Runtime demo now includes a controlled two-option reference set so checked state moves between options instead of relying on frozen checked fixtures."
       ],
-      "lastReviewAt": "2026-08-19",
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
-      "currentReviewCommit": "5c264331",
+      "lastReviewAt": "2026-08-30",
+      "openIssues": [],
+      "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed under the strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard.",
+      "decision": "RadioButton remains a base choice control. It inherits the shared Choice label/helper control-density scale, uses Flow Frame tokens for 16/22/26px radio marks and optical 8/10/12px dots, keeps selected mark background on surface while border/dot carry action color per ZIP reference, keeps native input semantics for click/Space, and leaves group keyboard orchestration to RadioGroup/pattern scope."
     },
     {
       "id": "route-summary",
@@ -2449,21 +2458,21 @@
     },
     {
       "id": "switch",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         "docs/audits/switch-1to1-quality-audit.json",
@@ -2479,16 +2488,29 @@
         "docs/audits/choice-current-local-review.md",
         "packages/audit/scripts/audit-density-contracts.js",
         "packages/react/test/p0-forms-basic.test.mjs",
-        "commit 5c264331"
+        "commit 5c264331",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/switch.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/toggle-control.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Switch.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/shells/ToggleControl.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/switch.html",
+        "packages/react/src/Switch.tsx",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "local-visual-snapshots/Flow3-component-qa/switch-2026-08-18/interactive/react-runtime.html?fresh=switch-stateful-runtime-1",
+        "/private/tmp/switch-stateful-runtime-1.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
-      "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-30",
+      "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed under the strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard.",
+      "notes": [
+        "Atomic Switch is closed as a native checkbox role=switch control with controlled/uncontrolled checked support.",
+        "Runtime demo now includes ZIP reference states and stateful click/Space behavior instead of frozen checked fixtures.",
+        "Decorative track/thumb no longer intercept pointer events, so the native input remains the interaction owner."
+      ],
+      "decision": "Switch remains a base boolean choice control. It uses Flow Frame tokens for track/thumb density, shared Voice control-density labels/helpers, State for on/off/focus/error/disabled precedence, Momentum for press thumb expansion, and a native input as the event and accessibility owner."
     },
     {
       "id": "table",
@@ -2802,22 +2824,22 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 22,
-    "partial": 35,
+    "pass": 24,
+    "partial": 33,
     "fail": 0,
-    "qualityDebt": 35,
+    "qualityDebt": 33,
     "reviewStates": {
-      "closed-with-recent-evidence": 17,
+      "closed-with-recent-evidence": 19,
       "needs-1to1-review": 20,
       "closed-with-user-visual-review": 5,
-      "needs-revalidation": 14,
+      "needs-revalidation": 12,
       "in-review": 1
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-30",
-    "sourceCommit": "82f1a83e",
+    "sourceCommit": "working-tree",
     "scope": [
       "pagination",
       "select",
@@ -2826,10 +2848,12 @@
       "date-picker",
       "date-range-picker",
       "dialog",
-      "checkbox"
+      "checkbox",
+      "radio-button",
+      "switch"
     ],
-    "nextComponent": "radio-button",
-    "nextComponentReason": "RadioButton shares the Choice sizing/foundation path touched during Checkbox, but its own strict ZIP/runtime/dark/accessibility/keyboard/density pass is still pending; close it next before leaving the choice-control family.",
+    "nextComponent": "chip",
+    "nextComponentReason": "Chip is a high-impact web component still marked needs-1to1-review; it appears across filters/status contexts and should be revalidated before moving to lower-impact feedback/display components.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {
