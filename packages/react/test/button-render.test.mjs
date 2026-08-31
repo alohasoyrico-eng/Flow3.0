@@ -2747,6 +2747,14 @@ assert.match(openDialogMarkup, />warning<\/span>/);
 assert.match(openDialogMarkup, /class="icon-button icon-button--ghost dialog__close"/);
 assert.match(openDialogMarkup, /data-overlay-close=""/);
 assert.match(openDialogMarkup, /data-key="confirm"/);
+const successDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Saved",
+  variant: "success",
+  open: true,
+}));
+assert.match(successDialogMarkup, /class="dialog dialog--success"/);
+assert.match(successDialogMarkup, /data-tone="success"/);
+assert.match(successDialogMarkup, />check_circle<\/span>/);
 const defaultDialogActionsMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Confirm route",
   open: true,
@@ -2760,6 +2768,13 @@ const unstableDialogActionMarkup = renderToStaticMarkup(React.createElement(Dial
   actions: [{ label: "Confirm" }],
 }));
 assert.doesNotMatch(unstableDialogActionMarkup, /data-key="Confirm"|class="button/);
+const dialogChildrenMarkup = renderToStaticMarkup(React.createElement(Dialog, {
+  label: "Invite team",
+  open: true,
+}, React.createElement("div", { "data-dialog-child": "true" }, "Short composed body")));
+assert.match(dialogChildrenMarkup, /class="dialog__body"/);
+assert.match(dialogChildrenMarkup, /data-dialog-child="true"/);
+assert.match(dialogChildrenMarkup, /Short composed body/);
 
 const formDialogMarkup = renderToStaticMarkup(React.createElement(Dialog, {
   label: "Edit driver",

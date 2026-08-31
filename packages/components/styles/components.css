@@ -1795,8 +1795,7 @@
 }
 
 .text-area:focus-visible {
-  outline: var(--component-focus-ring);
-  outline-offset: var(--component-focus-ring-offset);
+  outline: var(--component-outline-none);
 }
 
 .icon-button:focus-visible {
@@ -7810,7 +7809,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-dialog-panel-bg: var(--component-color-surface);
   --comp-dialog-panel-border-width: var(--component-border-width);
   --comp-dialog-panel-border: var(--component-color-border);
-  --comp-dialog-panel-radius: var(--component-radius-overlay);
+  --comp-dialog-panel-radius: var(--component-radius-xl);
   --comp-dialog-panel-color: var(--component-color-text);
   --comp-dialog-panel-depth: var(--component-depth-panel-strong);
   --comp-dialog-panel-inline: var(--component-dialog-panel-inline);

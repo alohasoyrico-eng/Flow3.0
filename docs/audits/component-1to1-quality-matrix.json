@@ -1109,21 +1109,21 @@
     },
     {
       "id": "dialog",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/feedback/Dialog.jsx",
@@ -1139,6 +1139,9 @@
         "packages/audit/scripts/audit-dialog-css-contract.js",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "../local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html",
+        "../local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html?fresh=dialog-reference-runtime-2",
+        "../local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html?fresh=dialog-reference-runtime-3",
+        "../local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html?fresh=dialog-radius-runtime-1",
         "packages/specs/specs/unison-system/artifacts/components/dialog.json",
         "packages/content/content/component-copy/components/dialog/all.json",
         "packages/components/src/components/overlays.js",
@@ -1149,18 +1152,16 @@
         "apps/docs/gold-dialog-docs.js",
         "apps/docs/overlay-demo-interactions.js"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
-      "lastReviewAt": "2026-08-25",
+      "openIssues": [],
+      "lastReviewAt": "2026-08-30",
       "currentReviewCommit": "working-tree",
-      "decision": "Closed for current review after overlay visual-parity regression. Dialog keeps overlay semantics in React, composes Button/IconButton/Input, preserves Flow frame ownership through the shared compact overlay inline alias, and now matches the ZIP compact panel anatomy at 440px runtime width, 28px padding, 24px radius, 18px panel rhythm, 14px header gap, 10px footer gap, 18/700 title, and compact description. Runtime validation proves initial closed state, Enter open, focus to close control, Escape close with focus return, outside click close, action close, density trigger sizing, no page overflow, and clean console in the package-backed runtime demo.",
+      "decision": "Closed in current 1:1 review after ZIP source and UI kit/template uses were checked. Dialog owns the base modal contract over OverlayShell: center overlay, radius-xl panel, panel padding/depth, optional danger/success tone icon, children body slot, close control, actions aligned to the end, focus trap, Escape, outside dismissal, and focus return. The runtime demo uses package-backed React and covers simple confirmation, destructive, success, destructive with reason TextArea, invite with Input and Select, and density triggers. TextArea double focus was fixed at the shared component level so the surface owns the visible focus ring while the native textarea keeps outline none.",
       "inventoryEscalations": [
         "Confirmation policy, destructive decision rules, multi-step recovery, and required review orchestration remain pattern responsibilities."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after ZIP-informed runtime review, user-requested focus fix, and validation gates."
     },
     {
       "id": "drawer",
@@ -2793,32 +2794,34 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 21,
-    "partial": 36,
+    "pass": 22,
+    "partial": 35,
     "fail": 0,
-    "qualityDebt": 36,
+    "qualityDebt": 35,
     "reviewStates": {
       "closed-with-recent-evidence": 16,
       "needs-1to1-review": 20,
-      "closed-with-user-visual-review": 4,
-      "needs-revalidation": 16,
+      "closed-with-user-visual-review": 5,
+      "needs-revalidation": 15,
       "in-review": 1
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-30",
-    "sourceCommit": "ca949707",
+    "sourceCommit": "working-tree",
     "scope": [
       "pagination",
       "select",
       "combobox",
       "country-selector",
       "date-picker",
-      "date-range-picker"
+      "date-range-picker",
+      "dialog",
+      "checkbox"
     ],
-    "nextComponent": "dialog",
-    "nextComponentReason": "Dialog is the next high-impact web overlay because it shares focus trap, Escape, overlay dismissal, density, motion, and ZIP visual parity risks with Drawer, while many downstream patterns depend on modal behavior.",
+    "nextComponent": "checkbox",
+    "nextComponentReason": "Checkbox is the next high-impact web form primitive/control: it feeds permissions, filters, settings, bulk selection and pattern forms, and it still needs strict ZIP/runtime/dark/accessibility/keyboard/density revalidation after the truth reset.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {

@@ -44,7 +44,7 @@ export interface DialogField {
   variant?: "default" | "password" | "search" | "with-prefix" | "with-suffix" | "readonly";
 }
 
-export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "children" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
+export interface DialogProps extends Omit<HTMLAttributes<HTMLDivElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
   description?: string;
   triggerLabel?: string;
@@ -110,12 +110,13 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog({
   closeLabel,
   actions,
   open: openProp,
-  tone = "neutral",
+  tone,
   variant = "confirmation",
   state = "closed",
   density,
   icon,
   fields,
+  children,
   id,
   onOpenChange,
   onAction,
@@ -282,6 +283,13 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog({
                 readOnly: readOnly ?? true,
               });
             }),
+          )
+          : null,
+        children
+          ? React.createElement(
+            "div",
+            { className: "dialog__body" },
+            children,
           )
           : null,
         resolvedActions.length

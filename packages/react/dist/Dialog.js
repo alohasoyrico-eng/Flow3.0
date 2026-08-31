@@ -38,7 +38,7 @@ function buttonVariantForAction(action, fallback) {
         return "primary";
     return action.variant ?? fallback;
 }
-export const Dialog = forwardRef(function Dialog({ label, description, triggerLabel, closeLabel, actions, open: openProp, tone = "neutral", variant = "confirmation", state = "closed", density, icon, fields, id, onOpenChange, onAction, className = "", ...rest }, ref) {
+export const Dialog = forwardRef(function Dialog({ label, description, triggerLabel, closeLabel, actions, open: openProp, tone, variant = "confirmation", state = "closed", density, icon, fields, children, id, onOpenChange, onAction, className = "", ...rest }, ref) {
     const reactId = useId();
     const triggerRef = useRef(null);
     const closeRef = useRef(null);
@@ -174,6 +174,8 @@ export const Dialog = forwardRef(function Dialog({ label, description, triggerLa
                 readOnly: readOnly ?? true,
             });
         }))
+        : null, children
+        ? React.createElement("div", { className: "dialog__body" }, children)
         : null, resolvedActions.length
         ? React.createElement("footer", null, resolvedActions.map((action, index) => {
             const actionLabel = action.label;

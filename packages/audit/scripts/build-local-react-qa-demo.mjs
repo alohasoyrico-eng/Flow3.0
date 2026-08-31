@@ -1605,22 +1605,28 @@ const components = {
     directory: "dialog-2026-08-19",
     module: "Dialog.js",
     exportName: "Dialog",
-    buildId: "dialog-react-runtime-1",
+    buildId: "dialog-reference-runtime-3",
+    indexImports: ["Input", "Select", "TextArea"],
     eventPropName: "onAction",
     actionHandler: "(key, event) => onAction(props.label + '=' + key)(event)",
     actionSelector: "[data-overlay-open]:not(:disabled)",
-    supportPreamble: `const fields = [
-      { label: "Driver", name: "driver", value: "Ana Sosa", state: "filled" },
-      { label: "Reason", name: "reason", placeholder: "Reason", helper: "Required before confirming" }
-    ];
-    const actions = [
+    supportPreamble: `const actions = [
       { key: "cancel", label: "Cancel", variant: "secondary" },
       { key: "confirm", label: "Confirm", variant: "primary" }
     ];
     const destructiveActions = [
-      { key: "cancel", label: "Cancel", variant: "secondary" },
+      { key: "cancel", label: "Cancel", variant: "ghost" },
       { key: "delete", label: "Delete", variant: "danger" }
-    ];`,
+    ];
+    const reasonBody = e(TextArea, { id: "dialog-reason", label: "Motivo de la baja", rows: 2, helper: "Alimenta el analisis de rotacion.", placeholder: "Ej. renuncia voluntaria, fin de contrato..." });
+    const inviteBody = e("div", { className: "audit-stack" },
+      e(Input, { id: "dialog-email", label: "Correo", type: "email", icon: "mail", placeholder: "persona@flota.mx" }),
+      e(Select, { label: "Rol", value: "driver", options: [
+          { value: "driver", label: "Driver" },
+          { value: "ops", label: "Operaciones" },
+          { value: "finanzas", label: "Finanzas" }
+        ] })
+    );`,
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Variantes"),
           e("div", { className: "audit-grid" },
@@ -1630,10 +1636,13 @@ const components = {
           )
         ),
         e("section", { className: "audit-section" },
-          e("h2", null, "Form / review"),
+          e("h2", null, "Composiciones del ZIP"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Form dialog", description: "Review fields before saving.", triggerLabel: "Open form", closeLabel: "Close dialog", variant: "form", fields, actions })),
-            e("div", { className: "audit-card" }, action({ label: "Review dialog", description: "Validate the final payload.", triggerLabel: "Open review", closeLabel: "Close dialog", variant: "review", fields, actions }))
+            e("div", { className: "audit-card" }, action({ label: "Dar de baja a Ana Sosa?", description: "Se archiva con su historial y pierde acceso. Puedes reactivar despues.", triggerLabel: "Open reason dialog", closeLabel: "Close dialog", variant: "destructive", tone: "danger", actions: destructiveActions, children: reasonBody })),
+            e("div", { className: "audit-card" }, action({ label: "Invitar al equipo", description: "Recibira un correo con su codigo de activacion.", triggerLabel: "Open invite dialog", closeLabel: "Close dialog", actions: [
+              { key: "cancel", label: "Cancel", variant: "ghost" },
+              { key: "send", label: "Send invite", variant: "primary" }
+            ], children: inviteBody }))
           )
         ),
         e("section", { className: "audit-section" },

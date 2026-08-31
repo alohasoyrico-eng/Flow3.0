@@ -25,7 +25,7 @@ function checkDialogCssContract({ text, blocks, packageCssFile, selectorKey }) {
       "--comp-dialog-panel-border-width: var(--component-border-width)",
       "--comp-dialog-panel-inline: var(--component-dialog-panel-inline)",
       "--comp-dialog-panel-padding: var(--component-space-7)",
-      "--comp-dialog-panel-radius: var(--component-radius-overlay)",
+      "--comp-dialog-panel-radius: var(--component-radius-xl)",
       "--comp-dialog-panel-gap: calc(var(--component-space-lg) + var(--component-frame-space-micro))",
       "--comp-dialog-header-gap: calc(var(--component-space-md) + var(--component-frame-space-micro))",
       "--comp-dialog-content-gap: calc(var(--component-space-sm) - var(--component-frame-space-micro))",
