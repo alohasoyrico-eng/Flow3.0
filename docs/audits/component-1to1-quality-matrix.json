@@ -108,7 +108,7 @@
     },
     {
       "id": "animated-moment",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -151,7 +151,7 @@
     },
     {
       "id": "audit-event",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -231,7 +231,7 @@
     },
     {
       "id": "avatar",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "partial",
         "system-architecture": "partial",
@@ -768,12 +768,12 @@
     },
     {
       "id": "checkbox",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
         "package-source": "pass",
-        "docs-source": "partial",
+        "docs-source": "pass",
         "foundations-primitives": "pass",
         "states-variants": "pass",
         "interaction-logic": "pass",
@@ -781,7 +781,7 @@
         "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -821,9 +821,9 @@
         "Checkbox Group remains separate because it owns group validation, select-all orchestration, and multi-row relationships."
       ],
       "lastReviewAt": "2026-08-30",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "82f1a83e",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "closed",
+      "reviewState": "closed-with-recent-evidence",
       "decision": "Checkbox remains a base choice control. The shared choice contract now keeps label/helper text on the control-density scale, aligns simple labels vertically with the mark, keeps Checkbox/Radio mark growth intentionally conservative, and validates stateful React runtime interaction instead of frozen checked demos.",
       "truthResetDecision": "Closed under the strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "id": "date-picker",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "partial",
         "system-architecture": "partial",
@@ -2807,17 +2807,17 @@
     "fail": 0,
     "qualityDebt": 35,
     "reviewStates": {
-      "closed-with-recent-evidence": 16,
+      "closed-with-recent-evidence": 17,
       "needs-1to1-review": 20,
       "closed-with-user-visual-review": 5,
-      "needs-revalidation": 15,
+      "needs-revalidation": 14,
       "in-review": 1
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-30",
-    "sourceCommit": "working-tree",
+    "sourceCommit": "82f1a83e",
     "scope": [
       "pagination",
       "select",
@@ -2828,8 +2828,8 @@
       "dialog",
       "checkbox"
     ],
-    "nextComponent": "checkbox",
-    "nextComponentReason": "Checkbox has current ZIP/runtime/dark/accessibility/keyboard/density evidence and is waiting on user visual review before it can move from partial to pass.",
+    "nextComponent": "radio-button",
+    "nextComponentReason": "RadioButton shares the Choice sizing/foundation path touched during Checkbox, but its own strict ZIP/runtime/dark/accessibility/keyboard/density pass is still pending; close it next before leaving the choice-control family.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
   },
   "truthReset": {
