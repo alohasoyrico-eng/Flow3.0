@@ -297,6 +297,11 @@
             "type": "string",
             "required": true,
             "notes": "Fallback text or static state."
+          },
+          {
+            "name": "stateLabel",
+            "type": "string",
+            "required": false
           }
         ],
         "productExamples": [

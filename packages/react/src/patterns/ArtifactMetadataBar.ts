@@ -119,7 +119,7 @@ function renderCoreItem(item: ArtifactMetadataBarItem, density: ArtifactMetadata
     return React.createElement(Chip, {
       ...common,
       tone: item.tone as ChipProps["tone"],
-      variant: (item.variant as ChipProps["variant"]) ?? "assist",
+      variant: (item.variant as ChipProps["variant"]) ?? "filter",
       state: disabled || item.disabled ? "disabled" : item.selected ? "selected" : "default",
       selected: item.selected,
       interactive: item.interactive,

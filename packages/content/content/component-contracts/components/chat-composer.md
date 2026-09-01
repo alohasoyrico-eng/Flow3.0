@@ -156,11 +156,16 @@ chat-composer API exposes semantic props while Flow foundations own state, densi
 | label | string | Yes | Visible composer label. |
 | value | string | No | Controlled message value. |
 | defaultValue | string | No | Uncontrolled initial value. |
-| placeholder | string | No | Consumer-supplied placeholder; default remains empty. |
+| helper | string | false |  |
 | sending | boolean | No | Locks the composer while submit is in progress. |
 | error | string | No | Visible recovery copy. |
+| density | "sm" \| "md" \| "lg" | false |  |
+| state | "default" \| "focus" \| "filled" \| "sending" \| "disabled" \| "error" | false |  |
+| sendLabel | string | false |  |
+| attachLabel | string | false |  |
 | onValueChange | (value, meta, event) => void | No | Controlled value callback with metadata and event. |
 | onSend | (value, event) => void | No | Submit callback. |
+| onAttach | (event: MouseEvent<HTMLButtonElement>) => void | false |  |
 
 ## Implementation Checklist
 

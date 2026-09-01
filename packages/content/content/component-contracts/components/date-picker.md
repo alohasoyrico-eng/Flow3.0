@@ -10,7 +10,7 @@ Source content:
 
 ## Purpose
 
-Use Date Picker to capture one operational date with locale, selected value, unavailable dates, and validation states.
+Use DatePicker for one operational date or one bounded date range with visible label, readable value, calendar affordance, locale rules, disabled dates, presets, and validation states.
 
 ## Definition Of Ready
 
@@ -59,7 +59,7 @@ Gaps or review gates:
 
 ## Operational Example
 
-Use Date Picker to capture one operational date with locale, selected value, unavailable dates, and validation states.
+Use DatePicker for one operational date or one bounded date range with visible label, readable value, calendar affordance, locale rules, disabled dates, presets, and validation states.
 
 ### Why Date Picker
 
@@ -178,17 +178,32 @@ Date Picker API exposes label, value, placeholder, min, max, density, state, inv
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
 | label | string | Yes | Visible date label. |
-| value | string | No | Selected ISO date value. |
+| mode | "single" \| "range" | No | Selects a single date or a bounded range in the same calendar field. |
+| value | string \| DatePickerRangeValue | No | Selected ISO date or range value. |
+| from | string | No | Selected range start ISO date. |
+| to | string | No | Selected range end ISO date. |
 | placeholder | string | No | Fallback copy when no date is selected. |
 | helper | string | No | Helper text below the field using the shared field rhythm. |
 | error | string | No | Validation message; also drives error state when present. |
 | min | string | No | Minimum allowed ISO date. |
 | max | string | No | Maximum allowed ISO date. |
+| locale | string \| string[] | No | Locale used to format calendar text. |
+| weekdays | string[] | No | Localized weekday labels. |
+| calendarLabel | string | No | Accessible label for the calendar surface. |
+| monthSelectLabel | string | No | Accessible label for the month selector. |
+| yearSelectLabel | string | No | Accessible label for the year selector. |
+| previousYearLabel | string | No | Accessible label for moving to the previous year. |
+| previousMonthLabel | string | No | Accessible label for moving to the previous month. |
+| nextMonthLabel | string | No | Accessible label for moving to the next month. |
+| nextYearLabel | string | No | Accessible label for moving to the next year. |
+| presets | boolean | No | Enables preset date or range shortcuts. |
+| presetItems | DatePickerPreset[] | No | Preset shortcut definitions. |
 | density | "sm" \| "md" \| "lg" | No | Maps field and day target rhythm to Design System Density. |
-| state | "default" \| "hover" \| "focus" \| "selected" \| "warning" \| "error" \| "disabled" | No | Documents the visual and validation state of the one-date field. |
+| state | "default" \| "hover" \| "focus" \| "selected" \| "warning" \| "error" \| "disabled" | No | Documents the visual and validation state of the date field. |
 | invalid | boolean | No | Sets invalid semantics on the trigger for validation errors. |
 | disabled | boolean | No | Disables the control. |
-| onValueChange | (value: string) => void | No | Called when a date is selected. |
+| open | boolean | No | Controls the calendar panel open state. |
+| onValueChange | (value: string \| DatePickerRangeValue) => void | No | Called when a date or range is selected. |
 | onOpenChange | (open: boolean) => void | No | Called when the local calendar panel opens or closes. |
 
 ## Implementation Checklist

@@ -51,16 +51,24 @@
         ],
         "variants": [
           {
-            "id": "support",
-            "description": "Human support thread."
+            "id": "message-list",
+            "description": "message-list variant."
           },
           {
-            "id": "assistant",
-            "description": "AI assistant thread."
+            "id": "empty",
+            "description": "empty variant."
           },
           {
-            "id": "audit",
-            "description": "Read-only conversational event review."
+            "id": "error",
+            "description": "error variant."
+          },
+          {
+            "id": "handoff",
+            "description": "handoff variant."
+          },
+          {
+            "id": "offline",
+            "description": "offline variant."
           }
         ],
         "states": [
@@ -198,16 +206,36 @@
             "description": "Accessible thread label."
           },
           {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
             "name": "messages",
             "type": "ChatThreadMessage[]",
             "required": false,
             "description": "Governed message records."
           },
           {
+            "name": "empty",
+            "type": "ChatThreadEmptyState",
+            "required": false
+          },
+          {
+            "name": "error",
+            "type": "ChatThreadEmptyState",
+            "required": false
+          },
+          {
             "name": "state",
             "type": "ChatThreadState",
             "required": false,
             "description": "Thread availability state."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
           },
           {
             "name": "selectedMessageKey",

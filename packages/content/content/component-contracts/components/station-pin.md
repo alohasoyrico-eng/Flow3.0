@@ -186,6 +186,7 @@ Station Pin API exposes station identity, visible marker value, type, state, cou
 | selected | boolean | No | Convenience flag that maps to selected state. |
 | unavailable | boolean | No | Convenience flag that maps to unavailable state. |
 | disabled | boolean | No | Disables the marker. |
+| onSelect | (meta: StationPinMeta) => void | false |  |
 
 ## Implementation Checklist
 

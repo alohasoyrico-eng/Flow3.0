@@ -192,6 +192,8 @@
   --component-color-surface-raised: var(--sys-color-surface-raised);
   --component-color-surface-sunken: var(--sys-color-surface-sunken);
   --component-color-text: var(--sys-color-text);
+  --component-color-surface-inverse: var(--component-color-text);
+  --component-color-text-on-inverse: var(--component-color-surface);
   --component-color-text-muted: var(--sys-color-text-muted);
   --component-color-text-subtle: var(--sys-color-text-subtle);
   --component-color-warning: var(--sys-color-warning);
@@ -342,7 +344,7 @@
   --component-option-row-selected-color: var(--component-color-text);
   --component-option-row-selected-weight: var(--component-font-weight-semibold);
   --component-option-row-disabled-bg: var(--component-surface-transparent);
-  --component-option-row-disabled-color: var(--component-disabled-text);
+  --component-option-row-disabled-color: color-mix(in srgb, var(--component-color-text) 72%, transparent);
   --component-option-row-disabled-opacity: var(--component-opacity-visible);
   --component-option-row-check-size-sm: var(--component-density-icon-size-sm);
   --component-option-row-check-size-md: var(--component-density-icon-size-md);
@@ -4027,17 +4029,31 @@
   --comp-chip-font-size-lg: var(--component-density-helper-size-lg);
   --comp-chip-font-size: var(--comp-chip-font-size-md);
   --comp-chip-font-weight: var(--component-font-weight-bold);
-  --comp-chip-min-block-size: var(--component-badge-min-size);
-  --comp-chip-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
+  --comp-chip-min-block-size-sm: var(--component-space-xl);
+  --comp-chip-min-block-size-md: var(--component-badge-min-size);
+  --comp-chip-min-block-size-lg: var(--component-control-frame-size-sm);
+  --comp-chip-min-block-size: var(--comp-chip-min-block-size-md);
+  --comp-chip-interactive-min-block-size-sm: var(--component-inline-trigger-min-block-size-sm);
+  --comp-chip-interactive-min-block-size-md: var(--component-inline-trigger-min-block-size-md);
+  --comp-chip-interactive-min-block-size-lg: var(--component-inline-trigger-min-block-size-lg);
+  --comp-chip-interactive-min-block-size: var(--comp-chip-interactive-min-block-size-md);
   --comp-chip-bg: var(--component-color-surface);
   --comp-chip-border: var(--component-color-border);
   --comp-chip-fg: var(--component-color-text);
   --comp-chip-gap: var(--component-space-xs);
-  --comp-chip-padding-inline: var(--component-frame-padding-control);
-  --comp-chip-removable-padding-inline-end: calc(var(--component-frame-padding-control) + var(--component-space-xs));
-  --comp-chip-selected-bg: var(--component-color-action);
-  --comp-chip-selected-border: var(--component-color-action);
-  --comp-chip-selected-fg: var(--component-color-action-text);
+  --comp-chip-content-padding-inline: calc(var(--component-space-lg) - var(--component-frame-space-micro));
+  --comp-chip-padding-inline: var(--comp-chip-content-padding-inline);
+  --comp-chip-removable-padding-inline-end: var(--component-space-sm);
+  --comp-chip-action-padding-inline-start: var(--comp-chip-content-padding-inline);
+  --comp-chip-action-padding-inline-end: var(--comp-chip-content-padding-inline);
+  --comp-chip-remove-size-sm: calc(var(--component-inline-size-sm) - (var(--component-frame-space-micro) * 2));
+  --comp-chip-remove-size-md: var(--component-badge-min-size);
+  --comp-chip-remove-size-lg: calc(var(--component-badge-min-size) - (var(--component-frame-space-micro) * 2));
+  --comp-chip-remove-size: var(--comp-chip-remove-size-md);
+  --comp-chip-remove-icon-size: var(--component-density-icon-size-sm);
+  --comp-chip-selected-bg: var(--component-color-surface-inverse);
+  --comp-chip-selected-border: var(--component-color-surface-inverse);
+  --comp-chip-selected-fg: var(--component-color-text-on-inverse);
   --comp-chip-hover-bg: var(--component-energy-surface-sunken);
   --comp-chip-hover-shadow: var(--component-depth-raised);
   --comp-chip-hover-transform: scale(var(--component-scale-hover));
@@ -4046,39 +4062,51 @@
   --comp-chip-focus-color: var(--component-color-focus);
   --comp-chip-focus-offset: var(--component-focus-ring-offset);
   --comp-chip-disabled-opacity: var(--component-disabled-readable-opacity);
+  align-items: center;
   background: var(--comp-chip-bg);
   border: var(--comp-chip-border-width) solid var(--comp-chip-border);
   border-radius: var(--comp-chip-radius);
+  box-sizing: border-box;
   color: var(--comp-chip-fg);
+  display: inline-flex;
   font-size: var(--comp-chip-font-size);
   font-weight: var(--comp-chip-font-weight);
   gap: var(--comp-chip-gap);
+  justify-content: center;
+  line-height: var(--component-line-height-none);
   min-block-size: var(--comp-chip-min-block-size);
   padding-inline: var(--comp-chip-padding-inline);
+  white-space: nowrap;
 }
 
 .chip[data-density="sm"] {
   --comp-chip-font-size: var(--comp-chip-font-size-sm);
+  --comp-chip-min-block-size: var(--comp-chip-min-block-size-sm);
+  --comp-chip-interactive-min-block-size: var(--comp-chip-interactive-min-block-size-sm);
+  --comp-chip-remove-size: var(--comp-chip-remove-size-sm);
+  --comp-chip-remove-icon-size: var(--component-density-icon-size-sm);
 }
 
 .chip[data-density="lg"] {
   --comp-chip-font-size: var(--comp-chip-font-size-lg);
+  --comp-chip-min-block-size: var(--comp-chip-min-block-size-lg);
+  --comp-chip-interactive-min-block-size: var(--comp-chip-interactive-min-block-size-lg);
+  --comp-chip-remove-size: var(--comp-chip-remove-size-lg);
+  --comp-chip-remove-icon-size: var(--component-density-icon-size-md);
 }
 
 .chip[data-chip-remove="true"] {
-  padding-inline-end: var(--comp-chip-removable-padding-inline-end);
+  gap: var(--component-space-0);
+  min-block-size: var(--comp-chip-interactive-min-block-size);
+  padding-inline: var(--comp-chip-action-padding-inline-start) var(--comp-chip-removable-padding-inline-end);
+}
+
+.chip[data-chip-remove="true"][data-interactive="true"] {
+  padding-inline-start: var(--component-space-0);
 }
 
 .chip[data-variant="input"] {
   --comp-chip-bg: var(--component-energy-surface-sunken);
-}
-
-.chip[data-variant="suggestion"] {
-  --comp-chip-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
-}
-
-.chip[data-variant="assist"] {
-  --comp-chip-border: var(--component-border-transparent);
 }
 
 .chip[data-tone="warning"] {
@@ -4098,10 +4126,50 @@
 
 .chip__remove {
   direction: ltr;
+  align-items: center;
+  align-self: stretch;
+  appearance: none;
+  background: transparent;
+  border: var(--component-border-width-none);
+  border-radius: var(--component-radius-pill);
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--component-font-family-icon);
+  font-feature-settings: "liga";
+  font: inherit;
+  inline-size: var(--comp-chip-remove-size);
+  justify-content: center;
+  margin: var(--component-space-0);
+  min-block-size: var(--comp-chip-interactive-min-block-size);
+  padding: var(--component-space-0);
+}
+
+.chip__action {
+  align-items: center;
+  align-self: stretch;
+  appearance: none;
+  background: transparent;
+  border: var(--component-border-width-none);
+  border-radius: var(--component-radius-pill);
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  gap: var(--comp-chip-gap);
+  margin: var(--component-space-0);
+  min-block-size: var(--comp-chip-interactive-min-block-size);
+  padding-block: var(--component-space-0);
+  padding-inline-end: var(--comp-chip-action-padding-inline-end);
+  padding-inline-start: var(--comp-chip-action-padding-inline-start);
+}
+
+.chip__remove-icon {
+  direction: ltr;
   display: inline-block;
   font-family: var(--component-font-family-icon);
   font-feature-settings: "liga";
-  font-size: var(--component-font-size-body);
+  font-size: var(--comp-chip-remove-icon-size);
   font-style: normal;
   font-variation-settings: var(--component-icon-variation-outline-strong);
   letter-spacing: var(--component-letter-spacing-normal);
@@ -4109,6 +4177,20 @@
   text-transform: var(--component-text-transform-none);
   white-space: nowrap;
   word-wrap: normal;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+.chip__icon {
+  direction: ltr;
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: var(--component-font-family-icon);
+  font-feature-settings: "liga";
+  font-size: var(--component-density-icon-size-sm);
+  font-style: normal;
+  font-variation-settings: var(--component-icon-variation-outline-strong);
+  line-height: var(--component-line-height-none);
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
@@ -4139,6 +4221,11 @@ button.chip:hover:not(:disabled) {
   transform: var(--comp-chip-hover-transform);
 }
 
+.chip[data-chip-remove="true"]:hover:not([aria-disabled="true"]) {
+  background: var(--comp-chip-hover-bg);
+  box-shadow: var(--comp-chip-hover-shadow);
+}
+
 .chip[data-state="hover"] {
   background: var(--comp-chip-hover-bg);
   box-shadow: var(--comp-chip-hover-shadow);
@@ -4159,7 +4246,8 @@ button.tag:hover:not(:disabled),
 }
 
 button.chip:active:not(:disabled),
-.chip[data-state="pressed"] {
+.chip[data-state="pressed"],
+.chip[data-chip-remove="true"]:active:not([aria-disabled="true"]) {
   transform: var(--comp-chip-press-transform);
 }
 
@@ -4170,6 +4258,8 @@ button.tag:active:not(:disabled),
 
 button.chip:focus-visible,
 .chip[data-state="focus"],
+.chip__action:focus-visible,
+.chip__remove:focus-visible,
 button.tag:focus-visible,
 .tag[data-state="focus"][data-interactive="true"] {
   outline: var(--component-focus-ring-width) solid var(--component-color-focus);
@@ -4196,9 +4286,17 @@ button.tag:disabled,
 }
 
 button.chip:disabled,
-.chip[data-state="disabled"] {
+.chip[data-state="disabled"],
+.chip[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: var(--comp-chip-disabled-opacity);
+}
+
+.chip[aria-disabled="true"] .chip__action,
+.chip[aria-disabled="true"] .chip__remove,
+.chip__action:disabled,
+.chip__remove:disabled {
+  cursor: not-allowed;
 }
 
 button.tag:disabled,

@@ -129,14 +129,13 @@ Icon Button API stays compact: one icon, one accessible action name, one emphasi
 
 Variants set emphasis for one compact topbar utility. Selected is state, not a variant, and appears only when the utility behaves like a toggle.
 
-Approved variants from demos: `ghost`, `tonal`, `primary`, `accent`
+Approved variants from demos: `ghost`, `tonal`, `primary`
 
 Demo labels:
 
 - Ghost
 - Tonal
 - Primary
-- Accent
 
 ## States
 

@@ -115,7 +115,7 @@ Demo labels:
 
 Popover states define closed, open, focus, warning, and disabled behavior around the trigger-panel pair.
 
-Supported states from docs: `closed`, `open`, `hover`, `focus`, `warning`, `disabled`
+Supported states from docs: `default`, `closed`, `open`, `hover`, `focus`, `warning`, `disabled`
 
 ## Variant X State Behavior
 
@@ -177,7 +177,6 @@ Popover API exposes trigger, open state, placement, variant, state, and dismiss 
 | title | string | No | Popover title. |
 | description | string | No | Popover body copy. |
 | id | string | No | Stable popover id. |
-| open | boolean | No | Initial or controlled open state. |
 | variant | "information" \| "action" \| "form" \| "metric" | No | Contextual content shape. |
 | state | "closed" \| "open" \| "hover" \| "focus" \| "warning" \| "disabled" | No | Visual and interaction state. |
 | placement | "top" \| "right" \| "bottom" \| "left" | No | Panel placement relative to trigger. |
@@ -186,6 +185,7 @@ Popover API exposes trigger, open state, placement, variant, state, and dismiss 
 | disabled | boolean | No | Disables the trigger and panel opening. |
 | actions | Array<{ label: string, variant?: string, key?: string }> | No | Optional local actions rendered with Button. |
 | field | { label?: string, value?: string, placeholder?: string, helper?: string } | No | Optional one-field local edit rendered with Input. |
+| open | boolean | No | Initial or controlled open state. |
 | onOpenChange | (open: boolean) => void | No | Called when local open state changes. |
 | onAction | (key: string) => void | No | Called when a local action is selected. |
 

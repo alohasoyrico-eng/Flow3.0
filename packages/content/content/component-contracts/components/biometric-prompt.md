@@ -184,6 +184,8 @@ Biometric Prompt API exposes local props while Design System owns foundations, p
 | fullWidth | boolean | No | Allows the prompt to fill its parent when content remains readable. |
 | fallback | string | No | Secure fallback label. |
 | icon | IconName | No | Decorative biometric icon. |
+| onAction | (event: MouseEvent<HTMLButtonElement>) => void | false |  |
+| onFallback | (event: MouseEvent<HTMLButtonElement>) => void | false |  |
 
 ## Implementation Checklist
 

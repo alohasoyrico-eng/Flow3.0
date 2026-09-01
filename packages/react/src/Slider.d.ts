@@ -8,7 +8,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import { sliderPlatformContract } from "@design-system/components/platforms";
 
 export type SliderVariant = "continuous" | "stepped" | "bounded" | "threshold" | "paired-value";
-export type SliderState = "default" | "focus" | "dragging" | "disabled" | "error" | "complete";
+export type SliderState = "default" | "hover" | "focus" | "pressed" | "dragging" | "disabled" | "error" | "complete";
 export type SliderDensity = "sm" | "md" | "lg";
 
 export interface SliderValueMeta {

@@ -121,7 +121,7 @@ Demo labels:
 
 Code Input states communicate focus, completion, expiry, error, and disabled behavior without taking over the auth pattern.
 
-Supported states from docs: `default`, `hover`, `focus`, `complete`, `warning`, `error`, `disabled`
+Supported states from docs: `default`, `hover`, `focus`, `complete`, `warning`, `error`, `disabled`, `success`
 
 ## Variant X State Behavior
 

@@ -30,6 +30,8 @@ export type TableSortEvent = MouseEvent<HTMLButtonElement>;
 export type TableRowSelectEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
 export type TableRowClickEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
 export type TableExpandedEvent = MouseEvent<HTMLButtonElement> | MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
+export type TableSelectionEvent = React.ChangeEvent<HTMLInputElement>;
+export type TableCellEditEvent = React.FocusEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>;
 
 export interface TableColumn {
   key: string;
@@ -74,8 +76,8 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"
   onRowSelect?: (key: string, event: TableRowSelectEvent) => void;
   onRowClick?: (row: TableRow, event: TableRowClickEvent) => void;
   onExpandedChange?: (key: string, event: TableExpandedEvent) => void;
-  onSelectionChange?: (keys: string[]) => void;
-  onCellEdit?: (key: string, columnKey: string, value: string) => void;
+  onSelectionChange?: (keys: string[], event: TableSelectionEvent) => void;
+  onCellEdit?: (key: string, columnKey: string, value: string, event: TableCellEditEvent) => void;
 }
 
 export interface TableComponent extends ForwardRefExoticComponent<TableProps & RefAttributes<HTMLDivElement>> {

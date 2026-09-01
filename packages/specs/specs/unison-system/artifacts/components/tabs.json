@@ -301,6 +301,11 @@
             "type": "\"default\" | \"underline\"",
             "required": false,
             "notes": "Visual treatment for sibling section navigation."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
           }
         ],
         "tests": [

@@ -99,13 +99,15 @@ chat-thread API exposes semantic props while Flow foundations own state, density
 
 chat-thread variants stay semantic and do not fork visual contracts.
 
-Approved variants from demos: `support`, `assistant`, `audit`
+Approved variants from demos: `message-list`, `empty`, `error`, `handoff`, `offline`
 
 Demo labels:
 
-- support
-- assistant
-- audit
+- Message-list
+- Empty
+- Error
+- Handoff
+- Offline
 
 ## States
 
@@ -152,8 +154,12 @@ chat-thread API exposes semantic props while Flow foundations own state, density
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
 | label | string | No | Accessible thread label. |
+| description | string | false |  |
 | messages | ChatThreadMessage[] | No | Governed message records. |
+| empty | ChatThreadEmptyState | false |  |
+| error | ChatThreadEmptyState | false |  |
 | state | default \| loading \| empty \| error \| handoff \| offline | No | Thread availability state. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | selectedMessageKey | string | No | Selected message key. |
 | onMessageAction | (key, event) => void | No | Recovery action callback. |
 

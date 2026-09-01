@@ -1,11 +1,13 @@
 {
   "schemaVersion": "0.2.0-truth-reset",
-  "updatedAt": "2026-08-30",
+  "updatedAt": "2026-08-31",
   "scope": "truthful Flow3 component 1:1 QA matrix; ZIP reference always applies; Docs/FlowDocs are excluded from current execution scope except local review demos",
   "status": "partial",
   "rule": "A component can be pass only with recent 1:1 evidence: ZIP reference checked first, package-backed React runtime demo, light/dark visual QA, accessibility/keyboard behavior where applicable, density/layout/typography/iconography verified, automated validation passed, and a commit captured in evidence. Stale or inferred pass evidence must be downgraded to partial.",
   "relatedAudits": [
-    "docs/audits/component-variant-pattern-boundary-matrix.json"
+    "docs/audits/component-variant-pattern-boundary-matrix.json",
+    "docs/audits/component-source-of-truth-drift.json",
+    "docs/audits/component-source-of-truth-drift.md"
   ],
   "steps": [
     {
@@ -275,21 +277,21 @@
     },
     {
       "id": "badge",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/display/Badge.jsx",
@@ -861,16 +863,36 @@
         "docs/audits/chip-1to1-frame-metrics.json",
         "docs/audits/chip-1to1-visual-metrics.json",
         "docs/audits/chip-1to1-light.png",
-        "docs/audits/chip-1to1-dark.png"
+        "docs/audits/chip-1to1-dark.png",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/chip.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Chip.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/chip.html",
+        "packages/react/src/Chip.tsx",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/audit/scripts/audit-chip-css-contract.js",
+        "local-visual-snapshots/Flow3-component-qa/chip-2026-08-31/interactive/react-runtime.html?fresh=chip-removable-runtime-1",
+        "/private/tmp/chip-zip-reference.png",
+        "/private/tmp/chip-removable-runtime-clean-1.png",
+        "/private/tmp/chip-removable-runtime-dark-1.png",
+        "/private/tmp/chip-sizing-runtime-1.png",
+        "/private/tmp/chip-remove-layout-runtime-1.png",
+        "/private/tmp/chip-content-frame-runtime-1-variants.png",
+        "/private/tmp/chip-content-frame-runtime-2-variants.png",
+        "/private/tmp/chip-pruned-runtime-1-variants.png",
+        "packages/react/test/interaction.test.mjs",
+        "packages/react/test/p2-display-status.test.mjs",
+        "packages/audit/scripts/react-component-content-guards.js",
+        "docs/audits/component-source-of-truth-drift.json",
+        "docs/audits/component-source-of-truth-drift.md"
       ],
       "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+        "Awaiting user visual review on the regenerated React runtime demo before promoting Chip to pass."
       ],
-      "decision": "Chip remains a component; groups/filter orchestration remain patterns.",
-      "lastValidation": "npm run validate pass",
+      "decision": "Chip remains a component only for compact filters and input tokens. The decorative suggestion/assist variants were removed from API, CSS, component contracts, content copy, specs, and the runtime demo because they were duplicate action/pattern semantics under different names. Groups, suggestions, assistive actions, and orchestration belong to Button/IconButton or higher-level patterns, while Chip owns stable pill anatomy, selection/removal behavior, density, focus, tone, and tokenized value display.",
+      "lastValidation": "Post-prune validation passed: npm --prefix packages/react run build; node packages/react/test/button-render.test.mjs; node packages/react/test/p2-display-status.test.mjs; node packages/audit/scripts/audit-chip-css-contract.js; node packages/audit/scripts/react-component-content-guards.js; npm run build:local-react-qa-demo -- --component=chip; node packages/audit/scripts/audit-gold-demo-quality.js --check; npm run audit:flow-core-gate; npm run typecheck; git diff --check. Targeted rg confirmed no active Chip suggestion/assist variants remain in React API/types, package contracts, package CSS, content copy, generated component contract, spec, or demo generator. npm run audit:content-source-gate was checked but remains failing on the known FlowDocs bundle mismatch outside this component scope. Source-of-truth witness passed with npm run audit:component-source-of-truth -- --component=chip --component=date-picker --check.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "in-review",
+      "truthResetDecision": "Do not promote to pass until visual review confirms ZIP parity in the runtime demo."
     },
     {
       "id": "code-input",
@@ -1019,7 +1041,7 @@
     },
     {
       "id": "date-picker",
-      "status": "pass",
+      "status": "partial",
       "steps": {
         "zip-reference": "partial",
         "system-architecture": "partial",
@@ -1054,7 +1076,9 @@
         "/private/tmp/date-picker-selector-panel-year-runtime-1.png",
         "/private/tmp/date-picker-range-mode-runtime-1.png",
         "packages/components/src/components/specialized-inputs.js",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/test/smoke.test.mjs",
+        "docs/audits/component-source-of-truth-drift.json",
+        "docs/audits/component-source-of-truth-drift.md"
       ],
       "openIssues": [],
       "lastReviewAt": "2026-08-30",
@@ -1062,7 +1086,8 @@
       "decision": "DatePicker single/range consolidation advanced on 2026-08-30 against the ZIP DatePicker contract. DatePicker is now the only calendar owner: mode=\"single\" keeps the ISO string API, mode=\"range\" accepts { from, to }, exposes range presets, range hidden inputs, range day data attributes, and emits the same onValueChange callback with the correct value shape. DateRangePicker no longer owns duplicated calendar state/effects/cells/presets and delegates to DatePicker mode=\"range\" as a compatibility surface. Keyboard coverage remains on the shared DatePicker implementation: ArrowLeft/Right move one day, ArrowUp/Down move one week, Home/End move to month edges, PageUp/PageDown move by month with day clamping, Shift+PageUp/Shift+PageDown jump by year, inline month/year selectors support keyboard selection, Tab cycles inside the panel, Escape and click outside close, and Enter/Space complete range selection. The runtime demos now keep month/year navigation on the selectors instead of reintroducing previous/next arrow buttons. The calendar ARIA contract was repaired to use a real grid/row/gridcell structure with button interaction inside cells, so axe no longer flags invalid role/aria combinations. Runtime demos now include canonical DatePicker range examples and DateRangePicker wrapper examples, both package-backed and starting closed.",
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "closed-with-user-visual-review",
-      "truthResetDecision": "Closed after user visual review, selector-only calendar navigation, keyboard range commit validation, and commit ca949707."
+      "truthResetDecision": "Closed after user visual review, selector-only calendar navigation, keyboard range commit validation, and commit ca949707.",
+      "lastValidation": "Source-of-truth witness passed with npm run audit:component-source-of-truth -- --component=chip --component=date-picker --check. Core gate, typecheck, and git diff --check passed after aligning DatePicker spec/content/contracts with React types."
     },
     {
       "id": "date-range-picker",
@@ -2830,15 +2855,15 @@
     "qualityDebt": 33,
     "reviewStates": {
       "closed-with-recent-evidence": 19,
-      "needs-1to1-review": 20,
+      "needs-1to1-review": 19,
       "closed-with-user-visual-review": 5,
       "needs-revalidation": 12,
-      "in-review": 1
+      "in-review": 2
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
-    "updatedAt": "2026-08-30",
+    "updatedAt": "2026-08-31",
     "sourceCommit": "working-tree",
     "scope": [
       "pagination",
@@ -2850,11 +2875,16 @@
       "dialog",
       "checkbox",
       "radio-button",
-      "switch"
+      "switch",
+      "chip"
     ],
     "nextComponent": "chip",
-    "nextComponentReason": "Chip is a high-impact web component still marked needs-1to1-review; it appears across filters/status contexts and should be revalidated before moving to lower-impact feedback/display components.",
-    "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence."
+    "nextComponentReason": "Chip is in active review. It now has ZIP-informed removable behavior, inverse selected fill, runtime demo evidence, and targeted validation; it still needs user visual review before promotion to pass.",
+    "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
+    "component": "chip",
+    "status": "in-review",
+    "sourceOfTruthGate": "required-before-pass",
+    "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json"
   },
   "truthReset": {
     "updatedAt": "2026-08-28",
@@ -2862,6 +2892,98 @@
     "docsScope": "excluded for now",
     "localDemosScope": "included; local review demos are required evidence for reviewed components",
     "closedComponentPolicy": "Only components with recent ZIP-informed runtime/demo review and commit evidence remain pass.",
-    "partialComponentPolicy": "Partial means not trusted yet, not necessarily broken; it blocks production-ready claims until the 1:1 contract is rerun."
+    "partialComponentPolicy": "Partial means not trusted yet, not necessarily broken; it blocks production-ready claims until the 1:1 contract is rerun.",
+    "sourceOfTruthDrift": {
+      "status": "pass",
+      "witnessStatus": "pass",
+      "scope": [
+        "accordion",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "input",
+        "input-amount",
+        "pagination",
+        "phone-input",
+        "radio-button",
+        "select",
+        "slider",
+        "table",
+        "text-area"
+      ],
+      "summary": {
+        "componentsChecked": 25,
+        "aligned": 25,
+        "drift": 0,
+        "findings": 0,
+        "highFindings": 0,
+        "mediumFindings": 0
+      },
+      "latestTargetedCleanSummary": {
+        "componentsChecked": 25,
+        "aligned": 25,
+        "drift": 0,
+        "findings": 0,
+        "highFindings": 0,
+        "mediumFindings": 0
+      },
+      "rule": "A component cannot be promoted to pass when spec, componentContracts, React types, content copy, generated contract, CSS, or local React demo disagree on props, variants, or states.",
+      "generatorRule": "Component contracts must be regenerated through npm run build:component-contracts -- --component=<id>; the generator must fail for missing component-copy sources instead of silently writing drift.",
+      "command": "npm run audit:component-source-of-truth -- --component=<id> --check",
+      "reviewedCommand": "npm run audit:component-source-of-truth -- --reviewed",
+      "reviewedReport": "docs/audits/component-source-of-truth-drift.json",
+      "witnessReport": "docs/audits/component-source-of-truth-drift.json",
+      "testWitnessesPassing": [
+        "accordion",
+        "breadcrumbs",
+        "button",
+        "card",
+        "card-expiry-input",
+        "card-number-input",
+        "card-security-code-input",
+        "checkbox",
+        "chip",
+        "code-input",
+        "combobox",
+        "country-selector",
+        "date-picker",
+        "date-range-picker",
+        "dialog",
+        "drawer",
+        "input",
+        "input-amount",
+        "pagination",
+        "phone-input",
+        "radio-button",
+        "select",
+        "slider",
+        "table",
+        "text-area"
+      ],
+      "remainingReviewedDrift": 0,
+      "lastValidation": "npm run audit:component-source-of-truth -- --check passed with 59/59 aligned, and npm run audit:component-source-of-truth -- --reviewed passed with 25/25 aligned. This is contract/source alignment only; visual 1:1 pass still requires per-component runtime review.",
+      "globalStatus": "pass",
+      "globalSummary": {
+        "componentsChecked": 59,
+        "aligned": 59,
+        "drift": 0,
+        "findings": 0,
+        "highFindings": 0,
+        "mediumFindings": 0
+      },
+      "globalReport": "docs/audits/component-source-of-truth-drift.json"
+    }
   }
 }

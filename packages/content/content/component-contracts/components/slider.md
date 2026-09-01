@@ -120,7 +120,7 @@ Demo labels:
 
 Slider states communicate default, focus, dragging, disabled, error, and completed value.
 
-Supported states from docs: `default`, `focus`, `dragging`, `disabled`, `error`, `complete`
+Supported states from docs: `default`, `focus`, `dragging`, `disabled`, `error`, `complete`, `hover`, `pressed`
 
 ## Variant X State Behavior
 

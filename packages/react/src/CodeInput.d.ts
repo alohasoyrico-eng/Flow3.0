@@ -4,7 +4,7 @@ import { codeInputPlatformContract } from "@design-system/components/platforms";
 
 export type CodeInputDensity = "sm" | "md" | "lg";
 export type CodeInputVariant = "sms" | "otp" | "approval" | "masked" | "compact";
-export type CodeInputState = "default" | "hover" | "focus" | "complete" | "warning" | "error" | "disabled";
+export type CodeInputState = "default" | "hover" | "focus" | "complete" | "success" | "warning" | "error" | "disabled";
 
 export interface CodeInputChangeMeta {
   value: string;

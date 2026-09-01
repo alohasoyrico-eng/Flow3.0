@@ -51,6 +51,10 @@
             "description": "Metric label and value."
           },
           {
+            "id": "compact",
+            "description": "compact variant."
+          },
+          {
             "id": "delta",
             "description": "Metric with local comparison text and trend icon."
           },
@@ -307,12 +311,6 @@
             "type": "boolean",
             "required": false,
             "notes": "Shows loading placeholder."
-          },
-          {
-            "name": "ariaLabel",
-            "type": "string",
-            "required": false,
-            "notes": "Accessible name override for interactive tiles."
           },
           {
             "name": "onSelect",

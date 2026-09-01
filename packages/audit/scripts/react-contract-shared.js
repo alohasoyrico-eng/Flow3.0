@@ -58,9 +58,30 @@ function propsBodyFor(types, componentName) {
     ?? "";
 }
 
-function ownReactPropsFor(types, componentName) {
-  return [...propsBodyFor(types, componentName).matchAll(/^\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm)]
+function propsForBody(body, { inline = false } = {}) {
+  const pattern = inline
+    ? /(?:^|[;{\n])\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm
+    : /^\s*([A-Za-z][A-Za-z0-9]*)(\?)?:/gm;
+  return [...String(body).matchAll(pattern)]
     .map((match) => ({ name: match[1], required: !match[2] }));
+}
+
+function aliasPropsFor(types, aliasName) {
+  const match = types.match(new RegExp(`export type ${escapeRegExp(aliasName)}\\s*=\\s*([\\s\\S]*?)(?=\\nexport\\s)`, "m"));
+  if (!match) return [];
+  return [...match[1].matchAll(/\{([\s\S]*?)\}/g)]
+    .flatMap((body) => propsForBody(body[1], { inline: true }));
+}
+
+function ownReactPropsFor(types, componentName) {
+  const props = propsForBody(propsBodyFor(types, componentName));
+  const aliasNames = types
+    .match(new RegExp(`export type ${componentName}Props\\s*=\\s*([\\s\\S]*?)\\s*&\\s*\\{`, "m"))?.[1]
+    ?.split("&")
+    .map((part) => part.trim())
+    .filter((part) => /^[A-Z][A-Za-z0-9]*$/.test(part) && part !== "FlowDataAttributes") ?? [];
+  for (const aliasName of aliasNames) props.push(...aliasPropsFor(types, aliasName));
+  return props.filter((prop, index) => props.findIndex((item) => item.name === prop.name) === index);
 }
 
 function propTypeExpression(types, componentName, propName) {

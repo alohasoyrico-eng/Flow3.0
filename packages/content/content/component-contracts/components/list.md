@@ -185,6 +185,7 @@ List API exposes item data, variant, state, selection, and action model while De
 | state | default \| hover \| selected \| loading \| error \| disabled | No | List-wide fallback state for demos or controlled examples. |
 | interactive | boolean | No | Renders rows as buttons when a row acts or navigates. |
 | label | string | No | Accessible list label. |
+| selectedKey | string | false |  |
 | density | sm \| md \| lg | No | Row density from Flow density context. |
 | onSelect | (key: string) => void | No | Called when an interactive row is selected. |
 

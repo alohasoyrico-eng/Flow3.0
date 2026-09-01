@@ -303,6 +303,18 @@
             "type": "\"button\" | \"submit\" | \"reset\"",
             "required": false,
             "notes": "Native button type."
+          },
+          {
+            "name": "children",
+            "type": "ReactNode",
+            "required": false,
+            "notes": "Composable content slot rendered inside the component."
+          },
+          {
+            "name": "fullWidth",
+            "type": "boolean",
+            "required": false,
+            "notes": "Allows the button to fill its parent width."
           }
         ],
         "productExamples": [

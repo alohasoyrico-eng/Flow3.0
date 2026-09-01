@@ -4,15 +4,15 @@
   "source": "packages/components/src/contracts.js",
   "taxonomy": "packages/audit/contracts/state-variant-taxonomy-contract.json",
   "taxonomySchemaVersion": "flow-state-variant-taxonomy-contract@1",
-  "totalComponents": 60,
-  "componentsWithPublicVocabulary": 60,
+  "totalComponents": 59,
+  "componentsWithPublicVocabulary": 59,
   "familyCounts": {
     "navigation": 6,
     "motion-feedback": 2,
     "domain-event": 1,
     "display-status": 4,
     "domain-auth": 1,
-    "actions": 3,
+    "actions": 2,
     "surface-display": 1,
     "fields-payment": 4,
     "domain-payment": 1,
@@ -28,15 +28,15 @@
     "progress-feedback": 1
   },
   "propCounts": {
-    "variant": 40,
-    "state": 55,
+    "variant": 39,
+    "state": 54,
     "tone": 14,
-    "intent": 3,
-    "density": 60,
+    "intent": 2,
+    "density": 59,
     "size": 0,
     "selected": 6,
-    "disabled": 34,
-    "loading": 13
+    "disabled": 33,
+    "loading": 12
   },
   "reviewFlagCounts": {},
   "flaggedComponents": [],
@@ -55,8 +55,10 @@
         "default"
       ],
       "states": [
+        "default",
         "closed",
         "open",
+        "focus",
         "disabled"
       ],
       "publicVocabulary": [
@@ -843,9 +845,7 @@
       "element": "span | button",
       "variants": [
         "filter",
-        "input",
-        "suggestion",
-        "assist"
+        "input"
       ],
       "intents": [
         "default",
@@ -961,6 +961,7 @@
         "hover",
         "focus",
         "complete",
+        "success",
         "warning",
         "error",
         "disabled"
@@ -973,7 +974,7 @@
         },
         {
           "name": "state",
-          "type": "\"default\" | \"hover\" | \"focus\" | \"complete\" | \"warning\" | \"error\" | \"disabled\"",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"complete\" | \"success\" | \"warning\" | \"error\" | \"disabled\"",
           "required": false
         },
         {
@@ -1333,63 +1334,6 @@
       "reviewFlags": []
     },
     {
-      "id": "floatingActionButton",
-      "slug": "floating-action-button",
-      "family": "actions",
-      "element": "button",
-      "variants": [
-        "primary",
-        "extended",
-        "mini"
-      ],
-      "intents": [
-        "default",
-        "danger",
-        "warning"
-      ],
-      "states": [
-        "default",
-        "hover",
-        "focus",
-        "pressed",
-        "loading",
-        "disabled"
-      ],
-      "publicVocabulary": [
-        {
-          "name": "variant",
-          "type": "\"primary\" | \"extended\" | \"mini\"",
-          "required": false
-        },
-        {
-          "name": "state",
-          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"loading\" | \"disabled\"",
-          "required": false
-        },
-        {
-          "name": "intent",
-          "type": "\"default\" | \"danger\" | \"warning\"",
-          "required": false
-        },
-        {
-          "name": "density",
-          "type": "\"sm\" | \"md\" | \"lg\"",
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "required": false
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "required": false
-        }
-      ],
-      "reviewFlags": []
-    },
-    {
       "id": "iconButton",
       "slug": "icon-button",
       "family": "actions",
@@ -1402,7 +1346,9 @@
         "ghost"
       ],
       "intents": [
-        "default"
+        "default",
+        "danger",
+        "warning"
       ],
       "states": [
         "default",
@@ -1598,6 +1544,7 @@
       "element": "article",
       "variants": [
         "standard",
+        "compact",
         "delta",
         "threshold",
         "sparkline",
@@ -1841,7 +1788,8 @@
       "family": "navigation",
       "element": "nav",
       "variants": [
-        "numbered"
+        "numbered",
+        "jump"
       ],
       "intents": [
         "navigation"
@@ -1856,7 +1804,7 @@
       "publicVocabulary": [
         {
           "name": "variant",
-          "type": "numbered",
+          "type": "\"numbered\" | \"jump\"",
           "required": false
         },
         {
@@ -2266,7 +2214,9 @@
       ],
       "states": [
         "default",
+        "hover",
         "focus",
+        "pressed",
         "dragging",
         "disabled",
         "error",
@@ -2280,7 +2230,7 @@
         },
         {
           "name": "state",
-          "type": "\"default\" | \"focus\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"",
+          "type": "\"default\" | \"hover\" | \"focus\" | \"pressed\" | \"dragging\" | \"disabled\" | \"error\" | \"complete\"",
           "required": false
         },
         {
@@ -2597,6 +2547,8 @@
         "default",
         "focus",
         "filled",
+        "success",
+        "warning",
         "loading",
         "error",
         "disabled"
@@ -2604,7 +2556,7 @@
       "publicVocabulary": [
         {
           "name": "state",
-          "type": "\"default\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+          "type": "\"default\" | \"focus\" | \"filled\" | \"success\" | \"warning\" | \"loading\" | \"error\" | \"disabled\"",
           "required": false
         },
         {

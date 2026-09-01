@@ -28,7 +28,7 @@
   },
   "secondaryExpectedInventories": {
     "accessibility": {
-      "components": 60,
+      "components": 59,
       "accessibilityDebt": 0,
       "criticalComponents": 10,
       "criticalPassing": 10,
@@ -76,10 +76,10 @@
       "reactGovernancePolicyIssues": 0
     },
     "interaction": {
-      "components": 60,
+      "components": 59,
       "interactionDebt": 0,
       "withCallbacks": 44,
-      "pass": 60,
+      "pass": 59,
       "review": 0,
       "fail": 0,
       "missingTestCallbacks": 0,

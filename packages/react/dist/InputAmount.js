@@ -65,7 +65,9 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
     const [draftValue, setDraftValue] = useState(null);
     const currentValue = isValueControlled ? value ?? "" : internalValue;
     const normalizedValue = normalizeAmount(currentValue, locale);
-    const displayValue = useMemo(() => draftValue ?? formatAmountDisplay(currentValue, resolvedCurrency, locale), [currentValue, draftValue, locale, resolvedCurrency]);
+    const controlledSignature = `${String(value ?? "")}::${resolvedCurrency}::${JSON.stringify(locale ?? "")}`;
+    const activeDraftValue = draftValue && (!isValueControlled || draftValue.controlledSignature === controlledSignature) ? draftValue.value : null;
+    const displayValue = useMemo(() => activeDraftValue ?? formatAmountDisplay(currentValue, resolvedCurrency, locale), [currentValue, activeDraftValue, locale, resolvedCurrency]);
     const resolvedError = error || validationMessage || "";
     const resolvedState = resolveAmountState({ disabled, loading, error: resolvedError, ...(state !== undefined ? { state } : {}), value: normalizedValue });
     const resolvedDensity = normalizeFlowDensity(density);
@@ -105,13 +107,13 @@ export const InputAmount = forwardRef(function InputAmount({ label, value, helpe
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event) => {
             const meta = amountMeta(event.target.value, resolvedCurrency, locale);
-            setDraftValue(event.target.value);
+            setDraftValue({ value: event.target.value, controlledSignature });
             if (!isValueControlled)
                 setInternalValue(meta.value);
             onValueChange?.(meta.value, meta, event);
         },
         onFocus: (event) => {
-            setDraftValue(event.currentTarget.value);
+            setDraftValue({ value: event.currentTarget.value, controlledSignature });
             onFocus?.(event);
         },
         onBlur: (event) => {

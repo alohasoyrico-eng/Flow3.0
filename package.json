@@ -700,6 +700,7 @@
   ],
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs",
+    "build:component-contracts": "node scripts/generate-component-contracts.mjs",
     "build:components:contracts": "node scripts/build-components-contracts.mjs",
     "build:components:index": "node scripts/build-components-index.mjs",
     "build:components:platforms": "node scripts/build-components-platforms.mjs",
@@ -722,6 +723,7 @@
     "audit:ds-qa-performance": "node packages/audit/scripts/report-ds-qa-performance.js",
     "audit:ds-qa-topology": "node packages/audit/scripts/report-ds-qa-topology.js",
     "audit:flow-core-gate": "node packages/audit/scripts/audit-flow-core-gate.js",
+    "audit:component-source-of-truth": "node packages/audit/scripts/report-component-source-of-truth-drift.js",
     "audit:control-frame-runtime": "node packages/audit/scripts/audit-control-frame-density-runtime.mjs",
     "audit:choice-frame-runtime": "node packages/audit/scripts/audit-choice-frame-runtime.mjs",
     "audit:icon-button-runtime": "node packages/audit/scripts/audit-icon-button-runtime.mjs",

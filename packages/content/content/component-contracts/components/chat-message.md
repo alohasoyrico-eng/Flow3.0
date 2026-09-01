@@ -158,10 +158,14 @@ chat-message API exposes semantic props while Flow foundations own state, densit
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
 | author | user \| agent \| system \| assistant | No | Author role. |
+| authorLabel | string | false |  |
+| avatar | Partial<AvatarProps> | false |  |
 | body | string | No | Visible message body. |
+| timestamp | string | No | Visible time metadata. |
+| meta | ReactNode | false |  |
 | state | default \| sending \| sent \| delivered \| failed \| loading | No | Delivery or loading state. |
 | tone | neutral \| info \| success \| warning \| danger | No | Semantic tone. |
-| timestamp | string | No | Visible time metadata. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | action | ChatMessageAction | No | Optional recovery action. |
 
 ## Implementation Checklist

@@ -186,6 +186,7 @@ Phone Input API exposes label, value, country, countries, prefix, variant, state
 | density | "sm" \| "md" \| "lg" | No | Maps to the shared Input control density. |
 | error | string | No | Error helper text; sets aria-invalid and error state. |
 | onValueChange | (digits: string, meta: PhoneMeta) => void | No | Called with national digits and country/calling-code metadata. |
+| emptyText | string | false | Message forwarded to the composed country selector when search has no results. |
 
 ## Implementation Checklist
 

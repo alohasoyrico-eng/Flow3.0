@@ -129,12 +129,6 @@
             "notes": "Controlled amount value."
           },
           {
-            "name": "defaultValue",
-            "type": "string",
-            "required": "No",
-            "notes": "Uncontrolled initial value."
-          },
-          {
             "name": "currency",
             "type": "string",
             "required": "No",
@@ -163,6 +157,72 @@
             "type": "(value, meta, event) => void",
             "required": "No",
             "notes": "Value callback with amount metadata."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "notes": "disabled prop."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "notes": "name prop."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "notes": "required prop."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false,
+            "notes": "density prop."
+          },
+          {
+            "name": "helper",
+            "type": "string",
+            "required": false,
+            "notes": "helper prop."
+          },
+          {
+            "name": "helperText",
+            "type": "string",
+            "required": false,
+            "notes": "helperText prop."
+          },
+          {
+            "name": "loading",
+            "type": "boolean",
+            "required": false,
+            "notes": "loading prop."
+          },
+          {
+            "name": "prefix",
+            "type": "string",
+            "required": false,
+            "notes": "prefix prop."
+          },
+          {
+            "name": "state",
+            "type": "\"default\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+            "required": false,
+            "notes": "state prop."
+          },
+          {
+            "name": "suffix",
+            "type": "string",
+            "required": false,
+            "notes": "suffix prop."
+          },
+          {
+            "name": "validationMessage",
+            "type": "string",
+            "required": false,
+            "notes": "validationMessage prop."
           }
         ]
       },

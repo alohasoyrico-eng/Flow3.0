@@ -180,9 +180,11 @@ Motion Boundary API exposes local props while Design System owns foundations, pr
 | label | string | No | Boundary label. |
 | description | string | No | Short description for the bounded region. |
 | variant | MotionBoundaryVariant | No | Transition treatment. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | state | MotionBoundaryState | No | Motion state. |
 | icon | IconName | No | Decorative transition icon. |
 | reducedMotion | boolean | No | Reduced-motion mode. |
+| stateLabel | string | false |  |
 
 ## Implementation Checklist
 

@@ -112,14 +112,14 @@ Inline Validation API exposes field label, optional field preview value, message
 
 Inline Validation variants describe severity and purpose: error recovery, warning guidance, success confirmation, and neutral information.
 
-Approved variants from demos: `Driver email`, `Monthly card limit`, `Vehicle ID`, `Cost center`
+Approved variants from demos: `info`, `success`, `warning`, `error`
 
 Demo labels:
 
-- Driver email
-- Monthly card limit
-- Vehicle ID
-- Cost center
+- Info
+- Success
+- Warning
+- Error
 
 ## States
 
@@ -189,6 +189,7 @@ Inline Validation API exposes field label, optional field preview value, message
 | message | string | No | Visible validation or confirmation copy. |
 | state | InlineValidationState | No | Field validation state. |
 | id | string | No | Stable field id used to wire aria-describedby. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | fullWidth | boolean | No | Lets the validation field and message fill the owning field column. |
 | field | boolean | No | When true, renders a field preview; when false, renders only the attached validation message. |
 | live | boolean | No | Announces dynamic validation after user action; errors use alert, non-error states use status. |

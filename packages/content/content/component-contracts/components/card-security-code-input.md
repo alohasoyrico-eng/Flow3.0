@@ -124,7 +124,7 @@ Demo labels:
 
 States communicate entry, local validation, loading, error, and disabled behavior without owning card enrollment.
 
-Supported states from docs: `Default`, `filled`, `valid`, `loading`, `error`, `disabled`
+Supported states from docs: `Default`, `filled`, `valid`, `loading`, `error`, `disabled`, `default`
 
 ## Variant X State Behavior
 
@@ -197,10 +197,12 @@ Card Security Code Input API exposes one local CVC/CVV field. It owns digit norm
 | name | string | No | Native input name. |
 | placeholder | string | No | Example security code format. |
 | expectedLength | 3 \| 4 | No | Required local code length. |
-| validationMessage | string | No | Local invalid-length recovery copy. |
 | revealable | boolean | No | Adds the reveal field action. |
 | revealed | boolean | No | Initial visibility state. |
 | onValueChange | (digits: string, meta: CardSecurityCodeMeta) => void | No | Called with digits, validity, expectedLength, and complete flag. |
+| hideLabel | string | false | Accessible label for hiding the security code. |
+| revealLabel | string | false | Accessible label for revealing the security code. |
+| onRevealChange | (revealed: boolean) => void | false | Reveal-state callback. |
 
 ## Implementation Checklist
 

@@ -110,9 +110,6 @@ Approved variants from demos: `standard`
 
 Demo labels:
 
-- Standard
-- Expanded hierarchy
-- Compact density
 - Touch density
 
 ## States
@@ -180,9 +177,11 @@ Tree View API exposes local props while Design System owns foundations, primitiv
 | label | string | Yes | Accessible tree label. |
 | nodes | TreeNode[] | Yes | Hierarchical node data. |
 | state | TreeViewState | No | Tree display state. |
+| selectedKey | string | false |  |
+| expandedKeys | string[] | false |  |
+| density | "sm" \| "md" \| "lg" | No | Tree row density: sm, md, or lg. |
 | onSelect | (key: string) => void | No | Called when a node is selected. |
 | onExpandedChange | (expandedKeys: string[]) => void | No | Called when node expansion changes. |
-| density | "sm" \| "md" \| "lg" | No | Tree row density: sm, md, or lg. |
 
 ## Implementation Checklist
 

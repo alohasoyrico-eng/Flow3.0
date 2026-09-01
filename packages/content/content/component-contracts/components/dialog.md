@@ -199,6 +199,8 @@ Dialog API exposes title, description, tone, variant, lifecycle, close behavior,
 | density | sm \| md \| lg | No | Inherited Flow density for trigger, close, actions, panel, and fields. |
 | icon | string | No | Optional Material Symbol override for the tone icon. |
 | fields | InputProps[] | No | Optional short form fields rendered with Input inside the dialog body. |
+| children | ReactNode | false | Composable content slot rendered inside the component. |
+| closeLabel | string | false | Accessible label for the close action. |
 
 ## Implementation Checklist
 

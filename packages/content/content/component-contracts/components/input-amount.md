@@ -152,12 +152,22 @@ input-amount API exposes semantic props while Flow foundations own state, densit
 | --- | --- | --- | --- |
 | label | string | Yes | Visible amount label. |
 | value | string | No | Controlled amount value. |
-| defaultValue | string | No | Uncontrolled initial value. |
 | currency | string | No | Visible currency code. |
 | locale | string \| string[] | No | Consumer-supplied formatting locale. |
 | placeholder | string | No | Consumer-supplied format mask. |
 | error | string | No | Visible recovery copy. |
 | onValueChange | (value, meta, event) => void | No | Value callback with amount metadata. |
+| disabled | boolean | false | disabled prop. |
+| name | string | false | name prop. |
+| required | boolean | false | required prop. |
+| density | "sm" \| "md" \| "lg" | false | density prop. |
+| helper | string | false | helper prop. |
+| helperText | string | false | helperText prop. |
+| loading | boolean | false | loading prop. |
+| prefix | string | false | prefix prop. |
+| state | "default" \| "filled" \| "loading" \| "error" \| "disabled" | false | state prop. |
+| suffix | string | false | suffix prop. |
+| validationMessage | string | false | validationMessage prop. |
 
 ## Implementation Checklist
 

@@ -179,6 +179,7 @@ Badge API exposes compact marker content, tone, variant, and accessibility label
 | label | string | No | Short visible count or status. |
 | tone | BadgeTone | No | Semantic tone. |
 | variant | BadgeVariant | No | Marker shape and content density. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | state | BadgeState | No | Local display state: default, hover, focus, overflow, hidden, or disabled. |
 | hidden | boolean | No | Hides the badge when the parent state requires it. |
 | live | boolean | No | Announces badge changes politely. |

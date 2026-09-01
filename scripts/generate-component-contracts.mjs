@@ -4,6 +4,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
+const requestedComponents = process.argv
+  .filter((arg) => arg.startsWith("--component="))
+  .map((arg) => arg.slice("--component=".length).trim())
+  .filter(Boolean);
 const sourceDir = path.join(root, "packages/content/content/component-copy/components");
 const targetDir = path.join(root, "packages/content/content/component-contracts/components");
 const specDir = path.join(root, "packages/specs/specs/unison-system/artifacts/components");
@@ -413,7 +417,14 @@ const componentIds = fs.readdirSync(sourceDir, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name)
   .filter((id) => collectSources(path.join(sourceDir, id)).length > 0)
+  .filter((id) => requestedComponents.length === 0 || requestedComponents.includes(id))
   .sort();
+
+const missingRequestedComponents = requestedComponents.filter((id) => !componentIds.includes(id));
+if (missingRequestedComponents.length) {
+  console.error(`Missing component-copy source for: ${missingRequestedComponents.join(", ")}`);
+  process.exit(1);
+}
 
 for (const id of componentIds) {
   const { sourceFiles, content } = readComponent(id);

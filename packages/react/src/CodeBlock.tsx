@@ -133,6 +133,7 @@ export const CodeBlock = forwardRef<HTMLElement, CodeBlockProps>(function CodeBl
       clearTimeout(copyFeedbackTimer.current);
     }
     copyFeedbackTimer.current = setTimeout(() => setCopyFeedback(null), duration);
+    (copyFeedbackTimer.current as { unref?: () => void }).unref?.();
   }
 
   async function handleCopyClick(event: React.MouseEvent<HTMLButtonElement>) {

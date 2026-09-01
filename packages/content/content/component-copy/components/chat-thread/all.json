@@ -61,19 +61,24 @@
         "copy": "chat-thread variants stay semantic and do not fork visual contracts.",
         "demos": [
           {
-            "label": "support",
-            "variant": "support",
-            "state": "default"
+            "label": "Message-list",
+            "variant": "message-list"
           },
           {
-            "label": "assistant",
-            "variant": "assistant",
-            "state": "default"
+            "label": "Empty",
+            "variant": "empty"
           },
           {
-            "label": "audit",
-            "variant": "audit",
-            "state": "default"
+            "label": "Error",
+            "variant": "error"
+          },
+          {
+            "label": "Handoff",
+            "variant": "handoff"
+          },
+          {
+            "label": "Offline",
+            "variant": "offline"
           }
         ]
       },
@@ -124,16 +129,36 @@
             "notes": "Accessible thread label."
           },
           {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
             "name": "messages",
             "type": "ChatThreadMessage[]",
             "required": "No",
             "notes": "Governed message records."
           },
           {
+            "name": "empty",
+            "type": "ChatThreadEmptyState",
+            "required": false
+          },
+          {
+            "name": "error",
+            "type": "ChatThreadEmptyState",
+            "required": false
+          },
+          {
             "name": "state",
             "type": "default | loading | empty | error | handoff | offline",
             "required": "No",
             "notes": "Thread availability state."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
           },
           {
             "name": "selectedMessageKey",

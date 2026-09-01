@@ -126,7 +126,7 @@ Demo labels:
 
 Combobox states communicate typed filtering, open options, selected value, empty results, error, and disabled behavior.
 
-Supported states from docs: `default`, `filled`, `focus`, `open`, `empty`, `error`, `disabled`
+Supported states from docs: `default`, `filled`, `focus`, `open`, `empty`, `error`, `disabled`, `loading`
 
 ## Variant X State Behavior
 
@@ -197,6 +197,12 @@ Combobox API exposes one editable selection field. Design System owns field shel
 | density | "sm" \| "md" \| "lg" | No | Maps to field density. |
 | state | "default" \| "open" \| "focus" \| "filled" \| "empty" \| "error" \| "disabled" | No | Semantic demo or controlled state. |
 | onValueChange | (value, meta) => void | No | Called for typed input, selected option, and clear action. |
+| clearSelectionLabel | string | false | Accessible label for clearing the selection. |
+| loading | boolean | false | Shows loading state. |
+| loadingText | string | false | Visible or accessible loading copy. |
+| onOpenChange | (open: boolean) => void | false | Open-state callback. |
+| open | boolean | false | Controls the option list open state. |
+| optionsLabel | string | false | Accessible label for the options list. |
 
 ## Implementation Checklist
 

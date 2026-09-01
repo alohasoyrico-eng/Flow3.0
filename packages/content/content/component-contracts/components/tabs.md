@@ -112,10 +112,8 @@ Approved variants from demos: `default`, `underline`
 
 Demo labels:
 
-- Default
-- Underline
-- With icons
 - With badge
+- Underline
 
 ## States
 
@@ -185,6 +183,7 @@ Tabs API exposes label, items, selectedKey, onValueChange, and variant while Des
 | selectedKey | string | No | Active tab key. |
 | onValueChange | (key: string) => void | No | Called when local tab selection changes. |
 | variant | "default" \| "underline" | No | Visual treatment for sibling section navigation. |
+| density | "sm" \| "md" \| "lg" | false |  |
 
 ## Implementation Checklist
 

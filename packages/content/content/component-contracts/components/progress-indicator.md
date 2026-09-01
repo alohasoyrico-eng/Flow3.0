@@ -115,8 +115,6 @@ Approved variants from demos: `linear`, `indeterminate`
 
 Demo labels:
 
-- Card import
-- Verification complete
 - Waiting for network
 - Syncing rules
 
@@ -185,6 +183,7 @@ Progress Indicator API exposes label, variant, value, max, state, tone, and full
 | --- | --- | --- | --- |
 | label | string | Yes | Accessible operation label. |
 | value | number | No | Current value for determinate progress. |
+| ariaValueText | string | false |  |
 | max | number | No | Range maximum. |
 | indeterminate | boolean | No | Shows indeterminate progress. |
 | showValue | boolean | No | Shows the calculated percentage value. |

@@ -8,6 +8,7 @@ export const componentContracts = {
         states: ["default", "hover", "focus", "pressed", "disabled", "loading"],
         props: [
             { name: "label", type: "string", required: false },
+            { name: "children", type: "ReactNode", required: false },
             { name: "variant", type: "\"primary\" | \"secondary\" | \"tertiary\" | \"outlined\" | \"ghost\"", required: false },
             { name: "intent", type: "\"default\" | \"danger\" | \"warning\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
@@ -59,7 +60,7 @@ export const componentContracts = {
         element: "button",
         purpose: "Trigger a compact icon-only utility with a fixed circular hit area, required accessible label, optional badge, and selected state only for true toggles.",
         variants: ["primary", "secondary", "tertiary", "outlined", "ghost"],
-        intents: ["default"],
+        intents: ["default", "danger", "warning"],
         states: ["default", "hover", "pressed", "selected", "badged", "focus", "disabled", "loading"],
         props: [
             { name: "ariaLabel", type: "string", required: true },
@@ -109,7 +110,6 @@ export const componentContracts = {
             { name: "prefix", type: "string", required: false },
             { name: "suffix", type: "string", required: false },
             { name: "mono", type: "boolean", required: false },
-            { name: "labelHidden", type: "boolean", required: false },
             { name: "type", type: "string", required: false },
             { name: "inputMode", type: "string", required: false },
             { name: "autocomplete", type: "string", required: false },
@@ -275,6 +275,7 @@ export const componentContracts = {
             { name: "options", type: "SelectOption[]", required: true },
             { name: "value", type: "string", required: false },
             { name: "name", type: "string", required: false },
+            { name: "placeholder", type: "string", required: false },
             { name: "disabled", type: "boolean", required: false },
             { name: "loading", type: "boolean", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
@@ -464,7 +465,7 @@ export const componentContracts = {
         purpose: "Capture multi-line text with visible label, optional helper, and native textarea behavior.",
         variants: ["default"],
         intents: ["default"],
-        states: ["default", "focus", "filled", "loading", "error", "disabled"],
+        states: ["default", "focus", "filled", "success", "warning", "loading", "error", "disabled"],
         props: [
             { name: "label", type: "string", required: true },
             { name: "helper", type: "string", required: false },
@@ -479,7 +480,7 @@ export const componentContracts = {
             { name: "rows", type: "number", required: false },
             { name: "maxLength", type: "number", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
-            { name: "state", type: "\"default\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"", required: false },
+            { name: "state", type: "\"default\" | \"focus\" | \"filled\" | \"success\" | \"warning\" | \"loading\" | \"error\" | \"disabled\"", required: false },
             { name: "onValueChange", type: "(value: string, meta: TextAreaChangeMeta) => void", required: false }
         ],
         accessibility: [
@@ -517,8 +518,8 @@ export const componentContracts = {
     chip: {
         factory: "@design-system/react/chip",
         element: "span | button",
-        purpose: "Show a compact selected filter, token, or removable value with visible label and optional interaction state.",
-        variants: ["filter", "input", "suggestion", "assist"],
+        purpose: "Show a compact selected filter or removable value token with visible label and optional interaction state.",
+        variants: ["filter", "input"],
         intents: ["default", "danger", "warning"],
         states: ["default", "hover", "pressed", "selected", "focus", "disabled"],
         props: [
@@ -695,7 +696,7 @@ export const componentContracts = {
         purpose: "Reveal and hide bounded content sections without owning the surrounding process.",
         variants: ["single", "multiple"],
         intents: ["default"],
-        states: ["closed", "open", "disabled"],
+        states: ["default", "closed", "open", "focus", "disabled"],
         props: [
             { name: "items", type: "AccordionItem[]", required: true },
             { name: "defaultOpen", type: "string", required: false },
@@ -906,14 +907,29 @@ export const componentContracts = {
             { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"sorted\" | \"expanded\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "dense", type: "boolean", required: false },
+            { name: "surface", type: "\"card\" | \"embedded\"", required: false },
+            { name: "zebra", type: "boolean", required: false },
+            { name: "stickyHeader", type: "boolean", required: false },
+            { name: "emptyLabel", type: "string", required: false },
+            { name: "emptyDescription", type: "string", required: false },
+            { name: "emptyIcon", type: "string", required: false },
+            { name: "tree", type: "boolean", required: false },
+            { name: "childrenKey", type: "string", required: false },
+            { name: "selection", type: "string[]", required: false },
             { name: "sortKey", type: "string", required: false },
             { name: "sortDir", type: "\"ascending\" | \"descending\"", required: false },
+            { name: "defaultSort", type: "TableDefaultSort", required: false },
             { name: "selectedKey", type: "string", required: false },
             { name: "expandedKey", type: "string", required: false },
+            { name: "defaultExpandedKey", type: "string", required: false },
             { name: "renderDetail", type: "(row: TableRow) => ReactNode", required: false },
+            { name: "getExpandLabel", type: "(row: TableRow, meta: { expanded: boolean; key: string }) => string", required: false },
             { name: "onSortChange", type: "(sort: TableSort) => void", required: false },
             { name: "onRowSelect", type: "(key: string) => void", required: false },
-            { name: "onExpandedChange", type: "(key: string) => void", required: false }
+            { name: "onRowClick", type: "(row: TableRow) => void", required: false },
+            { name: "onExpandedChange", type: "(key: string) => void", required: false },
+            { name: "onSelectionChange", type: "(keys: string[]) => void", required: false },
+            { name: "onCellEdit", type: "(key: string, columnKey: string, value: string) => void", required: false }
         ],
         accessibility: [
             "Use native table semantics.",
@@ -1127,7 +1143,7 @@ export const componentContracts = {
         accessibility: [
             "Use nav with an accessible label.",
             "Mark the current page with aria-current.",
-            "Use item id or href as the preferred key; label-only ancestors render as non-navigable text.",
+            "Require stable item id or href before composing breadcrumb targets.",
             "Use links only for navigable ancestors.",
             "Escalate route guards, side navigation, IA, and history behavior to navigation patterns."
         ]
@@ -1493,7 +1509,7 @@ export const componentContracts = {
     dateRangePicker: {
         factory: "@design-system/react/date-range-picker",
         element: "div",
-        purpose: "Compatibility alias for DatePicker mode=\"range\" while consumers migrate to the single calendar source of truth.",
+        purpose: "Capture one bounded start/end date range with visible label, readable range value, local presets, calendar surface, and keyboard selection.",
         variants: ["calendar-range"],
         intents: ["input"],
         states: ["default", "hover", "focus", "selected", "warning", "error", "disabled"],
@@ -1508,8 +1524,14 @@ export const componentContracts = {
             { name: "locale", type: "string | string[]", required: false },
             { name: "weekdays", type: "string[]", required: false },
             { name: "calendarLabel", type: "string", required: false },
+            { name: "monthSelectLabel", type: "string", required: false },
+            { name: "yearSelectLabel", type: "string", required: false },
+            { name: "previousYearLabel", type: "string", required: false },
             { name: "previousMonthLabel", type: "string", required: false },
             { name: "nextMonthLabel", type: "string", required: false },
+            { name: "nextYearLabel", type: "string", required: false },
+            { name: "min", type: "string", required: false },
+            { name: "max", type: "string", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "state", type: "\"default\" | \"hover\" | \"focus\" | \"selected\" | \"warning\" | \"error\" | \"disabled\"", required: false },
             { name: "invalid", type: "boolean", required: false },

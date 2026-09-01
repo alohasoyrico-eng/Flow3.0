@@ -127,11 +127,12 @@ KPI Tile API exposes metric content and state while Design System owns numeral r
 
 KPI Tile variants describe local metric anatomy. Dashboard groups, formulas, chart pairings, and drill-down ownership are pattern concerns.
 
-Approved variants from demos: `standard`, `delta`, `threshold`, `sparkline`, `drill-in`
+Approved variants from demos: `standard`, `compact`, `delta`, `threshold`, `sparkline`, `drill-in`
 
 Demo labels:
 
 - Standard
+- Compact
 - Delta
 - Threshold
 - Sparkline
@@ -231,7 +232,6 @@ KPI Tile API exposes metric content and state while Design System owns numeral r
 | selected | boolean | No | Selected local state. |
 | disabled | boolean | No | Disables interaction. |
 | loading | boolean | No | Shows loading placeholder. |
-| ariaLabel | string | No | Accessible name override for interactive tiles. |
 | onSelect | (metric: KpiTileMeta) => void | No | Local selection callback for button-style drill-in. |
 | label | string | Yes | KPI label. |
 | value | string | Yes | Primary KPI value. |

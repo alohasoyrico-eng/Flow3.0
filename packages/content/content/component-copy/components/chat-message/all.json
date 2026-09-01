@@ -146,10 +146,31 @@
             "notes": "Author role."
           },
           {
+            "name": "authorLabel",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "avatar",
+            "type": "Partial<AvatarProps>",
+            "required": false
+          },
+          {
             "name": "body",
             "type": "string",
             "required": "No",
             "notes": "Visible message body."
+          },
+          {
+            "name": "timestamp",
+            "type": "string",
+            "required": "No",
+            "notes": "Visible time metadata."
+          },
+          {
+            "name": "meta",
+            "type": "ReactNode",
+            "required": false
           },
           {
             "name": "state",
@@ -164,10 +185,9 @@
             "notes": "Semantic tone."
           },
           {
-            "name": "timestamp",
-            "type": "string",
-            "required": "No",
-            "notes": "Visible time metadata."
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
           },
           {
             "name": "action",

@@ -189,6 +189,7 @@ Animated Moment API exposes local cue props while Design System owns foundations
 | animationSource | string | No | Optional Lottie JSON path consumed through Animation Assets. |
 | animationData | object | No | Optional Lottie animation data consumed through Animation Assets. |
 | reducedMotionFallback | string | No | Fallback text or static state. |
+| stateLabel | string | false |  |
 
 ## Implementation Checklist
 

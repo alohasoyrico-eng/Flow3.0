@@ -256,6 +256,11 @@
             "notes": "Transition treatment."
           },
           {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
+          },
+          {
             "name": "state",
             "type": "MotionBoundaryState",
             "required": false,
@@ -272,6 +277,11 @@
             "type": "boolean",
             "required": false,
             "notes": "Reduced-motion mode."
+          },
+          {
+            "name": "stateLabel",
+            "type": "string",
+            "required": false
           }
         ],
         "productExamples": [

@@ -75,7 +75,7 @@ function checkComposedChildDensity({ add, componentName, sourceFile, source }) {
       const objectStart = match.index + match[0].length - 1;
       const propsObject = readObjectLiteral(source, objectStart);
       if (!propsObject) continue;
-      if (!/\bdensity\s*(?:,|:|})/.test(propsObject) && !/\.\.\.[A-Za-z0-9_]*DensityProps\(\s*(?:resolvedDensity|inheritedDensity|density)\s*\)/.test(propsObject)) {
+      if (!/\bdensity\s*(?:,|:|})/.test(propsObject) && !/\.\.\.[A-Za-z0-9_]*DensityProps\([^)]*\)/.test(propsObject)) {
         add("errors", sourceFile, 1, `${componentName} composes density-aware ${child} without forwarding density; pass inherited density or an explicit child override prop.`);
       }
       if (/\bdensity\s*,/.test(propsObject)) {

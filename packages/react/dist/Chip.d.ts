@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ForwardRefExoticComponent, HTMLAttributes, M
 import type { FlowDataAttributes } from "./internal/props.js";
 import { chipPlatformContract } from "#flow/platforms";
 
-export type ChipVariant = "filter" | "input" | "suggestion" | "assist";
+export type ChipVariant = "filter" | "input";
 export type ChipTone = "default" | "danger" | "warning";
 export type ChipState = "default" | "hover" | "pressed" | "selected" | "focus" | "disabled";
 export type ChipDensity = "sm" | "md" | "lg";

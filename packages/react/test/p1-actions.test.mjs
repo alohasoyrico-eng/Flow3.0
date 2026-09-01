@@ -1,43 +1,16 @@
 import assert from "node:assert/strict";
-import { JSDOM } from "jsdom";
+import { createInteractionHarness } from "./interaction-harness.mjs";
 
-const dom = new JSDOM("<!doctype html><html><body></body></html>", {
-  url: "http://localhost/",
-});
-
-globalThis.window = dom.window;
-globalThis.document = dom.window.document;
-globalThis.HTMLElement = dom.window.HTMLElement;
-globalThis.Node = dom.window.Node;
-globalThis.Event = dom.window.Event;
-globalThis.KeyboardEvent = dom.window.KeyboardEvent;
-globalThis.MouseEvent = dom.window.MouseEvent;
-Object.defineProperty(globalThis, "navigator", {
-  configurable: true,
-  value: dom.window.navigator,
-});
-globalThis.requestAnimationFrame = (callback) => setTimeout(callback, 0);
-globalThis.cancelAnimationFrame = (id) => clearTimeout(id);
-
-const React = await import("react");
-const axe = await import("axe-core");
-const userEvent = await import("@testing-library/user-event");
-const { cleanup, fireEvent, render } = await import("@testing-library/react");
-const { Button, IconButton } = await import("../dist/index.js");
-
-async function assertNoAxeViolations(container) {
-  const results = await axe.default.run(container, {
-    rules: {
-      "color-contrast": { enabled: false },
-      region: { enabled: false },
-    },
-  });
-  assert.deepEqual(results.violations, []);
-}
-
-function createUser() {
-  return userEvent.default.setup({ document: globalThis.document });
-}
+const {
+  React,
+  Button,
+  IconButton,
+  assertNoAxeViolations,
+  cleanup,
+  close,
+  createUser,
+  render,
+} = await createInteractionHarness();
 
 try {
   {
@@ -151,4 +124,6 @@ try {
   cleanup();
   console.error(error);
   process.exit(1);
+} finally {
+  close();
 }

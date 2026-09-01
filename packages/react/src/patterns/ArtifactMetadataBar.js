@@ -55,7 +55,7 @@ function renderCoreItem(item, density, disabled, index) {
         return React.createElement(Chip, {
             ...common,
             tone: item.tone,
-            variant: item.variant ?? "assist",
+            variant: item.variant ?? "filter",
             state: disabled || item.disabled ? "disabled" : item.selected ? "selected" : "default",
             selected: item.selected,
             interactive: item.interactive,

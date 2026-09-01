@@ -183,6 +183,7 @@ Tag API exposes label, variant, tone, optional icon, state, and interactive beha
 | label | string | Yes | Tag label. |
 | variant | TagVariant | No | Metadata purpose: metadata, status, platform, or link. |
 | tone | TagTone | No | Semantic tone. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | state | TagState | No | Local display state for interactive tags. |
 | icon | IconName | No | Decorative leading icon. |
 | interactive | boolean | No | Renders the tag as an interactive button. |

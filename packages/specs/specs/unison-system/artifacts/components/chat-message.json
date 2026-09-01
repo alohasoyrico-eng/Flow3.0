@@ -216,10 +216,30 @@
             "description": "Message author role."
           },
           {
+            "name": "authorLabel",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "avatar",
+            "type": "Partial<AvatarProps>",
+            "required": false
+          },
+          {
             "name": "body",
             "type": "string",
             "required": false,
             "description": "Message body."
+          },
+          {
+            "name": "timestamp",
+            "type": "ReactNode",
+            "required": false
+          },
+          {
+            "name": "meta",
+            "type": "ReactNode",
+            "required": false
           },
           {
             "name": "state",

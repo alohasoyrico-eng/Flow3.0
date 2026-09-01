@@ -289,6 +289,12 @@
             "type": "boolean",
             "required": false,
             "notes": "Allows the trail to fill its parent width."
+          },
+          {
+            "name": "collapsedLabel",
+            "type": "string",
+            "required": false,
+            "notes": "Accessible label for the collapsed breadcrumb control."
           }
         ],
         "productExamples": [

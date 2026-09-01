@@ -243,6 +243,22 @@
             "notes": "Tree display state: default, hover, focus, expanded, selected, or disabled."
           },
           {
+            "name": "selectedKey",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "expandedKeys",
+            "type": "string[]",
+            "required": false
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false,
+            "notes": "Tree row density: sm, md, or lg."
+          },
+          {
             "name": "onSelect",
             "type": "(key: string) => void",
             "required": false,
@@ -253,12 +269,6 @@
             "type": "(expandedKeys: string[]) => void",
             "required": false,
             "notes": "Called when node expansion changes."
-          },
-          {
-            "name": "density",
-            "type": "\"sm\" | \"md\" | \"lg\"",
-            "required": false,
-            "notes": "Tree row density: sm, md, or lg."
           }
         ],
         "productExamples": [

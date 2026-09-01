@@ -183,6 +183,7 @@ Movement Row API exposes label, meta, amount, status, icon, variant, and state w
 | density | sm \| md \| lg | No | Inherited Flow density. |
 | fullWidth | boolean | No | Fill list container. |
 | disabled | boolean | No | Disables row interaction. |
+| onSelect | (meta: MovementRowMeta) => void | false |  |
 
 ## Implementation Checklist
 

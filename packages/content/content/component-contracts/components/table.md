@@ -196,6 +196,21 @@ Table API exposes columns, rows, row identity, sorting, selection, expansion, an
 | onSortChange | (sort: { key: string; direction: SortDirection }) => void | No | Called when local sort is requested. |
 | onRowSelect | (key: string) => void | No | Called when a row is selected. |
 | onExpandedChange | (key: string) => void | No | Called when row expansion changes. |
+| surface | "card" \| "embedded" | false | Chooses whether table is framed as a card surface or embedded in another surface. |
+| zebra | boolean | false | Alternates row backgrounds for scanability. |
+| stickyHeader | boolean | false | Keeps the header visible while scrolling. |
+| emptyLabel | string | false | Empty-state title. |
+| emptyDescription | string | false | Empty-state supporting copy. |
+| emptyIcon | string | false | Empty-state icon name. |
+| tree | boolean | false | Enables hierarchical row disclosure. |
+| childrenKey | string | false | Row key containing child rows. |
+| selection | string[] | false | Controlled selected row keys. |
+| defaultSort | TableDefaultSort | false | Initial sort configuration. |
+| defaultExpandedKey | string | false | Initially expanded row key. |
+| getExpandLabel | (row: TableRow, meta: { expanded: boolean; key: string }) => string | false | Accessible label for row expansion. |
+| onRowClick | (row: TableRow) => void | false | Row activation callback. |
+| onSelectionChange | (keys: string[]) => void | false | Selection callback. |
+| onCellEdit | (key: string, columnKey: string, value: string) => void | false | Inline cell edit callback. |
 
 ## Implementation Checklist
 

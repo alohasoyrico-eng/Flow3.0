@@ -179,7 +179,6 @@ Country Selector API exposes one selected country and country option data. Flow 
 
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
-| id | string | No | Stable id used to connect trigger and listbox. |
 | label | string | No | Accessible selector label. |
 | value | string | No | Selected country code. |
 | country | string | No | Alias for the selected country code when composed by another field. |
@@ -190,11 +189,10 @@ Country Selector API exposes one selected country and country option data. Flow 
 | inline | boolean | No | Uses compact composition treatment. |
 | searchable | boolean | No | Shows a local country/code search field inside the option layer. |
 | searchPlaceholder | string | No | Placeholder for the local search field. |
-| ariaLabel | string | No | Overrides the trigger accessible name when composed in another component. |
-| listboxLabel | string | No | Overrides the option layer accessible label. |
-| className | string | No | Adds a consumer class for layout hooks without changing component anatomy. |
-| hydrate | boolean | No | Allows a parent component to hydrate once after composing the selector. |
 | onValueChange | (countryCode, country) => void | No | Emits selected country metadata. |
+| emptyText | string | false | Message shown when country search has no results. |
+| open | boolean | false | Controls the country list open state. |
+| onOpenChange | (open: boolean) => void | false | Open-state callback. |
 
 ## Implementation Checklist
 

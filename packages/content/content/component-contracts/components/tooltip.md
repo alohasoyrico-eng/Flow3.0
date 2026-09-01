@@ -184,11 +184,12 @@ Tooltip API exposes trigger association, copy, placement, variant, state, delay,
 | content | string | Yes | Tooltip content. |
 | id | string | No | Stable tooltip id. |
 | placement | TooltipPlacement | No | Tooltip placement. |
-| onOpenChange | (open: boolean) => void | No | Called when local open state changes. |
 | variant | TooltipVariant | No | Purpose variant: default, icon-help, metric, or disabled-help. |
 | density | sm \| md \| lg | No | Controls trigger and bubble scale for sm, md, and lg contexts. |
 | state | TooltipState | No | Visibility state for default, hover, focus, open, disabled, or dismissed. |
 | disabled | boolean | No | Disables the trigger while keeping optional help visible when appropriate. |
+| open | boolean | false |  |
+| onOpenChange | (open: boolean) => void | No | Called when local open state changes. |
 
 ## Implementation Checklist
 

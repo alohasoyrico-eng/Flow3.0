@@ -143,7 +143,7 @@ try {
       onRemove: (label, event) => removals.push({ label, eventType: event.type }),
     }));
     const removable = view.getByRole("button", { name: /remove expired filter/i });
-    assert.equal(removable.dataset.chipRemove, "true");
+    assert.equal(removable.closest(".chip")?.dataset.chipRemove, "true");
     await user.click(removable);
     assert.deepEqual(removals, [{ label: "Expired", eventType: "click" }]);
 

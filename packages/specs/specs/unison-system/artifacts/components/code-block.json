@@ -257,10 +257,9 @@
             "notes": "Raw code or token text to render."
           },
           {
-            "name": "language",
+            "name": "label",
             "type": "string",
-            "required": false,
-            "notes": "Language or source type label."
+            "required": false
           },
           {
             "name": "filename",
@@ -269,22 +268,53 @@
             "notes": "Optional source filename."
           },
           {
-            "name": "copyable",
-            "type": "boolean",
+            "name": "language",
+            "type": "string",
             "required": false,
-            "notes": "When true, compose Copy Button."
+            "notes": "Language or source type label."
           },
           {
-            "name": "wrap",
-            "type": "boolean",
-            "required": false,
-            "notes": "Controls wrapping versus horizontal scroll."
+            "name": "helper",
+            "type": "string",
+            "required": false
           },
           {
             "name": "variant",
             "type": "'block' | 'inline-group' | 'specimen'",
             "required": false,
             "notes": "Snippet layout role."
+          },
+          {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
+          },
+          {
+            "name": "state",
+            "type": "\"default\" | \"wrapped\" | \"scrollable\" | \"with-header\" | \"with-copy\" | \"copied\" | \"error\" | \"disabled\"",
+            "required": false
+          },
+          {
+            "name": "copyAction",
+            "type": "CodeBlockAction",
+            "required": false
+          },
+          {
+            "name": "copyable",
+            "type": "boolean",
+            "required": false,
+            "notes": "When true, compose Copy Button."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "wrap",
+            "type": "boolean",
+            "required": false,
+            "notes": "Controls wrapping versus horizontal scroll."
           }
         ],
         "productExamples": [

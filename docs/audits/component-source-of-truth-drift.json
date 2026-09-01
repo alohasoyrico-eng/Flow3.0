@@ -1,0 +1,7161 @@
+{
+  "schemaVersion": "flow-component-source-of-truth-drift@1",
+  "generatedAt": "2026-09-01T02:07:31.327Z",
+  "status": "pass",
+  "scope": "all-components",
+  "decision": {
+    "editableApiTruth": "packages/specs/specs/unison-system/artifacts/components/*.json",
+    "editableCopyTruth": "packages/content/content/component-copy/components/*/*.json",
+    "runtimeContractTruth": "packages/components/src/contracts.ts, compiled to packages/components/src/contracts.js",
+    "reactTruth": "packages/react/src/*.tsx and packages/react/src/*.d.ts, compiled to packages/react/dist",
+    "generatedContractTruth": "packages/content/content/component-contracts/components/*.md is generated and must not define new API truth",
+    "generatorTruth": "npm run build:component-contracts -- --component=<id> is the scoped generator path; missing components must fail instead of silently writing drift",
+    "localDemoTruth": "packages/audit/scripts/build-local-react-qa-demo.mjs must consume React runtime and may not introduce undocumented variants or props"
+  },
+  "summary": {
+    "componentsChecked": 59,
+    "aligned": 59,
+    "drift": 0,
+    "findings": 0,
+    "highFindings": 0,
+    "mediumFindings": 0
+  },
+  "findings": [],
+  "components": [
+    {
+      "id": "accordion",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "defaultOpen",
+            "density",
+            "expandedIds",
+            "items",
+            "multiple",
+            "onExpandedChange",
+            "surface",
+            "variant"
+          ],
+          "variants": [
+            "multiple",
+            "single"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "defaultOpen",
+            "density",
+            "expandedIds",
+            "items",
+            "multiple",
+            "onExpandedChange",
+            "surface",
+            "variant"
+          ],
+          "variants": [
+            "multiple",
+            "single"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "defaultOpen",
+            "density",
+            "expandedIds",
+            "items",
+            "multiple",
+            "onExpandedChange",
+            "surface",
+            "variant"
+          ],
+          "variants": [
+            "multiple",
+            "single"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "defaultOpen",
+            "density",
+            "expandedIds",
+            "items",
+            "multiple",
+            "onExpandedChange",
+            "surface",
+            "variant"
+          ],
+          "variants": [
+            "multiple",
+            "single"
+          ],
+          "states": []
+        }
+      }
+    },
+    {
+      "id": "animated-moment",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "animationData",
+            "animationSource",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "reducedMotionFallback",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "celebration",
+            "empty",
+            "loading",
+            "success"
+          ],
+          "states": [
+            "complete",
+            "disabled",
+            "idle",
+            "paused",
+            "playing",
+            "reduced-motion"
+          ]
+        },
+        "contract": {
+          "props": [
+            "animationData",
+            "animationSource",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "reducedMotionFallback",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "celebration",
+            "empty",
+            "loading",
+            "success"
+          ],
+          "states": [
+            "complete",
+            "disabled",
+            "idle",
+            "paused",
+            "playing",
+            "reduced-motion"
+          ]
+        },
+        "content": {
+          "props": [
+            "animationData",
+            "animationSource",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "reducedMotionFallback",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "celebration",
+            "empty",
+            "loading",
+            "success"
+          ],
+          "states": [
+            "complete",
+            "disabled",
+            "idle",
+            "paused",
+            "playing",
+            "reduced-motion"
+          ]
+        },
+        "react": {
+          "props": [
+            "animationData",
+            "animationSource",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "reducedMotionFallback",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "celebration",
+            "empty",
+            "loading",
+            "success"
+          ],
+          "states": [
+            "complete",
+            "disabled",
+            "idle",
+            "paused",
+            "playing",
+            "reduced-motion"
+          ]
+        }
+      }
+    },
+    {
+      "id": "audit-event",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "meta",
+            "state",
+            "status",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [
+            "standard"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "verified",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "meta",
+            "state",
+            "status",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [
+            "standard"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "verified",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "meta",
+            "state",
+            "status",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [
+            "standard"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "verified",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "meta",
+            "state",
+            "status",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "verified",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "avatar",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "identityTone",
+            "name",
+            "src",
+            "state",
+            "status"
+          ],
+          "variants": [
+            "image",
+            "initials",
+            "status"
+          ],
+          "states": [
+            "busy",
+            "default",
+            "disabled",
+            "offline",
+            "online",
+            "unknown"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "identityTone",
+            "name",
+            "src",
+            "state",
+            "status"
+          ],
+          "variants": [
+            "image",
+            "initials",
+            "status"
+          ],
+          "states": [
+            "busy",
+            "default",
+            "disabled",
+            "offline",
+            "online",
+            "unknown"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "identityTone",
+            "name",
+            "src",
+            "state",
+            "status"
+          ],
+          "variants": [
+            "image",
+            "initials",
+            "status"
+          ],
+          "states": [
+            "busy",
+            "default",
+            "disabled",
+            "offline",
+            "online",
+            "unknown"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "identityTone",
+            "name",
+            "src",
+            "state",
+            "status"
+          ],
+          "variants": [],
+          "states": [
+            "busy",
+            "default",
+            "disabled",
+            "offline",
+            "online",
+            "unknown"
+          ]
+        }
+      }
+    },
+    {
+      "id": "badge",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "ariaLabel",
+            "density",
+            "hidden",
+            "icon",
+            "label",
+            "live",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "count",
+            "dot",
+            "icon",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hidden",
+            "hover",
+            "overflow"
+          ]
+        },
+        "contract": {
+          "props": [
+            "ariaLabel",
+            "density",
+            "hidden",
+            "icon",
+            "label",
+            "live",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "count",
+            "dot",
+            "icon",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hidden",
+            "hover",
+            "overflow"
+          ]
+        },
+        "content": {
+          "props": [
+            "ariaLabel",
+            "density",
+            "hidden",
+            "icon",
+            "label",
+            "live",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "count",
+            "dot",
+            "icon",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hidden",
+            "hover",
+            "overflow"
+          ]
+        },
+        "react": {
+          "props": [
+            "ariaLabel",
+            "density",
+            "hidden",
+            "icon",
+            "label",
+            "live",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "count",
+            "dot",
+            "icon",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hidden",
+            "hover",
+            "overflow"
+          ]
+        }
+      }
+    },
+    {
+      "id": "biometric-prompt",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "fallback",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "onFallback",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "face",
+            "fallback",
+            "fingerprint",
+            "passcode"
+          ],
+          "states": [
+            "authenticating",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "success",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "fallback",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "onFallback",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "face",
+            "fallback",
+            "fingerprint",
+            "passcode"
+          ],
+          "states": [
+            "authenticating",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "success",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "fallback",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "onFallback",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "face",
+            "fallback",
+            "fingerprint",
+            "passcode"
+          ],
+          "states": [
+            "authenticating",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "success",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "fallback",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "onFallback",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "face",
+            "fallback",
+            "fingerprint",
+            "passcode"
+          ],
+          "states": [
+            "authenticating",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "success",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "breadcrumbs",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "collapsedLabel",
+            "density",
+            "disabled",
+            "fullWidth",
+            "items",
+            "label",
+            "maxItems",
+            "separator",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "mobile",
+            "overflow",
+            "standard"
+          ],
+          "states": [
+            "collapsed",
+            "current",
+            "default",
+            "disabled",
+            "focus",
+            "hover"
+          ]
+        },
+        "contract": {
+          "props": [
+            "collapsedLabel",
+            "density",
+            "disabled",
+            "fullWidth",
+            "items",
+            "label",
+            "maxItems",
+            "separator",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "mobile",
+            "overflow",
+            "standard"
+          ],
+          "states": [
+            "collapsed",
+            "current",
+            "default",
+            "disabled",
+            "focus",
+            "hover"
+          ]
+        },
+        "content": {
+          "props": [
+            "collapsedLabel",
+            "density",
+            "disabled",
+            "fullWidth",
+            "items",
+            "label",
+            "maxItems",
+            "separator",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "mobile",
+            "overflow",
+            "standard"
+          ],
+          "states": [
+            "collapsed",
+            "current",
+            "default",
+            "disabled",
+            "focus",
+            "hover"
+          ]
+        },
+        "react": {
+          "props": [
+            "collapsedLabel",
+            "density",
+            "disabled",
+            "fullWidth",
+            "items",
+            "label",
+            "maxItems",
+            "separator",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "mobile",
+            "overflow",
+            "standard"
+          ],
+          "states": [
+            "collapsed",
+            "current",
+            "default",
+            "disabled",
+            "focus",
+            "hover"
+          ]
+        }
+      }
+    },
+    {
+      "id": "button",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "children",
+            "density",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "intent",
+            "label",
+            "loading",
+            "state",
+            "trailingIcon",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "ghost",
+            "outlined",
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "pressed"
+          ]
+        },
+        "contract": {
+          "props": [
+            "children",
+            "density",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "intent",
+            "label",
+            "loading",
+            "state",
+            "trailingIcon",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "ghost",
+            "outlined",
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "pressed"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "children",
+            "density",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "intent",
+            "label",
+            "loading",
+            "state",
+            "trailingIcon",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "ghost",
+            "outlined",
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "pressed"
+          ]
+        }
+      }
+    },
+    {
+      "id": "card",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actionKey",
+            "actionPlacement",
+            "actions",
+            "children",
+            "composition",
+            "density",
+            "detail",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "interactive",
+            "loading",
+            "media",
+            "mediaAlt",
+            "onAction",
+            "selected",
+            "state",
+            "status",
+            "title",
+            "trend",
+            "unit",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "elevated",
+            "ghost",
+            "minimal"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "interactive",
+            "loading",
+            "muted",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actionKey",
+            "actionPlacement",
+            "actions",
+            "children",
+            "composition",
+            "density",
+            "detail",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "interactive",
+            "loading",
+            "media",
+            "mediaAlt",
+            "onAction",
+            "selected",
+            "state",
+            "status",
+            "title",
+            "trend",
+            "unit",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "elevated",
+            "ghost",
+            "minimal"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "interactive",
+            "loading",
+            "muted",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "actionKey",
+            "actionPlacement",
+            "actions",
+            "children",
+            "composition",
+            "density",
+            "detail",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "interactive",
+            "loading",
+            "media",
+            "mediaAlt",
+            "onAction",
+            "selected",
+            "state",
+            "status",
+            "title",
+            "trend",
+            "unit",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "elevated",
+            "ghost",
+            "minimal"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "interactive",
+            "loading",
+            "muted",
+            "selected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "card-expiry-input",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "expiredMessage",
+            "helper",
+            "label",
+            "loading",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "expiredMessage",
+            "helper",
+            "label",
+            "loading",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "expiredMessage",
+            "helper",
+            "label",
+            "loading",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "error",
+            "expiredMessage",
+            "helper",
+            "label",
+            "loading",
+            "onValueChange",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        }
+      }
+    },
+    {
+      "id": "card-number-input",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "loading",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "loading",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "loading",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "error",
+            "helper",
+            "label",
+            "loading",
+            "onValueChange",
+            "state",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        }
+      }
+    },
+    {
+      "id": "card-security-code-input",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "expectedLength",
+            "helper",
+            "hideLabel",
+            "label",
+            "loading",
+            "name",
+            "onRevealChange",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "expectedLength",
+            "helper",
+            "hideLabel",
+            "label",
+            "loading",
+            "name",
+            "onRevealChange",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "expectedLength",
+            "helper",
+            "hideLabel",
+            "label",
+            "loading",
+            "name",
+            "onRevealChange",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "error",
+            "expectedLength",
+            "helper",
+            "hideLabel",
+            "label",
+            "loading",
+            "onRevealChange",
+            "onValueChange",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading",
+            "valid"
+          ]
+        }
+      }
+    },
+    {
+      "id": "card-summary",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "expires",
+            "fullWidth",
+            "icon",
+            "label",
+            "meta",
+            "metrics",
+            "number",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "limit",
+            "physical",
+            "virtual"
+          ],
+          "states": [
+            "active",
+            "default",
+            "disabled",
+            "focus",
+            "frozen",
+            "hover",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "expires",
+            "fullWidth",
+            "icon",
+            "label",
+            "meta",
+            "metrics",
+            "number",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "limit",
+            "physical",
+            "virtual"
+          ],
+          "states": [
+            "active",
+            "default",
+            "disabled",
+            "focus",
+            "frozen",
+            "hover",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "expires",
+            "fullWidth",
+            "icon",
+            "label",
+            "meta",
+            "metrics",
+            "number",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "limit",
+            "physical",
+            "virtual"
+          ],
+          "states": [
+            "active",
+            "default",
+            "disabled",
+            "focus",
+            "frozen",
+            "hover",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "expires",
+            "fullWidth",
+            "icon",
+            "label",
+            "meta",
+            "metrics",
+            "number",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "limit",
+            "physical",
+            "virtual"
+          ],
+          "states": [
+            "active",
+            "default",
+            "disabled",
+            "focus",
+            "frozen",
+            "hover",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chart-panel",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "caption",
+            "comparisons",
+            "density",
+            "fullWidth",
+            "label",
+            "labels",
+            "segments",
+            "series",
+            "state",
+            "tone",
+            "value",
+            "valueLabels",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "area",
+            "bars",
+            "bullet",
+            "compact",
+            "comparison",
+            "donut",
+            "line",
+            "pareto",
+            "sparkline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "caption",
+            "comparisons",
+            "density",
+            "fullWidth",
+            "label",
+            "labels",
+            "segments",
+            "series",
+            "state",
+            "tone",
+            "value",
+            "valueLabels",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "area",
+            "bars",
+            "bullet",
+            "compact",
+            "comparison",
+            "donut",
+            "line",
+            "pareto",
+            "sparkline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "caption",
+            "comparisons",
+            "density",
+            "fullWidth",
+            "label",
+            "labels",
+            "segments",
+            "series",
+            "state",
+            "tone",
+            "value",
+            "valueLabels",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "area",
+            "bars",
+            "bullet",
+            "compact",
+            "comparison",
+            "donut",
+            "line",
+            "pareto",
+            "sparkline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "caption",
+            "comparisons",
+            "density",
+            "fullWidth",
+            "label",
+            "labels",
+            "segments",
+            "series",
+            "state",
+            "tone",
+            "value",
+            "valueLabels",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "area",
+            "bars",
+            "bullet",
+            "compact",
+            "comparison",
+            "donut",
+            "line",
+            "pareto",
+            "sparkline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chat-composer",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "attachLabel",
+            "defaultValue",
+            "density",
+            "error",
+            "helper",
+            "label",
+            "onAttach",
+            "onSend",
+            "onValueChange",
+            "sendLabel",
+            "sending",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "basic",
+            "sending",
+            "with-attachment"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "sending"
+          ]
+        },
+        "contract": {
+          "props": [
+            "attachLabel",
+            "defaultValue",
+            "density",
+            "error",
+            "helper",
+            "label",
+            "onAttach",
+            "onSend",
+            "onValueChange",
+            "sendLabel",
+            "sending",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "basic",
+            "sending",
+            "with-attachment"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "sending"
+          ]
+        },
+        "content": {
+          "props": [
+            "attachLabel",
+            "defaultValue",
+            "density",
+            "error",
+            "helper",
+            "label",
+            "onAttach",
+            "onSend",
+            "onValueChange",
+            "sendLabel",
+            "sending",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "basic",
+            "sending",
+            "with-attachment"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "sending"
+          ]
+        },
+        "react": {
+          "props": [
+            "attachLabel",
+            "defaultValue",
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "maxLength",
+            "onAttach",
+            "onSend",
+            "onValueChange",
+            "placeholder",
+            "rows",
+            "sendLabel",
+            "sending",
+            "state",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "sending"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chat-message",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "action",
+            "author",
+            "authorLabel",
+            "avatar",
+            "body",
+            "density",
+            "meta",
+            "state",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [
+            "agent",
+            "assistant",
+            "system",
+            "user"
+          ],
+          "states": [
+            "default",
+            "delivered",
+            "failed",
+            "loading",
+            "sending",
+            "sent"
+          ]
+        },
+        "contract": {
+          "props": [
+            "action",
+            "author",
+            "authorLabel",
+            "avatar",
+            "body",
+            "density",
+            "meta",
+            "state",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [
+            "agent",
+            "assistant",
+            "system",
+            "user"
+          ],
+          "states": [
+            "default",
+            "delivered",
+            "failed",
+            "loading",
+            "sending",
+            "sent"
+          ]
+        },
+        "content": {
+          "props": [
+            "action",
+            "author",
+            "authorLabel",
+            "avatar",
+            "body",
+            "density",
+            "meta",
+            "state",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [
+            "agent",
+            "assistant",
+            "system",
+            "user"
+          ],
+          "states": [
+            "default",
+            "delivered",
+            "failed",
+            "loading",
+            "sending",
+            "sent"
+          ]
+        },
+        "react": {
+          "props": [
+            "action",
+            "author",
+            "authorLabel",
+            "avatar",
+            "body",
+            "density",
+            "meta",
+            "state",
+            "timestamp",
+            "tone"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "delivered",
+            "failed",
+            "loading",
+            "sending",
+            "sent"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chat-thread",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "description",
+            "empty",
+            "error",
+            "label",
+            "messages",
+            "onMessageAction",
+            "selectedMessageKey",
+            "state"
+          ],
+          "variants": [
+            "empty",
+            "error",
+            "handoff",
+            "message-list",
+            "offline"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error",
+            "handoff",
+            "loading",
+            "offline"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "description",
+            "empty",
+            "error",
+            "label",
+            "messages",
+            "onMessageAction",
+            "selectedMessageKey",
+            "state"
+          ],
+          "variants": [
+            "empty",
+            "error",
+            "handoff",
+            "message-list",
+            "offline"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error",
+            "handoff",
+            "loading",
+            "offline"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "description",
+            "empty",
+            "error",
+            "label",
+            "messages",
+            "onMessageAction",
+            "selectedMessageKey",
+            "state"
+          ],
+          "variants": [
+            "empty",
+            "error",
+            "handoff",
+            "message-list",
+            "offline"
+          ],
+          "states": [
+            "default",
+            "empty",
+            "error",
+            "handoff",
+            "loading",
+            "offline"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "description",
+            "empty",
+            "error",
+            "label",
+            "messages",
+            "onMessageAction",
+            "selectedMessageKey",
+            "state"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "empty",
+            "error",
+            "handoff",
+            "loading",
+            "offline"
+          ]
+        }
+      }
+    },
+    {
+      "id": "checkbox",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "checked",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "indeterminate",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "default",
+            "descriptive",
+            "select-all"
+          ],
+          "states": [
+            "checked",
+            "disabled",
+            "error",
+            "focus",
+            "indeterminate",
+            "unchecked"
+          ]
+        },
+        "contract": {
+          "props": [
+            "checked",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "indeterminate",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "default",
+            "descriptive",
+            "select-all"
+          ],
+          "states": [
+            "checked",
+            "disabled",
+            "error",
+            "focus",
+            "indeterminate",
+            "unchecked"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "checked",
+            "className",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "indeterminate",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "default",
+            "descriptive",
+            "select-all"
+          ],
+          "states": [
+            "checked",
+            "disabled",
+            "error",
+            "focus",
+            "indeterminate",
+            "unchecked"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chip",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "onRemove",
+            "onRemoveLabel",
+            "onSelectedChange",
+            "removable",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "filter",
+            "input"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "onRemove",
+            "onRemoveLabel",
+            "onSelectedChange",
+            "removable",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "filter",
+            "input"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "onRemove",
+            "onRemoveLabel",
+            "onSelectedChange",
+            "removable",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "filter",
+            "input"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed",
+            "selected"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "onRemove",
+            "onRemoveLabel",
+            "onSelectedChange",
+            "removable",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "filter",
+            "input"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed",
+            "selected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "code-block",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "code",
+            "copyAction",
+            "copyable",
+            "density",
+            "disabled",
+            "filename",
+            "helper",
+            "label",
+            "language",
+            "state",
+            "variant",
+            "wrap"
+          ],
+          "variants": [
+            "block",
+            "inline-group",
+            "specimen"
+          ],
+          "states": [
+            "copied",
+            "default",
+            "disabled",
+            "error",
+            "scrollable",
+            "with-copy",
+            "with-header",
+            "wrapped"
+          ]
+        },
+        "contract": {
+          "props": [
+            "code",
+            "copyAction",
+            "copyable",
+            "density",
+            "disabled",
+            "filename",
+            "helper",
+            "label",
+            "language",
+            "state",
+            "variant",
+            "wrap"
+          ],
+          "variants": [
+            "block",
+            "inline-group",
+            "specimen"
+          ],
+          "states": [
+            "copied",
+            "default",
+            "disabled",
+            "error",
+            "scrollable",
+            "with-copy",
+            "with-header",
+            "wrapped"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "code",
+            "copyAction",
+            "copyable",
+            "density",
+            "disabled",
+            "filename",
+            "helper",
+            "label",
+            "language",
+            "state",
+            "variant",
+            "wrap"
+          ],
+          "variants": [
+            "block",
+            "inline-group",
+            "specimen"
+          ],
+          "states": [
+            "copied",
+            "default",
+            "disabled",
+            "error",
+            "scrollable",
+            "with-copy",
+            "with-header",
+            "wrapped"
+          ]
+        }
+      }
+    },
+    {
+      "id": "code-input",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "length",
+            "masked",
+            "onComplete",
+            "onValueChange",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "approval",
+            "compact",
+            "masked",
+            "otp",
+            "sms"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "success",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "length",
+            "masked",
+            "onComplete",
+            "onValueChange",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "approval",
+            "compact",
+            "masked",
+            "otp",
+            "sms"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "success",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "length",
+            "masked",
+            "onComplete",
+            "onValueChange",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "approval",
+            "compact",
+            "masked",
+            "otp",
+            "sms"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "success",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "label",
+            "length",
+            "masked",
+            "onComplete",
+            "onValueChange",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "approval",
+            "compact",
+            "masked",
+            "otp",
+            "sms"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "success",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "combobox",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "clearSelectionLabel",
+            "density",
+            "disabled",
+            "emptyText",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "loadingText",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "empty",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "clearSelectionLabel",
+            "density",
+            "disabled",
+            "emptyText",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "loadingText",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "empty",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "clearSelectionLabel",
+            "density",
+            "disabled",
+            "emptyText",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "loadingText",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "empty",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "clearSelectionLabel",
+            "density",
+            "disabled",
+            "emptyText",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "loadingText",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "empty",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        }
+      }
+    },
+    {
+      "id": "country-selector",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "inline",
+            "invalid",
+            "label",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "searchPlaceholder",
+            "searchable",
+            "value"
+          ],
+          "variants": [
+            "default",
+            "inline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "inline",
+            "invalid",
+            "label",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "searchPlaceholder",
+            "searchable",
+            "value"
+          ],
+          "variants": [
+            "default",
+            "inline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "inline",
+            "invalid",
+            "label",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "searchPlaceholder",
+            "searchable",
+            "value"
+          ],
+          "variants": [
+            "default",
+            "inline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "inline",
+            "invalid",
+            "label",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "searchPlaceholder",
+            "searchable",
+            "value"
+          ],
+          "variants": [],
+          "states": []
+        }
+      }
+    },
+    {
+      "id": "date-picker",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "mode",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [
+            "calendar"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "mode",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [
+            "calendar"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "mode",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [
+            "calendar"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "mode",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "date-range-picker",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [
+            "calendar-range"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [
+            "calendar-range"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "calendarLabel",
+            "density",
+            "disabled",
+            "error",
+            "from",
+            "helper",
+            "invalid",
+            "label",
+            "locale",
+            "max",
+            "min",
+            "monthSelectLabel",
+            "nextMonthLabel",
+            "nextYearLabel",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "placeholder",
+            "presetItems",
+            "presets",
+            "previousMonthLabel",
+            "previousYearLabel",
+            "state",
+            "to",
+            "value",
+            "weekdays",
+            "yearSelectLabel"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dialog",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actions",
+            "children",
+            "closeLabel",
+            "density",
+            "description",
+            "fields",
+            "icon",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "confirmation",
+            "destructive",
+            "form",
+            "review",
+            "success"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actions",
+            "children",
+            "closeLabel",
+            "density",
+            "description",
+            "fields",
+            "icon",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "confirmation",
+            "destructive",
+            "form",
+            "review",
+            "success"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "actions",
+            "children",
+            "closeLabel",
+            "density",
+            "description",
+            "fields",
+            "icon",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "confirmation",
+            "destructive",
+            "form",
+            "review",
+            "success"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "actions",
+            "closeLabel",
+            "density",
+            "description",
+            "fields",
+            "icon",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "confirmation",
+            "destructive",
+            "form",
+            "review",
+            "success"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        }
+      }
+    },
+    {
+      "id": "drawer",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actions",
+            "children",
+            "closeLabel",
+            "content",
+            "density",
+            "description",
+            "fields",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "showCloseButton",
+            "side",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "detail",
+            "edit",
+            "filter",
+            "review",
+            "side-sheet"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actions",
+            "children",
+            "closeLabel",
+            "content",
+            "density",
+            "description",
+            "fields",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "showCloseButton",
+            "side",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "detail",
+            "edit",
+            "filter",
+            "review",
+            "side-sheet"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "actions",
+            "children",
+            "closeLabel",
+            "content",
+            "density",
+            "description",
+            "fields",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "showCloseButton",
+            "side",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "detail",
+            "edit",
+            "filter",
+            "review",
+            "side-sheet"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "actions",
+            "closeLabel",
+            "content",
+            "density",
+            "description",
+            "fields",
+            "id",
+            "label",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "showCloseButton",
+            "side",
+            "state",
+            "tone",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "detail",
+            "edit",
+            "filter",
+            "review",
+            "side-sheet"
+          ],
+          "states": [
+            "closed",
+            "closing",
+            "default",
+            "focus",
+            "open"
+          ]
+        }
+      }
+    },
+    {
+      "id": "empty-state",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "onAction",
+            "state",
+            "title",
+            "variant"
+          ],
+          "variants": [
+            "error",
+            "first-use",
+            "maintenance",
+            "permission",
+            "search-empty"
+          ],
+          "states": [
+            "action",
+            "default",
+            "error",
+            "loading",
+            "permission",
+            "search-empty"
+          ]
+        },
+        "contract": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "onAction",
+            "state",
+            "title",
+            "variant"
+          ],
+          "variants": [
+            "error",
+            "first-use",
+            "maintenance",
+            "permission",
+            "search-empty"
+          ],
+          "states": [
+            "action",
+            "default",
+            "error",
+            "loading",
+            "permission",
+            "search-empty"
+          ]
+        },
+        "content": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "onAction",
+            "state",
+            "title",
+            "variant"
+          ],
+          "variants": [
+            "error",
+            "first-use",
+            "maintenance",
+            "permission",
+            "search-empty"
+          ],
+          "states": [
+            "action",
+            "default",
+            "error",
+            "loading",
+            "permission",
+            "search-empty"
+          ]
+        },
+        "react": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "onAction",
+            "state",
+            "title",
+            "variant"
+          ],
+          "variants": [
+            "error",
+            "first-use",
+            "maintenance",
+            "permission",
+            "search-empty"
+          ],
+          "states": [
+            "action",
+            "default",
+            "error",
+            "loading",
+            "permission",
+            "search-empty"
+          ]
+        }
+      }
+    },
+    {
+      "id": "error-panel",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "role",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "blocking",
+            "empty-recovery",
+            "inline",
+            "panel"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "error",
+            "loading",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "role",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "blocking",
+            "empty-recovery",
+            "inline",
+            "panel"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "error",
+            "loading",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "role",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "blocking",
+            "empty-recovery",
+            "inline",
+            "panel"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "error",
+            "loading",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "action",
+            "density",
+            "description",
+            "fullWidth",
+            "icon",
+            "label",
+            "onAction",
+            "role",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "blocking",
+            "empty-recovery",
+            "inline",
+            "panel"
+          ],
+          "states": [
+            "critical",
+            "default",
+            "disabled",
+            "error",
+            "loading",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "icon-button",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "ariaLabel",
+            "badge",
+            "density",
+            "disabled",
+            "icon",
+            "intent",
+            "label",
+            "loading",
+            "selected",
+            "state",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "ghost",
+            "outlined",
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "states": [
+            "badged",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "pressed",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "ariaLabel",
+            "badge",
+            "density",
+            "disabled",
+            "icon",
+            "intent",
+            "label",
+            "loading",
+            "selected",
+            "state",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "ghost",
+            "outlined",
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "states": [
+            "badged",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "pressed",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "ariaLabel",
+            "badge",
+            "density",
+            "disabled",
+            "icon",
+            "intent",
+            "label",
+            "loading",
+            "selected",
+            "state",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "ghost",
+            "outlined",
+            "primary",
+            "secondary",
+            "tertiary"
+          ],
+          "states": [
+            "badged",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "pressed",
+            "selected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "inline-validation",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "field",
+            "fullWidth",
+            "id",
+            "label",
+            "live",
+            "message",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "error",
+            "info",
+            "success",
+            "warning"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "info",
+            "success",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "field",
+            "fullWidth",
+            "id",
+            "label",
+            "live",
+            "message",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "error",
+            "info",
+            "success",
+            "warning"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "info",
+            "success",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "field",
+            "fullWidth",
+            "id",
+            "label",
+            "live",
+            "message",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "error",
+            "info",
+            "success",
+            "warning"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "info",
+            "success",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "field",
+            "fullWidth",
+            "id",
+            "label",
+            "live",
+            "message",
+            "state",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "info",
+            "success",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "input",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "align",
+            "autocomplete",
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "hideLabel",
+            "icon",
+            "inputMode",
+            "label",
+            "live",
+            "loading",
+            "locale",
+            "mono",
+            "name",
+            "onRevealChange",
+            "onValueChange",
+            "placeholder",
+            "prefix",
+            "required",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "suffix",
+            "type",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "currency",
+            "email",
+            "number",
+            "password",
+            "search",
+            "text",
+            "unit"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "info",
+            "loading",
+            "success",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "align",
+            "autocomplete",
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "hideLabel",
+            "icon",
+            "inputMode",
+            "label",
+            "live",
+            "loading",
+            "locale",
+            "mono",
+            "name",
+            "onRevealChange",
+            "onValueChange",
+            "placeholder",
+            "prefix",
+            "required",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "suffix",
+            "type",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "currency",
+            "email",
+            "number",
+            "password",
+            "search",
+            "text",
+            "unit"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "info",
+            "loading",
+            "success",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "align",
+            "autocomplete",
+            "density",
+            "error",
+            "helper",
+            "helperText",
+            "hideLabel",
+            "icon",
+            "label",
+            "live",
+            "loading",
+            "locale",
+            "mono",
+            "onRevealChange",
+            "onValueChange",
+            "prefix",
+            "revealLabel",
+            "revealable",
+            "revealed",
+            "state",
+            "suffix",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "currency",
+            "email",
+            "number",
+            "password",
+            "search",
+            "text",
+            "unit"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "info",
+            "loading",
+            "success",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "input-amount",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "currency",
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "locale",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "prefix",
+            "required",
+            "state",
+            "suffix",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading"
+          ]
+        },
+        "contract": {
+          "props": [
+            "currency",
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "locale",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "prefix",
+            "required",
+            "state",
+            "suffix",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading"
+          ]
+        },
+        "content": {
+          "props": [
+            "currency",
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "locale",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "prefix",
+            "required",
+            "state",
+            "suffix",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading"
+          ]
+        },
+        "react": {
+          "props": [
+            "currency",
+            "density",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "locale",
+            "onValueChange",
+            "prefix",
+            "state",
+            "suffix",
+            "validationMessage",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "loading"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kpi-tile",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "delta",
+            "density",
+            "disabled",
+            "href",
+            "icon",
+            "label",
+            "loading",
+            "onSelect",
+            "selected",
+            "state",
+            "tone",
+            "trend",
+            "value",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "delta",
+            "drill-in",
+            "sparkline",
+            "standard",
+            "threshold"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "risk",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "delta",
+            "density",
+            "disabled",
+            "href",
+            "icon",
+            "label",
+            "loading",
+            "onSelect",
+            "selected",
+            "state",
+            "tone",
+            "trend",
+            "value",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "delta",
+            "drill-in",
+            "sparkline",
+            "standard",
+            "threshold"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "risk",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [
+            "delta",
+            "density",
+            "disabled",
+            "href",
+            "icon",
+            "label",
+            "loading",
+            "onSelect",
+            "selected",
+            "state",
+            "tone",
+            "trend",
+            "value",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "delta",
+            "drill-in",
+            "sparkline",
+            "standard",
+            "threshold"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "risk",
+            "selected"
+          ]
+        },
+        "react": {
+          "props": [
+            "delta",
+            "density",
+            "disabled",
+            "href",
+            "icon",
+            "label",
+            "loading",
+            "onSelect",
+            "selected",
+            "state",
+            "tone",
+            "trend",
+            "value",
+            "values",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "delta",
+            "drill-in",
+            "sparkline",
+            "standard",
+            "threshold"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "loading",
+            "risk",
+            "selected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "list",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "interactive",
+            "items",
+            "label",
+            "onSelect",
+            "selectedKey",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "compact",
+            "media",
+            "standard",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "hover",
+            "loading",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "interactive",
+            "items",
+            "label",
+            "onSelect",
+            "selectedKey",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "compact",
+            "media",
+            "standard",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "hover",
+            "loading",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "interactive",
+            "items",
+            "label",
+            "onSelect",
+            "selectedKey",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "compact",
+            "media",
+            "standard",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "hover",
+            "loading",
+            "selected"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "interactive",
+            "items",
+            "label",
+            "onSelect",
+            "selectedKey",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "compact",
+            "media",
+            "standard",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "hover",
+            "loading",
+            "selected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "menu",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "align",
+            "avatarName",
+            "avatarStatus",
+            "density",
+            "disabled",
+            "items",
+            "label",
+            "onOpenChange",
+            "onSelect",
+            "open",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "actions",
+            "avatar-trigger",
+            "danger",
+            "grouped",
+            "icon-trigger",
+            "selection"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "align",
+            "avatarName",
+            "avatarStatus",
+            "density",
+            "disabled",
+            "items",
+            "label",
+            "onOpenChange",
+            "onSelect",
+            "open",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "actions",
+            "avatar-trigger",
+            "danger",
+            "grouped",
+            "icon-trigger",
+            "selection"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "align",
+            "avatarName",
+            "avatarStatus",
+            "density",
+            "disabled",
+            "items",
+            "label",
+            "onOpenChange",
+            "onSelect",
+            "open",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "actions",
+            "avatar-trigger",
+            "danger",
+            "grouped",
+            "icon-trigger",
+            "selection"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "align",
+            "avatarName",
+            "avatarStatus",
+            "density",
+            "disabled",
+            "items",
+            "label",
+            "onOpenChange",
+            "onSelect",
+            "open",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "actions",
+            "avatar-trigger",
+            "danger",
+            "grouped",
+            "icon-trigger",
+            "selection"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "open"
+          ]
+        }
+      }
+    },
+    {
+      "id": "motion-boundary",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "reducedMotion",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "collapse",
+            "fade",
+            "route",
+            "slide"
+          ],
+          "states": [
+            "active",
+            "disabled",
+            "entering",
+            "exiting",
+            "idle",
+            "reduced-motion"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "reducedMotion",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "collapse",
+            "fade",
+            "route",
+            "slide"
+          ],
+          "states": [
+            "active",
+            "disabled",
+            "entering",
+            "exiting",
+            "idle",
+            "reduced-motion"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "reducedMotion",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "collapse",
+            "fade",
+            "route",
+            "slide"
+          ],
+          "states": [
+            "active",
+            "disabled",
+            "entering",
+            "exiting",
+            "idle",
+            "reduced-motion"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "description",
+            "icon",
+            "label",
+            "reducedMotion",
+            "state",
+            "stateLabel",
+            "variant"
+          ],
+          "variants": [
+            "collapse",
+            "fade",
+            "route",
+            "slide"
+          ],
+          "states": [
+            "active",
+            "disabled",
+            "entering",
+            "exiting",
+            "idle",
+            "reduced-motion"
+          ]
+        }
+      }
+    },
+    {
+      "id": "movement-row",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "amount",
+            "category",
+            "density",
+            "disabled",
+            "fullWidth",
+            "label",
+            "meta",
+            "onSelect",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "declined",
+            "refund",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "pending"
+          ]
+        },
+        "contract": {
+          "props": [
+            "amount",
+            "category",
+            "density",
+            "disabled",
+            "fullWidth",
+            "label",
+            "meta",
+            "onSelect",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "declined",
+            "refund",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "pending"
+          ]
+        },
+        "content": {
+          "props": [
+            "amount",
+            "category",
+            "density",
+            "disabled",
+            "fullWidth",
+            "label",
+            "meta",
+            "onSelect",
+            "state",
+            "status",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "declined",
+            "refund",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "pending"
+          ]
+        },
+        "react": {
+          "props": [
+            "amount",
+            "category",
+            "density",
+            "disabled",
+            "fullWidth",
+            "label",
+            "meta",
+            "onSelect",
+            "state",
+            "status",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "declined",
+            "refund",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "pending"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pagination",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "firstLabel",
+            "fullWidth",
+            "getPageLabel",
+            "jumpSize",
+            "label",
+            "lastLabel",
+            "nextJumpLabel",
+            "nextLabel",
+            "onPageChange",
+            "page",
+            "pageCount",
+            "pages",
+            "previousJumpLabel",
+            "previousLabel",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "jump",
+            "numbered"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "firstLabel",
+            "fullWidth",
+            "getPageLabel",
+            "jumpSize",
+            "label",
+            "lastLabel",
+            "nextJumpLabel",
+            "nextLabel",
+            "onPageChange",
+            "page",
+            "pageCount",
+            "pages",
+            "previousJumpLabel",
+            "previousLabel",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "jump",
+            "numbered"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "firstLabel",
+            "fullWidth",
+            "getPageLabel",
+            "jumpSize",
+            "label",
+            "lastLabel",
+            "nextJumpLabel",
+            "nextLabel",
+            "onPageChange",
+            "page",
+            "pageCount",
+            "pages",
+            "previousJumpLabel",
+            "previousLabel",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "jump",
+            "numbered"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "firstLabel",
+            "fullWidth",
+            "getPageLabel",
+            "jumpSize",
+            "label",
+            "lastLabel",
+            "nextJumpLabel",
+            "nextLabel",
+            "onPageChange",
+            "page",
+            "pageCount",
+            "pages",
+            "previousJumpLabel",
+            "previousLabel",
+            "state",
+            "variant"
+          ],
+          "variants": [
+            "jump",
+            "numbered"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "phone-input",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "error",
+            "helper",
+            "label",
+            "onValueChange",
+            "prefix",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "country-code",
+            "otp-handoff",
+            "readonly"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "valid",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "error",
+            "helper",
+            "label",
+            "onValueChange",
+            "prefix",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "country-code",
+            "otp-handoff",
+            "readonly"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "valid",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "error",
+            "helper",
+            "label",
+            "onValueChange",
+            "prefix",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "country-code",
+            "otp-handoff",
+            "readonly"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "valid",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "countries",
+            "country",
+            "density",
+            "disabled",
+            "emptyText",
+            "error",
+            "helper",
+            "label",
+            "onValueChange",
+            "placeholder",
+            "prefix",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "country-code",
+            "otp-handoff",
+            "readonly"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "focus",
+            "hover",
+            "valid",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "popover",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "field",
+            "fullWidth",
+            "id",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "title",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "form",
+            "information",
+            "metric"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "open",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "field",
+            "fullWidth",
+            "id",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "title",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "form",
+            "information",
+            "metric"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "open",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "field",
+            "fullWidth",
+            "id",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "title",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "form",
+            "information",
+            "metric"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "open",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "field",
+            "fullWidth",
+            "id",
+            "onAction",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "title",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "action",
+            "form",
+            "information",
+            "metric"
+          ],
+          "states": [
+            "closed",
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "open",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "progress-indicator",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "ariaValueText",
+            "density",
+            "fullWidth",
+            "indeterminate",
+            "label",
+            "max",
+            "showValue",
+            "state",
+            "tone",
+            "value"
+          ],
+          "variants": [
+            "indeterminate",
+            "linear"
+          ],
+          "states": [
+            "active",
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "indeterminate",
+            "paused"
+          ]
+        },
+        "contract": {
+          "props": [
+            "ariaValueText",
+            "density",
+            "fullWidth",
+            "indeterminate",
+            "label",
+            "max",
+            "showValue",
+            "state",
+            "tone",
+            "value"
+          ],
+          "variants": [
+            "indeterminate",
+            "linear"
+          ],
+          "states": [
+            "active",
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "indeterminate",
+            "paused"
+          ]
+        },
+        "content": {
+          "props": [
+            "ariaValueText",
+            "density",
+            "fullWidth",
+            "indeterminate",
+            "label",
+            "max",
+            "showValue",
+            "state",
+            "tone",
+            "value"
+          ],
+          "variants": [
+            "indeterminate",
+            "linear"
+          ],
+          "states": [
+            "active",
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "indeterminate",
+            "paused"
+          ]
+        },
+        "react": {
+          "props": [
+            "ariaValueText",
+            "density",
+            "fullWidth",
+            "indeterminate",
+            "label",
+            "max",
+            "showValue",
+            "state",
+            "tone",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "active",
+            "complete",
+            "default",
+            "disabled",
+            "error",
+            "indeterminate",
+            "paused"
+          ]
+        }
+      }
+    },
+    {
+      "id": "radio-button",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "checked",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "critical",
+            "default",
+            "descriptive"
+          ],
+          "states": [
+            "disabled",
+            "error",
+            "focus",
+            "selected",
+            "unselected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "checked",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "critical",
+            "default",
+            "descriptive"
+          ],
+          "states": [
+            "disabled",
+            "error",
+            "focus",
+            "selected",
+            "unselected"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "checked",
+            "className",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "critical",
+            "default",
+            "descriptive"
+          ],
+          "states": [
+            "disabled",
+            "error",
+            "focus",
+            "selected",
+            "unselected"
+          ]
+        }
+      }
+    },
+    {
+      "id": "route-summary",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "label",
+            "metrics",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "compare",
+            "policy",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "label",
+            "metrics",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "compare",
+            "policy",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "label",
+            "metrics",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "compare",
+            "policy",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "react": {
+          "props": [
+            "actions",
+            "density",
+            "description",
+            "disabled",
+            "fullWidth",
+            "icon",
+            "label",
+            "metrics",
+            "selected",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "compare",
+            "policy",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "segmented-control",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "icon-only",
+            "outlined",
+            "toolbar"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "icon-only",
+            "outlined",
+            "toolbar"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "compact",
+            "icon-only",
+            "outlined",
+            "toolbar"
+          ],
+          "states": []
+        }
+      }
+    },
+    {
+      "id": "select",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "inline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "inline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "helper",
+            "icon",
+            "label",
+            "loading",
+            "name",
+            "onOpenChange",
+            "onValueChange",
+            "open",
+            "options",
+            "optionsLabel",
+            "placeholder",
+            "state",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "inline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "open"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skeleton",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "busy",
+            "columns",
+            "density",
+            "fullWidth",
+            "height",
+            "label",
+            "lines",
+            "rows",
+            "state",
+            "variant",
+            "width"
+          ],
+          "variants": [
+            "card",
+            "chart",
+            "circle",
+            "media",
+            "pill",
+            "row",
+            "table",
+            "text",
+            "title"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "loaded",
+            "loading",
+            "paused",
+            "stale"
+          ]
+        },
+        "contract": {
+          "props": [
+            "busy",
+            "columns",
+            "density",
+            "fullWidth",
+            "height",
+            "label",
+            "lines",
+            "rows",
+            "state",
+            "variant",
+            "width"
+          ],
+          "variants": [
+            "card",
+            "chart",
+            "circle",
+            "media",
+            "pill",
+            "row",
+            "table",
+            "text",
+            "title"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "loaded",
+            "loading",
+            "paused",
+            "stale"
+          ]
+        },
+        "content": {
+          "props": [
+            "busy",
+            "columns",
+            "density",
+            "fullWidth",
+            "height",
+            "label",
+            "lines",
+            "rows",
+            "state",
+            "variant",
+            "width"
+          ],
+          "variants": [
+            "card",
+            "chart",
+            "circle",
+            "media",
+            "pill",
+            "row",
+            "table",
+            "text",
+            "title"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "loaded",
+            "loading",
+            "paused",
+            "stale"
+          ]
+        },
+        "react": {
+          "props": [
+            "busy",
+            "columns",
+            "density",
+            "fullWidth",
+            "height",
+            "label",
+            "lines",
+            "rows",
+            "state",
+            "variant",
+            "width"
+          ],
+          "variants": [
+            "card",
+            "chart",
+            "circle",
+            "media",
+            "pill",
+            "row",
+            "table",
+            "text",
+            "title"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "loaded",
+            "loading",
+            "paused",
+            "stale"
+          ]
+        }
+      }
+    },
+    {
+      "id": "slider",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "formatValue",
+            "label",
+            "max",
+            "min",
+            "name",
+            "onValueChange",
+            "state",
+            "step",
+            "unit",
+            "value",
+            "valueLabel",
+            "variant"
+          ],
+          "variants": [
+            "bounded",
+            "continuous",
+            "paired-value",
+            "stepped",
+            "threshold"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "dragging",
+            "error",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "formatValue",
+            "label",
+            "max",
+            "min",
+            "name",
+            "onValueChange",
+            "state",
+            "step",
+            "unit",
+            "value",
+            "valueLabel",
+            "variant"
+          ],
+          "variants": [
+            "bounded",
+            "continuous",
+            "paired-value",
+            "stepped",
+            "threshold"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "dragging",
+            "error",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "formatValue",
+            "label",
+            "max",
+            "min",
+            "name",
+            "onValueChange",
+            "state",
+            "step",
+            "unit",
+            "value",
+            "valueLabel",
+            "variant"
+          ],
+          "variants": [
+            "bounded",
+            "continuous",
+            "paired-value",
+            "stepped",
+            "threshold"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "dragging",
+            "error",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "formatValue",
+            "label",
+            "max",
+            "min",
+            "name",
+            "onValueChange",
+            "state",
+            "step",
+            "unit",
+            "value",
+            "valueLabel",
+            "variant"
+          ],
+          "variants": [
+            "bounded",
+            "continuous",
+            "paired-value",
+            "stepped",
+            "threshold"
+          ],
+          "states": [
+            "complete",
+            "default",
+            "disabled",
+            "dragging",
+            "error",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spinner",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "decorative",
+            "density",
+            "label",
+            "state",
+            "tone"
+          ],
+          "variants": [
+            "circular"
+          ],
+          "states": [
+            "decorative",
+            "default",
+            "disabled",
+            "loading",
+            "subtle"
+          ]
+        },
+        "contract": {
+          "props": [
+            "decorative",
+            "density",
+            "label",
+            "state",
+            "tone"
+          ],
+          "variants": [
+            "circular"
+          ],
+          "states": [
+            "decorative",
+            "default",
+            "disabled",
+            "loading",
+            "subtle"
+          ]
+        },
+        "content": {
+          "props": [
+            "decorative",
+            "density",
+            "label",
+            "state",
+            "tone"
+          ],
+          "variants": [
+            "circular"
+          ],
+          "states": [
+            "decorative",
+            "default",
+            "disabled",
+            "loading",
+            "subtle"
+          ]
+        },
+        "react": {
+          "props": [
+            "decorative",
+            "density",
+            "label",
+            "state",
+            "tone"
+          ],
+          "variants": [],
+          "states": [
+            "decorative",
+            "default",
+            "disabled",
+            "loading",
+            "subtle"
+          ]
+        }
+      }
+    },
+    {
+      "id": "station-pin",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "count",
+            "density",
+            "disabled",
+            "icon",
+            "label",
+            "meta",
+            "onSelect",
+            "selected",
+            "state",
+            "unavailable",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "cluster",
+            "ev",
+            "fuel",
+            "service"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "unavailable"
+          ]
+        },
+        "contract": {
+          "props": [
+            "count",
+            "density",
+            "disabled",
+            "icon",
+            "label",
+            "meta",
+            "onSelect",
+            "selected",
+            "state",
+            "unavailable",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "cluster",
+            "ev",
+            "fuel",
+            "service"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "unavailable"
+          ]
+        },
+        "content": {
+          "props": [
+            "count",
+            "density",
+            "disabled",
+            "icon",
+            "label",
+            "meta",
+            "onSelect",
+            "selected",
+            "state",
+            "unavailable",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "cluster",
+            "ev",
+            "fuel",
+            "service"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "unavailable"
+          ]
+        },
+        "react": {
+          "props": [
+            "count",
+            "density",
+            "disabled",
+            "icon",
+            "label",
+            "meta",
+            "onSelect",
+            "selected",
+            "state",
+            "unavailable",
+            "value",
+            "variant"
+          ],
+          "variants": [
+            "cluster",
+            "ev",
+            "fuel",
+            "service"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "selected",
+            "unavailable"
+          ]
+        }
+      }
+    },
+    {
+      "id": "stepper",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "current",
+            "density",
+            "label",
+            "orientation",
+            "steps"
+          ],
+          "variants": [
+            "horizontal",
+            "vertical"
+          ],
+          "states": [
+            "active",
+            "complete",
+            "pending"
+          ]
+        },
+        "contract": {
+          "props": [
+            "current",
+            "density",
+            "label",
+            "orientation",
+            "steps"
+          ],
+          "variants": [
+            "horizontal",
+            "vertical"
+          ],
+          "states": [
+            "active",
+            "complete",
+            "pending"
+          ]
+        },
+        "content": {
+          "props": [
+            "current",
+            "density",
+            "label",
+            "orientation",
+            "steps"
+          ],
+          "variants": [
+            "horizontal",
+            "vertical"
+          ],
+          "states": [
+            "active",
+            "complete",
+            "pending"
+          ]
+        },
+        "react": {
+          "props": [
+            "current",
+            "density",
+            "label",
+            "orientation",
+            "steps"
+          ],
+          "variants": [],
+          "states": []
+        }
+      }
+    },
+    {
+      "id": "switch",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "checked",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "disabled",
+            "error",
+            "focus",
+            "off",
+            "on",
+            "pressed"
+          ]
+        },
+        "contract": {
+          "props": [
+            "checked",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "disabled",
+            "error",
+            "focus",
+            "off",
+            "on",
+            "pressed"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "checked",
+            "className",
+            "density",
+            "description",
+            "disabled",
+            "error",
+            "label",
+            "name",
+            "onCheckedChange",
+            "required",
+            "state"
+          ],
+          "variants": [],
+          "states": [
+            "disabled",
+            "error",
+            "focus",
+            "off",
+            "on",
+            "pressed"
+          ]
+        }
+      }
+    },
+    {
+      "id": "table",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "childrenKey",
+            "columns",
+            "defaultExpandedKey",
+            "defaultSort",
+            "dense",
+            "density",
+            "emptyDescription",
+            "emptyIcon",
+            "emptyLabel",
+            "expandedKey",
+            "getExpandLabel",
+            "label",
+            "onCellEdit",
+            "onExpandedChange",
+            "onRowClick",
+            "onRowSelect",
+            "onSelectionChange",
+            "onSortChange",
+            "renderDetail",
+            "rowKey",
+            "rows",
+            "selectedKey",
+            "selection",
+            "sortDir",
+            "sortKey",
+            "state",
+            "stickyHeader",
+            "surface",
+            "tree",
+            "variant",
+            "zebra"
+          ],
+          "variants": [
+            "dense",
+            "expandable",
+            "selectable",
+            "sortable",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "expanded",
+            "focus",
+            "hover",
+            "selected",
+            "sorted"
+          ]
+        },
+        "contract": {
+          "props": [
+            "childrenKey",
+            "columns",
+            "defaultExpandedKey",
+            "defaultSort",
+            "dense",
+            "density",
+            "emptyDescription",
+            "emptyIcon",
+            "emptyLabel",
+            "expandedKey",
+            "getExpandLabel",
+            "label",
+            "onCellEdit",
+            "onExpandedChange",
+            "onRowClick",
+            "onRowSelect",
+            "onSelectionChange",
+            "onSortChange",
+            "renderDetail",
+            "rowKey",
+            "rows",
+            "selectedKey",
+            "selection",
+            "sortDir",
+            "sortKey",
+            "state",
+            "stickyHeader",
+            "surface",
+            "tree",
+            "variant",
+            "zebra"
+          ],
+          "variants": [
+            "dense",
+            "expandable",
+            "selectable",
+            "sortable",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "expanded",
+            "focus",
+            "hover",
+            "selected",
+            "sorted"
+          ]
+        },
+        "content": {
+          "props": [
+            "childrenKey",
+            "columns",
+            "defaultExpandedKey",
+            "defaultSort",
+            "dense",
+            "density",
+            "emptyDescription",
+            "emptyIcon",
+            "emptyLabel",
+            "expandedKey",
+            "getExpandLabel",
+            "label",
+            "onCellEdit",
+            "onExpandedChange",
+            "onRowClick",
+            "onRowSelect",
+            "onSelectionChange",
+            "onSortChange",
+            "renderDetail",
+            "rowKey",
+            "rows",
+            "selectedKey",
+            "selection",
+            "sortDir",
+            "sortKey",
+            "state",
+            "stickyHeader",
+            "surface",
+            "tree",
+            "variant",
+            "zebra"
+          ],
+          "variants": [
+            "dense",
+            "expandable",
+            "selectable",
+            "sortable",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "expanded",
+            "focus",
+            "hover",
+            "selected",
+            "sorted"
+          ]
+        },
+        "react": {
+          "props": [
+            "childrenKey",
+            "columns",
+            "defaultExpandedKey",
+            "defaultSort",
+            "dense",
+            "density",
+            "emptyDescription",
+            "emptyIcon",
+            "emptyLabel",
+            "expandedKey",
+            "getExpandLabel",
+            "label",
+            "onCellEdit",
+            "onExpandedChange",
+            "onRowClick",
+            "onRowSelect",
+            "onSelectionChange",
+            "onSortChange",
+            "renderDetail",
+            "rowKey",
+            "rows",
+            "selectedKey",
+            "selection",
+            "sortDir",
+            "sortKey",
+            "state",
+            "stickyHeader",
+            "surface",
+            "tree",
+            "variant",
+            "zebra"
+          ],
+          "variants": [
+            "dense",
+            "expandable",
+            "selectable",
+            "sortable",
+            "standard"
+          ],
+          "states": [
+            "default",
+            "expanded",
+            "focus",
+            "hover",
+            "selected",
+            "sorted"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tabs",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "underline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "overflow",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "underline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "overflow",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "underline"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "overflow",
+            "selected"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "items",
+            "label",
+            "onValueChange",
+            "selectedKey",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "underline"
+          ],
+          "states": []
+        }
+      }
+    },
+    {
+      "id": "tag",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "link",
+            "metadata",
+            "platform",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "link",
+            "metadata",
+            "platform",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "link",
+            "metadata",
+            "platform",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "disabled",
+            "icon",
+            "interactive",
+            "label",
+            "state",
+            "tone",
+            "type",
+            "variant"
+          ],
+          "variants": [
+            "link",
+            "metadata",
+            "platform",
+            "status"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "focus",
+            "hover",
+            "pressed"
+          ]
+        }
+      }
+    },
+    {
+      "id": "text-area",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "maxLength",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "rows",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "success",
+            "warning"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "disabled",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "maxLength",
+            "name",
+            "onValueChange",
+            "placeholder",
+            "required",
+            "rows",
+            "state",
+            "value"
+          ],
+          "variants": [
+            "default"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "success",
+            "warning"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "density",
+            "error",
+            "helper",
+            "helperText",
+            "label",
+            "loading",
+            "onValueChange",
+            "state",
+            "value"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "error",
+            "filled",
+            "focus",
+            "loading",
+            "success",
+            "warning"
+          ]
+        }
+      }
+    },
+    {
+      "id": "toast",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "dismissLabel",
+            "dismissed",
+            "dismissible",
+            "icon",
+            "label",
+            "onAction",
+            "onDismiss",
+            "onDismissChange",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "progress",
+            "recovery",
+            "status",
+            "undo",
+            "warning"
+          ],
+          "states": [
+            "action",
+            "default",
+            "exiting",
+            "stacked",
+            "visible"
+          ]
+        },
+        "contract": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "dismissLabel",
+            "dismissed",
+            "dismissible",
+            "icon",
+            "label",
+            "onAction",
+            "onDismiss",
+            "onDismissChange",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "progress",
+            "recovery",
+            "status",
+            "undo",
+            "warning"
+          ],
+          "states": [
+            "action",
+            "default",
+            "exiting",
+            "stacked",
+            "visible"
+          ]
+        },
+        "content": {
+          "props": [],
+          "variants": [],
+          "states": []
+        },
+        "react": {
+          "props": [
+            "actionLabel",
+            "density",
+            "description",
+            "dismissLabel",
+            "dismissed",
+            "dismissible",
+            "icon",
+            "label",
+            "onAction",
+            "onDismiss",
+            "onDismissChange",
+            "state",
+            "tone",
+            "variant"
+          ],
+          "variants": [
+            "progress",
+            "recovery",
+            "status",
+            "undo",
+            "warning"
+          ],
+          "states": [
+            "action",
+            "default",
+            "exiting",
+            "stacked",
+            "visible"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tooltip",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "content",
+            "density",
+            "disabled",
+            "id",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "disabled-help",
+            "icon-help",
+            "metric"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "dismissed",
+            "focus",
+            "hover",
+            "open"
+          ]
+        },
+        "contract": {
+          "props": [
+            "content",
+            "density",
+            "disabled",
+            "id",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "disabled-help",
+            "icon-help",
+            "metric"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "dismissed",
+            "focus",
+            "hover",
+            "open"
+          ]
+        },
+        "content": {
+          "props": [
+            "content",
+            "density",
+            "disabled",
+            "id",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "disabled-help",
+            "icon-help",
+            "metric"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "dismissed",
+            "focus",
+            "hover",
+            "open"
+          ]
+        },
+        "react": {
+          "props": [
+            "content",
+            "density",
+            "disabled",
+            "id",
+            "onOpenChange",
+            "open",
+            "placement",
+            "state",
+            "triggerLabel",
+            "variant"
+          ],
+          "variants": [
+            "default",
+            "disabled-help",
+            "icon-help",
+            "metric"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "dismissed",
+            "focus",
+            "hover",
+            "open"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tree-view",
+      "status": "aligned",
+      "sources": {
+        "spec": {
+          "props": [
+            "density",
+            "expandedKeys",
+            "label",
+            "nodes",
+            "onExpandedChange",
+            "onSelect",
+            "selectedKey",
+            "state"
+          ],
+          "variants": [
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "expanded",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        },
+        "contract": {
+          "props": [
+            "density",
+            "expandedKeys",
+            "label",
+            "nodes",
+            "onExpandedChange",
+            "onSelect",
+            "selectedKey",
+            "state"
+          ],
+          "variants": [
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "expanded",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        },
+        "content": {
+          "props": [
+            "density",
+            "expandedKeys",
+            "label",
+            "nodes",
+            "onExpandedChange",
+            "onSelect",
+            "selectedKey",
+            "state"
+          ],
+          "variants": [
+            "standard"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "expanded",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        },
+        "react": {
+          "props": [
+            "density",
+            "expandedKeys",
+            "label",
+            "nodes",
+            "onExpandedChange",
+            "onSelect",
+            "selectedKey",
+            "state"
+          ],
+          "variants": [],
+          "states": [
+            "default",
+            "disabled",
+            "expanded",
+            "focus",
+            "hover",
+            "selected"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -284,6 +284,30 @@
             "type": "(value: string, meta: InputAmountMeta) => void",
             "required": false,
             "notes": "Called with normalized amount and currency metadata."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "notes": "disabled prop."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "notes": "name prop."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "notes": "placeholder prop."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "notes": "required prop."
           }
         ],
         "productExamples": [

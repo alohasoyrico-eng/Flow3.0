@@ -126,7 +126,7 @@ Demo labels:
 
 Menu states cover trigger availability, panel lifecycle, keyboard focus, disabled actions, and closed state.
 
-Supported states from docs: `closed`, `open`, `focus`, `disabled`, `default`
+Supported states from docs: `default`, `closed`, `open`, `focus`, `disabled`
 
 ## Variant X State Behavior
 
@@ -187,13 +187,13 @@ Menu API exposes trigger, items, variant, state, alignment, disabled state, avat
 | triggerLabel | string | Yes | Menu trigger label. |
 | items | MenuItem[] | Yes | Menu items. |
 | open | boolean | No | Initial or controlled open state. |
-| label | string | No | Accessible menu label. |
 | variant | actions \| grouped \| selection \| danger \| icon-trigger \| avatar-trigger | No | Action model shown by the menu. |
-| avatarName | string | No | Name rendered by Avatar when variant is avatar-trigger. |
-| avatarStatus | none \| online \| busy \| offline | No | Avatar status rendered by the trigger when variant is avatar-trigger. |
 | density | sm \| md \| lg | No | Controls trigger, panel, and item scale for sm, md, and lg contexts. |
 | state | default \| closed \| open \| focus \| disabled | No | Initial demo/component state. |
 | align | start \| end | No | Panel alignment relative to the trigger. |
+| label | string | No | Accessible menu label. |
+| avatarName | string | No | Name rendered by Avatar when variant is avatar-trigger. |
+| avatarStatus | none \| online \| busy \| offline | No | Avatar status rendered by the trigger when variant is avatar-trigger. |
 | disabled | boolean | No | Disables the trigger. |
 | onOpenChange | (open: boolean) => void | No | Called when local open state changes. |
 | onSelect | (item: MenuItem) => void | No | Called when an item is selected. |

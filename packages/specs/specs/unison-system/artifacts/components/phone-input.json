@@ -301,6 +301,12 @@
             "type": "(digits: string, meta: PhoneMeta) => void",
             "required": false,
             "notes": "Called with national digits and country/calling-code metadata."
+          },
+          {
+            "name": "emptyText",
+            "type": "string",
+            "required": false,
+            "notes": "Message forwarded to the composed country selector when search has no results."
           }
         ],
         "productExamples": [

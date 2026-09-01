@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T01:06:38.682Z",
+  "generatedAt": "2026-09-01T02:06:16.414Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
@@ -15,34 +15,49 @@
     "flowdocsDemoFiles": 0,
     "flowdocsDemoRiskFiles": 0,
     "mixedFlowClaimFiles": 0,
-    "localQaFiles": 23,
-    "localQaComponents": 23,
+    "localQaFiles": 38,
+    "localQaComponents": 38,
     "localQaComponentIds": [
+      "accordion",
+      "breadcrumbs",
       "button",
       "card",
+      "card-expiry-input",
+      "card-number-input",
+      "card-security-code-input",
       "card-summary",
       "chart-wrapper",
       "checkbox",
+      "chip",
       "code-input",
       "combobox",
       "country-selector",
       "date-picker",
       "date-range-picker",
       "dialog",
+      "drawer",
       "icon-button",
       "input",
+      "input-amount",
       "kpi-card",
+      "kpi-tile",
       "menu",
+      "movement-row",
+      "pagination",
       "phone-input",
+      "popover",
+      "progress",
       "radio-button",
       "route-summary",
       "select",
       "slider",
+      "stepper",
       "switch",
+      "table",
       "tabs",
       "text-area"
     ],
-    "localQaReactRuntimeFiles": 23,
+    "localQaReactRuntimeFiles": 38,
     "localQaManualHarnessFiles": 0,
     "obsoleteLocalQaFiles": 0,
     "nonCanonicalLocalQaFiles": 0,
@@ -54,11 +69,63 @@
       "severity": "medium",
       "issue": "Local QA harnesses include their own layout CSS.",
       "action": "Keep them local and out of repo; use them for human inspection, not as component source truth.",
-      "count": 23
+      "count": 38
     }
   ],
   "flowdocsDemos": [],
   "localQaHarnesses": [
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/accordion-2026-08-25/interactive/react-runtime.html",
+      "component": "accordion",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/breadcrumbs-2026-08-29/interactive/react-runtime.html",
+      "component": "breadcrumbs",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/button-2026-08-17/interactive/react-runtime.html",
       "component": "button",
@@ -104,6 +171,84 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
         "keyboardTerms": 6,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-expiry-input-2026-08-25/interactive/react-runtime.html",
+      "component": "card-expiry-input",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-number-input-2026-08-25/interactive/react-runtime.html",
+      "component": "card-number-input",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/card-security-code-input-2026-08-25/interactive/react-runtime.html",
+      "component": "card-security-code-input",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
         "localVisualOverrides": 0,
         "dynamicStylePlumbing": 0,
         "reactRuntimeProof": 1
@@ -172,7 +317,6 @@
         "uses-flow-component-css",
         "uses-flow-react-runtime",
         "has-theme-control",
-        "keyboard-observation-harness",
         "local-harness-css"
       ],
       "risks": [
@@ -181,7 +325,32 @@
       "metrics": {
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
-        "keyboardTerms": 1,
+        "keyboardTerms": 0,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/chip-2026-08-31/interactive/react-runtime.html",
+      "component": "chip",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 0,
         "localVisualOverrides": 0,
         "dynamicStylePlumbing": 0,
         "reactRuntimeProof": 1
@@ -233,7 +402,7 @@
       "metrics": {
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
-        "keyboardTerms": 1,
+        "keyboardTerms": 5,
         "localVisualOverrides": 0,
         "dynamicStylePlumbing": 0,
         "reactRuntimeProof": 1
@@ -346,6 +515,32 @@
       "dynamicStylePlumbing": []
     },
     {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/drawer-2026-08-25/interactive/react-runtime.html",
+      "component": "drawer",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/icon-button-2026-08-20/interactive/react-runtime.html",
       "component": "icon-button",
       "classification": "local-component-qa-harness",
@@ -398,8 +593,60 @@
       "dynamicStylePlumbing": []
     },
     {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-amount-2026-08-25/interactive/react-runtime.html",
+      "component": "input-amount",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 2,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/kpi-card-2026-08-24/interactive/react-runtime.html",
       "component": "kpi-card",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/kpi-tile-2026-08-25/interactive/react-runtime.html",
+      "component": "kpi-tile",
       "classification": "local-component-qa-harness",
       "signals": [
         "uses-flow-token-css",
@@ -450,8 +697,112 @@
       "dynamicStylePlumbing": []
     },
     {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/movement-row-2026-08-25/interactive/react-runtime.html",
+      "component": "movement-row",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/pagination-2026-08-29/interactive/react-runtime.html",
+      "component": "pagination",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/phone-input-2026-08-24/interactive/react-runtime.html",
       "component": "phone-input",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/popover-2026-08-25/interactive/react-runtime.html",
+      "component": "popover",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/progress-2026-08-25/interactive/react-runtime.html",
+      "component": "progress",
       "classification": "local-component-qa-harness",
       "signals": [
         "uses-flow-token-css",
@@ -484,7 +835,6 @@
         "uses-flow-component-css",
         "uses-flow-react-runtime",
         "has-theme-control",
-        "keyboard-observation-harness",
         "local-harness-css"
       ],
       "risks": [
@@ -493,7 +843,7 @@
       "metrics": {
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
-        "keyboardTerms": 1,
+        "keyboardTerms": 0,
         "localVisualOverrides": 0,
         "dynamicStylePlumbing": 0,
         "reactRuntimeProof": 1
@@ -545,7 +895,7 @@
       "metrics": {
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
-        "keyboardTerms": 3,
+        "keyboardTerms": 7,
         "localVisualOverrides": 0,
         "dynamicStylePlumbing": 0,
         "reactRuntimeProof": 1
@@ -580,8 +930,8 @@
       "dynamicStylePlumbing": []
     },
     {
-      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/switch-2026-08-18/interactive/react-runtime.html",
-      "component": "switch",
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/stepper-2026-08-25/interactive/react-runtime.html",
+      "component": "stepper",
       "classification": "local-component-qa-harness",
       "signals": [
         "uses-flow-token-css",
@@ -598,6 +948,57 @@
         "localStyleBlocks": 1,
         "flowCssLinks": 3,
         "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/switch-2026-08-18/interactive/react-runtime.html",
+      "component": "switch",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 0,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/table-2026-08-27/interactive/react-runtime.html",
+      "component": "table",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 19,
         "localVisualOverrides": 0,
         "dynamicStylePlumbing": 0,
         "reactRuntimeProof": 1
@@ -660,7 +1061,7 @@
   ],
   "localQaGenerator": {
     "file": "packages/audit/scripts/build-local-react-qa-demo.mjs",
-    "openDemoCases": 7,
+    "openDemoCases": 1,
     "openStateful": true,
     "risks": []
   },

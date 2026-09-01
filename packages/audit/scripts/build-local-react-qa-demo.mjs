@@ -1276,6 +1276,83 @@ const components = {
           )
         )`,
   },
+  chip: {
+    title: "Chip",
+    directory: "chip-2026-08-31",
+    module: "Chip.js",
+    exportName: "Chip",
+    buildId: "chip-pruned-runtime-1",
+    eventPropName: "onSelectedChange",
+    actionHandler: "(selected, event) => onAction(props.label + '=' + selected)(event)",
+    statefulValueProp: "selected",
+    runtimeInstruction: "Click o Space selecciona chips interactivos; el botón close quita el valor sin activar selección.",
+    supportPreamble: `function RemovableChipDemo() {
+      const [items, setItems] = React.useState(["Sedan", "Van", "CDMX"]);
+      const [selected, setSelected] = React.useState("Sedan");
+      const removeItem = (label, event) => {
+        setItems((current) => current.filter((item) => item !== label));
+        onAction("remove=" + label)(event);
+      };
+      return e("div", { className: "audit-row" },
+        items.map((item) => e(Component, {
+          key: item,
+          label: item,
+          icon: item === "CDMX" ? "" : "local_taxi",
+          selected: selected === item,
+          removable: true,
+          interactive: true,
+          onRemoveLabel: "Quitar " + item,
+          onRemove: removeItem,
+          onSelectedChange: (nextSelected, event) => {
+            setSelected(nextSelected ? item : "");
+            onAction(item + "=" + nextSelected)(event);
+          },
+          "data-runtime-action": "true"
+        }))
+      );
+    }`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-card audit-card--compact" }, e(RemovableChipDemo))
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-row" },
+            action({ label: "Filter", variant: "filter", icon: "local_taxi", selected: true }),
+            action({ label: "Route", variant: "filter", icon: "route", interactive: true }),
+            action({ label: "Input", variant: "input", removable: true, onRemoveLabel: "Quitar Input", onRemove: (label, event) => onAction("remove=" + label)(event) }),
+            action({ label: "CDMX", variant: "input", removable: true, onRemoveLabel: "Quitar CDMX", onRemove: (label, event) => onAction("remove=" + label)(event) })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Sizing"),
+          e("div", { className: "audit-row audit-row--chip-sizing" },
+            e("div", { className: "audit-chip-sizing-sample" },
+              action({ label: "Small", density: "sm", selected: true }),
+              action({ label: "Remove", density: "sm", removable: true, onRemoveLabel: "Quitar Remove small", onRemove: (label, event) => onAction("remove-sm=" + label)(event) })
+            ),
+            e("div", { className: "audit-chip-sizing-sample" },
+              action({ label: "Medium", density: "md", selected: true }),
+              action({ label: "Remove", density: "md", removable: true, onRemoveLabel: "Quitar Remove medium", onRemove: (label, event) => onAction("remove-md=" + label)(event) })
+            ),
+            e("div", { className: "audit-chip-sizing-sample" },
+              action({ label: "Large", density: "lg", selected: true }),
+              action({ label: "Remove", density: "lg", removable: true, onRemoveLabel: "Quitar Remove large", onRemove: (label, event) => onAction("remove-lg=" + label)(event) })
+            )
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-row" },
+            action({ label: "Hover", state: "hover", interactive: true }),
+            action({ label: "Pressed", state: "pressed", selected: true }),
+            action({ label: "Focus", state: "focus", interactive: true }),
+            action({ label: "Warning", tone: "warning", interactive: true }),
+            action({ label: "Danger", tone: "danger", interactive: true }),
+            e(Component, { label: "Disabled", disabled: true, interactive: true, "data-runtime-action": "true" })
+          )
+        )`,
+  },
   "kpi-tile": {
     title: "KpiTile",
     directory: "kpi-tile-2026-08-25",
@@ -1728,8 +1805,8 @@ const components = {
     );
     const drawerReferenceBody = (density) => e("div", { className: "audit-stack audit-stack--drawer" },
       drawerMetrics(density),
-      e(Accordion, { items: [
-        { id: "docs", title: "Documentos", icon: "description", meta: "3 de 4", open: true, content: e("div", { className: "audit-stack", "data-flow-slot": "drawer-documents" },
+      e(Accordion, { expandedIds: ["docs"], items: [
+        { id: "docs", title: "Documentos", icon: "description", meta: "3 de 4", content: e("div", { className: "audit-stack", "data-flow-slot": "drawer-documents" },
           e(ProgressIndicator, { label: "Verificación", value: 3, max: 4, showValue: true, fullWidth: true, tone: "danger", density }),
           e(FileUpload, {
             label: "Sube un documento",
@@ -1993,11 +2070,27 @@ const html = `<!doctype html>
       padding: var(--component-space-lg);
     }
 
+    .audit-card--compact {
+      justify-items: start;
+      min-block-size: auto;
+      padding: var(--component-space-md);
+    }
+
     .audit-card--wide {
       align-items: stretch;
       grid-column: 1 / -1;
       min-block-size: auto;
       overflow-x: auto;
+    }
+
+    .audit-row--chip-sizing {
+      align-items: center;
+    }
+
+    .audit-chip-sizing-sample {
+      align-items: center;
+      display: inline-flex;
+      gap: var(--component-space-sm);
     }
 
     .audit-motion-demo {

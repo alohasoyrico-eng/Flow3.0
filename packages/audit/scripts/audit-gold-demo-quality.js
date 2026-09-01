@@ -120,7 +120,7 @@ const componentContracts = {
     stateItems: (section) => section?.demos ?? [],
     displayKeys: ["label"],
     minOperational: 3,
-    minVariants: 4,
+    minVariants: 2,
     minStates: 6,
   },
   tag: {
@@ -298,8 +298,8 @@ function checkComponentSpecificDemoQuality(component, copy, contract) {
     if (chipComponent.includes('role="button"') || chipComponent.includes('tabindex="0"')) {
       add("errors", chipComponentFile, 1, "Chip remove affordance must use a native button, not role=button/tabindex shims.");
     }
-    if (!chipComponent.includes('const element = isInteractive ? "button" : "span";') || !chipComponent.includes('"data-chip-remove": canRemove ? "true" : undefined')) {
-      add("errors", chipComponentFile, 1, "Chip removable React implementation must render a native removable button with the data-chip-remove hook.");
+    if (!chipComponent.includes('const element = isInteractive ? "button" : "span";') || !chipComponent.includes('"data-chip-remove": "true"') || !chipComponent.includes('className: "chip__action"') || !chipComponent.includes('className: "chip__remove"')) {
+      add("errors", chipComponentFile, 1, "Chip removable React implementation must render a container with separate native action/remove buttons.");
     }
     if (!chipComponent.includes("onRemove") || !chipComponent.includes("onSelectedChange")) add("errors", chipComponentFile, 1, "Chip package behavior must expose remove and selected-change callbacks.");
     if (!interactions.includes("[data-chip-remove]")) {

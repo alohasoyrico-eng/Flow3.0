@@ -231,7 +231,7 @@ body[data-theme="dark"],
   --component-option-row-color: var(--component-color-text);
   --component-option-row-selected-color: var(--component-color-text);
   --component-option-row-disabled-bg: var(--component-surface-transparent);
-  --component-option-row-disabled-color: color-mix(in srgb, var(--component-color-text) 48%, var(--component-color-surface));
+  --component-option-row-disabled-color: color-mix(in srgb, var(--component-color-text) 72%, transparent);
   --component-option-row-disabled-opacity: var(--component-opacity-visible);
   --component-action-bg-secondary: color-mix(in srgb, var(--component-color-surface-raised) 84%, var(--component-color-surface));
   --component-action-border-secondary: color-mix(in srgb, var(--component-color-text) 54%, var(--component-color-border));

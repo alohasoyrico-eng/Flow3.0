@@ -105,7 +105,7 @@ Pagination API exposes local props while Design System owns foundations, primiti
 
 Pagination has one package-backed visual variant: numbered. Ellipsis is behavior for long ranges. Density is governed by Flow context and viewport. Cursor, simple, data loading, and infinite loading stay outside this component until Flow scopes them.
 
-Approved variants from demos: `numbered`
+Approved variants from demos: `numbered`, `jump`
 
 Demo labels:
 
@@ -113,6 +113,7 @@ Demo labels:
 - Ellipsis
 - Density sm
 - Density lg
+- Jump
 
 ## States
 
@@ -187,6 +188,15 @@ Pagination API exposes local props while Design System owns foundations, primiti
 | fullWidth | boolean | No | Allows the row to fill its parent width. |
 | disabled | boolean | No | Disables pagination controls. |
 | onPageChange | (page: number) => void | No | Called when a local page request changes. |
+| firstLabel | string | false | firstLabel prop. |
+| getPageLabel | (page: number) => string | false | getPageLabel prop. |
+| jumpSize | number | false | jumpSize prop. |
+| lastLabel | string | false | lastLabel prop. |
+| nextJumpLabel | string | false | nextJumpLabel prop. |
+| nextLabel | string | false | nextLabel prop. |
+| pages | number | false | pages prop. |
+| previousJumpLabel | string | false | previousJumpLabel prop. |
+| previousLabel | string | false | previousLabel prop. |
 
 ## Implementation Checklist
 

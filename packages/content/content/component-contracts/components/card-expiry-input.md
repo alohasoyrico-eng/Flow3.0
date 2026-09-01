@@ -124,7 +124,7 @@ Demo labels:
 
 States communicate entry, local validation, loading, error, and disabled behavior without owning card enrollment.
 
-Supported states from docs: `Default`, `filled`, `valid`, `loading`, `error`, `disabled`
+Supported states from docs: `Default`, `filled`, `valid`, `loading`, `error`, `disabled`, `default`
 
 ## Variant X State Behavior
 

@@ -140,10 +140,9 @@
             "notes": "Uncontrolled initial value."
           },
           {
-            "name": "placeholder",
+            "name": "helper",
             "type": "string",
-            "required": "No",
-            "notes": "Consumer-supplied placeholder; default remains empty."
+            "required": false
           },
           {
             "name": "sending",
@@ -158,6 +157,26 @@
             "notes": "Visible recovery copy."
           },
           {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
+          },
+          {
+            "name": "state",
+            "type": "\"default\" | \"focus\" | \"filled\" | \"sending\" | \"disabled\" | \"error\"",
+            "required": false
+          },
+          {
+            "name": "sendLabel",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "attachLabel",
+            "type": "string",
+            "required": false
+          },
+          {
             "name": "onValueChange",
             "type": "(value, meta, event) => void",
             "required": "No",
@@ -168,6 +187,11 @@
             "type": "(value, event) => void",
             "required": "No",
             "notes": "Submit callback."
+          },
+          {
+            "name": "onAttach",
+            "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+            "required": false
           }
         ]
       },

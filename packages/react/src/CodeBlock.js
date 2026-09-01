@@ -52,6 +52,7 @@ export const CodeBlock = forwardRef(function CodeBlock({ code, label, filename, 
             clearTimeout(copyFeedbackTimer.current);
         }
         copyFeedbackTimer.current = setTimeout(() => setCopyFeedback(null), duration);
+        copyFeedbackTimer.current.unref?.();
     }
     async function handleCopyClick(event) {
         if (!resolvedCopyAction || resolvedCopyAction.disabled || resolvedState === "disabled")

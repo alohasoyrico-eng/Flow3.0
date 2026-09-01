@@ -10,7 +10,7 @@ Source content:
 
 ## Purpose
 
-Use Chip for compact filters, attributes, or suggested values that need selection, removal, or quick recognition without becoming a full Button.
+Use Chip for compact filters or input tokens that need selection, removal, or quick recognition without becoming a full Button.
 
 ## Definition Of Ready
 
@@ -40,7 +40,7 @@ Gaps or review gates:
 
 ## Use When
 
-- Use Chip for active filters, input tokens, suggestions, or compact attributes.
+- Use Chip for active filters or input tokens.
 - Set selected and removable when product behavior is explicit.
 - Choose icons only when they clarify the visible label.
 
@@ -59,20 +59,20 @@ Gaps or review gates:
 
 ## Operational Example
 
-Use Chip for compact filters, attributes, or suggested values that need selection, removal, or quick recognition without becoming a full Button.
+Use Chip for compact filters or input tokens that need selection, removal, or quick recognition without becoming a full Button.
 
 ### Why Chip
 
 - Chips keep applied criteria visible near the content they affect.
 - Selected and removable states are explicit instead of hidden in a filter summary.
-- Chip is compact enough for filter bars, tables, and cards.
+- Chip is compact enough for filter bars, tables, and tokenized input values.
 
 ## Anatomy
 
 | Part | Rule | Tokens |
 | --- | --- | --- |
 | Container | Owns pill shape, border, surface, density, and focus. | comp.chip.*, sys.frame.*, sys.energy.*, sys.state.* |
-| Label | Names the filter, attribute, or suggestion in plain language. | sys.voice.* |
+| Label | Names the filter or token in plain language. | sys.voice.* |
 | Leading icon | Optional icon supports recognition without replacing the label. | sys.symbol.* |
 | Remove affordance | Optional close icon removes an applied criterion and keeps a named action. | sys.accessibility.*, sys.iconography.* |
 
@@ -103,16 +103,14 @@ Chip API exposes label, variant, state, selected, removable, and optional icon w
 
 ## Variants
 
-Chip variants describe whether the pill filters, displays an input token, suggests a value, or works as a compact assistive action.
+Chip variants describe whether the pill filters content or displays a tokenized input value.
 
-Approved variants from demos: `filter`, `input`, `suggestion`, `assist`
+Approved variants from demos: `filter`, `input`
 
 Demo labels:
 
 - North region
 - Driver ID
-- EV fleet
-- Export ready
 
 ## States
 
@@ -130,7 +128,6 @@ State matrix: `default`, `hover`, `pressed`, `selected`, `focus`, `disabled`
 | --- | --- | --- |
 | Filter | filter |  |
 | Input | input |  |
-| Suggestion | suggestion |  |
 
 ## Full Width
 
@@ -138,7 +135,6 @@ Chip keeps intrinsic width. Containers may wrap or scroll chip groups, but an in
 
 - Filter row: layout: row
 - Input token: layout: row
-- Suggestions: layout: row
 
 ## Responsive Layout Patterns
 
@@ -166,7 +162,7 @@ Use the playground to test label length, selected state, removable affordance, i
 | Control | Type | Default | Options |
 | --- | --- | --- | --- |
 | label | text | North region |  |
-| variant | select | filter | filter, input, suggestion, assist |
+| variant | select | filter | filter, input |
 | state | select | selected | default, hover, pressed, selected, focus, disabled |
 | removable | checkbox | true |  |
 
@@ -179,8 +175,9 @@ Chip API exposes label, variant, state, selected, removable, and optional icon w
 | label | string | Yes | Chip label. |
 | interactive | boolean | No | Forces button semantics when Chip previews an interactive state. |
 | state | ChipState | No | Interaction state: default, hover, pressed, selected, focus, or disabled. |
+| density | "sm" \| "md" \| "lg" | No | Maps chip height, padding, icon, and remove affordance to Design System Density. |
 | tone | ChipTone | No | Optional semantic treatment for warning or danger filters. |
-| variant | ChipVariant | No | Purpose variant: filter, input, suggestion, or assist. |
+| variant | ChipVariant | No | Purpose variant: filter or input. |
 | selected | boolean | No | Marks the chip as selected. |
 | disabled | boolean | No | Disables chip interaction. |
 | removable | boolean | No | Shows remove affordance and enables remove behavior. |
@@ -221,7 +218,7 @@ MIEL treats Chip as a compact filter or token decision: agents can assemble labe
 
 Agents can decide:
 
-- Use Chip for active filters, input tokens, suggestions, or compact attributes.
+- Use Chip for active filters or input tokens.
 - Set selected and removable when product behavior is explicit.
 - Choose icons only when they clarify the visible label.
 

@@ -197,6 +197,11 @@
         ],
         "props": [
           {
+            "name": "label",
+            "type": "string",
+            "required": false
+          },
+          {
             "name": "value",
             "type": "string",
             "required": false,
@@ -207,6 +212,11 @@
             "type": "string",
             "required": false,
             "description": "Uncontrolled initial value."
+          },
+          {
+            "name": "helper",
+            "type": "string",
+            "required": false
           },
           {
             "name": "sending",
@@ -221,6 +231,26 @@
             "description": "Visible validation message."
           },
           {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false
+          },
+          {
+            "name": "state",
+            "type": "\"default\" | \"focus\" | \"filled\" | \"sending\" | \"disabled\" | \"error\"",
+            "required": false
+          },
+          {
+            "name": "sendLabel",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "attachLabel",
+            "type": "string",
+            "required": false
+          },
+          {
             "name": "onValueChange",
             "type": "(value, meta, event) => void",
             "required": false,
@@ -231,6 +261,11 @@
             "type": "(value, event) => void",
             "required": false,
             "description": "Submit callback."
+          },
+          {
+            "name": "onAttach",
+            "type": "(event: MouseEvent<HTMLButtonElement>) => void",
+            "required": false
           }
         ],
         "tests": [

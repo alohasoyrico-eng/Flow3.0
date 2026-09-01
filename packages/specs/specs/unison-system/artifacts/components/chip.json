@@ -14,7 +14,7 @@
         ],
         "maturityTarget": 3,
         "status": "gold-standard",
-        "purpose": "Represent compact filters, input tokens, suggestions, and assistive attributes.",
+        "purpose": "Represent compact filters and input tokens.",
         "anatomy": [
           {
             "part": "Container",
@@ -54,14 +54,6 @@
           {
             "id": "input",
             "description": "Tokenized input value."
-          },
-          {
-            "id": "suggestion",
-            "description": "Suggested value."
-          },
-          {
-            "id": "assist",
-            "description": "Compact assistive attribute or helper."
           }
         ],
         "intents": [
@@ -169,7 +161,7 @@
           },
           "Growth": {
             "status": "covered",
-            "decision": "Use Growth so filters, tokens, and suggestions reuse one component.",
+            "decision": "Use Growth so filters and input tokens reuse one component without duplicating action semantics.",
             "tokens": [
               "sys.growth.*"
             ],
@@ -240,10 +232,6 @@
           {
             "context": "Search",
             "example": "Tokenized driver ID."
-          },
-          {
-            "context": "Suggestions",
-            "example": "Suggested fleet segment."
           }
         ],
         "guidelines": {
@@ -282,7 +270,7 @@
           }
         ],
         "agentInstructions": [
-          "Use Chip for compact filters, tokens, and suggestions.",
+          "Use Chip for compact filters and input tokens.",
           "Use selected only when it changes filter state.",
           "Ask when grouping, source, or remove behavior is unclear."
         ],
@@ -306,6 +294,12 @@
             "notes": "Interaction state: default, hover, pressed, selected, focus, or disabled."
           },
           {
+            "name": "density",
+            "type": "\"sm\" | \"md\" | \"lg\"",
+            "required": false,
+            "notes": "Maps chip height, padding, icon, and remove affordance to Design System Density."
+          },
+          {
             "name": "tone",
             "type": "ChipTone",
             "required": false,
@@ -315,7 +309,7 @@
             "name": "variant",
             "type": "ChipVariant",
             "required": false,
-            "notes": "Purpose variant: filter, input, suggestion, or assist."
+            "notes": "Purpose variant: filter or input."
           },
           {
             "name": "selected",

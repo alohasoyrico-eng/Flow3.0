@@ -188,6 +188,7 @@ Skeleton API exposes variant, lines, rows, columns, state, label, and full-width
 | --- | --- | --- | --- |
 | label | string | Yes | Loading context for the owning region. |
 | variant | SkeletonVariant | No | Future content structure. |
+| density | "sm" \| "md" \| "lg" | false |  |
 | lines | number | No | Number of text or row bones. |
 | rows | number | No | Number of table rows when variant is table. |
 | columns | number | No | Number of table columns when variant is table. |

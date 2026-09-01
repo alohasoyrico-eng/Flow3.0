@@ -48,7 +48,7 @@ Gaps or review gates:
 
 - Use Code Block for commands, API snippets, token paths, and generated source examples.
 - Choose wrapping for short examples and scrollable behavior for long source.
-- Use Button composition when the snippet is copyable; keep clipboard behavior inside Code Block.
+- Use Copy Button composition when the snippet is copyable.
 
 ## Do Not Use Without Review
 
@@ -67,7 +67,7 @@ Render documentation source snippets with readable context, governed overflow, o
 
 - The snippet needs source semantics rather than a decorative card.
 - Overflow and wrapping must be owned by Flow, not page CSS.
-- Copy behavior is owned by Code Block so clipboard feedback remains tied to the snippet source.
+- Copy behavior is delegated to Copy Button so clipboard feedback is reusable.
 
 Scenario type: `documentation-source`
 
@@ -92,8 +92,8 @@ Scenario type: `documentation-source`
 
 Referenced token families:
 
-- `comp.code-block.*`
 - `comp.button.*`
+- `comp.code-block.*`
 - `sys.accessibility.*`
 - `sys.energy.*`
 - `sys.frame.*`

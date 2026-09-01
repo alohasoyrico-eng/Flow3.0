@@ -188,6 +188,7 @@ Breadcrumbs API exposes local props while Design System owns foundations, primit
 | state | default \| hover \| focus \| collapsed \| current \| disabled | No | Local visual state. |
 | disabled | boolean | No | Disables navigable ancestors. |
 | fullWidth | boolean | No | Allows the trail to fill its parent width. |
+| collapsedLabel | string | false | Accessible label for the collapsed breadcrumb control. |
 
 ## Implementation Checklist
 

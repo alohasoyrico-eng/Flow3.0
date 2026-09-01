@@ -1,7 +1,15 @@
 const { fs, path, root, read } = require("./audit-context.js");
 
 const reactSrcDir = path.join(root, "packages/react/src");
-const reactInteractionTestFile = path.join(root, "packages/react/test/interaction.test.mjs");
+const reactTestDir = path.join(root, "packages/react/test");
+
+function readReactInteractionSources() {
+  if (!fs.existsSync(reactTestDir)) return "";
+  return fs.readdirSync(reactTestDir)
+    .filter((file) => file.endsWith(".test.mjs"))
+    .map((file) => read(path.join(reactTestDir, file)))
+    .join("\n\n");
+}
 
 function checkControlledReactCoverage({ add, componentFiles, contractsSource }) {
   checkControlledOpenCoverage({ add, componentFiles, contractsSource });
@@ -15,7 +23,7 @@ function checkControlledReactCoverage({ add, componentFiles, contractsSource }) 
 }
 
 function checkControlledOpenCoverage({ add, componentFiles, contractsSource }) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  const interactionSource = readReactInteractionSources();
   const componentNames = new Set(componentFiles.map((file) => path.basename(file, ".js")));
   for (const match of contractsSource.matchAll(/^\s+([a-z][A-Za-z0-9]*):\s*\{([\s\S]*?)(?=^\s+[a-z][A-Za-z0-9]*:\s*\{|\n\};)/gm)) {
     const [, contractKey, body] = match;
@@ -25,13 +33,13 @@ function checkControlledOpenCoverage({ add, componentFiles, contractsSource }) {
     const componentRender = new RegExp(`render\\(React\\.createElement\\(${componentName}\\b`);
     const controlledRerender = new RegExp(`rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*true[\\s\\S]{0,900}rerender${componentName}[\\s\\S]{0,900}\\bopen:\\s*false`);
     if (!componentRender.test(interactionSource) || !controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} exposes open/onOpenChange and must test controlled open rerender from true back to false.`);
+      add("errors", reactTestDir, 1, `${componentName} exposes open/onOpenChange and must test controlled open rerender from true back to false.`);
     }
   }
 }
 
 function checkControlledPropCoverage({ add, componentFiles, marker, prop }) {
-  const interactionSource = fs.existsSync(reactInteractionTestFile) ? read(reactInteractionTestFile) : "";
+  const interactionSource = readReactInteractionSources();
   for (const file of componentFiles) {
     const componentName = path.basename(file, ".js");
     const sourceFile = path.join(reactSrcDir, file);
@@ -40,7 +48,7 @@ function checkControlledPropCoverage({ add, componentFiles, marker, prop }) {
 
     const controlledRerender = new RegExp(`rerender\\w*\\(React\\.createElement\\(${componentName}\\b[\\s\\S]{0,900}\\b${prop}:\\s*`);
     if (!controlledRerender.test(interactionSource)) {
-      add("errors", reactInteractionTestFile, 1, `${componentName} declares ${marker} and must test external ${prop} rerender coverage.`);
+      add("errors", reactTestDir, 1, `${componentName} declares ${marker} and must test external ${prop} rerender coverage.`);
     }
   }
 }

@@ -105,15 +105,13 @@ Avatar API exposes name, src, density, status, and state while Design System fou
 
 Avatar variants describe source and grouping: initials, image, status, group, and system.
 
-Approved variants from demos: `initials`, `image`, `status`, `group`, `system`
+Approved variants from demos: `initials`, `image`, `status`
 
 Demo labels:
 
 - Initials
 - Image
 - Presence
-- Group member
-- System actor
 
 ## States
 
@@ -180,6 +178,7 @@ Avatar API exposes name, src, density, status, and state while Design System fou
 | name | string | Yes | Person or actor name. |
 | src | string | No | Image URL. |
 | density | Density | No | Density-aware scale: sm, md, or lg. |
+| identityTone | "auto" \| "action" \| "success" \| "danger" \| "warning" \| "purple" \| "teal" | false |  |
 | status | AvatarStatus | No | Presence marker. |
 | state | AvatarState | No | Disabled or unknown state when presence is not the state source. |
 

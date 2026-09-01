@@ -49,6 +49,10 @@ export interface InputAmountComponent extends ForwardRefExoticComponent<InputAmo
 }
 
 const validStates = new Set<InputAmountState>(["default", "filled", "loading", "error", "disabled"]);
+type InputAmountDraft = {
+  value: string;
+  controlledSignature: string;
+};
 
 function localeSeparators(locale: string | string[] | undefined) {
   const parts = new Intl.NumberFormat(locale, { minimumFractionDigits: 2 }).formatToParts(1234.5);
@@ -139,12 +143,14 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
   const resolvedCurrency = String(currency || "MXN").toUpperCase();
   const isValueControlled = value !== undefined;
   const [internalValue, setInternalValue] = useState(value ?? "");
-  const [draftValue, setDraftValue] = useState<string | null>(null);
+  const [draftValue, setDraftValue] = useState<InputAmountDraft | null>(null);
   const currentValue = isValueControlled ? value ?? "" : internalValue;
   const normalizedValue = normalizeAmount(currentValue, locale);
+  const controlledSignature = `${String(value ?? "")}::${resolvedCurrency}::${JSON.stringify(locale ?? "")}`;
+  const activeDraftValue = draftValue && (!isValueControlled || draftValue.controlledSignature === controlledSignature) ? draftValue.value : null;
   const displayValue = useMemo(
-    () => draftValue ?? formatAmountDisplay(currentValue, resolvedCurrency, locale),
-    [currentValue, draftValue, locale, resolvedCurrency],
+    () => activeDraftValue ?? formatAmountDisplay(currentValue, resolvedCurrency, locale),
+    [currentValue, activeDraftValue, locale, resolvedCurrency],
   );
   const resolvedError = error || validationMessage || "";
   const resolvedState = resolveAmountState({ disabled, loading, error: resolvedError, ...(state !== undefined ? { state } : {}), value: normalizedValue });
@@ -194,12 +200,12 @@ export const InputAmount = forwardRef<HTMLInputElement, InputAmountProps>(functi
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         onChange: (event: ChangeEvent<HTMLInputElement>) => {
           const meta = amountMeta(event.target.value, resolvedCurrency, locale);
-          setDraftValue(event.target.value);
+          setDraftValue({ value: event.target.value, controlledSignature });
           if (!isValueControlled) setInternalValue(meta.value);
           onValueChange?.(meta.value, meta, event);
         },
         onFocus: (event: FocusEvent<HTMLInputElement>) => {
-          setDraftValue(event.currentTarget.value);
+          setDraftValue({ value: event.currentTarget.value, controlledSignature });
           onFocus?.(event);
         },
         onBlur: (event: FocusEvent<HTMLInputElement>) => {

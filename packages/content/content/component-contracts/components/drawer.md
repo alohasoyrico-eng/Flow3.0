@@ -110,10 +110,11 @@ Drawer API exposes title, description, variant, side, lifecycle, fields, footer 
 
 Drawer variants describe the panel job: side sheet, filter, detail, edit, and review.
 
-Approved variants from demos: `detail`, `filter`, `edit`, `review`
+Approved variants from demos: `side-sheet`, `detail`, `filter`, `edit`, `review`
 
 Demo labels:
 
+- Side sheet
 - Ana Sosa
 - Filter routes
 - Driver details
@@ -198,6 +199,9 @@ Drawer API exposes title, description, variant, side, lifecycle, fields, footer 
 | id | string | No | Stable drawer id. |
 | onOpenChange | (open: boolean) => void | No | Called when local open state changes. |
 | onAction | (action: Action) => void | No | Called when an action is selected. |
+| children | ReactNode | false | Composable content slot rendered inside the component. |
+| closeLabel | string | false | Accessible label for the close action. |
+| showCloseButton | boolean | false | Controls whether the local close affordance is visible. |
 
 ## Implementation Checklist
 

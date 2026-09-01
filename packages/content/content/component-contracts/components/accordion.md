@@ -110,15 +110,12 @@ Accordion API exposes items, default open row, multiple mode, disabled rows, and
 
 Accordion variants describe disclosure behavior: single, multiple, metadata, icon-led, and compact.
 
-Approved variants from demos: `single`, `multiple`, `metadata`, `icon-led`, `compact`
+Approved variants from demos: `single`, `multiple`
 
 Demo labels:
 
 - Single open
 - Multiple open
-- Metadata
-- Icon led
-- Compact
 
 ## States
 
@@ -186,6 +183,10 @@ Accordion API exposes items, default open row, multiple mode, disabled rows, and
 | multiple | boolean | No | Allows more than one open row. |
 | onExpandedChange | (expandedIds: string[]) => void | No | Called when local expanded sections change. |
 | density | "sm" \| "md" \| "lg" | No | Disclosure density: sm, md, or lg. |
+| defaultOpen | string | false | Initially open item id. |
+| expandedIds | string[] | false | Controlled expanded item ids. |
+| surface | "solid" \| "transparent" | false | Surface treatment without elevation. |
+| variant | "single" \| "multiple" | false | Disclosure behavior variant. |
 
 ## Implementation Checklist
 
