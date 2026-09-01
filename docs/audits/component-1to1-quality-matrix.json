@@ -890,6 +890,8 @@
       ],
       "decision": "Chip remains a component only for compact filters and input tokens. The decorative suggestion/assist variants were removed from API, CSS, component contracts, content copy, specs, and the runtime demo because they were duplicate action/pattern semantics under different names. Groups, suggestions, assistive actions, and orchestration belong to Button/IconButton or higher-level patterns, while Chip owns stable pill anatomy, selection/removal behavior, density, focus, tone, and tokenized value display.",
       "lastValidation": "Post-prune validation passed: npm --prefix packages/react run build; node packages/react/test/button-render.test.mjs; node packages/react/test/p2-display-status.test.mjs; node packages/audit/scripts/audit-chip-css-contract.js; node packages/audit/scripts/react-component-content-guards.js; npm run build:local-react-qa-demo -- --component=chip; node packages/audit/scripts/audit-gold-demo-quality.js --check; npm run audit:flow-core-gate; npm run typecheck; git diff --check. Targeted rg confirmed no active Chip suggestion/assist variants remain in React API/types, package contracts, package CSS, content copy, generated component contract, spec, or demo generator. npm run audit:content-source-gate was checked but remains failing on the known FlowDocs bundle mismatch outside this component scope. Source-of-truth witness passed with npm run audit:component-source-of-truth -- --component=chip --component=date-picker --check.",
+      "lastReviewAt": "2026-08-31",
+      "currentReviewCommit": "26d3d208",
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "in-review",
       "truthResetDecision": "Do not promote to pass until visual review confirms ZIP parity in the runtime demo."
@@ -2864,7 +2866,7 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-31",
-    "sourceCommit": "working-tree",
+    "sourceCommit": "6c57a823",
     "scope": [
       "pagination",
       "select",
