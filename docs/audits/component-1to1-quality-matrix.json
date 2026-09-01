@@ -831,21 +831,21 @@
     },
     {
       "id": "chip",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/display/Chip.jsx",
@@ -885,16 +885,14 @@
         "docs/audits/component-source-of-truth-drift.json",
         "docs/audits/component-source-of-truth-drift.md"
       ],
-      "openIssues": [
-        "Awaiting user visual review on the regenerated React runtime demo before promoting Chip to pass."
-      ],
+      "openIssues": [],
       "decision": "Chip remains a component only for compact filters and input tokens. The decorative suggestion/assist variants were removed from API, CSS, component contracts, content copy, specs, and the runtime demo because they were duplicate action/pattern semantics under different names. Groups, suggestions, assistive actions, and orchestration belong to Button/IconButton or higher-level patterns, while Chip owns stable pill anatomy, selection/removal behavior, density, focus, tone, and tokenized value display.",
       "lastValidation": "Post-prune validation passed: npm --prefix packages/react run build; node packages/react/test/button-render.test.mjs; node packages/react/test/p2-display-status.test.mjs; node packages/audit/scripts/audit-chip-css-contract.js; node packages/audit/scripts/react-component-content-guards.js; npm run build:local-react-qa-demo -- --component=chip; node packages/audit/scripts/audit-gold-demo-quality.js --check; npm run audit:flow-core-gate; npm run typecheck; git diff --check. Targeted rg confirmed no active Chip suggestion/assist variants remain in React API/types, package contracts, package CSS, content copy, generated component contract, spec, or demo generator. npm run audit:content-source-gate was checked but remains failing on the known FlowDocs bundle mismatch outside this component scope. Source-of-truth witness passed with npm run audit:component-source-of-truth -- --component=chip --component=date-picker --check.",
       "lastReviewAt": "2026-08-31",
       "currentReviewCommit": "26d3d208",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "in-review",
-      "truthResetDecision": "Do not promote to pass until visual review confirms ZIP parity in the runtime demo."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after user review confirmed the pruned two-variant model: filter owns view criteria, input owns tokenized values, and removable close is a capability rather than a variant."
     },
     {
       "id": "code-input",
@@ -2851,16 +2849,16 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 25,
-    "partial": 32,
+    "pass": 26,
+    "partial": 31,
     "fail": 0,
-    "qualityDebt": 32,
+    "qualityDebt": 31,
     "reviewStates": {
       "closed-with-recent-evidence": 19,
       "needs-1to1-review": 19,
-      "closed-with-user-visual-review": 5,
+      "closed-with-user-visual-review": 6,
       "needs-revalidation": 12,
-      "in-review": 2
+      "in-review": 1
     }
   },
   "currentReview": {
@@ -2880,10 +2878,10 @@
       "switch",
       "chip"
     ],
-    "nextComponent": "chip",
-    "nextComponentReason": "Chip is in active review. It now has ZIP-informed removable behavior, inverse selected fill, runtime demo evidence, and targeted validation; it still needs user visual review before promotion to pass.",
+    "nextComponent": "combobox",
+    "nextComponentReason": "Combobox is the remaining in-review component because the ZIP reference points toward Select searchable/clearable as the canonical owner, while current Flow consumers still depend on Combobox.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
-    "component": "chip",
+    "component": "combobox",
     "status": "in-review",
     "sourceOfTruthGate": "required-before-pass",
     "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json"
