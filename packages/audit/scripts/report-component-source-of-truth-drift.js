@@ -376,14 +376,22 @@ function writeReport(report) {
 
 buildReport()
   .then((report) => {
-    writeReport(report);
+    const writesCanonicalReport = componentArgs.length === 0;
+    if (writesCanonicalReport) writeReport(report);
     console.log(JSON.stringify({
       status: report.status,
       summary: report.summary,
-      output: {
-        json: relative(jsonOutput),
-        markdown: relative(markdownOutput),
-      },
+      ...(writesCanonicalReport
+        ? {
+            output: {
+              json: relative(jsonOutput),
+              markdown: relative(markdownOutput),
+            },
+          }
+        : {
+            output: null,
+            note: "Scoped component checks do not overwrite the canonical source-of-truth drift report.",
+          }),
     }, null, 2));
     if (checkMode && report.status !== "pass") process.exitCode = 1;
   })
