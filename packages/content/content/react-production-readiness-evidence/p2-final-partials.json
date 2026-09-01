@@ -6,9 +6,22 @@
       "evidenceFiles": [
         "packages/react/test/p2-final-partials.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "controlled/uncontrolled", "formatting/masking"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "controlled/uncontrolled",
+        "formatting/masking"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers shared field root ownership, visible label/currency context/helper/error, decimal input semantics, density/state/currency data attributes, controlled value rendering, uncontrolled onValueChange metadata, loading lock and spinner, validation error semantics, disabled/empty-label guards, and no custom payment shell."
@@ -19,9 +32,22 @@
       "evidenceFiles": [
         "packages/react/test/p2-final-partials.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers article root semantics, visible label/description/meta/timestamp/status, decorative icon boundary, tone and state precedence for verified/warning/critical/disabled, density cascade, disabled aria semantics, empty-label guard, and parent-pattern ownership of timelines or investigations."
@@ -32,10 +58,27 @@
       "evidenceFiles": [
         "packages/react/test/p2-final-partials.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs",
-        "packages/react/test/pattern-interaction.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs",
+        "packages/react/test/pattern-interaction-entry.test.mjs",
+        "packages/react/test/pattern-interaction-forms-search.test.mjs",
+        "packages/react/test/pattern-interaction-operations.test.mjs",
+        "packages/react/test/pattern-interaction-panels-status.test.mjs",
+        "packages/react/test/pattern-interaction-delegated.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers labelled group semantics, variant/state/density/fullWidth props, icon fallback, visible status description, primary and fallback button callbacks, authenticating and disabled action locks, invalid prop fallback, empty-label guard, and pattern boundary for auth orchestration."
@@ -46,9 +89,22 @@
       "evidenceFiles": [
         "packages/react/test/p2-final-partials.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers article root semantics, visible identity/masked number/expiry/holder/status, Badge composition, limit metric filtering, variant/state/density/fullWidth props, virtual icon fallback, frozen status affordance, disabled aria semantics, empty-label guard, and the boundary that wallet/card lifecycle flows remain patterns."

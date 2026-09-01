@@ -6,10 +6,27 @@
       "evidenceFiles": [
         "packages/react/test/p2-domain-chat.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs",
-        "packages/react/test/pattern-interaction.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs",
+        "packages/react/test/pattern-interaction-entry.test.mjs",
+        "packages/react/test/pattern-interaction-forms-search.test.mjs",
+        "packages/react/test/pattern-interaction-operations.test.mjs",
+        "packages/react/test/pattern-interaction-panels-status.test.mjs",
+        "packages/react/test/pattern-interaction-delegated.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers Surface form ownership, TextArea composition, Button and IconButton composition, controlled and uncontrolled value flow, counter metadata, attach callback, send callback, empty-send guard, send clear behavior, sending lock, error recovery semantics, density cascade, and default accessible label fallback."
@@ -20,10 +37,27 @@
       "evidenceFiles": [
         "packages/react/test/p2-domain-chat.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs",
-        "packages/react/test/pattern-interaction.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs",
+        "packages/react/test/pattern-interaction-entry.test.mjs",
+        "packages/react/test/pattern-interaction-forms-search.test.mjs",
+        "packages/react/test/pattern-interaction-operations.test.mjs",
+        "packages/react/test/pattern-interaction-panels-status.test.mjs",
+        "packages/react/test/pattern-interaction-delegated.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers article semantics, author/state/tone/density fallbacks, Surface bubble ownership, visible author/time/meta/body, Avatar composition, recovery Button callback, alert/status live-region semantics for failed and loading states, typing indicator, and empty-body guard."
@@ -34,10 +68,27 @@
       "evidenceFiles": [
         "packages/react/test/p2-domain-chat.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs",
-        "packages/react/test/pattern-interaction.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs",
+        "packages/react/test/pattern-interaction-entry.test.mjs",
+        "packages/react/test/pattern-interaction-forms-search.test.mjs",
+        "packages/react/test/pattern-interaction-operations.test.mjs",
+        "packages/react/test/pattern-interaction-panels-status.test.mjs",
+        "packages/react/test/pattern-interaction-delegated.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Evidence covers Surface log ownership, ChatMessage composition, invalid message filtering, selected message state, message action delegation, empty/offline/loading fallback composition through EmptyState, aria-busy loading semantics, invalid state fallback, and implicit empty-state resolution when no messages are provided."

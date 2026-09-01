@@ -17,7 +17,7 @@ const reactPatternDir = path.join(root, "packages/react/src/patterns");
 const reactSrcDir = path.join(root, "packages/react/src");
 const patternArtifactDir = path.join(root, "packages/specs/specs/unison-system/artifacts/patterns");
 const patternContractDir = path.join(root, "packages/content/content/pattern-contracts/patterns");
-const patternInteractionTestFile = path.join(root, "packages/react/test/pattern-interaction.test.mjs");
+const reactTestDir = path.join(root, "packages/react/test");
 const patternArchitecturePolicy = readPatternArchitecturePolicy();
 const {
   forbiddenTypeProps,
@@ -73,6 +73,12 @@ function listPatternArtifacts() {
       };
     })
     .sort((a, b) => a.id.localeCompare(b.id));
+}
+
+function readInteractionTestSources() {
+  return listFiles(reactTestDir, (file) => /^pattern-interaction-[a-z0-9-]+\.test\.mjs$/.test(path.basename(file)))
+    .map((file) => fs.readFileSync(file, "utf8"))
+    .join("\n");
 }
 
 function callbackProps(types) {
@@ -583,9 +589,7 @@ function analyzePattern({ id, artifactFile, artifact }, implementationById, inte
 
 function createReport() {
   const artifacts = listPatternArtifacts();
-  const interactionTestSource = fs.existsSync(patternInteractionTestFile)
-    ? fs.readFileSync(patternInteractionTestFile, "utf8")
-    : "";
+  const interactionTestSource = readInteractionTestSources();
   const implementationById = new Map(listFiles(reactPatternDir, (file) => /^[A-Z].*\.js$/.test(path.basename(file)))
     .map((file) => [kebabCase(path.basename(file, ".js")), file]));
   const patterns = artifacts.map((artifact) => analyzePattern(artifact, implementationById, interactionTestSource));

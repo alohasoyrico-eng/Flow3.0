@@ -6,7 +6,14 @@
       "evidenceFiles": [
         "packages/react/test/p2-navigation-disclosure.test.mjs",
         "packages/react/test/interaction.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
       "coveredProductionEvidence": [
         "render",
@@ -26,7 +33,14 @@
       "evidenceFiles": [
         "packages/react/test/p2-navigation-disclosure.test.mjs",
         "packages/react/test/interaction.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
       "coveredProductionEvidence": [
         "render",

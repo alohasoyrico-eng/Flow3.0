@@ -273,7 +273,6 @@ export const DocumentationPrimitiveDemo = forwardRef<HTMLDivElement, Documentati
         value,
         variant: "standard",
         state: "default",
-        fullWidth: true,
         density,
       } as KpiTileProps));
     }

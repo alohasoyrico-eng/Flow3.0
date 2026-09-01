@@ -20,9 +20,19 @@ function commandIncludes(command, fragment) {
   return String(command ?? "").includes(fragment);
 }
 
+function testFilesFor(command) {
+  return [...String(command ?? "").matchAll(/\bnode\s+(test\/[^\s&]+\.mjs)\b/g)]
+    .map((match) => match[1]);
+}
+
+function lineCount(file) {
+  return fs.readFileSync(file, "utf8").split(/\r?\n/).length;
+}
+
 function renderMarkdown(report) {
   const issueRows = report.issues.map((issue) => `| ${issue.severity} | ${issue.file} | ${issue.message} |`);
   const levelRows = report.levels.map((level) => `| ${level.level} | ${level.rootCommand} | ${level.packageCommand} | ${level.intent} |`);
+  const monolithRows = report.monolithCandidates.map((candidate) => `| ${candidate.file} | ${candidate.lines} | ${candidate.lanes.join(", ")} | ${candidate.status} |`);
   return `# DS QA Topology
 
 Status: **${report.status}**
@@ -38,6 +48,12 @@ ${levelRows.join("\n")}
 ## Rules
 
 ${report.rules.map((rule) => `- ${rule}`).join("\n")}
+
+## Monolith Candidates
+
+| File | Lines | Lanes | Status |
+| --- | ---: | --- | --- |
+${monolithRows.length ? monolithRows.join("\n") : "| None | 0 | None | pass |"}
 
 ## Issues
 
@@ -116,6 +132,40 @@ function createReport() {
     addIssue(issues, "warning", "packages/react/package.json", "test:deep currently should alias test:release until a stable deep-only suite exists.");
   }
 
+  const monolithLineLimit = 1200;
+  const laneFiles = {
+    fast: new Set(testFilesFor(reactScripts["test:fast"])),
+    release: new Set(testFilesFor(reactScripts["test:release"])),
+    quarantine: new Set(testFilesFor(reactScripts["test:quarantine"])),
+  };
+  const referencedFiles = [...new Set(Object.values(laneFiles).flatMap((files) => [...files]))].sort();
+  const monolithCandidates = referencedFiles
+    .map((file) => {
+      const absolute = path.join(root, "packages/react", file);
+      const lanes = Object.entries(laneFiles)
+        .filter(([, files]) => files.has(file))
+        .map(([lane]) => lane);
+      return {
+        file: `packages/react/${file}`,
+        lines: fs.existsSync(absolute) ? lineCount(absolute) : 0,
+        lanes,
+        status: "pass",
+      };
+    })
+    .filter((candidate) => candidate.lines > monolithLineLimit)
+    .map((candidate) => ({
+      ...candidate,
+      status: candidate.lanes.includes("release") ? "release-split-required" : "quarantine-split-required",
+    }));
+  for (const candidate of monolithCandidates) {
+    addIssue(
+      issues,
+      "error",
+      candidate.file,
+      `${candidate.file} has ${candidate.lines} lines and exceeds the ${monolithLineLimit}-line topology limit; split it into governed suites before treating it as closed evidence.`,
+    );
+  }
+
   const report = {
     schemaVersion: "ds-qa-topology@1",
     status: issues.some((issue) => issue.severity === "error") ? "fail" : "pass",
@@ -123,11 +173,14 @@ function createReport() {
     rules: [
       "Fast tests cover critical P0 runtime evidence and must stay cheap enough for frequent local runs.",
       "Release tests cover the full granular React suite and must exclude unstable legacy monoliths.",
+      `React test files above ${monolithLineLimit} lines are hard-fail monolith debt and must be split into smaller governed suites.`,
       "Deep tests may grow beyond release only when they remain deterministic.",
       "Quarantine tests are explicit debt and cannot be part of validate:flow-core.",
       "validate:flow-core is the DS release gate and must run test:react:release.",
       "Performance measurement is explicit via audit:ds-qa-performance and must not be nested inside release gates.",
     ],
+    monolithLineLimit,
+    monolithCandidates,
     levels: [
       {
         level: "fast",
@@ -170,6 +223,7 @@ function main() {
     levels: report.levels.length,
     issues: report.issues.length,
     errors: report.issues.filter((issue) => issue.severity === "error").length,
+    monolithCandidates: report.monolithCandidates.length,
     json: path.relative(root, jsonOutput),
     markdown: path.relative(root, markdownOutput),
   }, null, 2));

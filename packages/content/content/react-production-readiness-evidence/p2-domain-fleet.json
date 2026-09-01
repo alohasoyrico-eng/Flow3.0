@@ -7,9 +7,22 @@
         "packages/react/test/p2-domain-fleet.test.mjs",
         "packages/react/test/button-render.test.mjs",
         "packages/react/test/interaction.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Keyboard coverage uses native button focus and activation semantics when MovementRow is interactive.",
@@ -21,9 +34,22 @@
       "evidenceFiles": [
         "packages/react/test/p2-domain-fleet.test.mjs",
         "packages/react/test/button-render.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Action keyboard behavior is covered through Flow Button and IconButton semantics in the shared action tests.",
@@ -36,9 +62,22 @@
         "packages/react/test/p2-domain-fleet.test.mjs",
         "packages/react/test/button-render.test.mjs",
         "packages/react/test/interaction.test.mjs",
-        "packages/react/test/pattern-render.test.mjs"
+        "packages/react/test/pattern-render-selection-auth.test.mjs",
+        "packages/react/test/pattern-render-operational-forms.test.mjs",
+        "packages/react/test/pattern-render-search-settings.test.mjs",
+        "packages/react/test/pattern-render-operations-charts.test.mjs",
+        "packages/react/test/pattern-render-layout-actions.test.mjs",
+        "packages/react/test/pattern-render-workflow-config.test.mjs",
+        "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+        "packages/react/test/pattern-render-final-flows.test.mjs"
       ],
-      "coveredProductionEvidence": ["render", "props", "a11y", "state", "callback"],
+      "coveredProductionEvidence": [
+        "render",
+        "props",
+        "a11y",
+        "state",
+        "callback"
+      ],
       "notes": [
         "Axe structural accessibility excludes color-contrast in JSDOM.",
         "Keyboard coverage uses native button focus and activation semantics.",

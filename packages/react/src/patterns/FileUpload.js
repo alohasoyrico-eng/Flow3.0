@@ -7,6 +7,7 @@ import { Button } from "../Button.js";
 import { IconButton } from "../IconButton.js";
 import { InlineValidation } from "../InlineValidation.js";
 import { ProgressIndicator } from "../ProgressIndicator.js";
+import { Surface } from "../Surface.js";
 import { Toast } from "../Toast.js";
 function sanitizeRestProps(rest) {
     return Object.fromEntries(Object.entries(rest).filter(([key]) => key.startsWith("data-") || key.startsWith("aria-")));
@@ -88,18 +89,21 @@ export const FileUpload = forwardRef(function FileUpload({ label, description, d
         if (!event.defaultPrevented)
             inputRef.current?.click();
     };
-    return React.createElement("div", {
+    return React.createElement(Surface, {
         ref,
         className: ["file-upload", className].filter(Boolean).join(" "),
         role: "group",
         "aria-label": label,
         "aria-busy": resolvedState === "uploading" || resolvedState === "validating" ? "true" : undefined,
         "data-flow-pattern": "file-upload",
+        "data-flow-slot": "surface",
         "data-state": resolvedState,
-        "data-density": density,
         "data-file-count": String(selectedCount),
         "data-multiple": String(Boolean(multiple)),
         "data-dragging": String(dragging),
+        surfaceRole: "panel",
+        elevation: "none",
+        density,
         ...sanitizeRestProps(rest),
     }, React.createElement("input", {
         ref: inputRef,

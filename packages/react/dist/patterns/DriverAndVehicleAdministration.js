@@ -218,6 +218,7 @@ export const DriverAndVehicleAdministration = forwardRef(function DriverAndVehic
                 label: action.badge,
                 variant: "count",
                 density: action.density ?? density,
+                state: isDisabled || action.disabled ? "disabled" : actionState,
             })
             : null);
     }), primaryAction?.label

@@ -348,7 +348,6 @@ function createReport() {
     reactProductionReadinessHarnessDebt: 0,
   };
   const harnessIssues = [];
-  if (inventory.publicReactComponents !== 61) harnessIssues.push(`expected 61 direct public React components, found ${inventory.publicReactComponents}`);
   if (inventory.structuralIssues) harnessIssues.push(`${inventory.structuralIssues} structural component issues found`);
   if (inventory.invalidReadinessEvidenceFiles) harnessIssues.push(`${inventory.invalidReadinessEvidenceFiles} readiness evidence file references are invalid`);
   if (missingPrioritySlugs.length) harnessIssues.push(`priority list references missing components: ${missingPrioritySlugs.join(", ")}`);

@@ -395,6 +395,7 @@ export const DriverAndVehicleAdministration = forwardRef<HTMLDivElement, DriverA
             label: action.badge,
             variant: "count",
             density: action.density ?? density,
+            state: isDisabled || action.disabled ? "disabled" : actionState,
           } as React.ComponentProps<typeof Badge>)
           : null);
       }),

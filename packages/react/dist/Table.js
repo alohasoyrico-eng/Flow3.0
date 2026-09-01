@@ -68,7 +68,7 @@ function renderCell(value, inheritedDensity) {
             tone: value.tone ?? "neutral",
             variant: badgeVariantFor(value.variant),
             icon: value.icon ?? "",
-            ...tableDensityProps(inheritedDensity),
+            ...tableDensityProps(inheritedDensity ?? "sm"),
         });
     }
     return value ?? "";
@@ -171,21 +171,21 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
             setInternalExpanded(next);
         onExpandedChange?.(next, event);
     };
-    const toggleSelection = (key, checked) => {
+    const toggleSelection = (key, checked, event) => {
         const next = new Set(selectedKeys);
         if (checked)
             next.add(key);
         else
             next.delete(key);
-        onSelectionChange?.(selectableRowKeys.filter((item) => next.has(item)));
+        onSelectionChange?.(selectableRowKeys.filter((item) => next.has(item)), event);
     };
-    const toggleAllSelection = (checked) => {
-        onSelectionChange?.(checked ? selectableRowKeys : []);
+    const toggleAllSelection = (checked, event) => {
+        onSelectionChange?.(checked ? selectableRowKeys : [], event);
     };
-    const commitCellEdit = () => {
+    const commitCellEdit = (event) => {
         if (!editCell)
             return;
-        onCellEdit?.(editCell.key, editCell.columnKey, editCell.value);
+        onCellEdit?.(editCell.key, editCell.columnKey, editCell.value, event);
         setEditCell(null);
     };
     return React.createElement("div", {
@@ -203,7 +203,7 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
         variant: "select-all",
         checked: allSelected,
         indeterminate: someSelected,
-        onCheckedChange: (checked) => toggleAllSelection(checked),
+        onCheckedChange: (checked, _meta, event) => toggleAllSelection(checked, event),
         ...tableDensityProps(resolvedDensity),
     })) : null, hasExpanderColumn ? React.createElement("th", { className: "table__expander-head", scope: "col" }, React.createElement("span", { className: "table__expander-label" }, tree ? "Hierarchy" : "Details")) : null, resolvedColumns.map((column) => {
         const active = currentSort.key === column.key;
@@ -301,7 +301,7 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
                 label: `Select ${rowDataLabel(row, key)}`,
                 variant: "compact",
                 checked,
-                onCheckedChange: (nextChecked) => toggleSelection(key, nextChecked),
+                onCheckedChange: (nextChecked, _meta, event) => toggleSelection(key, nextChecked, event),
                 ...tableDensityProps(resolvedDensity),
             })) : null, hasExpanderColumn ? React.createElement("td", { className: "table__expander-cell", style: tableCellStyle(undefined, depth) }, rowCanExpand ? React.createElement("button", {
                 type: "button",
@@ -330,7 +330,7 @@ export const Table = forwardRef(function Table({ columns, rows, rowKey = "id", l
                     onKeyDown: (event) => {
                         if (event.key === "Enter") {
                             event.preventDefault();
-                            commitCellEdit();
+                            commitCellEdit(event);
                         }
                         if (event.key === "Escape") {
                             event.preventDefault();

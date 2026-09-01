@@ -173,7 +173,6 @@ export const DocumentationPrimitiveDemo = forwardRef(function DocumentationPrimi
                 value,
                 variant: "standard",
                 state: "default",
-                fullWidth: true,
                 density,
             }));
         }

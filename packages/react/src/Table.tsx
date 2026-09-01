@@ -63,6 +63,8 @@ export type TableSortEvent = MouseEvent<HTMLButtonElement>;
 export type TableRowSelectEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
 export type TableRowClickEvent = MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
 export type TableExpandedEvent = MouseEvent<HTMLButtonElement> | MouseEvent<HTMLTableRowElement> | KeyboardEvent<HTMLTableRowElement>;
+export type TableSelectionEvent = React.ChangeEvent<HTMLInputElement>;
+export type TableCellEditEvent = React.FocusEvent<HTMLInputElement> | KeyboardEvent<HTMLInputElement>;
 
 export interface TableColumn {
   key: string;
@@ -107,8 +109,8 @@ export interface TableProps extends Omit<HTMLAttributes<HTMLDivElement>, "style"
   onRowSelect?: (key: string, event: TableRowSelectEvent) => void;
   onRowClick?: (row: TableRow, event: TableRowClickEvent) => void;
   onExpandedChange?: (key: string, event: TableExpandedEvent) => void;
-  onSelectionChange?: (keys: string[]) => void;
-  onCellEdit?: (key: string, columnKey: string, value: string) => void;
+  onSelectionChange?: (keys: string[], event: TableSelectionEvent) => void;
+  onCellEdit?: (key: string, columnKey: string, value: string, event: TableCellEditEvent) => void;
 }
 
 export interface TableComponent extends ForwardRefExoticComponent<TableProps & RefAttributes<HTMLDivElement>> {
@@ -176,7 +178,7 @@ function renderCell(value: TableCellValue, inheritedDensity: FlowDensity | undef
       tone: value.tone ?? "neutral",
       variant: badgeVariantFor(value.variant),
       icon: value.icon ?? "",
-      ...tableDensityProps(inheritedDensity),
+      ...tableDensityProps(inheritedDensity ?? "sm"),
     });
   }
   return value ?? "";
@@ -305,18 +307,18 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
     if (!isExpandedKeyControlled) setInternalExpanded(next);
     onExpandedChange?.(next, event);
   };
-  const toggleSelection = (key: string, checked: boolean): void => {
+  const toggleSelection = (key: string, checked: boolean, event: TableSelectionEvent): void => {
     const next = new Set(selectedKeys);
     if (checked) next.add(key);
     else next.delete(key);
-    onSelectionChange?.(selectableRowKeys.filter((item) => next.has(item)));
+    onSelectionChange?.(selectableRowKeys.filter((item) => next.has(item)), event);
   };
-  const toggleAllSelection = (checked: boolean): void => {
-    onSelectionChange?.(checked ? selectableRowKeys : []);
+  const toggleAllSelection = (checked: boolean, event: TableSelectionEvent): void => {
+    onSelectionChange?.(checked ? selectableRowKeys : [], event);
   };
-  const commitCellEdit = (): void => {
+  const commitCellEdit = (event: TableCellEditEvent): void => {
     if (!editCell) return;
-    onCellEdit?.(editCell.key, editCell.columnKey, editCell.value);
+    onCellEdit?.(editCell.key, editCell.columnKey, editCell.value, event);
     setEditCell(null);
   };
 
@@ -357,7 +359,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
               variant: "select-all",
               checked: allSelected,
               indeterminate: someSelected,
-              onCheckedChange: (checked) => toggleAllSelection(checked),
+                  onCheckedChange: (checked, _meta, event) => toggleAllSelection(checked, event),
               ...tableDensityProps(resolvedDensity),
             }),
           ) : null,
@@ -491,7 +493,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
                 label: `Select ${rowDataLabel(row, key)}`,
                 variant: "compact",
                 checked,
-                onCheckedChange: (nextChecked) => toggleSelection(key, nextChecked),
+                onCheckedChange: (nextChecked, _meta, event) => toggleSelection(key, nextChecked, event),
                 ...tableDensityProps(resolvedDensity),
               }),
             ) : null,
@@ -534,7 +536,7 @@ export const Table = forwardRef<HTMLDivElement, TableProps>(function Table({
                   onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => {
                     if (event.key === "Enter") {
                       event.preventDefault();
-                      commitCellEdit();
+                      commitCellEdit(event);
                     }
                     if (event.key === "Escape") {
                       event.preventDefault();

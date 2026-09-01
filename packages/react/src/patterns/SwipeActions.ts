@@ -220,6 +220,7 @@ export const SwipeActions = forwardRef<HTMLDivElement, SwipeActionsProps>(functi
             label: action.badge,
             variant: "count",
             density: action.density ?? density,
+            state: actionDisabled ? "disabled" : actionState,
           } as ComponentProps<typeof Badge>)
           : null),
         React.createElement(Button, {

@@ -108,6 +108,7 @@ export const SwipeActions = forwardRef(function SwipeActions({ label = "Swipe ac
                 label: action.badge,
                 variant: "count",
                 density: action.density ?? density,
+                state: actionDisabled ? "disabled" : actionState,
             })
             : null), React.createElement(Button, {
             label: action.fallbackLabel ?? action.label,

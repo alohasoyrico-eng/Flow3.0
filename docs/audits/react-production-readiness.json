@@ -26,13 +26,13 @@
     }
   },
   "inventory": {
-    "publicReactComponents": 61,
-    "readyComponents": 61,
+    "publicReactComponents": 60,
+    "readyComponents": 60,
     "partialComponents": 0,
     "blockedComponents": 0,
     "unknownComponents": 0,
     "p0Components": 21,
-    "p1Components": 16,
+    "p1Components": 15,
     "p2Components": 24,
     "missingContracts": 0,
     "missingDirectTestEvidence": 0,
@@ -63,13 +63,13 @@
     ]
   },
   "testCapabilities": {
-    "testingLibraryRender": 228,
-    "fireEvent": 516,
-    "getByRole": 440,
-    "getByLabelText": 19,
-    "keyDown": 64,
-    "escapeKey": 24,
-    "arrowKeys": 34,
+    "testingLibraryRender": 247,
+    "fireEvent": 564,
+    "getByRole": 489,
+    "getByLabelText": 22,
+    "keyDown": 99,
+    "escapeKey": 30,
+    "arrowKeys": 43,
     "userEvent": 32,
     "axe": 19
   },
@@ -91,9 +91,13 @@
         "contract": "packages/content/content/component-contracts/components/accordion.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-surface-navigation.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -108,7 +112,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -143,7 +154,9 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -157,7 +170,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -191,8 +211,12 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -206,7 +230,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -241,8 +272,16 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -287,10 +326,22 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -335,7 +386,9 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -350,8 +403,19 @@
         "evidenceFiles": [
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -384,9 +448,11 @@
         "contract": "packages/content/content/component-contracts/components/breadcrumbs.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-surface-navigation.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -401,7 +467,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -436,6 +509,17 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
+          "packages/react/test/interaction-data-display.test.mjs",
+          "packages/react/test/interaction-date-inputs.test.mjs",
+          "packages/react/test/interaction-feedback-menu.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
+          "packages/react/test/interaction-modal-overlays.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
+          "packages/react/test/interaction-surface-navigation.test.mjs",
+          "packages/react/test/interaction-text-fields.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
@@ -452,10 +536,27 @@
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
           "packages/react/test/production-harness.test.mjs",
           "packages/react/test/ref.test.mjs",
+          "packages/react/test/render-action-button.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
         ]
       },
@@ -502,17 +603,36 @@
         "contract": "packages/content/content/component-contracts/components/card.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
+          "packages/react/test/interaction-data-display.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
+          "packages/react/test/interaction-surface-navigation.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
-          "packages/react/test/p1-actions.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
         ]
       },
@@ -558,9 +678,10 @@
         "contract": "packages/content/content/component-contracts/components/card-expiry-input.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -606,9 +727,10 @@
         "contract": "packages/content/content/component-contracts/components/card-number-input.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -654,9 +776,10 @@
         "contract": "packages/content/content/component-contracts/components/card-security-code-input.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -703,7 +826,9 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -717,7 +842,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -751,7 +883,9 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -766,7 +900,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -801,7 +942,7 @@
         "tests": [
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -816,8 +957,19 @@
         "evidenceFiles": [
           "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -851,7 +1003,7 @@
         "tests": [
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -866,8 +1018,19 @@
         "evidenceFiles": [
           "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -901,7 +1064,7 @@
         "tests": [
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -916,8 +1079,19 @@
         "evidenceFiles": [
           "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -950,10 +1124,20 @@
         "contract": "packages/content/content/component-contracts/components/checkbox.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1001,10 +1185,21 @@
         "contract": "packages/content/content/component-contracts/components/chip.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-display-status.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1093,9 +1288,13 @@
         "contract": "packages/content/content/component-contracts/components/code-input.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1143,10 +1342,16 @@
         "contract": "packages/content/content/component-contracts/components/combobox.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
+          "packages/react/test/interaction-select.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1194,6 +1399,7 @@
         "contract": "packages/content/content/component-contracts/components/country-selector.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs"
         ]
@@ -1243,9 +1449,10 @@
         "contract": "packages/content/content/component-contracts/components/date-picker.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-date-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-workflow-config.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1293,10 +1500,12 @@
         "contract": "packages/content/content/component-contracts/components/date-range-picker.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-date-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1345,11 +1554,23 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction-modal-overlays.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/ref.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/ref.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1398,10 +1619,19 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction-modal-overlays.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
           "packages/react/test/ref.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
         ]
@@ -1451,10 +1681,20 @@
         "contract": "packages/content/content/component-contracts/components/empty-state.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-feedback-menu.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/p2-surface-display.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1500,9 +1740,15 @@
         "contract": "packages/content/content/component-contracts/components/error-panel.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-feedback-menu.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1534,52 +1780,6 @@
       "evidenceGaps": []
     },
     {
-      "slug": "floating-action-button",
-      "component": "FloatingActionButton",
-      "priority": "P1",
-      "family": "actions",
-      "status": "ready",
-      "evidence": {
-        "reactExport": "./floating-action-button",
-        "rootExport": true,
-        "source": "packages/react/src/FloatingActionButton.tsx",
-        "dist": "packages/react/dist/FloatingActionButton.js",
-        "types": "packages/react/dist/FloatingActionButton.d.ts",
-        "contract": "packages/content/content/component-contracts/components/floating-action-button.md",
-        "tests": [
-          "packages/react/test/button-render.test.mjs",
-          "packages/react/test/p1-actions.test.mjs"
-        ]
-      },
-      "requiredProductionEvidence": [
-        "render",
-        "props",
-        "a11y",
-        "callback",
-        "disabled/prevented"
-      ],
-      "productionReadiness": {
-        "status": "ready",
-        "evidenceFiles": [
-          "packages/react/test/p1-actions.test.mjs",
-          "packages/react/test/button-render.test.mjs"
-        ],
-        "coveredProductionEvidence": [
-          "render",
-          "props",
-          "a11y",
-          "callback",
-          "disabled/prevented"
-        ],
-        "notes": [
-          "Axe structural accessibility excludes color-contrast in JSDOM."
-        ],
-        "invalidEvidenceFiles": []
-      },
-      "structuralIssues": [],
-      "evidenceGaps": []
-    },
-    {
       "slug": "icon-button",
       "component": "IconButton",
       "priority": "P1",
@@ -1595,8 +1795,13 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p1-actions.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1643,7 +1848,12 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1689,13 +1899,33 @@
         "contract": "packages/content/content/component-contracts/components/input.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
+          "packages/react/test/interaction-date-inputs.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
+          "packages/react/test/interaction-slider.test.mjs",
+          "packages/react/test/interaction-text-fields.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1742,9 +1972,10 @@
         "types": "packages/react/dist/InputAmount.d.ts",
         "contract": "packages/content/content/component-contracts/components/input-amount.md",
         "tests": [
+          "packages/react/test/interaction-text-fields.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1759,7 +1990,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -1792,9 +2030,13 @@
         "contract": "packages/content/content/component-contracts/components/kpi-tile.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-data-display.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1810,7 +2052,14 @@
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -1844,7 +2093,11 @@
         "contract": "packages/content/content/component-contracts/components/list.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
+          "packages/react/test/interaction-data-display.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
@@ -1852,9 +2105,24 @@
           "packages/react/test/p2-data-display.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/ref.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/ref.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1900,10 +2168,20 @@
         "contract": "packages/content/content/component-contracts/components/menu.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-feedback-menu.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1952,7 +2230,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-workflow-config.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -1966,7 +2244,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -1999,9 +2284,11 @@
         "contract": "packages/content/content/component-contracts/components/movement-row.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2017,7 +2304,14 @@
           "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -2051,10 +2345,14 @@
         "contract": "packages/content/content/component-contracts/components/pagination.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-navigation-disclosure.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2101,9 +2399,11 @@
         "contract": "packages/content/content/component-contracts/components/phone-input.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2152,9 +2452,12 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-overlays-navigation.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2202,7 +2505,8 @@
         "contract": "packages/content/content/component-contracts/components/progress-indicator.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/p1-feedback.test.mjs"
+          "packages/react/test/p1-feedback.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2248,8 +2552,10 @@
         "contract": "packages/content/content/component-contracts/components/radio-button.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/p0-forms-basic.test.mjs"
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2297,9 +2603,11 @@
         "contract": "packages/content/content/component-contracts/components/route-summary.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-data-display.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2314,7 +2622,14 @@
         "evidenceFiles": [
           "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -2348,8 +2663,10 @@
         "contract": "packages/content/content/component-contracts/components/segmented-control.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/p1-navigation-disclosure.test.mjs"
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2395,6 +2712,14 @@
         "contract": "packages/content/content/component-contracts/components/select.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-choice-controls.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
+          "packages/react/test/interaction-data-display.test.mjs",
+          "packages/react/test/interaction-feedback-menu.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
+          "packages/react/test/interaction-navigation-inputs.test.mjs",
+          "packages/react/test/interaction-payment-inputs.test.mjs",
+          "packages/react/test/interaction-select.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
@@ -2412,8 +2737,24 @@
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs",
           "packages/react/test/template-interaction.test.mjs"
         ]
       },
@@ -2463,7 +2804,12 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/p2-surface-display.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2511,9 +2857,11 @@
         "contract": "packages/content/content/component-contracts/components/slider.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
+          "packages/react/test/interaction-slider.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-advanced.test.mjs",
-          "packages/react/test/p0-forms-basic.test.mjs"
+          "packages/react/test/p0-forms-basic.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2561,11 +2909,14 @@
         "contract": "packages/content/content/component-contracts/components/spinner.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction.test.mjs",
+          "packages/react/test/interaction-listbox-overlays.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/render-action-button.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2615,7 +2966,8 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p2-domain-fleet.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2631,7 +2983,14 @@
           "packages/react/test/p2-domain-fleet.test.mjs",
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs"
         ],
         "coveredProductionEvidence": [
           "render",
@@ -2666,7 +3025,10 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2714,11 +3076,23 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction-surface-navigation.test.mjs",
           "packages/react/test/interaction.test.mjs",
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p2-domain-chat.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2765,9 +3139,11 @@
           "packages/react/test/contract-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/ref.test.mjs"
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/ref.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2816,6 +3192,7 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/contract-render.test.mjs",
+          "packages/react/test/interaction-choice-inputs.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-data-display.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
@@ -2823,8 +3200,24 @@
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-navigation-disclosure.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-entry.test.mjs",
+          "packages/react/test/pattern-interaction-forms-search.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs",
+          "packages/react/test/render-surface-status.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2872,7 +3265,8 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/p0-overlays-navigation.test.mjs"
+          "packages/react/test/p0-overlays-navigation.test.mjs",
+          "packages/react/test/render-navigation-table.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2927,8 +3321,12 @@
           "packages/react/test/p2-loading-feedback.test.mjs",
           "packages/react/test/p2-motion-feedback.test.mjs",
           "packages/react/test/p2-surface-display.test.mjs",
-          "packages/react/test/pattern-render.test.mjs",
-          "packages/react/test/ref.test.mjs"
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/ref.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -2974,7 +3372,7 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-operational-forms.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -3024,8 +3422,18 @@
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-feedback.test.mjs",
-          "packages/react/test/pattern-interaction.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-interaction-delegated.test.mjs",
+          "packages/react/test/pattern-interaction-operations.test.mjs",
+          "packages/react/test/pattern-interaction-panels-status.test.mjs",
+          "packages/react/test/pattern-render-final-flows.test.mjs",
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-operations-charts.test.mjs",
+          "packages/react/test/pattern-render-search-settings.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/pattern-render-workflow-config.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -3075,7 +3483,12 @@
           "packages/react/test/interaction.test.mjs",
           "packages/react/test/p1-documentation-overlay.test.mjs",
           "packages/react/test/p2-data-display.test.mjs",
-          "packages/react/test/pattern-render.test.mjs"
+          "packages/react/test/pattern-render-layout-actions.test.mjs",
+          "packages/react/test/pattern-render-operational-forms.test.mjs",
+          "packages/react/test/pattern-render-selection-auth.test.mjs",
+          "packages/react/test/pattern-render-sheets-feedback.test.mjs",
+          "packages/react/test/render-domain-display.test.mjs",
+          "packages/react/test/render-status-feedback.test.mjs"
         ]
       },
       "requiredProductionEvidence": [
@@ -3125,7 +3538,8 @@
         "tests": [
           "packages/react/test/button-render.test.mjs",
           "packages/react/test/interaction.test.mjs",
-          "packages/react/test/p1-navigation-disclosure.test.mjs"
+          "packages/react/test/p1-navigation-disclosure.test.mjs",
+          "packages/react/test/render-navigation-data.test.mjs"
         ]
       },
       "requiredProductionEvidence": [

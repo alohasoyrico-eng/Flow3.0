@@ -174,7 +174,7 @@ try {
     const list = view.container.querySelector("ol");
     const home = view.getByRole("link", { name: /home/i });
     const collapsed = view.container.querySelector(".breadcrumbs__target--collapsed");
-    const current = view.getByText("Button");
+    const current = view.getByText("Button").closest(".breadcrumbs__target");
 
     assert.equal(nav.className, "breadcrumbs");
     assert.equal(nav.dataset.variant, "overflow");
@@ -222,7 +222,7 @@ try {
     const filteredNav = view.getByRole("navigation", { name: /filtered path/i });
     assert.equal(filteredNav.dataset.variant, "standard");
     assert.equal(filteredNav.dataset.state, "default");
-    assert.equal(view.container.querySelectorAll("li").length, 1);
+    assert.equal(view.container.querySelectorAll("li").length, 2);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

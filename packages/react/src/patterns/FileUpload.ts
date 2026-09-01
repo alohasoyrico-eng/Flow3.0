@@ -17,6 +17,8 @@ import { InlineValidation } from "../InlineValidation.js";
 import type { InlineValidationProps } from "../InlineValidation.js";
 import { ProgressIndicator } from "../ProgressIndicator.js";
 import type { ProgressIndicatorProps } from "../ProgressIndicator.js";
+import { Surface } from "../Surface.js";
+import type { SurfaceProps } from "../Surface.js";
 import type { TagTone } from "../Tag.js";
 import { Toast } from "../Toast.js";
 import type { ToastProps } from "../Toast.js";
@@ -195,7 +197,7 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
   };
 
   return React.createElement(
-    "div",
+    Surface,
     {
       ref,
       className: ["file-upload", className].filter(Boolean).join(" "),
@@ -203,13 +205,16 @@ export const FileUpload = forwardRef<HTMLDivElement, FileUploadProps>(function F
       "aria-label": label,
       "aria-busy": resolvedState === "uploading" || resolvedState === "validating" ? "true" : undefined,
       "data-flow-pattern": "file-upload",
+      "data-flow-slot": "surface",
       "data-state": resolvedState,
-      "data-density": density,
       "data-file-count": String(selectedCount),
       "data-multiple": String(Boolean(multiple)),
       "data-dragging": String(dragging),
+      surfaceRole: "panel",
+      elevation: "none",
+      density,
       ...sanitizeRestProps(rest),
-    },
+    } as SurfaceProps,
     React.createElement("input", {
       ref: inputRef,
       type: "file",

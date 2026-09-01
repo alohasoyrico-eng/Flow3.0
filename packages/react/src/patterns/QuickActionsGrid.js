@@ -113,6 +113,7 @@ export const QuickActionsGrid = forwardRef(function QuickActionsGrid({ label = "
                 label: action.badge,
                 variant: "count",
                 density: action.density ?? density,
+                state: actionDisabled ? "disabled" : actionState,
             })
             : null), action.status
             ? React.createElement(Badge, {
