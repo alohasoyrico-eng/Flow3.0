@@ -34,6 +34,14 @@ const allowedReactEffects = {
     reasons: ["outside click closes an open panel"],
     snippets: ["document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
   },
+  Select: {
+    count: 2,
+    reasons: ["controlled searchable input follows selected value", "outside click closes an open listbox"],
+    snippets: [
+      "setInputValue(selectedLabel || currentValue);",
+      "document.addEventListener(\"mousedown\", handleDocumentMouseDown);",
+    ],
+  },
   Tabs: {
     count: 1,
     reasons: ["indicator geometry follows measured tab layout"],

@@ -979,10 +979,10 @@ const components = {
     directory: "select-2026-08-17",
     module: "Select.js",
     exportName: "Select",
-    buildId: "select-inline-proportional-runtime-3",
+    buildId: "select-searchable-clearable-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + meta.label)(event)",
-    actionSelector: "button[data-runtime-action]",
+    actionSelector: "[data-runtime-action]",
     statefulValueProp: "value",
     supportPreamble: `const options = [
       { label: "Priority", value: "priority", meta: "Ops" },
@@ -995,6 +995,7 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, action({ label: "Default select", options, placeholder: "Choose team", helper: "ArrowDown/ArrowUp skip disabled options." })),
             e("div", { className: "audit-card" }, action({ label: "Selected select", options, value: "dispatch", helper: "Click, Escape, ArrowDown/ArrowUp and Enter are stateful." })),
+            e("div", { className: "audit-card" }, action({ label: "Searchable select", options, placeholder: "Search option", searchable: true, clearable: true, clearSelectionLabel: "Clear selection", emptyText: "No options found", helper: "Select owns searchable/clearable behavior." })),
             e("div", { className: "audit-card" }, action({ label: "Inline select", options, value: "route", variant: "inline" }))
           )
         ),
@@ -1020,7 +1021,7 @@ const components = {
     directory: "combobox-2026-08-17",
     module: "Combobox.js",
     exportName: "Combobox",
-    buildId: "combobox-clear-keyboard-runtime-1",
+    buildId: "combobox-select-wrapper-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(value, meta, event) => onAction(props.label + '=' + (meta.label || value))(event)",
     actionSelector: "input[data-runtime-action]",

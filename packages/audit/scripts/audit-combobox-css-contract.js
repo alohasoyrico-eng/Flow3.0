@@ -16,6 +16,7 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
   const tsxSourceFile = path.join(sourceRoot, "packages/react/src/Combobox.tsx");
   const sourceFile = fs.existsSync(tsxSourceFile) ? tsxSourceFile : path.join(sourceRoot, "packages/react/src/Combobox.js");
   const source = fs.existsSync(sourceFile) ? fs.readFileSync(sourceFile, "utf8") : "";
+  const delegatesToSelect = source.includes("React.createElement(Select") && source.includes("searchable: true");
   const fieldControlBlock = blockFor(blocks, selectorKey, ".field-control__surface,.field__control");
   const comboboxBlock = blockFor(blocks, selectorKey, ".combobox");
   const chevronBlock = blockFor(blocks, selectorKey, ".combobox__chevron");
@@ -228,32 +229,34 @@ function checkComboboxCssContract({ text, blocks, packageCssFile, selectorKey, r
   if (!text.includes("--component-option-row-disabled-opacity: var(--component-opacity-visible)")) {
     add("errors", packageCssFile, 1, "Shared option-row disabled state must remain legible; do not dim listbox options through opacity-only affordances.");
   }
-  if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = activeOption === option") || !source.includes("\"data-active\": String(isActive)")) {
-    add("errors", sourceFile, 1, "Combobox must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");
-  }
-  if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && activeIndex !== null")) {
-    add("errors", sourceFile, 1, "Combobox aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
-  }
-  if (!source.includes("document.addEventListener(\"mousedown\", handleDocumentMouseDown)") || !source.includes("rootRef.current?.contains(target)")) {
-    add("errors", sourceFile, 1, "Combobox must close on document mousedown outside its root while preserving inside option clicks.");
-  }
-  if (!source.includes("event.key === \"Tab\"") || !source.includes("setOpen(false, event)")) {
-    add("errors", sourceFile, 1, "Combobox must close its open listbox on Tab without trapping keyboard focus.");
-  }
-  if (!source.includes("isShowingSelectedValue") || !source.includes("const query = isShowingSelectedValue ? \"\"")) {
-    add("errors", sourceFile, 1, "Combobox must not collapse its option list to the selected label when opening an existing value for keyboard navigation.");
-  }
-  if (!source.includes("selectedEnabledIndex") || !source.includes("selectedEnabledIndex + 1") || !source.includes("selectedEnabledIndex - 1")) {
-    add("errors", sourceFile, 1, "Combobox ArrowUp/ArrowDown must navigate from the selected option when an existing value is open.");
-  }
-  if (!source.includes("event.preventDefault();") || !source.includes("commitOption(option, event);")) {
-    add("errors", sourceFile, 1, "Combobox option clicks must prevent label reactivation before committing so selection closes the listbox.");
-  }
-  if (!source.includes("inputRef.current?.focus()") || !source.includes("assignInputRef(ref, node)")) {
-    add("errors", sourceFile, 1, "Combobox clear action must return focus to the input so keyboard navigation keeps working after clearing.");
-  }
-  if (!source.includes("className: \"field__control combobox\"")) {
-    add("errors", sourceFile, 1, "Combobox must compose the shared Field control surface instead of defining a local input frame.");
+  if (!delegatesToSelect) {
+    if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = activeOption === option") || !source.includes("\"data-active\": String(isActive)")) {
+      add("errors", sourceFile, 1, "Combobox must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");
+    }
+    if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && activeIndex !== null")) {
+      add("errors", sourceFile, 1, "Combobox aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
+    }
+    if (!source.includes("document.addEventListener(\"mousedown\", handleDocumentMouseDown)") || !source.includes("rootRef.current?.contains(target)")) {
+      add("errors", sourceFile, 1, "Combobox must close on document mousedown outside its root while preserving inside option clicks.");
+    }
+    if (!source.includes("event.key === \"Tab\"") || !source.includes("setOpen(false, event)")) {
+      add("errors", sourceFile, 1, "Combobox must close its open listbox on Tab without trapping keyboard focus.");
+    }
+    if (!source.includes("isShowingSelectedValue") || !source.includes("const query = isShowingSelectedValue ? \"\"")) {
+      add("errors", sourceFile, 1, "Combobox must not collapse its option list to the selected label when opening an existing value for keyboard navigation.");
+    }
+    if (!source.includes("selectedEnabledIndex") || !source.includes("selectedEnabledIndex + 1") || !source.includes("selectedEnabledIndex - 1")) {
+      add("errors", sourceFile, 1, "Combobox ArrowUp/ArrowDown must navigate from the selected option when an existing value is open.");
+    }
+    if (!source.includes("event.preventDefault();") || !source.includes("commitOption(option, event);")) {
+      add("errors", sourceFile, 1, "Combobox option clicks must prevent label reactivation before committing so selection closes the listbox.");
+    }
+    if (!source.includes("inputRef.current?.focus()") || !source.includes("assignInputRef(ref, node)")) {
+      add("errors", sourceFile, 1, "Combobox clear action must return focus to the input so keyboard navigation keeps working after clearing.");
+    }
+    if (!source.includes("className: \"field__control combobox\"")) {
+      add("errors", sourceFile, 1, "Combobox must compose the shared Field control surface instead of defining a local input frame.");
+    }
   }
 
   const smDensityBlock = blockFor(blocks, selectorKey, ".combobox[data-density=\"sm\"]");

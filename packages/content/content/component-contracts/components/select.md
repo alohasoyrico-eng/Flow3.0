@@ -121,11 +121,11 @@ Referenced token families:
 - `sys.symbol.*`
 - `sys.voice.*`
 
-Select composes field, trigger, option surface, validation, loading, and events for one closed-choice value. Select input, country search, and multiple selection must be documented as their own system items instead of expanding this API silently.
+Select composes field, trigger, searchable input, clear action, option surface, validation, loading, and events for one known option set. Searchable and clearable are explicit API capabilities that absorb the old Combobox/SelectCombo split instead of creating another source of truth.
 
 ## Variants
 
-Select variants cover one closed-choice value. Base Select has the default trigger and an inline trigger for composition inside another field surface. Filled, open, loading, error, and disabled are states, not variants.
+Select variants cover one known option set. Base Select has the default trigger, an inline trigger for composition inside another field surface, and searchable/clearable behavior for longer lists that used to be split into Combobox. Filled, open, loading, error, and disabled are states, not variants.
 
 Approved variants from demos: `default`, `inline`
 
@@ -133,6 +133,7 @@ Demo labels:
 
 - Default
 - Inline
+- Searchable
 
 ## States
 
@@ -193,7 +194,7 @@ Inspect how label, value, helper text, and state resolve into the Select contrac
 
 ## API And Foundations
 
-Select composes field, trigger, option surface, validation, loading, and events for one closed-choice value. Select input, country search, and multiple selection must be documented as their own system items instead of expanding this API silently.
+Select composes field, trigger, searchable input, clear action, option surface, validation, loading, and events for one known option set. Searchable and clearable are explicit API capabilities that absorb the old Combobox/SelectCombo split instead of creating another source of truth.
 
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
@@ -202,11 +203,16 @@ Select composes field, trigger, option surface, validation, loading, and events 
 | options | Option[] | yes | Each option includes value, label, optional description, disabled reason, and metadata. |
 | icon | string | no | Optional leading Material Symbol for the selected domain, matching the reference dropdown treatment. |
 | placeholder | string | no | Must explain what kind of entity is expected. |
+| searchable | boolean | no | Turns the trigger into an editable combobox that filters by option label and metadata. |
+| clearable | boolean | no | Shows a trailing clear action when a value can be removed. |
+| clearSelectionLabel | string | no | Accessible label for the clear action. |
+| emptyText | string | no | Message for searchable mode when no option matches the query. |
+| loadingText | string | no | Status message for async searchable option lists. |
 | loading | boolean | no | Shows progress and blocks misleading stale options. |
 | error | string | conditional | Visible recovery copy; associate with field. |
 | disabled | boolean \| reason | no | Disabled states need explanation, especially permission-blocked. |
 | density | "sm" \| "md" \| "lg" | no | Maps the trigger and option rhythm to Design System Density. |
-| state | "default" \| "open" \| "focus" \| "filled" \| "loading" \| "error" \| "disabled" | no | Documents visual and interaction state without changing the single-select contract. |
+| state | "default" \| "open" \| "focus" \| "filled" \| "empty" \| "loading" \| "error" \| "disabled" | no | Documents visual and interaction state, including empty searchable results, without changing the option-set contract. |
 | onChange | (value, option) => void | yes | Emits semantic value, selected option, source, and analytics metadata. |
 
 ## Implementation Checklist

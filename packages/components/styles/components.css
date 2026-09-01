@@ -11886,6 +11886,16 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-option-meta-font-size-lg: var(--component-density-helper-size-lg);
   --comp-select-option-meta-font-size: var(--comp-select-option-meta-font-size-md);
   --comp-select-option-meta-opacity: var(--component-opacity-muted);
+  --comp-select-empty-color: var(--component-color-text-muted);
+  --comp-select-empty-font-size: var(--component-density-helper-size-md);
+  --comp-select-empty-font-weight: var(--component-font-weight-semibold);
+  --comp-select-empty-padding-block: var(--component-space-md);
+  --comp-select-empty-padding-inline: var(--component-option-row-padding-inline-sm);
+  --comp-select-loading-color: var(--component-color-text-muted);
+  --comp-select-loading-font-size: var(--component-density-helper-size-md);
+  --comp-select-loading-font-weight: var(--component-font-weight-semibold);
+  --comp-select-loading-padding-block: var(--component-space-md);
+  --comp-select-loading-padding-inline: var(--component-option-row-padding-inline-sm);
   --comp-select-current-control-size: var(--comp-select-control-size);
   --comp-select-current-icon-size: var(--comp-select-icon-size);
   display: grid;
@@ -11982,6 +11992,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-option-check-size: var(--comp-select-option-check-size-sm);
   --comp-select-option-label-font-size: var(--comp-select-option-label-font-size-sm);
   --comp-select-option-meta-font-size: var(--comp-select-option-meta-font-size-sm);
+  --comp-select-empty-font-size: var(--component-density-helper-size-sm);
+  --comp-select-loading-font-size: var(--component-density-helper-size-sm);
 }
 
 .select-control[data-density="lg"] {
@@ -11995,6 +12007,8 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-select-option-check-size: var(--comp-select-option-check-size-lg);
   --comp-select-option-label-font-size: var(--comp-select-option-label-font-size-lg);
   --comp-select-option-meta-font-size: var(--comp-select-option-meta-font-size-lg);
+  --comp-select-empty-font-size: var(--component-density-helper-size-lg);
+  --comp-select-loading-font-size: var(--component-density-helper-size-lg);
 }
 
 .select-control--inline,
@@ -12126,6 +12140,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .select-control__trigger:hover,
 .select-control__trigger:focus-visible,
+.select-control__trigger:focus-within,
 .country-selector__trigger:hover,
 .country-selector__trigger:focus-visible {
   background: var(--comp-select-hover-bg);
@@ -12144,6 +12159,7 @@ body[data-contrast="quiet"] .route-summary__icon {
 }
 
 .select-control__trigger:focus-visible,
+.select-control__trigger:focus-within,
 .country-selector__trigger:focus-visible {
   outline: var(--component-focus-ring-width) solid var(--comp-select-focus-ring);
   outline-offset: var(--component-focus-ring-offset);
@@ -12174,6 +12190,33 @@ body[data-contrast="quiet"] .route-summary__icon {
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.select-control__trigger--searchable {
+  cursor: text;
+}
+
+.select-control__input {
+  background: transparent;
+  border: 0;
+  color: var(--comp-select-fg);
+  flex: 1 1 auto;
+  font: inherit;
+  inline-size: 100%;
+  line-height: var(--component-line-height-none);
+  min-inline-size: 0;
+  outline: var(--component-a11y-outline-reset);
+  padding: 0;
+  text-align: start;
+}
+
+.select-control__input::placeholder {
+  color: var(--comp-select-placeholder-fg);
+  opacity: 1;
+}
+
+.select-control__clear:disabled {
+  display: none;
 }
 
 .select-control__placeholder {
@@ -12520,6 +12563,21 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .select-control__option[data-selected="true"] .select-control__option-check {
   opacity: var(--comp-select-option-check-visible-opacity);
+}
+
+.select-control__loading,
+.select-control__empty {
+  color: var(--comp-select-empty-color);
+  font-size: var(--comp-select-empty-font-size);
+  font-weight: var(--comp-select-empty-font-weight);
+  padding: var(--comp-select-empty-padding-block) var(--comp-select-empty-padding-inline);
+}
+
+.select-control__loading {
+  color: var(--comp-select-loading-color);
+  font-size: var(--comp-select-loading-font-size);
+  font-weight: var(--comp-select-loading-font-weight);
+  padding: var(--comp-select-loading-padding-block) var(--comp-select-loading-padding-inline);
 }
 
 .country-selector__option-check {

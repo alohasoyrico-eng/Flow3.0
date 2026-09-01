@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, useState, } from "react";
+import React, { forwardRef, useEffect, useId, useMemo, useRef, useState, } from "react";
 import { selectPlatformContract } from "#flow/platforms";
 import { flowStateProps, flowDensityProps, flowRestProps, flowDataProps, normalizeFlowDensity, } from "./internal/props.js";
 import { resolveFieldMessage } from "./internal/field-message.js";
@@ -35,25 +35,71 @@ function lastEnabledIndex(options) {
     }
     return firstEnabledIndex(options);
 }
-export const Select = forwardRef(function Select({ label, helper = "", icon = "", options, optionsLabel, value, name = "", placeholder = "", disabled = false, loading = false, density, variant = "default", state = "default", open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
+function optionValue(option) {
+    return option.value ?? "";
+}
+function optionLabel(option) {
+    return option.label ?? "";
+}
+function assignSearchInputRef(ref, node) {
+    if (typeof ref === "function") {
+        ref(node);
+        return;
+    }
+    if (ref) {
+        ref.current = node;
+    }
+}
+export const Select = forwardRef(function Select({ label, helper = "", icon = "", options, optionsLabel, value, name = "", placeholder = "", searchable = false, clearable = false, clearSelectionLabel = "Clear selection", emptyText, loadingText = "Loading options", disabled = false, loading = false, density, variant = "default", state = "default", open: openProp, onValueChange, onOpenChange, className = "", id, ...rest }, ref) {
     const generatedId = useId();
     const selectId = id ?? `select-${generatedId}`;
-    const normalizedOptions = normalizeOptions(options);
+    const rootRef = useRef(null);
+    const searchInputRef = useRef(null);
+    const normalizedOptions = useMemo(() => normalizeOptions(options), [options]);
     const isValueControlled = value !== undefined;
     const [internalValue, setInternalValue] = useState(value ?? "");
     const currentValue = isValueControlled ? value ?? "" : internalValue;
     const isOpenControlled = openProp !== undefined;
-    const [internalOpen, setInternalOpen] = useState(false);
+    const [internalOpen, setInternalOpen] = useState(state === "open");
     const open = isOpenControlled ? Boolean(openProp) : internalOpen;
     const selectedOption = selectedOptionFor(normalizedOptions, currentValue);
     const selectedValue = selectedOption ? selectedOption.value : "";
     const selectedLabel = selectedOption ? selectedOption.label : "";
+    const [inputValue, setInputValue] = useState(selectedLabel || currentValue);
+    const searchValue = isValueControlled && !open && selectedOption ? selectedLabel : inputValue;
+    const isShowingSelectedValue = Boolean(searchable && selectedOption && searchValue === selectedLabel);
+    const query = searchable && !isShowingSelectedValue ? searchValue.trim().toLowerCase() : "";
+    const visibleOptions = useMemo(() => normalizedOptions.filter((option) => {
+        if (!query)
+            return true;
+        const haystack = `${optionLabel(option)} ${option.meta ?? ""}`.toLowerCase();
+        return haystack.includes(query);
+    }), [normalizedOptions, query]);
     const isOpen = open;
-    const resolvedState = disabled ? "disabled" : loading || state === "loading" ? "loading" : state || "default";
+    const openStateRef = useRef(isOpen);
+    openStateRef.current = isOpen;
+    const resolvedState = disabled
+        ? "disabled"
+        : loading || state === "loading"
+            ? "loading"
+            : state === "empty" || (searchable && Boolean(searchValue) && visibleOptions.length === 0)
+                ? "empty"
+                : state || "default";
     const isLoading = resolvedState === "loading";
     const [activeIndex, setActiveIndex] = useState(null);
-    const resolvedActiveIndex = activeIndex !== null && !normalizedOptions[activeIndex]?.disabled ? activeIndex : null;
-    const activeOption = resolvedActiveIndex !== null ? normalizedOptions[resolvedActiveIndex] ?? null : null;
+    const enabledVisibleOptions = visibleOptions.filter((option) => !option.disabled);
+    const selectedEnabledIndex = selectedOption ? enabledVisibleOptions.findIndex((option) => optionValue(option) === selectedValue) : -1;
+    const activeOptionCandidate = activeIndex !== null
+        ? searchable
+            ? enabledVisibleOptions[activeIndex] ?? null
+            : normalizedOptions[activeIndex] ?? null
+        : null;
+    const activeOption = activeOptionCandidate && !activeOptionCandidate.disabled ? activeOptionCandidate : null;
+    useEffect(() => {
+        if (!searchable || !isValueControlled)
+            return;
+        setInputValue(selectedLabel || currentValue);
+    }, [currentValue, isValueControlled, searchable, selectedLabel]);
     const fieldMessage = resolveFieldMessage({
         controlId: selectId,
         describedBy: rest["aria-describedby"],
@@ -66,19 +112,51 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         if (disabled)
             return;
         const normalizedOpen = Boolean(nextOpen);
+        if (normalizedOpen === openStateRef.current)
+            return;
+        openStateRef.current = normalizedOpen;
         if (!isOpenControlled)
             setInternalOpen(normalizedOpen);
         onOpenChange?.(normalizedOpen, event);
     };
+    useEffect(() => {
+        if (!isOpen)
+            return undefined;
+        const handleDocumentMouseDown = (event) => {
+            const target = event.target;
+            if (!(target instanceof Node))
+                return;
+            if (rootRef.current?.contains(target))
+                return;
+            setActiveIndex(null);
+            setOpen(false, event);
+        };
+        document.addEventListener("mousedown", handleDocumentMouseDown);
+        return () => document.removeEventListener("mousedown", handleDocumentMouseDown);
+    });
     const commitOption = (option, event) => {
         if (option.disabled)
             return;
         const optionValue = option.value ?? "";
+        const optionLabel = option.label;
         if (!isValueControlled)
             setInternalValue(optionValue);
-        setActiveIndex(Math.max(normalizedOptions.indexOf(option), 0));
+        if (searchable)
+            setInputValue(optionLabel);
+        setActiveIndex(null);
         setOpen(false, event);
-        onValueChange?.(optionValue, { label: option.label, meta: option.meta ?? "" }, event);
+        onValueChange?.(optionValue, searchable ? { label: optionLabel, meta: option.meta ?? "", inputValue: optionLabel } : { label: optionLabel, meta: option.meta ?? "" }, event);
+    };
+    const clearValue = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!isValueControlled)
+            setInternalValue("");
+        setInputValue("");
+        setActiveIndex(null);
+        setOpen(searchable, event);
+        searchInputRef.current?.focus();
+        onValueChange?.("", { label: "", meta: "", inputValue: "", cleared: true }, event);
     };
     const handleTriggerClick = (event) => {
         rest.onClick?.(event);
@@ -121,6 +199,62 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
             setOpen(false, event);
         }
     };
+    const handleSearchFocus = (event) => {
+        rest.onFocus?.(event);
+        if (event.defaultPrevented || disabled)
+            return;
+        setOpen(true, event);
+    };
+    const handleSearchChange = (event) => {
+        const nextValue = event.target.value;
+        setInputValue(nextValue);
+        if (!isValueControlled)
+            setInternalValue(nextValue);
+        setActiveIndex(null);
+        setOpen(true, event);
+        onValueChange?.(nextValue, { label: nextValue, meta: "", inputValue: nextValue }, event);
+    };
+    const handleSearchKeyDown = (event) => {
+        rest.onKeyDown?.(event);
+        if (event.defaultPrevented)
+            return;
+        if (event.key === "Tab") {
+            setActiveIndex(null);
+            setOpen(false, event);
+            return;
+        }
+        if (event.key === "ArrowDown") {
+            event.preventDefault();
+            setOpen(true, event);
+            setActiveIndex((index) => {
+                if (!enabledVisibleOptions.length)
+                    return null;
+                if (index === null)
+                    return selectedEnabledIndex >= 0 ? Math.min(enabledVisibleOptions.length - 1, selectedEnabledIndex + 1) : 0;
+                return Math.min(enabledVisibleOptions.length - 1, index + 1);
+            });
+        }
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+            setOpen(true, event);
+            setActiveIndex((index) => {
+                if (!enabledVisibleOptions.length)
+                    return null;
+                if (index === null)
+                    return selectedEnabledIndex >= 0 ? Math.max(0, selectedEnabledIndex - 1) : Math.max(0, enabledVisibleOptions.length - 1);
+                return Math.max(0, index - 1);
+            });
+        }
+        if (event.key === "Enter") {
+            event.preventDefault();
+            if (activeOption)
+                commitOption(activeOption, event);
+        }
+        if (event.key === "Escape") {
+            event.preventDefault();
+            setOpen(false, event);
+        }
+    };
     const handleRootBlur = (event) => {
         const nextTarget = event.relatedTarget;
         if (nextTarget && event.currentTarget.contains(nextTarget))
@@ -131,6 +265,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
     };
     const resolvedDensity = normalizeFlowDensity(density);
     return React.createElement("span", {
+        ref: rootRef,
         className: ["field", className].filter(Boolean).join(" "),
         ...flowDataProps(rest),
         ...flowStateProps(resolvedState),
@@ -145,7 +280,51 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         ...flowDensityProps(resolvedDensity),
         "data-value": selectedValue,
         "data-select-control": "",
-    }, React.createElement("button", {
+    }, searchable ? React.createElement("span", {
+        className: "select-control__trigger select-control__trigger--searchable",
+        "data-select-search-shell": "",
+    }, icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null, React.createElement("input", {
+        ...flowRestProps(rest),
+        ref: (node) => {
+            searchInputRef.current = node;
+            assignSearchInputRef(ref, node);
+        },
+        id: selectId,
+        className: "select-control__input",
+        name,
+        type: "text",
+        value: searchValue,
+        placeholder: selectedOption && !isOpen ? undefined : placeholder,
+        disabled,
+        autoComplete: "off",
+        spellCheck: false,
+        role: "combobox",
+        "aria-autocomplete": "list",
+        "aria-expanded": String(isOpen),
+        "aria-haspopup": "listbox",
+        "aria-controls": `${selectId}-listbox`,
+        "aria-labelledby": `${selectId}-label`,
+        "aria-describedby": fieldMessage.describedBy,
+        "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
+        "aria-busy": isLoading ? "true" : undefined,
+        "aria-activedescendant": isOpen && activeOption ? `${selectId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
+        onFocus: handleSearchFocus,
+        onClick: (event) => {
+            rest.onClick?.(event);
+            if (!event.defaultPrevented)
+                setOpen(true, event);
+        },
+        onChange: handleSearchChange,
+        onKeyDown: handleSearchKeyDown,
+    }), clearable && searchValue ? React.createElement("button", {
+        className: "field-action select-control__clear",
+        type: "button",
+        disabled,
+        "aria-label": clearSelectionLabel,
+        "data-field-action": "clear",
+        "data-select-clear": "",
+        onClick: clearValue,
+    }, React.createElement("span", { className: "field-action__icon", "aria-hidden": "true" }, "close")) : null, React.createElement("span", { className: "select-control__chevron", "aria-hidden": "true" }, "expand_more")) : React.createElement("button", {
         ...flowRestProps(rest),
         ref,
         type: "button",
@@ -160,7 +339,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         "aria-describedby": fieldMessage.describedBy,
         "aria-invalid": fieldMessage.invalid ?? rest["aria-invalid"],
         "aria-busy": isLoading ? "true" : undefined,
-        "aria-activedescendant": isOpen && activeOption && resolvedActiveIndex !== null ? `${selectId}-option-${resolvedActiveIndex}` : undefined,
+        "aria-activedescendant": isOpen && activeOption ? `${selectId}-option-${normalizedOptions.indexOf(activeOption)}` : undefined,
         onClick: handleTriggerClick,
         onKeyDown: handleTriggerKeyDown,
     }, icon || isLoading ? React.createElement("span", { className: "select-control__icon", "aria-hidden": "true" }, isLoading ? "progress_activity" : icon) : null, selectedLabel
@@ -174,10 +353,11 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
         "data-select-listbox": "",
         "aria-label": optionsLabel,
         "aria-labelledby": optionsLabel ? undefined : `${selectId}-label`,
-    }, normalizedOptions.map((option, index) => {
+    }, visibleOptions.map((option) => {
+        const index = normalizedOptions.indexOf(option);
         const optionValue = option.value;
         const isSelected = optionValue === selectedValue;
-        const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex;
+        const isActive = activeOption === option;
         return React.createElement("span", {
             key: optionValue,
             id: `${selectId}-option-${index}`,
@@ -208,7 +388,7 @@ export const Select = forwardRef(function Select({ label, helper = "", icon = ""
                 }
             },
         }, React.createElement("span", { className: "select-control__option-label" }, option.label), option.meta ? React.createElement("span", { className: "select-control__option-code" }, option.meta) : null, React.createElement("span", { className: "select-control__option-check", "aria-hidden": "true" }, isSelected ? "check" : ""));
-    })), name ? React.createElement("input", { type: "hidden", name, value: selectedValue, "data-select-input": "", readOnly: true }) : null), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
+    }), isLoading ? React.createElement("span", { className: "select-control__loading", "data-select-loading": "", role: "status" }, loadingText) : null, emptyText ? React.createElement("span", { className: "select-control__empty", "data-select-empty": "", role: "status", hidden: visibleOptions.length > 0 }, emptyText) : null), name ? React.createElement("input", { type: "hidden", name, value: selectedValue, "data-select-input": "", readOnly: true }) : null), fieldMessage.message ? React.createElement("span", { className: "field__helper", id: fieldMessage.messageId, role: fieldMessage.role, ...flowStateProps(fieldMessage.state) }, fieldMessage.message) : null);
 });
 Select.displayName = "Select";
 Select.platformContract = selectPlatformContract;

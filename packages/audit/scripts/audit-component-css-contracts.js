@@ -64,6 +64,7 @@ const { checkTreeViewCssContract } = require("./audit-tree-view-css-contract.js"
 const { familyCssContracts } = componentCssGovernance();
 
 const directCssContractRoots = {
+  combobox: "select-control",
   "progress-indicator": "progress",
   "radio-button": "radio",
   select: "select-control",
@@ -159,6 +160,9 @@ function observedReactRootsForComponent(component) {
   const sourceFile = path.join(root, "packages/react/src", `${pascalCase(component)}.js`);
   if (!fs.existsSync(sourceFile)) return [];
   const source = fs.readFileSync(sourceFile, "utf8");
+  if (component === "combobox" && source.includes("React.createElement(Select") && source.includes("searchable: true")) {
+    return ["select-control"];
+  }
   const roots = [...source.matchAll(/\bclassName\s*:\s*(?:\[([^\]]+)\]|["'`]([^"'`]+)["'`])/g)]
     .flatMap((match) => [...classRootsFromClassExpression(match[1] ?? match[2] ?? "")]);
   return [...new Set(roots)].sort();

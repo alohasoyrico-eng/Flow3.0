@@ -230,8 +230,8 @@ try {
     await user.click(input);
     assert.deepEqual(openChanges.at(-1), { open: true, eventType: "focus", key: undefined });
     assert.equal(input.getAttribute("aria-activedescendant"), null);
-    assert.equal(view.container.querySelectorAll('.combobox__option[data-active="true"]').length, 0);
-    assert.equal(view.container.querySelectorAll('.combobox__option[data-selected="true"]').length, 0);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-active="true"]').length, 0);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-selected="true"]').length, 0);
     await user.click(outsideButton);
     await waitFor(() => assert.equal(input.getAttribute("aria-expanded"), "false"));
     assert.deepEqual(openChanges.at(-1), { open: false, eventType: "mousedown", key: undefined });
@@ -247,8 +247,8 @@ try {
     assert.equal(input.getAttribute("aria-activedescendant"), null);
     await user.keyboard("{ArrowDown}");
     assert.match(input.getAttribute("aria-activedescendant") || "", /option-1/);
-    assert.equal(view.container.querySelectorAll('.combobox__option[data-active="true"]').length, 1);
-    assert.equal(view.container.querySelectorAll('.combobox__option[data-selected="true"]').length, 0);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-active="true"]').length, 1);
+    assert.equal(view.container.querySelectorAll('.select-control__option[data-selected="true"]').length, 0);
     await user.keyboard("{Enter}");
     assert.equal(changes.at(-1).value, "us");
     assert.equal(input.value, "Fleet US");

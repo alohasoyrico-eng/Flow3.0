@@ -50,10 +50,14 @@ function checkDensityContracts() {
     }
 
     const source = read(component.file);
-    const delegatesDensity = component.name === "DateRangePicker"
+    const delegatesDensity = (component.name === "DateRangePicker"
       && source.includes("React.createElement(DatePicker")
       && source.includes("...props")
-      && source.includes("mode: \"range\"");
+      && source.includes("mode: \"range\""))
+      || (component.name === "Combobox"
+        && source.includes("React.createElement(Select")
+        && source.includes("searchable: true")
+        && source.includes("density,"));
     if (!source.includes("flowDensityProps(")) {
       if (!delegatesDensity) add("errors", component.file, 1, `${component.name} must route density through flowDensityProps() so theme/density cascade stays centralized.`);
     }

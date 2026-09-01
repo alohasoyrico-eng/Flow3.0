@@ -2,7 +2,7 @@
   "components": {
     "select": {
       "api-foundations": {
-        "copy": "Select composes field, trigger, option surface, validation, loading, and events for one closed-choice value. Select input, country search, and multiple selection must be documented as their own system items instead of expanding this API silently.",
+        "copy": "Select composes field, trigger, searchable input, clear action, option surface, validation, loading, and events for one known option set. Searchable and clearable are explicit API capabilities that absorb the old Combobox/SelectCombo split instead of creating another source of truth.",
         "props": [
           {
             "name": "label",
@@ -35,6 +35,36 @@
             "notes": "Must explain what kind of entity is expected."
           },
           {
+            "name": "searchable",
+            "type": "boolean",
+            "required": "no",
+            "notes": "Turns the trigger into an editable combobox that filters by option label and metadata."
+          },
+          {
+            "name": "clearable",
+            "type": "boolean",
+            "required": "no",
+            "notes": "Shows a trailing clear action when a value can be removed."
+          },
+          {
+            "name": "clearSelectionLabel",
+            "type": "string",
+            "required": "no",
+            "notes": "Accessible label for the clear action."
+          },
+          {
+            "name": "emptyText",
+            "type": "string",
+            "required": "no",
+            "notes": "Message for searchable mode when no option matches the query."
+          },
+          {
+            "name": "loadingText",
+            "type": "string",
+            "required": "no",
+            "notes": "Status message for async searchable option lists."
+          },
+          {
             "name": "loading",
             "type": "boolean",
             "required": "no",
@@ -60,9 +90,9 @@
           },
           {
             "name": "state",
-            "type": "\"default\" | \"open\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+            "type": "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"loading\" | \"error\" | \"disabled\"",
             "required": "no",
-            "notes": "Documents visual and interaction state without changing the single-select contract."
+            "notes": "Documents visual and interaction state, including empty searchable results, without changing the option-set contract."
           },
           {
             "name": "onChange",

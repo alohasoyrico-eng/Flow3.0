@@ -1,10 +1,10 @@
-import type { ButtonHTMLAttributes, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
+import type { ButtonHTMLAttributes, ChangeEvent, ForwardRefExoticComponent, KeyboardEvent, MouseEvent, RefAttributes } from "react";
 import type { FlowDataAttributes } from "./internal/props.js";
 import { selectPlatformContract } from "@design-system/components/platforms";
 
 export type SelectDensity = "sm" | "md" | "lg";
 export type SelectVariant = "default" | "inline";
-export type SelectState = "default" | "open" | "focus" | "filled" | "loading" | "error" | "disabled";
+export type SelectState = "default" | "open" | "focus" | "filled" | "empty" | "loading" | "error" | "disabled";
 export type SelectOption = {
   label: string;
   value?: string;
@@ -14,13 +14,24 @@ export type SelectOption = {
 export type SelectValueMeta = {
   label: string;
   meta: string;
+  inputValue?: string;
+  cleared?: boolean;
 };
-export type SelectValueChangeEvent = MouseEvent<HTMLSpanElement> | KeyboardEvent<HTMLSpanElement>;
+export type SelectValueChangeEvent =
+  | ChangeEvent<HTMLInputElement>
+  | MouseEvent<HTMLSpanElement>
+  | MouseEvent<HTMLButtonElement>
+  | KeyboardEvent<HTMLSpanElement>
+  | KeyboardEvent<HTMLInputElement>;
 export type SelectOpenChangeEvent =
   | MouseEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLButtonElement>
   | KeyboardEvent<HTMLSpanElement>
-  | MouseEvent<HTMLSpanElement>;
+  | MouseEvent<HTMLSpanElement>
+  | MouseEvent<HTMLInputElement>
+  | KeyboardEvent<HTMLInputElement>
+  | ChangeEvent<HTMLInputElement>
+  | globalThis.MouseEvent;
 
 export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "style" | "disabled" | "value" | "onChange" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
   label: string;
@@ -28,9 +39,14 @@ export interface SelectProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   icon?: string;
   options: SelectOption[];
   optionsLabel?: string;
+  searchable?: boolean;
+  clearable?: boolean;
+  clearSelectionLabel?: string;
   value?: string;
   name?: string;
   placeholder?: string;
+  emptyText?: string;
+  loadingText?: string;
   disabled?: boolean;
   loading?: boolean;
   density?: SelectDensity;

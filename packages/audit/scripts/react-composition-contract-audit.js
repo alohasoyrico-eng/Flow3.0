@@ -27,7 +27,7 @@ const reactComponentCompositionContracts = {
     { component: "Surface", reason: "thread log structural primitive boundary" },
   ],
   CodeBlock: [{ component: "Button", reason: "governed copy action slot" }],
-  Combobox: [{ component: "Spinner", reason: "field loading indicator slot" }],
+  Combobox: [{ component: "Select", reason: "compatibility wrapper for Select searchable and clearable behavior" }],
   Dialog: [
     { component: "Button", reason: "dialog action slot" },
     { component: "IconButton", reason: "dismiss control" },

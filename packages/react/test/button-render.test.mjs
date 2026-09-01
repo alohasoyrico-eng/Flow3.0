@@ -942,25 +942,27 @@ const comboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
     { label: "MX-8840 - Luis Perez", value: "mx-8840", meta: "Vehicle" },
   ],
 }));
-assert.match(comboboxMarkup, /^<label/);
+assert.match(comboboxMarkup, /^<span/);
 assert.match(comboboxMarkup, /class="field"/);
+assert.match(comboboxMarkup, /data-combobox-compat=""/);
 assert.match(comboboxMarkup, /data-density="sm"/);
-assert.match(comboboxMarkup, /class="field__control combobox"/);
+assert.match(comboboxMarkup, /class="select-control"/);
 assert.match(comboboxMarkup, /data-open="true"/);
-assert.match(comboboxMarkup, /data-combobox-control=""/);
+assert.match(comboboxMarkup, /data-select-control=""/);
 assert.match(comboboxMarkup, /role="combobox"/);
 assert.match(comboboxMarkup, /aria-autocomplete="list"/);
 assert.match(comboboxMarkup, /aria-expanded="true"/);
 assert.match(comboboxMarkup, /aria-controls="[^"]+-listbox"/);
-assert.match(comboboxMarkup, /class="field__icon combobox__icon"/);
-assert.match(comboboxMarkup, /class="field-action field__action combobox__clear"/);
-assert.match(comboboxMarkup, /class="select-control__chevron combobox__chevron"/);
-assert.match(comboboxMarkup, /class="combobox__listbox"/);
+assert.match(comboboxMarkup, /class="select-control__icon"/);
+assert.match(comboboxMarkup, /class="select-control__input"/);
+assert.match(comboboxMarkup, /class="field-action select-control__clear"/);
+assert.match(comboboxMarkup, /class="select-control__chevron"/);
+assert.match(comboboxMarkup, /class="select-control__listbox"/);
 assert.match(comboboxMarkup, /role="listbox"/);
-assert.match(comboboxMarkup, /class="combobox__option"/);
+assert.match(comboboxMarkup, /class="select-control__option"/);
 assert.match(comboboxMarkup, /aria-selected="true"/);
 assert.match(comboboxMarkup, /data-active="false"/);
-assert.match(comboboxMarkup, /class="combobox__option-meta">Driver<\/span>/);
+assert.match(comboboxMarkup, /class="select-control__option-code">Driver<\/span>/);
 assert.match(comboboxMarkup, /class="field__helper"/);
 
 const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
@@ -972,7 +974,7 @@ const emptyComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox, {
   options: [{ label: "MX-4821 - Ana Gomez", value: "mx-4821" }],
 }));
 assert.match(emptyComboboxMarkup, /data-state="empty"/);
-assert.match(emptyComboboxMarkup, /class="combobox__empty"/);
+assert.match(emptyComboboxMarkup, /class="select-control__empty"/);
 assert.match(emptyComboboxMarkup, />No matching options<\/span>/);
 
 const unnamedComboboxMarkup = renderToStaticMarkup(React.createElement(Combobox));
@@ -985,7 +987,7 @@ const unnamedClearComboboxMarkup = renderToStaticMarkup(React.createElement(Comb
   value: "mx-4821",
   options: [{ label: "MX-4821", value: "mx-4821" }],
 }));
-assert.doesNotMatch(unnamedClearComboboxMarkup, /data-combobox-clear|class="field-action field__action combobox__clear"/);
+assert.doesNotMatch(unnamedClearComboboxMarkup, /data-select-clear|class="field-action select-control__clear"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Options"/);
 assert.doesNotMatch(unnamedComboboxMarkup, /aria-label="Clear selection"/);
 

@@ -34,9 +34,9 @@ try {
   fireEvent.input(comboboxInput, { target: { value: "Ana" } });
   assert.equal(comboboxInput.getAttribute("aria-activedescendant"), null);
   assert.equal(
-    document.querySelectorAll("[data-combobox-listbox] [data-combobox-option][data-selected=\"true\"]").length,
+    document.querySelectorAll("[data-select-listbox] [data-select-option][data-selected=\"true\"]").length,
     0,
-    "Combobox text input must not keep or create selected option state.",
+    "Combobox compatibility wrapper must rely on Select searchable state and avoid stale selected options while typing.",
   );
   assert.equal(comboboxChanges.at(-1).value, "Ana");
   assert.equal(comboboxChanges.at(-1).meta.inputValue, "Ana");
@@ -72,9 +72,9 @@ try {
   fireEvent.click(getComboboxRole("button", { name: /clear driver/i }));
   await waitFor(() => assert.equal(comboboxInput.value, ""));
   assert.equal(
-    document.querySelectorAll("[data-combobox-listbox] [data-combobox-option][data-selected=\"true\"]").length,
+    document.querySelectorAll("[data-select-listbox] [data-select-option][data-selected=\"true\"]").length,
     0,
-    "Combobox clear must remove selected option state and selected check.",
+    "Combobox compatibility wrapper clear must remove Select selected option state and selected check.",
   );
   assert.equal(comboboxChanges.at(-1).value, "");
   assert.deepEqual(comboboxChanges.at(-1).meta, { label: "", meta: "", inputValue: "", cleared: true });
@@ -134,11 +134,11 @@ try {
   }));
   const selectedComboboxOption = getComboboxRole("option", { name: /ana sosa/i });
   assert.equal(selectedComboboxOption.getAttribute("data-selected"), "true");
-  assert.equal(selectedComboboxOption.querySelector(".combobox__option-check")?.textContent, "check");
+  assert.equal(selectedComboboxOption.querySelector(".select-control__option-check")?.textContent, "check");
   assert.equal(
-    document.querySelectorAll("[data-combobox-listbox] [data-combobox-option][data-selected=\"true\"]").length,
+    document.querySelectorAll("[data-select-listbox] [data-select-option][data-selected=\"true\"]").length,
     1,
-    "Combobox must keep single-select semantics: only one option can be selected in a listbox.",
+    "Combobox compatibility wrapper must preserve Select single-select semantics.",
   );
   rerenderCombobox(React.createElement(Combobox, {
     label: "Driver",
@@ -151,8 +151,7 @@ try {
     open: true,
   }));
   assert.equal(comboboxInput.getAttribute("aria-busy"), "true");
-  assert.equal(document.querySelector("[data-combobox-loading]")?.textContent, "Loading drivers");
-  assert.ok(document.querySelector(".combobox__loading-icon"), "Combobox loading state should render shared Spinner icon.");
+  assert.equal(document.querySelector("[data-select-loading]")?.textContent, "Loading drivers");
   rerenderCombobox(React.createElement(Combobox, {
     label: "Driver",
     options: [

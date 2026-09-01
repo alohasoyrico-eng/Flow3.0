@@ -124,10 +124,14 @@ function checkReactPublicDensityContract({ add, name, sourceFile, source, typesF
     add("errors", typesFile, 1, `${name} React props must expose density?: "sm" | "md" | "lg" so product code can opt into the cascade without local size props.`);
   }
   if (!/\bflowDensityProps\(/.test(source)) {
-    const delegatesDensity = name === "DateRangePicker"
+    const delegatesDensity = (name === "DateRangePicker"
       && source.includes("React.createElement(DatePicker")
       && source.includes("...props")
-      && source.includes("mode: \"range\"");
+      && source.includes("mode: \"range\""))
+      || (name === "Combobox"
+        && source.includes("React.createElement(Select")
+        && source.includes("searchable: true")
+        && source.includes("density,"));
     if (!delegatesDensity) add("errors", sourceFile, 1, `${name} React source must propagate density through flowDensityProps() instead of relying on implicit or hardcoded size behavior.`);
   }
   const densityTypeName = `${name}Density`;

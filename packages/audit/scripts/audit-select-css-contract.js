@@ -207,13 +207,13 @@ function checkSelectCssContract({ text, blocks, packageCssFile, selectorKey, roo
     ],
     message: "Select inline must use compact option-row geometry so the menu remains proportional to the inline trigger.",
   });
-  if (!source.includes("useState<number | null>(null)") || !source.includes("const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex")) {
+  if (!source.includes("useState<number | null>(null)") || (!source.includes("const isActive = resolvedActiveIndex !== null && index === resolvedActiveIndex") && !source.includes("const isActive = activeOption === option"))) {
     add("errors", sourceFile, 1, "Select must not preactivate the first option; active option state is created by explicit keyboard/navigation intent.");
   }
   if (source.includes(": selectedOption ? `${selectId}-option-${selectedIndex}` : undefined")) {
     add("errors", sourceFile, 1, "Select aria-activedescendant must not point at selected/default options while the listbox is closed.");
   }
-  if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && resolvedActiveIndex !== null")) {
+  if (!source.includes("\"aria-activedescendant\": isOpen && activeOption && resolvedActiveIndex !== null") && !source.includes("\"aria-activedescendant\": isOpen && activeOption ?")) {
     add("errors", sourceFile, 1, "Select aria-activedescendant must only be emitted for an open listbox with an explicit active option.");
   }
   const smDensityBlock = blocks.find((block) => selectorKey(block) === ".select-control[data-density=\"sm\"]");

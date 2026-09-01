@@ -2,7 +2,7 @@
   "components": {
     "select": {
       "variants": {
-        "copy": "Select variants cover one closed-choice value. Base Select has the default trigger and an inline trigger for composition inside another field surface. Filled, open, loading, error, and disabled are states, not variants.",
+        "copy": "Select variants cover one known option set. Base Select has the default trigger, an inline trigger for composition inside another field surface, and searchable/clearable behavior for longer lists that used to be split into Combobox. Filled, open, loading, error, and disabled are states, not variants.",
         "demos": [
           {
             "label": "Default",
@@ -21,6 +21,17 @@
             "density": "md",
             "state": "filled",
             "variant": "inline"
+          },
+          {
+            "label": "Searchable",
+            "field": "Driver",
+            "value": "Ana Sosa",
+            "helper": "Filters known options and can clear the selected value.",
+            "density": "md",
+            "state": "open",
+            "variant": "default",
+            "searchable": true,
+            "clearable": true
           }
         ]
       }

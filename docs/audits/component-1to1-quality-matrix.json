@@ -936,21 +936,21 @@
     },
     {
       "id": "combobox",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         ".audit-reference/components/forms/SelectCombo.jsx",
@@ -975,22 +975,33 @@
         "/private/tmp/combobox-tab-outside-runtime-1.png",
         "node packages/react/test/p0-forms-advanced.test.mjs",
         "npm run typecheck",
-        "npm run audit:flow-core-gate"
+        "npm run audit:flow-core-gate",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/architecture.json",
+        "packages/react/src/Combobox.tsx",
+        "packages/react/src/Select.tsx",
+        "packages/react/src/Combobox.d.ts",
+        "packages/react/src/Select.d.ts",
+        "packages/react/dist/Combobox.js",
+        "packages/react/dist/Select.js",
+        "local-visual-snapshots/Flow3-component-qa/combobox-2026-08-17/interactive/react-runtime.html?fresh=combobox-select-wrapper-runtime-1",
+        "docs/audits/combobox-select-consolidation-light.png",
+        "docs/audits/combobox-select-consolidation-dark.png",
+        "Playwright runtime smoke 2026-08-31: Combobox demo 200, h1 mounted, 9 searchable Select inputs, 0 console/page errors",
+        "npm run audit:component-source-of-truth -- --component=combobox --check",
+        "node packages/react/test/interaction-listbox-overlays.test.mjs",
+        "npm --prefix packages/react run test:fast"
       ],
-      "openIssues": [
-        "ZIP reference says Combobox should be absorbed by Select searchable/clearable rather than remain an independent source of truth.",
-        "Select in Flow still lacks searchable and clearable props, so deleting Combobox now would break current Autocomplete/export consumers."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
-        "Select Input in the ZIP is now covered by Combobox.",
+        "Searchable Select covers the old Combobox/SelectCombo behavior.",
         "Country Select and Multiple Select remain separate inventory decisions."
       ],
-      "lastReviewAt": "2026-08-30",
+      "lastReviewAt": "2026-08-31",
       "currentReviewCommit": "working-tree",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "in-review",
-      "decision": "Combobox runtime was revalidated as the current exported component: icon ligatures now consume the shared Material Symbols recipe, keyboard smoke covers Escape/Tab/ArrowDown/ArrowUp/Enter including an existing selected value, option click closes without label reactivation, keyboard clear returns focus to the input before navigation continues, click-outside closes on document mousedown, no review demo starts open, disabled option styling inherits shared option-row roles, and the demo uses a fresh React runtime build. It remains partial because the ZIP contract's architectural closure is absorption into Select searchable/clearable.",
-      "truthResetDecision": "Do not close Combobox as a final component until Select owns searchable/clearable or the divergence from the ZIP contract is explicitly accepted."
+      "reviewState": "closed-with-recent-evidence",
+      "decision": "Closed Combobox as a compatibility wrapper, not an independent source of truth: ZIP architecture says Combobox is absorbed by Select searchable/clearable, so Flow now routes Combobox through Select with searchable true, clearable derived from clearSelectionLabel, and preserved legacy value/open callbacks. The old Combobox visual/keyboard implementation is no longer owned separately; tests and audits now assert Select-owned listbox, clear, empty, loading, controlled value sync, click-outside, Tab, Escape, ArrowUp/ArrowDown, Enter, and option-click behavior.",
+      "truthResetDecision": "Combobox remains export-compatible but is no longer a separate component implementation; future work should evolve Select, not recreate Combobox."
     },
     {
       "id": "country-selector",
@@ -2246,19 +2257,27 @@
         "Playwright runtime smoke 2026-08-29: closed initial state, disabled skip, Enter commit, Escape close, dark disabled option styling, 0 console/page errors",
         "packages/components/styles/components.css",
         "Playwright runtime smoke 2026-08-29: inline trigger padding 12/12, compact option row 52px, trigger 135px, listbox 163px x 232px, 0 console/page errors",
-        "local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/react-runtime.html?fresh=select-inline-proportional-runtime-3"
+        "local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/react-runtime.html?fresh=select-inline-proportional-runtime-3",
+        "packages/specs/specs/unison-system/artifacts/components/select.json",
+        "packages/react/src/Select.d.ts",
+        "packages/react/dist/Select.d.ts",
+        "local-visual-snapshots/Flow3-component-qa/select-2026-08-17/interactive/react-runtime.html?fresh=select-searchable-clearable-runtime-1",
+        "docs/audits/select-select-consolidation-light.png",
+        "docs/audits/select-select-consolidation-dark.png",
+        "Playwright runtime smoke 2026-08-31: Select demo 200, h1 mounted, 10 combobox roles, searchable demo present, 0 console/page errors",
+        "npm run audit:component-source-of-truth -- --component=select --check"
       ],
       "openIssues": [],
       "inventoryEscalations": [
-        "Select Input / Combobox exists in the ZIP reference and is not covered by base Select.",
-        "Country Select exists in the ZIP reference and is currently covered only as Phone Input composition.",
-        "Multiple Select exists in the ZIP reference and must stay outside base Select."
+        "Country Select remains covered by CountrySelector/PhoneInput composition.",
+        "Multiple Select remains separate inventory/pattern scope."
       ],
-      "lastReviewAt": "2026-08-29",
-      "decision": "Closed Select 1:1 revalidation against ZIP Select/Listbox contract: runtime demo starts closed, supports click/Escape/ArrowUp/ArrowDown/Enter, skips disabled options, keeps disabled distinct from selected through shared option-row roles, scales density through ControlFrame/Listbox aliases, and keeps inline trigger spacing plus compact listbox sizing governed by Select aliases.",
+      "lastReviewAt": "2026-08-31",
+      "decision": "Closed Select 1:1 revalidation and Combobox absorption: Select now owns searchable, clearable, clearSelectionLabel, emptyText, and loadingText as explicit API capabilities for one closed option set; base Select event meta remains unchanged while searchable meta includes inputValue/cleared; controlled searchable values sync to visible input text; Arrow navigation preserves disabled skips and correct aria-activedescendant; local runtime demo exposes searchable/clearable alongside default and inline variants.",
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "closed-with-recent-evidence",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready.",
+      "currentReviewCommit": "working-tree"
     },
     {
       "id": "skeleton",
@@ -2849,22 +2868,21 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 26,
-    "partial": 31,
+    "pass": 27,
+    "partial": 30,
     "fail": 0,
-    "qualityDebt": 31,
+    "qualityDebt": 30,
     "reviewStates": {
-      "closed-with-recent-evidence": 19,
+      "closed-with-recent-evidence": 20,
       "needs-1to1-review": 19,
       "closed-with-user-visual-review": 6,
-      "needs-revalidation": 12,
-      "in-review": 1
+      "needs-revalidation": 12
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-08-31",
-    "sourceCommit": "6c57a823",
+    "sourceCommit": "working-tree",
     "scope": [
       "pagination",
       "select",
@@ -2878,11 +2896,11 @@
       "switch",
       "chip"
     ],
-    "nextComponent": "combobox",
-    "nextComponentReason": "Combobox is the remaining in-review component because the ZIP reference points toward Select searchable/clearable as the canonical owner, while current Flow consumers still depend on Combobox.",
+    "nextComponent": "animated-moment",
+    "nextComponentReason": "The current web-priority interactive/control subqueue is closed after Combobox absorption; the next unresolved matrix item is animated-moment unless we reprioritize by product impact before starting.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
-    "component": "combobox",
-    "status": "in-review",
+    "component": "animated-moment",
+    "status": "pending-next-review",
     "sourceOfTruthGate": "required-before-pass",
     "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json"
   },
