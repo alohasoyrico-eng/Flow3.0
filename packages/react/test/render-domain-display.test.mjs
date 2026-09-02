@@ -400,12 +400,8 @@ assert.match(animatedMomentMarkup, /data-full-width="true"/);
 assert.match(animatedMomentMarkup, /role="img"/);
 assert.match(animatedMomentMarkup, /aria-label="Action complete: Complete"/);
 assert.match(animatedMomentMarkup, /class="animated-moment__icon material-symbol"/);
-assert.match(animatedMomentMarkup, /class="animated-moment__stage"/);
-assert.match(animatedMomentMarkup, /data-animated-moment-stage=""/);
-assert.match(animatedMomentMarkup, /class="animation-asset animated-moment__asset"/);
-assert.match(animatedMomentMarkup, /data-animation-library="lottie-web"/);
-assert.match(animatedMomentMarkup, /data-animation-runtime="fallback"/);
-assert.match(animatedMomentMarkup, /class="animation-asset__fallback-icon material-symbol"/);
+assert.doesNotMatch(animatedMomentMarkup, /class="animated-moment__stage"/);
+assert.doesNotMatch(animatedMomentMarkup, /class="animation-asset animated-moment__asset"/);
 assert.match(animatedMomentMarkup, /class="animated-moment__state" hidden="">Complete<\/span>/);
 assert.match(animatedMomentMarkup, /data-animated-moment-cue=""/);
 const unnamedAnimatedMomentMarkup = renderToStaticMarkup(React.createElement(AnimatedMoment, {

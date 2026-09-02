@@ -23,6 +23,7 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({ label, descri
     const resolvedStateLabel = stateLabel;
     const hasAsset = Boolean(animationSource || animationData);
     const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
+    const animationSourceState = hasAsset ? "provided" : "none";
     const accessibleLabel = resolvedStateLabel ? `${label}: ${resolvedStateLabel}` : label;
     const supportingCopy = description || reducedMotionFallback;
     return React.createElement("div", {
@@ -36,16 +37,15 @@ export const AnimatedMoment = forwardRef(function AnimatedMoment({ label, descri
         role: "img",
         "aria-label": accessibleLabel,
         "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
-    }, React.createElement("span", { className: "animated-moment__icon material-symbol", "aria-hidden": "true" }, resolvedIcon), React.createElement("span", { className: "animated-moment__stage", "data-animated-moment-stage": "", "aria-hidden": "true" }, React.createElement("span", {
+    }, React.createElement("span", { className: "animated-moment__icon material-symbol", "aria-hidden": "true" }, resolvedIcon), hasAsset ? React.createElement("span", { className: "animated-moment__stage", "data-animated-moment-stage": "", "aria-hidden": "true" }, React.createElement("span", {
         className: "animation-asset animated-moment__asset",
         "data-animation-library": "lottie-web",
         "data-animation-runtime": canAnimate ? "available" : "fallback",
+        "data-animation-source": animationSourceState,
         ...flowStateProps(resolvedState),
         "data-renderer": "svg",
         "data-animated-moment-asset": "",
-        role: "img",
-        "aria-label": label,
-    }, React.createElement("span", { className: "animation-asset__viewport", "aria-hidden": "true" }), React.createElement("span", { className: "animation-asset__fallback", "aria-hidden": "true", hidden: canAnimate || undefined }, React.createElement("span", { className: "animation-asset__fallback-icon material-symbol" }, resolvedIcon), reducedMotionFallback ? React.createElement("span", { className: "animation-asset__fallback-label" }, reducedMotionFallback) : null))), React.createElement("strong", null, label), resolvedStateLabel ? React.createElement("span", { className: "animated-moment__state", hidden: true }, resolvedStateLabel) : null, supportingCopy ? React.createElement("small", null, supportingCopy) : null, React.createElement("span", { className: "animated-moment__cue", "data-animated-moment-cue": "", "aria-hidden": "true" }));
+    }, React.createElement("span", { className: "animation-asset__viewport", "aria-hidden": "true" }), React.createElement("span", { className: "animation-asset__fallback", "aria-hidden": "true", hidden: canAnimate || undefined }, React.createElement("span", { className: "animation-asset__fallback-icon material-symbol" }, resolvedIcon), reducedMotionFallback ? React.createElement("span", { className: "animation-asset__fallback-label" }, reducedMotionFallback) : null))) : null, React.createElement("strong", null, label), resolvedStateLabel ? React.createElement("span", { className: "animated-moment__state", hidden: true }, resolvedStateLabel) : null, supportingCopy ? React.createElement("small", null, supportingCopy) : null, React.createElement("span", { className: "animated-moment__cue", "data-animated-moment-cue": "", "aria-hidden": "true" }));
 });
 AnimatedMoment.displayName = "AnimatedMoment";
 AnimatedMoment.platformContract = animatedMomentPlatformContract;

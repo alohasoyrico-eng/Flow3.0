@@ -122,6 +122,58 @@ const components = {
           )
         )`,
   },
+  "animated-moment": {
+    title: "AnimatedMoment",
+    directory: "animated-moment-2026-08-31",
+    module: "AnimatedMoment.js",
+    exportName: "AnimatedMoment",
+    buildId: "animated-moment-grid-visual-2",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" },
+              e(Component, {
+                label: "Pago aprobado",
+                description: "Recibo listo para enviar.",
+                variant: "celebration",
+                state: "playing",
+                animationSource: "/animations/payment-approved.json",
+                reducedMotionFallback: "Confirmacion estatica",
+                stateLabel: "Reproduciendo",
+                fullWidth: true
+              })
+            )
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Success", description: "Operacion completada.", variant: "success", state: "playing", reducedMotionFallback: "Success fallback" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Empty", description: "Sin actividad disponible.", variant: "empty", state: "idle", reducedMotionFallback: "Empty fallback" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Loading", description: "Sincronizando cambios.", variant: "loading", state: "playing", reducedMotionFallback: "Loading fallback" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Celebration", description: "Meta alcanzada.", variant: "celebration", state: "complete", reducedMotionFallback: "Celebration fallback" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Idle", variant: "success", state: "idle", reducedMotionFallback: "Idle fallback", stateLabel: "Idle" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Playing", variant: "success", state: "playing", animationData: { v: "5.7.0", layers: [] }, reducedMotionFallback: "Playing fallback", stateLabel: "Playing" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Paused", variant: "loading", state: "paused", animationData: { v: "5.7.0", layers: [] }, reducedMotionFallback: "Paused fallback", stateLabel: "Paused" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Complete", variant: "celebration", state: "complete", reducedMotionFallback: "Complete fallback", stateLabel: "Complete" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Reduced motion", variant: "success", state: "reduced-motion", animationData: { v: "5.7.0", layers: [] }, reducedMotionFallback: "Static motion fallback", stateLabel: "Reduced motion" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", variant: "success", state: "disabled", reducedMotionFallback: "Animation disabled", stateLabel: "Disabled" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Small moment", description: "Compact cue.", density: "sm", variant: "success", state: "playing", reducedMotionFallback: "Small fallback" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Medium moment", description: "Default cue.", density: "md", variant: "loading", state: "playing", reducedMotionFallback: "Medium fallback" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Large moment", description: "Prominent cue.", density: "lg", variant: "celebration", state: "complete", reducedMotionFallback: "Large fallback" }))
+          )
+        )`,
+  },
   "breadcrumbs": {
     title: "Breadcrumbs",
     directory: "breadcrumbs-2026-08-29",

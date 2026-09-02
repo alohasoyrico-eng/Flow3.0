@@ -110,7 +110,7 @@
     },
     {
       "id": "animated-moment",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -127,29 +127,28 @@
         "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/tokens/motion.css",
-        ".audit-reference/guidelines/motion.html",
-        "docs/audits/animated-moment-1to1-quality-audit.json",
-        "docs/audits/animated-moment-1to1-visual-metrics.json",
-        "docs/audits/animated-moment-1to1-light.png",
-        "docs/audits/animated-moment-1to1-dark.png",
-        "packages/components/src/components/motion.js",
-        "packages/components/src/registry.js",
-        "packages/components/src/contracts.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/tokens/motion.css",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/guidelines/motion.html",
+        "packages/react/src/AnimatedMoment.tsx",
+        "packages/react/test/p2-motion-feedback.test.mjs",
+        "packages/react/test/render-domain-display.test.mjs",
+        "packages/audit/scripts/platform-adapter-components.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/content/content/component-copy/components/animated-moment/all.json",
+        "local-visual-snapshots/Flow3-component-qa/animated-moment-2026-08-31/interactive/react-runtime.html",
+        "docs/audits/animated-moment-runtime-2026-08-31.png",
         "packages/components/styles/components.css",
-        "packages/components/test/smoke.test.mjs"
+        "packages/audit/scripts/audit-animated-moment-css-contract.js"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
-        "The onboarding card with skip, CTA, pagination dots, and slide sequencing is a pattern, not Animated Moment.",
-        "A real animation-player runtime remains outside this component until Flow defines an asset/player contract."
+        "Onboarding, education, campaign, and multi-step animation sequences remain pattern scope, not Animated Moment.",
+        "Animation Assets owns lottie-web playback/fallback; Animated Moment emits the bounded component surface and does not call runtime APIs directly."
       ],
-      "decision": "Closed Animated Moment as a bounded component: density and fullWidth are package props, halo/icon/copy scale with Flow component tokens, mobile remains vertical, desktop-capable full-width composition is available, and onboarding controls remain pattern scope.",
+      "decision": "Closed 2026-08-31: AnimatedMoment now has a real package-backed runtime demo, label requiredness aligned in copy/contract, internal animation asset semantics no longer duplicate the accessible image role, the visual stage only appears for declared animation assets, and icon/stage/title layout is governed by a single grid anatomy so animated assets do not cover titles.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Promoted after ZIP motion reference review, package/source-of-truth audit, React build, focused motion/display tests, and runtime demo validation."
     },
     {
       "id": "audit-event",
@@ -2868,8 +2867,8 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 27,
-    "partial": 30,
+    "pass": 28,
+    "partial": 29,
     "fail": 0,
     "qualityDebt": 30,
     "reviewStates": {
@@ -2896,12 +2895,12 @@
       "switch",
       "chip"
     ],
-    "nextComponent": "animated-moment",
-    "nextComponentReason": "The current web-priority interactive/control subqueue is closed after Combobox absorption; the next unresolved matrix item is animated-moment unless we reprioritize by product impact before starting.",
+    "nextComponent": "audit-event",
+    "nextComponentReason": "Next unresolved matrix item after AnimatedMoment closure is audit-event.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
     "component": "animated-moment",
-    "status": "pending-next-review",
-    "sourceOfTruthGate": "required-before-pass",
+    "status": "closed-with-recent-evidence",
+    "sourceOfTruthGate": "passed",
     "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json"
   },
   "truthReset": {

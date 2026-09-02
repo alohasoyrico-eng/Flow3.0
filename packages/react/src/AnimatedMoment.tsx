@@ -75,6 +75,7 @@ export const AnimatedMoment = forwardRef<HTMLDivElement, AnimatedMomentProps>(fu
   const resolvedStateLabel = stateLabel;
   const hasAsset = Boolean(animationSource || animationData);
   const canAnimate = hasAsset && resolvedState !== "reduced-motion" && resolvedState !== "disabled";
+  const animationSourceState = hasAsset ? "provided" : "none";
   const accessibleLabel = resolvedStateLabel ? `${label}: ${resolvedStateLabel}` : label;
   const supportingCopy = description || reducedMotionFallback;
 
@@ -93,7 +94,7 @@ export const AnimatedMoment = forwardRef<HTMLDivElement, AnimatedMomentProps>(fu
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
     },
     React.createElement("span", { className: "animated-moment__icon material-symbol", "aria-hidden": "true" }, resolvedIcon),
-    React.createElement(
+    hasAsset ? React.createElement(
       "span",
       { className: "animated-moment__stage", "data-animated-moment-stage": "", "aria-hidden": "true" },
       React.createElement(
@@ -102,11 +103,10 @@ export const AnimatedMoment = forwardRef<HTMLDivElement, AnimatedMomentProps>(fu
           className: "animation-asset animated-moment__asset",
           "data-animation-library": "lottie-web",
           "data-animation-runtime": canAnimate ? "available" : "fallback",
+          "data-animation-source": animationSourceState,
           ...flowStateProps(resolvedState),
           "data-renderer": "svg",
           "data-animated-moment-asset": "",
-          role: "img",
-          "aria-label": label,
         },
         React.createElement("span", { className: "animation-asset__viewport", "aria-hidden": "true" }),
         React.createElement(
@@ -116,7 +116,7 @@ export const AnimatedMoment = forwardRef<HTMLDivElement, AnimatedMomentProps>(fu
           reducedMotionFallback ? React.createElement("span", { className: "animation-asset__fallback-label" }, reducedMotionFallback) : null,
         ),
       ),
-    ),
+    ) : null,
     React.createElement("strong", null, label),
     resolvedStateLabel ? React.createElement("span", { className: "animated-moment__state", hidden: true }, resolvedStateLabel) : null,
     supportingCopy ? React.createElement("small", null, supportingCopy) : null,

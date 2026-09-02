@@ -27,6 +27,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     packageCssFile,
     snippets: [
       "--comp-animated-moment-accent: var(--component-color-action)",
+      "--comp-animated-moment-accent-halo: radial-gradient",
       "--comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5)",
       "--comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9)",
       "--comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38)",
@@ -35,6 +36,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
       "--comp-animated-moment-title-size: var(--component-font-size-title-md)",
       "--comp-animated-moment-cue-duration: var(--component-duration-medium)",
       "gap: var(--comp-animated-moment-gap)",
+      "grid-template-areas:",
       "min-inline-size: var(--comp-animated-moment-min-inline-size)",
     ],
     message: "AnimatedMoment root must expose a component-scoped contract for density, voice, motion, and animation asset geometry.",
@@ -70,9 +72,10 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "block-size: var(--comp-animated-moment-icon-size)",
-      "box-shadow: var(--comp-animated-moment-accent-halo)",
+      "block-size: var(--comp-animated-moment-halo-size)",
+      "inline-size: var(--comp-animated-moment-halo-size)",
       "font-size: var(--comp-animated-moment-icon-font-size)",
+      "grid-area: visual",
       "margin-block: var(--comp-animated-moment-icon-margin-block)",
     ],
     message: "AnimatedMoment icon must consume component-scoped animation geometry aliases.",
@@ -84,6 +87,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     snippets: [
       "font-size: var(--comp-animated-moment-title-size)",
       "font-weight: var(--comp-animated-moment-title-weight)",
+      "grid-area: title",
       "line-height: var(--comp-animated-moment-title-line-height)",
     ],
     message: "AnimatedMoment title must consume component-scoped voice aliases.",
@@ -94,6 +98,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     packageCssFile,
     snippets: [
       "font-size: var(--comp-animated-moment-copy-size)",
+      "grid-area: copy",
       "line-height: var(--comp-animated-moment-copy-line-height)",
       "max-inline-size: var(--comp-animated-moment-copy-max-inline-size)",
     ],
@@ -104,8 +109,10 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     text,
     packageCssFile,
     snippets: [
-      "min-block-size: var(--comp-animated-moment-icon-size)",
-      "min-inline-size: var(--comp-animated-moment-icon-size)",
+      "min-block-size: var(--comp-animated-moment-halo-size)",
+      "min-inline-size: var(--comp-animated-moment-halo-size)",
+      "grid-area: visual",
+      "pointer-events: none",
     ],
     message: "AnimatedMoment animation stage must share the icon geometry contract.",
   });
@@ -122,6 +129,7 @@ function checkAnimatedMomentCssContract({ text, blocks, packageCssFile, selector
     packageCssFile,
     snippets: [
       "block-size: var(--comp-animated-moment-cue-block-size)",
+      "grid-area: cue",
       "inline-size: var(--comp-animated-moment-cue-inline-size)",
       "transition: inline-size var(--comp-animated-moment-cue-duration) var(--comp-animated-moment-cue-ease)",
     ],

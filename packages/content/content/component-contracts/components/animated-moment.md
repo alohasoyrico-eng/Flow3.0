@@ -179,7 +179,7 @@ Animated Moment API exposes local cue props while Design System owns foundations
 
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
-| label | string | No | Accessible animated cue label. |
+| label | string | Yes | Accessible animated cue label. |
 | description | string | No | Short description or fallback copy. |
 | variant | AnimatedMomentVariant | No | Moment treatment. |
 | state | AnimatedMomentState | No | Local cue state. |
@@ -193,10 +193,7 @@ Animated Moment API exposes local cue props while Design System owns foundations
 
 ## Implementation Checklist
 
-- Set `label` as a documented control.
-- Set `variant` as a documented control. Options: success, empty, loading, celebration.
-- Set `state` as a documented control. Options: idle, playing, paused, complete, reduced-motion, disabled.
-- Set `fullWidth` as a documented control.
+- Provide `label`: Accessible animated cue label.
 - Visible label
 - State precedence
 - Keyboard focus

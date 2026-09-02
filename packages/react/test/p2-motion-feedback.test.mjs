@@ -56,8 +56,9 @@ try {
     assert.equal(moment.dataset.fullWidth, "true");
     assert.equal(asset?.dataset.animationLibrary, "lottie-web");
     assert.equal(asset?.dataset.animationRuntime, "available");
+    assert.equal(asset?.dataset.animationSource, "provided");
     assert.equal(asset?.dataset.renderer, "svg");
-    assert.equal(asset?.getAttribute("aria-label"), "Payment approved");
+    assert.equal(asset?.getAttribute("aria-label"), null);
     assert.equal(view.getByText("Playing").hidden, true);
     assert.equal(view.getByText("Receipt is ready").tagName, "SMALL");
 
@@ -75,6 +76,7 @@ try {
     assert.equal(reduced.dataset.variant, "success");
     assert.equal(reduced.dataset.state, "reduced-motion");
     assert.equal(reducedAsset?.dataset.animationRuntime, "fallback");
+    assert.equal(reducedAsset?.dataset.animationSource, "provided");
     assert.equal(fallback?.hidden, false);
     const staticConfirmationCopy = view.getAllByText("Static confirmation");
     assert.equal(staticConfirmationCopy.length, 2);
@@ -88,7 +90,7 @@ try {
     const disabled = view.getByRole("img", { name: /sync paused/i });
     assert.equal(disabled.dataset.state, "disabled");
     assert.equal(disabled.getAttribute("aria-disabled"), "true");
-    assert.equal(view.container.querySelector(".animation-asset")?.dataset.animationRuntime, "fallback");
+    assert.equal(view.container.querySelector(".animation-asset"), null);
 
     view.rerender(React.createElement(AnimatedMoment, {
       label: "",

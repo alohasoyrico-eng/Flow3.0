@@ -9540,7 +9540,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-accent: var(--component-color-action);
   --comp-animated-moment-accent-surface: color-mix(in srgb, var(--comp-animated-moment-accent) 12%, var(--component-color-surface));
   --comp-animated-moment-accent-border: color-mix(in srgb, var(--comp-animated-moment-accent) 34%, var(--component-color-border));
-  --comp-animated-moment-accent-halo: 0 0 0 calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-accent-surface);
+  --comp-animated-moment-accent-halo: radial-gradient(circle, var(--comp-animated-moment-accent) 0 calc(var(--comp-animated-moment-icon-size) / 2), var(--comp-animated-moment-accent-surface) calc(var(--comp-animated-moment-icon-size) / 2) 100%);
   --comp-animated-moment-border: color-mix(in srgb, var(--component-color-border) 82%, transparent);
   --comp-animated-moment-paused-border: color-mix(in srgb, var(--component-color-warning) 40%, var(--component-color-border));
   --comp-animated-moment-icon-fg: var(--component-color-action-text);
@@ -9549,7 +9549,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5);
   --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9);
   --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
-  --comp-animated-moment-icon-margin-block: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--component-space-lg);
+  --comp-animated-moment-icon-margin-block: 0;
   --comp-animated-moment-cycle: var(--component-duration-loop);
   --comp-animated-moment-cycle-ease: var(--component-ease-move);
   --comp-animated-moment-max-inline-size: var(--component-content-size-xl);
@@ -9574,6 +9574,11 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   align-items: center;
   display: inline-grid;
   gap: var(--comp-animated-moment-gap);
+  grid-template-areas:
+    "visual"
+    "title"
+    "copy"
+    "cue";
   justify-items: center;
   max-inline-size: var(--comp-animated-moment-max-inline-size);
   min-inline-size: var(--comp-animated-moment-min-inline-size);
@@ -9627,7 +9632,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment[data-variant] .animated-moment__icon {
-  background: var(--comp-animated-moment-accent);
+  background: var(--comp-animated-moment-accent-halo);
   color: var(--comp-animated-moment-icon-fg);
 }
 
@@ -9654,17 +9659,19 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .animated-moment .animated-moment__icon {
-  block-size: var(--comp-animated-moment-icon-size);
-  box-shadow: var(--comp-animated-moment-accent-halo);
+  block-size: var(--comp-animated-moment-halo-size);
   color: var(--comp-animated-moment-icon-fg);
   font-size: var(--comp-animated-moment-icon-font-size);
-  inline-size: var(--comp-animated-moment-icon-size);
+  grid-area: visual;
+  inline-size: var(--comp-animated-moment-halo-size);
   margin-block: var(--comp-animated-moment-icon-margin-block);
+  position: relative;
 }
 
 .animated-moment strong {
   font-size: var(--comp-animated-moment-title-size);
   font-weight: var(--comp-animated-moment-title-weight);
+  grid-area: title;
   line-height: var(--comp-animated-moment-title-line-height);
   max-inline-size: var(--comp-animated-moment-title-max-inline-size);
 }
@@ -9672,6 +9679,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .animated-moment.animated-moment small {
   color: var(--comp-animated-moment-copy-fg);
   font-size: var(--comp-animated-moment-copy-size);
+  grid-area: copy;
   line-height: var(--comp-animated-moment-copy-line-height);
   max-inline-size: var(--comp-animated-moment-copy-max-inline-size);
 }
@@ -9689,8 +9697,10 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .animated-moment__stage {
   align-items: center;
   display: inline-flex;
-  min-block-size: var(--comp-animated-moment-icon-size);
-  min-inline-size: var(--comp-animated-moment-icon-size);
+  grid-area: visual;
+  min-block-size: var(--comp-animated-moment-halo-size);
+  min-inline-size: var(--comp-animated-moment-halo-size);
+  pointer-events: none;
 }
 
 .animated-moment[data-state="playing"] .animated-moment__icon {
@@ -9702,6 +9712,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   block-size: var(--comp-animated-moment-cue-block-size);
   border-radius: var(--comp-animated-moment-cue-radius);
   display: none;
+  grid-area: cue;
   inline-size: var(--comp-animated-moment-cue-inline-size);
   transition: inline-size var(--comp-animated-moment-cue-duration) var(--comp-animated-moment-cue-ease);
 }
@@ -9728,6 +9739,10 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 @media (min-width: 760px) {
   .animated-moment[data-full-width="true"] {
+    grid-template-areas:
+      "visual title"
+      "visual copy"
+      "visual cue";
     grid-template-columns: auto minmax(0, 1fr);
     justify-items: start;
     text-align: start;
@@ -9735,16 +9750,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
   .animated-moment[data-full-width="true"] .animated-moment__icon {
     grid-row: 1 / span 4;
-    margin-block: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2);
-    margin-inline: calc((var(--comp-animated-moment-halo-size) - var(--comp-animated-moment-icon-size)) / 2) var(--comp-animated-moment-full-width-icon-margin-inline-end);
+    margin-inline: 0 var(--comp-animated-moment-full-width-icon-margin-inline-end);
   }
 
-  .animated-moment[data-full-width="true"] .animated-moment__stage,
-  .animated-moment[data-full-width="true"] strong,
-  .animated-moment[data-full-width="true"] .animated-moment__state,
-  .animated-moment[data-full-width="true"] small,
-  .animated-moment[data-full-width="true"] .animated-moment__cue {
-    grid-column: 2;
+  .animated-moment[data-full-width="true"] .animated-moment__stage {
+    grid-column: 1;
+    grid-row: 1 / span 3;
   }
 }
 
