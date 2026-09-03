@@ -7379,19 +7379,21 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-error-panel-disabled-fg: var(--component-disabled-text);
   --comp-error-panel-disabled-opacity: var(--component-opacity-disabled);
   --comp-error-panel-icon-size: var(--component-error-panel-icon-size);
-  --comp-error-panel-icon-font-size: var(--component-font-size-title-sm);
+  --comp-error-panel-icon-font-size: calc(var(--comp-error-panel-icon-size) * 0.48);
   --comp-error-panel-icon-bg: color-mix(in srgb, var(--comp-error-panel-tone) 12%, var(--component-color-surface));
   --comp-error-panel-icon-radius: var(--component-radius-pill);
   --comp-error-panel-icon-fg: var(--comp-error-panel-tone);
   --comp-error-panel-icon-family: var(--component-font-family-icon);
   --comp-error-panel-empty-icon-size: var(--component-error-panel-empty-icon-size);
-  --comp-error-panel-empty-icon-font-size: var(--component-icon-size-display-sm);
+  --comp-error-panel-empty-icon-font-size: calc(var(--comp-error-panel-empty-icon-size) * 0.48);
   --comp-error-panel-padding: var(--component-space-md);
   --comp-error-panel-gap: var(--component-space-sm);
   --comp-error-panel-content-gap: var(--component-space-2xs);
+  --comp-error-panel-actions-gap: var(--component-space-sm);
+  --comp-error-panel-actions-width: 17.5rem;
   --comp-error-panel-title-family: var(--component-font-family-title);
   --comp-error-panel-title-size: var(--component-font-size-body);
-  --comp-error-panel-title-weight: var(--component-font-weight-black);
+  --comp-error-panel-title-weight: var(--component-font-weight-bold);
   --comp-error-panel-description-fg: var(--component-color-text-muted);
   --comp-error-panel-description-size: var(--component-font-size-small);
   --comp-error-panel-description-line-height: var(--component-line-height-normal);
@@ -7413,16 +7415,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .error-panel[data-density="sm"] {
   --comp-error-panel-icon-size: var(--component-error-panel-icon-size-sm);
-  --comp-error-panel-icon-font-size: var(--component-font-size-body);
   --comp-error-panel-padding: var(--component-space-sm);
   --comp-error-panel-gap: var(--component-space-xs);
+  --comp-error-panel-title-size: var(--component-font-size-small);
+  --comp-error-panel-description-size: var(--component-font-size-caption);
 }
 
 .error-panel[data-density="lg"] {
   --comp-error-panel-icon-size: var(--component-error-panel-icon-size-lg);
-  --comp-error-panel-icon-font-size: var(--component-font-size-title-md);
   --comp-error-panel-padding: var(--component-space-lg);
   --comp-error-panel-gap: var(--component-space-md);
+  --comp-error-panel-title-size: var(--component-font-size-title-md);
+  --comp-error-panel-description-size: var(--component-font-size-body);
 }
 
 .error-panel--warning {
@@ -7440,11 +7444,17 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 }
 
 .error-panel[data-variant="blocking"] {
-  align-items: start;
+  --comp-error-panel-icon-size: 5.25rem;
+  --comp-error-panel-padding: calc(var(--component-space-xl) + var(--component-space-md)) var(--component-space-xl);
+  align-items: center;
   box-shadow: var(--comp-error-panel-blocking-depth);
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  text-align: center;
 }
 
 .error-panel[data-variant="empty-recovery"] {
+  --comp-error-panel-icon-size: var(--comp-error-panel-empty-icon-size);
   justify-items: center;
   grid-template-columns: minmax(0, 1fr);
   text-align: center;
@@ -7492,6 +7502,24 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   color: var(--comp-error-panel-description-fg);
   font-size: var(--comp-error-panel-description-size);
   line-height: var(--comp-error-panel-description-line-height);
+}
+
+.error-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--comp-error-panel-actions-gap);
+}
+
+.error-panel[data-variant="blocking"] .error-panel__actions {
+  flex-direction: column;
+  inline-size: 100%;
+  max-inline-size: var(--comp-error-panel-actions-width);
+}
+
+.error-panel[data-variant="empty-recovery"] .error-panel__actions {
+  flex-direction: column;
+  inline-size: 100%;
+  max-inline-size: var(--comp-error-panel-actions-width);
 }
 
 .card {

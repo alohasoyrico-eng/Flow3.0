@@ -26,6 +26,7 @@ export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   label: string;
   description?: string;
   action?: ErrorPanelAction;
+  secondaryAction?: ErrorPanelAction;
   tone?: ErrorPanelTone;
   variant?: ErrorPanelVariant;
   state?: ErrorPanelState;

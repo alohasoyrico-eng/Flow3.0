@@ -1400,41 +1400,87 @@
     },
     {
       "id": "error-panel",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        "docs/audits/error-panel-1to1-quality-audit.json",
-        "docs/audits/error-panel-1to1-light.png",
-        "docs/audits/error-panel-1to1-dark.png",
-        "packages/components/src/components/feedback.js",
-        "packages/components/src/registry.js",
-        "packages/components/src/contracts.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/status-view.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/StatusView.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/StatusView.d.ts",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/StatusView.prompt.md",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/status-view.html",
+        "packages/react/src/ErrorPanel.tsx",
+        "packages/react/src/ErrorPanel.d.ts",
+        "packages/react/dist/ErrorPanel.js",
+        "packages/react/dist/ErrorPanel.d.ts",
         "packages/components/styles/components.css",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/src/contracts.ts",
+        "packages/components/src/contracts.js",
+        "packages/components/src/platforms/error-panel.ts",
+        "packages/audit/scripts/audit-error-panel-css-contract.js",
+        "packages/audit/scripts/platform-adapter-components.js",
+        "packages/audit/scripts/react-component-content-guards.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/react/test/render-status-feedback.test.mjs",
+        "docs/audits/error-panel-runtime-2026-09-03.png",
+        "docs/audits/error-panel-runtime-dark-2026-09-03.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Escalate incident dashboards, retry orchestration, multi-error queues, and recovery workflows to patterns/templates instead of Error Panel."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed on 2026-09-03 against the StatusView ZIP reference, package-backed React runtime demo, aria-busy loading semantics, alert/status role split, primary/secondary governed actions, density-scaled title/description, proportional icon glyph ratio, light/dark screenshots, and component gate evidence.",
+      "missing": [],
+      "decision": "ErrorPanel maps Flow error/warning recovery to the ZIP StatusView reference without becoming a generic StatusView primitive. Inline and panel remain compact local recovery surfaces; blocking and empty-recovery use the centered status anatomy with large proportional icon and stacked actions. Actions stay structured and auditable, with optional secondaryAction requiring its own stable key and visible label.",
+      "lastValidation": {
+        "date": "2026-09-03",
+        "commands": [
+          "npm run build:react",
+          "node packages/react/test/render-status-feedback.test.mjs",
+          "npm run audit:flow-core-gate -- --check --component=error-panel",
+          "npm run build:local-react-qa-demo -- --component=error-panel",
+          "Playwright runtime screenshot check: panels=11, buttons=12, alerts=8, ariaBusyLoading=1, consoleErrors=0, densityGlyphRatio=0.48"
+        ],
+        "runtimeUrl": "http://127.0.0.1:53304/local-visual-snapshots/Flow3-component-qa/error-panel-2026-09-03/interactive/react-runtime.html?fresh=error-panel-runtime-1",
+        "densityMetrics": {
+          "sm": {
+            "iconBox": 32,
+            "iconFont": 15.36,
+            "ratio": 0.48,
+            "titleSize": 13,
+            "descriptionSize": 11
+          },
+          "md": {
+            "iconBox": 34,
+            "iconFont": 16.32,
+            "ratio": 0.48,
+            "titleSize": 16,
+            "descriptionSize": 13
+          },
+          "lg": {
+            "iconBox": 48,
+            "iconFont": 23.04,
+            "ratio": 0.48,
+            "titleSize": 18,
+            "descriptionSize": 16
+          }
+        }
+      }
     },
     {
       "id": "floating-action-button",
@@ -2961,17 +3007,17 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 32,
-    "partial": 25,
+    "pass": 33,
+    "partial": 24,
     "fail": 0,
-    "qualityDebt": 25,
+    "qualityDebt": 24,
     "reviewStates": {
-      "closed-with-recent-evidence": 25,
-      "needs-1to1-review": 15,
+      "closed-with-recent-evidence": 26,
+      "needs-1to1-review": 14,
       "closed-with-user-visual-review": 6,
       "needs-revalidation": 11
     },
-    "ready": 32,
+    "ready": 33,
     "blocked": 0,
     "notStarted": 0,
     "lastUpdated": "2026-09-03"

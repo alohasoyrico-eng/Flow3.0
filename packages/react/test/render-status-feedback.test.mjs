@@ -374,6 +374,7 @@ const errorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   density: "sm",
   fullWidth: true,
   action: { key: "try-again", label: "Try again", icon: "refresh" },
+  secondaryAction: { key: "support", label: "Contact support", variant: "ghost" },
 }));
 assert.match(errorPanelMarkup, /^<section/);
 assert.match(errorPanelMarkup, /class="error-panel error-panel--warning"/);
@@ -387,7 +388,9 @@ assert.match(errorPanelMarkup, />warning<\/span>/);
 assert.match(errorPanelMarkup, /class="error-panel__content"/);
 assert.match(errorPanelMarkup, /<strong>Sync failed<\/strong>/);
 assert.match(errorPanelMarkup, /<p>We could not load the latest card data\.<\/p>/);
-assert.match(errorPanelMarkup, /class="button button--secondary"/);
+assert.match(errorPanelMarkup, /class="error-panel__actions"/);
+assert.match(errorPanelMarkup, /class="button button--primary"/);
+assert.match(errorPanelMarkup, />Contact support<\/span>|>Contact support<\/button>/);
 
 const loadingErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPanel, {
   label: "Loading recovery",
@@ -396,6 +399,7 @@ const loadingErrorPanelMarkup = renderToStaticMarkup(React.createElement(ErrorPa
 }));
 assert.match(loadingErrorPanelMarkup, /data-state="loading"/);
 assert.match(loadingErrorPanelMarkup, /role="status"/);
+assert.match(loadingErrorPanelMarkup, /aria-busy="true"/);
 assert.match(loadingErrorPanelMarkup, /class="spinner"/);
 assert.match(loadingErrorPanelMarkup, /aria-busy="true"/);
 assert.doesNotMatch(loadingErrorPanelMarkup, /Loading error panel/);

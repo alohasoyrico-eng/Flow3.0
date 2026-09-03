@@ -23,6 +23,9 @@ function checkErrorPanelCssContract({ text, blocks, packageCssFile, selectorKey,
   const contentBlock = blockFor(blocks, selectorKey, ".error-panel__content");
   const titleBlock = blockFor(blocks, selectorKey, ".error-panel__content strong");
   const descriptionBlock = blockFor(blocks, selectorKey, ".error-panel__content p");
+  const actionsBlock = blockFor(blocks, selectorKey, ".error-panel__actions");
+  const blockingActionsBlock = blockFor(blocks, selectorKey, ".error-panel[data-variant=\"blocking\"] .error-panel__actions");
+  const emptyRecoveryActionsBlock = blockFor(blocks, selectorKey, ".error-panel[data-variant=\"empty-recovery\"] .error-panel__actions");
 
   if (/\.kpi-tile,\s*\.error-panel\s*{/m.test(text)) {
     add("errors", packageCssFile, lineNumber(text, text.indexOf(".error-panel")), "ErrorPanel must not share its frame block with KpiTile.");
@@ -40,7 +43,9 @@ function checkErrorPanelCssContract({ text, blocks, packageCssFile, selectorKey,
       "--comp-error-panel-border-width: var(--component-border-width)",
       "--comp-error-panel-depth: var(--component-depth-none)",
       "--comp-error-panel-icon-bg:",
+      "--comp-error-panel-icon-font-size: calc(var(--comp-error-panel-icon-size) * 0.48)",
       "--comp-error-panel-title-family: var(--component-font-family-title)",
+      "--comp-error-panel-title-weight: var(--component-font-weight-bold)",
       "background: var(--comp-error-panel-bg)",
       "border: var(--comp-error-panel-border-width) solid var(--comp-error-panel-border)",
       "color: var(--comp-error-panel-fg)",
@@ -59,7 +64,12 @@ function checkErrorPanelCssContract({ text, blocks, packageCssFile, selectorKey,
     block: blockingBlock,
     text,
     packageCssFile,
-    snippets: ["box-shadow: var(--comp-error-panel-blocking-depth)"],
+    snippets: [
+      "--comp-error-panel-icon-size: 5.25rem",
+      "box-shadow: var(--comp-error-panel-blocking-depth)",
+      "grid-template-columns: minmax(0, 1fr)",
+      "text-align: center",
+    ],
     message: "ErrorPanel blocking variant must consume ErrorPanel blocking depth alias.",
   });
   requireIncludes({
@@ -103,7 +113,11 @@ function checkErrorPanelCssContract({ text, blocks, packageCssFile, selectorKey,
     block: titleBlock,
     text,
     packageCssFile,
-    snippets: ["font-family: var(--comp-error-panel-title-family)", "font-weight: var(--comp-error-panel-title-weight)"],
+    snippets: [
+      "font-family: var(--comp-error-panel-title-family)",
+      "font-size: var(--comp-error-panel-title-size)",
+      "font-weight: var(--comp-error-panel-title-weight)",
+    ],
     message: "ErrorPanel title must consume ErrorPanel title aliases.",
   });
   requireIncludes({
@@ -116,6 +130,27 @@ function checkErrorPanelCssContract({ text, blocks, packageCssFile, selectorKey,
       "line-height: var(--comp-error-panel-description-line-height)",
     ],
     message: "ErrorPanel description must consume ErrorPanel description aliases.",
+  });
+  requireIncludes({
+    block: actionsBlock,
+    text,
+    packageCssFile,
+    snippets: ["display: flex", "gap: var(--comp-error-panel-actions-gap)"],
+    message: "ErrorPanel actions must use a governed action frame.",
+  });
+  requireIncludes({
+    block: blockingActionsBlock,
+    text,
+    packageCssFile,
+    snippets: ["flex-direction: column", "max-inline-size: var(--comp-error-panel-actions-width)"],
+    message: "ErrorPanel blocking actions must follow the StatusView stacked action model.",
+  });
+  requireIncludes({
+    block: emptyRecoveryActionsBlock,
+    text,
+    packageCssFile,
+    snippets: ["flex-direction: column", "max-inline-size: var(--comp-error-panel-actions-width)"],
+    message: "ErrorPanel empty recovery actions must follow the StatusView stacked action model.",
   });
 }
 

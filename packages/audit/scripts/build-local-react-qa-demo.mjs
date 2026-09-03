@@ -1628,6 +1628,98 @@ const components = {
           )
         )`,
   },
+  "error-panel": {
+    title: "ErrorPanel",
+    directory: "error-panel-2026-09-03",
+    module: "ErrorPanel.js",
+    exportName: "ErrorPanel",
+    buildId: "error-panel-runtime-1",
+    eventPropName: "onAction",
+    actionHandler: "(key, event) => onAction(key || props.label)(event)",
+    actionSelector: ".error-panel .button",
+    runtimeInstruction: "Click, Enter o Space sobre las acciones de ErrorPanel.",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia StatusView"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              icon: "error",
+              label: "No pudimos conectar con el servidor",
+              description: "Revisa tu conexion e intenta de nuevo.",
+              variant: "blocking",
+              state: "error",
+              tone: "error",
+              action: { key: "retry-server", label: "Reintentar", icon: "refresh" },
+              secondaryAction: { key: "cancel-server", label: "Cancelar", variant: "ghost" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              icon: "cloud_off",
+              label: "Sin conexion",
+              description: "Reconectate para seguir usando Flow.",
+              variant: "blocking",
+              state: "critical",
+              tone: "critical",
+              action: { key: "retry-offline", label: "Reintentar", icon: "refresh" }
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              label: "No se pudo guardar",
+              description: "Conservamos los cambios locales para que intentes de nuevo.",
+              variant: "panel",
+              action: { key: "retry-save", label: "Intentar de nuevo" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              label: "Revisa los permisos",
+              description: "Esta accion necesita un rol con acceso de administrador.",
+              variant: "inline",
+              tone: "warning",
+              state: "warning",
+              action: { key: "request-role", label: "Solicitar acceso", variant: "secondary" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              label: "No se pudo cargar la lista",
+              description: "El servicio respondio con un error temporal.",
+              variant: "empty-recovery",
+              action: { key: "reload-list", label: "Recargar lista", icon: "sync" }
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              label: "Sincronizando recuperacion",
+              description: "Estamos preparando una nueva lectura.",
+              state: "loading",
+              action: { key: "wait", label: "Esperar" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              label: "Pago en revision",
+              description: "El banco aun no confirma la operacion.",
+              tone: "warning",
+              state: "warning",
+              action: { key: "review-payment", label: "Ver detalle", variant: "secondary" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              label: "Accion bloqueada",
+              description: "Este flujo no esta disponible para tu cuenta.",
+              state: "disabled",
+              action: { key: "disabled-action", label: "Reintentar" }
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small error", description: "Compact recovery copy.", density: "sm", action: { key: "small", label: "Small action" } })),
+            e("div", { className: "audit-card" }, action({ label: "Medium error", description: "Default recovery copy.", density: "md", action: { key: "medium", label: "Medium action" } })),
+            e("div", { className: "audit-card" }, action({ label: "Large error", description: "Expanded recovery copy.", density: "lg", action: { key: "large", label: "Large action" } }))
+          )
+        )`,
+  },
   "kpi-tile": {
     title: "KpiTile",
     directory: "kpi-tile-2026-08-25",

@@ -1,6 +1,6 @@
 # FlowDocs Demo Boundary
 
-Generated: 2026-09-03T20:20:24.528Z
+Generated: 2026-09-03T20:37:01.832Z
 Status: pass
 
 ## Summary
@@ -8,15 +8,15 @@ Status: pass
 - flowdocsDemoFiles: 0
 - flowdocsDemoRiskFiles: 0
 - mixedFlowClaimFiles: 0
-- localQaFiles: 43
-- localQaComponents: 43
-- localQaReactRuntimeFiles: 43
+- localQaFiles: 44
+- localQaComponents: 44
+- localQaReactRuntimeFiles: 44
 - localQaManualHarnessFiles: 0
 - obsoleteLocalQaFiles: 0
 - nonCanonicalLocalQaFiles: 0
 - nonCanonicalLocalSnapshotFiles: 0
 - localQaGeneratorOpenStateful: 1
-- localQaComponentIds: accordion, animated-moment, audit-event, avatar, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-wrapper, checkbox, chip, code-input, combobox, country-selector, date-picker, date-range-picker, dialog, drawer, empty-state, icon-button, input, input-amount, kpi-card, kpi-tile, menu, movement-row, pagination, phone-input, popover, progress, radio-button, route-summary, select, slider, stepper, switch, table, tabs, text-area
+- localQaComponentIds: accordion, animated-moment, audit-event, avatar, biometric-prompt, breadcrumbs, button, card, card-expiry-input, card-number-input, card-security-code-input, card-summary, chart-wrapper, checkbox, chip, code-input, combobox, country-selector, date-picker, date-range-picker, dialog, drawer, empty-state, error-panel, icon-button, input, input-amount, kpi-card, kpi-tile, menu, movement-row, pagination, phone-input, popover, progress, radio-button, route-summary, select, slider, stepper, switch, table, tabs, text-area
 
 ## Rules
 
@@ -31,7 +31,7 @@ Status: pass
 
 | Severity | Issue | Count | Action |
 | --- | --- | ---: | --- |
-| medium | Local QA harnesses include their own layout CSS. | 43 | Keep them local and out of repo; use them for human inspection, not as component source truth. |
+| medium | Local QA harnesses include their own layout CSS. | 44 | Keep them local and out of repo; use them for human inspection, not as component source truth. |
 
 ## FlowDocs Demo Classifications
 
@@ -65,6 +65,7 @@ Status: pass
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/dialog-2026-08-19/interactive/react-runtime.html | dialog | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/drawer-2026-08-25/interactive/react-runtime.html | drawer | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/empty-state-2026-09-03/interactive/react-runtime.html | empty-state | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
+| /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/error-panel-2026-09-03/interactive/react-runtime.html | error-panel | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/icon-button-2026-08-20/interactive/react-runtime.html | icon-button | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-2026-08-17/interactive/react-runtime.html | input | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |
 | /Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/input-amount-2026-08-25/interactive/react-runtime.html | input-amount | uses-flow-token-css, uses-flow-component-css, uses-flow-react-runtime, has-theme-control, keyboard-observation-harness, local-harness-css | Harness CSS can affect visual reading; do not use as component source truth. |

@@ -36,6 +36,7 @@ export interface ErrorPanelProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   label: string;
   description?: string;
   action?: ErrorPanelAction;
+  secondaryAction?: ErrorPanelAction;
   tone?: ErrorPanelTone;
   variant?: ErrorPanelVariant;
   state?: ErrorPanelState;
@@ -74,6 +75,7 @@ export const ErrorPanel = forwardRef<HTMLElement, ErrorPanelProps>(function Erro
   label,
   description,
   action,
+  secondaryAction,
   tone = "error",
   variant = "panel",
   state = "error",
@@ -92,9 +94,26 @@ export const ErrorPanel = forwardRef<HTMLElement, ErrorPanelProps>(function Erro
   const resolvedRole = role ?? (resolvedTone === "warning" || resolvedState === "loading" ? "status" : "alert");
   const actionLabel = action?.label;
   const actionKey = action?.key ?? "";
+  const secondaryActionLabel = secondaryAction?.label;
+  const secondaryActionKey = secondaryAction?.key ?? "";
   const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== "");
+  const canRenderSecondaryAction = Boolean(secondaryActionLabel && secondaryActionKey !== undefined && secondaryActionKey !== null && secondaryActionKey !== "");
 
   if (!label) return null;
+
+  const renderAction = (panelAction: ErrorPanelAction, actionKind: "primary" | "secondary") => React.createElement(Button, {
+    ...(panelAction as unknown as Record<string, unknown>),
+    label: panelAction.label,
+    variant: panelAction.variant ?? (actionKind === "primary" && resolvedVariant === "blocking" ? "primary" : "secondary"),
+    disabled: resolvedState === "disabled" || panelAction.disabled,
+    loading: resolvedState === "loading" || panelAction.loading,
+    ...(panelAction.density ?? resolvedDensity ? { density: panelAction.density ?? resolvedDensity } : {}),
+    onClick: (event: MouseEvent<HTMLButtonElement>) => {
+      panelAction.onClick?.(event);
+      if (event.defaultPrevented) return;
+      onAction?.(panelAction.key, event);
+    },
+  } as unknown as ButtonProps);
 
   return React.createElement(
     "section",
@@ -107,6 +126,7 @@ export const ErrorPanel = forwardRef<HTMLElement, ErrorPanelProps>(function Erro
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
+      "aria-busy": resolvedState === "loading" ? "true" : undefined,
     },
     React.createElement(
       "span",
@@ -121,20 +141,13 @@ export const ErrorPanel = forwardRef<HTMLElement, ErrorPanelProps>(function Erro
       React.createElement("strong", null, label),
       description ? React.createElement("p", null, description) : null,
     ),
-    canRenderAction
-      ? React.createElement(Button, {
-        ...(action as unknown as Record<string, unknown>),
-        label: actionLabel,
-        variant: action?.variant ?? "secondary",
-        disabled: resolvedState === "disabled" || action?.disabled,
-        loading: resolvedState === "loading" || action?.loading,
-        ...(action?.density ?? resolvedDensity ? { density: action?.density ?? resolvedDensity } : {}),
-        onClick: (event: MouseEvent<HTMLButtonElement>) => {
-          action?.onClick?.(event);
-          if (event.defaultPrevented) return;
-          onAction?.(actionKey, event);
-        },
-      } as unknown as ButtonProps)
+    canRenderAction || canRenderSecondaryAction
+      ? React.createElement(
+        "div",
+        { className: "error-panel__actions" },
+        canRenderAction && action ? renderAction(action, "primary") : null,
+        canRenderSecondaryAction && secondaryAction ? renderAction(secondaryAction, "secondary") : null,
+      )
       : null,
   );
 }) as ErrorPanelComponent;

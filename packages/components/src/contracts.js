@@ -1236,13 +1236,14 @@ export const componentContracts = {
             { name: "label", type: "string", required: true },
             { name: "description", type: "string", required: false },
             { name: "action", type: "ErrorPanelAction", required: false },
+            { name: "secondaryAction", type: "ErrorPanelAction", required: false },
             { name: "tone", type: "\"warning\" | \"error\" | \"critical\"", required: false },
             { name: "variant", type: "\"inline\" | \"panel\" | \"blocking\" | \"empty-recovery\"", required: false },
             { name: "state", type: "\"default\" | \"warning\" | \"error\" | \"critical\" | \"loading\" | \"disabled\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "fullWidth", type: "boolean", required: false },
             { name: "icon", type: "string", required: false },
-            { name: "onAction", type: "(key: string) => void", required: false },
+            { name: "onAction", type: "(key: string, event: MouseEvent<HTMLButtonElement>) => void", required: false },
             { name: "role", type: "\"status\" | \"alert\"", required: false }
         ],
         accessibility: [

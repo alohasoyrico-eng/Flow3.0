@@ -21,7 +21,7 @@ function resolveTone(state, tone) {
         return tone;
     return "error";
 }
-export const ErrorPanel = forwardRef(function ErrorPanel({ label, description, action, tone = "error", variant = "panel", state = "error", density, fullWidth = false, icon = "", role, onAction, className = "", ...rest }, ref) {
+export const ErrorPanel = forwardRef(function ErrorPanel({ label, description, action, secondaryAction, tone = "error", variant = "panel", state = "error", density, fullWidth = false, icon = "", role, onAction, className = "", ...rest }, ref) {
     const resolvedVariant = normalizeVariant(variant);
     const resolvedState = normalizeState(state);
     const resolvedDensity = normalizeFlowDensity(density);
@@ -29,9 +29,26 @@ export const ErrorPanel = forwardRef(function ErrorPanel({ label, description, a
     const resolvedRole = role ?? (resolvedTone === "warning" || resolvedState === "loading" ? "status" : "alert");
     const actionLabel = action?.label;
     const actionKey = action?.key ?? "";
+    const secondaryActionLabel = secondaryAction?.label;
+    const secondaryActionKey = secondaryAction?.key ?? "";
     const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== "");
+    const canRenderSecondaryAction = Boolean(secondaryActionLabel && secondaryActionKey !== undefined && secondaryActionKey !== null && secondaryActionKey !== "");
     if (!label)
         return null;
+    const renderAction = (panelAction, actionKind) => React.createElement(Button, {
+        ...panelAction,
+        label: panelAction.label,
+        variant: panelAction.variant ?? (actionKind === "primary" && resolvedVariant === "blocking" ? "primary" : "secondary"),
+        disabled: resolvedState === "disabled" || panelAction.disabled,
+        loading: resolvedState === "loading" || panelAction.loading,
+        ...(panelAction.density ?? resolvedDensity ? { density: panelAction.density ?? resolvedDensity } : {}),
+        onClick: (event) => {
+            panelAction.onClick?.(event);
+            if (event.defaultPrevented)
+                return;
+            onAction?.(panelAction.key, event);
+        },
+    });
     return React.createElement("section", {
         ...flowRestProps(rest),
         ref,
@@ -41,23 +58,11 @@ export const ErrorPanel = forwardRef(function ErrorPanel({ label, description, a
         ...flowStateProps(resolvedState),
         ...flowDensityProps(resolvedDensity),
         "data-full-width": String(Boolean(fullWidth)),
+        "aria-busy": resolvedState === "loading" ? "true" : undefined,
     }, React.createElement("span", { className: "error-panel__icon", "aria-hidden": "true" }, resolvedState === "loading"
         ? React.createElement(Spinner, { ...(resolvedDensity ? { density: resolvedDensity } : {}), decorative: true })
-        : icon || (resolvedTone === "warning" ? "warning" : "error")), React.createElement("div", { className: "error-panel__content" }, React.createElement("strong", null, label), description ? React.createElement("p", null, description) : null), canRenderAction
-        ? React.createElement(Button, {
-            ...action,
-            label: actionLabel,
-            variant: action?.variant ?? "secondary",
-            disabled: resolvedState === "disabled" || action?.disabled,
-            loading: resolvedState === "loading" || action?.loading,
-            ...(action?.density ?? resolvedDensity ? { density: action?.density ?? resolvedDensity } : {}),
-            onClick: (event) => {
-                action?.onClick?.(event);
-                if (event.defaultPrevented)
-                    return;
-                onAction?.(actionKey, event);
-            },
-        })
+        : icon || (resolvedTone === "warning" ? "warning" : "error")), React.createElement("div", { className: "error-panel__content" }, React.createElement("strong", null, label), description ? React.createElement("p", null, description) : null), canRenderAction || canRenderSecondaryAction
+        ? React.createElement("div", { className: "error-panel__actions" }, canRenderAction && action ? renderAction(action, "primary") : null, canRenderSecondaryAction && secondaryAction ? renderAction(secondaryAction, "secondary") : null)
         : null);
 });
 ErrorPanel.displayName = "ErrorPanel";
