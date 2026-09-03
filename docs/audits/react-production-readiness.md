@@ -87,7 +87,7 @@ Production readiness is not inferred from visual parity or TS build success; eve
 | select | Select | P0 | forms | ready | yes | 45 | None | None |
 | skeleton | Skeleton | P2 | feedback | ready | yes | 8 | None | None |
 | slider | Slider | P0 | forms | ready | yes | 6 | None | None |
-| spinner | Spinner | P2 | feedback | ready | yes | 9 | None | None |
+| spinner | Spinner | P2 | feedback | ready | yes | 8 | None | None |
 | station-pin | StationPin | P2 | domain-fleet | ready | yes | 5 | None | None |
 | stepper | Stepper | P1 | progress-feedback | ready | yes | 6 | None | None |
 | surface | Surface | P2 | surface-display | ready | yes | 19 | None | None |

@@ -2,12 +2,18 @@
  * Do not edit this compatibility runtime directly.
  * Authored source of truth is the paired .ts/.tsx file.
  */
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import { avatarPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validStatuses = new Set(["none", "online", "busy", "offline"]);
 const validStates = new Set(["default", "online", "busy", "offline", "disabled", "unknown"]);
 const validIdentityTones = new Set(["auto", "action", "success", "danger", "warning", "purple", "teal"]);
+const avatarDensityExtensions = ["xl"];
+const statusLabels = {
+    online: "En linea",
+    busy: "Ocupado",
+    offline: "Desconectado",
+};
 function initialsFromName(name) {
     return String(name ?? "")
         .split(" ")
@@ -19,10 +25,15 @@ function initialsFromName(name) {
 }
 function colorIndexFromName(name) {
     const sourceName = String(name ?? "");
-    let hash = 0;
-    for (let index = 0; index < sourceName.length; index += 1)
-        hash = (hash * 31 + sourceName.charCodeAt(index)) | 0;
-    return Math.abs(hash) % 6;
+    let hash = 2166136261;
+    for (let index = 0; index < sourceName.length; index += 1) {
+        hash ^= sourceName.charCodeAt(index);
+        hash = Math.imul(hash, 16777619);
+    }
+    hash ^= hash >>> 15;
+    hash = Math.imul(hash, 2246822507);
+    hash ^= hash >>> 13;
+    return (hash >>> 0) % 6;
 }
 function identityColorFromName(name) {
     const palettes = [
@@ -49,10 +60,13 @@ function identityColorFromTone(tone, name) {
     return toneMap[tone];
 }
 export const Avatar = forwardRef(function Avatar({ name, src = "", density, identityTone = "auto", status = "none", state = "default", className = "", ...rest }, ref) {
-    const resolvedDensity = normalizeFlowDensity(density);
+    const resolvedDensity = normalizeFlowDensity(density, avatarDensityExtensions);
     const resolvedStatus = validStatuses.has(status) ? status : "none";
     const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
     const sourceName = String(name ?? "");
+    const imageSrc = String(src ?? "");
+    const [failedSrc, setFailedSrc] = useState("");
+    const shouldRenderImage = Boolean(imageSrc) && failedSrc !== imageSrc;
     if (!sourceName)
         return null;
     const identityColor = identityColorFromTone(identityTone, sourceName);
@@ -61,7 +75,7 @@ export const Avatar = forwardRef(function Avatar({ name, src = "", density, iden
         ref,
         className: ["avatar", className].filter(Boolean).join(" "),
         "aria-label": sourceName,
-        ...flowDensityProps(resolvedDensity),
+        ...flowDensityProps(resolvedDensity, avatarDensityExtensions),
         "data-identity-tone": validIdentityTones.has(identityTone) ? identityTone : "auto",
         "data-status": resolvedStatus,
         ...flowStateProps(resolvedState),
@@ -69,9 +83,9 @@ export const Avatar = forwardRef(function Avatar({ name, src = "", density, iden
             "--comp-avatar-identity-bg": identityColor.bg,
             "--comp-avatar-identity-fg": identityColor.fg,
         },
-    }, src
-        ? React.createElement("img", { src, alt: sourceName })
-        : React.createElement("span", { className: "avatar__initials", "aria-hidden": "true" }, initialsFromName(sourceName)), resolvedStatus !== "none" ? React.createElement("span", { className: "avatar__status", "aria-hidden": "true" }) : null);
+    }, shouldRenderImage
+        ? React.createElement("img", { src: imageSrc, alt: sourceName, onError: () => setFailedSrc(imageSrc) })
+        : React.createElement("span", { className: "avatar__initials", "aria-hidden": "true" }, initialsFromName(sourceName)), resolvedStatus !== "none" ? React.createElement("span", { className: "avatar__status", role: "img", "aria-label": statusLabels[resolvedStatus] }) : null);
 });
 Avatar.displayName = "Avatar";
 Avatar.platformContract = avatarPlatformContract;

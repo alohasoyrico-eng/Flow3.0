@@ -13,8 +13,12 @@ export function flowDataProps(props = {}) {
 export function flowDefinedProps(props) {
     return Object.fromEntries(Object.entries(props).filter(([, value]) => value !== undefined));
 }
-export function normalizeFlowDensity(density) {
-    return typeof density === "string" && validFlowDensities.has(density) ? density : undefined;
+export function normalizeFlowDensity(density, extensions = []) {
+    if (typeof density !== "string")
+        return undefined;
+    if (validFlowDensities.has(density))
+        return density;
+    return extensions.includes(density) ? density : undefined;
 }
 export function normalizeFlowValue(value, allowedValues, fallback) {
     return allowedValues?.has?.(value) ? value : fallback;
@@ -34,7 +38,7 @@ export function flowToneProps(tone) {
     const value = normalizeDataAttributeValue(tone);
     return value ? { "data-tone": value } : {};
 }
-export function flowDensityProps(density) {
-    const normalizedDensity = normalizeFlowDensity(density);
+export function flowDensityProps(density, extensions = []) {
+    const normalizedDensity = normalizeFlowDensity(density, extensions);
     return normalizedDensity ? { "data-density": normalizedDensity } : {};
 }

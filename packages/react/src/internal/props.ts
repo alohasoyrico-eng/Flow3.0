@@ -41,8 +41,13 @@ export function flowDefinedProps<const TProps extends Record<string, unknown>>(p
   return Object.fromEntries(Object.entries(props).filter(([, value]) => value !== undefined)) as FlowDefinedProps<TProps>;
 }
 
-export function normalizeFlowDensity(density: unknown): FlowDensity | undefined {
-  return typeof density === "string" && validFlowDensities.has(density) ? density as FlowDensity : undefined;
+export function normalizeFlowDensity<const TExtension extends string = never>(
+  density: unknown,
+  extensions: readonly TExtension[] = [],
+): FlowDensity | TExtension | undefined {
+  if (typeof density !== "string") return undefined;
+  if (validFlowDensities.has(density)) return density as FlowDensity;
+  return extensions.includes(density as TExtension) ? density as TExtension : undefined;
 }
 
 export function normalizeFlowValue<TValue>(
@@ -72,7 +77,10 @@ export function flowToneProps(tone: unknown): FlowDataAttributes {
   return value ? { "data-tone": value } : {};
 }
 
-export function flowDensityProps(density: unknown): FlowDataAttributes {
-  const normalizedDensity = normalizeFlowDensity(density);
+export function flowDensityProps<const TExtension extends string = never>(
+  density: unknown,
+  extensions: readonly TExtension[] = [],
+): FlowDataAttributes {
+  const normalizedDensity = normalizeFlowDensity(density, extensions);
   return normalizedDensity ? { "data-density": normalizedDensity } : {};
 }

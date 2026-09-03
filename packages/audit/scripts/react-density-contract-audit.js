@@ -113,7 +113,10 @@ function checkDensityContractConsistency({ add, contractsSource, componentContra
       add("errors", componentContractsFile, 1, `${contractKey} must expose density so every accepted component can participate in the Flow cascade.`);
       continue;
     }
-    if (!body.includes('{ name: "density", type: "\\"sm\\" | \\"md\\" | \\"lg\\"", required: false }')) {
+    const densityIsShared = body.includes('{ name: "density", type: "\\"sm\\" | \\"md\\" | \\"lg\\"", required: false }');
+    const densityHasAllowedExtension = contractKey === "avatar"
+      && body.includes('{ name: "density", type: "\\"sm\\" | \\"md\\" | \\"lg\\" | \\"xl\\"", required: false }');
+    if (!densityIsShared && !densityHasAllowedExtension) {
       add("errors", componentContractsFile, 1, `${contractKey} density must use the shared Flow density contract: "sm" | "md" | "lg".`);
     }
   }

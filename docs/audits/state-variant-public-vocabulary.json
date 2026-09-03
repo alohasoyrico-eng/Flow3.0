@@ -189,7 +189,7 @@
         },
         {
           "name": "density",
-          "type": "\"sm\" | \"md\" | \"lg\"",
+          "type": "\"sm\" | \"md\" | \"lg\" | \"xl\"",
           "required": false
         }
       ],
@@ -2118,6 +2118,7 @@
         "open",
         "focus",
         "filled",
+        "empty",
         "loading",
         "error",
         "disabled"
@@ -2130,7 +2131,7 @@
         },
         {
           "name": "state",
-          "type": "\"default\" | \"open\" | \"focus\" | \"filled\" | \"loading\" | \"error\" | \"disabled\"",
+          "type": "\"default\" | \"open\" | \"focus\" | \"filled\" | \"empty\" | \"loading\" | \"error\" | \"disabled\"",
           "required": false
         },
         {

@@ -53,7 +53,8 @@ try {
     assert.equal(avatar.dataset.status, "busy");
     assert.equal(avatar.dataset.state, "busy");
     assert.equal(view.getByText("AT").className, "avatar__initials");
-    assert.equal(view.container.querySelector(".avatar__status")?.getAttribute("aria-hidden"), "true");
+    assert.equal(view.container.querySelector(".avatar__status")?.getAttribute("role"), "img");
+    assert.equal(view.container.querySelector(".avatar__status")?.getAttribute("aria-label"), "Ocupado");
     assert.match(avatar.getAttribute("style") ?? "", /--comp-avatar-identity-bg/);
 
     view.rerender(React.createElement(Avatar, {

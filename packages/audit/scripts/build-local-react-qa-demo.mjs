@@ -1026,6 +1026,42 @@ const components = {
           )
         )`,
   },
+  avatar: {
+    title: "Avatar",
+    directory: "avatar-2026-09-03",
+    module: "Avatar.js",
+    exportName: "Avatar",
+    buildId: "avatar-runtime-1",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP"),
+          e("div", { className: "audit-row" },
+            e(Component, { name: "Ana Sosa", status: "online" }),
+            e(Component, { name: "Luis Prieto", status: "busy" }),
+            e(Component, { name: "Rosa Duarte", density: "lg" }),
+            e(Component, { name: "Marco Gil", density: "xl", status: "online" }),
+            e(Component, { name: "M G", density: "sm", status: "offline" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-row" },
+            e(Component, { name: "Ana Sosa", density: "sm", status: "online" }),
+            e(Component, { name: "Luis Vera", density: "md", status: "busy" }),
+            e(Component, { name: "Rosa Duarte", density: "lg", status: "offline" }),
+            e(Component, { name: "Marco Gil", density: "xl", status: "online" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Imagen y fallback"),
+          e("div", { className: "audit-row" },
+            e(Component, { name: "Imagen valida", src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231667e8'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-size='22' font-family='Arial' font-weight='700' fill='white'%3EIV%3C/text%3E%3C/svg%3E", density: "xl", status: "online" }),
+            e(Component, { name: "Fallback visible", src: "/avatars/missing-avatar.png", density: "xl", status: "offline" }),
+            e(Component, { name: "Rosa Duarte", identityTone: "warning", status: "busy" }),
+            e(Component, { name: "Luis Prieto", identityTone: "teal", status: "online" }),
+            e(Component, { name: "M G", identityTone: "purple", status: "offline" })
+          )
+        )`,
+  },
   "code-input": {
     title: "CodeInput",
     directory: "code-input-2026-08-24",

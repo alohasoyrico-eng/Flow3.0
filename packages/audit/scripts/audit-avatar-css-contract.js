@@ -24,7 +24,7 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
 
   if (
     !source.includes("forwardRef") ||
-    !source.includes("flowDensityProps(resolvedDensity)") ||
+    !source.includes("flowDensityProps(resolvedDensity, avatarDensityExtensions)") ||
     !source.includes("flowStateProps(resolvedState)") ||
     !source.includes("avatarPlatformContract")
   ) {
@@ -33,8 +33,14 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
   if (!source.includes("if (!sourceName) return null;") || !source.includes("aria-label\": sourceName")) {
     add("errors", sourceFile, 1, "Avatar must avoid empty shells and expose an accessible label.");
   }
-  if (!source.includes("React.createElement(\"img\", { src, alt: sourceName })") || !source.includes("avatar__initials") || !source.includes("avatar__status")) {
-    add("errors", sourceFile, 1, "Avatar must keep image, initials, and status as the single React implementation surface.");
+  if (!source.includes("onError: () => setFailedSrc(imageSrc)") || !source.includes("avatar__initials") || !source.includes("avatar__status")) {
+    add("errors", sourceFile, 1, "Avatar must keep image fallback, initials, and status as the single React implementation surface.");
+  }
+  if (!source.includes("2166136261") || !source.includes("16777619") || !source.includes("2246822507")) {
+    add("errors", sourceFile, 1, "Avatar automatic identity color must use the ZIP FNV-1a deterministic hash.");
+  }
+  if (!source.includes("statusLabels") || !source.includes("role: \"img\"") || !source.includes("aria-label\": statusLabels[resolvedStatus]")) {
+    add("errors", sourceFile, 1, "Avatar presence must expose accessible status text and not be color-only.");
   }
   if (/\.avatar\[data-color-index=/.test(text) || source.includes("\"data-color-index\"")) {
     add("errors", packageCssFile, text.includes(".avatar[data-color-index=") ? lineNumber(text, text.indexOf(".avatar[data-color-index=")) : 1, "Avatar identity color must flow through --comp-avatar-identity-* variables instead of enumerated data-color-index CSS rules.");
@@ -58,6 +64,7 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
       "--comp-avatar-shadow: var(--component-depth-low-medium)",
       "--comp-avatar-motion-duration: var(--component-duration-state)",
       "--comp-avatar-status-border: var(--comp-avatar-status-border-width) solid var(--comp-avatar-status-border-color)",
+      "--comp-avatar-status-border-width: max(var(--component-border-width-medium), calc(var(--comp-avatar-size) / 16))",
       "--comp-avatar-disabled-opacity: var(--component-opacity-disabled)",
       "align-items: var(--comp-avatar-align)",
       "border-radius: var(--comp-avatar-radius)",
@@ -75,6 +82,7 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
   for (const [selector, snippet, message] of [
     [".avatar[data-density=\"sm\"]", "--comp-avatar-size: var(--component-inline-size-sm)", "Avatar small density must route through the Avatar inline-size scale."],
     [".avatar[data-density=\"lg\"]", "--comp-avatar-size: var(--component-inline-size-lg)", "Avatar large density must route through the Avatar inline-size scale."],
+    [".avatar[data-density=\"xl\"]", "--comp-avatar-size: calc(var(--component-inline-size-lg) + var(--component-inline-size-sm))", "Avatar xl density must route through the Avatar inline-size scale."],
   ]) {
     requireIncludes({
       block: blockFor(blocks, selectorKey, selector),
@@ -104,6 +112,7 @@ function checkAvatarCssContract({ text, blocks, packageCssFile, selectorKey, roo
     snippets: [
       "border: var(--comp-avatar-status-border)",
       "border-radius: var(--comp-avatar-status-radius)",
+      "box-sizing: var(--comp-avatar-status-box-sizing)",
       "inset-block-end: var(--comp-avatar-status-inset-block-end)",
       "inset-inline-end: var(--comp-avatar-status-inset-inline-end)",
       "position: var(--comp-avatar-status-position)",

@@ -108,15 +108,17 @@ assert.doesNotMatch(avatarMarkup, /data-color-index=/);
 assert.match(avatarMarkup, /class="avatar__initials"/);
 assert.match(avatarMarkup, />AS<\/span>/);
 assert.match(avatarMarkup, /class="avatar__status"/);
+assert.match(avatarMarkup, /role="img"/);
+assert.match(avatarMarkup, /aria-label="En linea"/);
 
 const imageAvatarMarkup = renderToStaticMarkup(React.createElement(Avatar, {
   name: "Luis Vera",
   src: "/avatars/luis.png",
-  density: "lg",
+  density: "xl",
   state: "disabled",
 }));
 assert.match(imageAvatarMarkup, /class="avatar"/);
-assert.match(imageAvatarMarkup, /data-density="lg"/);
+assert.match(imageAvatarMarkup, /data-density="xl"/);
 assert.doesNotMatch(imageAvatarMarkup, /avatar--/);
 assert.match(imageAvatarMarkup, /data-state="disabled"/);
 assert.match(imageAvatarMarkup, /src="\/avatars\/luis.png"/);

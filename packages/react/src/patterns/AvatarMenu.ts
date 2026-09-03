@@ -1,13 +1,13 @@
 import React, { forwardRef } from "react";
 import type { ComponentProps, ForwardRefExoticComponent, MouseEvent, RefAttributes } from "react";
 import { Avatar } from "../Avatar.js";
-import type { AvatarDensity, AvatarStatus } from "../Avatar.js";
+import type { AvatarStatus } from "../Avatar.js";
 import { Menu } from "../Menu.js";
-import type { MenuAlign, MenuItem, MenuOpenChangeEvent, MenuSeparator } from "../Menu.js";
+import type { MenuAlign, MenuDensity, MenuItem, MenuOpenChangeEvent, MenuSeparator } from "../Menu.js";
 import type { FlowDataAttributes } from "../internal/props.js";
 
 export type AvatarMenuState = "closed" | "open" | "loading" | "permission-blocked" | "disabled" | "signing-out";
-export type AvatarMenuDensity = AvatarDensity;
+export type AvatarMenuDensity = MenuDensity;
 export type AvatarMenuItem = MenuItem | MenuSeparator | "divider";
 
 export interface AvatarMenuProps extends FlowDataAttributes {

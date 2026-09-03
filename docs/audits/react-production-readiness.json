@@ -2909,7 +2909,6 @@
         "contract": "packages/content/content/component-contracts/components/spinner.md",
         "tests": [
           "packages/react/test/button-render.test.mjs",
-          "packages/react/test/interaction-listbox-overlays.test.mjs",
           "packages/react/test/p0-forms-basic.test.mjs",
           "packages/react/test/p2-final-partials.test.mjs",
           "packages/react/test/p2-loading-feedback.test.mjs",

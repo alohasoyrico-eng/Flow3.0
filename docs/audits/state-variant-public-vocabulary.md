@@ -75,7 +75,7 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | radio-button | choices | default, descriptive, compact, critical | default | unselected, selected, focus, error, disabled | variant, state, density, disabled | - |
 | route-summary | domain-fleet | standard, compact, compare, policy | info, warning | default, hover, focus, selected, warning, disabled | variant, state, tone, density, selected, disabled | - |
 | segmented-control | navigation | outlined, toolbar, compact, icon-only | selection | default, hover, focus, selected, warning, disabled | variant, density | - |
-| select | fields | default, inline | default | default, open, focus, filled, loading, error, disabled | variant, state, density, disabled, loading | - |
+| select | fields | default, inline | default | default, open, focus, filled, empty, loading, error, disabled | variant, state, density, disabled, loading | - |
 | skeleton | feedback | text, title, circle, card, pill, row, media, chart, table | default | default, loading, stale, paused, loaded, disabled | variant, state, density | - |
 | slider | fields | continuous, stepped, bounded, threshold, paired-value | default | default, hover, focus, pressed, dragging, disabled, error, complete | variant, state, density, disabled | - |
 | spinner | feedback | circular | accent, ink, success, warning, danger | default, loading, decorative, subtle, disabled | state, tone, density | - |

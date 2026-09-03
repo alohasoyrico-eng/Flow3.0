@@ -1,10 +1,10 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import type { CSSProperties, ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { avatarPlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 import type { FlowDataAttributes } from "./internal/props.js";
 
-export type AvatarDensity = "sm" | "md" | "lg";
+export type AvatarDensity = "sm" | "md" | "lg" | "xl";
 export type AvatarStatus = "none" | "online" | "busy" | "offline";
 export type AvatarState = "default" | "online" | "busy" | "offline" | "disabled" | "unknown";
 export type AvatarIdentityTone = "auto" | "action" | "success" | "danger" | "warning" | "purple" | "teal";
@@ -31,6 +31,12 @@ type AvatarIdentityStyle = CSSProperties & {
 const validStatuses = new Set<AvatarStatus>(["none", "online", "busy", "offline"]);
 const validStates = new Set<AvatarState>(["default", "online", "busy", "offline", "disabled", "unknown"]);
 const validIdentityTones = new Set<AvatarIdentityTone>(["auto", "action", "success", "danger", "warning", "purple", "teal"]);
+const avatarDensityExtensions = ["xl"] as const;
+const statusLabels: Record<Exclude<AvatarStatus, "none">, string> = {
+  online: "En linea",
+  busy: "Ocupado",
+  offline: "Desconectado",
+};
 
 function initialsFromName(name: string): string {
   return String(name ?? "")
@@ -44,9 +50,15 @@ function initialsFromName(name: string): string {
 
 function colorIndexFromName(name: string): number {
   const sourceName = String(name ?? "");
-  let hash = 0;
-  for (let index = 0; index < sourceName.length; index += 1) hash = (hash * 31 + sourceName.charCodeAt(index)) | 0;
-  return Math.abs(hash) % 6;
+  let hash = 2166136261;
+  for (let index = 0; index < sourceName.length; index += 1) {
+    hash ^= sourceName.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  hash ^= hash >>> 15;
+  hash = Math.imul(hash, 2246822507);
+  hash ^= hash >>> 13;
+  return (hash >>> 0) % 6;
 }
 
 function identityColorFromName(name: string): { bg: string; fg: string } {
@@ -84,10 +96,13 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar({
   className = "",
   ...rest
 }, ref) {
-  const resolvedDensity = normalizeFlowDensity(density);
+  const resolvedDensity = normalizeFlowDensity(density, avatarDensityExtensions) as AvatarDensity | undefined;
   const resolvedStatus = validStatuses.has(status) ? status : "none";
   const resolvedState = state === "disabled" ? "disabled" : resolvedStatus !== "none" ? resolvedStatus : validStates.has(state) ? state : "default";
   const sourceName = String(name ?? "");
+  const imageSrc = String(src ?? "");
+  const [failedSrc, setFailedSrc] = useState("");
+  const shouldRenderImage = Boolean(imageSrc) && failedSrc !== imageSrc;
 
   if (!sourceName) return null;
   const identityColor = identityColorFromTone(identityTone, sourceName);
@@ -99,7 +114,7 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar({
       ref,
       className: ["avatar", className].filter(Boolean).join(" "),
       "aria-label": sourceName,
-      ...flowDensityProps(resolvedDensity),
+      ...flowDensityProps(resolvedDensity, avatarDensityExtensions),
       "data-identity-tone": validIdentityTones.has(identityTone) ? identityTone : "auto",
       "data-status": resolvedStatus,
       ...flowStateProps(resolvedState),
@@ -108,10 +123,10 @@ export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(function Avatar({
         "--comp-avatar-identity-fg": identityColor.fg,
       } satisfies AvatarIdentityStyle,
     },
-    src
-      ? React.createElement("img", { src, alt: sourceName })
+    shouldRenderImage
+      ? React.createElement("img", { src: imageSrc, alt: sourceName, onError: () => setFailedSrc(imageSrc) })
       : React.createElement("span", { className: "avatar__initials", "aria-hidden": "true" }, initialsFromName(sourceName)),
-    resolvedStatus !== "none" ? React.createElement("span", { className: "avatar__status", "aria-hidden": "true" }) : null,
+    resolvedStatus !== "none" ? React.createElement("span", { className: "avatar__status", role: "img", "aria-label": statusLabels[resolvedStatus] }) : null,
   );
 }) as AvatarComponent;
 

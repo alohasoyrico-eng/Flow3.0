@@ -6001,10 +6001,11 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-avatar-img-fit: var(--component-object-fit-cover);
   --comp-avatar-status-bg: var(--component-color-success);
   --comp-avatar-status-size: max(var(--component-space-sm), calc(var(--comp-avatar-size) * 0.26));
-  --comp-avatar-status-border-width: var(--component-border-width-medium);
+  --comp-avatar-status-border-width: max(var(--component-border-width-medium), calc(var(--comp-avatar-size) / 16));
   --comp-avatar-status-border-color: var(--component-color-surface);
   --comp-avatar-status-border: var(--comp-avatar-status-border-width) solid var(--comp-avatar-status-border-color);
   --comp-avatar-status-radius: var(--component-radius-pill);
+  --comp-avatar-status-box-sizing: content-box;
   --comp-avatar-status-inset-block-end: var(--component-inset-zero);
   --comp-avatar-status-inset-inline-end: var(--component-inset-zero);
   --comp-avatar-status-position: var(--component-position-absolute);
@@ -6034,6 +6035,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .avatar[data-density="sm"] { --comp-avatar-size: var(--component-inline-size-sm); }
 .avatar[data-density="lg"] { --comp-avatar-size: var(--component-inline-size-lg); }
+.avatar[data-density="xl"] { --comp-avatar-size: calc(var(--component-inline-size-lg) + var(--component-inline-size-sm)); }
 
 .avatar img {
   border-radius: var(--comp-avatar-img-radius);
@@ -6047,6 +6049,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   border: var(--comp-avatar-status-border);
   border-radius: var(--comp-avatar-status-radius);
   block-size: var(--comp-avatar-status-size);
+  box-sizing: var(--comp-avatar-status-box-sizing);
   inline-size: var(--comp-avatar-status-size);
   inset-block-end: var(--comp-avatar-status-inset-block-end);
   inset-inline-end: var(--comp-avatar-status-inset-inline-end);
@@ -6065,6 +6068,12 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   background: var(--comp-avatar-disabled-bg);
   color: var(--comp-avatar-disabled-fg);
   opacity: var(--comp-avatar-disabled-opacity);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar[data-state="busy"] .avatar__status {
+    animation: none;
+  }
 }
 
 .skeleton {

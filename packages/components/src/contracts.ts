@@ -786,7 +786,7 @@ export const componentContracts = {
     props: [
       { name: "name", type: "string", required: true },
       { name: "src", type: "string", required: false },
-      { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
+      { name: "density", type: "\"sm\" | \"md\" | \"lg\" | \"xl\"", required: false },
       { name: "identityTone", type: "\"auto\" | \"action\" | \"success\" | \"danger\" | \"warning\" | \"purple\" | \"teal\"", required: false },
       { name: "status", type: "AvatarStatus", required: false },
       { name: "state", type: "AvatarState", required: false }
