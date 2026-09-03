@@ -152,7 +152,7 @@
     },
     {
       "id": "audit-event",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -179,22 +179,55 @@
         "packages/components/test/smoke.test.mjs",
         "packages/content/content/component-copy/components/audit-event/all.json",
         "packages/content/content/component-contracts/components/audit-event.md",
+        "local-visual-snapshots/Flow3-component-qa/audit-event-2026-09-02/interactive/react-runtime.html",
+        "docs/audits/audit-event-runtime-2026-09-02.png",
+        "docs/audits/audit-event-runtime-dark-2026-09-02.png",
         "docs/audits/audit-event-1to1-quality-audit.json",
         "docs/audits/audit-event-1to1-light.png",
         "docs/audits/audit-event-1to1-dark.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Ordered histories, connector rails, filters, approvals, audit tables, and investigations belong to Timeline/Table/workflow patterns.",
         "Business variants such as permission, vehicle, card, and finance are not Audit Event variants; use tone/state/status text."
       ],
       "decision": "Closed Audit Event as a Desktop component for one atomic traceable record. ZIP Timeline reference informs marker, compact hierarchy, mono timestamp, and secondary copy; Flow governs colors, density, radius, focus, spacing, and state semantics. Timeline, audit log, table history, filtering, approval routing, and investigation stay in patterns.",
-      "lastValidation": "npm run validate pass",
+      "lastValidation": "npm --prefix packages/react run build; node packages/audit/scripts/build-local-react-qa-demo.mjs --component=audit-event; node packages/audit/scripts/audit-component-css-contracts.js; node packages/react/test/render-domain-display.test.mjs; Playwright runtime light/dark smoke pass.",
       "visualQa": {
-        "route": "http://127.0.0.1:53222/apps/docs/index.html?fresh=audit-event-spacing-final#/components/audit-event",
-        "designVisiblePackageRoots": 34,
+        "route": "http://127.0.0.1:53304/local-visual-snapshots/Flow3-component-qa/audit-event-2026-09-02/interactive/react-runtime.html?fresh=audit-event-density-2",
+        "source": "packages/react/dist/AuditEvent.js",
+        "runtimeInstances": 12,
+        "consoleErrors": 0,
+        "failedRequests": 0,
+        "densityComputedMetrics": [
+          {
+            "density": "sm",
+            "title": "11px",
+            "description": "10px",
+            "meta": "10px",
+            "status": "10px",
+            "marker": "24px",
+            "height": 65.5
+          },
+          {
+            "density": "md",
+            "title": "13px",
+            "description": "11px",
+            "meta": "11px",
+            "status": "11px",
+            "marker": "26px",
+            "height": 81.125
+          },
+          {
+            "density": "lg",
+            "title": "14px",
+            "description": "13px",
+            "meta": "13px",
+            "status": "13px",
+            "marker": "30px",
+            "height": 108.4375
+          }
+        ],
         "variants": [
           "standard"
         ],
@@ -212,23 +245,15 @@
           "sm",
           "lg"
         ],
-        "overflowCount": 0,
-        "minBadgeContrast": 4.84,
-        "layoutAfterFix": {
-          "viewport": "599x1354",
-          "visiblePackageRoots": 2,
-          "gridTemplateColumns": "26px 316px",
-          "padding": "12px 16px",
-          "gap": "12px",
-          "eventHeight": 96,
-          "contentWidth": 316,
-          "overflowX": false,
-          "overflowY": false
-        }
+        "screenshots": [
+          "docs/audits/audit-event-runtime-2026-09-02.png",
+          "docs/audits/audit-event-runtime-dark-2026-09-02.png"
+        ],
+        "runtimeInstruction": "AuditEvent no abre, filtra ni secuencia eventos; el patrón padre decide la interacción."
       },
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Strict 1:1 contract rerun on 2026-09-02 with ZIP Timeline reference, package-backed runtime demo, CSS contract, render test, and Playwright light/dark evidence."
     },
     {
       "id": "avatar",
@@ -2867,20 +2892,20 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 28,
-    "partial": 29,
+    "pass": 29,
+    "partial": 28,
     "fail": 0,
     "qualityDebt": 30,
     "reviewStates": {
-      "closed-with-recent-evidence": 20,
-      "needs-1to1-review": 19,
+      "closed-with-recent-evidence": 21,
+      "needs-1to1-review": 18,
       "closed-with-user-visual-review": 6,
       "needs-revalidation": 12
     }
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
-    "updatedAt": "2026-08-31",
+    "updatedAt": "2026-09-02",
     "sourceCommit": "working-tree",
     "scope": [
       "pagination",
@@ -2895,10 +2920,10 @@
       "switch",
       "chip"
     ],
-    "nextComponent": "audit-event",
-    "nextComponentReason": "Next unresolved matrix item after AnimatedMoment closure is audit-event.",
+    "nextComponent": "avatar",
+    "nextComponentReason": "Next unresolved matrix item after AuditEvent closure is avatar.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
-    "component": "animated-moment",
+    "component": "audit-event",
     "status": "closed-with-recent-evidence",
     "sourceOfTruthGate": "passed",
     "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json"

@@ -76,15 +76,19 @@ export const AuditEvent = forwardRef<HTMLElement, AuditEventProps>(function Audi
     React.createElement(
       "div",
       { className: "audit-event__content" },
-      React.createElement("strong", null, label),
+      React.createElement(
+        "span",
+        { className: "audit-event__header" },
+        React.createElement("strong", null, label),
+        statusText ? React.createElement("em", null, statusText) : null,
+      ),
       description ? React.createElement("p", null, description) : null,
-      meta || timestamp || statusText
+      meta || timestamp
         ? React.createElement(
             "span",
             { className: "audit-event__meta" },
             meta ? React.createElement("small", null, meta) : null,
             timestamp ? React.createElement("time", { className: "audit-event__time" }, timestamp) : null,
-            statusText ? React.createElement("em", null, statusText) : null,
           )
         : null,
     ),

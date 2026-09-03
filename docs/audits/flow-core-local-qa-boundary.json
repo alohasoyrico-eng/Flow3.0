@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T03:22:22.550Z",
+  "generatedAt": "2026-09-02T15:02:55.109Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
@@ -15,11 +15,12 @@
     "flowdocsDemoFiles": 0,
     "flowdocsDemoRiskFiles": 0,
     "mixedFlowClaimFiles": 0,
-    "localQaFiles": 39,
-    "localQaComponents": 39,
+    "localQaFiles": 40,
+    "localQaComponents": 40,
     "localQaComponentIds": [
       "accordion",
       "animated-moment",
+      "audit-event",
       "breadcrumbs",
       "button",
       "card",
@@ -58,7 +59,7 @@
       "tabs",
       "text-area"
     ],
-    "localQaReactRuntimeFiles": 39,
+    "localQaReactRuntimeFiles": 40,
     "localQaManualHarnessFiles": 0,
     "obsoleteLocalQaFiles": 0,
     "nonCanonicalLocalQaFiles": 0,
@@ -70,7 +71,7 @@
       "severity": "medium",
       "issue": "Local QA harnesses include their own layout CSS.",
       "action": "Keep them local and out of repo; use them for human inspection, not as component source truth.",
-      "count": 39
+      "count": 40
     }
   ],
   "flowdocsDemos": [],
@@ -104,6 +105,32 @@
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/animated-moment-2026-08-31/interactive/react-runtime.html",
       "component": "animated-moment",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/audit-event-2026-09-02/interactive/react-runtime.html",
+      "component": "audit-event",
       "classification": "local-component-qa-harness",
       "signals": [
         "uses-flow-token-css",

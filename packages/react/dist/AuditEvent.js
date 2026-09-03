@@ -27,8 +27,8 @@ export const AuditEvent = forwardRef(function AuditEvent({ label, description, m
         ...flowStateProps(resolvedState),
         ...flowDensityProps(resolvedDensity),
         "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
-    }, icon ? React.createElement("span", { className: "audit-event__icon material-symbol", "aria-hidden": "true" }, icon) : null, React.createElement("div", { className: "audit-event__content" }, React.createElement("strong", null, label), description ? React.createElement("p", null, description) : null, meta || timestamp || statusText
-        ? React.createElement("span", { className: "audit-event__meta" }, meta ? React.createElement("small", null, meta) : null, timestamp ? React.createElement("time", { className: "audit-event__time" }, timestamp) : null, statusText ? React.createElement("em", null, statusText) : null)
+    }, icon ? React.createElement("span", { className: "audit-event__icon material-symbol", "aria-hidden": "true" }, icon) : null, React.createElement("div", { className: "audit-event__content" }, React.createElement("span", { className: "audit-event__header" }, React.createElement("strong", null, label), statusText ? React.createElement("em", null, statusText) : null), description ? React.createElement("p", null, description) : null, meta || timestamp
+        ? React.createElement("span", { className: "audit-event__meta" }, meta ? React.createElement("small", null, meta) : null, timestamp ? React.createElement("time", { className: "audit-event__time" }, timestamp) : null)
         : null));
 });
 AuditEvent.displayName = "AuditEvent";

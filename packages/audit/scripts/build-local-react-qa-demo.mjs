@@ -174,6 +174,72 @@ const components = {
           )
         )`,
   },
+  "audit-event": {
+    title: "AuditEvent",
+    directory: "audit-event-2026-09-02",
+    module: "AuditEvent.js",
+    exportName: "AuditEvent",
+    buildId: "audit-event-runtime-2",
+    runtimeInstruction: "AuditEvent no abre, filtra ni secuencia eventos; el patrón padre decide la interacción.",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, {
+              label: "Fuel limit changed",
+              description: "Ana Sosa updated MX-4821 policy.",
+              meta: "Ana Sosa - Operations",
+              timestamp: "09:42",
+              status: "Logged",
+              icon: "manage_history",
+              tone: "neutral"
+            })),
+            e("div", { className: "audit-card" }, e(Component, {
+              label: "Document verified",
+              description: "Driver license was approved after review.",
+              meta: "Fleet admin",
+              timestamp: "10:16",
+              status: "Verified",
+              icon: "check",
+              tone: "success",
+              state: "verified"
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Tonos y estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Logged", description: "Single audit record.", meta: "Operations", timestamp: "09:42", status: "Logged", icon: "manage_history", tone: "neutral" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Verified", description: "License approved.", meta: "Fleet admin", timestamp: "10:16", status: "Verified", icon: "check", tone: "success", state: "verified" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Review", description: "Policy change is waiting.", meta: "Risk rules", timestamp: "11:03", status: "Review", icon: "priority_high", tone: "warning", state: "warning" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Critical", description: "Document evidence failed review.", meta: "Risk rules", timestamp: "11:21", status: "Critical", icon: "warning", tone: "danger", state: "critical" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Focus", description: "Parent workflow owns interaction.", meta: "Accessibility", timestamp: "12:10", status: "Focused", icon: "tab", state: "focus" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled", description: "Archived event remains visible.", meta: "System", timestamp: "12:44", status: "Archived", icon: "block", state: "disabled" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Small event", description: "Compact side panel record.", meta: "Admin", timestamp: "08:10", status: "Logged", icon: "manage_history", density: "sm" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Medium event", description: "Default audit record rhythm.", meta: "Admin", timestamp: "09:42", status: "Logged", icon: "manage_history", density: "md" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Large event", description: "Touch review surface.", meta: "Admin", timestamp: "10:16", status: "Review", icon: "priority_high", tone: "warning", density: "lg" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Límite de patrón"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, {
+              label: "Audit sequence",
+              description: "More than one event requires Timeline, Table, or workflow pattern.",
+              meta: "Pattern boundary",
+              timestamp: "--",
+              status: "Escalate",
+              icon: "timeline",
+              tone: "warning",
+              state: "warning"
+            }))
+          )
+        )`,
+  },
   "breadcrumbs": {
     title: "Breadcrumbs",
     directory: "breadcrumbs-2026-08-29",

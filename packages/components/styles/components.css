@@ -7165,23 +7165,23 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-radius: var(--component-radius-md);
   --comp-audit-event-status-align: var(--component-align-center);
   --comp-audit-event-status-border: color-mix(in srgb, var(--comp-audit-event-tone) 28%, var(--component-color-border));
-  --comp-audit-event-title-size: var(--component-font-size-body);
+  --comp-audit-event-title-size: var(--component-density-label-size-md);
   --comp-audit-event-title-family: var(--component-font-family-title);
-  --comp-audit-event-title-weight: var(--component-font-weight-extrabold);
+  --comp-audit-event-title-weight: var(--component-font-weight-bold);
   --comp-audit-event-title-line-height: var(--component-line-height-balanced);
   --comp-audit-event-description-size: var(--component-font-size-caption);
-  --comp-audit-event-description-weight: var(--component-font-weight-semibold);
+  --comp-audit-event-description-weight: var(--component-font-weight-regular);
   --comp-audit-event-description-line-height: var(--component-line-height-reading);
   --comp-audit-event-muted: var(--component-color-text-muted);
   --comp-audit-event-meta-family: var(--component-font-family-mono);
   --comp-audit-event-meta-size: var(--component-font-size-caption);
-  --comp-audit-event-meta-weight: var(--component-font-weight-bold);
+  --comp-audit-event-meta-weight: var(--component-font-weight-semibold);
   --comp-audit-event-meta-line-height: var(--component-line-height-tight);
   --comp-audit-event-status-padding-block: var(--component-frame-space-micro);
   --comp-audit-event-status-padding-inline: var(--component-space-sm);
   --comp-audit-event-status-size: var(--component-font-size-caption);
   --comp-audit-event-status-style: var(--component-font-style-normal);
-  --comp-audit-event-status-weight: var(--component-font-weight-extrabold);
+  --comp-audit-event-status-weight: var(--component-font-weight-bold);
   --comp-audit-event-time-white-space: var(--component-white-space-nowrap);
   --comp-audit-event-width: min(100%, var(--component-content-size-lg));
   align-items: var(--comp-audit-event-align);
@@ -7206,18 +7206,29 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-audit-event-padding-block: var(--component-space-sm);
   --comp-audit-event-padding-inline: var(--component-space-md);
   --comp-audit-event-gap: var(--component-space-sm);
+  --comp-audit-event-content-gap: var(--component-frame-space-micro);
   --comp-audit-event-marker-size: var(--component-symbol-size-lg);
   --comp-audit-event-icon-size: var(--component-icon-size-marker);
-  --comp-audit-event-title-size: var(--component-font-size-caption);
+  --comp-audit-event-title-size: var(--component-density-label-size-sm);
+  --comp-audit-event-description-size: var(--component-density-helper-size-sm);
+  --comp-audit-event-meta-size: var(--component-density-counter-size-sm);
+  --comp-audit-event-status-size: var(--component-density-counter-size-sm);
+  --comp-audit-event-status-padding-inline: var(--component-space-xs);
 }
 
 .audit-event[data-density="lg"] {
   --comp-audit-event-padding-block: var(--component-space-lg);
   --comp-audit-event-padding-inline: var(--component-space-xl);
   --comp-audit-event-gap: var(--component-space-lg);
+  --comp-audit-event-content-gap: var(--component-space-sm);
   --comp-audit-event-marker-size: var(--component-symbol-size-xl);
   --comp-audit-event-icon-size: var(--component-icon-size-sm-plus);
-  --comp-audit-event-title-size: var(--component-font-size-body-lg);
+  --comp-audit-event-title-size: var(--component-density-label-size-lg);
+  --comp-audit-event-description-size: var(--component-density-helper-size-lg);
+  --comp-audit-event-meta-size: var(--component-density-counter-size-lg);
+  --comp-audit-event-status-size: var(--component-density-counter-size-lg);
+  --comp-audit-event-status-padding-block: var(--component-space-xs);
+  --comp-audit-event-status-padding-inline: var(--component-space-md);
 }
 
 .audit-event[data-tone="info"],
@@ -7273,6 +7284,15 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .audit-event__content {
   display: var(--comp-audit-event-content-display);
   gap: var(--comp-audit-event-content-gap);
+  min-inline-size: 0;
+}
+
+.audit-event__header {
+  align-items: var(--component-align-center);
+  display: flex;
+  flex-wrap: var(--component-flex-wrap-wrap);
+  gap: var(--component-space-xs) var(--component-space-sm);
+  justify-content: space-between;
   min-inline-size: 0;
 }
 
@@ -9549,7 +9569,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-animated-moment-halo-size: calc(var(--component-density-control-height) * 4.5);
   --comp-animated-moment-icon-size: calc(var(--component-density-control-height) * 2.9);
   --comp-animated-moment-icon-font-size: calc(var(--comp-animated-moment-icon-size) * 0.38);
-  --comp-animated-moment-icon-margin-block: 0;
+  --comp-animated-moment-icon-margin-block: var(--component-frame-space-none);
   --comp-animated-moment-cycle: var(--component-duration-loop);
   --comp-animated-moment-cycle-ease: var(--component-ease-move);
   --comp-animated-moment-max-inline-size: var(--component-content-size-xl);
