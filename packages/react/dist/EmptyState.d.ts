@@ -1,4 +1,4 @@
-import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, RefAttributes } from "react";
+import type { ForwardRefExoticComponent, HTMLAttributes, MouseEvent, ReactNode, RefAttributes } from "react";
 import type { FlowDataAttributes } from "./internal/props.js";
 import { emptyStatePlatformContract } from "#flow/platforms";
 
@@ -24,7 +24,7 @@ export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   title: string;
   description?: string;
   icon?: string;
-  action?: EmptyStateAction;
+  action?: EmptyStateAction | ReactNode;
   variant?: EmptyStateVariant;
   state?: EmptyStateState;
   density?: EmptyStateDensity;

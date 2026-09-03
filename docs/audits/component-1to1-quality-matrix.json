@@ -1317,45 +1317,86 @@
     },
     {
       "id": "empty-state",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/display/EmptyState.jsx",
-        ".audit-reference/components/display/EmptyState.d.ts",
-        ".audit-reference/components/display/EmptyState.prompt.md",
-        ".audit-reference/docs/demos/emptystate.html",
-        "docs/audits/empty-state-1to1-quality-audit.json",
-        "docs/audits/empty-state-1to1-light.png",
-        "docs/audits/empty-state-1to1-dark.png",
-        "packages/components/src/components/feedback.js",
-        "packages/components/src/registry.js",
-        "packages/components/src/contracts.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/emptystate.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/EmptyState.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/EmptyState.d.ts",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/EmptyState.prompt.md",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/emptystate.html",
+        "packages/react/src/EmptyState.tsx",
+        "packages/react/src/EmptyState.d.ts",
+        "packages/react/dist/EmptyState.js",
+        "packages/react/dist/EmptyState.d.ts",
         "packages/components/styles/components.css",
-        "packages/components/test/smoke.test.mjs"
+        "packages/components/src/contracts.ts",
+        "packages/components/src/contracts.js",
+        "packages/audit/scripts/audit-empty-state-css-contract.js",
+        "packages/audit/scripts/platform-adapter-components.js",
+        "packages/audit/scripts/react-component-content-guards.js",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/react/test/render-status-feedback.test.mjs",
+        "docs/audits/empty-state-runtime-2026-09-03.png",
+        "docs/audits/empty-state-runtime-dark-2026-09-03.png"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "Escalate onboarding sequences, multi-step education, repeated first-use guidance, and data setup journeys to patterns/templates instead of Empty State."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-recent-evidence",
+      "truthResetDecision": "Closed on 2026-09-03 against the ZIP reference, package-backed React runtime demo, slot and structured action support, density-scaled title/description, proportional icon glyph ratio, light/dark screenshots, and component gate evidence.",
+      "missing": [],
+      "decision": "EmptyState remains a simple component for bounded empty/no-result/permission/maintenance states with exactly one resolving action. Skeleton/loading-only and complex failures/escalations stay with Skeleton, ErrorPanel, or patterns. ZIP action slot is supported as one React element; Flow structured action remains the auditable path.",
+      "lastValidation": {
+        "date": "2026-09-03",
+        "commands": [
+          "npm run build:react",
+          "node packages/react/test/render-status-feedback.test.mjs",
+          "npm run audit:flow-core-gate -- --check --component=empty-state",
+          "npm run build:local-react-qa-demo -- --component=empty-state",
+          "Playwright runtime screenshot check: emptyStates=10, hasZipSlotButton=true, consoleErrors=0, densityGlyphRatio=0.47"
+        ],
+        "runtimeUrl": "http://127.0.0.1:53304/local-visual-snapshots/Flow3-component-qa/empty-state-2026-09-03/interactive/react-runtime.html?fresh=empty-state-runtime-2",
+        "densityMetrics": {
+          "sm": {
+            "iconBox": 60,
+            "iconFont": 28.2,
+            "ratio": 0.47,
+            "titleSize": 13,
+            "descriptionSize": 11
+          },
+          "md": {
+            "iconBox": 68,
+            "iconFont": 31.96,
+            "ratio": 0.47,
+            "titleSize": 16,
+            "descriptionSize": 13
+          },
+          "lg": {
+            "iconBox": 72,
+            "iconFont": 33.84,
+            "ratio": 0.47,
+            "titleSize": 18,
+            "descriptionSize": 16
+          }
+        }
+      }
     },
     {
       "id": "error-panel",
@@ -2920,17 +2961,17 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 31,
-    "partial": 26,
+    "pass": 32,
+    "partial": 25,
     "fail": 0,
-    "qualityDebt": 26,
+    "qualityDebt": 25,
     "reviewStates": {
-      "closed-with-recent-evidence": 24,
+      "closed-with-recent-evidence": 25,
       "needs-1to1-review": 15,
       "closed-with-user-visual-review": 6,
-      "needs-revalidation": 12
+      "needs-revalidation": 11
     },
-    "ready": 31,
+    "ready": 32,
     "blocked": 0,
     "notStarted": 0,
     "lastUpdated": "2026-09-03"

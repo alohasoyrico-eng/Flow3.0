@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T19:35:28.079Z",
+  "generatedAt": "2026-09-03T20:20:24.528Z",
   "mode": "flow-core-local-qa-only",
   "status": "pass",
   "purpose": "Classify FlowDocs demos, React islands, manual interactions, and local QA harnesses so component bugs are not confused with docs demo bugs.",
@@ -15,8 +15,8 @@
     "flowdocsDemoFiles": 0,
     "flowdocsDemoRiskFiles": 0,
     "mixedFlowClaimFiles": 0,
-    "localQaFiles": 42,
-    "localQaComponents": 42,
+    "localQaFiles": 43,
+    "localQaComponents": 43,
     "localQaComponentIds": [
       "accordion",
       "animated-moment",
@@ -40,6 +40,7 @@
       "date-range-picker",
       "dialog",
       "drawer",
+      "empty-state",
       "icon-button",
       "input",
       "input-amount",
@@ -61,7 +62,7 @@
       "tabs",
       "text-area"
     ],
-    "localQaReactRuntimeFiles": 42,
+    "localQaReactRuntimeFiles": 43,
     "localQaManualHarnessFiles": 0,
     "obsoleteLocalQaFiles": 0,
     "nonCanonicalLocalQaFiles": 0,
@@ -73,7 +74,7 @@
       "severity": "medium",
       "issue": "Local QA harnesses include their own layout CSS.",
       "action": "Keep them local and out of repo; use them for human inspection, not as component source truth.",
-      "count": 42
+      "count": 43
     }
   ],
   "flowdocsDemos": [],
@@ -625,6 +626,32 @@
     {
       "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/drawer-2026-08-25/interactive/react-runtime.html",
       "component": "drawer",
+      "classification": "local-component-qa-harness",
+      "signals": [
+        "uses-flow-token-css",
+        "uses-flow-component-css",
+        "uses-flow-react-runtime",
+        "has-theme-control",
+        "keyboard-observation-harness",
+        "local-harness-css"
+      ],
+      "risks": [
+        "Harness CSS can affect visual reading; do not use as component source truth."
+      ],
+      "metrics": {
+        "localStyleBlocks": 1,
+        "flowCssLinks": 3,
+        "keyboardTerms": 1,
+        "localVisualOverrides": 0,
+        "dynamicStylePlumbing": 0,
+        "reactRuntimeProof": 1
+      },
+      "visualOverrides": [],
+      "dynamicStylePlumbing": []
+    },
+    {
+      "file": "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/empty-state-2026-09-03/interactive/react-runtime.html",
+      "component": "empty-state",
       "classification": "local-component-qa-harness",
       "signals": [
         "uses-flow-token-css",

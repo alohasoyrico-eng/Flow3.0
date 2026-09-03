@@ -1,4 +1,4 @@
-import React, { forwardRef, useId, } from "react";
+import React, { Children, forwardRef, isValidElement, useId, } from "react";
 import { emptyStatePlatformContract } from "#flow/platforms";
 import { Button } from "./Button.js";
 import { Spinner } from "./Spinner.js";
@@ -11,6 +11,9 @@ function normalizeVariant(variant) {
 function normalizeState(state) {
     return validStates.has(state) ? state : "default";
 }
+function isStructuredAction(action) {
+    return Boolean(action && typeof action === "object" && !isValidElement(action) && "label" in action);
+}
 export const EmptyState = forwardRef(function EmptyState({ title, description, icon, action, variant = "first-use", state = "default", density, fullWidth = false, onAction, className = "", id, ...rest }, ref) {
     const reactId = useId();
     const titleId = id ? `${id}-title` : `empty-state-title-${reactId.replace(/[^a-zA-Z0-9_-]/g, "")}`;
@@ -20,8 +23,10 @@ export const EmptyState = forwardRef(function EmptyState({ title, description, i
     if (!title)
         return null;
     const showIcon = Boolean(icon) || resolvedState === "loading";
-    const actionLabel = action?.label;
-    const actionKey = action?.key ?? "";
+    const structuredAction = isStructuredAction(action) ? action : undefined;
+    const actionSlot = isValidElement(action) && Children.count(action) === 1 ? action : null;
+    const actionLabel = structuredAction?.label;
+    const actionKey = structuredAction?.key ?? "";
     const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== "");
     return React.createElement("section", {
         ...flowRestProps(rest),
@@ -39,20 +44,22 @@ export const EmptyState = forwardRef(function EmptyState({ title, description, i
             : icon)
         : null, React.createElement("h3", { className: "empty-state__title", id: titleId }, title), description
         ? React.createElement("p", { className: "empty-state__description" }, description)
-        : null, canRenderAction
-        ? React.createElement(Button, {
-            ...action,
-            label: actionLabel,
-            variant: action?.variant ?? "primary",
-            ...(action?.density ?? resolvedDensity ? { density: action?.density ?? resolvedDensity } : {}),
-            onClick: (event) => {
-                action?.onClick?.(event);
-                if (event.defaultPrevented)
-                    return;
-                onAction?.(actionKey, event);
-            },
-        })
-        : null);
+        : null, actionSlot
+        ? React.createElement("div", { className: "empty-state__action" }, actionSlot)
+        : canRenderAction
+            ? React.createElement(Button, {
+                ...structuredAction,
+                label: actionLabel,
+                variant: structuredAction?.variant ?? "primary",
+                ...(structuredAction?.density ?? resolvedDensity ? { density: structuredAction?.density ?? resolvedDensity } : {}),
+                onClick: (event) => {
+                    structuredAction?.onClick?.(event);
+                    if (event.defaultPrevented)
+                        return;
+                    onAction?.(actionKey, event);
+                },
+            })
+            : null);
 });
 EmptyState.displayName = "EmptyState";
 EmptyState.platformContract = emptyStatePlatformContract;

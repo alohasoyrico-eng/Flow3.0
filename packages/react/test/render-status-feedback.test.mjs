@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { Checkbox, Chip, EmptyState, ErrorPanel, Menu, Popover, ProgressIndicator, RadioButton, SegmentedControl, Skeleton, Slider, Spinner, Stepper, Switch, Tag, Toast, Tooltip } from "../dist/index.js";
+import { Button, Checkbox, Chip, EmptyState, ErrorPanel, Menu, Popover, ProgressIndicator, RadioButton, SegmentedControl, Skeleton, Slider, Spinner, Stepper, Switch, Tag, Toast, Tooltip } from "../dist/index.js";
 
 const chipMarkup = renderToStaticMarkup(React.createElement(Chip, {
   label: "Active",
@@ -335,6 +335,24 @@ const inheritedEmptyStateMarkup = renderToStaticMarkup(React.createElement(Empty
 }));
 assert.doesNotMatch(inheritedEmptyStateMarkup.match(/^<section[^>]+>/)?.[0] ?? "", /data-density=/);
 assert.doesNotMatch(inheritedEmptyStateMarkup.match(/<button[^>]+>/)?.[0] ?? "", /data-density=/);
+
+const slotEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  title: "Sin unidades activas",
+  icon: "local_taxi",
+  action: React.createElement(Button, { label: "Agregar unidad", icon: "add" }),
+}));
+assert.match(slotEmptyStateMarkup, /class="empty-state__action"/);
+assert.match(slotEmptyStateMarkup, /class="button/);
+assert.match(slotEmptyStateMarkup, />Agregar unidad<\/span>|>Agregar unidad<\/button>/);
+
+const multiSlotEmptyStateMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
+  title: "Too many actions",
+  action: [
+    React.createElement(Button, { key: "one", label: "One" }),
+    React.createElement(Button, { key: "two", label: "Two" }),
+  ],
+}));
+assert.doesNotMatch(multiSlotEmptyStateMarkup, /class="button/);
 
 const unstableEmptyStateActionMarkup = renderToStaticMarkup(React.createElement(EmptyState, {
   title: "No vehicles match",

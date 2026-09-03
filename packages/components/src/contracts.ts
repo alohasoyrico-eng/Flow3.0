@@ -1085,7 +1085,7 @@ export const componentContracts = {
       { name: "title", type: "string", required: true },
       { name: "description", type: "string", required: false },
       { name: "icon", type: "string", required: false },
-      { name: "action", type: "EmptyStateAction", required: false },
+      { name: "action", type: "EmptyStateAction | ReactNode", required: false },
       { name: "variant", type: "\"first-use\" | \"search-empty\" | \"permission\" | \"error\" | \"maintenance\"", required: false },
       { name: "state", type: "\"default\" | \"action\" | \"search-empty\" | \"permission\" | \"loading\" | \"error\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },

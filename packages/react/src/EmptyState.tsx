@@ -1,9 +1,12 @@
 import React, {
+  Children,
   type ForwardRefExoticComponent,
   type HTMLAttributes,
   type MouseEvent,
+  type ReactNode,
   type RefAttributes,
   forwardRef,
+  isValidElement,
   useId,
 } from "react";
 import { emptyStatePlatformContract } from "@design-system/components/platforms";
@@ -35,7 +38,7 @@ export interface EmptyStateProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   title: string;
   description?: string;
   icon?: string;
-  action?: EmptyStateAction;
+  action?: EmptyStateAction | ReactNode;
   variant?: EmptyStateVariant;
   state?: EmptyStateState;
   density?: EmptyStateDensity;
@@ -59,6 +62,10 @@ function normalizeState(state: EmptyStateState): EmptyStateState {
   return validStates.has(state) ? state : "default";
 }
 
+function isStructuredAction(action: EmptyStateProps["action"]): action is EmptyStateAction {
+  return Boolean(action && typeof action === "object" && !isValidElement(action) && "label" in action);
+}
+
 export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>(function EmptyState({
   title,
   description,
@@ -80,8 +87,10 @@ export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>(function Empt
   const resolvedDensity = normalizeFlowDensity(density);
   if (!title) return null;
   const showIcon = Boolean(icon) || resolvedState === "loading";
-  const actionLabel = action?.label;
-  const actionKey = action?.key ?? "";
+  const structuredAction = isStructuredAction(action) ? action : undefined;
+  const actionSlot = isValidElement(action) && Children.count(action) === 1 ? action : null;
+  const actionLabel = structuredAction?.label;
+  const actionKey = structuredAction?.key ?? "";
   const canRenderAction = Boolean(actionLabel && actionKey !== undefined && actionKey !== null && actionKey !== "");
 
   return React.createElement(
@@ -110,14 +119,16 @@ export const EmptyState = forwardRef<HTMLElement, EmptyStateProps>(function Empt
     description
       ? React.createElement("p", { className: "empty-state__description" }, description)
       : null,
-    canRenderAction
+    actionSlot
+      ? React.createElement("div", { className: "empty-state__action" }, actionSlot)
+      : canRenderAction
       ? React.createElement(Button, {
-        ...(action as unknown as Record<string, unknown>),
+        ...(structuredAction as unknown as Record<string, unknown>),
         label: actionLabel,
-        variant: action?.variant ?? "primary",
-        ...(action?.density ?? resolvedDensity ? { density: action?.density ?? resolvedDensity } : {}),
+        variant: structuredAction?.variant ?? "primary",
+        ...(structuredAction?.density ?? resolvedDensity ? { density: structuredAction?.density ?? resolvedDensity } : {}),
         onClick: (event: MouseEvent<HTMLButtonElement>) => {
-          action?.onClick?.(event);
+          structuredAction?.onClick?.(event);
           if (event.defaultPrevented) return;
           onAction?.(actionKey, event);
         },

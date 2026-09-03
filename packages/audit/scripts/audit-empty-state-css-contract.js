@@ -22,6 +22,7 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
   const errorIconBlock = blocks.find((block) => selectorKey(block).includes(".empty-state[data-variant=\"error\"] .empty-state__icon"));
   const titleBlock = blockFor(blocks, selectorKey, ".empty-state__title");
   const descriptionBlock = blockFor(blocks, selectorKey, ".empty-state__description");
+  const actionBlock = blockFor(blocks, selectorKey, ".empty-state__action");
 
   if (!source.includes("React.createElement(Button") || !source.includes("React.createElement(Spinner")) {
     add("errors", sourceFile, 1, "EmptyState must compose Button and Spinner instead of duplicating action/loading implementations.");
@@ -34,6 +35,7 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     snippets: [
       "--comp-empty-state-fg: var(--component-color-text)",
       "--comp-empty-state-icon-bg:",
+      "--comp-empty-state-icon-glyph-size: calc(var(--comp-empty-state-icon-size) * 0.47)",
       "--comp-empty-state-title-family: var(--component-font-family-title)",
       "--comp-empty-state-description-line-height: var(--component-line-height-normal)",
       "color: var(--comp-empty-state-fg)",
@@ -46,14 +48,24 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm)", "--comp-empty-state-gap: var(--component-space-xs)"],
+    snippets: [
+      "--comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm)",
+      "--comp-empty-state-gap: var(--component-space-xs)",
+      "--comp-empty-state-title-size: var(--component-font-size-small)",
+      "--comp-empty-state-description-size: var(--component-font-size-caption)",
+    ],
     message: "EmptyState sm density must scale through EmptyState aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg)", "--comp-empty-state-gap: var(--component-space-md)"],
+    snippets: [
+      "--comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg)",
+      "--comp-empty-state-gap: var(--component-space-md)",
+      "--comp-empty-state-title-size: var(--component-font-size-title-md)",
+      "--comp-empty-state-description-size: var(--component-font-size-body)",
+    ],
     message: "EmptyState lg density must scale through EmptyState aliases.",
   });
   requireIncludes({
@@ -106,9 +118,19 @@ function checkEmptyStateCssContract({ text, blocks, packageCssFile, selectorKey,
     ],
     message: "EmptyState description must consume EmptyState description aliases.",
   });
+  requireIncludes({
+    block: actionBlock,
+    text,
+    packageCssFile,
+    snippets: ["margin-block-start: var(--component-space-sm)"],
+    message: "EmptyState ZIP action slot must use a governed action frame.",
+  });
 
   if (/--comp-empty-state-icon-size:\s*var\(--sys-frame-height-control-lg/.test(text)) {
     add("errors", packageCssFile, 1, "EmptyState density icon size must route through component-owned icon size aliases.");
+  }
+  if (/--comp-empty-state-icon-glyph-size:\s*var\(--component-icon-size/.test(text)) {
+    add("errors", packageCssFile, 1, "EmptyState glyph size must stay proportional to the component icon container across host contexts.");
   }
 }
 

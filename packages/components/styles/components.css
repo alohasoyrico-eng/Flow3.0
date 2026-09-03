@@ -6227,7 +6227,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 .empty-state {
   --comp-empty-state-fg: var(--component-color-text);
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-md);
-  --comp-empty-state-icon-glyph-size: var(--component-icon-size-display-sm);
+  --comp-empty-state-icon-glyph-size: calc(var(--comp-empty-state-icon-size) * 0.47);
   --comp-empty-state-icon-bg: color-mix(in srgb, var(--component-color-action) 10%, var(--component-color-surface));
   --comp-empty-state-icon-fg: var(--component-color-action);
   --comp-empty-state-icon-radius: var(--component-radius-pill);
@@ -6261,18 +6261,20 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
 
 .empty-state[data-density="sm"] {
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm);
-  --comp-empty-state-icon-glyph-size: var(--component-icon-size-lg-plus);
   --comp-empty-state-padding-block: var(--component-space-lg);
   --comp-empty-state-padding-inline: var(--component-space-md);
   --comp-empty-state-gap: var(--component-space-xs);
+  --comp-empty-state-title-size: var(--component-font-size-small);
+  --comp-empty-state-description-size: var(--component-font-size-caption);
 }
 
 .empty-state[data-density="lg"] {
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-lg);
-  --comp-empty-state-icon-glyph-size: var(--component-icon-size-display-md);
   --comp-empty-state-padding-block: calc(var(--component-space-xl) + var(--component-space-md));
   --comp-empty-state-padding-inline: var(--component-space-xl);
   --comp-empty-state-gap: var(--component-space-md);
+  --comp-empty-state-title-size: var(--component-font-size-title-md);
+  --comp-empty-state-description-size: var(--component-font-size-body);
 }
 
 .empty-state__icon {
@@ -6317,6 +6319,10 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font-size: var(--comp-empty-state-description-size);
   line-height: var(--comp-empty-state-description-line-height);
   max-inline-size: var(--comp-empty-state-description-width);
+}
+
+.empty-state__action {
+  margin-block-start: var(--component-space-sm);
 }
 
 .list {
@@ -8720,7 +8726,7 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   --comp-empty-state-padding-inline: var(--component-space-md);
   --comp-empty-state-gap: var(--component-space-xs);
   --comp-empty-state-icon-size: var(--component-empty-state-icon-size-sm);
-  --comp-empty-state-icon-glyph-size: var(--component-icon-size-lg-plus);
+  --comp-empty-state-icon-glyph-size: calc(var(--comp-empty-state-icon-size) * 0.47);
   margin-inline: auto;
   max-inline-size: var(--component-content-size-md);
 }

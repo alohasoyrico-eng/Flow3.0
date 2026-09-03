@@ -346,7 +346,7 @@ const components = [
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "loading", "message", "measurement"],
     props: ["title", "description", "icon", "action", "variant", "state", "density", "fullWidth", "onAction"],
     jsSnippets: ["emptyStatePlatformContract", "React.createElement(Button", "React.createElement(Spinner", "className: [\"empty-state\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', '"aria-labelledby": titleId', "empty-state__icon", "empty-state__title", "empty-state__description"],
-    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "EmptyStateProps", "EmptyStateAction", "EmptyStateVariant", "EmptyStateState", "EmptyStateDensity", "emptyStatePlatformContract"],
+    typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "ReactNode", "EmptyStateProps", "EmptyStateAction", "EmptyStateVariant", "EmptyStateState", "EmptyStateDensity", "emptyStatePlatformContract"],
     packagePath: "./empty-state",
     exportName: "EmptyState",
     propsName: "EmptyStateProps",

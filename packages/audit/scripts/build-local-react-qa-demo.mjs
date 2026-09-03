@@ -1543,6 +1543,91 @@ const components = {
           )
         )`,
   },
+  "empty-state": {
+    title: "EmptyState",
+    directory: "empty-state-2026-09-03",
+    module: "EmptyState.js",
+    exportName: "EmptyState",
+    buildId: "empty-state-runtime-1",
+    indexImports: ["Button"],
+    eventPropName: "onAction",
+    actionHandler: "(key, event) => onAction(key || props.title)(event)",
+    actionSelector: ".empty-state button, .empty-state__action button",
+    runtimeInstruction: "Click, Enter o Space sobre la accion de EmptyState.",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, {
+              icon: "local_taxi",
+              title: "Sin unidades activas",
+              description: "Cuando una unidad se conecte aparecera aqui.",
+              action: e(Button, { label: "Agregar unidad", icon: "add", variant: "primary", density: "sm", onClick: onAction("zip-add-unit") })
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Condiciones vacias"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({
+              icon: "inbox",
+              title: "No hay movimientos",
+              description: "Los pagos y ajustes apareceran aqui cuando se registren.",
+              variant: "first-use",
+              action: { key: "create-first", label: "Crear movimiento", icon: "add" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              icon: "search_off",
+              title: "No hay resultados",
+              description: "Ajusta la busqueda o limpia los filtros para ver mas datos.",
+              variant: "search-empty",
+              state: "search-empty",
+              action: { key: "clear-filters", label: "Limpiar filtros", variant: "secondary", icon: "filter_alt_off" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              icon: "lock",
+              title: "Sin permisos",
+              description: "Solicita acceso para consultar esta informacion.",
+              variant: "permission",
+              state: "permission",
+              action: { key: "request-access", label: "Solicitar acceso", variant: "secondary" }
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, {
+              icon: "sync",
+              title: "Cargando informacion",
+              description: "Estamos preparando los datos.",
+              state: "loading"
+            })),
+            e("div", { className: "audit-card" }, action({
+              icon: "error",
+              title: "No se pudo cargar",
+              description: "Intenta de nuevo o revisa la conexion.",
+              variant: "error",
+              state: "error",
+              action: { key: "retry", label: "Reintentar", intent: "danger" }
+            })),
+            e("div", { className: "audit-card" }, action({
+              icon: "build",
+              title: "Mantenimiento",
+              description: "Esta seccion volvera a estar disponible pronto.",
+              variant: "maintenance",
+              action: { key: "notify", label: "Avisarme", variant: "ghost" }
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ icon: "inbox", title: "Small empty", description: "Compact empty state copy.", density: "sm", action: { key: "small", label: "Small action" } })),
+            e("div", { className: "audit-card" }, action({ icon: "inbox", title: "Medium empty", description: "Default empty state copy.", density: "md", action: { key: "medium", label: "Medium action" } })),
+            e("div", { className: "audit-card" }, action({ icon: "inbox", title: "Large empty", description: "Expanded empty state copy.", density: "lg", action: { key: "large", label: "Large action" } }))
+          )
+        )`,
+  },
   "kpi-tile": {
     title: "KpiTile",
     directory: "kpi-tile-2026-08-25",
