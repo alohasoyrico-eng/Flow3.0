@@ -1062,6 +1062,41 @@ const components = {
           )
         )`,
   },
+  "biometric-prompt": {
+    title: "BiometricPrompt",
+    directory: "biometric-prompt-2026-09-03",
+    module: "BiometricPrompt.js",
+    exportName: "BiometricPrompt",
+    buildId: "biometric-prompt-runtime-1",
+    eventPropName: "onUse",
+    actionHandler: "(event) => onAction(props.title || props.label || props.method || 'biometric')(event)",
+    actionSelector: "[data-biometric-action], [data-biometric-fallback]",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ method: "face", state: "idle", title: "Face ID", onFallback: onAction("Face ID=passcode") })),
+            e("div", { className: "audit-card" }, action({ method: "face", state: "scanning", title: "Face ID", fallbackLabel: "Usar passcode", onFallback: onAction("Scanning=passcode") })),
+            e("div", { className: "audit-card" }, action({ method: "fingerprint", state: "success", title: "Huella digital", onFallback: onAction("Success=passcode") })),
+            e("div", { className: "audit-card" }, action({ method: "fingerprint", state: "error", title: "Huella digital", fallbackLabel: "Usar passcode", onFallback: onAction("Error=passcode") }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ method: "face", title: "Small prompt", description: "Compact biometric copy.", density: "sm", onFallback: onAction("Small=passcode") })),
+            e("div", { className: "audit-card" }, action({ method: "face", title: "Medium prompt", description: "Default biometric copy.", density: "md", onFallback: onAction("Medium=passcode") })),
+            e("div", { className: "audit-card" }, action({ method: "face", title: "Large prompt", description: "Expanded biometric copy.", density: "lg", onFallback: onAction("Large=passcode") }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Compatibilidad Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Confirm it is you", description: "Look at the camera.", variant: "face", state: "authenticating", actionLabel: "Use Face ID", fallback: "Use passcode instead", onFallback: onAction("Confirm it is you=passcode") })),
+            e("div", { className: "audit-card" }, action({ label: "Passcode fallback", variant: "passcode", state: "warning", actionLabel: "Continue", fallback: "Use another method", onFallback: onAction("Fallback=another") })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Disabled biometrics", variant: "fingerprint", state: "disabled", actionLabel: "Verify", fallback: "Use passcode", onFallback: onAction("Disabled=passcode") }))
+          )
+        )`,
+  },
   "code-input": {
     title: "CodeInput",
     directory: "code-input-2026-08-24",

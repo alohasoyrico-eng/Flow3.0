@@ -262,8 +262,10 @@
       ],
       "states": [
         "default",
+        "idle",
         "focus",
         "authenticating",
+        "scanning",
         "success",
         "warning",
         "error",

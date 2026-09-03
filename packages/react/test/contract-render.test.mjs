@@ -24,6 +24,7 @@ function fixtureForContract(id, contract) {
     if (!prop.required) continue;
     props[prop.name] = valueForRequiredProp(prop.name);
   }
+  if (id === "biometricPrompt") props.title = "Reference";
   if (id === "button") props.label = "Reference";
   if (id === "chatMessage") props.body = "Reference message";
   if (id === "chartPanel") {

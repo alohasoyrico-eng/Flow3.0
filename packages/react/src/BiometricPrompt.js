@@ -7,7 +7,8 @@ import { biometricPromptPlatformContract } from "@design-system/components/platf
 import { Button } from "./Button.js";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validVariants = new Set(["fingerprint", "face", "passcode", "fallback"]);
-const validStates = new Set(["default", "focus", "authenticating", "success", "warning", "error", "disabled"]);
+const validMethods = new Set(["face", "fingerprint"]);
+const validStates = new Set(["default", "idle", "focus", "authenticating", "scanning", "success", "warning", "error", "disabled"]);
 const stateIcons = {
     success: "check_circle",
     error: "error",
@@ -15,7 +16,7 @@ const stateIcons = {
 };
 const variantIcons = {
     fingerprint: "fingerprint",
-    face: "face",
+    face: "ar_on_you",
     passcode: "pin",
     fallback: "lock",
 };
@@ -24,15 +25,27 @@ function promptIcon(variant, state, icon) {
         return icon;
     return stateIcons[state] ?? variantIcons[variant] ?? "fingerprint";
 }
-export const BiometricPrompt = forwardRef(function BiometricPrompt({ label, description, variant = "fingerprint", state = "default", actionLabel, fallback, icon = "", density, fullWidth = false, onAction, onFallback, className = "", ...rest }, ref) {
-    const resolvedVariant = normalizeFlowValue(variant, validVariants, "fingerprint");
-    const resolvedState = normalizeFlowValue(state, validStates, "default");
+function normalizeBiometricState(state) {
+    if (state === "idle")
+        return "default";
+    if (state === "scanning")
+        return "authenticating";
+    return state;
+}
+export const BiometricPrompt = forwardRef(function BiometricPrompt({ label, title, description, method, variant = "face", state = "default", actionLabel, fallback, fallbackLabel = "Usar passcode", icon = "", density, fullWidth = false, onUse, onAction, onFallback, className = "", ...rest }, ref) {
+    const resolvedMethod = method && validMethods.has(method) ? method : undefined;
+    const resolvedVariant = normalizeFlowValue(resolvedMethod ?? variant, validVariants, "face");
+    const resolvedState = normalizeBiometricState(normalizeFlowValue(state, validStates, "default"));
     const resolvedDensity = normalizeFlowDensity(density);
-    if (!label)
+    const visibleLabel = title ?? label;
+    const actionHandler = onUse ?? onAction;
+    const actionCopy = actionLabel ?? (resolvedState === "error" ? "Reintentar" : "Verificar");
+    const fallbackCopy = fallback ?? fallbackLabel;
+    if (!visibleLabel)
         return null;
     const disabled = resolvedState === "disabled";
-    const canRenderAction = Boolean(actionLabel && onAction);
-    const canRenderFallback = Boolean(fallback && onFallback);
+    const canRenderAction = Boolean(actionHandler && resolvedState !== "success");
+    const canRenderFallback = Boolean(fallbackCopy && onFallback);
     return React.createElement("section", {
         ...flowRestProps(rest),
         ref,
@@ -42,20 +55,20 @@ export const BiometricPrompt = forwardRef(function BiometricPrompt({ label, desc
         ...flowDensityProps(resolvedDensity),
         "data-full-width": String(Boolean(fullWidth)),
         role: "group",
-        "aria-label": label,
-    }, React.createElement("span", { className: "biometric-prompt__icon material-symbol", "aria-hidden": "true" }, promptIcon(resolvedVariant, resolvedState, icon)), React.createElement("div", { className: "biometric-prompt__content" }, React.createElement("strong", null, label), description ? React.createElement("p", { role: "status" }, description) : null), canRenderAction && actionLabel && onAction ? React.createElement(Button, {
+        "aria-label": visibleLabel,
+    }, React.createElement("span", { className: "biometric-prompt__icon material-symbol", "aria-hidden": "true" }, promptIcon(resolvedVariant, resolvedState, icon)), React.createElement("div", { className: "biometric-prompt__content" }, React.createElement("strong", null, visibleLabel), description ? React.createElement("p", { role: resolvedState === "error" ? "alert" : "status" }, description) : null), canRenderAction && actionHandler ? React.createElement(Button, {
         className: "biometric-prompt__action",
-        label: actionLabel,
+        label: actionCopy,
         disabled,
         loading: resolvedState === "authenticating",
         fullWidth: true,
         ...(resolvedDensity ? { density: resolvedDensity } : {}),
         "data-biometric-action": "",
-        onClick: (event) => onAction(event),
-    }) : null, canRenderFallback && fallback && onFallback ? React.createElement(Button, {
+        onClick: (event) => actionHandler(event),
+    }) : null, canRenderFallback && onFallback ? React.createElement(Button, {
         className: "biometric-prompt__fallback",
-        label: fallback,
-        variant: "tertiary",
+        label: fallbackCopy,
+        variant: "ghost",
         disabled,
         ...(resolvedDensity ? { density: resolvedDensity } : {}),
         "data-biometric-fallback": "",

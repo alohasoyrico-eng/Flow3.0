@@ -955,26 +955,31 @@ export const componentContracts = {
     biometricPrompt: {
         factory: "@design-system/react/biometric-prompt",
         element: "section",
-        purpose: "Show one local biometric authentication prompt with icon, copy, primary action, fallback text, and explicit state.",
+        purpose: "Show one local biometric authentication prompt with icon, copy, primary action, required passcode fallback, and explicit state.",
         variants: ["fingerprint", "face", "passcode", "fallback"],
         intents: ["authentication"],
-        states: ["default", "focus", "authenticating", "success", "warning", "error", "disabled"],
+        states: ["default", "idle", "focus", "authenticating", "scanning", "success", "warning", "error", "disabled"],
         props: [
-            { name: "label", type: "string", required: true },
+            { name: "label", type: "string", required: false },
+            { name: "title", type: "string", required: false },
             { name: "description", type: "string", required: false },
+            { name: "method", type: "\"face\" | \"fingerprint\"", required: false },
             { name: "variant", type: "\"fingerprint\" | \"face\" | \"passcode\" | \"fallback\"", required: false },
             { name: "state", type: "BiometricPromptState", required: false },
             { name: "actionLabel", type: "string", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
             { name: "fullWidth", type: "boolean", required: false },
             { name: "fallback", type: "string", required: false },
+            { name: "fallbackLabel", type: "string", required: false },
             { name: "icon", type: "string", required: false },
+            { name: "onUse", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
             { name: "onAction", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
             { name: "onFallback", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false }
         ],
         accessibility: [
             "Provide visible prompt copy and an accessible group label.",
-            "Keep fallback text visible.",
+            "Keep fallback text visible whenever an executable fallback handler exists.",
+            "Announce state changes with status text, and use alert semantics for error.",
             "Use patterns for authentication recovery, passcode reset, and risk escalation."
         ]
     },

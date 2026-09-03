@@ -206,7 +206,7 @@ try {
     assert.equal(prompt.dataset.state, "default");
     assert.equal(prompt.dataset.density, "lg");
     assert.equal(prompt.dataset.fullWidth, "true");
-    assert.equal(view.container.querySelector(".biometric-prompt__icon")?.textContent, "face");
+    assert.equal(view.container.querySelector(".biometric-prompt__icon")?.textContent, "ar_on_you");
     assert.equal(view.getByText("Use Face ID to approve this transfer.").getAttribute("role"), "status");
     assert.equal(action.disabled, false);
     assert.equal(action.dataset.biometricAction, "");
@@ -239,12 +239,37 @@ try {
     }));
     const disabledPrompt = view.getByRole("group", { name: /fallback required/i });
     const disabledAction = view.getByRole("button", { name: /continue/i });
-    assert.equal(disabledPrompt.dataset.variant, "fingerprint");
+    assert.equal(disabledPrompt.dataset.variant, "face");
     assert.equal(disabledPrompt.dataset.state, "disabled");
     assert.equal(disabledAction.disabled, true);
     const before = actions.length;
     await user.click(disabledAction);
     assert.equal(actions.length, before);
+
+    view.rerender(React.createElement(BiometricPrompt, {
+      title: "Face check",
+      method: "face",
+      state: "scanning",
+      onUse: (event) => actions.push(event.type),
+      onFallback: (event) => fallbacks.push(event.type),
+    }));
+    const zipPrompt = view.getByRole("group", { name: /face check/i });
+    assert.equal(zipPrompt.dataset.variant, "face");
+    assert.equal(zipPrompt.dataset.state, "authenticating");
+    assert.equal(view.container.querySelector(".biometric-prompt__icon")?.textContent, "ar_on_you");
+    assert.equal(view.getByRole("button", { name: /verificar/i }).dataset.biometricAction, "");
+    assert.equal(view.getByRole("button", { name: /usar passcode/i }).dataset.biometricFallback, "");
+
+    view.rerender(React.createElement(BiometricPrompt, {
+      title: "Face check failed",
+      method: "face",
+      state: "error",
+      description: "No pudimos confirmar tu identidad.",
+      onUse: (event) => actions.push(event.type),
+      onFallback: (event) => fallbacks.push(event.type),
+    }));
+    assert.equal(view.getByRole("alert").textContent, "No pudimos confirmar tu identidad.");
+    assert.equal(view.getByRole("button", { name: /reintentar/i }).dataset.biometricAction, "");
 
     view.rerender(React.createElement(BiometricPrompt, { label: "" }));
     assert.equal(view.container.textContent, "");

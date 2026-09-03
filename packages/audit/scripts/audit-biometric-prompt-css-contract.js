@@ -30,7 +30,9 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
       "--comp-biometric-prompt-gap: var(--component-space-md)",
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-sm))",
       "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 - var(--component-frame-space-micro))",
+      "--comp-biometric-prompt-icon-font-size: calc(var(--comp-biometric-prompt-icon-size) * 0.38)",
       "--comp-biometric-prompt-title-family: var(--component-font-family-title)",
+      "--comp-biometric-prompt-copy-size: var(--component-font-size-label)",
       "--comp-biometric-prompt-motion-pulse-duration: var(--component-duration-pulse)",
       "gap: var(--comp-biometric-prompt-gap)",
       "padding: var(--comp-biometric-prompt-padding)",
@@ -45,6 +47,8 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-xs))",
       "--comp-biometric-prompt-padding: var(--component-space-lg)",
       "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) + var(--component-space-md))",
+      "--comp-biometric-prompt-title-size: var(--component-font-size-title-xs)",
+      "--comp-biometric-prompt-copy-size: var(--component-font-size-caption)",
     ],
     message: "BiometricPrompt sm density must override current prompt aliases instead of using fixed component blocks.",
   });
@@ -56,6 +60,8 @@ function checkBiometricPromptCssContract({ text, blocks, packageCssFile, selecto
       "--comp-biometric-prompt-inline-size: min(100%, var(--component-content-size-md))",
       "--comp-biometric-prompt-padding: var(--component-space-xl) var(--component-space-lg)",
       "--comp-biometric-prompt-icon-size: calc(var(--component-density-control-height) * 2 + var(--component-space-md))",
+      "--comp-biometric-prompt-title-size: var(--component-font-size-title-md)",
+      "--comp-biometric-prompt-copy-size: var(--component-font-size-body)",
     ],
     message: "BiometricPrompt lg density must override current prompt aliases instead of using fixed component blocks.",
   });

@@ -35,7 +35,7 @@ Inventory the public state/variant vocabulary exposed by component contracts bef
 | audit-event | domain-event | standard | neutral, info, success, warning, danger, action | default, hover, focus, verified, warning, critical, disabled | state, tone, density | - |
 | avatar | display-status | initials, image, status | default | default, online, busy, offline, disabled, unknown | state, density | - |
 | badge | display-status | count, dot, status, icon | info, success, warning, danger, neutral, accent | default, hover, focus, overflow, hidden, disabled | variant, state, tone, density | - |
-| biometric-prompt | domain-auth | fingerprint, face, passcode, fallback | authentication | default, focus, authenticating, success, warning, error, disabled | variant, state, density | - |
+| biometric-prompt | domain-auth | fingerprint, face, passcode, fallback | authentication | default, idle, focus, authenticating, scanning, success, warning, error, disabled | variant, state, density | - |
 | breadcrumbs | navigation | standard, compact, overflow, mobile | navigation | default, hover, focus, collapsed, current, disabled | variant, state, density, disabled | - |
 | button | actions | primary, secondary, tertiary, outlined, ghost | default, danger, warning | default, hover, focus, pressed, disabled, loading | variant, state, intent, density, disabled, loading | - |
 | card | surface-display | default, minimal, elevated, ghost | default | default, hover, focus, selected, loading, error, disabled, muted, interactive | variant, state, density, selected, disabled, loading | - |

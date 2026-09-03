@@ -745,7 +745,8 @@
       "types": "packages/react/src/BiometricPrompt.d.ts",
       "callbacks": [
         "onAction",
-        "onFallback"
+        "onFallback",
+        "onUse"
       ],
       "callbackContracts": [
         {
@@ -755,15 +756,21 @@
         {
           "name": "onFallback",
           "type": "(event: MouseEvent<HTMLButtonElement>) => void"
+        },
+        {
+          "name": "onUse",
+          "type": "(event: MouseEvent<HTMLButtonElement>) => void"
         }
       ],
       "sourceCovered": [
         "onAction",
-        "onFallback"
+        "onFallback",
+        "onUse"
       ],
       "testCovered": [
         "onAction",
-        "onFallback"
+        "onFallback",
+        "onUse"
       ],
       "missingInSource": [],
       "missingInTests": [],

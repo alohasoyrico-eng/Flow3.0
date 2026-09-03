@@ -444,7 +444,7 @@ assert.match(biometricPromptMarkup, /class="button button--primary biometric-pro
 assert.match(biometricPromptMarkup, /aria-busy="true"/);
 assert.match(biometricPromptMarkup, /data-state="loading"/);
 assert.match(biometricPromptMarkup, /data-biometric-action=""/);
-assert.match(biometricPromptMarkup, /class="button button--tertiary biometric-prompt__fallback"/);
+assert.match(biometricPromptMarkup, /class="button button--ghost biometric-prompt__fallback"/);
 assert.match(biometricPromptMarkup, /data-biometric-fallback=""/);
 const inertBiometricPromptMarkup = renderToStaticMarkup(React.createElement(BiometricPrompt, {
   label: "Confirm it is you",
