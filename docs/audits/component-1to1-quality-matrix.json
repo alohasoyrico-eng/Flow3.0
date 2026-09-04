@@ -2098,7 +2098,7 @@
     },
     {
       "id": "popover",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -2111,7 +2111,7 @@
         "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
