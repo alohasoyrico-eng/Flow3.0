@@ -2,10 +2,13 @@ import React, {
   type ButtonHTMLAttributes,
   type ForwardRefExoticComponent,
   type HTMLAttributes,
+  type KeyboardEvent,
   type MouseEvent,
   type ReactNode,
   type RefAttributes,
   forwardRef,
+  useEffect,
+  useId,
   useState,
 } from "react";
 import { listPlatformContract } from "@design-system/components/platforms";
@@ -71,8 +74,94 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List({
   const isSelectedKeyControlled = selectedKey !== undefined;
   const [internalSelectedKey, setInternalSelectedKey] = useState(String(initialSelectedKey));
   const currentSelectedKey = isSelectedKeyControlled ? String(selectedKey ?? "") : internalSelectedKey;
+  const listId = useId();
+
+  const itemIsDisabled = (item: ListItem) => {
+    const rowState = normalizeFlowValue(item.state ?? resolvedState, validStates, resolvedState);
+    return Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
+  };
+  const firstEnabledKey = resolvedItems.find((item) => !itemIsDisabled(item))?.key;
+  const selectedEnabledKey = resolvedItems.find((item) => String(item.key) === currentSelectedKey && !itemIsDisabled(item))?.key;
+  const [activeKey, setActiveKey] = useState(String(selectedEnabledKey ?? firstEnabledKey ?? ""));
+  const activeIndex = resolvedItems.findIndex((item) => String(item.key) === activeKey);
+
+  useEffect(() => {
+    if (!isInteractive) return;
+    const activeItem = resolvedItems.find((item) => String(item.key) === activeKey);
+    if (activeItem && !itemIsDisabled(activeItem)) return;
+    setActiveKey(String(selectedEnabledKey ?? firstEnabledKey ?? ""));
+  }, [activeKey, firstEnabledKey, isInteractive, resolvedItems, selectedEnabledKey]);
 
   if (!resolvedItems.length) return null;
+
+  const optionId = (index: number) => `${listId}-option-${index}`;
+  const moveActive = (direction: 1 | -1) => {
+    if (!resolvedItems.length) return;
+    const startIndex = activeIndex >= 0 ? activeIndex : direction > 0 ? -1 : resolvedItems.length;
+    for (let offset = 1; offset <= resolvedItems.length; offset += 1) {
+      const nextIndex = (startIndex + direction * offset + resolvedItems.length) % resolvedItems.length;
+      const item = resolvedItems[nextIndex];
+      if (item && !itemIsDisabled(item)) {
+        setActiveKey(String(item.key));
+        return;
+      }
+    }
+  };
+  const setEdgeActive = (edge: "start" | "end") => {
+    const candidates = edge === "start" ? resolvedItems : [...resolvedItems].reverse();
+    const item = candidates.find((candidate) => !itemIsDisabled(candidate));
+    if (item) setActiveKey(String(item.key));
+  };
+  const selectActive = (event: KeyboardEvent<HTMLUListElement>) => {
+    const item = resolvedItems.find((candidate) => String(candidate.key) === activeKey);
+    if (!item || itemIsDisabled(item)) return;
+    const key = String(item.key);
+    if (!isSelectedKeyControlled) setInternalSelectedKey(key);
+    onSelect?.(key, event as unknown as MouseEvent<HTMLButtonElement>);
+  };
+  const handleKeyDown = (event: KeyboardEvent<HTMLUListElement>) => {
+    rest.onKeyDown?.(event);
+    if (event.defaultPrevented || !isInteractive) return;
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      moveActive(1);
+      return;
+    }
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      moveActive(-1);
+      return;
+    }
+    if (event.key === "Home") {
+      event.preventDefault();
+      setEdgeActive("start");
+      return;
+    }
+    if (event.key === "End") {
+      event.preventDefault();
+      setEdgeActive("end");
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      selectActive(event);
+      return;
+    }
+    if (event.key.length === 1 && !event.altKey && !event.ctrlKey && !event.metaKey) {
+      const query = event.key.toLocaleLowerCase();
+      const startIndex = activeIndex >= 0 ? activeIndex : -1;
+      for (let offset = 1; offset <= resolvedItems.length; offset += 1) {
+        const nextIndex = (startIndex + offset) % resolvedItems.length;
+        const item = resolvedItems[nextIndex];
+        const labelText = typeof item?.label === "string" ? item.label.toLocaleLowerCase() : "";
+        if (item && !itemIsDisabled(item) && labelText.startsWith(query)) {
+          event.preventDefault();
+          setActiveKey(String(item.key));
+          return;
+        }
+      }
+    }
+  };
 
   return React.createElement(
     "ul",
@@ -84,41 +173,53 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List({
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-interactive": String(isInteractive),
-      role: "list",
+      role: isInteractive ? "listbox" : "list",
       "aria-label": label,
+      "aria-activedescendant": isInteractive && activeIndex >= 0 ? optionId(activeIndex) : undefined,
       "aria-busy": resolvedState === "loading" ? "true" : undefined,
+      tabIndex: isInteractive ? rest.tabIndex ?? 0 : rest.tabIndex,
+      onKeyDown: handleKeyDown,
     },
-    resolvedItems.map((item) => {
+    resolvedItems.map((item, index) => {
       const key = String(item.key);
       const isSelected = currentSelectedKey === key;
       const rowState = normalizeFlowValue(isSelected ? "selected" : item.state ?? resolvedState, validStates, resolvedState);
       const rowTone = normalizeFlowValue<ListItemTone | "">(item.tone ?? (rowState === "error" ? "danger" : ""), validItemTones, "");
-      const disabled = Boolean(item.disabled) || rowState === "disabled" || resolvedState === "disabled";
+      const disabled = itemIsDisabled(item);
+      const isActive = isInteractive && activeKey === key && !disabled;
       const itemCanInteract = isInteractive;
-      const Control = itemCanInteract ? "button" : "span";
       const { key: itemKey, label: itemLabel, meta, value, icon, state: itemState, tone, disabled: itemDisabled, onClick, ...itemRest } = item;
       return React.createElement(
         "li",
-        { className: "list__row", key },
+        {
+          className: "list__row",
+          id: isInteractive ? optionId(index) : undefined,
+          key,
+          role: isInteractive ? "option" : undefined,
+          "aria-selected": isInteractive ? String(isSelected) : undefined,
+          "aria-disabled": isInteractive && disabled ? "true" : undefined,
+          ...(itemCanInteract ? flowRestProps(itemRest) : {}),
+          "data-key": itemCanInteract ? key : undefined,
+          onMouseEnter: itemCanInteract ? () => {
+            if (!disabled) setActiveKey(key);
+          } : undefined,
+          onClick: itemCanInteract ? (event: MouseEvent<HTMLElement>) => {
+            if (disabled) return;
+            onClick?.(event as unknown as MouseEvent<HTMLButtonElement>);
+            if (event.defaultPrevented) return;
+            if (!isSelectedKeyControlled) setInternalSelectedKey(key);
+            onSelect?.(key, event as unknown as MouseEvent<HTMLButtonElement>);
+          } : undefined,
+        },
         React.createElement(
-          Control,
+          "span",
           {
-            ...(itemCanInteract ? flowRestProps(itemRest) : {}),
             className: "list__item",
-            type: itemCanInteract ? "button" : undefined,
-            disabled: itemCanInteract ? disabled : undefined,
             ...flowStateProps(rowState),
             ...flowToneProps(rowTone || undefined),
-            "data-key": itemCanInteract ? key : undefined,
+            "data-active": isActive ? "true" : undefined,
             "aria-current": rowState === "selected" ? "true" : undefined,
             "aria-busy": rowState === "loading" ? "true" : undefined,
-            onClick: itemCanInteract ? (event: MouseEvent<HTMLButtonElement>) => {
-              if (disabled) return;
-              onClick?.(event);
-              if (event.defaultPrevented) return;
-              if (!isSelectedKeyControlled) setInternalSelectedKey(key);
-              onSelect?.(key, event);
-            } : undefined,
           },
           icon
             ? React.createElement("span", { className: "list__icon material-symbol", "aria-hidden": "true" }, icon)

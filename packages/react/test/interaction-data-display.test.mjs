@@ -82,11 +82,13 @@ try {
     onSelect: (key, event) => listSelections.push({ key, eventType: event.type }),
   }));
 
-  const documentsRow = getListRole("button", { name: /documents/i });
-  const fuelRow = getListRole("button", { name: /fuel card/i });
-  assert.equal(documentsRow.getAttribute("aria-current"), null);
+  const documentsRow = getListRole("option", { name: /documents/i });
+  const fuelRow = getListRole("option", { name: /fuel card/i });
+  const documentsFrame = documentsRow.querySelector(".list__item");
+  const fuelFrame = fuelRow.querySelector(".list__item");
+  assert.equal(documentsFrame.getAttribute("aria-current"), null);
   fireEvent.click(documentsRow);
-  await waitFor(() => assert.equal(documentsRow.getAttribute("aria-current"), "true"));
+  await waitFor(() => assert.equal(documentsFrame.getAttribute("aria-current"), "true"));
   assert.deepEqual(listSelections, [{ key: "docs", eventType: "click" }]);
 
   rerenderList(React.createElement(List, {
@@ -99,11 +101,11 @@ try {
     ],
     onSelect: (key, event) => listSelections.push({ key, eventType: event.type }),
   }));
-  await waitFor(() => assert.equal(fuelRow.getAttribute("aria-current"), "true"));
-  assert.equal(documentsRow.getAttribute("aria-current"), null);
+  await waitFor(() => assert.equal(fuelFrame.getAttribute("aria-current"), "true"));
+  assert.equal(documentsFrame.getAttribute("aria-current"), null);
   fireEvent.click(documentsRow);
   assert.deepEqual(listSelections.at(-1), { key: "docs", eventType: "click" });
-  assert.equal(documentsRow.getAttribute("aria-current"), null);
+  assert.equal(documentsFrame.getAttribute("aria-current"), null);
   rerenderList(React.createElement(List, {
     label: "Fleet tasks",
     variant: "action",
@@ -114,8 +116,8 @@ try {
     ],
     onSelect: (key, event) => listSelections.push({ key, eventType: event.type }),
   }));
-  assert.equal(documentsRow.getAttribute("aria-current"), "true");
-  assert.equal(fuelRow.getAttribute("aria-current"), null);
+  assert.equal(documentsFrame.getAttribute("aria-current"), "true");
+  assert.equal(fuelFrame.getAttribute("aria-current"), null);
 
   cleanup();
 
@@ -137,10 +139,10 @@ try {
     onSelect: (key) => preventedListSelections.push(key),
   }));
 
-  const preventedDocumentsRow = getPreventedListRole("button", { name: /documents/i });
+  const preventedDocumentsRow = getPreventedListRole("option", { name: /documents/i });
   fireEvent.click(preventedDocumentsRow);
   assert.deepEqual(preventedListClicks, ["click"]);
-  assert.equal(preventedDocumentsRow.getAttribute("aria-current"), null);
+  assert.equal(preventedDocumentsRow.querySelector(".list__item").getAttribute("aria-current"), null);
   assert.deepEqual(preventedListSelections, []);
 
   cleanup();

@@ -537,7 +537,7 @@ const components = [
     requiredTokens: ["comp.list.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.iconography.*", "sys.symbol.*", "sys.growth.*", "sys.depth.*"],
     primitives: ["color", "typography", "spacing", "radius", "focus", "disabled", "duration", "motion-curves", "iconography", "message", "measurement"],
     props: ["items", "variant", "state", "interactive", "label", "density", "onSelect"],
-    jsSnippets: ["listPlatformContract", "className: [\"list\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', '"data-interactive": String(isInteractive)', "role: \"list\"", "list__row", "list__item", "list__icon", "list__content", "list__value", "onSelect"],
+    jsSnippets: ["listPlatformContract", "className: [\"list\"", 'flowVariantProps(resolvedVariant)', 'flowStateProps(resolvedState)', 'flowDensityProps(resolvedDensity)', '"data-interactive": String(isInteractive)', 'role: isInteractive ? "listbox" : "list"', '"aria-activedescendant"', 'role: isInteractive ? "option" : undefined', "list__row", "list__item", "list__icon", "list__content", "list__value", "onSelect"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLUListElement>", "ListProps", "ListItem", "ListVariant", "ListState", "ListDensity", "key: string", "label: ReactNode", "listPlatformContract"],
     packagePath: "./list",
     exportName: "List",

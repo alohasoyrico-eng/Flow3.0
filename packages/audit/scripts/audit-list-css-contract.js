@@ -16,7 +16,7 @@ function checkListCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const rowBlock = blockFor(blocks, selectorKey, ".list__row");
   const itemBlock = blockFor(blocks, selectorKey, ".list__item");
   const buttonBlock = blockFor(blocks, selectorKey, ".list__item:is(button)");
-  const focusBlock = blockFor(blocks, selectorKey, ".list__item:is(button):focus-visible");
+  const focusBlock = blocks.find((block) => block.selector.includes(".list[data-interactive=\"true\"]:focus-visible .list__item[data-active=\"true\"]"));
   const selectedBlock = blockFor(blocks, selectorKey, ".list__item[data-state=\"selected\"]");
   const disabledBlock = blocks.find((block) => block.selector.includes(".list__item:disabled"));
   const iconBlock = blockFor(blocks, selectorKey, ".list__icon");

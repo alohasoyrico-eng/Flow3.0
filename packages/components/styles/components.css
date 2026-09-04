@@ -1080,7 +1080,7 @@
   --comp-list-muted-fg: var(--component-color-text-muted);
   --comp-list-border: var(--component-color-border);
   --comp-list-radius: var(--component-radius-control);
-  --comp-list-shadow: var(--component-depth-panel);
+  --comp-list-shadow: var(--component-depth-none);
   --comp-list-hover-bg: color-mix(in srgb, var(--component-color-action) 6%, var(--component-color-surface));
   --comp-list-selected-bg: color-mix(in srgb, var(--component-color-action) 8%, var(--component-color-surface));
   --comp-list-selected-accent: var(--component-color-action);
@@ -6379,6 +6379,18 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   margin: var(--comp-list-row-margin);
 }
 
+.list__row[role="option"] {
+  cursor: var(--comp-list-interactive-cursor);
+}
+
+.list__row[aria-disabled="true"] {
+  cursor: var(--comp-list-disabled-cursor);
+}
+
+.list[data-interactive="true"] {
+  outline: none;
+}
+
 .list__item {
   align-items: center;
   background: var(--comp-list-bg);
@@ -6404,13 +6416,16 @@ body[data-contrast="quiet"] .slider:focus-within .slider__value {
   font: inherit;
 }
 
+.list__row[role="option"]:hover .list__item,
 .list__item:is(button):hover,
 .list__item[data-state="hover"],
-.list__item:is(button):focus-visible {
+.list__item:is(button):focus-visible,
+.list__item[data-active="true"] {
   background: var(--comp-list-hover-bg);
 }
 
-.list__item:is(button):focus-visible {
+.list__item:is(button):focus-visible,
+.list[data-interactive="true"]:focus-visible .list__item[data-active="true"] {
   outline: var(--comp-list-focus-width) solid var(--comp-list-focus-color);
   outline-offset: calc(var(--comp-list-focus-offset) * -1);
 }

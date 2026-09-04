@@ -2193,6 +2193,70 @@ const components = {
           )
         )`,
   },
+  list: {
+    title: "List",
+    directory: "list-2026-09-04",
+    module: "List.js",
+    exportName: "List",
+    buildId: "list-runtime-1",
+    eventPropName: "onSelect",
+    statefulValueProp: "selectedKey",
+    actionHandler: "(key, event) => onAction((props.label || 'List') + '=' + key)(event)",
+    runtimeInstruction: "ArrowUp/ArrowDown, Home/End, typeahead y Enter/Space navegan una lista seleccionable; los rows disabled se omiten.",
+    supportPreamble: `const referenceItems = [
+      { key: "route-14", label: "Ruta 14", meta: "Ultima milla - 18 paradas", value: "92%", icon: "route", state: "selected" },
+      { key: "dock-3", label: "Anden 3", meta: "Carga pesada - salida 09:40", value: "Listo", icon: "local_shipping" },
+      { key: "invoice", label: "Factura MX-2841", meta: "Razon social pendiente", value: "Revisar", icon: "receipt_long", tone: "danger" },
+      { key: "blocked", label: "Unidad bloqueada", meta: "Mantenimiento", value: "No disponible", icon: "block", state: "disabled" }
+    ];
+    const mediaItems = [
+      { key: "ana", label: "Ana Sosa", meta: "JMX-214-B - En ruta", value: "1,240", icon: "person" },
+      { key: "leo", label: "Leo Ruiz", meta: "GDL-09 - Documentos", value: "3/4", icon: "badge" },
+      { key: "mia", label: "Mia Torres", meta: "QRO-71 - Incidencia", value: "Review", icon: "warning", tone: "danger" }
+    ];
+    const compactItems = [
+      { key: "north", label: "Norte", meta: "Flota urbana", value: "128", icon: "map" },
+      { key: "center", label: "Centro", meta: "Carga media", value: "96", icon: "hub" },
+      { key: "south", label: "Sur", meta: "Ultima milla", value: "72", icon: "warehouse" }
+    ];
+    const stateItems = (state) => [
+      { key: state, label: state[0].toUpperCase() + state.slice(1), meta: "Estado aplicado al row", value: state === "loading" ? "Sync" : "Demo", icon: state === "error" ? "error" : "task_alt", state }
+    ];`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card audit-card--wide" }, action({ label: "Cola operativa", variant: "action", interactive: true, selectedKey: "route-14", items: referenceItems }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Standard list", variant: "standard", items: referenceItems.slice(0, 3) })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Compact list", variant: "compact", density: "sm", items: compactItems })),
+            e("div", { className: "audit-card" }, action({ label: "Action list", variant: "action", interactive: true, selectedKey: "dock-3", items: referenceItems })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Status list", variant: "status", items: referenceItems })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Media list", variant: "media", items: mediaItems }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, action({ label: "Small list", variant: "action", interactive: true, density: "sm", selectedKey: "north", items: compactItems })),
+            e("div", { className: "audit-card" }, action({ label: "Medium list", variant: "action", interactive: true, density: "md", selectedKey: "route-14", items: referenceItems })),
+            e("div", { className: "audit-card" }, action({ label: "Large list", variant: "action", interactive: true, density: "lg", selectedKey: "ana", items: mediaItems }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Hover row", variant: "status", items: stateItems("hover") })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Selected row", variant: "status", items: stateItems("selected") })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Loading row", variant: "status", items: stateItems("loading") })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Error row", variant: "status", items: stateItems("error") })),
+            e("div", { className: "audit-card" }, action({ label: "Disabled row", variant: "action", interactive: true, items: stateItems("disabled") }))
+          )
+        )`,
+  },
   menu: {
     title: "Menu",
     directory: "menu-2026-08-18",

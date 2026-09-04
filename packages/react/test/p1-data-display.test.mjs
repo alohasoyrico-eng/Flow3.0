@@ -56,27 +56,41 @@ try {
       ],
       onSelect: (key, event) => selections.push({ key, eventType: event.type }),
     }));
-    const list = view.getByRole("list", { name: /driver work queue/i });
-    const ana = view.getByRole("button", { name: /ana sosa/i });
-    const leo = view.getByRole("button", { name: /leo ruiz/i });
-    const mia = view.getByRole("button", { name: /mia torres/i });
+    const list = view.getByRole("listbox", { name: /driver work queue/i });
+    const ana = view.getByRole("option", { name: /ana sosa/i });
+    const leo = view.getByRole("option", { name: /leo ruiz/i });
+    const mia = view.getByRole("option", { name: /mia torres/i });
+    const anaFrame = ana.querySelector(".list__item");
+    const leoFrame = leo.querySelector(".list__item");
+    const options = view.getAllByRole("option");
 
     assert.equal(list.dataset.variant, "action");
     assert.equal(list.dataset.state, "loading");
     assert.equal(list.dataset.density, "sm");
     assert.equal(list.dataset.interactive, "true");
     assert.equal(list.getAttribute("aria-busy"), "true");
-    assert.equal(leo.getAttribute("aria-current"), "true");
+    assert.equal(options.length, 3);
+    assert.equal(options[1].getAttribute("aria-selected"), "true");
+    assert.equal(list.getAttribute("aria-activedescendant"), options[1].id);
+    assert.equal(leoFrame.getAttribute("aria-current"), "true");
 
     await user.click(ana);
     assert.deepEqual(itemClicks, ["click"]);
     assert.deepEqual(selections.at(-1), { key: "ana", eventType: "click" });
-    await waitFor(() => assert.equal(ana.getAttribute("aria-current"), "true"));
+    await waitFor(() => assert.equal(anaFrame.getAttribute("aria-current"), "true"));
 
-    leo.focus();
-    assert.equal(globalThis.document.activeElement, leo);
+    list.focus();
+    assert.equal(globalThis.document.activeElement, list);
+    await user.keyboard("[ArrowDown]");
+    assert.equal(list.getAttribute("aria-activedescendant"), options[1].id);
+    await user.keyboard("[ArrowUp]");
+    assert.equal(list.getAttribute("aria-activedescendant"), options[0].id);
+    await user.keyboard("[End]");
+    assert.equal(list.getAttribute("aria-activedescendant"), options[1].id);
+    await user.keyboard("a");
+    assert.equal(list.getAttribute("aria-activedescendant"), options[0].id);
     await user.keyboard("[Enter]");
-    assert.deepEqual(selections.at(-1), { key: "leo", eventType: "click" });
+    assert.deepEqual(selections.at(-1), { key: "ana", eventType: "keydown" });
 
     const beforeDisabled = selections.length;
     await user.click(mia);

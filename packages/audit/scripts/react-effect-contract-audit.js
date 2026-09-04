@@ -29,6 +29,11 @@ const allowedReactEffects = {
       "document.addEventListener(\"mousedown\", onPointerDown);",
     ],
   },
+  List: {
+    count: 1,
+    reasons: ["active descendant follows controlled selected rows and valid item changes"],
+    snippets: ["setActiveKey(String(selectedEnabledKey ?? firstEnabledKey ?? \"\"));"],
+  },
   Menu: {
     count: 1,
     reasons: ["outside click closes an open panel"],
