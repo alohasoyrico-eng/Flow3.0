@@ -766,20 +766,20 @@
     },
     {
       "id": "chart-panel",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
-        "system-architecture": "partial",
+        "system-architecture": "pass",
         "package-source": "pass",
-        "docs-source": "partial",
+        "docs-source": "pass",
         "foundations-primitives": "pass",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
         "density-layout": "pass",
         "typography-iconography": "pass",
-        "accessibility": "partial",
-        "visual-qa": "partial",
+        "accessibility": "pass",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -810,20 +810,17 @@
         "/private/tmp/chart-panel-tooltip-label-runtime-15.png",
         "local-visual-snapshots/Flow3-component-qa/chart-panel-2026-09-03/interactive/react-runtime.html?fresh=chart-panel-tooltip-label-runtime-15"
       ],
-      "openIssues": [
-        "Pending user visual review of the updated ChartPanel demo before marking pass.",
-        "ChartPanel still intentionally excludes specialized analytical workflows such as Bullet, Gantt, drill-down filters, and dashboard orchestration; those need named pattern decisions if prioritized."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "ChartPanel variants intentionally stay generic: sparkline, bars, line, area, donut, comparison, compact.",
         "Charts primitive may support renderer options, but ChartPanel must not present specialized analytical chart behavior as component variants.",
         "Shared filters, legends, series toggles, drill-down, dashboard layout, and analytical chart decisions belong to chart patterns or ChartWrapper."
       ],
       "lastAuditedAt": "2026-09-04",
-      "notes": "ChartPanel now fixes the actual ECharts sizing lifecycle instead of only resizing CSS boxes: ECharts is initialized without fixed width/height, then scheduleStableResize runs on animation frames, staged timeouts, ResizeObserver, load, and window resize so the rendered SVG uses the CSS-sized host. fullWidth no longer changes the component anatomy: typography remains above the figure, fullWidth only raises available width and plot size, chart cards use quiet bordered Surface with no elevation, and the QA demo shell has no visual surface. Runtime measurement for chart-panel-layout-runtime-7 confirmed one-column layout with denser logistics data: 30-day revenue, 24-hour stops, 14 hubs, 18 depots, 8 vehicle classes, expanded heatmap, boxplot, treemap, waterfall, pareto, and payment-provider slices. Tooltip hover is now governed by the Charts primitive and ChartPanel CSS: line, bar, stacked, comparison, scatter, radar, pareto, funnel, pie/donut, and treemap emit public series names plus chart-panel__echarts-tooltip-swatch and tooltipIcon metadata per datum, the React formatter renders icon + larger density-aware label/value markup without inline visual styles, axis-trigger tooltips separate category title from series labels, and chartRamp no longer uses surface-muted as a data color.",
+      "notes": "ChartPanel now fixes the actual ECharts sizing lifecycle instead of only resizing CSS boxes: ECharts is initialized without fixed width/height, then scheduleStableResize runs on animation frames, staged timeouts, ResizeObserver, load, and window resize so the rendered SVG uses the CSS-sized host. fullWidth no longer changes the component anatomy: typography remains above the figure, fullWidth only raises available width and plot size, chart cards use quiet bordered Surface with no elevation, and the QA demo shell has no visual surface. Runtime measurement for chart-panel-layout-runtime-7 confirmed one-column layout with denser logistics data: 30-day revenue, 24-hour stops, 14 hubs, 18 depots, 8 vehicle classes, expanded heatmap, boxplot, treemap, waterfall, pareto, and payment-provider slices. Tooltip hover is now governed by the Charts primitive and ChartPanel CSS: line, bar, stacked, comparison, scatter, radar, pareto, funnel, pie/donut, and treemap emit public series names plus chart-panel__echarts-tooltip-swatch and tooltipIcon metadata per datum, the React formatter renders icon + larger density-aware label/value markup without inline visual styles, axis-trigger tooltips separate category title from series labels, and chartRamp no longer uses surface-muted as a data color. User visual review accepted chart-panel-tooltip-label-runtime-15 on 2026-09-04; specialized analytical workflows such as Bullet, Gantt, drill-down filters, and dashboard orchestration are intentionally pattern scope, not open component defects.",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-user-visual-review",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready.",
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after user visual review; keep dashboard orchestration and specialized analytics in the patterns backlog.",
       "updatedAt": "2026-09-04",
       "validation": [
         "npm run build:react",
@@ -1555,21 +1552,21 @@
     },
     {
       "id": "icon-button",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
+        "visual-qa": "pass",
+        "validation": "pass"
       },
       "evidence": [
         "packages/react/src/IconButton.tsx",
@@ -1583,19 +1580,34 @@
         "packages/audit/scripts/audit-icon-button-css-contract.js",
         "packages/content/content/component-contracts/components/icon-button.md",
         "packages/specs/specs/unison-system/artifacts/components/icon-button.json",
-        "packages/audit/scripts/audit-icon-button-runtime.mjs"
+        "packages/audit/scripts/audit-icon-button-runtime.mjs",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/IconButton.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/icon-button.json",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/icon-button-2026-08-20/interactive/react-runtime.html",
+        "/private/tmp/icon-button-1to1-runtime-2.png",
+        "local-visual-snapshots/Flow3-component-qa/icon-button-2026-08-20/interactive/react-runtime.html?fresh=icon-button-1to1-runtime-2"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
-        "Search, Switch, and multi-option controls stay outside Icon Button even when they use compact controls in a toolbar."
+        "ZIP tonal maps to Flow secondary; ZIP accent is intentionally not a standalone IconButton variant so IconButton remains aligned with Button action-family API.",
+        "Search, Switch, Menu, and multi-option controls stay outside IconButton even when they use compact controls in a toolbar."
       ],
       "lastReviewAt": "2026-08-19",
       "currentReviewCommit": "811a600f",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed after user visual review of icon-button-1to1-runtime-2; ZIP tonal remains translated to Flow secondary and accent remains outside the public IconButton variant API.",
+      "lastAuditedAt": "2026-09-04",
+      "validation": [
+        "npm run build:component-contracts",
+        "node packages/audit/scripts/build-local-react-qa-demo.mjs --component=icon-button",
+        "node packages/audit/scripts/audit-icon-button-css-contract.js",
+        "node packages/audit/scripts/audit-icon-button-runtime.mjs",
+        "npm run audit:flow-core-gate -- --check --component=icon-button",
+        "Playwright: refreshed runtime demo loaded in dark mode with build icon-button-1to1-runtime-2, 23 IconButton instances, circular 36/44/52px density sizes, selected aria-pressed, loading aria-busy, 0 console errors, and 0 failed requests."
+      ],
+      "notes": "IconButton now follows the ZIP visual benchmark through Flow action-family semantics: circular 36/44/52px density scale, selected glyph fill, badge dot, hover/press motion, dark-mode token proof, and required accessible labels. Stale docs/demo references to ZIP-only tonal/accent variants were replaced with Flow variants primary, secondary, tertiary, outlined, and ghost; tonal is documented as a reference translation to secondary, not a public variant. User visual review accepted icon-button-1to1-runtime-2 on 2026-09-04.",
+      "updatedAt": "2026-09-04"
     },
     {
       "id": "inline-validation",

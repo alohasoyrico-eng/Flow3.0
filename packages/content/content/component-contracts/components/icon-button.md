@@ -123,31 +123,33 @@ Referenced token families:
 - `sys.tone.*`
 - `sys.voice.*`
 
-Icon Button API stays compact: one icon, one accessible action name, one emphasis variant, Density-owned scale, and explicit selected state only when the action is a toggle.
+Icon Button API stays compact: one icon, one accessible action name, one shared action-family emphasis variant, Density-owned scale, and explicit selected state only when the action is a toggle.
 
 ## Variants
 
-Variants set emphasis for one compact topbar utility. Selected is state, not a variant, and appears only when the utility behaves like a toggle.
+Variants set emphasis for one compact topbar utility. ZIP tonal maps to Flow secondary so IconButton stays aligned with the shared action family; selected remains state, not a variant.
 
-Approved variants from demos: `ghost`, `tonal`, `primary`
+Approved variants from demos: `ghost`, `secondary`, `primary`, `outlined`, `tertiary`
 
 Demo labels:
 
 - Ghost
-- Tonal
+- Secondary
 - Primary
+- Outlined
+- Tertiary
 
 ## States
 
-States communicate availability, focus, press, toggle selection, and hover feedback while the circular hit area stays stable.
+States communicate availability, focus, press, toggle selection, loading, and hover feedback while the circular hit area stays stable.
 
-Supported states from docs: `default`, `hover`, `pressed`, `selected`, `badged`, `focus`, `disabled`
+Supported states from docs: `default`, `hover`, `pressed`, `selected`, `badged`, `focus`, `loading`, `disabled`
 
 ## Variant X State Behavior
 
 Variant x state behavior keeps emphasis and state separate: variant chooses the surface, state chooses interaction, selected exposes toggle behavior, and disabled wins.
 
-State matrix: `default`, `hover`, `pressed`, `selected`, `badged`, `focus`, `disabled`
+State matrix: `default`, `hover`, `pressed`, `selected`, `badged`, `focus`, `disabled`, `loading`
 
 | Row | Demo variant | Demo state |
 | --- | --- | --- |
@@ -189,27 +191,29 @@ Use the playground to confirm icon, accessible name, variant, selected/toggle st
 
 | Control | Type | Default | Options |
 | --- | --- | --- | --- |
-| icon | select | grid_view | language, grid_view, contrast |
+| icon | select | grid_view | language, grid_view, contrast, more_vert, search |
 | ariaLabel | text | Show grid |  |
-| variant | select | tonal | ghost, tonal, primary, accent |
+| variant | select | secondary | primary, secondary, tertiary, outlined, ghost |
 | selected | checkbox | true |  |
 | badge | checkbox | false |  |
-| state | select | selected | default, hover, pressed, selected, badged, focus, disabled |
+| state | select | selected | default, hover, pressed, selected, badged, focus, disabled, loading |
 | density | select | md | sm, md, lg |
 
 ## API And Foundations
 
-Icon Button API stays compact: one icon, one accessible action name, one emphasis variant, Density-owned scale, and explicit selected state only when the action is a toggle.
+Icon Button API stays compact: one icon, one accessible action name, one shared action-family emphasis variant, Density-owned scale, and explicit selected state only when the action is a toggle.
 
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
 | icon | string | yes | Approved symbol name. |
 | ariaLabel | string | yes | Accessible action name. |
-| variant | 'ghost' \| 'tonal' \| 'primary' \| 'accent' | no | Visual emphasis. |
+| variant | 'primary' \| 'secondary' \| 'tertiary' \| 'outlined' \| 'ghost' | no | Visual emphasis shared with Button. ZIP tonal maps to secondary; ZIP accent is not a separate Flow variant. |
+| intent | 'default' \| 'danger' \| 'warning' | no | Semantic action intent shared with Button. |
 | density | 'sm' \| 'md' \| 'lg' | no | Design System Density context for the fixed circular hit area. |
 | selected | boolean | no | Toggle state exposed as aria-pressed. |
 | badge | boolean | no | Small status indicator. |
 | disabled | boolean | no | Blocks action. |
+| loading | boolean | no | Shows Spinner, exposes aria-busy, and blocks duplicate activation. |
 | onClick | () => void | yes | Runs the action when enabled. |
 
 ## Implementation Checklist

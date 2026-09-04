@@ -62,8 +62,17 @@ const components = {
     directory: "icon-button-2026-08-20",
     module: "IconButton.js",
     exportName: "IconButton",
-    buildId: "icon-button-react-runtime-1",
+    buildId: "icon-button-1to1-runtime-2",
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-row audit-row--toolbar" },
+            action({ label: "Switch language", icon: "language", variant: "ghost", density: "md" }),
+            action({ label: "Show grid", icon: "grid_view", variant: "secondary", selected: true, density: "md" }),
+            action({ label: "Toggle contrast", icon: "contrast", variant: "ghost", selected: true, badge: true, density: "md" }),
+            action({ label: "Open actions", icon: "more_vert", variant: "outlined", density: "md" })
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Variantes de accion"),
           e("div", { className: "audit-row" },
             action({ label: "Primary add", icon: "add", variant: "primary" }),
@@ -71,6 +80,15 @@ const components = {
             action({ label: "Tertiary search", icon: "search", variant: "tertiary" }),
             action({ label: "Outlined more", icon: "more_vert", variant: "outlined" }),
             action({ label: "Ghost close", icon: "close", variant: "ghost" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Intents"),
+          e("div", { className: "audit-row" },
+            action({ label: "Danger secondary", icon: "delete", variant: "secondary", intent: "danger" }),
+            action({ label: "Warning secondary", icon: "priority_high", variant: "secondary", intent: "warning" }),
+            action({ label: "Danger primary", icon: "delete", variant: "primary", intent: "danger" }),
+            action({ label: "Warning primary", icon: "priority_high", variant: "primary", intent: "warning" })
           )
         ),
         e("section", { className: "audit-section" },
@@ -84,8 +102,12 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Estados publicos"),
           e("div", { className: "audit-row" },
-            action({ label: "Selected", icon: "check", selected: true }),
-            action({ label: "Badge", icon: "notifications", badge: true }),
+            action({ label: "Hover", icon: "language", variant: "ghost", state: "hover" }),
+            action({ label: "Focus", icon: "contrast", variant: "ghost", state: "focus" }),
+            action({ label: "Pressed", icon: "contrast", variant: "secondary", state: "pressed" }),
+            action({ label: "Selected", icon: "check", variant: "secondary", selected: true }),
+            action({ label: "Badge", icon: "notifications", variant: "secondary", badge: true }),
+            action({ label: "Loading", icon: "sync", variant: "secondary", loading: true }),
             e(Component, { label: "Disabled", icon: "block", disabled: true, onClick: onAction("Disabled") })
           )
         )`,

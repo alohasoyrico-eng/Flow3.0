@@ -8,6 +8,8 @@ import { chromium } from "playwright";
 
 const root = process.cwd();
 const cssFile = path.join(root, "packages/components/styles/components.css");
+const tokensFile = path.join(root, "packages/tokens/styles/tokens.css");
+const tokenContextsFile = path.join(root, "packages/tokens/styles/token-contexts.css");
 const expectedFrame = { sm: 36, md: 44, lg: 52 };
 const expectedIcon = { sm: 16, md: 20, lg: 24 };
 const browserCandidates = [
@@ -23,52 +25,54 @@ function browserLaunchOptions() {
 
 function html() {
   const cssHref = pathToFileURL(cssFile).href;
+  const tokensHref = pathToFileURL(tokensFile).href;
+  const tokenContextsHref = pathToFileURL(tokenContextsFile).href;
   return `<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="${tokensHref}">
+    <link rel="stylesheet" href="${tokenContextsHref}">
     <link rel="stylesheet" href="${cssHref}">
     <style>
       body { margin: 0; padding: 24px; background: white; color: #172033; font-family: system-ui, sans-serif; }
       .fixture { display: grid; gap: 16px; inline-size: 520px; padding: 20px; }
-      .fixture[data-theme="dark"] { background: #020617; color: white; }
+      :root[data-theme="dark"] body { background: #020617; color: white; }
       .row { align-items: center; display: flex; gap: 12px; }
     </style>
   </head>
   <body>
-    ${["light", "dark"].map((theme) => `
-      <main class="fixture" data-theme="${theme}">
+      <main class="fixture">
         ${["sm", "md", "lg"].map((density) => `
           <div class="row" data-density="${density}">
-            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="${theme} ghost ${density}">
+            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="ghost ${density}">
               <span class="icon-button__icon" aria-hidden="true">more_horiz</span>
             </button>
-            <button class="icon-button icon-button--secondary" data-density="${density}" aria-label="${theme} secondary ${density}">
+            <button class="icon-button icon-button--secondary" data-density="${density}" aria-label="secondary ${density}">
               <span class="icon-button__icon" aria-hidden="true">grid_view</span>
             </button>
-            <button class="icon-button icon-button--tertiary" data-density="${density}" aria-label="${theme} tertiary ${density}">
+            <button class="icon-button icon-button--tertiary" data-density="${density}" aria-label="tertiary ${density}">
               <span class="icon-button__icon" aria-hidden="true">edit</span>
             </button>
-            <button class="icon-button icon-button--outlined" data-density="${density}" aria-label="${theme} outlined ${density}">
+            <button class="icon-button icon-button--outlined" data-density="${density}" aria-label="outlined ${density}">
               <span class="icon-button__icon" aria-hidden="true">language</span>
             </button>
-            <button class="icon-button icon-button--primary" data-density="${density}" aria-label="${theme} primary ${density}">
+            <button class="icon-button icon-button--primary" data-density="${density}" aria-label="primary ${density}">
               <span class="icon-button__icon" aria-hidden="true">check</span>
             </button>
-            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="${theme} selected ${density}" aria-pressed="true">
+            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="selected ${density}" aria-pressed="true">
               <span class="icon-button__icon" aria-hidden="true">dark_mode</span>
             </button>
-            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="${theme} badge ${density}">
+            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="badge ${density}">
               <span class="icon-button__icon" aria-hidden="true">notifications</span>
               <span class="icon-button__badge" aria-hidden="true"></span>
             </button>
-            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="${theme} disabled ${density}" disabled>
+            <button class="icon-button icon-button--ghost" data-density="${density}" aria-label="disabled ${density}" disabled>
               <span class="icon-button__icon" aria-hidden="true">lock</span>
             </button>
           </div>
         `).join("")}
       </main>
-    `).join("")}
   </body>
 </html>`;
 }
@@ -91,7 +95,13 @@ const browser = await chromium.launch(browserLaunchOptions());
 const page = await browser.newPage({ viewport: { width: 900, height: 760 }, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(fixtureFile).href, { waitUntil: "networkidle" });
 
-const results = await page.evaluate(() => {
+const results = [];
+for (const theme of ["light", "dark"]) {
+  await page.evaluate((nextTheme) => {
+    document.documentElement.dataset.theme = nextTheme;
+  }, theme);
+  await page.waitForTimeout(120);
+  const themeResults = await page.evaluate((currentTheme) => {
   const inspect = (button) => {
     const rect = button.getBoundingClientRect();
     const style = getComputedStyle(button);
@@ -100,7 +110,7 @@ const results = await page.evaluate(() => {
     const badge = button.querySelector(".icon-button__badge");
     const badgeRect = badge?.getBoundingClientRect();
     return {
-      theme: button.closest("[data-theme]")?.getAttribute("data-theme"),
+      theme: currentTheme,
       density: button.getAttribute("data-density"),
       variant: [...button.classList].find((className) => className.startsWith("icon-button--"))?.replace("icon-button--", "") ?? "ghost",
       selected: button.getAttribute("aria-pressed") === "true",
@@ -123,12 +133,17 @@ const results = await page.evaluate(() => {
     };
   };
   return [...document.querySelectorAll(".icon-button")].map(inspect);
-});
+  }, theme);
+  results.push(...themeResults);
+}
 
 const hoverScales = [];
 const pressScales = [];
+await page.evaluate(() => {
+  document.documentElement.dataset.theme = "light";
+});
 for (const density of ["sm", "md", "lg"]) {
-  const selector = `.fixture[data-theme="light"] .icon-button[data-density="${density}"]:not([disabled])`;
+  const selector = `.icon-button[data-density="${density}"]:not([disabled])`;
   const button = page.locator(selector).first();
   await button.hover();
   await page.waitForTimeout(180);
@@ -171,6 +186,17 @@ for (const result of results) {
   if (result.disabled && result.opacity < 0.5) {
     errors.push(`${result.theme} ${result.variant} ${result.density} disabled must stay readable; got opacity ${result.opacity}.`);
   }
+}
+
+const lightGhost = results.find((result) => result.theme === "light" && result.density === "md" && result.variant === "ghost" && !result.selected && !result.badge && !result.disabled);
+const darkGhost = results.find((result) => result.theme === "dark" && result.density === "md" && result.variant === "ghost" && !result.selected && !result.badge && !result.disabled);
+const lightSecondary = results.find((result) => result.theme === "light" && result.density === "md" && result.variant === "secondary");
+const darkSecondary = results.find((result) => result.theme === "dark" && result.density === "md" && result.variant === "secondary");
+if (!lightGhost || !darkGhost || lightGhost.color === darkGhost.color) {
+  errors.push("IconButton runtime must load token-contexts.css and prove dark theme changes icon foreground tokens.");
+}
+if (!lightSecondary || !darkSecondary || lightSecondary.backgroundColor === darkSecondary.backgroundColor) {
+  errors.push("IconButton runtime must prove dark theme changes surfaced variant backgrounds.");
 }
 
 for (const hover of hoverScales) {

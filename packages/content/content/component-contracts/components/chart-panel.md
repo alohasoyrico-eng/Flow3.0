@@ -118,11 +118,9 @@ Chart Panel API frames the Charts primitive. The primitive owns echartsOption, t
 
 ## Variants
 
-Chart Panel variants describe panel anatomy and compact fallback treatment. Detailed visualization form is requested through `chartType` and rendered by the Charts primitive.
+Chart Panel variants describe panel anatomy and compact fallback treatment. Detailed visualization form is requested through chartType and rendered by the Charts primitive.
 
 Approved variants from demos: `sparkline`, `bars`, `line`, `area`, `donut`, `comparison`, `compact`
-
-Approved `chartType` values from the ZIP FlowChart primitive: `line`, `area`, `bar`, `stackedBar`, `stacked100`, `donut`, `pie`, `scatter`, `heatmap`, `radar`, `waterfall`, `pareto`, `gauge`, `funnel`, `treemap`, `boxplot`
 
 Demo labels:
 
@@ -132,8 +130,6 @@ Demo labels:
 - Fuel vs EV sessions
 - Policy compliance
 - Spend mix
-- Cost drivers
-- Target coverage
 - Exceptions review
 - Open blockers
 
