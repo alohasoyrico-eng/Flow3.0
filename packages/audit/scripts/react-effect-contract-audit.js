@@ -6,6 +6,11 @@ const allowedReactEffects = {
     reasons: ["DOM-only indeterminate input property"],
     snippets: ["inputRef.current.indeterminate = currentIndeterminate"],
   },
+  ChartPanel: {
+    count: 1,
+    reasons: ["ECharts runtime needs a DOM host and stable post-layout resize synchronization"],
+    snippets: ["import(\"echarts\")", "scheduleStableResize", "new ResizeObserver(scheduleStableResize)", "window.addEventListener(\"resize\", scheduleStableResize)"],
+  },
   CountrySelector: {
     count: 1,
     reasons: ["outside click closes an open listbox"],

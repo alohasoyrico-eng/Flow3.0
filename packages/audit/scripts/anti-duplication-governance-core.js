@@ -474,7 +474,7 @@ function checkChartVisualizationContractOwnership() {
           "errors",
           file,
           1,
-          `${name} must not ship as a copied ZIP chart component; use ChartPanel plus the Charts primitive, or the ChartWrapper pattern for multi-state chart regions.`
+          `${name} must not ship as a copied ZIP chart component. Generic chart rendering belongs to the Charts primitive and ChartPanel; analytical chart decisions belong to named chart patterns.`
         );
       }
     }
@@ -489,7 +489,7 @@ function checkChartVisualizationContractOwnership() {
         "errors",
         indexFile,
         lineForIndex(source, exportMatch.index),
-        "React must not export standalone ZIP chart components; ChartPanel owns one chart and ChartWrapper owns chart-region composition."
+        "React must not export standalone copied ZIP chart components; use the Charts primitive, ChartPanel, or a named chart pattern contract."
       );
     }
   }
@@ -507,7 +507,7 @@ function checkChartVisualizationContractOwnership() {
           "errors",
           file,
           lineForIndex(source, localChartMatch.index),
-          "Patterns and templates must compose ChartPanel or ChartWrapper instead of standalone ZIP chart primitives."
+          "Patterns and templates must compose the Charts primitive, ChartPanel, or named chart patterns instead of copied ZIP chart primitives."
         );
       }
       for (const match of source.matchAll(/React\.createElement\(\s*["'`](svg|canvas)["'`]/g)) {

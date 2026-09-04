@@ -183,8 +183,8 @@ const components = {
     runtimeInstruction: "AuditEvent no abre, filtra ni secuencia eventos; el patrón padre decide la interacción.",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Referencia ZIP aplicada a Flow"),
-          e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, e(Component, {
+          e("div", { className: "audit-grid audit-grid--charts" },
+            e("div", { className: "audit-card audit-card--chart" }, e(Component, {
               label: "Fuel limit changed",
               description: "Ana Sosa updated MX-4821 policy.",
               meta: "Ana Sosa - Operations",
@@ -193,7 +193,7 @@ const components = {
               icon: "manage_history",
               tone: "neutral"
             })),
-            e("div", { className: "audit-card" }, e(Component, {
+            e("div", { className: "audit-card audit-card--chart" }, e(Component, {
               label: "Document verified",
               description: "Driver license was approved after review.",
               meta: "Fleet admin",
@@ -226,8 +226,8 @@ const components = {
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Límite de patrón"),
-          e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, e(Component, {
+          e("div", { className: "audit-grid audit-grid--charts" },
+            e("div", { className: "audit-card audit-card--chart" }, e(Component, {
               label: "Audit sequence",
               description: "More than one event requires Timeline, Table, or workflow pattern.",
               meta: "Pattern boundary",
@@ -730,7 +730,7 @@ const components = {
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Route/admin summary"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, e(Component, {
+            e("div", { className: "audit-card audit-card--chart" }, e(Component, {
               label: "Fast route",
               description: "Best option for current policy and station availability.",
               metrics: [{ key: "eta", label: "ETA", value: "18 min" }, { key: "distance", label: "Distance", value: "12.4 km" }, { key: "fuel", label: "Fuel", value: "$842" }],
@@ -1556,8 +1556,8 @@ const components = {
     runtimeInstruction: "Click, Enter o Space sobre la accion de EmptyState.",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Referencia ZIP"),
-          e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, e(Component, {
+          e("div", { className: "audit-grid audit-grid--charts" },
+            e("div", { className: "audit-card audit-card--chart" }, e(Component, {
               icon: "local_taxi",
               title: "Sin unidades activas",
               description: "Cuando una unidad se conecte aparecera aqui.",
@@ -1596,7 +1596,7 @@ const components = {
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, e(Component, {
+            e("div", { className: "audit-card audit-card--chart" }, e(Component, {
               icon: "sync",
               title: "Cargando informacion",
               description: "Estamos preparando los datos.",
@@ -1625,6 +1625,92 @@ const components = {
             e("div", { className: "audit-card" }, action({ icon: "inbox", title: "Small empty", description: "Compact empty state copy.", density: "sm", action: { key: "small", label: "Small action" } })),
             e("div", { className: "audit-card" }, action({ icon: "inbox", title: "Medium empty", description: "Default empty state copy.", density: "md", action: { key: "medium", label: "Medium action" } })),
             e("div", { className: "audit-card" }, action({ icon: "inbox", title: "Large empty", description: "Expanded empty state copy.", density: "lg", action: { key: "large", label: "Large action" } }))
+          )
+        )`,
+  },
+  "chart-panel": {
+    title: "ChartPanel",
+    directory: "chart-panel-2026-09-03",
+    module: "ChartPanel.js",
+    exportName: "ChartPanel",
+    buildId: "chart-panel-tooltip-label-runtime-15",
+    runtimeInstruction: "ChartPanel muestra un chart compacto con datos reales; patrones especializados manejan leyendas, filtros, drill-down y decisiones analiticas como Bullet, Pareto o Gantt.",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid audit-grid--charts" },
+            e("div", { className: "audit-chart-shell" }, e(Component, {
+              label: "Last-mile revenue",
+              value: "$18.7M",
+              caption: "30-day routed revenue",
+              variant: "line",
+              values: [420, 438, 452, 471, 463, 498, 516, 509, 534, 558, 574, 591, 612, 629, 641, 666, 659, 681, 704, 729, 748, 766, 792, 815, 838, 861, 884, 902, 927, 951],
+              labels: ["Aug 01", "Aug 02", "Aug 03", "Aug 04", "Aug 05", "Aug 06", "Aug 07", "Aug 08", "Aug 09", "Aug 10", "Aug 11", "Aug 12", "Aug 13", "Aug 14", "Aug 15", "Aug 16", "Aug 17", "Aug 18", "Aug 19", "Aug 20", "Aug 21", "Aug 22", "Aug 23", "Aug 24", "Aug 25", "Aug 26", "Aug 27", "Aug 28", "Aug 29", "Aug 30"],
+              fullWidth: true
+            })),
+            e("div", { className: "audit-chart-shell" }, e(Component, {
+              label: "Fleet energy mix",
+              value: "1,284",
+              caption: "Heavy, middle-mile, last-mile and support units",
+              variant: "donut",
+              segments: [
+                { id: "heavy-diesel", label: "Heavy diesel", value: 312 },
+                { id: "middle-ev", label: "Middle-mile EV", value: 246 },
+                { id: "last-mile-van", label: "Last-mile van", value: 421 },
+                { id: "cargo-bike", label: "Cargo bike", value: 164 },
+                { id: "hybrid", label: "Hybrid", value: 98 },
+                { id: "yard-truck", label: "Yard truck", value: 43 }
+              ],
+              fullWidth: true
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes genericas"),
+          e("div", { className: "audit-grid audit-grid--charts" },
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Stops completed", value: "38,642", caption: "24-hour scan volume", variant: "sparkline", values: [820, 760, 690, 640, 710, 1040, 1580, 2140, 2460, 2380, 2510, 2680, 2860, 2790, 3020, 3180, 3360, 3290, 2960, 2710, 2440, 2190, 1780, 1260], labels: ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Active fleet by hub", value: "1,284", caption: "Units online across 14 hubs", variant: "bars", values: [214, 168, 146, 121, 104, 98, 87, 76, 68, 57, 49, 38, 32, 26], labels: ["CDMX", "GDL", "MTY", "QRO", "PUE", "BJX", "TIJ", "MER", "TOL", "CUN", "SLP", "CUL", "LAP", "VER"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Energy spend", value: "$8.4M", caption: "Fuel and charging, 26 weeks", variant: "area", values: [342, 358, 371, 349, 386, 402, 398, 417, 436, 429, 451, 462, 488, 477, 504, 518, 531, 526, 552, 571, 586, 602, 618, 611, 637, 654], labels: ["W01", "W02", "W03", "W04", "W05", "W06", "W07", "W08", "W09", "W10", "W11", "W12", "W13", "W14", "W15", "W16", "W17", "W18", "W19", "W20", "W21", "W22", "W23", "W24", "W25", "W26"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "On-time routes", value: "91%", caption: "Heavy vs last-mile SLA, 14 days", variant: "line", chartType: "line", legend: true, min: 70, max: 100, labels: ["Aug 17", "Aug 18", "Aug 19", "Aug 20", "Aug 21", "Aug 22", "Aug 23", "Aug 24", "Aug 25", "Aug 26", "Aug 27", "Aug 28", "Aug 29", "Aug 30"], series: [{ id: "heavy", label: "Heavy freight", values: [76, 79, 81, 80, 83, 84, 86, 85, 88, 89, 90, 88, 91, 92] }, { id: "last-mile", label: "Last-mile", values: [91, 89, 93, 92, 95, 94, 96, 95, 97, 96, 98, 97, 96, 98] }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, {
+              label: "Capacity by segment",
+              value: "91%",
+              caption: "Planned vs used cubic capacity",
+              variant: "comparison",
+              values: [82, 69, 74, 58, 63, 71, 67, 54],
+              labels: ["Heavy", "Rigid", "Van", "Cold", "Express", "Reverse", "B2B", "B2C"],
+              comparisons: [
+                { id: "used", label: "Used", values: [82, 69, 74, 58, 63, 71, 67, 54] },
+                { id: "planned", label: "Planned", values: [78, 72, 70, 62, 66, 68, 64, 59] }
+              ]
+            }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Cobertura Charts primitive"),
+          e("div", { className: "audit-grid audit-grid--charts audit-grid--charts-coverage" },
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Middle-mile stacked load", value: "94%", caption: "Cubic capacity by segment", variant: "bars", chartType: "stackedBar", labels: ["Heavy", "Rigid", "Van", "Cold", "Reverse", "Express", "B2B", "B2C", "Returns", "Overflow"], series: [{ id: "used", label: "Used", values: [82, 69, 74, 58, 38, 46, 61, 72, 34, 29] }, { id: "reserved", label: "Reserved", values: [8, 14, 12, 22, 18, 16, 13, 9, 21, 17] }, { id: "open", label: "Open", values: [10, 17, 14, 20, 44, 38, 26, 19, 45, 54] }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Fleet energy share", value: "100%", caption: "Normalized by fleet class", variant: "bars", chartType: "stacked100", labels: ["Tractor", "Rigid", "Van", "Bike", "Yard", "Cold", "Reverse", "Shuttle"], series: [{ id: "diesel", label: "Diesel", values: [78, 46, 18, 0, 62, 71, 38, 54] }, { id: "electric", label: "Electric", values: [8, 34, 57, 92, 22, 11, 44, 26] }, { id: "hybrid", label: "Hybrid", values: [14, 20, 25, 8, 16, 18, 18, 20] }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Depot dwell scatter", value: "18 min", caption: "Stops versus dwell minutes", variant: "line", chartType: "scatter", series: [{ id: "depots", label: "Depots", data: [{ label: "CDMX", value: 142, y: 18 }, { label: "GDL", value: 96, y: 24 }, { label: "MTY", value: 84, y: 31 }, { label: "QRO", value: 62, y: 14 }, { label: "PUE", value: 58, y: 21 }, { label: "BJX", value: 74, y: 28 }, { label: "TIJ", value: 44, y: 33 }, { label: "MER", value: 39, y: 17 }, { label: "TOL", value: 118, y: 23 }, { label: "CUN", value: 76, y: 19 }, { label: "SLP", value: 88, y: 27 }, { label: "CUL", value: 52, y: 16 }, { label: "LAP", value: 31, y: 38 }, { label: "VER", value: 69, y: 22 }, { label: "HMO", value: 47, y: 35 }, { label: "MID", value: 55, y: 26 }, { label: "OAX", value: 36, y: 29 }, { label: "AGS", value: 64, y: 20 }] }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Dock congestion", value: "37", caption: "Hourly heatmap by shift", variant: "bars", chartType: "heatmap", matrix: { cols: ["00", "03", "06", "09", "12", "15", "18", "21"], rows: ["Inbound", "Outbound", "Crossdock", "Returns", "Cold", "Yard"], values: [[0, 0, 8], [1, 0, 10], [2, 0, 18], [3, 0, 31], [4, 0, 37], [5, 0, 34], [6, 0, 22], [7, 0, 14], [0, 1, 12], [1, 1, 16], [2, 1, 20], [3, 1, 28], [4, 1, 34], [5, 1, 30], [6, 1, 25], [7, 1, 18], [0, 2, 9], [1, 2, 11], [2, 2, 14], [3, 2, 22], [4, 2, 29], [5, 2, 33], [6, 2, 24], [7, 2, 16], [0, 3, 4], [1, 3, 5], [2, 3, 6], [3, 3, 9], [4, 3, 14], [5, 3, 17], [6, 3, 11], [7, 3, 7], [0, 4, 6], [1, 4, 8], [2, 4, 13], [3, 4, 19], [4, 4, 26], [5, 4, 32], [6, 4, 21], [7, 4, 12], [0, 5, 15], [1, 5, 18], [2, 5, 24], [3, 5, 27], [4, 5, 30], [5, 5, 25], [6, 5, 20], [7, 5, 16]] }, fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Route quality radar", value: "86", caption: "Safety, SLA, cost, energy, load and returns", variant: "line", chartType: "radar", indicators: [{ name: "Safety", max: 100 }, { name: "SLA", max: 100 }, { name: "Cost", max: 100 }, { name: "Energy", max: 100 }, { name: "Load", max: 100 }, { name: "Returns", max: 100 }], series: [{ id: "current", label: "Current", values: [92, 86, 74, 81, 88, 69] }, { id: "target", label: "Target", values: [95, 90, 82, 88, 91, 78] }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Margin waterfall", value: "$1.45M", caption: "Revenue minus route costs", variant: "bars", chartType: "waterfall", values: [1880, -312, -184, -92, -74, 236, -88, 1450], labels: ["Revenue", "Fuel", "Driver", "Tolls", "Claims", "SLA bonus", "Returns", "Margin"], totals: [7], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Delay Pareto", value: "87%", caption: "Top causes explain most delays", variant: "bars", chartType: "pareto", values: [420, 268, 181, 96, 74, 51, 39, 26], labels: ["Traffic", "Dock", "Docs", "No show", "Weather", "Routing", "Customs", "Other"], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "SLA gauge", value: "82%", caption: "Delivered inside promise", variant: "compact", chartType: "gauge", target: 82, max: 100, fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Dispatch funnel", value: "198", caption: "Quote to delivered load", variant: "bars", chartType: "funnel", segments: [{ id: "quoted", label: "Quoted", value: 400 }, { id: "priced", label: "Priced", value: 332 }, { id: "assigned", label: "Assigned", value: 244 }, { id: "loaded", label: "Loaded", value: 216 }, { id: "delivered", label: "Delivered", value: 198 }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Fleet footprint", value: "1,284", caption: "Units by hub and route class", variant: "donut", chartType: "treemap", segments: [{ id: "cdmx", label: "CDMX", value: 214 }, { id: "gdl", label: "GDL", value: 168 }, { id: "mty", label: "MTY", value: 146 }, { id: "qro", label: "QRO", value: 121 }, { id: "pue", label: "PUE", value: 104 }, { id: "bjx", label: "BJX", value: 98 }, { id: "tij", label: "TIJ", value: 87 }, { id: "mer", label: "MER", value: 76 }, { id: "tol", label: "TOL", value: 68 }, { id: "cancun", label: "CUN", value: 57 }, { id: "slp", label: "SLP", value: 49 }, { id: "cul", label: "CUL", value: 38 }, { id: "lap", label: "LAP", value: 32 }, { id: "ver", label: "VER", value: 26 }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Dock dwell distribution", value: "24 min", caption: "Boxplot by depot", variant: "line", chartType: "boxplot", series: [{ id: "dwell", label: "Dwell", data: [{ label: "CDMX", values: [12, 18, 24, 31, 42] }, { label: "GDL", values: [9, 14, 19, 25, 33] }, { label: "MTY", values: [16, 22, 29, 38, 48] }, { label: "QRO", values: [11, 17, 23, 28, 36] }, { label: "PUE", values: [18, 24, 32, 41, 56] }, { label: "BJX", values: [13, 19, 26, 34, 45] }, { label: "TIJ", values: [20, 28, 36, 48, 64] }, { label: "MER", values: [10, 16, 22, 30, 39] }] }], fullWidth: true })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Payment method share", value: "64%", caption: "Fuel and charging spend by provider", variant: "donut", chartType: "pie", segments: [{ id: "fleet-card", label: "Fleet card", value: 640 }, { id: "wallet", label: "Wallet", value: 244 }, { id: "invoice", label: "Invoice", value: 128 }, { id: "charge-pass", label: "Charge pass", value: 96 }, { id: "cash", label: "Cash", value: 43 }, { id: "credit-line", label: "Credit line", value: 31 }, { id: "reimbursement", label: "Reimbursement", value: 18 }], fullWidth: true }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades y estados"),
+          e("div", { className: "audit-grid audit-grid--charts" },
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Small chart", value: "64", caption: "Compact depot view", density: "sm", variant: "bars", values: [12, 18, 24, 19, 28, 22], labels: ["M", "T", "W", "T", "F", "S"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Medium chart", value: "72", caption: "Default route trend", density: "md", variant: "line", values: [54, 59, 63, 61, 68, 72], labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Large chart", value: "91", caption: "Expanded SLA trend", density: "lg", variant: "area", values: [78, 81, 84, 82, 88, 91], labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Delay risk", value: "-4%", caption: "Routes under threshold", state: "warning", tone: "warning", variant: "bars", values: [22, 19, 17, 15, 12, 10], labels: ["N1", "N2", "N3", "N4", "N5", "N6"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Critical alerts", value: "3", caption: "Open route blockers", state: "error", tone: "danger", variant: "sparkline", values: [1, 2, 2, 3, 4, 3], labels: ["08", "10", "12", "14", "16", "18"] })),
+            e("div", { className: "audit-chart-shell" }, e(Component, { label: "Offline telemetry", value: "0", caption: "Unavailable feed", state: "disabled", variant: "compact", values: [4, 4, 4, 4, 4, 4], labels: ["M", "T", "W", "T", "F", "S"] }))
           )
         )`,
   },
@@ -2427,6 +2513,14 @@ const html = `<!doctype html>
       grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     }
 
+    .audit-grid--charts {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
+    }
+
+    .audit-grid--charts-coverage {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 34rem), 1fr));
+    }
+
     .audit-card {
       align-items: center;
       border: var(--component-border-width) solid var(--component-color-border);
@@ -2448,6 +2542,31 @@ const html = `<!doctype html>
       grid-column: 1 / -1;
       min-block-size: auto;
       overflow-x: auto;
+    }
+
+    .audit-card--chart {
+      align-items: stretch;
+      justify-items: stretch;
+      min-block-size: auto;
+      padding: var(--component-space-md);
+    }
+
+    .audit-card--chart .chart-panel {
+      inline-size: 100%;
+      max-inline-size: none;
+    }
+
+    .audit-chart-shell {
+      align-items: stretch;
+      display: grid;
+      justify-items: stretch;
+      min-block-size: auto;
+      min-inline-size: 0;
+    }
+
+    .audit-chart-shell .chart-panel {
+      inline-size: 100%;
+      max-inline-size: none;
     }
 
     .audit-row--chip-sizing {
@@ -2528,6 +2647,7 @@ const html = `<!doctype html>
       "imports": {
         "react": "${relToRepo}/packages/audit/local-react-qa/react-shim.mjs",
         "react-dom/client": "${relToRepo}/packages/audit/local-react-qa/react-dom-client-shim.mjs",
+        "echarts": "${relToRepo}/node_modules/echarts/dist/echarts.esm.min.mjs",
         "#flow/components": "${relToRepo}/packages/components/src/index.js?v=${config.buildId}",
         "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js?v=${config.buildId}"
       }

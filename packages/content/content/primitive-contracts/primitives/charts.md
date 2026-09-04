@@ -61,7 +61,9 @@ Token dependencies: `chart.*`, `library.*`, `sys.energy.*`, `sys.momentum.*`, `s
 
 ## API
 
-Props: `type`, `series`, `thresholds`, `summary`, `emptyState`, `drilldown`
+Props: `type`, `series`, `labels`, `segments`, `matrix`, `indicators`, `thresholds`, `target`, `min`, `max`, `totals`, `legend`, `stack`, `horizontal`, `showValues`, `palette`, `summary`, `emptyState`, `drilldown`
+
+Types: `line`, `area`, `bar`, `stackedBar`, `stacked100`, `donut`, `pie`, `scatter`, `heatmap`, `radar`, `waterfall`, `pareto`, `gauge`, `funnel`, `treemap`, `boxplot`
 
 Outputs: `echartsOption`, `textSummary`, `legendModel`, `tableFallback`
 

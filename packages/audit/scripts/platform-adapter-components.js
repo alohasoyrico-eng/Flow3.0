@@ -457,7 +457,7 @@ const components = [
     requiredTokens: ["comp.chart-panel.*", "primitive.charts.*", "sys.energy.*", "sys.voice.*", "sys.frame.*", "sys.state.*", "sys.momentum.*", "sys.accessibility.*", "sys.tone.*", "sys.growth.*", "sys.depth.*"],
     primitives: ["color", "typography", "spacing", "radius", "elevation", "focus", "disabled", "duration", "motion-curves", "charts", "message", "measurement"],
     props: ["label", "value", "caption", "values", "valueLabels", "labels", "segments", "series", "comparisons", "variant", "state", "tone", "density", "fullWidth"],
-    jsSnippets: ["chartPanelPlatformContract", "createChartsPrimitive", "className: [\"chart-panel\"", '"data-chart-primitive": "charts"', '"data-chart-engine": "echarts-option"', '"--comp-chart-panel-current-series"', '"--comp-chart-panel-stagger-delay"', "chart-panel__plot", "chart-panel__tooltip", "chart-panel__echarts", "chart-panel__option", "apache-echarts", "tableFallback"],
+    jsSnippets: ["chartPanelPlatformContract", "createChartsPrimitive", "className: [\"chart-panel\"", '"data-chart-primitive": "charts"', '"data-chart-engine": chartEngine', '"echarts-option"', '"echarts-runtime"', '"fallback"', 'import("echarts")', '"data-chart-renderer": "echarts"', '"data-fallback-plot": "true"', '"--comp-chart-panel-current-series"', '"--comp-chart-panel-stagger-delay"', "chart-panel__plot", "chart-panel__tooltip", "chart-panel__echarts", "chart-panel__option", "apache-echarts", "tableFallback"],
     typeSnippets: ["ForwardRefExoticComponent", "RefAttributes<HTMLElement>", "ChartPanelProps", "ChartPanelVariant", "ChartPanelState", "ChartPanelDensity", "ChartPanelTone", "chartPanelPlatformContract"],
     packagePath: "./chart-panel",
     exportName: "ChartPanel",

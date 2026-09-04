@@ -653,6 +653,7 @@
   --component-chart-axis-color: var(--sys-chart-axis-color);
   --component-chart-tooltip-bg: var(--sys-chart-tooltip-background);
   --component-chart-tooltip-fg: var(--sys-chart-tooltip-foreground);
+  --component-chart-threshold-danger: var(--sys-chart-threshold-danger);
   --component-chart-threshold-warning: var(--sys-chart-threshold-warning);
   --component-energy-surface-sunken: var(--sys-energy-surface-sunken);
   --component-energy-surface-primary: var(--sys-energy-surface-primary);
@@ -10483,7 +10484,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-chart-panel-bg: var(--component-color-surface);
   --comp-chart-panel-border: var(--component-color-border);
   --comp-chart-panel-border-width: var(--component-border-width);
-  --comp-chart-panel-depth: var(--component-depth-panel);
+  --comp-chart-panel-depth: var(--component-depth-none);
   --comp-chart-panel-disabled-border: var(--component-disabled-border);
   --comp-chart-panel-disabled-fg: var(--component-disabled-text);
   --comp-chart-panel-disabled-opacity: var(--component-opacity-disabled);
@@ -10495,19 +10496,28 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-chart-panel-full-width: var(--component-inline-size-full);
   --comp-chart-panel-gap: var(--component-space-sm);
   --comp-chart-panel-header-display: var(--component-display-grid);
-  --comp-chart-panel-header-gap: var(--component-frame-space-none);
+  --comp-chart-panel-header-gap: var(--component-space-xs);
+  --comp-chart-panel-copy-gap: var(--component-frame-space-micro);
   --comp-chart-panel-header-title-family: var(--component-font-family-title);
   --comp-chart-panel-header-title-color: var(--component-color-text-muted);
+  --comp-chart-panel-header-title-size: var(--component-density-label-size-md);
   --comp-chart-panel-header-title-weight: var(--component-font-weight-semibold);
   --comp-chart-panel-header-title-letter-spacing: var(--component-letter-spacing-widest);
   --comp-chart-panel-header-title-transform: var(--component-text-transform-uppercase);
+  --comp-chart-panel-caption-size: var(--component-density-helper-size-md);
+  --comp-chart-panel-caption-weight: var(--component-font-weight-regular);
   --comp-chart-panel-output-color: var(--component-color-text);
   --comp-chart-panel-output-family: var(--component-font-family-mono);
-  --comp-chart-panel-output-weight: var(--component-font-weight-semibold);
+  --comp-chart-panel-output-size: var(--component-font-size-data-lg);
+  --comp-chart-panel-output-weight: var(--component-font-weight-light);
   --comp-chart-panel-tooltip-x: 50%;
   --comp-chart-panel-tooltip-y: var(--component-offset-zero);
   --comp-chart-panel-tooltip-bg: var(--component-chart-tooltip-bg);
   --comp-chart-panel-tooltip-fg: var(--component-chart-tooltip-fg);
+  --comp-chart-panel-tooltip-icon-size: var(--component-density-label-size-md);
+  --comp-chart-panel-tooltip-label-size: var(--component-density-label-size-md);
+  --comp-chart-panel-tooltip-title-size: var(--component-density-label-size-md);
+  --comp-chart-panel-tooltip-value-size: var(--component-font-size-body-sm);
   --comp-chart-panel-tooltip-weight: var(--component-font-weight-bold);
   --comp-chart-panel-tooltip-padding: var(--component-space-xs) var(--component-space-sm);
   --comp-chart-panel-tooltip-z: var(--component-z-dropdown);
@@ -10516,16 +10526,17 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-chart-panel-local-tooltip-z: var(--component-z-raised);
   --comp-chart-panel-tooltip-visible-opacity: var(--component-opacity-visible);
   --comp-chart-panel-hover-border: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
-  --comp-chart-panel-hover-depth: var(--component-depth-action-hover);
-  --comp-chart-panel-hover-transform: var(--component-transform-lift-sm);
+  --comp-chart-panel-hover-depth: var(--component-depth-none);
+  --comp-chart-panel-hover-transform: var(--component-transform-none);
   --comp-chart-panel-halo: 0 0 0 var(--component-space-xs) color-mix(in srgb, var(--comp-chart-panel-tone) 14%, transparent);
   --comp-chart-panel-padding: var(--component-space-lg);
   --comp-chart-panel-radius: var(--component-radius-control);
   --comp-chart-panel-state-border: color-mix(in srgb, var(--comp-chart-panel-tone) 48%, var(--component-color-border));
   --comp-chart-panel-tone: var(--component-color-action);
   --comp-chart-panel-width: min(100%, var(--component-content-size-md));
+  --comp-chart-panel-min-block-size: calc(var(--comp-chart-panel-plot-size) + var(--comp-chart-panel-padding) + var(--comp-chart-panel-padding) + var(--component-block-size-sm));
   --comp-chart-panel-plot-size-base: var(--component-block-size-md);
-  --comp-chart-panel-plot-density-offset: var(--component-inline-size-zero);
+  --comp-chart-panel-plot-density-offset: 0px;
   --comp-chart-panel-plot-size: calc(var(--comp-chart-panel-plot-size-base) + var(--comp-chart-panel-plot-density-offset));
   --comp-chart-panel-donut-bg: color-mix(in srgb, var(--component-color-action) 10%, transparent);
   --comp-chart-panel-figure-gap: var(--component-space-xs);
@@ -10545,33 +10556,29 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-chart-panel-donut-center-color: var(--component-color-text);
   --comp-chart-panel-donut-center-family: var(--component-font-family-title);
   --comp-chart-panel-donut-center-weight: var(--component-font-weight-extrabold);
-  --comp-chart-panel-bullet-gap: var(--component-space-sm);
-  --comp-chart-panel-bullet-meter-bg: color-mix(in srgb, var(--component-color-border) 28%, transparent);
-  --comp-chart-panel-bullet-value-color: var(--component-color-text);
-  --comp-chart-panel-bullet-value-family: var(--component-font-family-title);
-  --comp-chart-panel-bullet-value-weight: var(--component-font-weight-extrabold);
-  --comp-chart-panel-pareto-focus-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 82%, var(--component-color-text));
-  --comp-chart-panel-pareto-stroke: var(--component-color-text);
   --comp-chart-panel-threshold-stroke: color-mix(in srgb, var(--component-chart-threshold-warning) 72%, var(--component-chart-grid-color));
   --comp-chart-panel-axis-color: var(--component-chart-axis-color);
   --comp-chart-panel-axis-family: var(--component-font-family-body);
   --comp-chart-panel-axis-weight: var(--component-font-weight-semibold);
   --comp-chart-panel-series-1: var(--component-chart-series-primary);
   --comp-chart-panel-series-2: var(--component-chart-series-secondary);
-  --comp-chart-panel-series-3: var(--component-chart-series-quaternary);
-  --comp-chart-panel-series-4: color-mix(in srgb, var(--component-chart-series-primary) 54%, var(--component-chart-series-secondary));
-  --comp-chart-panel-series-5: var(--component-chart-series-tertiary);
+  --comp-chart-panel-series-3: var(--component-chart-series-tertiary);
+  --comp-chart-panel-series-4: var(--component-chart-series-quaternary);
+  --comp-chart-panel-series-5: var(--component-chart-series-mixed);
+  --comp-chart-panel-series-6: var(--component-chart-threshold-warning);
   --comp-chart-panel-current-series: var(--comp-chart-panel-tone);
   --comp-chart-panel-comparison-reference-fill: color-mix(in srgb, var(--comp-chart-panel-tone) 34%, var(--component-color-border));
   --comp-chart-panel-stagger-delay: var(--component-duration-instant);
   background: var(--comp-chart-panel-bg);
   border: var(--comp-chart-panel-border-width) solid var(--comp-chart-panel-border);
   border-radius: var(--comp-chart-panel-radius);
+  box-sizing: border-box;
   box-shadow: var(--comp-chart-panel-depth);
   color: var(--comp-chart-panel-fg);
   display: var(--comp-chart-panel-display);
   gap: var(--comp-chart-panel-gap);
   inline-size: var(--comp-chart-panel-width);
+  min-block-size: var(--comp-chart-panel-min-block-size);
   padding: var(--comp-chart-panel-padding);
   transition:
     border-color var(--component-duration-state) var(--component-ease-state),
@@ -10813,19 +10820,29 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 }
 
 .chart-panel[data-density="sm"] {
+  --comp-chart-panel-caption-size: var(--component-density-helper-size-sm);
+  --comp-chart-panel-header-title-size: var(--component-density-label-size-sm);
+  --comp-chart-panel-output-size: var(--component-font-size-title-lg);
   --comp-chart-panel-plot-density-offset: calc(var(--component-space-xs) * -1);
   --comp-chart-panel-gap: var(--component-space-sm);
   --comp-chart-panel-padding: var(--component-space-md);
+  --comp-chart-panel-tooltip-icon-size: var(--component-density-label-size-sm);
+  --comp-chart-panel-tooltip-label-size: var(--component-density-label-size-sm);
+  --comp-chart-panel-tooltip-title-size: var(--component-density-label-size-sm);
+  --comp-chart-panel-tooltip-value-size: var(--component-density-label-size-sm);
 }
 
 .chart-panel[data-density="lg"] {
+  --comp-chart-panel-caption-size: var(--component-density-helper-size-lg);
+  --comp-chart-panel-header-title-size: var(--component-density-label-size-lg);
+  --comp-chart-panel-output-size: var(--component-font-size-display-sm);
   --comp-chart-panel-plot-density-offset: var(--component-space-lg);
   --comp-chart-panel-gap: var(--component-space-md);
   --comp-chart-panel-padding: var(--component-space-xl);
-}
-
-.chart-panel[data-full-width="true"] {
-  inline-size: var(--comp-chart-panel-full-width);
+  --comp-chart-panel-tooltip-icon-size: var(--component-density-label-size-lg);
+  --comp-chart-panel-tooltip-label-size: var(--component-density-label-size-lg);
+  --comp-chart-panel-tooltip-title-size: var(--component-density-label-size-lg);
+  --comp-chart-panel-tooltip-value-size: var(--component-font-size-body);
 }
 
 .chart-panel[data-tone="warning"],
@@ -10857,6 +10874,13 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .chart-panel header {
   display: var(--comp-chart-panel-header-display);
   gap: var(--comp-chart-panel-header-gap);
+  min-inline-size: var(--component-inline-size-zero);
+}
+
+.chart-panel header > div {
+  display: var(--comp-chart-panel-header-display);
+  gap: var(--comp-chart-panel-copy-gap);
+  min-inline-size: var(--component-inline-size-zero);
 }
 
 .route-summary header {
@@ -10900,25 +10924,34 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel header strong {
   color: var(--comp-chart-panel-header-title-color);
   font-family: var(--comp-chart-panel-header-title-family);
-  font-size: var(--component-font-size-micro);
+  font-size: var(--comp-chart-panel-header-title-size);
   font-weight: var(--comp-chart-panel-header-title-weight);
   letter-spacing: var(--comp-chart-panel-header-title-letter-spacing);
   line-height: var(--component-line-height-snug);
   text-transform: var(--comp-chart-panel-header-title-transform);
 }
 
+.chart-panel header p {
+  font-size: var(--comp-chart-panel-caption-size);
+  font-weight: var(--comp-chart-panel-caption-weight);
+  line-height: var(--component-line-height-snug);
+  margin: 0;
+}
+
 .chart-panel output {
   color: var(--comp-chart-panel-output-color);
   font-family: var(--comp-chart-panel-output-family);
-  font-size: var(--component-font-size-title-lg);
-  font-weight: var(--comp-chart-panel-header-title-weight);
+  font-size: var(--comp-chart-panel-output-size);
+  font-weight: var(--comp-chart-panel-output-weight);
   line-height: var(--component-line-height-snug);
+  margin: 0;
 }
 
 .chart-panel figure {
   display: grid;
   gap: var(--comp-chart-panel-figure-gap);
   margin: 0;
+  min-inline-size: var(--component-inline-size-zero);
 }
 
 .chart-panel__plot {
@@ -10937,9 +10970,15 @@ body[data-contrast="quiet"] .route-summary__icon {
   display: none;
 }
 
+.chart-panel[data-chart-engine="echarts-runtime"] .chart-panel__plot {
+  display: none;
+}
+
 .chart-panel__echarts {
   block-size: var(--comp-chart-panel-plot-size);
+  height: var(--comp-chart-panel-plot-size);
   inline-size: 100%;
+  min-block-size: var(--comp-chart-panel-plot-size);
 }
 
 .chart-panel__bar-group {
@@ -11074,6 +11113,24 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-chart-panel-plot-size-base: var(--component-block-size-sm);
 }
 
+.chart-panel[data-full-width="true"] {
+  inline-size: var(--comp-chart-panel-full-width);
+  --comp-chart-panel-plot-size-base: calc(var(--component-block-size-lg) + var(--component-block-size-sm));
+}
+
+.chart-panel:is(
+  [data-chart-type="heatmap"],
+  [data-chart-type="radar"],
+  [data-chart-type="waterfall"],
+  [data-chart-type="pareto"],
+  [data-chart-type="gauge"],
+  [data-chart-type="funnel"],
+  [data-chart-type="treemap"],
+  [data-chart-type="boxplot"]
+) {
+  --comp-chart-panel-plot-size-base: calc(var(--component-block-size-lg) + var(--component-block-size-md));
+}
+
 .chart-panel[data-variant="donut"] .chart-panel__plot {
   align-items: center;
   background: none;
@@ -11125,71 +11182,6 @@ body[data-contrast="quiet"] .route-summary__icon {
   z-index: var(--component-z-raised);
 }
 
-.chart-panel[data-variant="bullet"] .chart-panel__plot {
-  align-items: stretch;
-  background: none;
-  border-block-end: 0;
-  display: grid;
-  gap: var(--comp-chart-panel-plot-gap);
-  padding-block-start: 0;
-}
-
-.chart-panel__bullet {
-  align-items: center;
-  border-radius: var(--component-radius-sm);
-  display: grid;
-  gap: var(--comp-chart-panel-plot-gap);
-  grid-template-columns: minmax(4.5rem, 0.8fr) minmax(6rem, 1fr) auto;
-  outline: var(--comp-chart-panel-outline-reset);
-  position: relative;
-  transition: background var(--component-duration-state) var(--component-ease-state);
-}
-
-.chart-panel__bullet:hover,
-.chart-panel__bullet:focus-visible {
-  background: color-mix(in srgb, var(--comp-chart-panel-tone) 8%, transparent);
-}
-
-.chart-panel__bullet b {
-  font-size: var(--component-font-size-caption);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.chart-panel__bullet-meter {
-  appearance: none;
-  background: var(--comp-chart-panel-bullet-meter-bg);
-  border: 0;
-  border-radius: var(--component-radius-sm);
-  block-size: var(--component-inline-size-sm);
-  inline-size: 100%;
-  overflow: hidden;
-}
-
-.chart-panel__bullet-meter::-webkit-progress-bar {
-  background: var(--comp-chart-panel-bullet-meter-bg);
-  border-radius: var(--component-radius-sm);
-}
-
-.chart-panel__bullet-meter::-webkit-progress-value {
-  background: var(--comp-chart-panel-tone);
-  border-radius: var(--component-radius-sm);
-}
-
-.chart-panel__bullet-meter::-moz-progress-bar {
-  background: var(--comp-chart-panel-tone);
-  border-radius: var(--component-radius-sm);
-}
-
-.chart-panel__bullet em {
-  color: var(--comp-chart-panel-output-color);
-  font-family: var(--comp-chart-panel-donut-center-family);
-  font-size: var(--component-font-size-caption);
-  font-style: normal;
-  font-weight: var(--comp-chart-panel-donut-center-weight);
-}
-
 .chart-panel[data-variant="comparison"] .chart-panel__plot {
   align-items: end;
   gap: var(--comp-chart-panel-plot-gap);
@@ -11218,7 +11210,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 
 .chart-panel__bar-group[data-tooltip]::after,
 .chart-panel__donut[data-tooltip]::after,
-.chart-panel__bullet[data-tooltip]::after,
 .chart-panel__comparison-group[data-tooltip]::after {
   background: var(--comp-chart-panel-output-color);
   border-radius: var(--component-radius-sm);
@@ -11248,8 +11239,6 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__bar-group[data-tooltip]:focus-visible::after,
 .chart-panel__donut[data-tooltip]:hover::after,
 .chart-panel__donut[data-tooltip]:focus-visible::after,
-.chart-panel__bullet[data-tooltip]:hover::after,
-.chart-panel__bullet[data-tooltip]:focus-visible::after,
 .chart-panel__comparison-group[data-tooltip]:hover::after,
 .chart-panel__comparison-group[data-tooltip]:focus-visible::after {
   opacity: var(--comp-chart-panel-tooltip-visible-opacity);
@@ -11279,52 +11268,6 @@ body[data-contrast="quiet"] .route-summary__icon {
   transform: var(--component-transform-y-scale-hover);
 }
 
-.chart-panel[data-variant="pareto"] .chart-panel__plot {
-  align-items: center;
-  background: none;
-  border-block-end: 0;
-  padding-block: var(--comp-chart-panel-plot-gap);
-}
-
-.chart-panel__pareto-bar {
-  animation: chart-bar-enter var(--component-duration-reveal) var(--component-ease-enter) both;
-  animation-delay: var(--comp-chart-panel-stagger-delay);
-  fill: var(--comp-chart-panel-tone);
-  outline: var(--comp-chart-panel-outline-reset);
-  transform-box: fill-box;
-  transform-origin: bottom;
-  transition: fill var(--component-duration-state) var(--component-ease-state);
-}
-
-.chart-panel__pareto-bar:hover,
-.chart-panel__pareto-bar:focus-visible {
-  fill: color-mix(in srgb, var(--comp-chart-panel-tone) 82%, var(--comp-chart-panel-output-color));
-}
-
-.chart-panel__pareto-line {
-  animation: chart-line-draw var(--component-duration-reveal) var(--component-ease-enter) both;
-  fill: none;
-  stroke: var(--comp-chart-panel-output-color);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 320;
-  stroke-dashoffset: 320;
-  stroke-width: var(--component-chart-stroke-control);
-}
-
-.chart-panel__pareto-dot {
-  fill: var(--comp-chart-panel-output-color);
-  outline: var(--comp-chart-panel-outline-reset);
-  stroke: var(--comp-chart-panel-dot-stroke);
-  stroke-width: var(--component-chart-stroke-medium);
-}
-
-.chart-panel__pareto-dot:hover,
-.chart-panel__pareto-dot:focus-visible {
-  stroke: var(--comp-chart-panel-focus-stroke);
-  stroke-width: var(--component-chart-stroke-strong);
-}
-
 .chart-panel__tooltip {
   background: var(--comp-chart-panel-tooltip-bg);
   border-radius: var(--component-radius-sm);
@@ -11351,6 +11294,111 @@ body[data-contrast="quiet"] .route-summary__icon {
 .chart-panel__tooltip[data-visible="true"] {
   opacity: 1;
   transform: var(--component-transform-chart-tooltip-visible);
+}
+
+.chart-panel__echarts-tooltip {
+  background: var(--comp-chart-panel-tooltip-bg);
+  border-radius: var(--component-radius-control);
+  color: var(--comp-chart-panel-tooltip-fg);
+  display: grid;
+  gap: var(--component-space-xs);
+  min-inline-size: var(--component-content-size-sm);
+  padding: var(--comp-chart-panel-tooltip-padding);
+}
+
+.chart-panel__echarts-tooltip-title,
+.chart-panel__echarts-tooltip-value {
+  font-weight: var(--comp-chart-panel-tooltip-weight);
+}
+
+.chart-panel__echarts-tooltip-title {
+  font-size: var(--comp-chart-panel-tooltip-title-size);
+  font-weight: var(--comp-chart-panel-tooltip-weight);
+}
+
+.chart-panel__echarts-tooltip-row {
+  align-items: center;
+  display: flex;
+  gap: var(--component-space-sm);
+  white-space: nowrap;
+}
+
+.chart-panel__echarts-tooltip-icon {
+  color: var(--comp-chart-panel-tooltip-fg);
+  flex: 0 0 auto;
+  font-family: var(--component-font-family-icon);
+  font-size: var(--comp-chart-panel-tooltip-icon-size);
+  font-variation-settings: var(--component-icon-variation-filled);
+  line-height: var(--component-line-height-none);
+}
+
+.chart-panel__echarts-tooltip-label {
+  font-size: var(--comp-chart-panel-tooltip-label-size);
+  font-weight: var(--component-font-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chart-panel__echarts-tooltip-value {
+  font-size: var(--comp-chart-panel-tooltip-value-size);
+  font-weight: var(--comp-chart-panel-tooltip-weight);
+  margin-inline-start: auto;
+}
+
+.chart-panel__echarts-tooltip-swatch {
+  background: var(--component-chart-series-primary);
+  block-size: var(--component-space-sm);
+  border-radius: var(--component-radius-pill);
+  flex: 0 0 auto;
+  inline-size: var(--component-space-sm);
+}
+
+.chart-panel__echarts-tooltip-swatch--series-1 {
+  background: var(--component-chart-series-primary);
+}
+
+.chart-panel__echarts-tooltip-swatch--series-2 {
+  background: var(--component-chart-series-secondary);
+}
+
+.chart-panel__echarts-tooltip-swatch--series-3 {
+  background: var(--component-chart-series-tertiary);
+}
+
+.chart-panel__echarts-tooltip-swatch--series-4 {
+  background: var(--component-chart-series-quaternary);
+}
+
+.chart-panel__echarts-tooltip-swatch--series-5 {
+  background: var(--component-chart-series-mixed);
+}
+
+.chart-panel__echarts-tooltip-swatch--series-6 {
+  background: var(--component-chart-threshold-warning);
+}
+
+.chart-panel__echarts-tooltip-swatch--ramp-1 {
+  background: var(--component-chart-series-tertiary);
+}
+
+.chart-panel__echarts-tooltip-swatch--ramp-2 {
+  background: var(--component-chart-series-mixed);
+}
+
+.chart-panel__echarts-tooltip-swatch--ramp-3 {
+  background: var(--component-chart-series-primary);
+}
+
+.chart-panel__echarts-tooltip-swatch--ramp-4 {
+  background: var(--component-chart-series-secondary);
+}
+
+.chart-panel__echarts-tooltip-swatch--ramp-5 {
+  background: var(--component-chart-threshold-warning);
+}
+
+.chart-panel__echarts-tooltip-swatch--danger {
+  background: var(--component-chart-threshold-danger);
 }
 
 .chart-panel__threshold-line {

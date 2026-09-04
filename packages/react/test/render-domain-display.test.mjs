@@ -276,6 +276,7 @@ assert.match(chartPanelMarkup, /^<article/);
 assert.match(chartPanelMarkup, /class="chart-panel"/);
 assert.match(chartPanelMarkup, /data-chart-primitive="charts"/);
 assert.match(chartPanelMarkup, /data-chart-engine="echarts-option"/);
+assert.match(chartPanelMarkup, /data-chart-type="bars"/);
 assert.match(chartPanelMarkup, /data-variant="bars"/);
 assert.match(chartPanelMarkup, /data-state="warning"/);
 assert.match(chartPanelMarkup, /data-tone="info"/);
@@ -283,11 +284,11 @@ assert.match(chartPanelMarkup, /data-density="sm"/);
 assert.match(chartPanelMarkup, /data-full-width="true"/);
 assert.match(chartPanelMarkup, /<output>\$12k<\/output>/);
 assert.match(chartPanelMarkup, /<figure role="group" aria-label="Spend\. \$12k\. Last 7 days\. bars chart/);
-assert.match(chartPanelMarkup, /class="chart-panel__plot" role="list"/);
+assert.match(chartPanelMarkup, /class="chart-panel__plot" role="list" data-fallback-plot="true"/);
 assert.match(chartPanelMarkup, /class="chart-panel__bar-group"/);
 assert.match(chartPanelMarkup, /style="--comp-chart-panel-stagger-delay:calc\(var\(--sys-momentum-stagger-chart\) \* 1\)"/);
 assert.match(chartPanelMarkup, /class="chart-panel__tooltip" role="status" aria-live="polite"/);
-assert.match(chartPanelMarkup, /class="chart-panel__echarts" aria-hidden="true"/);
+assert.match(chartPanelMarkup, /class="chart-panel__echarts" aria-hidden="true" data-chart-renderer="echarts"/);
 assert.match(chartPanelMarkup, /class="chart-panel__option">/);
 assert.match(chartPanelMarkup, /&quot;engine&quot;:&quot;apache-echarts&quot;/);
 assert.match(chartPanelMarkup, /&quot;type&quot;:&quot;bars&quot;/);
@@ -346,6 +347,21 @@ assert.match(comparisonChartMarkup, /data-variant="comparison"/);
 assert.match(comparisonChartMarkup, /data-series="1"/);
 assert.match(comparisonChartMarkup, /--comp-chart-panel-current-series:var\(--comp-chart-panel-comparison-reference-fill\)/);
 assert.match(comparisonChartMarkup, /--comp-chart-panel-stagger-delay:calc\(var\(--sys-momentum-stagger-chart-compact\) \* 1\)/);
+const primitiveTypeChartMarkup = renderToStaticMarkup(React.createElement(ChartPanel, {
+  label: "Route capacity distribution",
+  caption: "Heavy, middle-mile and last-mile fleet",
+  variant: "line",
+  chartType: "treemap",
+  segments: [
+    { id: "heavy", label: "Heavy", value: 96 },
+    { id: "middle", label: "Middle", value: 84 },
+    { id: "last-mile", label: "Last-mile", value: 72 },
+  ],
+}));
+assert.match(primitiveTypeChartMarkup, /data-variant="line"/);
+assert.match(primitiveTypeChartMarkup, /data-chart-type="treemap"/);
+assert.match(primitiveTypeChartMarkup, /&quot;type&quot;:&quot;treemap&quot;/);
+assert.match(primitiveTypeChartMarkup, /Route capacity distribution/);
 
 const auditEventMarkup = renderToStaticMarkup(React.createElement(AuditEvent, {
   label: "Document rejected",

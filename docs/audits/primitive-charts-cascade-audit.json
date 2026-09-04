@@ -114,6 +114,84 @@
     ],
     "missing": []
   },
+  "zipChartTypeCoverage": {
+    "required": [
+      "line",
+      "area",
+      "bar",
+      "stackedBar",
+      "stacked100",
+      "donut",
+      "pie",
+      "scatter",
+      "heatmap",
+      "radar",
+      "waterfall",
+      "pareto",
+      "gauge",
+      "funnel",
+      "treemap",
+      "boxplot"
+    ],
+    "present": [
+      "line",
+      "area",
+      "bar",
+      "stackedBar",
+      "stacked100",
+      "donut",
+      "pie",
+      "scatter",
+      "heatmap",
+      "radar",
+      "waterfall",
+      "pareto",
+      "gauge",
+      "funnel",
+      "treemap",
+      "boxplot"
+    ],
+    "missing": []
+  },
+  "contractChartTypeCoverage": {
+    "required": [
+      "line",
+      "area",
+      "bar",
+      "stackedBar",
+      "stacked100",
+      "donut",
+      "pie",
+      "scatter",
+      "heatmap",
+      "radar",
+      "waterfall",
+      "pareto",
+      "gauge",
+      "funnel",
+      "treemap",
+      "boxplot"
+    ],
+    "present": [
+      "line",
+      "area",
+      "bar",
+      "stackedBar",
+      "stacked100",
+      "donut",
+      "pie",
+      "scatter",
+      "heatmap",
+      "radar",
+      "waterfall",
+      "pareto",
+      "gauge",
+      "funnel",
+      "treemap",
+      "boxplot"
+    ],
+    "missing": []
+  },
   "implementation": {
     "packageHasEcharts": true,
     "primitiveExportsFactory": true,
@@ -124,11 +202,13 @@
     "primitiveEnablesAria": true,
     "primitiveDefinesDataset": true,
     "primitiveUsesSemanticMotion": true,
+    "primitiveSuppressesValueAxisLabelsForDenseCharts": true,
+    "primitiveCoversZipChartTypes": true,
     "panelConsumesPrimitive": true,
     "panelMarksEngine": true,
     "panelFigureSummary": true,
     "panelTooltipLive": true,
-    "componentCssUsesChartTokens": 9
+    "componentCssUsesChartTokens": 10
   },
   "references": {
     "componentContracts": {

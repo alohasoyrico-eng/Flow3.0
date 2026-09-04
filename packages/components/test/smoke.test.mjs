@@ -855,6 +855,83 @@ assert.match(primitivePaymentBrand.querySelector(".payment-brand-mark__asset").s
 const primitiveChart = createChartsPrimitive({ type: "donut", label: "Mix", segments: [{ label: "Fuel", value: 7 }, { label: "EV", value: 3 }] });
 assert.equal(primitiveChart.echartsOption.series[0].type, "pie");
 assert.equal(primitiveChart.legendModel.length, 2);
+const legendPrimitiveChart = createChartsPrimitive({
+  type: "line",
+  label: "Routes",
+  labels: ["Mon", "Tue"],
+  legend: true,
+  series: [
+    { id: "heavy", label: "Heavy freight", values: [82, 84] },
+    { id: "last-mile", label: "Last-mile", values: [88, 86] },
+  ],
+});
+assert.equal(legendPrimitiveChart.echartsOption.legend.show, true);
+assert.equal(legendPrimitiveChart.echartsOption.legend.bottom, 0);
+assert.equal(legendPrimitiveChart.echartsOption.grid.bottom, 34);
+assert.equal(legendPrimitiveChart.echartsOption.yAxis.splitNumber, 3);
+assert.deepEqual(legendPrimitiveChart.echartsOption.legend.data, ["Heavy freight", "Last-mile"]);
+const zipChartTypeFixtures = {
+  line: { values: [84, 92, 96, 104], labels: ["W1", "W2", "W3", "W4"] },
+  area: { values: [18, 24, 21, 29], labels: ["W1", "W2", "W3", "W4"] },
+  bar: { values: [28, 36, 44], labels: ["CDMX", "GDL", "MTY"] },
+  stackedBar: {
+    labels: ["Heavy", "Middle", "Last-mile"],
+    series: [{ id: "diesel", values: [32, 18, 12] }, { id: "ev", values: [8, 22, 38] }],
+  },
+  stacked100: {
+    labels: ["Heavy", "Middle", "Last-mile"],
+    series: [{ id: "diesel", values: [32, 18, 12] }, { id: "ev", values: [8, 22, 38] }],
+  },
+  donut: { segments: [{ label: "Diesel", value: 42 }, { label: "EV", value: 36 }] },
+  pie: { segments: [{ label: "Diesel", value: 42 }, { label: "EV", value: 36 }] },
+  scatter: { series: [{ id: "Stops", data: [{ label: "A", value: 12, y: 86 }, { label: "B", value: 18, y: 72 }] }] },
+  heatmap: { matrix: { cols: ["Mon", "Tue"], rows: ["AM", "PM"], values: [[0, 0, 12], [1, 0, 18], [0, 1, 22]] } },
+  radar: {
+    indicators: [{ label: "Safety", max: 100 }, { label: "Cost", max: 100 }, { label: "SLA", max: 100 }],
+    series: [{ id: "Route A", values: [82, 74, 91] }],
+  },
+  waterfall: { values: [148, -18, 26, -11, 145], labels: ["Start", "Fuel", "Stops", "Delays", "End"] },
+  pareto: { values: [42, 27, 18, 9], labels: ["Delay", "Docs", "Fuel", "Other"] },
+  gauge: { value: "82", max: 100 },
+  funnel: { segments: [{ label: "Quoted", value: 400 }, { label: "Assigned", value: 244 }, { label: "Delivered", value: 198 }] },
+  treemap: { segments: [{ label: "CDMX", value: 148 }, { label: "GDL", value: 92 }, { label: "MTY", value: 74 }] },
+  boxplot: { series: [{ id: "Dwell", data: [{ label: "Dock A", values: [12, 18, 24, 31, 42] }, { label: "Dock B", values: [9, 14, 19, 25, 33] }] }] },
+};
+for (const [type, fixture] of Object.entries(zipChartTypeFixtures)) {
+  const chart = createChartsPrimitive({ type, label: `${type} chart`, ...fixture });
+  assert.ok(Array.isArray(chart.echartsOption.series), `${type} creates an ECharts series array`);
+  assert.ok(chart.echartsOption.series.length > 0, `${type} creates at least one ECharts series`);
+  assert.ok(chart.textSummary.length > 0, `${type} creates a text summary`);
+  assert.ok(Array.isArray(chart.tableFallback), `${type} creates a table fallback`);
+  assert.ok(chart.tableFallback.length > 0, `${type} keeps non-visual fallback rows`);
+}
+const funnelTooltipChart = createChartsPrimitive({ type: "funnel", label: "Dispatch funnel", segments: [{ label: "Quoted", value: 400 }, { label: "Assigned", value: 244 }, { label: "Delivered", value: 198 }] });
+const treemapTooltipChart = createChartsPrimitive({ type: "treemap", label: "Fleet footprint", segments: [{ label: "CDMX", value: 148 }, { label: "QRO", value: 41 }] });
+const lineTooltipChart = createChartsPrimitive({ type: "line", label: "Revenue", labels: ["Aug 17", "Aug 18"], series: [{ id: "last-mile", label: "Last-mile", values: [84, 91] }] });
+const barsTooltipChart = createChartsPrimitive({ type: "bars", label: "Fleet", labels: ["CDMX", "QRO"], series: [{ id: "heavy", label: "Heavy", values: [12, 18] }] });
+assert.equal(funnelTooltipChart.echartsOption.series[0].name, "Dispatch funnel");
+assert.equal(treemapTooltipChart.echartsOption.series[0].name, "Fleet footprint");
+assert.equal(funnelTooltipChart.echartsOption.series[0].data[0].name, "Quoted");
+assert.equal(treemapTooltipChart.echartsOption.series[0].data[1].name, "QRO");
+assert.equal(lineTooltipChart.echartsOption.series[0].data[0].tooltipIcon, "bar_chart");
+assert.equal(barsTooltipChart.echartsOption.series[0].data[0].tooltipIcon, "bar_chart");
+assert.match(lineTooltipChart.echartsOption.series[0].data[0].tooltipMarkerClass, /^chart-panel__echarts-tooltip-swatch--series-/);
+assert.match(barsTooltipChart.echartsOption.series[0].data[0].tooltipMarkerClass, /^chart-panel__echarts-tooltip-swatch--series-/);
+assert.equal(funnelTooltipChart.echartsOption.series[0].data[0].tooltipIcon, "filter_alt");
+assert.equal(treemapTooltipChart.echartsOption.series[0].data[1].tooltipIcon, "domain");
+assert.match(funnelTooltipChart.echartsOption.series[0].data[0].tooltipMarkerClass, /^chart-panel__echarts-tooltip-swatch--ramp-/);
+assert.match(treemapTooltipChart.echartsOption.series[0].data[1].tooltipMarkerClass, /^chart-panel__echarts-tooltip-swatch--series-/);
+assert.notEqual(funnelTooltipChart.echartsOption.series[0].data[0].itemStyle.color, funnelTooltipChart.echartsOption.series[0].data[1].itemStyle.color);
+assert.notEqual(treemapTooltipChart.echartsOption.series[0].data[0].itemStyle.color, treemapTooltipChart.echartsOption.series[0].data[1].itemStyle.color);
+assert.notEqual(funnelTooltipChart.echartsOption.series[0].data[0].tooltipMarkerClass, funnelTooltipChart.echartsOption.series[0].data[1].tooltipMarkerClass);
+assert.notEqual(treemapTooltipChart.echartsOption.series[0].data[0].tooltipMarkerClass, treemapTooltipChart.echartsOption.series[0].data[1].tooltipMarkerClass);
+assert.ok(!funnelTooltipChart.echartsOption.series[0].data.some((item) => String(item.itemStyle.color).includes("surface-muted")));
+assert.equal(createChartsPrimitive({ type: "bar", label: "Bar", values: [1], labels: ["A"] }).type, "bars");
+assert.equal(createChartsPrimitive({ type: "heatmap", label: "Heatmap", matrix: { cols: ["Mon"], rows: ["AM"], values: [[0, 0, 8]] } }).echartsOption.visualMap.show, false);
+assert.equal(createChartsPrimitive({ type: "radar", label: "Radar", indicators: [{ label: "SLA", max: 100 }], values: [86] }).echartsOption.radar.indicator.length, 1);
+assert.equal(createChartsPrimitive({ type: "gauge", label: "Gauge", value: 82 }).echartsOption.series[0].type, "gauge");
+assert.equal(createChartsPrimitive({ type: "waterfall", label: "Waterfall", values: [10, -2, 12], labels: ["A", "B", "C"] }).echartsOption.series.length, 2);
+assert.equal(createChartsPrimitive({ type: "pareto", label: "Pareto", values: [8, 4], labels: ["A", "B"] }).echartsOption.series.length, 2);
 const unlabeledPrimitiveChart = createChartsPrimitive({ values: [1, 2, 3] });
 assert.equal(unlabeledPrimitiveChart.textSummary.includes("Value 1"), false);
 assert.equal(unlabeledPrimitiveChart.textSummary.includes("Series 1"), false);

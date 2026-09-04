@@ -1303,8 +1303,8 @@ export const componentContracts = {
     chartPanel: {
         factory: "@design-system/react/chart-panel",
         element: "article",
-        purpose: "Show one compact chart summary by framing the Charts primitive with title, value, caption, ECharts option output, and read-only fallback plot.",
-        variants: ["sparkline", "bars", "line", "area", "donut", "pareto", "bullet", "comparison", "compact"],
+        purpose: "Show one compact chart surface by framing the Charts primitive with title, value, caption, ECharts option output, and accessible fallback data.",
+        variants: ["sparkline", "bars", "line", "area", "donut", "comparison", "compact"],
         intents: ["info"],
         states: ["default", "focus", "hover", "warning", "error", "disabled"],
         props: [
@@ -1317,7 +1317,19 @@ export const componentContracts = {
             { name: "segments", type: "ChartPanelSegment[]", required: false },
             { name: "series", type: "ChartPanelSeries[]", required: false },
             { name: "comparisons", type: "ChartPanelSeries[]", required: false },
-            { name: "variant", type: "\"sparkline\" | \"bars\" | \"line\" | \"area\" | \"donut\" | \"pareto\" | \"bullet\" | \"comparison\" | \"compact\"", required: false },
+            { name: "chartType", type: "ChartPanelChartType", required: false },
+            { name: "matrix", type: "ChartPanelMatrix", required: false },
+            { name: "indicators", type: "Array<string | { name: string; max?: number }>", required: false },
+            { name: "target", type: "number", required: false },
+            { name: "min", type: "number", required: false },
+            { name: "max", type: "number", required: false },
+            { name: "totals", type: "number[]", required: false },
+            { name: "legend", type: "boolean", required: false },
+            { name: "stack", type: "boolean", required: false },
+            { name: "horizontal", type: "boolean", required: false },
+            { name: "showValues", type: "boolean", required: false },
+            { name: "palette", type: "\"auto\" | \"duo\" | \"categorical\"", required: false },
+            { name: "variant", type: "\"sparkline\" | \"bars\" | \"line\" | \"area\" | \"donut\" | \"comparison\" | \"compact\"", required: false },
             { name: "state", type: "\"default\" | \"focus\" | \"hover\" | \"warning\" | \"error\" | \"disabled\"", required: false },
             { name: "tone", type: "\"neutral\" | \"info\" | \"warning\" | \"danger\"", required: false },
             { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false },
@@ -1326,10 +1338,10 @@ export const componentContracts = {
         accessibility: [
             "Expose a readable chart label through the Charts primitive textSummary.",
             "Treat decorative plot marks as hidden while preserving tableFallback and echartsOption.",
-            "Hydrate with Apache ECharts when the runtime provides it; otherwise keep the accessible Flow fallback.",
+            "Expose Apache ECharts options from the Charts primitive and preserve accessible fallback data when the renderer is unavailable.",
             "Require stable ids before composing explicit series or comparison series.",
             "Require real point labels before composing interactive fallback points; do not synthesize point keys from indexes.",
-            "Use chart patterns for legends, filters, and series toggles."
+            "Use chart patterns for legends, filters, series toggles, Bullet, Pareto, Gantt, heatmap, waterfall, polar, scatter, treemap, and small-multiple analytical decisions."
         ]
     },
     stationPin: {

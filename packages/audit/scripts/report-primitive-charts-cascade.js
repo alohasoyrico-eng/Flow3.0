@@ -65,6 +65,24 @@ const requiredTokenAliases = [
   "--sys-chart-motion-easing-enter",
   "--sys-chart-motion-easing-update",
 ];
+const requiredZipChartTypes = [
+  "line",
+  "area",
+  "bar",
+  "stackedBar",
+  "stacked100",
+  "donut",
+  "pie",
+  "scatter",
+  "heatmap",
+  "radar",
+  "waterfall",
+  "pareto",
+  "gauge",
+  "funnel",
+  "treemap",
+  "boxplot",
+];
 
 function walkFiles(dir, predicate = () => true) {
   if (!fs.existsSync(dir)) return [];
@@ -139,6 +157,16 @@ const tokenAliases = {
   present: requiredTokenAliases.filter((token) => tokenDeclarations.has(token)),
   missing: requiredTokenAliases.filter((token) => !tokenDeclarations.has(token)),
 };
+const zipChartTypeCoverage = {
+  required: requiredZipChartTypes,
+  present: requiredZipChartTypes.filter((type) => new RegExp(`["']${type}["']`).test(chartsPrimitiveSource)),
+  missing: requiredZipChartTypes.filter((type) => !new RegExp(`["']${type}["']`).test(chartsPrimitiveSource)),
+};
+const contractChartTypeCoverage = {
+  required: requiredZipChartTypes,
+  present: requiredZipChartTypes.filter((type) => new RegExp(`\\b${type}\\b`).test(contractSource)),
+  missing: requiredZipChartTypes.filter((type) => !new RegExp(`\\b${type}\\b`).test(contractSource)),
+};
 const implementation = {
   packageHasEcharts: Boolean(packageJson.dependencies?.echarts || packageJson.devDependencies?.echarts),
   primitiveExportsFactory: /export function createChartsPrimitive/.test(chartsPrimitiveSource),
@@ -149,8 +177,12 @@ const implementation = {
   primitiveEnablesAria: /aria:\s*\{[\s\S]*enabled:\s*true/.test(chartsPrimitiveSource),
   primitiveDefinesDataset: /dataset:\s*\{[\s\S]*source:\s*tableFallback/.test(chartsPrimitiveSource),
   primitiveUsesSemanticMotion: /chartMotion\.(?:enterDuration|updateDuration|enterEasing|updateEasing)/.test(chartsPrimitiveSource),
+  primitiveSuppressesValueAxisLabelsForDenseCharts:
+    /valueAxisLabels\s*=\s*resolvedType\s*===\s*"line"\s*\|\|\s*resolvedType\s*===\s*"area"/.test(chartsPrimitiveSource)
+    && /axisLabel:\s*\{[\s\S]*show:\s*valueAxisLabels/.test(chartsPrimitiveSource),
+  primitiveCoversZipChartTypes: zipChartTypeCoverage.missing.length === 0,
   panelConsumesPrimitive: /createChartsPrimitive/.test(chartPanelSource),
-  panelMarksEngine: /"data-chart-engine":\s*"echarts-option"/.test(chartPanelSource),
+  panelMarksEngine: /"data-chart-engine":\s*chartEngine/.test(chartPanelSource) && /"echarts-runtime"/.test(chartPanelSource) && /import\("echarts"\)/.test(chartPanelSource),
   panelFigureSummary: /"aria-label":\s*chartPrimitive\.textSummary/.test(chartPanelSource),
   panelTooltipLive: /"aria-live":\s*"polite"/.test(chartPanelSource) && /role:\s*"status"/.test(chartPanelSource),
   componentCssUsesChartTokens: countMatches(componentCss, /var\(--sys-chart-/g),
@@ -191,6 +223,12 @@ if (missingCoordinatedPrimitives.length) {
 }
 if (missingTokenDependencies.length) gaps.push(`Missing token dependencies: ${missingTokenDependencies.join(", ")}.`);
 if (tokenAliases.missing.length) gaps.push(`Missing sys-chart aliases: ${tokenAliases.missing.join(", ")}.`);
+if (zipChartTypeCoverage.missing.length) {
+  gaps.push(`Charts primitive is missing ZIP FlowChart types: ${zipChartTypeCoverage.missing.join(", ")}.`);
+}
+if (contractChartTypeCoverage.missing.length) {
+  gaps.push(`Charts primitive contract is missing ZIP FlowChart types: ${contractChartTypeCoverage.missing.join(", ")}.`);
+}
 for (const [key, value] of Object.entries(implementation)) {
   if (key === "componentCssUsesChartTokens") continue;
   if (!value) gaps.push(`Charts implementation signal missing: ${key}.`);
@@ -232,6 +270,8 @@ const report = {
     missing: missingTokenDependencies,
   },
   tokenAliases,
+  zipChartTypeCoverage,
+  contractChartTypeCoverage,
   implementation,
   references,
   foundationGate,

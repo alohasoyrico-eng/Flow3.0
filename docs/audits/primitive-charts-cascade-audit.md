@@ -11,7 +11,7 @@ Charts consumes Energy, Accessibility, Momentum, Voice, State, Library Sources, 
 - Roles: 5/5
 - Coordinated primitives: 3/3
 - Token aliases: 19/19
-- Component sys-chart CSS uses: 9
+- Component sys-chart CSS uses: 10
 - Component contract refs: 1
 - Pattern refs: 22
 - Template refs: 10

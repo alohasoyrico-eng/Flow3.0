@@ -6,7 +6,8 @@ import type {
 import type { FlowDataAttributes } from "./internal/props.js";
 import type { chartPanelPlatformContract } from "#flow/platforms";
 
-export type ChartPanelVariant = "sparkline" | "bars" | "line" | "area" | "donut" | "pareto" | "bullet" | "comparison" | "compact";
+export type ChartPanelVariant = "sparkline" | "bars" | "line" | "area" | "donut" | "comparison" | "compact";
+export type ChartPanelChartType = ChartPanelVariant | "bar" | "stackedBar" | "stacked100" | "pie" | "scatter" | "heatmap" | "radar" | "waterfall" | "pareto" | "gauge" | "funnel" | "treemap" | "boxplot";
 export type ChartPanelState = "default" | "focus" | "hover" | "warning" | "error" | "disabled";
 export type ChartPanelTone = "neutral" | "info" | "warning" | "danger";
 export type ChartPanelDensity = "sm" | "md" | "lg";
@@ -15,12 +16,32 @@ export interface ChartPanelSegment {
   id: string;
   label: string;
   value: number;
+  color?: string;
+}
+
+export interface ChartPanelDataItem {
+  label?: string;
+  name?: string;
+  value?: number | string;
+  y?: number | string;
+  values?: unknown[];
+  color?: string;
+  children?: ChartPanelDataItem[];
 }
 
 export interface ChartPanelSeries {
   id: string;
   label: string;
-  values: number[];
+  values?: unknown[];
+  data?: ChartPanelDataItem[] | undefined;
+  color?: string | undefined;
+  symbolSize?: number | undefined;
+}
+
+export interface ChartPanelMatrix {
+  rows: string[];
+  cols: string[];
+  values: Array<[number, number, number]>;
 }
 
 export interface ChartPanelProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
@@ -33,6 +54,18 @@ export interface ChartPanelProps extends Omit<HTMLAttributes<HTMLElement>, "styl
   segments?: ChartPanelSegment[];
   series?: ChartPanelSeries[];
   comparisons?: ChartPanelSeries[];
+  chartType?: ChartPanelChartType;
+  matrix?: ChartPanelMatrix;
+  indicators?: Array<string | { name: string; max?: number }>;
+  target?: number;
+  min?: number;
+  max?: number;
+  totals?: number[];
+  legend?: boolean;
+  stack?: boolean;
+  horizontal?: boolean;
+  showValues?: boolean;
+  palette?: "auto" | "duo" | "categorical";
   variant?: ChartPanelVariant;
   state?: ChartPanelState;
   tone?: ChartPanelTone;

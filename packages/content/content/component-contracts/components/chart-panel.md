@@ -118,9 +118,11 @@ Chart Panel API frames the Charts primitive. The primitive owns echartsOption, t
 
 ## Variants
 
-Chart Panel variants map the ZIP visualization families that fit inside one self-contained Flow component: sparkline, bars, line, area, donut, Pareto, bullet, comparison, and compact.
+Chart Panel variants describe panel anatomy and compact fallback treatment. Detailed visualization form is requested through `chartType` and rendered by the Charts primitive.
 
-Approved variants from demos: `sparkline`, `bars`, `line`, `area`, `donut`, `pareto`, `bullet`, `comparison`, `compact`
+Approved variants from demos: `sparkline`, `bars`, `line`, `area`, `donut`, `comparison`, `compact`
+
+Approved `chartType` values from the ZIP FlowChart primitive: `line`, `area`, `bar`, `stackedBar`, `stacked100`, `donut`, `pie`, `scatter`, `heatmap`, `radar`, `waterfall`, `pareto`, `gauge`, `funnel`, `treemap`, `boxplot`
 
 Demo labels:
 
@@ -188,7 +190,8 @@ Use the playground to verify title, summary value, variant, state, and chart rea
 | --- | --- | --- | --- |
 | label | text | Fuel spend · MXN |  |
 | value | text | $842k |  |
-| variant | select | line | sparkline, bars, line, area, donut, pareto, bullet, comparison, compact |
+| variant | select | line | sparkline, bars, line, area, donut, comparison, compact |
+| chartType | select | line | line, area, bar, stackedBar, stacked100, donut, pie, scatter, heatmap, radar, waterfall, pareto, gauge, funnel, treemap, boxplot |
 | state | select | default | default, hover, focus, warning, error, disabled |
 
 ## API And Foundations
@@ -201,9 +204,21 @@ Chart Panel API frames the Charts primitive. The primitive owns echartsOption, t
 | value | string | No | Primary displayed value. |
 | caption | string | No | Short supporting caption. |
 | values | number[] | No | Local chart values rendered inside the component. |
-| labels | string[] | No | Optional labels for chart values, used by donut, bullet, bars, and accessible titles. |
+| labels | string[] | No | Optional labels for chart values, bars, segments, and accessible titles. |
 | segments | ChartPanelSegment[] | No | Optional part-to-whole data for donut panels. |
-| variant | ChartPanelVariant | No | Local visualization treatment: sparkline, bars, line, area, donut, pareto, bullet, comparison, or compact. |
+| chartType | ChartPanelChartType | No | ECharts/Charts primitive visualization type. This does not create a Chart Panel variant. |
+| matrix | ChartPanelMatrix | No | Heatmap rows, columns, and values. |
+| indicators | Array<string \| { name: string; max?: number }> | No | Radar axis names and maximums. |
+| target | number | No | Gauge or target-led chart value. |
+| min | number | No | Optional numeric domain minimum. |
+| max | number | No | Optional numeric domain maximum. |
+| totals | number[] | No | Waterfall indexes that represent totals. |
+| legend | boolean | No | Requests a compact primitive legend when the chart type supports it. |
+| stack | boolean | No | Requests stacked series behavior for compatible charts. |
+| horizontal | boolean | No | Requests horizontal orientation for compatible charts. |
+| showValues | boolean | No | Requests direct value labels where legible. |
+| palette | "auto" \| "duo" \| "categorical" | No | Chooses primitive palette strategy without raw colors. |
+| variant | ChartPanelVariant | No | Panel anatomy and fallback treatment: sparkline, bars, line, area, donut, comparison, or compact. |
 | state | ChartPanelState | No | Visual state: default, focus, hover, warning, error, or disabled. |
 | tone | ChartPanelTone | No | Semantic tone for value and plot emphasis. |
 | density | Density | No | Controls spacing and plot height. |
