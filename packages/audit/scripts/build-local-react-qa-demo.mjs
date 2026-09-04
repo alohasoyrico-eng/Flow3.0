@@ -2198,7 +2198,7 @@ const components = {
     directory: "menu-2026-08-18",
     module: "Menu.js",
     exportName: "Menu",
-    buildId: "menu-anchor-layout-runtime-1",
+    buildId: "menu-1to1-runtime-1",
     eventPropName: "onSelect",
     actionHandler: "(item, event) => onAction(props.triggerLabel + '=' + item.label)(event)",
     actionSelector: "[data-menu-trigger]:not(:disabled)",
