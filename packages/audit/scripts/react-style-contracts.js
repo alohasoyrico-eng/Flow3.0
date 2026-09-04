@@ -1,6 +1,16 @@
 const allowedDynamicStyleKeysByComponent = {
   Avatar: ["--comp-avatar-identity-bg", "--comp-avatar-identity-fg"],
   ChartPanel: ["--comp-chart-panel-current-series", "--comp-chart-panel-stagger-delay"],
+  Popover: [
+    "--comp-popover-runtime-left",
+    "--comp-popover-runtime-top",
+    "--comp-popover-runtime-origin",
+    "--comp-popover-runtime-visibility",
+    "--comp-popover-runtime-width",
+    "--comp-popover-runtime-min-width",
+    "--comp-popover-runtime-max-height",
+    "--comp-popover-runtime-max-width",
+  ],
   Skeleton: [
     "--comp-skeleton-current-width",
     "--comp-skeleton-current-height",

@@ -2377,7 +2377,7 @@ const components = {
     directory: "popover-2026-08-25",
     module: "Popover.js",
     exportName: "Popover",
-    buildId: "popover-react-runtime-1",
+    buildId: "popover-keyboard-runtime-3",
     eventPropName: "onAction",
     actionHandler: "(key, event) => onAction(props.title + '=' + key)(event)",
     actionSelector: "[data-popover-trigger]:not(:disabled)",
@@ -2711,8 +2711,9 @@ const html = `<!doctype html>
   <script type="importmap">
     {
       "imports": {
-        "react": "${relToRepo}/packages/audit/local-react-qa/react-shim.mjs",
-        "react-dom/client": "${relToRepo}/packages/audit/local-react-qa/react-dom-client-shim.mjs",
+        "react": "${relToRepo}/packages/audit/local-react-qa/react-shim.mjs?v=${config.buildId}",
+        "react-dom": "${relToRepo}/packages/audit/local-react-qa/react-dom-shim.mjs?v=${config.buildId}",
+        "react-dom/client": "${relToRepo}/packages/audit/local-react-qa/react-dom-client-shim.mjs?v=${config.buildId}",
         "echarts": "${relToRepo}/node_modules/echarts/dist/echarts.esm.min.mjs",
         "#flow/components": "${relToRepo}/packages/components/src/index.js?v=${config.buildId}",
         "#flow/platforms": "${relToRepo}/packages/components/src/platforms/index.js?v=${config.buildId}"

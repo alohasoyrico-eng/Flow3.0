@@ -4,9 +4,10 @@ import { popoverPlatformContract } from "@design-system/components/platforms";
 
 export type PopoverVariant = "information" | "action" | "form" | "metric";
 export type PopoverState = "default" | "closed" | "open" | "hover" | "focus" | "warning" | "disabled";
-export type PopoverPlacement = "top" | "right" | "bottom" | "left";
+export type PopoverPlacement = "top" | "right" | "bottom" | "left" | `${"top" | "right" | "bottom" | "left"}-${"start" | "center" | "end"}`;
 export type PopoverDensity = "sm" | "md" | "lg";
 export type PopoverOpenChangeEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
+export type PopoverSurface = "card" | "none";
 
 export interface PopoverAction {
   key?: string;
@@ -40,6 +41,12 @@ export interface PopoverProps extends Omit<HTMLAttributes<HTMLSpanElement>, "sty
   placement?: PopoverPlacement;
   density?: PopoverDensity;
   fullWidth?: boolean;
+  matchAnchorWidth?: boolean;
+  minWidth?: number;
+  surface?: PopoverSurface;
+  interactive?: boolean;
+  autoFocus?: boolean;
+  offset?: number;
   disabled?: boolean;
   actions?: PopoverAction[];
   field?: PopoverField;

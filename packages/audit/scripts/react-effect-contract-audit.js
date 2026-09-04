@@ -35,9 +35,9 @@ const allowedReactEffects = {
     snippets: ["document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
   },
   Popover: {
-    count: 1,
-    reasons: ["outside click closes an open panel"],
-    snippets: ["document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
+    count: 2,
+    reasons: ["optional autoFocus enters an open interactive panel", "outside click closes an open panel"],
+    snippets: ["focusableInside(panelRef.current)?.focus();", "document.addEventListener(\"mousedown\", onDocumentMouseDown);"],
   },
   Select: {
     count: 2,

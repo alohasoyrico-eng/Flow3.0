@@ -719,7 +719,7 @@
     },
     {
       "id": "card-summary",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "partial",
         "system-architecture": "partial",
@@ -732,7 +732,7 @@
         "density-layout": "partial",
         "typography-iconography": "partial",
         "accessibility": "partial",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "partial"
       },
       "evidence": [
@@ -2100,52 +2100,56 @@
       "id": "popover",
       "status": "partial",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
         "visual-qa": "partial",
-        "validation": "partial"
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/components/feedback/Tooltip.jsx",
-        ".audit-reference/components/actions/Menu.jsx",
-        ".audit-reference/components/feedback/Dialog.jsx",
-        ".audit-reference/components/feedback/overlays.card.html",
-        "docs/audits/popover-1to1-quality-audit.json",
-        "docs/audits/popover-1to1-light.png",
-        "docs/audits/popover-1to1-dark.png",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/popover.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/shells/Popover.jsx",
         "packages/react/src/Popover.tsx",
-        "packages/react/test/p0-overlays-navigation.test.mjs",
+        "packages/react/src/Popover.d.ts",
+        "packages/react/dist/Popover.js",
+        "packages/react/dist/Popover.d.ts",
+        "packages/audit/local-react-qa/react-dom-shim.mjs",
+        "packages/audit/local-react-qa/react-shim.mjs",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
-        "packages/components/src/components/overlays.js",
-        "packages/components/src/registry.js",
-        "packages/components/src/contracts.js",
+        "packages/audit/scripts/audit-popover-runtime.mjs",
+        "packages/audit/scripts/react-style-contracts.js",
+        "packages/audit/scripts/react-effect-contract-audit.js",
         "packages/components/styles/components.css",
-        "packages/components/test/smoke.test.mjs",
-        "apps/docs/stateful-component-interactions.js",
-        "apps/docs/styles/04i-simple-component-layout.css",
-        "../../local-visual-snapshots/Flow3-component-qa/popover-2026-08-25/interactive/react-runtime.html"
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/popover-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
-      "lastReviewAt": "2026-08-25",
+      "openIssues": [],
+      "lastReviewAt": "2026-09-04",
       "currentReviewCommit": "working-tree",
-      "decision": "Closed for current review. Popover has no direct ZIP component, so the review triangulates Tooltip lightweight disclosure, Menu anchored overlay behavior, and Dialog overlay surface anatomy. The React runtime demo composes Flow Button/Input/actions, opens with Enter, closes with Escape and outside/action paths, keeps compact governed panel typography, preserves overlay depth/radius through shared tokens, and runs clean with no console errors or failed requests.",
+      "decision": "Technical review complete against the direct ZIP Popover contract. Popover now renders its panel through a portal, positions from the trigger with viewport collision/clamping, closes on Escape/click outside/action, restores focus, supports keyboard entry from trigger into panel actions, supports compound placement, matchAnchorWidth, minWidth, surface='card'|'none', autoFocus, offset, and density-scaled panel/voice. Runtime positioning is exposed only through governed --comp-popover-runtime-* custom properties consumed by component CSS.",
       "inventoryEscalations": [
         "Escalate long forms, search, multi-step decisions, and persistent detail panels to patterns instead of Popover."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "ZIP reference is direct for Popover; runtime and core evidence are current and reproducible. Closed after user visual/manual acceptance on popover-keyboard-runtime-3.",
+      "validation": [
+        "npm run build --workspace @design-system/react",
+        "node packages/audit/scripts/build-local-react-qa-demo.mjs --component=popover",
+        "node packages/audit/scripts/audit-component-css-contracts.js --check",
+        "npm run typecheck",
+        "npm run audit:flow-core-gate -- --check --component=popover",
+        "node packages/audit/scripts/audit-popover-runtime.mjs"
+      ],
+      "notes": "Runtime audit confirms 12 fixtures, no accidental open state, no inline panel, portaled fixed panel under body, Tab from non-interactive Popover content closes on focus exit and focuses the next trigger, Tab from trigger reaches the first panel action, Tab moves through actions, Tab after the last action closes the panel and focuses the next trigger in DOM order, Escape focus return, outside/action close, action logging, density scaling, mobile viewport clamp, and dark-mode opaque surface.",
+      "lastAuditedAt": "2026-09-04"
     },
     {
       "id": "progress-indicator",

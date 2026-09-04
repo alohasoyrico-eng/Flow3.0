@@ -13703,10 +13703,24 @@ body[data-contrast="quiet"] .route-summary__icon {
   --comp-popover-body-line-height: var(--component-line-height-normal);
   --comp-popover-actions-gap: var(--comp-popover-gap);
   --comp-popover-actions-padding-block-start: var(--comp-popover-gap);
+  --comp-popover-runtime-left: -9999px;
+  --comp-popover-runtime-top: -9999px;
+  --comp-popover-runtime-origin: top;
+  --comp-popover-runtime-visibility: hidden;
+  --comp-popover-runtime-width: min(var(--comp-popover-panel-width), 90vw);
+  --comp-popover-runtime-min-width: var(--comp-popover-panel-width);
+  --comp-popover-runtime-max-height: none;
+  --comp-popover-runtime-max-width: 90vw;
   display: inline-grid;
   gap: var(--comp-popover-gap);
   min-inline-size: min(100%, var(--comp-popover-panel-width));
   position: relative;
+}
+
+.popover--portal {
+  display: contents;
+  min-inline-size: 0;
+  position: static;
 }
 
 .popover[data-full-width="true"] {
@@ -13749,6 +13763,30 @@ body[data-contrast="quiet"] .route-summary__icon {
   padding: var(--comp-popover-panel-padding);
   position: absolute;
   z-index: var(--comp-popover-panel-z-index);
+}
+
+.popover--portal .popover__panel {
+  inset: auto;
+  left: var(--comp-popover-runtime-left);
+  max-block-size: var(--comp-popover-runtime-max-height);
+  max-inline-size: var(--comp-popover-runtime-max-width);
+  min-inline-size: var(--comp-popover-runtime-min-width);
+  overflow: auto;
+  position: fixed;
+  top: var(--comp-popover-runtime-top);
+  transform-origin: var(--comp-popover-runtime-origin);
+  visibility: var(--comp-popover-runtime-visibility);
+  width: var(--comp-popover-runtime-width);
+}
+
+.popover--portal[data-interactive="false"] .popover__panel {
+  pointer-events: none;
+}
+
+.popover[data-surface="none"] .popover__panel {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .popover__panel[hidden] {
