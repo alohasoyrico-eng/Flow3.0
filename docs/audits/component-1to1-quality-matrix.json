@@ -1613,33 +1613,51 @@
       "id": "inline-validation",
       "status": "partial",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
         "visual-qa": "partial",
-        "validation": "partial"
+        "validation": "pass"
       },
       "evidence": [
-        "docs/audits/inline-validation-1to1-quality-audit.json",
-        "docs/audits/inline-validation-1to1-visual-metrics.json",
-        "docs/audits/inline-validation-1to1-light-qa.png",
-        "docs/audits/inline-validation-1to1-dark-qa.png",
-        "packages/components/test/smoke.test.mjs"
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/field.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/input.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/select.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/textarea.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/cards/forms.card.html",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/textarea.html",
+        "packages/react/src/InlineValidation.tsx",
+        "packages/react/dist/InlineValidation.js",
+        "packages/components/src/platforms/inline-validation.ts",
+        "packages/content/content/component-copy/components/inline-validation/all.json",
+        "packages/content/content/component-contracts/components/inline-validation.md",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/audit/scripts/audit-inline-validation-css-contract.js",
+        "packages/audit/scripts/audit-inline-validation-runtime.mjs",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/inline-validation-2026-09-04/interactive/react-runtime.html"
       ],
       "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
+        "Pending user visual review of inline-validation-runtime-3 before marking the component pass."
       ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "needs-user-visual-review",
+      "truthResetDecision": "No exact InlineValidation ZIP homonym was found; this pass derives from ZIP Field/Input/Select/TextArea validation-message patterns and verifies the Flow component through runtime evidence instead of stale generated docs.",
+      "lastAuditedAt": "2026-09-04",
+      "validation": [
+        "node packages/audit/scripts/build-local-react-qa-demo.mjs --component=inline-validation",
+        "node packages/audit/scripts/audit-inline-validation-runtime.mjs",
+        "node packages/audit/scripts/audit-component-css-contracts.js --check"
+      ],
+      "notes": "InlineValidation now has a real runtime demo: field-composed and message-only modes, semantic states, density scaling, disabled behavior, live-region behavior, dark-mode semantic colors, no duplicate field rendering, aria-describedby/aria-invalid validation, an optically balanced inline message icon scale, and field-gap feedback clearance. Visual pass is intentionally blocked on user review.",
+      "updatedAt": "2026-09-04"
     },
     {
       "id": "input",

@@ -61,11 +61,14 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
     snippets: [
       "--comp-inline-validation-color: var(--component-color-text)",
       "--comp-inline-validation-display: var(--component-display-grid)",
-      "--comp-inline-validation-gap: var(--component-space-xs)",
+      "--comp-inline-validation-gap: var(--component-field-gap)",
       "--comp-inline-validation-full-width: var(--component-inline-size-full)",
       "--comp-inline-validation-message-size: var(--component-density-helper-size-md)",
       "--comp-inline-validation-icon-family: var(--component-font-family-icon)",
-      "--comp-inline-validation-icon-size: var(--component-density-icon-size-md)",
+      "--comp-inline-validation-icon-size-sm: calc(var(--component-density-helper-size-sm) + 4px)",
+      "--comp-inline-validation-icon-size-md: calc(var(--component-density-helper-size-md) + 5px)",
+      "--comp-inline-validation-icon-size-lg: calc(var(--component-density-helper-size-lg) + 5px)",
+      "--comp-inline-validation-icon-size: var(--comp-inline-validation-icon-size-md)",
       "--comp-inline-validation-error-icon: \"error\"",
       "color: var(--comp-inline-validation-color)",
       "display: var(--comp-inline-validation-display)",
@@ -81,7 +84,7 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
     packageCssFile,
     snippets: [
       "--comp-inline-validation-message-size: var(--component-density-helper-size-sm)",
-      "--comp-inline-validation-icon-size: var(--component-density-icon-size-sm)",
+      "--comp-inline-validation-icon-size: var(--comp-inline-validation-icon-size-sm)",
     ],
     message: "InlineValidation sm density must scale message voice and icon through shared density aliases.",
   });
@@ -91,7 +94,7 @@ function checkInlineValidationCssContract({ text, blocks, packageCssFile, select
     packageCssFile,
     snippets: [
       "--comp-inline-validation-message-size: var(--component-density-helper-size-lg)",
-      "--comp-inline-validation-icon-size: var(--component-density-icon-size-lg)",
+      "--comp-inline-validation-icon-size: var(--comp-inline-validation-icon-size-lg)",
     ],
     message: "InlineValidation lg density must scale message voice and icon through shared density aliases.",
   });

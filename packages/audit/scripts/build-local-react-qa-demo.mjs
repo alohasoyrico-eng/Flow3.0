@@ -112,6 +112,50 @@ const components = {
           )
         )`,
   },
+  "inline-validation": {
+    title: "InlineValidation",
+    directory: "inline-validation-2026-09-04",
+    module: "InlineValidation.js",
+    exportName: "InlineValidation",
+    buildId: "inline-validation-runtime-3",
+    runtimeInstruction: "InlineValidation no roba foco; conecta mensaje con el campo mediante aria-describedby y solo anuncia cuando live=true.",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Driver email", value: "ana@", message: "Enter a complete email address.", state: "error", fullWidth: true, live: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Monthly card limit", value: "$12,000", message: "Limit is above the recommended range.", state: "warning", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Vehicle ID", value: "MX-4832", message: "Vehicle ID is available.", state: "success", fullWidth: true }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Mensajes sin duplicar field"),
+          e("div", { className: "audit-row" },
+            action({ label: "Info message", message: "Used for reporting and approvals.", state: "info", field: false }),
+            action({ label: "Success message", message: "Saved for this route.", state: "success", field: false }),
+            action({ label: "Warning message", message: "Review before dispatch.", state: "warning", field: false }),
+            action({ label: "Error message", message: "Required before continuing.", state: "error", field: false, live: true })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Small field", value: "OPS", message: "Compact filter feedback.", state: "info", density: "sm", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Medium field", value: "MX-4832", message: "Default form feedback.", state: "success", density: "md", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Large field", value: "$12,000", message: "Touch review feedback.", state: "warning", density: "lg", fullWidth: true }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Default field", value: "North Fleet", state: "default", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Info field", value: "Operations", message: "Used for reporting and approvals.", state: "info", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Success field", value: "MX-4832", message: "Vehicle ID is available.", state: "success", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Warning field", value: "$12,000", message: "Limit is above the recommended range.", state: "warning", fullWidth: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Error field", value: "ana@", message: "Enter a complete email address.", state: "error", fullWidth: true, live: true })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Disabled field", value: "Locked", message: "Only fleet admins can edit this value.", state: "disabled", fullWidth: true }))
+          )
+        )`,
+  },
   "progress": {
     title: "ProgressIndicator",
     directory: "progress-2026-08-25",

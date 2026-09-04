@@ -10049,7 +10049,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 .inline-validation {
   --comp-inline-validation-color: var(--component-color-text);
   --comp-inline-validation-display: var(--component-display-grid);
-  --comp-inline-validation-gap: var(--component-space-xs);
+  --comp-inline-validation-gap: var(--component-field-gap);
   --comp-inline-validation-width: min(100%, var(--component-content-size-md));
   --comp-inline-validation-full-width: var(--component-inline-size-full);
   --comp-inline-validation-auto-width: var(--component-inline-size-auto);
@@ -10072,8 +10072,11 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   --comp-inline-validation-message-line-height: var(--component-line-height-snug-state);
   --comp-inline-validation-icon-content: "info";
   --comp-inline-validation-icon-family: var(--component-font-family-icon);
-  --comp-inline-validation-icon-size: var(--component-density-icon-size-md);
-  --comp-inline-validation-icon-weight: var(--component-font-weight-semibold);
+  --comp-inline-validation-icon-size-sm: calc(var(--component-density-helper-size-sm) + 4px);
+  --comp-inline-validation-icon-size-md: calc(var(--component-density-helper-size-md) + 5px);
+  --comp-inline-validation-icon-size-lg: calc(var(--component-density-helper-size-lg) + 5px);
+  --comp-inline-validation-icon-size: var(--comp-inline-validation-icon-size-md);
+  --comp-inline-validation-icon-weight: var(--component-font-weight-regular);
   --comp-inline-validation-icon-line-height: var(--component-line-height-none);
   --comp-inline-validation-message-motion-duration: var(--component-duration-state);
   --comp-inline-validation-message-motion-ease: var(--component-ease-enter);
@@ -10095,12 +10098,12 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
 
 .inline-validation[data-density="sm"] {
   --comp-inline-validation-message-size: var(--component-density-helper-size-sm);
-  --comp-inline-validation-icon-size: var(--component-density-icon-size-sm);
+  --comp-inline-validation-icon-size: var(--comp-inline-validation-icon-size-sm);
 }
 
 .inline-validation[data-density="lg"] {
   --comp-inline-validation-message-size: var(--component-density-helper-size-lg);
-  --comp-inline-validation-icon-size: var(--component-density-icon-size-lg);
+  --comp-inline-validation-icon-size: var(--comp-inline-validation-icon-size-lg);
 }
 
 .inline-validation[data-full-width="true"] {
@@ -10180,6 +10183,7 @@ body[data-contrast="quiet"] .motion-boundary[data-variant="route"] .motion-bound
   font-size: var(--comp-inline-validation-icon-size);
   font-weight: var(--comp-inline-validation-icon-weight);
   line-height: var(--comp-inline-validation-icon-line-height);
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" -25, "opsz" 20;
 }
 
 @keyframes inline-validation-message-enter {
