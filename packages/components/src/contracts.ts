@@ -593,7 +593,9 @@ export const componentContracts = {
     accessibility: [
       "Keep metadata readable as text.",
       "Hide decorative icons from assistive technology.",
-      "Use button semantics only when the tag performs an action."
+      "Use button semantics only when the tag performs an action.",
+      "Use Badge for counts and compact live status.",
+      "Use Chip for selected, filter, or removable value tokens."
     ]
   },
   tabs: {

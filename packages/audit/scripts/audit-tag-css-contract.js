@@ -13,6 +13,7 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
   const tagBlock = blockFor(blocks, selectorKey, ".tag");
   const smBlock = blockFor(blocks, selectorKey, ".tag[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".tag[data-density=\"lg\"]");
+  const iconBlock = blockFor(blocks, selectorKey, ".tag__icon");
   const buttonTagBlock = blockFor(blocks, selectorKey, "button.tag");
   const hoverBlock = blockFor(blocks, selectorKey, "button.tag:hover:not(:disabled),.tag[data-state=\"hover\"][data-interactive=\"true\"]");
   const focusBlock = blockFor(blocks, selectorKey, "button.tag:focus-visible,.tag[data-state=\"focus\"][data-interactive=\"true\"]");
@@ -28,16 +29,29 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
     packageCssFile,
     snippets: [
       "--comp-tag-border-width: var(--component-border-width)",
-      "--comp-tag-radius: var(--component-radius-sm)",
+      "--comp-tag-radius: var(--component-radius-pill)",
       "--comp-tag-font-size-sm: var(--component-density-helper-size-sm)",
       "--comp-tag-font-size-md: var(--component-density-helper-size-md)",
       "--comp-tag-font-size-lg: var(--component-density-helper-size-lg)",
       "--comp-tag-font-size: var(--comp-tag-font-size-md)",
+      "--comp-tag-min-block-size-sm: var(--component-space-xl)",
+      "--comp-tag-min-block-size-md: var(--component-badge-min-size)",
+      "--comp-tag-min-block-size-lg: var(--component-control-frame-size-sm)",
+      "--comp-tag-interactive-min-block-size-sm: var(--component-inline-trigger-min-block-size-sm)",
       "--comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md)",
+      "--comp-tag-interactive-min-block-size-lg: var(--component-inline-trigger-min-block-size-lg)",
+      "--comp-tag-padding-inline-sm: var(--component-space-sm)",
+      "--comp-tag-padding-inline-md: var(--component-space-md)",
+      "--comp-tag-padding-inline-lg: var(--component-space-lg)",
+      "--comp-tag-icon-size-sm: var(--component-density-icon-size-xs)",
+      "--comp-tag-icon-size-md: var(--component-density-icon-size-sm)",
+      "--comp-tag-icon-size-lg: var(--component-density-icon-size-md)",
+      "--comp-tag-hover-shadow: var(--component-depth-none)",
       "--comp-tag-hover-transform: scale(var(--component-scale-hover))",
       "--comp-tag-press-transform: scale(var(--component-scale-press))",
       "border: var(--comp-tag-border-width) solid var(--comp-tag-border)",
       "border-radius: var(--comp-tag-radius)",
+      "display: inline-flex",
       "font-size: var(--comp-tag-font-size)",
       "min-block-size: var(--comp-tag-min-block-size)",
       "padding: 0 var(--comp-tag-padding-inline)",
@@ -48,15 +62,36 @@ function checkTagCssContract({ text, blocks, packageCssFile, selectorKey }) {
     block: smBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-tag-font-size: var(--comp-tag-font-size-sm)"],
-    message: "Tag sm density must scale compact voice through shared density aliases.",
+    snippets: [
+      "--comp-tag-font-size: var(--comp-tag-font-size-sm)",
+      "--comp-tag-gap: var(--comp-tag-gap-sm)",
+      "--comp-tag-icon-size: var(--comp-tag-icon-size-sm)",
+      "--comp-tag-interactive-min-block-size: var(--comp-tag-interactive-min-block-size-sm)",
+      "--comp-tag-min-block-size: var(--comp-tag-min-block-size-sm)",
+      "--comp-tag-padding-inline: var(--comp-tag-padding-inline-sm)",
+    ],
+    message: "Tag sm density must scale compact voice, spacing, icon, and frame through shared density aliases.",
   });
   requireIncludes({
     block: lgBlock,
     text,
     packageCssFile,
-    snippets: ["--comp-tag-font-size: var(--comp-tag-font-size-lg)"],
-    message: "Tag lg density must scale compact voice through shared density aliases.",
+    snippets: [
+      "--comp-tag-font-size: var(--comp-tag-font-size-lg)",
+      "--comp-tag-gap: var(--comp-tag-gap-lg)",
+      "--comp-tag-icon-size: var(--comp-tag-icon-size-lg)",
+      "--comp-tag-interactive-min-block-size: var(--comp-tag-interactive-min-block-size-lg)",
+      "--comp-tag-min-block-size: var(--comp-tag-min-block-size-lg)",
+      "--comp-tag-padding-inline: var(--comp-tag-padding-inline-lg)",
+    ],
+    message: "Tag lg density must scale compact voice, spacing, icon, and frame through shared density aliases.",
+  });
+  requireIncludes({
+    block: iconBlock,
+    text,
+    packageCssFile,
+    snippets: ["font-size: var(--comp-tag-icon-size)", "line-height: var(--component-line-height-none)"],
+    message: "Tag icon must consume the density-aware Tag icon alias without changing tag height.",
   });
   requireIncludes({
     block: buttonTagBlock,

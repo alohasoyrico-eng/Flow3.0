@@ -1636,6 +1636,57 @@ const components = {
           )
         )`,
   },
+  tag: {
+    title: "Tag",
+    directory: "tag-2026-09-05",
+    module: "Tag.js",
+    exportName: "Tag",
+    buildId: "tag-1to1-runtime-1",
+    eventPropName: "onClick",
+    actionHandler: "(event) => onAction(props.label)(event)",
+    actionSelector: "button.tag:not(:disabled)",
+    runtimeInstruction: "Tags estaticos no entran al tab order; los tags link con accion real usan click, Enter o Space.",
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-card audit-card--compact" },
+            e("div", { className: "audit-row" },
+              e(Component, { label: "Cross-platform", variant: "platform", icon: "devices", tone: "neutral" }),
+              e(Component, { label: "Web", variant: "platform", icon: "language", tone: "info" }),
+              e(Component, { label: "Beta", variant: "status", icon: "experiment", tone: "warning" }),
+              e(Component, { label: "Ready", variant: "status", icon: "check_circle", tone: "success" }),
+              e(Component, { label: "Risk", variant: "status", icon: "error", tone: "danger" })
+            )
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Fronteras de uso"),
+          e("div", { className: "audit-card audit-card--compact" },
+            e("div", { className: "audit-row" },
+              e(Component, { label: "Metadata", variant: "metadata", tone: "neutral" }),
+              e(Component, { label: "Status visible", variant: "status", tone: "success", icon: "check" }),
+              action({ label: "Docs", variant: "link", tone: "info", icon: "article" }),
+              e(Component, { label: "Inert link", variant: "link", tone: "info", icon: "link" })
+            )
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-row" },
+            e(Component, { label: "Small", density: "sm", icon: "local_shipping", variant: "platform" }),
+            e(Component, { label: "Medium", density: "md", icon: "local_shipping", variant: "platform" }),
+            e(Component, { label: "Large", density: "lg", icon: "local_shipping", variant: "platform" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Estados accionables"),
+          e("div", { className: "audit-row" },
+            action({ label: "Hover", state: "hover", variant: "link", tone: "info", icon: "open_in_new" }),
+            action({ label: "Focus", state: "focus", variant: "link", tone: "info", icon: "tab" }),
+            action({ label: "Pressed", state: "pressed", variant: "link", tone: "info", icon: "touch_app" }),
+            e(Component, { label: "Disabled", disabled: true, interactive: true, variant: "link", tone: "neutral", icon: "block", onClick: onAction("Disabled"), "data-runtime-action": "true" })
+          )
+        )`,
+  },
   "empty-state": {
     title: "EmptyState",
     directory: "empty-state-2026-09-03",

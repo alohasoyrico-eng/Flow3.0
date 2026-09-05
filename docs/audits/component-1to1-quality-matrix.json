@@ -2946,43 +2946,62 @@
       "id": "tag",
       "status": "partial",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
         "visual-qa": "partial",
-        "validation": "partial"
+        "validation": "pass"
       },
       "evidence": [
-        ".audit-reference/docs/registry-components.js",
-        ".audit-reference/_ds_bundle.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Badge.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Chip.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/badge.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/chip.json",
         "packages/specs/specs/unison-system/artifacts/components/tag.json",
-        "packages/components/src/components/status.js",
-        "packages/components/styles/components.css",
+        "packages/components/src/contracts.ts",
         "packages/components/src/contracts.js",
-        "packages/components/src/registry.js",
-        "packages/components/test/smoke.test.mjs",
-        "packages/content/content/component-copy/components/tag/all.json",
-        "packages/content/content/component-copy.json",
-        "docs/audits/tag-1to1-quality-audit.json",
-        "docs/audits/tag-1to1-visual-metrics.json",
-        "docs/audits/tag-1to1-dark.png"
+        "packages/components/styles/components.css",
+        "packages/react/src/Tag.tsx",
+        "packages/react/src/Tag.js",
+        "packages/react/src/Tag.d.ts",
+        "packages/audit/scripts/audit-tag-css-contract.js",
+        "packages/audit/scripts/audit-tag-runtime.mjs",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tag-2026-09-05/interactive/react-runtime.html?fresh=tag-1to1-runtime-1"
       ],
       "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+        "Pending user visual review for tag-1to1-runtime-1 before promoting Tag to pass."
       ],
-      "decision": "Tag remains a component because it owns one compact metadata label. Taxonomy orchestration, filtering groups, selected/removable tokens, and navigation IA remain pattern responsibilities.",
+      "decision": "Tag remains a metadata-only component by default. 2026-09-05 reconstruction uses ZIP Badge and Chip as boundaries because no direct Tag primitive exists: static tags render spans outside tab order, link tags render native buttons only when a real action exists, density scales text/icon/frame/padding, hover/press stay flat without raised elevation, and selected/removable/count behavior is explicitly excluded.",
       "updatedAt": "2026-07-22",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "needs-user-visual-review",
+      "truthResetDecision": "Technical 1:1 evidence reconstructed on 2026-09-05; keep partial until user visual review accepts the regenerated Tag runtime demo.",
+      "lastReviewAt": "2026-09-05",
+      "currentReviewCommit": "working-tree",
+      "inventoryEscalations": [
+        "No direct Tag primitive exists in the ZIP reference; Tag is bounded against ZIP Badge for compact metadata/status and ZIP Chip for selected/removable values.",
+        "Tag must not expose selected, filter, count, or removable behavior; use Chip for selected/removable values and Badge for counts/live compact status."
+      ],
+      "validation": [
+        "node packages/audit/scripts/build-local-react-qa-demo.mjs --component=tag",
+        "node packages/audit/scripts/audit-tag-runtime.mjs",
+        "node packages/audit/scripts/audit-component-css-contracts.js --check",
+        "npm run audit:component-source-of-truth -- --component=tag --check"
+      ],
+      "notes": [
+        "2026-09-05: ZIP Badge and Chip references consulted; no direct Tag primitive found, so Tag is constrained as compact metadata and not a filter/removal/control surrogate.",
+        "2026-09-05: CSS contract now rejects generic control sizing, incomplete density scaling, and raised hover shadows for Tag.",
+        "2026-09-05: Runtime audit verifies static span semantics, action-only buttons, no selected/remove UI, flat hover, density scaling, and click/Enter/Space activation."
+      ]
     },
     {
       "id": "text-area",

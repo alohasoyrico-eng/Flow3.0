@@ -3935,16 +3935,32 @@
 
 .tag {
   --comp-tag-border-width: var(--component-border-width);
-  --comp-tag-radius: var(--component-radius-sm);
+  --comp-tag-radius: var(--component-radius-pill);
   --comp-tag-font-size-sm: var(--component-density-helper-size-sm);
   --comp-tag-font-size-md: var(--component-density-helper-size-md);
   --comp-tag-font-size-lg: var(--component-density-helper-size-lg);
   --comp-tag-font-size: var(--comp-tag-font-size-md);
-  --comp-tag-font-weight: var(--component-font-weight-bold);
-  --comp-tag-gap: var(--component-space-xs);
-  --comp-tag-min-block-size: var(--component-min-text-line);
-  --comp-tag-interactive-min-block-size: var(--component-inline-trigger-min-block-size-md);
-  --comp-tag-padding-inline: var(--component-space-sm);
+  --comp-tag-font-weight: var(--component-font-weight-medium);
+  --comp-tag-gap-sm: var(--component-frame-space-micro);
+  --comp-tag-gap-md: var(--component-space-xs);
+  --comp-tag-gap-lg: var(--component-space-xs);
+  --comp-tag-gap: var(--comp-tag-gap-md);
+  --comp-tag-min-block-size-sm: var(--component-space-xl);
+  --comp-tag-min-block-size-md: var(--component-badge-min-size);
+  --comp-tag-min-block-size-lg: var(--component-control-frame-size-sm);
+  --comp-tag-min-block-size: var(--comp-tag-min-block-size-md);
+  --comp-tag-interactive-min-block-size-sm: var(--component-inline-trigger-min-block-size-sm);
+  --comp-tag-interactive-min-block-size-md: var(--component-inline-trigger-min-block-size-md);
+  --comp-tag-interactive-min-block-size-lg: var(--component-inline-trigger-min-block-size-lg);
+  --comp-tag-interactive-min-block-size: var(--comp-tag-interactive-min-block-size-md);
+  --comp-tag-padding-inline-sm: var(--component-space-sm);
+  --comp-tag-padding-inline-md: var(--component-space-md);
+  --comp-tag-padding-inline-lg: var(--component-space-lg);
+  --comp-tag-padding-inline: var(--comp-tag-padding-inline-md);
+  --comp-tag-icon-size-sm: var(--component-density-icon-size-xs);
+  --comp-tag-icon-size-md: var(--component-density-icon-size-sm);
+  --comp-tag-icon-size-lg: var(--component-density-icon-size-md);
+  --comp-tag-icon-size: var(--comp-tag-icon-size-md);
   --comp-tag-bg-neutral: var(--component-energy-surface-sunken);
   --comp-tag-border-neutral: var(--component-energy-border-default);
   --comp-tag-fg-neutral: var(--component-color-text-muted);
@@ -3964,7 +3980,7 @@
   --comp-tag-border: var(--comp-tag-border-neutral);
   --comp-tag-fg: var(--comp-tag-fg-neutral);
   --comp-tag-hover-border: color-mix(in srgb, var(--component-color-action) 24%, var(--component-color-border));
-  --comp-tag-hover-shadow: var(--component-depth-raised);
+  --comp-tag-hover-shadow: var(--component-depth-none);
   --comp-tag-hover-transform: scale(var(--component-scale-hover));
   --comp-tag-press-transform: scale(var(--component-scale-press));
   --comp-tag-focus-width: var(--component-focus-ring-width);
@@ -3974,20 +3990,34 @@
   background: var(--comp-tag-bg);
   border: var(--comp-tag-border-width) solid var(--comp-tag-border);
   border-radius: var(--comp-tag-radius);
+  box-sizing: border-box;
   color: var(--comp-tag-fg);
+  display: inline-flex;
   font-size: var(--comp-tag-font-size);
   font-weight: var(--comp-tag-font-weight);
   gap: var(--comp-tag-gap);
+  line-height: var(--component-line-height-none);
   min-block-size: var(--comp-tag-min-block-size);
   padding: 0 var(--comp-tag-padding-inline);
+  white-space: nowrap;
 }
 
 .tag[data-density="sm"] {
   --comp-tag-font-size: var(--comp-tag-font-size-sm);
+  --comp-tag-gap: var(--comp-tag-gap-sm);
+  --comp-tag-icon-size: var(--comp-tag-icon-size-sm);
+  --comp-tag-interactive-min-block-size: var(--comp-tag-interactive-min-block-size-sm);
+  --comp-tag-min-block-size: var(--comp-tag-min-block-size-sm);
+  --comp-tag-padding-inline: var(--comp-tag-padding-inline-sm);
 }
 
 .tag[data-density="lg"] {
   --comp-tag-font-size: var(--comp-tag-font-size-lg);
+  --comp-tag-gap: var(--comp-tag-gap-lg);
+  --comp-tag-icon-size: var(--comp-tag-icon-size-lg);
+  --comp-tag-interactive-min-block-size: var(--comp-tag-interactive-min-block-size-lg);
+  --comp-tag-min-block-size: var(--comp-tag-min-block-size-lg);
+  --comp-tag-padding-inline: var(--comp-tag-padding-inline-lg);
 }
 
 .tag[data-variant="platform"] {
@@ -4020,6 +4050,20 @@
   --comp-tag-bg: var(--comp-tag-bg-danger);
   --comp-tag-border: var(--comp-tag-border-danger);
   --comp-tag-fg: var(--comp-tag-fg-danger);
+}
+
+.tag__icon {
+  direction: ltr;
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: var(--component-font-family-icon);
+  font-feature-settings: "liga";
+  font-size: var(--comp-tag-icon-size);
+  font-style: normal;
+  font-variation-settings: var(--component-icon-variation-outline-strong);
+  line-height: var(--component-line-height-none);
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
 }
 
 .chip {
