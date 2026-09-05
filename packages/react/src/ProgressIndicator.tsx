@@ -1,10 +1,11 @@
 import React, { forwardRef, useId } from "react";
 import type { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from "react";
 import { progressIndicatorPlatformContract } from "@design-system/components/platforms";
-import { flowToneProps, flowStateProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
+import { flowToneProps, flowStateProps, flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 import type { FlowDataAttributes } from "./internal/props.js";
 
 export type ProgressIndicatorDensity = "sm" | "md" | "lg";
+export type ProgressIndicatorVariant = "linear" | "circular";
 export type ProgressIndicatorTone = "accent" | "success" | "warning" | "danger" | "ink";
 export type ProgressIndicatorState = "default" | "active" | "indeterminate" | "paused" | "complete" | "error" | "disabled";
 
@@ -13,6 +14,7 @@ export interface ProgressIndicatorProps extends Omit<HTMLAttributes<HTMLDivEleme
   ariaValueText?: string;
   value?: number;
   max?: number;
+  variant?: ProgressIndicatorVariant;
   indeterminate?: boolean;
   showValue?: boolean;
   tone?: ProgressIndicatorTone;
@@ -27,11 +29,16 @@ export interface ProgressIndicatorComponent extends ForwardRefExoticComponent<Pr
 }
 
 const validTones = new Set<ProgressIndicatorTone>(["accent", "success", "warning", "danger", "ink"]);
+const validVariants = new Set<ProgressIndicatorVariant>(["linear", "circular"]);
 const terminalStates = new Set<ProgressIndicatorState>(["paused", "complete", "error", "disabled"]);
 const validStates = new Set<ProgressIndicatorState>(["default", "active", "indeterminate", "paused", "complete", "error", "disabled"]);
 
 function normalizeTone(tone: ProgressIndicatorTone | undefined): ProgressIndicatorTone {
   return tone && validTones.has(tone) ? tone : "accent";
+}
+
+function normalizeVariant(variant: ProgressIndicatorVariant | undefined): ProgressIndicatorVariant {
+  return variant && validVariants.has(variant) ? variant : "linear";
 }
 
 function normalizeState(state: ProgressIndicatorState | undefined): ProgressIndicatorState {
@@ -52,6 +59,7 @@ export const ProgressIndicator = forwardRef<HTMLDivElement, ProgressIndicatorPro
   ariaValueText,
   value = 0,
   max = 100,
+  variant = "linear",
   indeterminate = false,
   showValue = false,
   tone = "accent",
@@ -65,8 +73,12 @@ export const ProgressIndicator = forwardRef<HTMLDivElement, ProgressIndicatorPro
   const generatedId = useId();
   const labelId = id ? `${id}-label` : `progress-label-${generatedId}`;
   const { numericMax, numericValue, percent, resolvedState, isIndeterminate } = progressMeta({ value, max, state, indeterminate });
+  const resolvedVariant = isIndeterminate ? "linear" : normalizeVariant(variant);
   const resolvedDensity = normalizeFlowDensity(density);
   const isBusy = !terminalStates.has(resolvedState) && (isIndeterminate || numericValue < numericMax);
+  const circleRadius = 24;
+  const circleCircumference = 2 * Math.PI * circleRadius;
+  const circleOffset = circleCircumference * (1 - percent / 100);
   if (!label) return null;
 
   return React.createElement(
@@ -79,6 +91,7 @@ export const ProgressIndicator = forwardRef<HTMLDivElement, ProgressIndicatorPro
       "aria-busy": isBusy ? "true" : undefined,
       "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
       ...flowToneProps(normalizeTone(tone)),
+      ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
       "data-full-width": String(Boolean(fullWidth)),
@@ -88,22 +101,53 @@ export const ProgressIndicator = forwardRef<HTMLDivElement, ProgressIndicatorPro
       "span",
       { className: "progress__meta" },
       React.createElement("span", { className: "progress__label", id: labelId }, label),
-      showValue && !isIndeterminate
+      showValue && !isIndeterminate && resolvedVariant === "linear"
         ? React.createElement("span", { className: "progress__value" }, `${Math.round(percent)}%`)
         : null,
     ),
-    React.createElement(
-      "span",
-      { className: "progress__track" },
-      React.createElement("progress", {
-        className: "progress__meter",
-        max: numericMax,
-        value: isIndeterminate ? undefined : numericValue,
-        "aria-labelledby": labelId,
-        "aria-valuetext": ariaValueText,
-        "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
-      }),
-    ),
+    resolvedVariant === "circular"
+      ? React.createElement(
+        "span",
+        {
+          className: "progress__ring",
+          role: "progressbar",
+          "aria-labelledby": labelId,
+          "aria-valuemin": 0,
+          "aria-valuemax": numericMax,
+          "aria-valuenow": numericValue,
+          "aria-valuetext": ariaValueText,
+          "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
+        },
+        React.createElement(
+          "svg",
+          { className: "progress__ring-svg", viewBox: "0 0 56 56", focusable: "false", "aria-hidden": "true" },
+          React.createElement("circle", { className: "progress__ring-track", cx: 28, cy: 28, r: circleRadius }),
+          React.createElement("circle", {
+            className: "progress__ring-meter",
+            cx: 28,
+            cy: 28,
+            r: circleRadius,
+            strokeDasharray: circleCircumference,
+            strokeDashoffset: circleOffset,
+          }),
+        ),
+        showValue ? React.createElement("span", { className: "progress__ring-value" }, `${Math.round(percent)}%`) : null,
+      )
+      : React.createElement(
+        "span",
+        { className: "progress__track" },
+        React.createElement("progress", {
+          className: "progress__meter",
+          max: numericMax,
+          value: isIndeterminate ? undefined : numericValue,
+          "aria-labelledby": labelId,
+          "aria-valuemin": isIndeterminate ? undefined : 0,
+          "aria-valuemax": isIndeterminate ? undefined : numericMax,
+          "aria-valuenow": isIndeterminate ? undefined : numericValue,
+          "aria-valuetext": ariaValueText,
+          "aria-disabled": resolvedState === "disabled" ? "true" : undefined,
+        }),
+      ),
   );
 }) as ProgressIndicatorComponent;
 

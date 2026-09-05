@@ -161,13 +161,29 @@ const components = {
     directory: "progress-2026-08-25",
     module: "ProgressIndicator.js",
     exportName: "ProgressIndicator",
-    buildId: "progress-react-runtime-1",
+    buildId: "progress-linear-circular-runtime-1",
     demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" },
+              e(Component, { label: "Verificación", value: 3, max: 4, showValue: true, tone: "danger", fullWidth: true })
+            ),
+            e("div", { className: "audit-card audit-card--compact" },
+              e(Component, { label: "Batería", value: 72, showValue: true, tone: "success", variant: "circular" })
+            ),
+            e("div", { className: "audit-card audit-card--compact" },
+              e(Component, { label: "Cuota", value: 47, showValue: true, tone: "warning", variant: "circular" })
+            )
+          )
+        ),
+        e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, e(Component, { label: "Upload progress", value: 42, showValue: true })),
             e("div", { className: "audit-card" }, e(Component, { label: "Syncing routes", indeterminate: true })),
             e("div", { className: "audit-card" }, e(Component, { label: "Complete", value: 100, showValue: true, state: "complete" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Paused", value: 64, showValue: true, state: "paused" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Error", value: 18, showValue: true, state: "error" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Disabled", value: 36, showValue: true, state: "disabled" }))
           )
         ),
@@ -184,7 +200,18 @@ const components = {
           e("div", { className: "audit-grid" },
             e("div", { className: "audit-card" }, e(Component, { label: "Small progress", value: 35, showValue: true, density: "sm" })),
             e("div", { className: "audit-card" }, e(Component, { label: "Medium progress", value: 55, showValue: true, density: "md" })),
-            e("div", { className: "audit-card" }, e(Component, { label: "Large progress", value: 75, showValue: true, density: "lg" }))
+            e("div", { className: "audit-card" }, e(Component, { label: "Large progress", value: 75, showValue: true, density: "lg" })),
+            e("div", { className: "audit-card audit-card--compact" }, e(Component, { label: "Small ring", value: 35, showValue: true, density: "sm", variant: "circular" })),
+            e("div", { className: "audit-card audit-card--compact" }, e(Component, { label: "Medium ring", value: 55, showValue: true, density: "md", variant: "circular" })),
+            e("div", { className: "audit-card audit-card--compact" }, e(Component, { label: "Large ring", value: 75, showValue: true, density: "lg", variant: "circular" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Limites"),
+          e("div", { className: "audit-grid" },
+            e("div", { className: "audit-card" }, e(Component, { label: "Clamped high", value: 140, max: 100, showValue: true })),
+            e("div", { className: "audit-card audit-card--compact" }, e(Component, { label: "Circular complete", value: 100, showValue: true, state: "complete", variant: "circular" })),
+            e("div", { className: "audit-card" }, e(Component, { label: "Circular requested while loading", value: 40, showValue: true, variant: "circular", indeterminate: true }))
           )
         )`,
   },

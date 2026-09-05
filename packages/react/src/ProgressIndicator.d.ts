@@ -3,6 +3,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import { progressIndicatorPlatformContract } from "@design-system/components/platforms";
 
 export type ProgressIndicatorDensity = "sm" | "md" | "lg";
+export type ProgressIndicatorVariant = "linear" | "circular";
 export type ProgressIndicatorTone = "accent" | "success" | "warning" | "danger" | "ink";
 export type ProgressIndicatorState = "default" | "active" | "indeterminate" | "paused" | "complete" | "error" | "disabled";
 
@@ -11,6 +12,7 @@ export interface ProgressIndicatorProps extends Omit<HTMLAttributes<HTMLDivEleme
   ariaValueText?: string;
   value?: number;
   max?: number;
+  variant?: ProgressIndicatorVariant;
   indeterminate?: boolean;
   showValue?: boolean;
   tone?: ProgressIndicatorTone;

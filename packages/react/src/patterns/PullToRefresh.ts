@@ -20,7 +20,7 @@ import type { FlowDataAttributes } from "../internal/props.js";
 export type PullToRefreshState = "idle" | "pulling" | "threshold" | "refreshing" | "complete" | "error" | "disabled" | "reduced-motion";
 export type PullToRefreshDensity = ListDensity;
 
-export interface PullToRefreshIndicator extends Partial<ProgressIndicatorProps> {
+export interface PullToRefreshIndicator extends Partial<Omit<ProgressIndicatorProps, "variant">> {
   animatedLabel?: string;
   animatedState?: AnimatedMomentProps["state"];
   progressLabel?: string;

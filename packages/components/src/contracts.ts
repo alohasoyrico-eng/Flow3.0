@@ -677,8 +677,8 @@ export const componentContracts = {
   progressIndicator: {
     factory: "@design-system/react/progress-indicator",
     element: "div",
-    purpose: "Communicate visible system progress with determinate or indeterminate linear progressbar semantics; compact circular waiting belongs to Spinner.",
-    variants: ["linear", "indeterminate"],
+    purpose: "Communicate visible system progress with determinate linear or compact circular progressbar semantics; unknown duration belongs to linear indeterminate progress or Spinner.",
+    variants: ["linear", "circular"],
     intents: ["accent", "success", "warning", "danger", "ink"],
     states: ["default", "active", "indeterminate", "paused", "complete", "error", "disabled"],
     props: [
@@ -686,6 +686,7 @@ export const componentContracts = {
       { name: "value", type: "number", required: false },
       { name: "ariaValueText", type: "string", required: false },
       { name: "max", type: "number", required: false },
+      { name: "variant", type: "\"linear\" | \"circular\"", required: false },
       { name: "indeterminate", type: "boolean", required: false },
       { name: "showValue", type: "boolean", required: false },
       { name: "tone", type: "\"accent\" | \"success\" | \"warning\" | \"danger\" | \"ink\"", required: false },

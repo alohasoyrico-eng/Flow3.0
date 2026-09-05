@@ -132,6 +132,7 @@ const progressIndicatorMarkup = renderToStaticMarkup(React.createElement(Progres
   label: "Documents",
   value: 75,
   max: 100,
+  variant: "linear",
   showValue: true,
   tone: "success",
   state: "active",
@@ -146,12 +147,13 @@ assert.match(progressIndicatorMarkup, /aria-labelledby="docs-progress-label"/);
 assert.match(progressIndicatorMarkup, /data-tone="success"/);
 assert.match(progressIndicatorMarkup, /data-state="active"/);
 assert.match(progressIndicatorMarkup, /data-density="lg"/);
+assert.match(progressIndicatorMarkup, /data-variant="linear"/);
 assert.match(progressIndicatorMarkup, /data-full-width="true"/);
 assert.match(progressIndicatorMarkup, /data-indeterminate="false"/);
 assert.match(progressIndicatorMarkup, /class="progress__label" id="docs-progress-label">Documents<\/span>/);
 assert.match(progressIndicatorMarkup, /class="progress__value">75%<\/span>/);
 assert.match(progressIndicatorMarkup, /class="progress__track"/);
-assert.match(progressIndicatorMarkup, /<progress class="progress__meter" max="100" value="75" aria-labelledby="docs-progress-label"/);
+assert.match(progressIndicatorMarkup, /<progress class="progress__meter" max="100" value="75" aria-labelledby="docs-progress-label" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"/);
 assert.doesNotMatch(progressIndicatorMarkup, /style="/);
 
 const indeterminateProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
@@ -178,6 +180,19 @@ assert.match(completeProgressMarkup, /data-state="complete"/);
 assert.match(completeProgressMarkup, /<progress class="progress__meter" max="24" value="24"/);
 assert.match(completeProgressMarkup, /aria-valuetext="Upload complete"/);
 assert.match(completeProgressMarkup, /class="progress__value">100%<\/span>/);
+const circularProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator, {
+  label: "Battery",
+  value: 42,
+  max: 50,
+  variant: "circular",
+  showValue: true,
+  tone: "warning",
+}));
+assert.match(circularProgressMarkup, /data-variant="circular"/);
+assert.match(circularProgressMarkup, /class="progress__ring" role="progressbar" aria-labelledby="progress-label-[^"]+" aria-valuemin="0" aria-valuemax="50" aria-valuenow="42"/);
+assert.match(circularProgressMarkup, /class="progress__ring-svg"/);
+assert.match(circularProgressMarkup, /class="progress__ring-meter"/);
+assert.match(circularProgressMarkup, /class="progress__ring-value">84%<\/span>/);
 const unnamedProgressMarkup = renderToStaticMarkup(React.createElement(ProgressIndicator));
 assert.doesNotMatch(unnamedProgressMarkup, /class="progress"|role="progressbar"|aria-label="Progress"|In progress|Complete|Unavailable/);
 

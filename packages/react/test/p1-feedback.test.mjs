@@ -179,6 +179,8 @@ try {
 
     assert.equal(progress.getAttribute("value"), "25");
     assert.equal(progress.getAttribute("max"), "50");
+    assert.equal(progress.getAttribute("aria-valuenow"), "25");
+    assert.equal(progress.getAttribute("aria-valuemax"), "50");
     assert.equal(progressRoot.getAttribute("aria-busy"), "true");
     assert.equal(progressRoot.dataset.tone, "success");
     assert.equal(progressRoot.dataset.state, "active");
@@ -204,6 +206,29 @@ try {
     }));
     assert.equal(progress.getAttribute("value"), "50");
     assert.equal(progressRoot.getAttribute("aria-busy"), null);
+    await assertNoAxeViolations(view.container);
+    cleanup();
+  }
+
+  {
+    const view = render(React.createElement(ProgressIndicator, {
+      label: "Battery quota",
+      value: 8,
+      max: 10,
+      variant: "circular",
+      showValue: true,
+      tone: "warning",
+      density: "lg",
+    }));
+    const progress = view.getByRole("progressbar", { name: /battery quota/i });
+    const progressRoot = progress.closest(".progress");
+
+    assert.equal(progress.getAttribute("aria-valuemin"), "0");
+    assert.equal(progress.getAttribute("aria-valuemax"), "10");
+    assert.equal(progress.getAttribute("aria-valuenow"), "8");
+    assert.equal(progressRoot.dataset.variant, "circular");
+    assert.equal(progressRoot.dataset.density, "lg");
+    assert.equal(view.getByText("80%").classList.contains("progress__ring-value"), true);
     await assertNoAxeViolations(view.container);
     cleanup();
   }

@@ -22,6 +22,12 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
   const webkitValueBlock = blockFor(blocks, selectorKey, ".progress__meter::-webkit-progress-value");
   const mozValueBlock = blockFor(blocks, selectorKey, ".progress__meter::-moz-progress-bar");
   const indeterminateBlock = blockFor(blocks, selectorKey, ".progress[data-indeterminate=\"true\"] .progress__meter");
+  const circularBlock = blockFor(blocks, selectorKey, ".progress[data-variant=\"circular\"]");
+  const ringBlock = blockFor(blocks, selectorKey, ".progress__ring");
+  const ringSvgBlock = blockFor(blocks, selectorKey, ".progress__ring-svg");
+  const ringTrackBlock = blockFor(blocks, selectorKey, ".progress__ring-track");
+  const ringMeterBlock = blockFor(blocks, selectorKey, ".progress__ring-meter");
+  const ringValueBlock = blockFor(blocks, selectorKey, ".progress__ring-value");
   const valueBlock = blockFor(blocks, selectorKey, ".progress__value");
 
   requireIncludes({
@@ -43,6 +49,17 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
       "--comp-progress-indicator-value-font-size-md: var(--component-density-counter-size-md)",
       "--comp-progress-indicator-value-font-size-lg: var(--component-density-counter-size-lg)",
       "--comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-md)",
+      "--comp-progress-indicator-gap-sm: var(--component-space-xs)",
+      "--comp-progress-indicator-gap-md: var(--component-space-sm)",
+      "--comp-progress-indicator-gap-lg: var(--component-space-md)",
+      "--comp-progress-indicator-gap: var(--comp-progress-indicator-gap-md)",
+      "--comp-progress-indicator-ring-size-sm: var(--component-block-size-sm)",
+      "--comp-progress-indicator-ring-size-md: var(--component-block-size-md)",
+      "--comp-progress-indicator-ring-size-lg: var(--component-block-size-lg)",
+      "--comp-progress-indicator-ring-stroke-sm: var(--component-border-width-medium)",
+      "--comp-progress-indicator-ring-stroke-md: var(--component-space-2xs)",
+      "--comp-progress-indicator-ring-stroke-lg: var(--component-space-xs)",
+      "--comp-progress-indicator-ring-rotation: rotate(-90deg)",
       "color: var(--comp-progress-indicator-text-color)",
       "gap: var(--comp-progress-indicator-gap)",
     ],
@@ -54,8 +71,11 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     packageCssFile,
     snippets: [
       "--comp-progress-indicator-track-size: var(--component-space-xs)",
+      "--comp-progress-indicator-gap: var(--comp-progress-indicator-gap-sm)",
       "--comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-sm)",
       "--comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-sm)",
+      "--comp-progress-indicator-ring-size: var(--comp-progress-indicator-ring-size-sm)",
+      "--comp-progress-indicator-ring-stroke: var(--comp-progress-indicator-ring-stroke-sm)",
     ],
     message: "Progress Indicator sm density must scale through Progress aliases.",
   });
@@ -65,8 +85,11 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     packageCssFile,
     snippets: [
       "--comp-progress-indicator-track-size: var(--component-space-md)",
+      "--comp-progress-indicator-gap: var(--comp-progress-indicator-gap-lg)",
       "--comp-progress-indicator-label-font-size: var(--comp-progress-indicator-label-font-size-lg)",
       "--comp-progress-indicator-value-font-size: var(--comp-progress-indicator-value-font-size-lg)",
+      "--comp-progress-indicator-ring-size: var(--comp-progress-indicator-ring-size-lg)",
+      "--comp-progress-indicator-ring-stroke: var(--comp-progress-indicator-ring-stroke-lg)",
     ],
     message: "Progress Indicator lg density must scale through Progress aliases.",
   });
@@ -147,6 +170,64 @@ function checkProgressIndicatorCssContract({ text, blocks, packageCssFile, selec
     packageCssFile,
     snippets: ["animation: progress-indeterminate var(--comp-progress-indicator-indeterminate-duration) var(--comp-progress-indicator-indeterminate-ease) infinite"],
     message: "Progress Indicator indeterminate state must consume Progress loading motion aliases.",
+  });
+  requireIncludes({
+    block: circularBlock,
+    text,
+    packageCssFile,
+    snippets: ["inline-size: max-content", "justify-items: center", "min-inline-size: 0"],
+    message: "Progress Indicator circular variant must use compact CircularProgress layout instead of linear width.",
+  });
+  requireIncludes({
+    block: ringBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "block-size: var(--comp-progress-indicator-ring-size)",
+      "color: var(--comp-progress-indicator-tone)",
+      "display: inline-grid",
+      "inline-size: var(--comp-progress-indicator-ring-size)",
+    ],
+    message: "Progress Indicator circular ring must consume component ring size and tone aliases.",
+  });
+  requireIncludes({
+    block: ringSvgBlock,
+    text,
+    packageCssFile,
+    snippets: ["block-size: 100%", "inline-size: 100%", "transform: var(--comp-progress-indicator-ring-rotation)"],
+    message: "Progress Indicator circular SVG must fill and orient the governed ring.",
+  });
+  requireIncludes({
+    block: ringTrackBlock,
+    text,
+    packageCssFile,
+    snippets: ["fill: none", "stroke-width: var(--comp-progress-indicator-ring-stroke)"],
+    message: "Progress Indicator circular track must consume the governed ring stroke.",
+  });
+  requireIncludes({
+    block: ringMeterBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "fill: none",
+      "stroke: currentColor",
+      "stroke-linecap: round",
+      "stroke-width: var(--comp-progress-indicator-ring-stroke)",
+      "stroke-dashoffset var(--comp-progress-indicator-motion-duration) var(--comp-progress-indicator-motion-ease)",
+    ],
+    message: "Progress Indicator circular meter must consume tone and motion aliases.",
+  });
+  requireIncludes({
+    block: ringValueBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "display: grid",
+      "font-family: var(--comp-progress-indicator-value-font-family)",
+      "font-size: var(--comp-progress-indicator-value-font-size)",
+      "place-content: center",
+    ],
+    message: "Progress Indicator circular value must use centered Progress value voice aliases.",
   });
   requireIncludes({
     block: valueBlock,
