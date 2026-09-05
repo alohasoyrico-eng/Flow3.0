@@ -1508,7 +1508,7 @@
     },
     {
       "id": "floating-action-button",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "partial",
         "system-architecture": "partial",
@@ -1786,9 +1786,7 @@
         "packages/react/test/render-navigation-data.test.mjs",
         "packages/react/test/p2-data-display.test.mjs"
       ],
-      "openIssues": [
-        "Pending user visual acceptance on refreshed package-backed runtime demo before marking KpiTile pass."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
         "StatTile ZIP-equivalent dashboard examples are covered as non-interactive metric tiles with icon, overline, mono value, and optional delta.",
         "ZIP does not define a formal StatTile variant prop; the demo separates ZIP-derived usage modes from Flow-only extensions.",
@@ -1854,10 +1852,10 @@
       "lastValidation": "npm run build --workspace @design-system/react; node packages/audit/scripts/build-local-react-qa-demo.mjs --component=kpi-tile; node packages/audit/scripts/audit-kpi-tile-runtime.mjs; node packages/audit/scripts/audit-component-css-contracts.js --check; node packages/react/test/interaction-data-display.test.mjs; node packages/react/test/render-navigation-data.test.mjs; node packages/react/test/p2-data-display.test.mjs; npm run typecheck; npm run audit:flow-core-gate -- --check --component=kpi-tile; git diff --check",
       "updatedAt": "2026-09-04",
       "lastReviewAt": "2026-09-04",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "331c53d3 Close KpiTile 1to1 audit",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "technical-pass-pending-visual-acceptance",
-      "truthResetDecision": "KpiTile has fresh ZIP/runtime/contract evidence and remains partial only because user visual acceptance is still pending."
+      "reviewState": "accepted",
+      "truthResetDecision": "KpiTile is closed after fresh ZIP/runtime/contract evidence, visible hover/pressed/click behavior for the drill-in extension, and user visual acceptance on 2026-09-04."
     },
     {
       "id": "list",
