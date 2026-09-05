@@ -600,7 +600,7 @@ export const componentContracts = {
     factory: "@design-system/react/tabs",
     element: "div",
     purpose: "Switch between sibling views inside one bounded region with tablist, tab selection, and keyboard-ready semantics.",
-    variants: ["default", "underline"],
+    variants: ["pill", "underline", "default"],
     intents: ["default"],
     states: ["default", "hover", "selected", "focus", "overflow", "disabled"],
     props: [
@@ -608,7 +608,7 @@ export const componentContracts = {
       { name: "items", type: "TabsItem[]", required: true },
       { name: "selectedKey", type: "string", required: false },
       { name: "onValueChange", type: "(key: string) => void", required: false },
-      { name: "variant", type: "\"default\" | \"underline\"", required: false },
+      { name: "variant", type: "\"pill\" | \"underline\" | \"default\"", required: false },
       { name: "density", type: "\"sm\" | \"md\" | \"lg\"", required: false }
     ],
     accessibility: [
@@ -616,7 +616,8 @@ export const componentContracts = {
       "Expose selected state with aria-selected.",
       "Require stable item key or value before composing tabs.",
       "Use badge only through explicit TabsBadge labels; do not synthesize badges from count shorthands.",
-      "Keep roving tab index aligned with selection."
+      "Keep roving tab index aligned with selection.",
+      "Treat default as a backwards-compatible alias for the ZIP pill variant."
     ]
   },
   tooltip: {

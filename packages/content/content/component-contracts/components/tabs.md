@@ -106,14 +106,15 @@ Tabs API exposes label, items, selectedKey, onValueChange, and variant while Des
 
 ## Variants
 
-Tabs supports two approved visual treatments: default for the pill track and underline for flatter navigation surfaces. Both keep the selected indicator travel that defines Tabs momentum.
+Tabs supports two approved visual treatments: pill for the reference track and underline for flatter navigation surfaces. The legacy default prop is accepted only as a compatibility alias for pill.
 
-Approved variants from demos: `default`, `underline`
+Approved variants from demos: `pill`, `underline`, `default`
 
 Demo labels:
 
 - With badge
 - Underline
+- Default alias
 
 ## States
 
@@ -129,9 +130,9 @@ State matrix: `default`, `hover`, `selected`, `focus`, `overflow`, `disabled`
 
 | Row | Demo variant | Demo state |
 | --- | --- | --- |
-| Default | default |  |
+| Default | pill |  |
 | Underline | underline |  |
-| With badge | default |  |
+| With badge | pill |  |
 
 ## Full Width
 
@@ -167,7 +168,7 @@ Use the playground to confirm visual treatment, label length, active state, item
 | Control | Type | Default | Options |
 | --- | --- | --- | --- |
 | ariaLabel | text | Wallet sections |  |
-| variant | select | default | default, underline |
+| variant | select | pill | pill, underline |
 | itemCount | select | 3 | 3, 4, 5 |
 | state | select | selected | default, hover, selected, focus, overflow, disabled |
 | density | select | md | sm, md, lg |
@@ -182,7 +183,7 @@ Tabs API exposes label, items, selectedKey, onValueChange, and variant while Des
 | items | Array<{ key?: string; value?: string; label: string; icon?: string; count?: number; badge?: BadgeProps; disabled?: boolean }> | Yes | List of sibling sections with optional icon and badge metadata. |
 | selectedKey | string | No | Active tab key. |
 | onValueChange | (key: string) => void | No | Called when local tab selection changes. |
-| variant | "default" \| "underline" | No | Visual treatment for sibling section navigation. |
+| variant | "pill" \| "underline" \| "default" | No | Visual treatment for sibling section navigation; default is a compatibility alias for pill. |
 | density | "sm" \| "md" \| "lg" | false |  |
 
 ## Implementation Checklist

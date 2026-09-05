@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.2.0-truth-reset",
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-05",
   "scope": "truthful Flow3 component 1:1 QA matrix; ZIP reference always applies; Docs/FlowDocs are excluded from current execution scope except local review demos",
   "status": "partial",
   "rule": "A component can be pass only with recent 1:1 evidence: ZIP reference checked first, package-backed React runtime demo, light/dark visual QA, accessibility/keyboard behavior where applicable, density/layout/typography/iconography verified, automated validation passed, and a commit captured in evidence. Stale or inferred pass evidence must be downgraded to partial.",
@@ -1747,7 +1747,7 @@
     },
     {
       "id": "kpi-tile",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1760,7 +1760,7 @@
         "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -1859,7 +1859,7 @@
     },
     {
       "id": "list",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -1872,7 +1872,7 @@
         "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -1893,12 +1893,10 @@
         "npm run audit:flow-core-gate"
       ],
       "decision": "Rebuilt List against the ZIP Listbox primitive contract instead of the stale TransactionRow evidence. Static lists remain role=list and non-interactive. Executable action lists now expose role=listbox, aria-activedescendant, role=option rows, ArrowUp/ArrowDown, Home/End, typeahead, Enter/Space selection, disabled-row skipping, and focus staying on the listbox container. Rows no longer nest buttons inside options. List no longer owns default elevation; container surfaces own depth. Generated a real React runtime demo with ZIP reference, variants, density, and states, plus a dedicated runtime audit.",
-      "openIssues": [
-        "Pending user visual acceptance of the List runtime demo before promoting status from partial to pass."
-      ],
+      "openIssues": [],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-user-visual-review",
-      "truthResetDecision": "Technical 1:1 contract reconstructed on 2026-09-04; keep partial until visual acceptance."
+      "reviewState": "accepted",
+      "truthResetDecision": "Technical 1:1 contract reconstructed on 2026-09-04 and user confirmed List already passed visual review."
     },
     {
       "id": "menu",
@@ -2233,9 +2231,7 @@
         "packages/react/test/render-status-feedback.test.mjs",
         "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/progress-2026-08-25/interactive/react-runtime.html"
       ],
-      "openIssues": [
-        "Pending user visual acceptance of the regenerated package-backed demo before promoting ProgressIndicator to pass."
-      ],
+      "openIssues": [],
       "decision": "ProgressIndicator 1:1 reconstruction now consumes the ZIP Progress and CircularProgress references through one governed React component. The API exposes variant=linear|circular, clamps determinate values, preserves indeterminate as linear only, suppresses fake indeterminate percentages, renders circular as a progressbar ring with centered mono value, and routes density through component aliases for track height, ring size, label typography, value typography, and label-to-bar spacing.",
       "validation": [
         "npm run build --workspace @design-system/react",
@@ -2248,7 +2244,9 @@
         "git diff --check"
       ],
       "notes": "Runtime audit confirms 21 fixtures, 15 linear and 6 circular; determinate ARIA for native progress and ring progressbar; indeterminate resolves to linear with no value attribute or visible fake value; circular requested with indeterminate resolves to linear; high values clamp to 100%; sm/md/lg scale track height, ring size, label text, value text, and label-to-bar spacing at 4/8/12px.",
-      "lastAuditedAt": "2026-09-04"
+      "lastAuditedAt": "2026-09-04",
+      "reviewState": "accepted",
+      "truthResetDecision": "ProgressIndicator is closed after regenerated package-backed demo, runtime/contracts validation, and user confirmation that visual review already passed."
     },
     {
       "id": "quick-action",
@@ -2875,52 +2873,74 @@
     },
     {
       "id": "tabs",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
         "visual-qa": "partial",
-        "validation": "partial"
+        "validation": "pass"
       },
       "evidence": [
-        "docs/audits/tabs-1to1-quality-audit.json",
-        "docs/audits/tabs-1to1-visual-metrics.json",
-        "docs/audits/tabs-1to1-light.png",
-        "docs/audits/tabs-1to1-underline-light.png",
-        "docs/audits/tabs-1to1-dark.png",
-        "packages/components/src/components/interactions.js",
-        "packages/components/src/registry.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/components/Tabs.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/tabs.json",
+        "packages/specs/specs/unison-system/artifacts/components/tabs.json",
+        "packages/content/content/component-copy/components/tabs/all.json",
+        "packages/content/content/component-contracts/components/tabs.md",
+        "packages/components/src/contracts.ts",
         "packages/components/src/contracts.js",
-        "packages/components/test/smoke.test.mjs",
+        "packages/components/styles/components.css",
+        "packages/react/src/Tabs.tsx",
+        "packages/react/src/Tabs.js",
+        "packages/react/src/Tabs.d.ts",
+        "packages/react/dist/Tabs.js",
+        "packages/react/dist/Tabs.d.ts",
         "packages/audit/scripts/audit-tabs-css-contract.js",
-        "packages/react/test/p0-overlays-navigation.test.mjs",
-        "commit 5c264331",
-        "docs/audits/react-interaction-coverage-audit.json",
-        "docs/audits/react-interaction-coverage-audit.md",
-        "packages/audit/scripts/report-react-interaction-coverage.js",
-        "packages/components/styles/components.css"
+        "packages/audit/scripts/audit-tabs-runtime.mjs",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tabs-2026-08-18/interactive/react-runtime.html?fresh=tabs-focus-inset-runtime-1"
       ],
-      "openIssues": [
-        "Truth reset 2026-08-28: component was touched or depended on by recent systemic work, but it is not closed under the current strict ZIP/runtime/dark/accessibility/keyboard/density evidence standard."
-      ],
+      "openIssues": [],
       "inventoryEscalations": [
-        "Tabs stays a component for local view switching; documentation shell navigation is a separate docs implementation, and segmented choices stay in Segmented Control."
+        "Tabs stays a component for local view switching; documentation shell navigation is a separate docs implementation, and segmented choices stay in Segmented Control.",
+        "ZIP count shorthand maps to Flow Badge composition through explicit TabsBadge labels rather than a separate count prop."
       ],
-      "lastReviewAt": "2026-08-19",
-      "currentReviewCommit": "5c264331",
-      "decision": "Tabs stays a component for local view switching. Current review closes the repo-side blockers: disabled tabs are native disabled buttons with visible disabled styling, keyboard roving excludes disabled items, Home/End and Arrow navigation are covered by P0 overlay/navigation tests, and Tabs CSS contract guards density, selected, disabled, focus, and motion aliases.",
+      "lastReviewAt": "2026-09-05",
+      "currentReviewCommit": "working-tree",
+      "decision": "Tabs is closed with user visual acceptance on 2026-09-05. ZIP pill and underline treatments are implemented, default remains as a compatibility alias for pill, selected uses primary text plus indicator/weight instead of color-only action blue, Badge composition is explicit, disabled tabs are native and skipped by roving keyboard, Arrow/Home/End plus Tab/Shift+Tab behavior are covered by runtime audit, compact demos initialize on their first tab to avoid false keyboard-skip cues, compact demos no longer stretch, non-content scrollbars are hidden while preserving horizontal overflow fallback, and focus renders as a governed inset ring so the scrollable track cannot clip it.",
+      "validation": [
+        "npm run build --workspace @design-system/react",
+        "node packages/audit/scripts/build-local-react-qa-demo.mjs --component=tabs",
+        "node packages/audit/scripts/audit-tabs-runtime.mjs",
+        "node packages/audit/scripts/audit-component-css-contracts.js --check",
+        "npm run typecheck",
+        "git diff --check"
+      ],
+      "notes": [
+        "2026-09-05: ZIP reference consulted; public treatments are pill and underline, with default retained only as a compatibility alias for pill.",
+        "2026-09-05: Scoped source-of-truth audit passed for Tabs after aligning spec, content, executable contracts, React types, and generated markdown contract.",
+        "2026-09-05: Runtime audit passed: 7 tablists, 6 pill, 1 underline, ArrowRight skips disabled, Home/End work, and density scales 36/44/52px with matching typography and padding.",
+        "2026-09-05: Tabs no longer stretch by parent grid/card stretch; component root uses fit-content with max-inline-size/overflow guard and demo uses compact fit cards.",
+        "2026-09-05: Runtime audit includes fit-content coverage so compact tablists cannot silently stretch across wide demo cards.",
+        "2026-09-05: Tabs hides non-content scrollbars with overflow-y hidden plus browser scrollbar hiding while preserving horizontal overflow fallback for long tab sets.",
+        "2026-09-05: Runtime audit now verifies compact tablists fit their content and hide non-content scrollbars.",
+        "2026-09-05: Demo tablists now initialize on their first tab; selection-change behavior is demonstrated through interaction rather than misleading initial selectedKey values.",
+        "2026-09-05: Runtime audit verifies Tab leaves the active tablist to Underline tabs:general and Shift+Tab returns without resetting selection.",
+        "2026-09-05: Tabs focus ring moved to a governed inset box-shadow so scrollable tracks cannot clip visible focus.",
+        "2026-09-05: Runtime audit verifies focusVisual=inset-unclipped in addition to Arrow/Home/End and Tab/Shift+Tab navigation.",
+        "2026-09-05: User visually accepted tabs-focus-inset-runtime-1; Tabs promoted to pass."
+      ],
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-revalidation",
-      "truthResetDecision": "Keep in the prioritized revalidation queue before treating this component as production-ready."
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Technical 1:1 evidence reconstructed on 2026-09-05; keep partial until user visual review accepts the regenerated Tabs runtime demo."
     },
     {
       "id": "tag",
@@ -3139,20 +3159,21 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 33,
-    "partial": 24,
+    "pass": 43,
+    "partial": 14,
     "fail": 0,
-    "qualityDebt": 24,
+    "qualityDebt": 14,
     "reviewStates": {
       "closed-with-recent-evidence": 26,
-      "needs-1to1-review": 14,
-      "closed-with-user-visual-review": 6,
-      "needs-revalidation": 11
+      "needs-1to1-review": 12,
+      "closed-with-user-visual-review": 10,
+      "needs-revalidation": 4,
+      "accepted": 5
     },
-    "ready": 33,
+    "ready": 42,
     "blocked": 0,
     "notStarted": 0,
-    "lastUpdated": "2026-09-03"
+    "lastUpdated": "2026-09-05"
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",

@@ -2,7 +2,12 @@ import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import { tabsPlatformContract } from "#flow/platforms";
 import { Badge } from "./Badge.js";
 import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
-const allowedVariants = new Set(["default", "underline"]);
+const allowedVariants = new Set(["pill", "underline", "default"]);
+function normalizeTabsVariant(variant) {
+    if (variant === "underline")
+        return "underline";
+    return "pill";
+}
 function itemKey(item) {
     return item?.key ?? item?.value ?? "";
 }
@@ -24,13 +29,13 @@ function selectedFromItems(items, selectedKey) {
     const selectedItemKey = itemKey(items.find((item) => item.selected));
     return selectedItemKey !== "" ? selectedItemKey : itemKey(items[0]);
 }
-export const Tabs = forwardRef(function Tabs({ label, items, selectedKey, variant = "default", density, onValueChange, className = "", ...rest }, ref) {
+export const Tabs = forwardRef(function Tabs({ label, items, selectedKey, variant = "pill", density, onValueChange, className = "", ...rest }, ref) {
     const normalizedItems = useMemo(() => normalizeItems(items), [items]);
     const isSelectedKeyControlled = selectedKey !== undefined;
     const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
     const rootRef = useRef(null);
     const tabRefs = useRef(new Map());
-    const resolvedVariant = allowedVariants.has(variant) ? variant : "default";
+    const resolvedVariant = normalizeTabsVariant(allowedVariants.has(variant) ? variant : "pill");
     const resolvedDensity = normalizeFlowDensity(density);
     const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
     const syncIndicator = (key = activeKey) => {

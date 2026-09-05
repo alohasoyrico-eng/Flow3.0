@@ -2110,29 +2110,43 @@ const components = {
     directory: "tabs-2026-08-18",
     module: "Tabs.js",
     exportName: "Tabs",
-    buildId: "tabs-react-runtime-1",
+    buildId: "tabs-focus-inset-runtime-1",
     eventPropName: "onValueChange",
     actionHandler: "(key, event) => onAction(props.label + '=' + key)(event)",
+    statefulValueProp: "selectedKey",
     actionSelector: "button[data-tabs-item]:not(:disabled)",
-    supportPreamble: `const tabItems = [
-      { key: "overview", label: "Overview", icon: "dashboard" },
-      { key: "details", label: "Details", badge: { label: "2" } },
-      { key: "disabled", label: "Disabled", disabled: true },
-      { key: "settings", label: "Settings", icon: "settings" }
+    runtimeInstruction: "ArrowLeft/ArrowRight, Home/End y click cambian el tab activo; los tabs disabled se omiten.",
+    supportPreamble: `const operationalTabs = [
+      { key: "all", label: "Todas", icon: "dashboard", badge: { label: "18" } },
+      { key: "route", label: "En ruta", icon: "route", badge: { label: "8", tone: "success" } },
+      { key: "yard", label: "Patio", icon: "warehouse", disabled: true, badge: { label: "0" } },
+      { key: "documents", label: "Documentos", icon: "description", badge: { label: "3" } }
+    ];
+    const documentTabs = [
+      { key: "general", label: "General" },
+      { key: "documents", label: "Documentos", badge: { label: "3" } },
+      { key: "history", label: "Historial" }
     ];`,
     demoBody: `e("section", { className: "audit-section" },
-          e("h2", null, "Variantes"),
-          e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Default tabs", items: tabItems, selectedKey: "overview" })),
-            e("div", { className: "audit-card" }, action({ label: "Underline tabs", items: tabItems, selectedKey: "details", variant: "underline" }))
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid audit-grid--tabs" },
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Pill tabs", items: operationalTabs, selectedKey: "all", variant: "pill" })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Underline tabs", items: documentTabs, selectedKey: "general", variant: "underline" }))
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Compatibilidad"),
+          e("div", { className: "audit-grid audit-grid--tabs" },
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Default alias", items: operationalTabs, selectedKey: "all", variant: "default" })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Disabled skip", items: operationalTabs, selectedKey: "all", variant: "pill" }))
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
-          e("div", { className: "audit-grid" },
-            e("div", { className: "audit-card" }, action({ label: "Small tabs", items: tabItems, selectedKey: "overview", density: "sm" })),
-            e("div", { className: "audit-card" }, action({ label: "Medium tabs", items: tabItems, selectedKey: "overview", density: "md" })),
-            e("div", { className: "audit-card" }, action({ label: "Large tabs", items: tabItems, selectedKey: "overview", density: "lg" }))
+          e("div", { className: "audit-grid audit-grid--tabs" },
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Small tabs", items: operationalTabs, selectedKey: "all", density: "sm", variant: "pill" })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Medium tabs", items: operationalTabs, selectedKey: "all", density: "md", variant: "pill" })),
+            e("div", { className: "audit-card audit-card--compact" }, action({ label: "Large tabs", items: operationalTabs, selectedKey: "all", density: "lg", variant: "pill" }))
           )
         )`,
   },
@@ -2726,6 +2740,18 @@ const html = `<!doctype html>
 
     .audit-grid--four {
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    }
+
+    .audit-grid--tabs {
+      align-items: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .audit-grid--tabs .audit-card {
+      inline-size: max-content;
+      max-inline-size: 100%;
     }
 
     .audit-grid--compact-metrics {

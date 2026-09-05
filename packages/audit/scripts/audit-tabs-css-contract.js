@@ -49,6 +49,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
   if (!source.includes("ArrowRight") || !source.includes("ArrowLeft") || !source.includes("Home") || !source.includes("End") || !source.includes("onValueChange?.(nextKey, event);")) {
     add("errors", sourceFile, 1, "Tabs must keep keyboard roving behavior and pass the source event to onValueChange.");
   }
+  if (!source.includes('export type TabsVariant = "pill" | "underline" | "default";') || !source.includes("function normalizeTabsVariant") || !source.includes('variant = "pill"')) {
+    add("errors", sourceFile, 1, "Tabs must expose the ZIP pill/underline variants and keep default only as a compatibility alias.");
+  }
   if (!source.includes("disabled: Boolean(disabled)") || !source.includes("const enabled = normalizedItems.filter((item) => !item.disabled);")) {
     add("errors", sourceFile, 1, "Tabs must wire disabled items to native buttons and exclude them from roving keyboard navigation.");
   }
@@ -79,6 +82,9 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "--comp-tabs-tab-font-size-sm: var(--component-control-frame-font-size-sm)",
       "--comp-tabs-tab-font-size-md: var(--component-control-frame-font-size-md)",
       "--comp-tabs-tab-font-size-lg: var(--component-control-frame-font-size-lg)",
+      "--comp-tabs-tab-font-weight: var(--component-font-weight-medium)",
+      "--comp-tabs-selected-fg: var(--component-color-text)",
+      "--comp-tabs-selected-weight: var(--component-font-weight-bold)",
       "--comp-tabs-tab-min-block-sm: var(--component-control-frame-size-sm)",
       "--comp-tabs-tab-min-block-md: var(--component-control-frame-size-md)",
       "--comp-tabs-tab-min-block-lg: var(--component-control-frame-size-lg)",
@@ -91,6 +97,8 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "--comp-tabs-disabled-cursor: var(--component-disabled-cursor)",
       "--comp-tabs-disabled-opacity: var(--component-disabled-readable-opacity)",
       "--comp-tabs-focus-width: var(--component-focus-ring-width)",
+      "--comp-tabs-focus-shadow: inset 0 0 0 var(--comp-tabs-focus-width) var(--comp-tabs-focus-color)",
+      "--comp-tabs-focus-offset: var(--component-outline-none)",
       "--comp-tabs-underline-indicator-shadow: var(--component-depth-none)",
       "align-items: var(--comp-tabs-align)",
       "background: var(--comp-tabs-bg)",
@@ -98,7 +106,12 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
       "border-radius: var(--comp-tabs-radius)",
       "display: var(--comp-tabs-display)",
       "gap: var(--comp-tabs-gap)",
+      "inline-size: fit-content",
+      "max-inline-size: 100%",
+      "overflow-x: auto",
+      "overflow-y: hidden",
       "padding: var(--comp-tabs-padding)",
+      "scrollbar-width: none",
     ],
     message: "Tabs root must own and consume aliases for track, indicator, tab, density, focus, and motion.",
   });
@@ -193,10 +206,12 @@ function checkTabsCssContract({ text, blocks, packageCssFile, selectorKey, root 
     text,
     packageCssFile,
     snippets: [
-      "outline: var(--comp-tabs-focus-width) solid var(--comp-tabs-focus-color)",
+      "box-shadow: var(--comp-tabs-focus-shadow)",
+      "outline: var(--component-outline-none)",
       "outline-offset: var(--comp-tabs-focus-offset)",
+      "z-index: var(--component-z-raised)",
     ],
-    message: "Tabs focus state must consume accessibility aliases instead of sharing Tooltip focus CSS.",
+    message: "Tabs focus state must use a governed inset ring so scrollable tracks cannot clip visible focus.",
   });
   requireIncludes({
     block: underlineBlock,

@@ -49,12 +49,16 @@
         ],
         "variants": [
           {
-            "id": "default",
+            "id": "pill",
             "description": "Pill-style selected surface with spring-like indicator motion."
           },
           {
             "id": "underline",
             "description": "Dense detail treatment with accent underline indicator."
+          },
+          {
+            "id": "default",
+            "description": "Deprecated compatibility alias that renders the pill treatment."
           }
         ],
         "intents": [
@@ -75,14 +79,14 @@
         "foundations": {
           "Energy": {
             "status": "covered",
-            "decision": "Use Flow action-primary for selected/current tab while preserving readable text and indicator contrast.",
+            "decision": "Use the selected indicator, primary text, and weight to distinguish the current tab without relying on color alone.",
             "tokens": [
               "comp.tabs.*",
               "sys.energy.*"
             ],
             "behavior": "Selected tab is unmistakable.",
             "example": "Wallet overview selected.",
-            "test": "Verify selected/current tab uses Flow action-primary and active state is not color-only.",
+            "test": "Verify selected/current tab has a visible indicator and active state is not color-only.",
             "rejectIf": "Selected/current tab uses raw color or non-Flow color."
           },
           "Voice": {

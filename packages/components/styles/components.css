@@ -4344,7 +4344,7 @@ button.tag:disabled,
   --comp-tabs-tab-font-size-md: var(--component-control-frame-font-size-md);
   --comp-tabs-tab-font-size-lg: var(--component-control-frame-font-size-lg);
   --comp-tabs-tab-font-size: var(--comp-tabs-tab-font-size-md);
-  --comp-tabs-tab-font-weight: var(--component-font-weight-semibold);
+  --comp-tabs-tab-font-weight: var(--component-font-weight-medium);
   --comp-tabs-tab-gap: var(--component-space-xs);
   --comp-tabs-tab-justify: var(--component-justify-center);
   --comp-tabs-tab-min-block-sm: var(--component-control-frame-size-sm);
@@ -4359,8 +4359,8 @@ button.tag:disabled,
   --comp-tabs-tab-position: var(--component-position-relative);
   --comp-tabs-tab-transition: color var(--component-duration-state) var(--component-ease-state), transform var(--component-duration-press) var(--component-ease-press);
   --comp-tabs-tab-z: var(--component-z-raised);
-  --comp-tabs-selected-fg: var(--component-color-action);
-  --comp-tabs-selected-weight: var(--component-font-weight-extrabold);
+  --comp-tabs-selected-fg: var(--component-color-text);
+  --comp-tabs-selected-weight: var(--component-font-weight-bold);
   --comp-tabs-hover-fg: var(--component-color-text);
   --comp-tabs-disabled-fg: var(--component-disabled-text);
   --comp-tabs-disabled-cursor: var(--component-disabled-cursor);
@@ -4368,7 +4368,8 @@ button.tag:disabled,
   --comp-tabs-pressed-transform: var(--component-transform-press);
   --comp-tabs-focus-width: var(--component-focus-ring-width);
   --comp-tabs-focus-color: var(--component-color-focus);
-  --comp-tabs-focus-offset: var(--component-focus-ring-offset);
+  --comp-tabs-focus-shadow: inset 0 0 0 var(--comp-tabs-focus-width) var(--comp-tabs-focus-color);
+  --comp-tabs-focus-offset: var(--component-outline-none);
   --comp-tabs-icon-selected-variation: var(--component-icon-variation-filled-strong);
   --comp-tabs-underline-bg: var(--component-surface-transparent);
   --comp-tabs-underline-border: var(--component-border-none);
@@ -4390,9 +4391,18 @@ button.tag:disabled,
   border-radius: var(--comp-tabs-radius);
   display: var(--comp-tabs-display);
   gap: var(--comp-tabs-gap);
+  inline-size: fit-content;
   isolation: var(--comp-tabs-isolation);
+  max-inline-size: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: var(--comp-tabs-padding);
   position: var(--comp-tabs-position);
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .tabs::before {
@@ -4506,8 +4516,10 @@ button.tag:disabled,
 }
 
 .tabs__tab:focus-visible {
-  outline: var(--comp-tabs-focus-width) solid var(--comp-tabs-focus-color);
+  box-shadow: var(--comp-tabs-focus-shadow);
+  outline: var(--component-outline-none);
   outline-offset: var(--comp-tabs-focus-offset);
+  z-index: var(--component-z-raised);
 }
 
 .tooltip__trigger:focus-visible {

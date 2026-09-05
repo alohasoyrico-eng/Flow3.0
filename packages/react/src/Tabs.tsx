@@ -6,7 +6,7 @@ import { flowVariantProps, normalizeFlowDensity, flowDensityProps, flowRestProps
 import type { BadgeState, BadgeTone, BadgeVariant } from "./Badge.js";
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
-export type TabsVariant = "default" | "underline";
+export type TabsVariant = "pill" | "underline" | "default";
 export type TabsDensity = "sm" | "md" | "lg";
 export type TabsValueChangeEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>;
 
@@ -46,7 +46,12 @@ export interface TabsComponent extends ForwardRefExoticComponent<TabsProps & Ref
 
 type NormalizedTabsItem = Omit<TabsItem, "key"> & { key: string };
 
-const allowedVariants = new Set<TabsVariant>(["default", "underline"]);
+const allowedVariants = new Set<TabsVariant>(["pill", "underline", "default"]);
+
+function normalizeTabsVariant(variant: TabsVariant | undefined): Exclude<TabsVariant, "default"> {
+  if (variant === "underline") return "underline";
+  return "pill";
+}
 
 function itemKey(item: Pick<TabsItem, "key" | "value"> | undefined): string {
   return item?.key ?? item?.value ?? "";
@@ -76,7 +81,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({
   label,
   items,
   selectedKey,
-  variant = "default",
+  variant = "pill",
   density,
   onValueChange,
   className = "",
@@ -87,7 +92,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({
   const [currentKey, setCurrentKey] = useState(() => selectedFromItems(normalizedItems, selectedKey));
   const rootRef = useRef<HTMLDivElement | null>(null);
   const tabRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
-  const resolvedVariant = allowedVariants.has(variant) ? variant : "default";
+  const resolvedVariant = normalizeTabsVariant(allowedVariants.has(variant) ? variant : "pill");
   const resolvedDensity = normalizeFlowDensity(density);
   const activeKey = isSelectedKeyControlled ? selectedKey : currentKey || selectedFromItems(normalizedItems, selectedKey);
 

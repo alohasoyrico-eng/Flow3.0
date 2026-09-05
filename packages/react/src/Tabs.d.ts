@@ -3,7 +3,7 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import { tabsPlatformContract } from "@design-system/components/platforms";
 import type { BadgeState, BadgeTone, BadgeVariant } from "./Badge.js";
 
-export type TabsVariant = "default" | "underline";
+export type TabsVariant = "pill" | "underline" | "default";
 export type TabsDensity = "sm" | "md" | "lg";
 export type TabsValueChangeEvent = MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>;
 export interface TabsBadge {
