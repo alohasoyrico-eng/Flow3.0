@@ -1904,34 +1904,76 @@ const components = {
     directory: "kpi-tile-2026-08-25",
     module: "KpiTile.js",
     exportName: "KpiTile",
-    buildId: "kpi-tile-density-runtime-1",
+    buildId: "kpi-tile-reference-runtime-9",
     eventPropName: "onSelect",
     actionHandler: "(meta, event) => onAction(meta.label || props.label)(event)",
     actionSelector: ".kpi-tile[role='button']",
+    supportPreamble: `function KpiTileDrillInDemo() {
+      const [opened, setOpened] = React.useState(false);
+      return e(Component, {
+        label: opened ? "Report opened" : "Drill in",
+        value: opened ? "24 viewed" : "24",
+        delta: opened ? "Demo action completed" : "Open report",
+        tone: "info",
+        variant: "drill-in",
+        state: opened ? "selected" : "default",
+        selected: opened,
+        onSelect: (meta, event) => {
+          setOpened(true);
+          onAction(meta.label)(event);
+        }
+      });
+    }`,
     demoBody: `e("section", { className: "audit-section" },
-          e("h2", null, "Variantes"),
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("div", { className: "audit-grid audit-grid--four" },
+            e(Component, { label: "Unidades activas", value: "128", delta: "+4 vs ayer", trend: "up", tone: "info", icon: "local_shipping", variant: "delta" }),
+            e(Component, { label: "Viajes hoy", value: "412", delta: "+12%", trend: "up", tone: "info", icon: "navigation", variant: "delta" }),
+            e(Component, { label: "Gasto del mes", value: "$248k", delta: "-4% vs mes pasado", trend: "down", tone: "danger", icon: "payments", variant: "delta" }),
+            e(Component, { label: "Alertas abiertas", value: "3", delta: "-2 vs ayer", trend: "down", tone: "warning", icon: "warning", variant: "delta" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Compactos para drawer/header"),
+          e("div", { className: "audit-grid audit-grid--compact-metrics" },
+            e(Component, { label: "RATING", value: "4.96", tone: "neutral", variant: "compact" }),
+            e(Component, { label: "VIAJES", value: "1240", tone: "neutral", variant: "compact" }),
+            e(Component, { label: "DOCS", value: "3/4", tone: "neutral", variant: "compact" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Usos derivados del ZIP"),
           e("div", { className: "audit-grid" },
-            action({ label: "Revenue", value: "$42.8k", delta: "+12%", trend: "up", tone: "success", variant: "delta" }),
-            action({ label: "Risk", value: "7", delta: "2 alerts", trend: "down", tone: "danger", variant: "threshold", state: "risk" }),
-            action({ label: "Routes", value: "128", tone: "info", variant: "sparkline", values: [8, 12, 10, 18, 24, 22] }),
-            action({ label: "Drill in", value: "24", delta: "Open report", tone: "neutral", variant: "drill-in" })
+            e(Component, { label: "Cuentas en proceso", value: "18", tone: "neutral", icon: "hourglass_top" }),
+            e(Component, { label: "Riesgo alto", value: "3", delta: "dar seguimiento", trend: "down", tone: "warning", icon: "warning" }),
+            e(Component, { label: "Valor en pipeline", value: "$148k/mes", tone: "neutral", icon: "payments" }),
+            e(Component, { label: "Flotas activadas", value: "42", delta: "operando", trend: "up", tone: "success", icon: "check_circle" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Extensiones Flow"),
+          e("div", { className: "audit-grid" },
+            e(Component, { label: "Risk", value: "7", delta: "2 alerts", trend: "down", tone: "danger", variant: "threshold", state: "risk" }),
+            e(Component, { label: "Routes", value: "128", delta: "+8 pts", trend: "up", tone: "info", variant: "sparkline", values: [8, 12, 10, 18, 24, 22] }),
+            e(KpiTileDrillInDemo)
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Densidades"),
-          e("div", { className: "audit-grid" },
-            action({ label: "Small KPI", value: "16", delta: "+4%", trend: "up", density: "sm", variant: "delta" }),
-            action({ label: "Medium KPI", value: "24", delta: "+8%", trend: "up", density: "md", variant: "delta" }),
-            action({ label: "Large KPI", value: "32", delta: "+12%", trend: "up", density: "lg", variant: "delta" })
+          e("div", { className: "audit-grid audit-grid--density" },
+            e(Component, { label: "Small KPI", value: "16", delta: "+4%", trend: "up", density: "sm", variant: "delta" }),
+            e(Component, { label: "Medium KPI", value: "24", delta: "+8%", trend: "up", density: "md", variant: "delta" }),
+            e(Component, { label: "Large KPI", value: "32", delta: "+12%", trend: "up", density: "lg", variant: "delta" })
           )
         ),
         e("section", { className: "audit-section" },
           e("h2", null, "Estados"),
           e("div", { className: "audit-grid" },
-            action({ label: "Selected", value: "88", selected: true }),
-            action({ label: "Hover", value: "64", state: "hover" }),
-            action({ label: "Loading", value: "42", loading: true }),
-            action({ label: "Disabled", value: "11", disabled: true })
+            e(Component, { label: "Selected", value: "88", selected: true }),
+            e(Component, { label: "Hover", value: "64", state: "hover" }),
+            e(Component, { label: "Pressed", value: "24", state: "pressed", variant: "drill-in" }),
+            e(Component, { label: "Loading", value: "42", loading: true }),
+            e(Component, { label: "Disabled", value: "11", disabled: true })
           )
         )`,
   },
@@ -2670,12 +2712,27 @@ const html = `<!doctype html>
       grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     }
 
+    .audit-grid--density {
+      align-items: start;
+    }
+
     .audit-grid--charts {
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr));
     }
 
     .audit-grid--charts-coverage {
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 34rem), 1fr));
+    }
+
+    .audit-grid--four {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    }
+
+    .audit-grid--compact-metrics {
+      align-items: start;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
     }
 
     .audit-card {

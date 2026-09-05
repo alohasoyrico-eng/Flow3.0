@@ -6,7 +6,7 @@ import React, { forwardRef } from "react";
 import { kpiTilePlatformContract } from "@design-system/components/platforms";
 import { flowStateProps, flowVariantProps, normalizeFlowValue, normalizeFlowDensity, flowDensityProps, flowRestProps } from "./internal/props.js";
 const validVariants = new Set(["standard", "compact", "delta", "threshold", "sparkline", "drill-in"]);
-const validStates = new Set(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
+const validStates = new Set(["default", "hover", "focus", "pressed", "selected", "loading", "risk", "disabled"]);
 const validTones = new Set(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set(["up", "down", "flat"]);
 function sparklinePoints(values) {
@@ -26,15 +26,16 @@ export const KpiTile = forwardRef(function KpiTile({ label, value, delta = "", t
     const resolvedTrend = normalizeFlowValue(trend, validTrends, "flat");
     const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
     const resolvedDensity = normalizeFlowDensity(density);
+    const visibleLabel = typeof label === "string" ? label.trim() : "";
     const hasValue = value !== undefined && value !== null && value !== "";
     const sparklineValues = Array.isArray(values) ? values : [];
     const requestedInteraction = Boolean(href || onSelect || rest.onClick || resolvedVariant === "drill-in");
     const canActivateTile = Boolean(href || onSelect || rest.onClick);
-    const selectMeta = { ...(label ? { label } : {}), value, delta, tone: resolvedTone, variant: resolvedVariant };
-    const accessibleLabel = requestedInteraction && label ? `${label} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
-    const interactive = requestedInteraction && canActivateTile && Boolean(label);
+    const selectMeta = { label: visibleLabel, value, delta, tone: resolvedTone, variant: resolvedVariant };
+    const accessibleLabel = requestedInteraction && visibleLabel ? `${visibleLabel} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
+    const interactive = requestedInteraction && canActivateTile && Boolean(visibleLabel);
     const Element = href && interactive ? "a" : "article";
-    if (!hasValue)
+    if (!visibleLabel || !hasValue)
         return null;
     return React.createElement(Element, {
         ...flowRestProps(rest),
@@ -72,7 +73,7 @@ export const KpiTile = forwardRef(function KpiTile({ label, value, delta = "", t
                 onSelect?.(selectMeta, event);
             }
         },
-    }, React.createElement("header", null, label ? React.createElement("span", { className: "kpi-tile__label" }, label) : null, icon ? React.createElement("span", { className: "kpi-tile__icon", "aria-hidden": "true" }, icon) : null), React.createElement("strong", { className: "kpi-tile__value" }, value), loading
+    }, React.createElement("header", null, icon ? React.createElement("span", { className: "kpi-tile__icon", "aria-hidden": "true" }, icon) : null, React.createElement("span", { className: "kpi-tile__label" }, visibleLabel)), React.createElement("strong", { className: "kpi-tile__value" }, value), loading
         ? React.createElement("span", { className: "kpi-tile__loading", "aria-hidden": "true" })
         : delta
             ? React.createElement("p", { className: "kpi-tile__delta", "data-trend": resolvedTrend }, React.createElement("span", { className: "kpi-tile__trend-icon", "aria-hidden": "true" }, resolvedTrend === "up" ? "trending_up" : resolvedTrend === "down" ? "trending_down" : "trending_flat"), delta)

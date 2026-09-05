@@ -26,6 +26,7 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
   ));
   const interactiveBlock = blocks.find((block) => block.selector.includes(".kpi-tile:is(a, [role=\"button\"])"));
   const hoverBlock = blocks.find((block) => block.selector.includes(".kpi-tile[data-state=\"hover\"]"));
+  const pressedBlock = blocks.find((block) => block.selector.includes(".kpi-tile[data-state=\"pressed\"]"));
   const focusBlock = blocks.find((block) => block.selector.includes(".kpi-tile:focus-visible"));
   const disabledBlock = blocks.find((block) => block.selector.includes(".kpi-tile[aria-disabled=\"true\"]"));
   const loadingBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-state=\"loading\"]");
@@ -33,6 +34,8 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
   const valueBlock = blockFor(blocks, selectorKey, ".kpi-tile strong");
   const deltaBlock = blockFor(blocks, selectorKey, ".kpi-tile__delta");
   const iconBlock = blocks.find((block) => block.selector.includes(".kpi-tile__trend-icon") && block.selector.includes(".kpi-tile__icon"));
+  const sparklineBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"sparkline\"]");
+  const sparklineChartBlock = blockFor(blocks, selectorKey, ".kpi-tile[data-variant=\"sparkline\"] .kpi-tile__sparkline");
   const riskBlock = blocks.find((block) => block.selector.includes('.kpi-tile[data-variant="threshold"]'));
 
   if (rootBlocks.length !== 1) {
@@ -71,12 +74,20 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     packageCssFile,
     snippets: [
       "--comp-kpi-tile-bg: var(--component-color-surface)",
+      "--comp-kpi-tile-bg-interactive:",
+      "--comp-kpi-tile-bg-pressed: var(--component-tone-action-surface-pressed)",
+      "--comp-kpi-tile-border-pressed: var(--component-tone-action-border-pressed)",
       "--comp-kpi-tile-border-width: var(--component-border-width)",
-      "--comp-kpi-tile-depth: var(--component-depth-panel)",
+      "--comp-kpi-tile-depth: var(--component-depth-none)",
+      "--comp-kpi-tile-depth-interactive: var(--component-depth-low-medium)",
+      "--comp-kpi-tile-depth-pressed: var(--component-depth-none)",
       "--comp-kpi-tile-padding:",
       "--comp-kpi-tile-min-block-size:",
+      "--comp-kpi-tile-transform-pressed: var(--component-transform-press)",
       "--comp-kpi-tile-value-family: var(--component-font-family-mono)",
+      "--comp-kpi-tile-value-weight: var(--component-font-weight-light)",
       "--comp-kpi-tile-risk-rail-width: var(--component-space-xs)",
+      "--comp-kpi-tile-sparkline-inline-size:",
       "background: var(--comp-kpi-tile-bg)",
       "border: var(--comp-kpi-tile-border-width) solid var(--comp-kpi-tile-border)",
       "border-radius: var(--comp-kpi-tile-radius)",
@@ -125,13 +136,19 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     packageCssFile,
     snippets: [
       "--comp-kpi-tile-depth: var(--component-depth-none)",
-      "--comp-kpi-tile-header-size: var(--component-font-size-caption)",
-      "--comp-kpi-tile-value-size: var(--component-font-size-data-lg)",
-      "--comp-kpi-tile-value-weight: var(--component-font-weight-light)",
+      "--comp-kpi-tile-compact-inline-size: var(--component-inline-size-fit-content)",
+      "--comp-kpi-tile-gap: var(--component-space-2xs)",
+      "--comp-kpi-tile-min-block-size: var(--component-block-size-sm)",
+      "--comp-kpi-tile-padding: var(--component-space-sm) var(--component-space-lg)",
+      "inline-size: var(--comp-kpi-tile-compact-inline-size)",
       "justify-items: start",
+      "max-inline-size: 100%",
     ],
-    message: "KPI Tile compact variant must use light dashboard metric voice instead of inheriting the heavier KPI standard.",
+    message: "KPI Tile compact variant must compact frame and spacing without changing the shared KPI typographic voice.",
   });
+  if (compactBlock && /--comp-kpi-tile-(header-size|value-size|value-weight)\s*:/.test(compactBlock.body)) {
+    add("errors", packageCssFile, lineNumber(text, compactBlock.index), "KPI Tile compact variant must not override label/value typography; use density for scale changes.");
+  }
   requireIncludes({
     block: compactHeaderBlock,
     text,
@@ -166,11 +183,24 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
     text,
     packageCssFile,
     snippets: [
+      "background: var(--comp-kpi-tile-bg-interactive)",
       "border-color: var(--comp-kpi-tile-border-interactive)",
       "box-shadow: var(--comp-kpi-tile-depth-interactive)",
       "transform: var(--comp-kpi-tile-transform-interactive)",
     ],
-    message: "KPI Tile hover/selected state must consume KPI state aliases.",
+    message: "KPI Tile hover/selected state must consume visible KPI state aliases.",
+  });
+  requireIncludes({
+    block: pressedBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "background: var(--comp-kpi-tile-bg-pressed)",
+      "border-color: var(--comp-kpi-tile-border-pressed)",
+      "box-shadow: var(--comp-kpi-tile-depth-pressed)",
+      "transform: var(--comp-kpi-tile-transform-pressed)",
+    ],
+    message: "KPI Tile pressed state must be a distinct token-backed action state.",
   });
   requireIncludes({
     block: focusBlock,
@@ -209,11 +239,23 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "color: var(--comp-kpi-tile-header-fg)",
       "font-size: var(--comp-kpi-tile-header-size)",
       "font-weight: var(--comp-kpi-tile-header-weight)",
+      "gap: var(--comp-kpi-tile-header-gap)",
+      "justify-content: var(--comp-kpi-tile-header-justify)",
       "letter-spacing: var(--comp-kpi-tile-header-letter-spacing)",
       "line-height: var(--comp-kpi-tile-header-line-height)",
       "text-transform: var(--comp-kpi-tile-header-transform)",
     ],
     message: "KPI Tile header must consume KPI voice aliases.",
+  });
+  requireIncludes({
+    block: rootBlock,
+    text,
+    packageCssFile,
+    snippets: [
+      "--comp-kpi-tile-header-gap: var(--component-space-xs)",
+      "--comp-kpi-tile-header-justify: var(--component-justify-start)",
+    ],
+    message: "KPI Tile header must keep icon and overline together like the ZIP StatTile anatomy.",
   });
   requireIncludes({
     block: valueBlock,
@@ -246,6 +288,20 @@ function checkKpiTileCssContract({ text, blocks, packageCssFile, selectorKey }) 
       "line-height: var(--comp-kpi-tile-icon-line-height)",
     ],
     message: "KPI Tile icons must consume KPI icon aliases.",
+  });
+  requireIncludes({
+    block: sparklineBlock,
+    text,
+    packageCssFile,
+    snippets: ["grid-template-columns: minmax(0, 1fr) auto"],
+    message: "KPI Tile sparkline variant must reserve a chart column instead of stacking the chart as loose decoration.",
+  });
+  requireIncludes({
+    block: sparklineChartBlock,
+    text,
+    packageCssFile,
+    snippets: ["grid-column: 2", "grid-row: 1 / span 3"],
+    message: "KPI Tile sparkline must sit beside the metric text in the dashboard StatTile anatomy.",
   });
   requireIncludes({
     block: riskBlock,

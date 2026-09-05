@@ -79,7 +79,9 @@ try {
     assert.equal(globalThis.document.activeElement, bars[1]);
     assert.equal(option.engine, "apache-echarts");
     assert.equal(option.type, "bars");
-    assert.deepEqual(option.echartsOption.series[0].data, [12, 28, 0, 0]);
+    assert.deepEqual(option.echartsOption.series[0].data.map((item) => item.value), [12, 28, 0, 0]);
+    assert.deepEqual(option.echartsOption.series[0].data.map((item) => item.name), ["Mon", "Tue", "Wed", "Thu"]);
+    assert.equal(option.echartsOption.series[0].data[0].tooltipIcon, "bar_chart");
     assert.equal(Array.isArray(option.tableFallback), true);
     assert.deepEqual(option.tableFallback.map((row) => row.label), ["Mon", "Tue", "Wed", "Thu"]);
 
@@ -131,7 +133,7 @@ try {
       trend: "up",
       tone: "warning",
       variant: "drill-in",
-      state: "selected",
+      state: "pressed",
       density: "lg",
       selected: true,
       icon: "local_gas_station",
@@ -144,7 +146,7 @@ try {
     assert.equal(tile.tagName, "ARTICLE");
     assert.equal(tile.tabIndex, 0);
     assert.equal(tile.dataset.variant, "drill-in");
-    assert.equal(tile.dataset.state, "selected");
+    assert.equal(tile.dataset.state, "pressed");
     assert.equal(tile.dataset.density, "lg");
     assert.equal(tile.dataset.selected, "true");
     assert.equal(tile.getAttribute("aria-pressed"), "true");

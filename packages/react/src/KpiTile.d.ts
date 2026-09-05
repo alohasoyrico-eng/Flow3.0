@@ -3,13 +3,13 @@ import type { FlowDataAttributes } from "./internal/props.js";
 import type { kpiTilePlatformContract } from "@design-system/components/platforms";
 
 export type KpiTileVariant = "standard" | "compact" | "delta" | "threshold" | "sparkline" | "drill-in";
-export type KpiTileState = "default" | "hover" | "focus" | "selected" | "loading" | "risk" | "disabled";
+export type KpiTileState = "default" | "hover" | "focus" | "pressed" | "selected" | "loading" | "risk" | "disabled";
 export type KpiTileDensity = "sm" | "md" | "lg";
 export type KpiTileTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type KpiTileTrend = "up" | "down" | "flat";
 
 export interface KpiTileMeta {
-  label?: string;
+  label: string;
   value: string;
   delta?: string;
   tone: KpiTileTone;
@@ -18,7 +18,7 @@ export interface KpiTileMeta {
 export type KpiTileSelectEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
 export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
-  label?: string;
+  label: string;
   value: string;
   delta?: string;
   trend?: KpiTileTrend;

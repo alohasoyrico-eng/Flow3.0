@@ -6,13 +6,13 @@ import type { ForwardRefExoticComponent, HTMLAttributes, KeyboardEvent, MouseEve
 import type { FlowDataAttributes, FlowDensity } from "./internal/props.js";
 
 export type KpiTileVariant = "standard" | "compact" | "delta" | "threshold" | "sparkline" | "drill-in";
-export type KpiTileState = "default" | "hover" | "focus" | "selected" | "loading" | "risk" | "disabled";
+export type KpiTileState = "default" | "hover" | "focus" | "pressed" | "selected" | "loading" | "risk" | "disabled";
 export type KpiTileDensity = FlowDensity;
 export type KpiTileTone = "neutral" | "info" | "success" | "warning" | "danger";
 export type KpiTileTrend = "up" | "down" | "flat";
 
 export interface KpiTileMeta {
-  label?: string;
+  label: string;
   value: string;
   delta?: string;
   tone: KpiTileTone;
@@ -21,7 +21,7 @@ export interface KpiTileMeta {
 export type KpiTileSelectEvent = MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>;
 
 export interface KpiTileProps extends Omit<HTMLAttributes<HTMLElement>, "style" | "onSelect" | "dangerouslySetInnerHTML" | "suppressHydrationWarning" | "suppressContentEditableWarning" | "contentEditable">, FlowDataAttributes {
-  label?: string;
+  label: string;
   value: string;
   delta?: string;
   trend?: KpiTileTrend;
@@ -44,7 +44,7 @@ export interface KpiTileComponent extends ForwardRefExoticComponent<KpiTileProps
 }
 
 const validVariants = new Set<KpiTileVariant>(["standard", "compact", "delta", "threshold", "sparkline", "drill-in"]);
-const validStates = new Set<KpiTileState>(["default", "hover", "focus", "selected", "loading", "risk", "disabled"]);
+const validStates = new Set<KpiTileState>(["default", "hover", "focus", "pressed", "selected", "loading", "risk", "disabled"]);
 const validTones = new Set<KpiTileTone>(["neutral", "info", "success", "warning", "danger"]);
 const validTrends = new Set<KpiTileTrend>(["up", "down", "flat"]);
 
@@ -84,16 +84,17 @@ export const KpiTile = forwardRef<HTMLElement, KpiTileProps>(function KpiTile({
   const resolvedTrend = normalizeFlowValue(trend, validTrends, "flat");
   const resolvedState = loading ? "loading" : disabled ? "disabled" : normalizeFlowValue(state, validStates, "default");
   const resolvedDensity = normalizeFlowDensity(density);
+  const visibleLabel = typeof label === "string" ? label.trim() : "";
   const hasValue = value !== undefined && value !== null && value !== "";
   const sparklineValues = Array.isArray(values) ? values : [];
   const requestedInteraction = Boolean(href || onSelect || rest.onClick || resolvedVariant === "drill-in");
   const canActivateTile = Boolean(href || onSelect || rest.onClick);
-  const selectMeta: KpiTileMeta = { ...(label ? { label } : {}), value, delta, tone: resolvedTone, variant: resolvedVariant };
-  const accessibleLabel = requestedInteraction && label ? `${label} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
-  const interactive = requestedInteraction && canActivateTile && Boolean(label);
+  const selectMeta: KpiTileMeta = { label: visibleLabel, value, delta, tone: resolvedTone, variant: resolvedVariant };
+  const accessibleLabel = requestedInteraction && visibleLabel ? `${visibleLabel} ${value}${delta ? `, ${delta}` : ""}`.trim() : undefined;
+  const interactive = requestedInteraction && canActivateTile && Boolean(visibleLabel);
   const Element = href && interactive ? "a" : "article";
 
-  if (!hasValue) return null;
+  if (!visibleLabel || !hasValue) return null;
 
   return React.createElement(
     Element,
@@ -133,8 +134,8 @@ export const KpiTile = forwardRef<HTMLElement, KpiTileProps>(function KpiTile({
     React.createElement(
       "header",
       null,
-      label ? React.createElement("span", { className: "kpi-tile__label" }, label) : null,
       icon ? React.createElement("span", { className: "kpi-tile__icon", "aria-hidden": "true" }, icon) : null,
+      React.createElement("span", { className: "kpi-tile__label" }, visibleLabel),
     ),
     React.createElement("strong", { className: "kpi-tile__value" }, value),
     loading
