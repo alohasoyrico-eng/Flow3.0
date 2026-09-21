@@ -2,7 +2,7 @@
   "components": {
     "toast": {
       "api-foundations": {
-        "copy": "Toast API exposes message, description, tone, variant, lifecycle state, optional action, dismiss behavior, and live-region priority while Design System foundations own severity language, elevation, motion, timing, and accessibility.",
+        "copy": "Toast API exposes message, description, tone, variant, lifecycle state, optional action, dismiss behavior, and live-region priority while Design System foundations own severity language, elevation, motion, timing, and accessibility. Width is intrinsic, bounded by the host and the shared Toast maximum. There are no narrow/wide variants: concise content yields a compact toast; longer copy or one action grows it within that bound. Density changes control, spacing and type scale, not placement or width mode. Action and dismiss stay beside the message; use a short action label. Longer workflows belong in persistent feedback or Dialog.",
         "props": [
           {
             "name": "label",
@@ -38,7 +38,7 @@
             "name": "density",
             "type": "Density",
             "required": "No",
-            "notes": "Density-aware toast scale: sm, md, or lg."
+            "notes": "Shared sm/md/lg scale for controls, spacing, icons and typography; not a narrow/wide or desktop/mobile selector."
           },
           {
             "name": "icon",
@@ -50,13 +50,37 @@
             "name": "actionLabel",
             "type": "string",
             "required": "No",
-            "notes": "Optional action label."
+            "notes": "One short verb beside the message (for example Deshacer or Reintentar), rendered only with onAction; never a separate footer."
           },
           {
             "name": "dismissible",
             "type": "boolean",
             "required": "No",
             "notes": "Shows dismiss control."
+          },
+          {
+            "name": "onDismissChange",
+            "type": "(dismissed: boolean, event?: MouseEvent<HTMLButtonElement>) => void",
+            "required": "No",
+            "notes": "Called after manual dismiss or duration expiry."
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "required": "No",
+            "notes": "Optional auto-dismiss duration in milliseconds; pauses on hover or focus inside."
+          },
+          {
+            "name": "dismissed",
+            "type": "boolean",
+            "required": "No",
+            "notes": "Controlled hidden state for parent-owned lifecycle."
+          },
+          {
+            "name": "dismissLabel",
+            "type": "string",
+            "required": "No",
+            "notes": "Accessible label for the dismiss control."
           },
           {
             "name": "onAction",

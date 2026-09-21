@@ -119,7 +119,7 @@ Referenced token families:
 - `sys.tone.*`
 - `sys.voice.*`
 
-Toast API exposes message, description, tone, variant, lifecycle state, optional action, dismiss behavior, and live-region priority while Design System foundations own severity language, elevation, motion, timing, and accessibility.
+Toast API exposes message, description, tone, variant, lifecycle state, optional action, dismiss behavior, and live-region priority while Design System foundations own severity language, elevation, motion, timing, and accessibility. Width is intrinsic, bounded by the host and the shared Toast maximum. There are no narrow/wide variants: concise content yields a compact toast; longer copy or one action grows it within that bound. Density changes control, spacing and type scale, not placement or width mode. Action and dismiss stay beside the message; use a short action label. Longer workflows belong in persistent feedback or Dialog.
 
 ## Variants
 
@@ -195,7 +195,7 @@ Use the playground to verify severity, message length, optional description, act
 
 ## API And Foundations
 
-Toast API exposes message, description, tone, variant, lifecycle state, optional action, dismiss behavior, and live-region priority while Design System foundations own severity language, elevation, motion, timing, and accessibility.
+Toast API exposes message, description, tone, variant, lifecycle state, optional action, dismiss behavior, and live-region priority while Design System foundations own severity language, elevation, motion, timing, and accessibility. Width is intrinsic, bounded by the host and the shared Toast maximum. There are no narrow/wide variants: concise content yields a compact toast; longer copy or one action grows it within that bound. Density changes control, spacing and type scale, not placement or width mode. Action and dismiss stay beside the message; use a short action label. Longer workflows belong in persistent feedback or Dialog.
 
 | Name | Type | Required | Notes |
 | --- | --- | --- | --- |
@@ -204,10 +204,14 @@ Toast API exposes message, description, tone, variant, lifecycle state, optional
 | tone | ToastTone | No | Semantic announcement tone. |
 | variant | ToastVariant | No | Feedback job: status, progress, warning, recovery, or undo. |
 | state | ToastState | No | Lifecycle state: default, visible, action, stacked, or exiting. |
-| density | Density | No | Density-aware toast scale: sm, md, or lg. |
+| density | Density | No | Shared sm/md/lg scale for controls, spacing, icons and typography; not a narrow/wide or desktop/mobile selector. |
 | icon | string | No | Optional Material Symbol override; defaults from tone. |
-| actionLabel | string | No | Optional action label. |
+| actionLabel | string | No | One short verb beside the message (for example Deshacer or Reintentar), rendered only with onAction; never a separate footer. |
 | dismissible | boolean | No | Shows dismiss control. |
+| onDismissChange | (dismissed: boolean, event?: MouseEvent<HTMLButtonElement>) => void | No | Called after manual dismiss or duration expiry. |
+| duration | number | No | Optional auto-dismiss duration in milliseconds; pauses on hover or focus inside. |
+| dismissed | boolean | No | Controlled hidden state for parent-owned lifecycle. |
+| dismissLabel | string | No | Accessible label for the dismiss control. |
 | onAction | () => void | No | Called when the toast action is selected. |
 | onDismiss | () => void | No | Called when the toast is dismissed. |
 
@@ -220,7 +224,12 @@ Toast API exposes message, description, tone, variant, lifecycle state, optional
 - Exiting motion respects reduced motion
 - Stacking does not cover primary actions
 - Copy remains short and non-blocking
-- Density changes padding and width without changing the feedback job
+- Density changes control, padding, icon and text scale without selecting a width mode
+- Duration pauses on hover and focus
+- Auto-dismiss does not steal focus
+- Dismiss remains square and contrast-readable on inverse surface during hover, press and focus in light/dark
+- Action stays beside message at constrained host widths; content does not overflow
+- Short messages shrink to content and longer messages respect host and Toast maximum width
 
 ## Tests And Rejection Rules
 
@@ -232,7 +241,12 @@ Must test:
 - Exiting motion respects reduced motion
 - Stacking does not cover primary actions
 - Copy remains short and non-blocking
-- Density changes padding and width without changing the feedback job
+- Density changes control, padding, icon and text scale without selecting a width mode
+- Duration pauses on hover and focus
+- Auto-dismiss does not steal focus
+- Dismiss remains square and contrast-readable on inverse surface during hover, press and focus in light/dark
+- Action stays beside message at constrained host widths; content does not overflow
+- Short messages shrink to content and longer messages respect host and Toast maximum width
 
 Reject if:
 

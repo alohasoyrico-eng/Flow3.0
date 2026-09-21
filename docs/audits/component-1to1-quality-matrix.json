@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.2.0-truth-reset",
-  "updatedAt": "2026-09-05",
+  "updatedAt": "2026-09-21",
   "scope": "truthful Flow3 component 1:1 QA matrix; ZIP reference always applies; Docs/FlowDocs are excluded from current execution scope except local review demos",
   "status": "partial",
   "rule": "A component can be pass only with recent 1:1 evidence: ZIP reference checked first, package-backed React runtime demo, light/dark visual QA, accessibility/keyboard behavior where applicable, density/layout/typography/iconography verified, automated validation passed, and a commit captured in evidence. Stale or inferred pass evidence must be downgraded to partial.",
@@ -2194,7 +2194,7 @@
     },
     {
       "id": "progress-indicator",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -2207,7 +2207,7 @@
         "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -2246,7 +2246,9 @@
       "notes": "Runtime audit confirms 21 fixtures, 15 linear and 6 circular; determinate ARIA for native progress and ring progressbar; indeterminate resolves to linear with no value attribute or visible fake value; circular requested with indeterminate resolves to linear; high values clamp to 100%; sm/md/lg scale track height, ring size, label text, value text, and label-to-bar spacing at 4/8/12px.",
       "lastAuditedAt": "2026-09-04",
       "reviewState": "accepted",
-      "truthResetDecision": "ProgressIndicator is closed after regenerated package-backed demo, runtime/contracts validation, and user confirmation that visual review already passed."
+      "truthResetDecision": "ProgressIndicator is closed after regenerated package-backed demo, runtime/contracts validation, and user confirmation that visual review already passed.",
+      "currentReviewCommit": "c19f3d3a Align ProgressIndicator with ZIP progress contracts",
+      "lastValidation": "2026-09-09: audit-progress-indicator-runtime.mjs passed: 21 fixtures, 15 linear, 6 circular, density sm/md/lg. Visual acceptance already recorded in reviewState and truthResetDecision."
     },
     {
       "id": "quick-action",
@@ -2940,7 +2942,10 @@
       ],
       "previousStatusBeforeTruthReset": "pass",
       "reviewState": "closed-with-user-visual-review",
-      "truthResetDecision": "Technical 1:1 evidence reconstructed on 2026-09-05; keep partial until user visual review accepts the regenerated Tabs runtime demo."
+      "truthResetDecision": "Technical 1:1 evidence reconstructed on 2026-09-05; keep partial until user visual review accepts the regenerated Tabs runtime demo.",
+      "validationNotes": [
+        "2026-09-21: Replaced inset focus box-shadow with token-backed outline and negative outline offset; preserves inset geometry and meets shared accessibility policy. General flow-core gate passed. Extra overlays/navigation test stopped on unrelated Popover Tab-close assertion at line 238. Browser visual verification blocked by auto-review of local server scope."
+      ]
     },
     {
       "id": "tag",
@@ -2957,7 +2962,7 @@
         "density-layout": "pass",
         "typography-iconography": "pass",
         "accessibility": "pass",
-        "visual-qa": "partial",
+        "visual-qa": "pass",
         "validation": "pass"
       },
       "evidence": [
@@ -2975,16 +2980,16 @@
         "packages/audit/scripts/audit-tag-css-contract.js",
         "packages/audit/scripts/audit-tag-runtime.mjs",
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
-        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tag-2026-09-05/interactive/react-runtime.html?fresh=tag-1to1-runtime-1"
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tag-2026-09-05/interactive/react-runtime.html?fresh=tag-1to1-runtime-2"
       ],
       "openIssues": [
-        "Pending user visual review for tag-1to1-runtime-1 before promoting Tag to pass."
+        "Capture reviewed changes in a commit before final pass promotion under the strict evidence rule."
       ],
       "decision": "Tag remains a metadata-only component by default. 2026-09-05 reconstruction uses ZIP Badge and Chip as boundaries because no direct Tag primitive exists: static tags render spans outside tab order, link tags render native buttons only when a real action exists, density scales text/icon/frame/padding, hover/press stay flat without raised elevation, and selected/removable/count behavior is explicitly excluded.",
       "updatedAt": "2026-07-22",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-user-visual-review",
-      "truthResetDecision": "Technical 1:1 evidence reconstructed on 2026-09-05; keep partial until user visual review accepts the regenerated Tag runtime demo.",
+      "reviewState": "accepted",
+      "truthResetDecision": "User visually accepted on 2026-09-21. Visual gate is pass; final promotion waits for commit evidence. Do not request visual acceptance again unless behavior or appearance changes.",
       "lastReviewAt": "2026-09-05",
       "currentReviewCommit": "working-tree",
       "inventoryEscalations": [
@@ -3001,7 +3006,16 @@
         "2026-09-05: ZIP Badge and Chip references consulted; no direct Tag primitive found, so Tag is constrained as compact metadata and not a filter/removal/control surrogate.",
         "2026-09-05: CSS contract now rejects generic control sizing, incomplete density scaling, and raised hover shadows for Tag.",
         "2026-09-05: Runtime audit verifies static span semantics, action-only buttons, no selected/remove UI, flat hover, density scaling, and click/Enter/Space activation."
-      ]
+      ],
+      "validationNotes": [
+        "2026-09-21: Auditor now verifies both links of the existing md interactive-size alias chain. General flow-core gate and P2 display/status tests passed; visual acceptance remains pending.",
+        "2026-09-21: Demo now separates default-state live interaction from explicitly forced hover/focus/pressed visual samples. Regenerated tag-1to1-runtime-2; P2 display/status tests pass. User visual review remains pending."
+      ],
+      "userVisualAcceptance": {
+        "date": "2026-09-21",
+        "source": "Explicit user acceptance in current task",
+        "demoBuild": "tag-1to1-runtime-2"
+      }
     },
     {
       "id": "text-area",
@@ -3038,52 +3052,57 @@
       "id": "toast",
       "status": "partial",
       "steps": {
-        "zip-reference": "partial",
-        "system-architecture": "partial",
-        "package-source": "partial",
-        "docs-source": "partial",
-        "foundations-primitives": "partial",
-        "states-variants": "partial",
-        "interaction-logic": "partial",
-        "motion": "partial",
-        "density-layout": "partial",
-        "typography-iconography": "partial",
-        "accessibility": "partial",
-        "visual-qa": "partial",
-        "validation": "partial"
+        "zip-reference": "covered",
+        "system-architecture": "covered",
+        "package-source": "covered",
+        "docs-source": "covered",
+        "foundations-primitives": "covered",
+        "states-variants": "covered",
+        "interaction-logic": "covered",
+        "motion": "covered",
+        "density-layout": "covered",
+        "typography-iconography": "covered",
+        "accessibility": "covered",
+        "visual-qa": "pass",
+        "validation": "covered"
       },
       "evidence": [
-        ".audit-reference/components/feedback/Toast.jsx",
-        ".audit-reference/components/feedback/Toast.d.ts",
-        ".audit-reference/components/feedback/Toast.prompt.md",
-        ".audit-reference/docs/demos/toast.html",
-        "packages/specs/specs/unison-system/artifacts/components/toast.json",
-        "packages/components/src/components/overlays.js",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Toast.jsx",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/toast.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/contracts/toast-host.json",
+        "/Users/r1c0/Desktop/Design system multiplataforma desde cero/docs/demos/toast.html",
+        "packages/react/src/Toast.tsx",
+        "packages/react/src/Toast.d.ts",
+        "packages/react/dist/Toast.js",
+        "packages/react/dist/Toast.d.ts",
         "packages/components/styles/components.css",
+        "packages/components/src/contracts.ts",
         "packages/components/src/contracts.js",
-        "packages/components/src/registry.js",
-        "packages/components/test/smoke.test.mjs",
-        "packages/content/content/component-copy/components/toast/operational-example.json",
-        "packages/content/content/component-copy/components/toast/variants.json",
+        "packages/specs/specs/unison-system/artifacts/components/toast.json",
         "packages/content/content/component-copy/components/toast/api-foundations.json",
         "packages/content/content/component-copy/components/toast/tests-rejection-rules.json",
-        "packages/content/content/component-copy.json",
-        "apps/docs/toast-demo-interactions.js",
-        "apps/docs/styles/04o-toast-docs.css",
-        "docs/audits/toast-1to1-quality-audit.json",
-        "docs/audits/toast-1to1-visual-metrics.json",
-        "docs/audits/toast-1to1-light.png",
-        "docs/audits/toast-1to1-dark.png"
+        "packages/content/content/component-contracts/components/toast.md",
+        "packages/audit/scripts/build-local-react-qa-demo.mjs",
+        "packages/audit/scripts/audit-toast-css-contract.js",
+        "packages/audit/scripts/audit-toast-runtime.mjs",
+        "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/toast-2026-09-05/interactive/react-runtime.html?fresh=toast-reference-runtime-2"
       ],
       "openIssues": [
-        "Truth reset 2026-08-28: previous pass is not trusted because strict 1:1 evidence has not been reconstructed for this component."
+        "Full feedback SSR suite currently has an unrelated Popover placement assertion drift; Toast SSR was verified separately.",
+        "Capture reviewed changes in a commit before final pass promotion under the strict evidence rule."
       ],
-      "decision": "Toast remains a component. It owns one non-blocking event message with optional single Flow Button action and Icon Button dismiss; queueing, stacking policy, placement orchestration, and notification center behavior remain patterns.",
-      "lastValidation": "npm run validate pass",
-      "updatedAt": "2026-07-23",
+      "decision": "Toast keeps the ZIP horizontal message/action/dismiss anatomy. Width is intrinsic up to the host and governed Toast maximum, independently of density. Optional actions use a short label beside the message instead of a footer. Dismiss has square density-scaled geometry and inverse-surface hover/pressed/focus styling. ToastHost owns placement and queue orchestration.",
+      "lastValidation": "2026-09-09: runtime audit PASS including action/dismiss/timer, square close hover, contrast 6.73:1 light / 10.22:1 dark, and no overflow at 360/1280px; scoped source-of-truth PASS; CSS contract check completed; core gate remains FAIL on Tag alias contract and shared focus box-shadow rules. 2026-09-21: general audit:flow-core-gate -- --check PASS, 0 errors / 0 warnings, after correcting Tag alias expectations and Tabs outline focus.",
+      "updatedAt": "2026-09-09",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "needs-1to1-review",
-      "truthResetDecision": "Run the full 1:1 audit contract before promoting this component to pass."
+      "reviewState": "accepted",
+      "truthResetDecision": "User visually accepted on 2026-09-21. Visual gate is pass; final promotion waits for commit evidence. Do not request visual acceptance again unless behavior or appearance changes.",
+      "currentReviewCommit": null,
+      "userVisualAcceptance": {
+        "date": "2026-09-21",
+        "source": "Explicit user acceptance in current task",
+        "demoBuild": "toast-reference-runtime-2"
+      }
     },
     {
       "id": "tooltip",
@@ -3178,47 +3197,100 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 43,
-    "partial": 14,
+    "pass": 44,
+    "partial": 13,
     "fail": 0,
-    "qualityDebt": 14,
+    "qualityDebt": 13,
     "reviewStates": {
       "closed-with-recent-evidence": 26,
-      "needs-1to1-review": 12,
+      "needs-1to1-review": 10,
       "closed-with-user-visual-review": 10,
       "needs-revalidation": 4,
-      "accepted": 5
+      "accepted": 7
     },
     "ready": 42,
     "blocked": 0,
     "notStarted": 0,
-    "lastUpdated": "2026-09-05"
+    "lastUpdated": "2026-09-21"
   },
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
-    "updatedAt": "2026-09-03",
+    "updatedAt": "2026-09-21",
     "sourceCommit": "working-tree",
     "scope": [
-      "pagination",
-      "select",
-      "combobox",
-      "country-selector",
-      "date-picker",
-      "date-range-picker",
-      "dialog",
-      "checkbox",
-      "radio-button",
-      "switch",
-      "chip",
-      "avatar"
+      "tag",
+      "toast"
     ],
-    "nextComponent": "biometric-prompt",
-    "nextComponentReason": "Next unresolved matrix item after Avatar closure is biometric-prompt.",
+    "nextComponent": "tooltip",
+    "nextComponentReason": "Shared contextual help for dense desktop toolbars; reuses reviewed Popover/Menu focus and overlay rules.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
-    "component": "avatar",
-    "status": "closed-with-recent-evidence",
+    "component": "tag,toast",
+    "status": "visually-accepted-awaiting-commit",
     "sourceOfTruthGate": "passed",
-    "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json"
+    "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json",
+    "priorityBasis": "Desktop impact first, then similarity to recently reviewed components and shared behavior; not alphabetical order.",
+    "pendingClosure": [
+      "tag",
+      "toast"
+    ],
+    "executionOrder": [
+      {
+        "rank": 1,
+        "component": "tooltip",
+        "reason": "Shared contextual help for dense desktop toolbars; reuses reviewed Popover/Menu focus and overlay rules."
+      },
+      {
+        "rank": 2,
+        "component": "segmented-control",
+        "reason": "Frequent desktop view/mode switching; compare with reviewed Tabs, Radio and Chip boundaries."
+      },
+      {
+        "rank": 3,
+        "component": "stepper",
+        "reason": "Desktop setup and multistep forms; continue bounded navigation/state review after Segmented Control."
+      },
+      {
+        "rank": 4,
+        "component": "tree-view",
+        "reason": "Hierarchical desktop administration; reuse disclosure/navigation checks from Accordion and Stepper."
+      },
+      {
+        "rank": 5,
+        "component": "spinner",
+        "reason": "Shared pending-action feedback across desktop; audit before Skeleton and Quick Action consumers."
+      },
+      {
+        "rank": 6,
+        "component": "skeleton",
+        "reason": "Page, panel and row loading; pair with Spinner to distinguish pending activity from content placeholders."
+      },
+      {
+        "rank": 7,
+        "component": "quick-action",
+        "reason": "Desktop command shortcuts; revalidate against Button/IconButton and Spinner, and resolve conflicting component-versus-pattern inventories."
+      },
+      {
+        "rank": 8,
+        "component": "movement-row",
+        "reason": "Financial/history records; compare against reviewed List/Table/Card anatomy."
+      },
+      {
+        "rank": 9,
+        "component": "route-summary",
+        "reason": "Fleet desktop route details; revalidate metrics and local actions against Card/Movement Row boundaries."
+      },
+      {
+        "rank": 10,
+        "component": "station-pin",
+        "reason": "Fleet map marker; pair with Route Summary while keeping map orchestration outside the component."
+      },
+      {
+        "rank": 11,
+        "component": "motion-boundary",
+        "reason": "Cross-cutting motion wrapper last as an independent component audit; motion/reduced-motion requirements still apply to every earlier component."
+      }
+    ],
+    "separateRegression": "Popover placement SSR drift and Tab-close failure remain tracked separately from this 11-component audit queue."
   },
   "truthReset": {
     "updatedAt": "2026-08-28",

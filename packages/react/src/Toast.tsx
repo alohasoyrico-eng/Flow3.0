@@ -1,9 +1,12 @@
 import React, {
+  type FocusEvent,
   type ForwardRefExoticComponent,
   type HTMLAttributes,
   type MouseEvent,
   type RefAttributes,
   forwardRef,
+  useEffect,
+  useRef,
   useState,
 } from "react";
 import { toastPlatformContract } from "@design-system/components/platforms";
@@ -30,9 +33,10 @@ export interface ToastProps extends Omit<HTMLAttributes<HTMLElement>, "style" | 
   dismissible?: boolean;
   dismissLabel?: string;
   dismissed?: boolean;
+  duration?: number;
   onAction?: (event: MouseEvent<HTMLButtonElement>) => void;
   onDismiss?: (event: MouseEvent<HTMLButtonElement>) => void;
-  onDismissChange?: (dismissed: boolean, event: MouseEvent<HTMLButtonElement>) => void;
+  onDismissChange?: (dismissed: boolean, event?: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface ToastComponent extends ForwardRefExoticComponent<ToastProps & RefAttributes<HTMLElement>> {
@@ -64,10 +68,15 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(function Toast({
   dismissible = false,
   dismissLabel,
   dismissed: dismissedProp,
+  duration,
   onAction,
   onDismiss,
   onDismissChange,
   className = "",
+  onMouseEnter,
+  onMouseLeave,
+  onFocus,
+  onBlur,
   ...rest
 }, ref) {
   const resolvedTone = normalizeFlowValue(tone, validTones, "neutral");
@@ -76,10 +85,49 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(function Toast({
   const resolvedDensity = normalizeFlowDensity(density);
   const isDismissedControlled = dismissedProp !== undefined;
   const [internalDismissed, setInternalDismissed] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const remainingDuration = useRef(0);
+  const timerStartedAt = useRef(0);
+  const timerId = useRef<ReturnType<typeof window.setTimeout> | null>(null);
   const dismissed = isDismissedControlled ? Boolean(dismissedProp) : internalDismissed;
   const hidden = dismissed || resolvedState === "default";
   const role = resolvedTone === "danger" || resolvedTone === "warning" ? "alert" : "status";
   const canRenderAction = Boolean(actionLabel && onAction);
+  const resolvedDuration = typeof duration === "number" && Number.isFinite(duration) && duration > 0 ? duration : 0;
+  const pauseDuration = () => {
+    if (!resolvedDuration) return;
+    if (timerId.current) {
+      window.clearTimeout(timerId.current);
+      timerId.current = null;
+      remainingDuration.current = Math.max(0, remainingDuration.current - (window.performance.now() - timerStartedAt.current));
+    }
+    setPaused(true);
+  };
+  const resumeDuration = () => {
+    if (!resolvedDuration) return;
+    setPaused(false);
+  };
+
+  useEffect(() => {
+    if (timerId.current) {
+      window.clearTimeout(timerId.current);
+      timerId.current = null;
+    }
+    if (!resolvedDuration || hidden || paused) return undefined;
+    if (remainingDuration.current <= 0) remainingDuration.current = resolvedDuration;
+    timerStartedAt.current = window.performance.now();
+    timerId.current = window.setTimeout(() => {
+      timerId.current = null;
+      remainingDuration.current = 0;
+      if (!isDismissedControlled) setInternalDismissed(true);
+      onDismissChange?.(true);
+    }, remainingDuration.current);
+    return () => {
+      if (!timerId.current) return;
+      window.clearTimeout(timerId.current);
+      timerId.current = null;
+    };
+  }, [hidden, isDismissedControlled, onDismissChange, paused, resolvedDuration]);
 
   if (!label) return null;
 
@@ -96,6 +144,28 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(function Toast({
       ...flowVariantProps(resolvedVariant),
       ...flowStateProps(resolvedState),
       ...flowDensityProps(resolvedDensity),
+      "data-duration": resolvedDuration ? String(resolvedDuration) : undefined,
+      "data-has-action": canRenderAction ? "true" : undefined,
+      "data-dismissible": dismissible && dismissLabel ? "true" : undefined,
+      onMouseEnter: (event: MouseEvent<HTMLElement>) => {
+        onMouseEnter?.(event);
+        pauseDuration();
+      },
+      onMouseLeave: (event: MouseEvent<HTMLElement>) => {
+        onMouseLeave?.(event);
+        resumeDuration();
+      },
+      onFocus: (event: FocusEvent<HTMLElement>) => {
+        onFocus?.(event);
+        pauseDuration();
+      },
+      onBlur: (event: FocusEvent<HTMLElement>) => {
+        onBlur?.(event);
+        if (!resolvedDuration) return;
+        const nextFocus = event.relatedTarget;
+        if (nextFocus instanceof Node && event.currentTarget.contains(nextFocus)) return;
+        resumeDuration();
+      },
     },
     React.createElement("span", { className: "toast__icon", "aria-hidden": "true" }, icon || toneIcons[resolvedTone]),
     React.createElement(

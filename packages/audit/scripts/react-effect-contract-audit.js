@@ -1,6 +1,11 @@
 const { add } = require("./audit-context.js");
 
 const allowedReactEffects = {
+  Toast: {
+    count: 1,
+    reasons: ["optional browser auto-dismiss timer synchronizes visibility and pause state; cleanup cancels timers"],
+    snippets: ["if (!resolvedDuration || hidden || paused) return undefined;", "window.setTimeout(", "window.clearTimeout(timerId.current)", "onDismissChange?.(true)"],
+  },
   Checkbox: {
     count: 1,
     reasons: ["DOM-only indeterminate input property"],

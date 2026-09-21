@@ -1641,14 +1641,14 @@ const components = {
     directory: "tag-2026-09-05",
     module: "Tag.js",
     exportName: "Tag",
-    buildId: "tag-1to1-runtime-1",
+    buildId: "tag-1to1-runtime-2",
     eventPropName: "onClick",
     actionHandler: "(event) => onAction(props.label)(event)",
     actionSelector: "button.tag:not(:disabled)",
     runtimeInstruction: "Tags estaticos no entran al tab order; los tags link con accion real usan click, Enter o Space.",
     demoBody: `e("section", { className: "audit-section" },
           e("h2", null, "Referencia ZIP aplicada a Flow"),
-          e("div", { className: "audit-card audit-card--compact" },
+          e("div", { className: "audit-card audit-card--toast" },
             e("div", { className: "audit-row" },
               e(Component, { label: "Cross-platform", variant: "platform", icon: "devices", tone: "neutral" }),
               e(Component, { label: "Web", variant: "platform", icon: "language", tone: "info" }),
@@ -1678,13 +1678,102 @@ const components = {
           )
         ),
         e("section", { className: "audit-section" },
-          e("h2", null, "Estados accionables"),
+          e("h2", null, "Interacción real"),
+          e("p", null, "Pasa el cursor, mantén pulsado o navega con Tab. Estos ejemplos empiezan en reposo; Enter y Space activan la acción. Tag no mantiene un estado seleccionado."),
           e("div", { className: "audit-row" },
-            action({ label: "Hover", state: "hover", variant: "link", tone: "info", icon: "open_in_new" }),
-            action({ label: "Focus", state: "focus", variant: "link", tone: "info", icon: "tab" }),
-            action({ label: "Pressed", state: "pressed", variant: "link", tone: "info", icon: "touch_app" }),
+            action({ label: "Abrir documentación", variant: "link", tone: "info", icon: "open_in_new" }),
+            action({ label: "Ver plataforma", variant: "link", tone: "neutral", icon: "devices" }),
             e(Component, { label: "Disabled", disabled: true, interactive: true, variant: "link", tone: "neutral", icon: "block", onClick: onAction("Disabled"), "data-runtime-action": "true" })
           )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Muestras de estados forzados"),
+          e("p", null, "Comparación visual: Hover, Focus y Pressed ya están aplicados desde el inicio. Para probar las transiciones usa los ejemplos de interacción real."),
+          e("div", { className: "audit-row" },
+            action({ label: "Hover fijo", state: "hover", variant: "link", tone: "info", icon: "open_in_new" }),
+            action({ label: "Focus fijo", state: "focus", variant: "link", tone: "info", icon: "tab" }),
+            action({ label: "Pressed fijo", state: "pressed", variant: "link", tone: "info", icon: "touch_app" })
+          )
+        )`,
+  },
+  toast: {
+    title: "Toast",
+    directory: "toast-2026-09-05",
+    module: "Toast.js",
+    exportName: "Toast",
+    buildId: "toast-reference-runtime-2",
+    eventPropName: "onAction",
+    actionHandler: "(event) => onAction(props.label)(event)",
+    actionSelector: ".toast:not([hidden]) button",
+    runtimeInstruction: "Toast no roba foco; Tab alcanza accion/cerrar cuando existen, Enter o Space activan esos controles.",
+    supportPreamble: `function DismissibleToastDemo() {
+      const [dismissed, setDismissed] = React.useState(false);
+      return e(Component, {
+        label: dismissed ? "Toast dismissed" : "Unidad asignada",
+        description: dismissed ? "El estado controlado oculto puede volver a mostrarse desde el flujo padre." : "Ana Sosa recibira la ruta actualizada.",
+        tone: "success",
+        variant: "undo",
+        actionLabel: "Deshacer",
+        dismissible: true,
+        dismissLabel: "Cerrar aviso",
+        dismissed,
+        duration: 9000,
+        onAction: onAction("Deshacer"),
+        onDismissChange: (nextDismissed, event) => {
+          setDismissed(nextDismissed);
+          onAction("dismissed=" + nextDismissed)(event || { type: "timer" });
+        },
+        "data-audit-toast-controlled": "true",
+        "data-runtime-action": "true"
+      });
+    }
+
+    function ToastStackDemo() {
+      return e("div", { className: "audit-toast-stack", role: "region", "aria-label": "Toast stack" },
+        e(Component, { label: "Ruta guardada", tone: "success", variant: "status", density: "sm" }),
+        e(Component, { label: "Exportando reporte", description: "Procesando 24 rutas.", tone: "info", variant: "progress", density: "sm", state: "stacked" }),
+        e(Component, { label: "Conexion inestable", description: "Los cambios se guardan localmente.", tone: "warning", variant: "warning", density: "sm", dismissible: true, dismissLabel: "Cerrar conexion inestable" })
+      );
+    }`,
+    demoBody: `e("section", { className: "audit-section" },
+          e("h2", null, "Referencia ZIP aplicada a Flow"),
+          e("p", null, "Ancho automático: el mensaje corto ocupa menos; el texto o una acción amplían el toast hasta el límite del host. No hay variantes angosta/ancha. Una acción breve permanece junto al mensaje; density solo cambia la escala. Si hace falta una explicación extensa o varias acciones, usa otro componente de feedback."),
+          e("div", { className: "audit-card audit-card--toast" },
+            e("div", { className: "audit-toast-region" },
+              e(Component, { label: "Unidad asignada a Ana Sosa.", tone: "success", variant: "status", dismissible: true, dismissLabel: "Cerrar aviso" }),
+              e(Component, { label: "No pudimos asignar la unidad.", description: "Reintenta o elige otra unidad.", tone: "danger", variant: "recovery", actionLabel: "Reintentar", onAction: onAction("Reintentar unidad"), dismissible: true, dismissLabel: "Cerrar error" })
+            )
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Variantes"),
+          e("div", { className: "audit-toast-region" },
+            e(Component, { label: "Cambios guardados", tone: "neutral", variant: "status" }),
+            e(Component, { label: "Sincronizando rutas", description: "El proceso continua en segundo plano.", tone: "info", variant: "progress" }),
+            e(Component, { label: "Revisar antes de despachar", tone: "warning", variant: "warning", dismissible: true, dismissLabel: "Cerrar revision" }),
+            e(Component, { label: "No se pudo cargar evidencia", tone: "danger", variant: "recovery", actionLabel: "Reintentar", onAction: onAction("Reintentar evidencia") }),
+            e(Component, { label: "Conductor removido", tone: "success", variant: "undo", actionLabel: "Deshacer", onAction: onAction("Deshacer removido") })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Densidades"),
+          e("div", { className: "audit-toast-region" },
+            e(Component, { label: "Small toast", description: "Mismo mensaje, escala compacta.", tone: "success", density: "sm", dismissible: true, dismissLabel: "Cerrar small" }),
+            e(Component, { label: "Medium toast", description: "Mismo mensaje, escala normal.", tone: "info", density: "md", dismissible: true, dismissLabel: "Cerrar medium" }),
+            e(Component, { label: "Large toast", description: "Mismo mensaje, escala amplia.", tone: "warning", density: "lg", dismissible: true, dismissLabel: "Cerrar large" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Ciclo de vida"),
+          e("div", { className: "audit-toast-region" },
+            e(DismissibleToastDemo),
+            e(Component, { label: "Saliendo", description: "Motion de salida gobernado.", tone: "neutral", state: "exiting", dismissible: true, dismissLabel: "Cerrar saliendo" }),
+            e(Component, { label: "Oculto", state: "default" })
+          )
+        ),
+        e("section", { className: "audit-section" },
+          e("h2", null, "Host / stack"),
+          e("div", { className: "audit-card audit-card--compact" }, e(ToastStackDemo))
         )`,
   },
   "empty-state": {
@@ -2847,6 +2936,14 @@ const html = `<!doctype html>
       max-inline-size: none;
     }
 
+    .audit-card--toast {
+      align-items: start;
+      inline-size: min(100%, calc(var(--component-toast-inline-size-lg) + var(--component-space-xl) + var(--component-space-xl)));
+      justify-items: start;
+      min-block-size: auto;
+      padding: var(--component-space-lg);
+    }
+
     .audit-chart-shell {
       align-items: stretch;
       display: grid;
@@ -2884,6 +2981,23 @@ const html = `<!doctype html>
     .audit-stack--drawer {
       align-content: start;
       gap: var(--component-space-xl);
+    }
+
+    .audit-toast-region {
+      align-items: start;
+      display: grid;
+      gap: var(--component-space-sm);
+      justify-items: start;
+      max-inline-size: 100%;
+    }
+
+    .audit-toast-stack {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--component-space-sm);
+      justify-self: center;
+      max-inline-size: 100%;
     }
 
     .drawer-demo__header-summary {

@@ -650,7 +650,7 @@ export const componentContracts = {
   },
   toast: {
     factory: "@design-system/react/toast",
-    element: "article",
+    element: "div",
     purpose: "Show non-blocking feedback with status or alert semantics, concise copy, and optional single action.",
     variants: ["status", "progress", "warning", "recovery", "undo"],
     intents: ["neutral", "info", "success", "warning", "danger"],
@@ -667,14 +667,16 @@ export const componentContracts = {
       { name: "dismissible", type: "boolean", required: false },
       { name: "dismissLabel", type: "string", required: false },
       { name: "dismissed", type: "boolean", required: false },
+      { name: "duration", type: "number", required: false },
       { name: "onAction", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
       { name: "onDismiss", type: "(event: MouseEvent<HTMLButtonElement>) => void", required: false },
-      { name: "onDismissChange", type: "(dismissed: boolean) => void", required: false }
+      { name: "onDismissChange", type: "(dismissed: boolean, event?: MouseEvent<HTMLButtonElement>) => void", required: false }
     ],
     accessibility: [
       "Use status for neutral feedback and alert for warning or danger.",
       "Keep feedback concise.",
-      "Expose at most one action inside a toast."
+      "Expose at most one action inside a toast.",
+      "Pause duration while pointer is over the toast or focus is inside it."
     ]
   },
   progressIndicator: {

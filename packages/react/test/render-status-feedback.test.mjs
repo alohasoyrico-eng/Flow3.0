@@ -453,6 +453,7 @@ const toastMarkup = renderToStaticMarkup(React.createElement(Toast, {
   variant: "undo",
   state: "action",
   density: "sm",
+  duration: 4500,
   actionLabel: "Undo",
   onAction: () => {},
   dismissible: true,
@@ -466,6 +467,7 @@ assert.match(toastMarkup, /data-tone="success"/);
 assert.match(toastMarkup, /data-variant="undo"/);
 assert.match(toastMarkup, /data-state="action"/);
 assert.match(toastMarkup, /data-density="sm"/);
+assert.match(toastMarkup, /data-duration="4500"/);
 assert.match(toastMarkup, /class="toast__icon"/);
 assert.match(toastMarkup, />check_circle<\/span>/);
 assert.match(toastMarkup, /class="toast__content"/);

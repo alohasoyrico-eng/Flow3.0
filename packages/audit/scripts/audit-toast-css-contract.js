@@ -20,7 +20,7 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root
   const smBlock = blockFor(blocks, selectorKey, ".toast[data-density=\"sm\"]");
   const lgBlock = blockFor(blocks, selectorKey, ".toast[data-density=\"lg\"]");
   const actionBlock = blockFor(blocks, selectorKey, ".toast .toast__action");
-  const dismissBlock = blockFor(blocks, selectorKey, ".toast__dismiss");
+  const dismissBlock = blockFor(blocks, selectorKey, ".toast .toast__dismiss");
   const focusBlock = blockFor(blocks, selectorKey, ".toast__action:focus-visible");
   const reducedBlock = blockFor(blocks, selectorKey, "@media (prefers-reduced-motion: reduce)\n  .toast");
   const keyframes = text.match(/@keyframes\s+toast-enter\s*{[\s\S]*?\n}/)?.[0] ?? "";
@@ -41,7 +41,15 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root
       "--comp-toast-enter-transform:",
       "--comp-toast-rest-transform:",
       "--comp-toast-action-size: var(--component-feedback-action-size)",
+      "--comp-toast-action-bg:",
+      "--comp-toast-action-border:",
       "--comp-toast-dismiss-size:",
+      "--comp-toast-icon-size-sm: var(--component-density-icon-size-sm)",
+      "--comp-toast-icon-size: var(--comp-toast-icon-size-md)",
+      "--comp-toast-title-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-toast-title-size: var(--comp-toast-title-size-md)",
+      "--comp-toast-body-size-sm: var(--component-density-helper-size-sm)",
+      "--comp-toast-body-size: var(--comp-toast-body-size-md)",
       "animation: toast-enter var(--comp-toast-motion-enter-duration) var(--comp-toast-motion-enter-ease) both",
       "transition: var(--comp-toast-transition)",
     ],
@@ -52,9 +60,12 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root
     text,
     packageCssFile,
     snippets: [
-      "--comp-toast-inline-size: var(--comp-toast-inline-size-sm)",
+      "--comp-toast-dismiss-size: var(--component-icon-button-size-sm)",
       "--comp-toast-padding-block: var(--comp-toast-padding-block-sm)",
       "--comp-toast-gap: var(--comp-toast-gap-sm)",
+      "--comp-toast-icon-size: var(--comp-toast-icon-size-sm)",
+      "--comp-toast-title-size: var(--comp-toast-title-size-sm)",
+      "--comp-toast-body-size: var(--comp-toast-body-size-sm)",
     ],
     message: "Toast sm density must resolve through Toast aliases.",
   });
@@ -63,9 +74,12 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root
     text,
     packageCssFile,
     snippets: [
-      "--comp-toast-inline-size: var(--comp-toast-inline-size-lg)",
+      "--comp-toast-dismiss-size: var(--component-icon-button-size-lg)",
       "--comp-toast-padding-block: var(--comp-toast-padding-block-lg)",
       "--comp-toast-gap: var(--comp-toast-gap-lg)",
+      "--comp-toast-icon-size: var(--comp-toast-icon-size-lg)",
+      "--comp-toast-title-size: var(--comp-toast-title-size-lg)",
+      "--comp-toast-body-size: var(--comp-toast-body-size-lg)",
     ],
     message: "Toast lg density must resolve through Toast aliases.",
   });
@@ -73,7 +87,7 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root
     block: actionBlock,
     text,
     packageCssFile,
-    snippets: ["min-block-size: var(--comp-toast-action-size)", "padding-inline: var(--comp-toast-action-padding-inline)"],
+    snippets: ["background: var(--comp-toast-action-bg)", "border-color: var(--comp-toast-action-border)", "color: var(--comp-toast-fg)", "min-block-size: var(--comp-toast-action-size)", "padding-inline: var(--comp-toast-action-padding-inline)"],
     message: "Toast action sizing must consume Toast aliases instead of Button internals.",
   });
   requireIncludes({
@@ -107,6 +121,9 @@ function checkToastCssContract({ text, blocks, packageCssFile, selectorKey, root
   for (const snippet of [
     "import { Button } from \"./Button.js\";",
     "import { IconButton } from \"./IconButton.js\";",
+    "duration?: number;",
+    "setPaused(true)",
+    "setPaused(false)",
     "React.createElement(Button",
     "React.createElement(IconButton",
   ]) {

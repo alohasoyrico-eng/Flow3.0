@@ -4412,8 +4412,7 @@ button.tag:disabled,
   --comp-tabs-pressed-transform: var(--component-transform-press);
   --comp-tabs-focus-width: var(--component-focus-ring-width);
   --comp-tabs-focus-color: var(--component-color-focus);
-  --comp-tabs-focus-shadow: inset 0 0 0 var(--comp-tabs-focus-width) var(--comp-tabs-focus-color);
-  --comp-tabs-focus-offset: var(--component-outline-none);
+  --comp-tabs-focus-offset: calc(-1 * var(--comp-tabs-focus-width));
   --comp-tabs-icon-selected-variation: var(--component-icon-variation-filled-strong);
   --comp-tabs-underline-bg: var(--component-surface-transparent);
   --comp-tabs-underline-border: var(--component-border-none);
@@ -4560,8 +4559,7 @@ button.tag:disabled,
 }
 
 .tabs__tab:focus-visible {
-  box-shadow: var(--comp-tabs-focus-shadow);
-  outline: var(--component-outline-none);
+  outline: var(--comp-tabs-focus-width) solid var(--comp-tabs-focus-color);
   outline-offset: var(--comp-tabs-focus-offset);
   z-index: var(--component-z-raised);
 }
@@ -4814,16 +4812,28 @@ button.tag:disabled,
   --comp-toast-fg: var(--component-color-surface);
   --comp-toast-muted: color-mix(in srgb, var(--component-color-surface) 78%, transparent);
   --comp-toast-icon-fg: var(--component-color-surface);
+  --comp-toast-icon-size-sm: var(--component-density-icon-size-sm);
+  --comp-toast-icon-size-md: var(--component-density-icon-size-md);
+  --comp-toast-icon-size-lg: var(--component-font-size-icon-md);
+  --comp-toast-icon-size: var(--comp-toast-icon-size-md);
   --comp-toast-action-fg: var(--component-color-action);
-  --comp-toast-action-hover-bg: color-mix(in srgb, var(--component-color-surface) 10%, transparent);
-  --comp-toast-action-hover-border: color-mix(in srgb, var(--component-color-surface) 14%, transparent);
+  --comp-toast-action-hover-bg: color-mix(in srgb, var(--component-color-surface) 24%, transparent);
+  --comp-toast-action-hover-border: color-mix(in srgb, var(--component-color-surface) 40%, transparent);
   --comp-toast-shadow: var(--component-depth-elevation-3);
   --comp-toast-stacked-shadow: 0 0.6rem 0 -0.28rem color-mix(in srgb, var(--component-color-surface) 88%, var(--component-color-border));
   --comp-toast-closed-opacity: var(--component-opacity-closed);
   --comp-toast-icon-line-height: var(--component-line-height-none);
   --comp-toast-content-gap: calc(var(--component-space-xs) / 2);
-  --comp-toast-title-weight: var(--component-font-weight-extrabold);
+  --comp-toast-title-size-sm: var(--component-density-helper-size-sm);
+  --comp-toast-title-size-md: var(--component-font-size-small);
+  --comp-toast-title-size-lg: var(--component-density-body-size-lg);
+  --comp-toast-title-size: var(--comp-toast-title-size-md);
+  --comp-toast-title-weight: var(--component-font-weight-bold);
   --comp-toast-title-line-height: var(--component-line-height-snug-state);
+  --comp-toast-body-size-sm: var(--component-density-helper-size-sm);
+  --comp-toast-body-size-md: var(--component-font-size-small);
+  --comp-toast-body-size-lg: var(--component-density-body-size-md);
+  --comp-toast-body-size: var(--comp-toast-body-size-md);
   --comp-toast-body-line-height: var(--component-line-height-reading);
   --comp-toast-motion-duration: var(--component-duration-state);
   --comp-toast-motion-enter-duration: var(--component-duration-enter);
@@ -4838,11 +4848,14 @@ button.tag:disabled,
   --comp-toast-rest-transform: var(--component-transform-rest);
   --comp-toast-action-size: var(--component-feedback-action-size);
   --comp-toast-action-padding-inline: var(--component-space-sm);
-  --comp-toast-dismiss-size: var(--component-field-icon-action-size-md);
+  --comp-toast-action-bg: var(--component-surface-transparent);
+  --comp-toast-action-border: var(--component-border-transparent);
+  --comp-toast-action-margin-block-start: var(--component-space-xs);
+  --comp-toast-dismiss-size: var(--component-icon-button-size-md);
   --comp-toast-dismiss-icon-size: var(--component-icon-size-sm-plus);
-  --comp-toast-dismiss-opacity: var(--component-opacity-muted);
+  --comp-toast-dismiss-opacity: var(--component-opacity-visible);
   --comp-toast-focus-width: var(--component-focus-ring-width);
-  --comp-toast-focus-color: color-mix(in srgb, var(--component-color-focus) 35%, transparent);
+  --comp-toast-focus-color: var(--comp-toast-fg);
   --comp-toast-focus-offset: var(--component-focus-ring-offset);
   align-items: center;
   animation: toast-enter var(--comp-toast-motion-enter-duration) var(--comp-toast-motion-enter-ease) both;
@@ -4853,9 +4866,11 @@ button.tag:disabled,
   color: var(--comp-toast-fg);
   display: grid;
   gap: var(--comp-toast-gap);
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  inline-size: var(--comp-toast-inline-size);
-  max-inline-size: 100%;
+  grid-template-areas: "icon content";
+  grid-template-columns: auto minmax(0, 1fr);
+  inline-size: fit-content;
+  max-inline-size: min(100%, var(--comp-toast-inline-size));
+  min-inline-size: min(100%, var(--component-content-size-sm));
   padding: var(--comp-toast-padding-block) var(--comp-toast-padding-inline);
   position: relative;
   transition: var(--comp-toast-transition);
@@ -4866,17 +4881,23 @@ button.tag:disabled,
 }
 
 .toast[data-density="sm"] {
-  --comp-toast-inline-size: var(--comp-toast-inline-size-sm);
+  --comp-toast-dismiss-size: var(--component-icon-button-size-sm);
   --comp-toast-padding-block: var(--comp-toast-padding-block-sm);
   --comp-toast-padding-inline: var(--comp-toast-padding-inline-sm);
   --comp-toast-gap: var(--comp-toast-gap-sm);
+  --comp-toast-icon-size: var(--comp-toast-icon-size-sm);
+  --comp-toast-title-size: var(--comp-toast-title-size-sm);
+  --comp-toast-body-size: var(--comp-toast-body-size-sm);
 }
 
 .toast[data-density="lg"] {
-  --comp-toast-inline-size: var(--comp-toast-inline-size-lg);
+  --comp-toast-dismiss-size: var(--component-icon-button-size-lg);
   --comp-toast-padding-block: var(--comp-toast-padding-block-lg);
   --comp-toast-padding-inline: var(--comp-toast-padding-inline-lg);
   --comp-toast-gap: var(--comp-toast-gap-lg);
+  --comp-toast-icon-size: var(--comp-toast-icon-size-lg);
+  --comp-toast-title-size: var(--comp-toast-title-size-lg);
+  --comp-toast-body-size: var(--comp-toast-body-size-lg);
 }
 
 .toast[data-tone="info"] {
@@ -4913,9 +4934,10 @@ button.tag:disabled,
   display: inline-grid;
   flex: none;
   font-family: var(--component-icon-family);
-  font-size: var(--component-font-size-icon-md);
+  font-size: var(--comp-toast-icon-size);
   font-variation-settings: var(--component-icon-variation-filled-strong);
-  inline-size: var(--component-font-size-icon-md);
+  grid-area: icon;
+  inline-size: var(--comp-toast-icon-size);
   line-height: var(--comp-toast-icon-line-height);
   place-items: center;
 }
@@ -4923,19 +4945,21 @@ button.tag:disabled,
 .toast__content {
   display: grid;
   gap: var(--comp-toast-content-gap);
+  grid-area: content;
   min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 .toast__content strong {
   color: var(--comp-toast-fg);
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-toast-title-size);
   font-weight: var(--comp-toast-title-weight);
   line-height: var(--comp-toast-title-line-height);
 }
 
 .toast__content p {
   color: var(--comp-toast-muted);
-  font-size: var(--component-font-size-small);
+  font-size: var(--comp-toast-body-size);
   line-height: var(--comp-toast-body-line-height);
   margin: 0;
 }
@@ -4943,9 +4967,11 @@ button.tag:disabled,
 .toast .toast__action {
   min-block-size: var(--comp-toast-action-size);
   padding-inline: var(--comp-toast-action-padding-inline);
-  background: var(--component-surface-transparent);
-  border-color: var(--component-border-transparent);
-  color: var(--comp-toast-action-fg);
+  background: var(--comp-toast-action-bg);
+  border-color: var(--comp-toast-action-border);
+  color: var(--comp-toast-fg);
+  font-weight: var(--component-font-weight-semibold);
+  grid-area: action;
   white-space: nowrap;
 }
 
@@ -4954,12 +4980,60 @@ button.tag:disabled,
   border-color: var(--comp-toast-action-hover-border);
 }
 
-.toast__dismiss {
+.toast .toast__dismiss {
   block-size: var(--comp-toast-dismiss-size);
+  min-block-size: var(--comp-toast-dismiss-size);
+  min-inline-size: var(--comp-toast-dismiss-size);
+  background: transparent;
+  border-color: transparent;
   color: var(--comp-toast-fg);
   font-size: var(--comp-toast-dismiss-icon-size);
+  grid-area: dismiss;
   inline-size: var(--comp-toast-dismiss-size);
   opacity: var(--comp-toast-dismiss-opacity);
+}
+
+/* Width is content-driven within the host; density never selects a layout. */
+.toast[data-dismissible="true"] {
+  grid-template-areas: "icon content dismiss";
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.toast[data-has-action="true"] {
+  grid-template-areas: "icon content action";
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.toast[data-has-action="true"][data-dismissible="true"] {
+  grid-template-areas: "icon content action dismiss";
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+}
+
+.toast .toast__action {
+  max-inline-size: var(--component-content-size-xs);
+  min-inline-size: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  box-shadow: none;
+}
+
+.toast .toast__dismiss:hover:not(:disabled),
+.toast .toast__dismiss:active:not(:disabled) {
+  background: var(--comp-toast-action-hover-bg);
+  border-color: transparent;
+  color: var(--comp-toast-fg);
+  box-shadow: none;
+}
+
+.toast .toast__action:hover:not(:disabled),
+.toast .toast__action:active:not(:disabled) {
+  color: var(--comp-toast-fg);
+  box-shadow: none;
+}
+
+.toast .toast__dismiss:focus-visible {
+  outline: var(--comp-toast-focus-width) solid var(--comp-toast-focus-color);
+  outline-offset: var(--comp-toast-focus-offset);
 }
 
 .toast__action:focus-visible {

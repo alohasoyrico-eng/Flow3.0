@@ -9,7 +9,12 @@
           "Exiting motion respects reduced motion",
           "Stacking does not cover primary actions",
           "Copy remains short and non-blocking",
-          "Density changes padding and width without changing the feedback job"
+          "Density changes control, padding, icon and text scale without selecting a width mode",
+          "Duration pauses on hover and focus",
+          "Auto-dismiss does not steal focus",
+          "Dismiss remains square and contrast-readable on inverse surface during hover, press and focus in light/dark",
+          "Action stays beside message at constrained host widths; content does not overflow",
+          "Short messages shrink to content and longer messages respect host and Toast maximum width"
         ],
         "rejectIf": [
           "Toast asks for a required decision.",
