@@ -2949,7 +2949,7 @@
     },
     {
       "id": "tag",
-      "status": "partial",
+      "status": "pass",
       "steps": {
         "zip-reference": "pass",
         "system-architecture": "pass",
@@ -2982,16 +2982,14 @@
         "packages/audit/scripts/build-local-react-qa-demo.mjs",
         "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/tag-2026-09-05/interactive/react-runtime.html?fresh=tag-1to1-runtime-2"
       ],
-      "openIssues": [
-        "Capture reviewed changes in a commit before final pass promotion under the strict evidence rule."
-      ],
+      "openIssues": [],
       "decision": "Tag remains a metadata-only component by default. 2026-09-05 reconstruction uses ZIP Badge and Chip as boundaries because no direct Tag primitive exists: static tags render spans outside tab order, link tags render native buttons only when a real action exists, density scales text/icon/frame/padding, hover/press stay flat without raised elevation, and selected/removable/count behavior is explicitly excluded.",
       "updatedAt": "2026-07-22",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "accepted",
-      "truthResetDecision": "User visually accepted on 2026-09-21. Visual gate is pass; final promotion waits for commit evidence. Do not request visual acceptance again unless behavior or appearance changes.",
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed with explicit user visual acceptance on 2026-09-21, recorded validations, and implementation commit 0f40e16731126abf49301a3c9e644680feb80591.",
       "lastReviewAt": "2026-09-05",
-      "currentReviewCommit": "working-tree",
+      "currentReviewCommit": "0f40e16731126abf49301a3c9e644680feb80591",
       "inventoryEscalations": [
         "No direct Tag primitive exists in the ZIP reference; Tag is bounded against ZIP Badge for compact metadata/status and ZIP Chip for selected/removable values.",
         "Tag must not expose selected, filter, count, or removable behavior; use Chip for selected/removable values and Badge for counts/live compact status."
@@ -3050,21 +3048,21 @@
     },
     {
       "id": "toast",
-      "status": "partial",
+      "status": "pass",
       "steps": {
-        "zip-reference": "covered",
-        "system-architecture": "covered",
-        "package-source": "covered",
-        "docs-source": "covered",
-        "foundations-primitives": "covered",
-        "states-variants": "covered",
-        "interaction-logic": "covered",
-        "motion": "covered",
-        "density-layout": "covered",
-        "typography-iconography": "covered",
-        "accessibility": "covered",
+        "zip-reference": "pass",
+        "system-architecture": "pass",
+        "package-source": "pass",
+        "docs-source": "pass",
+        "foundations-primitives": "pass",
+        "states-variants": "pass",
+        "interaction-logic": "pass",
+        "motion": "pass",
+        "density-layout": "pass",
+        "typography-iconography": "pass",
+        "accessibility": "pass",
         "visual-qa": "pass",
-        "validation": "covered"
+        "validation": "pass"
       },
       "evidence": [
         "/Users/r1c0/Desktop/Design system multiplataforma desde cero/primitives/Toast.jsx",
@@ -3088,16 +3086,15 @@
         "/Users/r1c0/Documents/Un DS/local-visual-snapshots/Flow3-component-qa/toast-2026-09-05/interactive/react-runtime.html?fresh=toast-reference-runtime-2"
       ],
       "openIssues": [
-        "Full feedback SSR suite currently has an unrelated Popover placement assertion drift; Toast SSR was verified separately.",
-        "Capture reviewed changes in a commit before final pass promotion under the strict evidence rule."
+        "Full feedback SSR suite currently has an unrelated Popover placement assertion drift; Toast SSR was verified separately."
       ],
       "decision": "Toast keeps the ZIP horizontal message/action/dismiss anatomy. Width is intrinsic up to the host and governed Toast maximum, independently of density. Optional actions use a short label beside the message instead of a footer. Dismiss has square density-scaled geometry and inverse-surface hover/pressed/focus styling. ToastHost owns placement and queue orchestration.",
       "lastValidation": "2026-09-09: runtime audit PASS including action/dismiss/timer, square close hover, contrast 6.73:1 light / 10.22:1 dark, and no overflow at 360/1280px; scoped source-of-truth PASS; CSS contract check completed; core gate remains FAIL on Tag alias contract and shared focus box-shadow rules. 2026-09-21: general audit:flow-core-gate -- --check PASS, 0 errors / 0 warnings, after correcting Tag alias expectations and Tabs outline focus.",
       "updatedAt": "2026-09-09",
       "previousStatusBeforeTruthReset": "pass",
-      "reviewState": "accepted",
-      "truthResetDecision": "User visually accepted on 2026-09-21. Visual gate is pass; final promotion waits for commit evidence. Do not request visual acceptance again unless behavior or appearance changes.",
-      "currentReviewCommit": null,
+      "reviewState": "closed-with-user-visual-review",
+      "truthResetDecision": "Closed with explicit user visual acceptance on 2026-09-21, recorded validations, and implementation commit 0f40e16731126abf49301a3c9e644680feb80591.",
+      "currentReviewCommit": "0f40e16731126abf49301a3c9e644680feb80591",
       "userVisualAcceptance": {
         "date": "2026-09-21",
         "source": "Explicit user acceptance in current task",
@@ -3197,16 +3194,16 @@
   ],
   "summary": {
     "total": 57,
-    "pass": 44,
-    "partial": 13,
+    "pass": 46,
+    "partial": 11,
     "fail": 0,
-    "qualityDebt": 13,
+    "qualityDebt": 11,
     "reviewStates": {
       "closed-with-recent-evidence": 26,
       "needs-1to1-review": 10,
-      "closed-with-user-visual-review": 10,
+      "closed-with-user-visual-review": 12,
       "needs-revalidation": 4,
-      "accepted": 7
+      "accepted": 5
     },
     "ready": 42,
     "blocked": 0,
@@ -3216,7 +3213,7 @@
   "currentReview": {
     "name": "Flow3 component 1:1 QA truth reset",
     "updatedAt": "2026-09-21",
-    "sourceCommit": "working-tree",
+    "sourceCommit": "0f40e16731126abf49301a3c9e644680feb80591",
     "scope": [
       "tag",
       "toast"
@@ -3225,14 +3222,11 @@
     "nextComponentReason": "Shared contextual help for dense desktop toolbars; reuses reviewed Popover/Menu focus and overlay rules.",
     "nextRule": "Do not report percentage complete from historical pass counts. Progress is pass / total after this truth reset, and every pass must point to recent evidence.",
     "component": "tag,toast",
-    "status": "visually-accepted-awaiting-commit",
+    "status": "tag-toast-closed",
     "sourceOfTruthGate": "passed",
     "sourceOfTruthReport": "docs/audits/component-source-of-truth-drift.json",
     "priorityBasis": "Desktop impact first, then similarity to recently reviewed components and shared behavior; not alphabetical order.",
-    "pendingClosure": [
-      "tag",
-      "toast"
-    ],
+    "pendingClosure": [],
     "executionOrder": [
       {
         "rank": 1,
